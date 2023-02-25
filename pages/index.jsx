@@ -1,0 +1,460 @@
+import React, { useState, useEffect } from "react";
+import { useRouter } from "next/router";
+import Image from "next/image";
+
+import Footer from "/components/footer";
+import Features from "/components/features";
+import Examples from "/components/examples";
+import Accordion from "/components/accordion/accordion";
+import Menu from "/components/menu";
+import Categories from "/components/categories";
+import OtherProducts from "/components/other-products";
+import Team from "/components/team";
+import Ribbon from "/components/ribbon";
+import MobileMenu from "/components/mobile-menu";
+
+import Telegram from "/public/images/jsx/ceo/telegram.jsx";
+import YouTube from "/public/images/jsx/ceo/you-tube.jsx";
+import TeamArrow from "/public/images/jsx/ceo/arrow.jsx";
+import SubscribeArrow from "/public/images/jsx/subscribe/arrow.jsx";
+import More from "/public/images/jsx/subscribe/more.jsx";
+
+import SelectLggTariff from "/public/images/jsx/subscribe/select-tariff-lgg.jsx";
+import SelectLgTariff from "/public/images/jsx/subscribe/select-tariff-lg.jsx";
+import SelectMdTariff from "/public/images/jsx/subscribe/select-tariff-md.jsx";
+import SelectSmTariff from "/public/images/jsx/subscribe/select-tariff-sm.jsx";
+
+function useWindowSize() {
+  const [currentWidth, setCurrentWidth] = useState(0);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      function handleResize() {
+        setCurrentWidth(window.innerWidth);
+      }
+      window.addEventListener("resize", handleResize);
+      handleResize();
+      return () => window.removeEventListener("resize", handleResize);
+    }
+  }, []);
+  return currentWidth;
+}
+
+export default function Home(props) {
+  const router = useRouter();
+  const referral = router.query.ref || "agent";
+
+  const [mobileMenu, changeMobileMenu] = useState(0);
+  const currentWidth = useWindowSize();
+  let resolution = "lgg";
+
+  switch (true) {
+    case currentWidth >= 1920:
+      resolution = "lgg";
+      break;
+    case currentWidth < 1920 && currentWidth >= 1368:
+      resolution = "lg";
+      break;
+    case currentWidth < 1368 && currentWidth >= 768:
+      resolution = "md";
+      break;
+    case currentWidth < 768:
+      resolution = "sm";
+      break;
+    default:
+      break;
+  }
+
+  const tariffs = {
+    lgg: <SelectLggTariff />,
+    lg: <SelectLgTariff />,
+    md: <SelectMdTariff />,
+    sm: <SelectSmTariff />,
+  };
+
+  const moreInfo = {
+    lgg: 8100,
+    lg: 6950,
+    md: 7300,
+    sm: 7050,
+  };
+
+  const [currentY, setCurrentY] = useState(0);
+  const [openFaq, setOpenFaq] = useState(-1);
+
+  useEffect(() => {
+    const scroll = (event) => {
+      setCurrentY(window.scrollY);
+    };
+    window.addEventListener("wheel", scroll, false);
+    return () => window.removeEventListener("scroll", scroll, false);
+  }, []);
+
+  function toggleFaq(index) {
+    window.scrollTo({
+      top: moreInfo[resolution],
+      behavior: "smooth",
+    });
+    setOpenFaq(index);
+    setCurrentY(moreInfo[resolution]);
+  }
+
+  return (
+    <>
+      <div
+        className="app"
+        style={{ position: `${mobileMenu == 1 ? "fixed" : ""}` }}
+      >
+        <div className="app__unsupported-device">
+          Your resolution is not supported
+          <br />
+          Try rotating device
+        </div>
+        {["lgg", "lg"].includes(resolution) ? (
+          <Menu
+            resolution={resolution}
+            currentY={currentY}
+            setCurrentY={setCurrentY}
+          />
+        ) : (
+          ""
+        )}
+        <div className="app__container">
+          <div className="app__container__earn">
+            <div className="app__container__earn__left-gradient"></div>
+            <div className="app__container__earn__right-gradient"></div>
+
+            <MobileMenu
+              open={mobileMenu}
+              changeMobileMenu={() => changeMobileMenu(!mobileMenu)}
+              resolution={resolution}
+              currentY={currentY}
+              setCurrentY={setCurrentY}
+              referral={referral}
+            />
+
+            <div className="app__container__earn__header">
+              <div className="app__container__earn__header__logo"></div>
+              <div className="menu-sub-block">
+                <a
+                  href={`https://t.me/CryptonLobbyBot?start=${referral}`}
+                  target={"_blank"}
+                >
+                  <div className="app__container__earn__header__subscribe">
+                    <div className="app__container__earn__header__subscribe__text">
+                      Оформить подписку
+                    </div>
+                    <div className="app__container__earn__header__subscribe__logo"></div>
+                  </div>
+                </a>
+                {["md", "sm"].includes(resolution) ? (
+                  <div style={{ width: "25px", "z-index": 101 }}>
+                    <div
+                      className={`mobile-menu-button open`}
+                      onClick={() => changeMobileMenu(!mobileMenu)}
+                    ></div>
+                  </div>
+                ) : (
+                  ""
+                )}
+              </div>
+            </div>
+            <Categories />
+            <div className="app__container__earn__title">
+              Зарабатывайте на криптовалюте
+            </div>
+            <div className="app__container__earn__description">
+              Prime - это комплексная подписка от команды Crypton, которая
+              включает все необходимые инструменты, сервисы, гайды и поддержку
+              для экономии вашего времени, развития и обучения.
+            </div>
+          </div>
+
+          <div className="app__container__benefits-gradient"></div>
+          <div className="app__container__benefits">
+            <div className="app__container__benefits__title-logo">
+              <div className="app__container__benefits__title-logo__title">
+                Преимущества подписки Prime
+              </div>
+              <div className="app__container__benefits__title-logo__logo"></div>
+            </div>
+            <div className="app__container__benefits__points">
+              <div className="app__container__benefits__points__col">
+                <div className="app__container__benefits__points__col__point">
+                  <div className="app__container__benefits__points__col__point__plus"></div>
+                  <div className="app__container__benefits__points__col__point__text">
+                    Структурированная информация
+                  </div>
+                </div>
+                <div className="app__container__benefits__points__col__point">
+                  <div className="app__container__benefits__points__col__point__plus"></div>
+                  <div className="app__container__benefits__points__col__point__text">
+                    Экономия
+                    <br />
+                    времени
+                  </div>
+                </div>
+                <div className="app__container__benefits__points__col__point">
+                  <div className="app__container__benefits__points__col__point__plus"></div>
+                  <div className="app__container__benefits__points__col__point__text">
+                    Для опытных
+                    <br /> и новичков
+                  </div>
+                </div>
+              </div>
+
+              <div className="app__container__benefits__points__col">
+                <div className="app__container__benefits__points__col__point">
+                  <div className="app__container__benefits__points__col__point__plus"></div>
+                  <div className="app__container__benefits__points__col__point__text">
+                    Доступный язык изложения
+                  </div>
+                </div>
+                <div className="app__container__benefits__points__col__point">
+                  <div className="app__container__benefits__points__col__point__plus"></div>
+                  <div className="app__container__benefits__points__col__point__text">
+                    Огромное количество возможностей
+                  </div>
+                </div>
+                <div className="app__container__benefits__points__col__point">
+                  <div className="app__container__benefits__points__col__point__plus"></div>
+                  <div className="app__container__benefits__points__col__point__text">
+                    Готовность к любым исходам на рынке
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <Features resolution={resolution} />
+
+          <div className="app__container__video-block">
+            <div className="app__container__video-block__video">
+              <iframe
+                style={{ "border-radius": "8px" }}
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/cRucxHqqWZA"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+            <div className="app__container__video-block__description-block">
+              <div className="app__container__video-block__description-block__title">
+                Все возможности Prime
+              </div>
+              <div className="app__container__video-block__description-block__description">
+                Смотрите наш видеоролик, где мы подробно объясняем, что вы
+                получите после приобретения подписки и как этим пользоваться
+              </div>
+            </div>
+          </div>
+
+          <div className="app__container__guarantee">
+            <div className="app__container__guarantee__block">
+              <div className="app__container__guarantee__block__title"></div>
+              <div className="app__container__guarantee__block__description">
+                Если по какой-то причине подписка за месяц не окупилась, то мы
+                продлим её ещё на месяц бесплатно!
+              </div>
+              <div
+                className="app__container__guarantee__block__button"
+                onClick={() => toggleFaq(2)}
+              >
+                <div className="app__container__guarantee__block__button__text">
+                  Подробнее
+                </div>
+                <div className="app__container__guarantee__block__button__arrow">
+                  <More />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <Ribbon currentWidth={currentWidth} />
+
+          <div className="app__container__examples">
+            <div className="app__container__examples__title">
+              Реальные
+              <br />
+              примеры заработка
+            </div>
+            <Examples resolution={resolution} />
+          </div>
+
+          <div className="app__container__about-ceo">
+            <div className="app__container__about-ceo__right-light"></div>
+            <div className="app__container__about-ceo__title">Команда</div>
+            <div className="app__container__about-ceo__ceo">
+              <div className="app__container__about-ceo__ceo__photo"></div>
+              <div className="app__container__about-ceo__ceo__description">
+                <div className="app__container__about-ceo__ceo__description__name">
+                  Павел Сычев
+                </div>
+                <div className="app__container__about-ceo__ceo__description__job">
+                  Основатель экосистемы Crypton
+                </div>
+                <div className="app__container__about-ceo__ceo__description__channels">
+                  <div className="app__container__about-ceo__ceo__description__channels__title">
+                    Автор каналов:
+                  </div>
+
+                  <a
+                    href="https://www.youtube.com/c/EnjoyMaloy"
+                    target={"_blank"}
+                  >
+                    <div className="app__container__about-ceo__ceo__description__channels__link">
+                      <YouTube />
+                      <div className="app__container__about-ceo__ceo__description__channels__link__text">
+                        EnjoyMaloy
+                      </div>
+                      <TeamArrow />
+                    </div>
+                  </a>
+
+                  <a href="https://t.me/tradeparty1337" target={"_blank"}>
+                    <div className="app__container__about-ceo__ceo__description__channels__link">
+                      <Telegram />
+                      <div className="app__container__about-ceo__ceo__description__channels__link__text">
+                        TradeParty
+                      </div>
+                      <TeamArrow />
+                    </div>
+                  </a>
+                </div>
+                <div className="app__container__about-ceo__ceo__description__experience">
+                  Имеет более 5 лет опыта в криптоиндустрии. Инфлюенсер 2022
+                  года{" "}
+                  <a
+                    href="https://twitter.com/binance/status/1545462193155604481"
+                    target={"_blank"}
+                  >
+                    по версии Binance
+                  </a>
+                  .
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <Team resolution={resolution} />
+
+          <div className="app__container__partners">
+            <div className="app__container__partners__title">Нам доверяют</div>
+            <div className="app__container__partners__logos">
+              {["lgg", "lg"].includes(resolution) ? (
+                <>
+                  <div className="binance"></div>
+                  <div className="impossible"></div>
+                  <div className="aura"></div>
+                  <div className="near"></div>
+                </>
+              ) : resolution == "md" ? (
+                <>
+                  <div className="binance"></div>
+                  <div className="near"></div>
+                  <div className="impossible"></div>
+                  <div className="aura"></div>
+                </>
+              ) : (
+                <>
+                  <div className="binance"></div>
+                  <div className="impossible"></div>
+                  <div className="aura"></div>
+                  <div className="near"></div>
+                </>
+              )}
+            </div>
+          </div>
+
+          <div className="app__container__subscribe">
+            <div className="app__container__subscribe__noise"></div>
+            <div className="app__container__subscribe__back"></div>
+            <div className="app__container__subscribe__content">
+              <div className="app__container__subscribe__content__title"></div>
+              <div className="app__container__subscribe__content__cost">
+                <div className="app__container__subscribe__content__cost__block">
+                  <div className="app__container__subscribe__content__cost__block__header">
+                    <div className="app__container__subscribe__content__cost__block__header__title">
+                      1 месяц
+                    </div>
+                  </div>
+                  <div className="app__container__subscribe__content__cost__block__body">
+                    <div className="app__container__subscribe__content__cost__block__body__price _45"></div>
+                    <div className="app__container__subscribe__content__cost__block__body__discount _45"></div>
+                  </div>
+                </div>
+                <div className="app__container__subscribe__content__cost__block">
+                  <div className="app__container__subscribe__content__cost__block__header">
+                    <div className="app__container__subscribe__content__cost__block__header__title">
+                      3 месяца
+                    </div>
+                  </div>
+                  <div className="app__container__subscribe__content__cost__block__body">
+                    <div className="app__container__subscribe__content__cost__block__body__price _128"></div>
+                    <div className="app__container__subscribe__content__cost__block__body__discount _135"></div>
+                  </div>
+                </div>
+                <div className="app__container__subscribe__content__cost__block">
+                  <div className="app__container__subscribe__content__cost__block__header">
+                    <div className="app__container__subscribe__content__cost__block__header__title">
+                      6 месяцев
+                    </div>
+                  </div>
+                  <div className="app__container__subscribe__content__cost__block__body">
+                    <div className="app__container__subscribe__content__cost__block__body__price _243"></div>
+                    <div className="app__container__subscribe__content__cost__block__body__discount _270"></div>
+                  </div>
+                </div>
+                <div className="app__container__subscribe__content__cost__block">
+                  <div className="app__container__subscribe__content__cost__block__header">
+                    <div className="app__container__subscribe__content__cost__block__header__title">
+                      12 месяцев
+                    </div>
+                  </div>
+                  <div className="app__container__subscribe__content__cost__block__body">
+                    <div className="app__container__subscribe__content__cost__block__body__price _459"></div>
+                    <div className="app__container__subscribe__content__cost__block__body__discount _540"></div>
+                  </div>
+                </div>
+              </div>
+              <div className="app__container__subscribe__content__link">
+                <a
+                  href={`https://t.me/CryptonLobbyBot?start=${referral}`}
+                  target={"_blank"}
+                >
+                  <div className="app__container__subscribe__content__link__button">
+                    {tariffs[resolution]}
+                    <SubscribeArrow />
+                  </div>
+                </a>
+                <div className="app__container__subscribe__content__link__description">
+                  С оформлением тарифа вам поможет наш бот в Telegram
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="app__container__faq">
+            <div className="app__container__faq__title">
+              Часто задаваемые вопросы
+            </div>
+            <Accordion mode={"faq"} openFaq={openFaq} setOpenFaq={setOpenFaq} />
+          </div>
+
+          <OtherProducts />
+          <Footer
+            resolution={resolution}
+            currentY={currentY}
+            setCurrentY={setCurrentY}
+          />
+        </div>
+      </div>
+
+      <div className="back color dark"></div>
+      <div className="back noise"></div>
+    </>
+  );
+}

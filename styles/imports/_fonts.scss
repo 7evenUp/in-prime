@@ -1,0 +1,48 @@
+@font-face {
+	font-family: 'Manrope', sans-serif;
+	src: url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap');
+}
+
+@font-face {
+    font-family: 'Resist Sans';
+    src: local('fonts/Resist Sans Display Regular'), local('Resist-Sans-Display-Regular'),
+        url('/fonts/ResistSansDisplay-Regular.woff2') format('woff2'),
+        url('/fonts/ResistSansDisplay-Regular.woff') format('woff'),
+        url('/fonts/ResistSansDisplay-Regular.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Resist Sans Bold';
+    src: local('Resist Sans Display Bold'), local('Resist-Sans-Display-Bold'),
+        url('/fonts/ResistSansDisplay-Bold.woff2') format('woff2'),
+        url('/fonts/ResistSansDisplay-Bold.woff') format('woff'),
+        url('/fonts/ResistSansDisplay-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Resist Sans Light';
+    src: local('Resist Sans Display Light'), local('Resist-Sans-Display-Light'),
+        url('/fonts/ResistSansDisplay-Light.woff2') format('woff2'),
+        url('/fonts/ResistSansDisplay-Light.woff') format('woff'),
+        url('/fonts/ResistSansDisplay-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Resist Sans Medium';
+    src: local('Resist Sans Display Medium'), local('Resist-Sans-Display-Medium'),
+        url('/fonts/ResistSansDisplay-Medium.woff2') format('woff2'),
+        url('/fonts/ResistSansDisplay-Medium.woff') format('woff'),
+        url('/fonts/ResistSansDisplay-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Benzin-Bold';
+    src: local('Benzin-Bold'),
+        url('/fonts/benzin-bold.ttf');
+  }
