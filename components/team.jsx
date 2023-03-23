@@ -185,7 +185,7 @@ function Team(props) {
           ivan: {
             cord: { left: 724, top: 298 },
           },
-          kirill: {
+          nikita_k: {
             cord: { left: 1181, top: 206 },
           },
           nikita: {
@@ -243,7 +243,7 @@ function Team(props) {
           ivan: {
             cord: { left: 890, top: 364 },
           },
-          kirill: {
+          nikita_k: {
             cord: { left: 1181, top: 160 },
           },
           nikita: {
@@ -298,7 +298,7 @@ function Team(props) {
           ivan: {
             cord: { left: 890, top: 364 },
           },
-          kirill: {
+          nikita_k: {
             cord: { left: 1181, top: 244 },
           },
           nikita: {
@@ -323,10 +323,10 @@ function Team(props) {
           top: 179,
         },
         description: {
-          name: "Кирилл",
-          role: "Финансовый директор",
+          name: "Никита",
+          role: "Куратор тестнетов и редактор",
         },
-        img: "kirill",
+        img: "nikita_k",
         change_other: {
           vadim: {
             cord: { left: 234, top: 182 },
@@ -433,8 +433,8 @@ function Team(props) {
           top: 192,
         },
         description: {
-          name: "Никита",
-          role: "Куратор тестнетов и редактор",
+          name: "Вадим",
+          role: "Сооснователь Prime",
         },
         img: "vadim",
         change_other: {
@@ -1027,7 +1027,7 @@ function Team(props) {
           ivan: {
             cord: { left: 724, top: 298 },
           },
-          kirill: {
+          nikita_k: {
             cord: { left: 1181, top: 206 },
           },
           nikita: {
@@ -1085,7 +1085,7 @@ function Team(props) {
           ivan: {
             cord: { left: 890, top: 364 },
           },
-          kirill: {
+          nikita_k: {
             cord: { left: 1181, top: 160 },
           },
           nikita: {
@@ -1140,7 +1140,7 @@ function Team(props) {
           ivan: {
             cord: { left: 890, top: 364 },
           },
-          kirill: {
+          nikita_k: {
             cord: { left: 1181, top: 244 },
           },
           nikita: {
@@ -1165,10 +1165,10 @@ function Team(props) {
           top: 179,
         },
         description: {
-          name: "Кирилл",
-          role: "Финансовый директор",
+          name: "Никита",
+          role: "Куратор тестнетов и редактор",
         },
-        img: "kirill",
+        img: "nikita_k",
         change_other: {
           vadim: {
             cord: { left: 234, top: 182 },
@@ -1275,8 +1275,8 @@ function Team(props) {
           top: 192,
         },
         description: {
-          name: "Никита",
-          role: "Руководитель Prime, сооснователь Crypton",
+          name: "Вадим",
+          role: "Сооснователь Prime",
         },
         img: "vadim",
         change_other: {
@@ -1869,7 +1869,7 @@ function Team(props) {
           ivan: {
             cord: { left: 724, top: 298 },
           },
-          kirill: {
+          nikita_k: {
             cord: { left: 1181, top: 206 },
           },
           nikita: {
@@ -1927,7 +1927,7 @@ function Team(props) {
           ivan: {
             cord: { left: 890, top: 364 },
           },
-          kirill: {
+          nikita_k: {
             cord: { left: 1181, top: 160 },
           },
           nikita: {
@@ -1982,7 +1982,7 @@ function Team(props) {
           ivan: {
             cord: { left: 890, top: 364 },
           },
-          kirill: {
+          nikita_k: {
             cord: { left: 1181, top: 244 },
           },
           nikita: {
@@ -2007,10 +2007,10 @@ function Team(props) {
           top: 179,
         },
         description: {
-          name: "Кирилл",
-          role: "Финансовый директор",
+          name: "Никита",
+          role: "Куратор тестнетов и редактор",
         },
-        img: "kirill",
+        img: "nikita_k",
         change_other: {
           vadim: {
             cord: { left: 234, top: 182 },
@@ -2117,8 +2117,8 @@ function Team(props) {
           top: 192,
         },
         description: {
-          name: "Никита",
-          role: "Куратор тестнетов и редактор",
+          name: "Вадим",
+          role: "Сооснователь Prime",
         },
         img: "vadim",
         change_other: {
@@ -2711,7 +2711,7 @@ function Team(props) {
           ivan: {
             cord: { left: 226, top: 433 },
           },
-          kirill: {
+          nikita_k: {
             cord: { left: 203, top: 629 },
           },
           nikita: {
@@ -2772,7 +2772,7 @@ function Team(props) {
           ivan: {
             cord: { left: 259, top: 401 },
           },
-          kirill: {
+          nikita_k: {
             cord: { left: 203, top: 629 },
           },
           nikita: {
@@ -2827,7 +2827,7 @@ function Team(props) {
           ivan: {
             cord: { left: 241, top: 323 },
           },
-          kirill: {
+          nikita_k: {
             cord: { left: 215, top: 629 },
           },
           nikita: {
@@ -2852,10 +2852,10 @@ function Team(props) {
           top: 571,
         },
         description: {
-          name: "Кирилл",
-          role: "Финансовый директор",
+          name: "Никита",
+          role: "Куратор тестнетов и редактор",
         },
-        img: "kirill",
+        img: "nikita_k",
         change_other: {
           vadim: {
             cord: { left: 202, top: 113 },
@@ -2965,8 +2965,8 @@ function Team(props) {
           top: 107,
         },
         description: {
-          name: "Никита",
-          role: "Куратор тестнетов и редактор",
+          name: "Вадим",
+          role: "Сооснователь Prime",
         },
         img: "vadim",
         change_other: {
@@ -3406,7 +3406,7 @@ function Team(props) {
           eduard: {
             cord: { left: 2, top: 382 },
           },
-          kirill: {
+          nikita_k: {
             cord: { left: 272, top: 629 },
           },
         },

@@ -87,6 +87,7 @@ export default function Home(props) {
       setCurrentY(window.scrollY);
     };
     window.addEventListener("wheel", scroll, false);
+    router.replace('', undefined, {shallow:true})
     return () => window.removeEventListener("scroll", scroll, false);
   }, []);
 
@@ -98,6 +99,8 @@ export default function Home(props) {
     setOpenFaq(index);
     setCurrentY(moreInfo[resolution]);
   }
+
+
 
   return (
     <>
@@ -171,7 +174,7 @@ export default function Home(props) {
           </div>
 
           <div className="app__container__benefits-gradient"></div>
-          <div className="app__container__benefits">
+          <div className="app__container__benefits" id="benefits">
             <div className="app__container__benefits__title-logo">
               <div className="app__container__benefits__title-logo__title">
                 Преимущества подписки Prime
@@ -228,7 +231,7 @@ export default function Home(props) {
 
           <Features resolution={resolution} />
 
-          <div className="app__container__video-block">
+          <div className="app__container__video-block" id="video">
             <div className="app__container__video-block__video">
               <iframe
                 style={{ "border-radius": "8px" }}
@@ -252,7 +255,7 @@ export default function Home(props) {
             </div>
           </div>
 
-          <div className="app__container__guarantee">
+          <div className="app__container__guarantee" id="guarantee">
             <div className="app__container__guarantee__block">
               <div className="app__container__guarantee__block__title"></div>
               <div className="app__container__guarantee__block__description">
@@ -275,7 +278,7 @@ export default function Home(props) {
 
           <Ribbon currentWidth={currentWidth} />
 
-          <div className="app__container__examples">
+          <div className="app__container__examples" id="examples">
             <div className="app__container__examples__title">
               Реальные
               <br />
@@ -284,7 +287,7 @@ export default function Home(props) {
             <Examples resolution={resolution} />
           </div>
 
-          <div className="app__container__about-ceo">
+          <div className="app__container__about-ceo"  id="founder">
             <div className="app__container__about-ceo__right-light"></div>
             <div className="app__container__about-ceo__title">Команда</div>
             <div className="app__container__about-ceo__ceo">
@@ -341,7 +344,7 @@ export default function Home(props) {
 
           <Team resolution={resolution} />
 
-          <div className="app__container__partners">
+          <div className="app__container__partners" id="partners">
             <div className="app__container__partners__title">Нам доверяют</div>
             <div className="app__container__partners__logos">
               {["lgg", "lg"].includes(resolution) ? (
@@ -369,7 +372,7 @@ export default function Home(props) {
             </div>
           </div>
 
-          <div className="app__container__subscribe">
+          <div className="app__container__subscribe" id="subscribe">
             <div className="app__container__subscribe__noise"></div>
             <div className="app__container__subscribe__back"></div>
             <div className="app__container__subscribe__content">
@@ -437,7 +440,7 @@ export default function Home(props) {
             </div>
           </div>
 
-          <div className="app__container__faq">
+          <div className="app__container__faq" id="faq">
             <div className="app__container__faq__title">
               Часто задаваемые вопросы
             </div>

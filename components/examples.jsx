@@ -9,6 +9,99 @@ import ToggleLeft from "/public/images/jsx/icons/toggle-left";
 import ToggleRight from "/public/images/jsx/icons/toggle-right";
 
 const examples = {
+  февраль: [
+    {
+      title: "XANA PENPENZ",
+      earn: "$1,900",
+      spend: "$0",
+      category: "NFT",
+      condition: "Пройти регистрацию, выполнить задания с подписками.",
+      resources: "10 минут на 1 аккаунт, прогретый кошелёк и Twitter.",
+      reportUrl: "crypton.xyz",
+      gradient: "linear-gradient(90deg, #BB44CC 0%, #8AAEFB 52.08%, #4AE0CE 100%)",
+    },
+    {
+      title: "Puma",
+      earn: "$410",
+      spend: "$245",
+      category: "NFT",
+      condition:
+        "Пройти регистрацию в розыгрыше, выполнить задания, иметь 0.05 $ETH на кошельке для участия в розыгрыше. ",
+      resources: "10 минут на 1 аккаунт, прогретый кошелёк.",
+      reportUrl: "crypton.xyz",
+      gradient: "linear-gradient(90deg, #FF4A7A 0%, #BB44CC 100%)",
+    },
+    {
+      title: "Modern Muse",
+      earn: "$1,825",
+      spend: "$0",
+      category: "NFT",
+      condition: "Пройти регистрацию в розыгрыше, выполнить задания с подписками.",
+      resources: "10 минут на 1 аккаунт, прогретый кошелёк и Twitter.",
+      reportUrl: "crypton.xyz",
+      gradient: "linear-gradient(90deg, #FFCD9F 0%, #FF4A7A 100%)",
+    },
+    {
+      title: "Ghost Boy",
+      earn: "$670",
+      spend: "$45",
+      category: "NFT",
+      condition: "Проявлять активность в социальных сетях проекта, писать треды в Twitter на тему проекта, участвовать в розыгрышах. ",
+      resources: "~5 минут–6 часов на 1 аккаунт",
+      reportUrl: "crypton.xyz",
+      gradient: "linear-gradient(90deg, #BB44CC 0%, #8AAEFB 52.08%, #4AE0CE 100%)",
+    },    
+    {
+      title: "Uniwhale",
+      earn: "$125",
+      spend: "$0",
+      category: "Тестнет",
+      condition: "Протестировать протокол, выполнить задания на DeQuest и иметь BAB-токен. Участники могли бесплатно заминтить Uniwhale Genesis Pass и продать его.",
+      resources: "40 минут на 1 аккаунт",
+      reportUrl: "crypton.xyz",
+      gradient: "linear-gradient(90deg, #FF4A7A 0%, #BB44CC 100%)",
+    },    
+    {
+      title: "Gleam & Quest3 от IF & Pine\nProtocol",
+      earn: "$200",
+      spend: "$50",
+      category: "Whitelist",
+      condition: "Заполнить gleam-форму и выполнить задания на площадке Quest3. Шансы на победу были высокими.",
+      resources: "10 минут на 1 аккаунт.",
+      reportUrl: "crypton.xyz",
+      gradient: "linear-gradient(90deg, #FFCD9F 0%, #FF4A7A 100%)",
+    },    
+    {
+      title: "DigiDaigaku Dragons Superbowl",
+      earn: "$700",
+      spend: "$0",
+      category: "NFT",
+      condition: "Следить за первым днем Super Bowl и словить QR-код для бесплатного минта. Окно было в минуту, можно было спокойно заминтить 1 NFT.",
+      resources: "2 часа на 1 аккаунт",
+      reportUrl: "crypton.xyz",
+      gradient: "linear-gradient(90deg, #BB44CC 0%, #8AAEFB 52.08%, #4AE0CE 100%)",
+    },    
+    {
+      title: "Planet COCO",
+      earn: "$100",
+      spend: "$34",
+      category: "NFT",
+      condition: "Зарегистрироваться.",
+      resources: "10 минут на 1 аккаунт",
+      reportUrl: "crypton.xyz",
+      gradient: "linear-gradient(90deg, #FF4A7A 0%, #BB44CC 100%)",
+    },    
+    {
+      title: "Kiyoshi's Seed",
+      earn: "$700",
+      spend: "$46",
+      category: "NFT",
+      condition: "Зарегистрироваться.",
+      resources: "10 минут на 1 аккаунт, прогретый кошелёк и Twitter.",
+      reportUrl: "crypton.xyz",
+      gradient: "linear-gradient(90deg, #FFCD9F 0%, #FF4A7A 100%)",
+    },
+  ],
   январь: [
     {
       title: "NFT-whitelist Createra",
@@ -475,7 +568,7 @@ function Examples(props) {
             return (
               <div
                 className="examples-content__header__months__month "
-                style={{ opacity: `${index == currentMonth ? 0.5 : 1}` }}
+                style={{ opacity: `${index != currentMonth ? 0.5 : 1}` }}
                 onClick={() => toggleMonth(index)}
               >
                 {elem}
