@@ -27,23 +27,23 @@ function Menu(props) {
         }},
         {number:'03', name:'Возможности', position:{
             lgg:1750,
-            lg:1481
+            lg:1400
         }},
         {number:'04', name:'Кейсы', position:{
-            lgg:4200,
+            lgg:4160,
             lg:3400
         }},
         {number:'05', name:'Команда', position:{
-            lgg:5000,
+            lgg:5050,
             lg:4210
         }},
         {number:'06', name:'Подписка', position:{
             lgg:7200,
-            lg:6200
+            lg:6165
         }},
         {number:'07', name:'FAQ', position:{
-            lgg:8100,
-            lg:6950
+            lgg:9500,
+            lg:8355
         }},
     ]
     return (

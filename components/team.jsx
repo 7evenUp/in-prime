@@ -581,64 +581,64 @@ function Team(props) {
           },
         },
       },
-      {
-        size: {
-          default: 120,
-          selected: 240,
-        },
-        default_cord: {
-          left: 493,
-          top: 573,
-        },
-        selected_cord: {
-          left: 442,
-          top: 459,
-        },
-        description: {
-          name: "Айдар",
-          role: "Куратор Airdrops и акций",
-        },
-        img: "aidar",
-        change_other: {
-          pavel: {
-            size: 150,
-            cord: { left: 519, top: 237 },
-          },
-          vadim: {
-            cord: { left: 234, top: 182 },
-          },
-          artem: {
-            cord: { left: 725, top: 36 },
-          },
-          aleksey: {
-            cord: { left: 1134, top: 332 },
-          },
-          daniil: {
-            cord: { left: 218, top: 471 },
-          },
-          ivan: {
-            cord: { left: 793, top: 224 },
-          },
-          karina: {
-            cord: { left: 977, top: 0 },
-          },
-          bogdan: {
-            cord: { left: 417, top: 30 },
-          },
-          sergey: {
-            cord: { left: 40, top: 312 },
-          },
-          nikita: {
-            cord: { left: 0, top: 545 },
-          },
-          jeka: {
-            cord: { left: 1074, top: 579 },
-          },
-          eduard: {
-            cord: { left: 924, top: 372 },
-          },
-        },
-      },
+      // {
+      //   size: {
+      //     default: 120,
+      //     selected: 240,
+      //   },
+      //   default_cord: {
+      //     left: 493,
+      //     top: 573,
+      //   },
+      //   selected_cord: {
+      //     left: 442,
+      //     top: 459,
+      //   },
+      //   description: {
+      //     name: "Айдар",
+      //     role: "Куратор Airdrops и акций",
+      //   },
+      //   img: "aidar",
+      //   change_other: {
+      //     pavel: {
+      //       size: 150,
+      //       cord: { left: 519, top: 237 },
+      //     },
+      //     vadim: {
+      //       cord: { left: 234, top: 182 },
+      //     },
+      //     artem: {
+      //       cord: { left: 725, top: 36 },
+      //     },
+      //     aleksey: {
+      //       cord: { left: 1134, top: 332 },
+      //     },
+      //     daniil: {
+      //       cord: { left: 218, top: 471 },
+      //     },
+      //     ivan: {
+      //       cord: { left: 793, top: 224 },
+      //     },
+      //     karina: {
+      //       cord: { left: 977, top: 0 },
+      //     },
+      //     bogdan: {
+      //       cord: { left: 417, top: 30 },
+      //     },
+      //     sergey: {
+      //       cord: { left: 40, top: 312 },
+      //     },
+      //     nikita: {
+      //       cord: { left: 0, top: 545 },
+      //     },
+      //     jeka: {
+      //       cord: { left: 1074, top: 579 },
+      //     },
+      //     eduard: {
+      //       cord: { left: 924, top: 372 },
+      //     },
+      //   },
+      // },
       {
         size: {
           default: 150,
