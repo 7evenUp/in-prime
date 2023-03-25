@@ -626,6 +626,7 @@ function Examples(props) {
             <SwiperSlide
               className="examples-content__blocks__block"
               key={currentMonth + index}
+              style={{ opacity:  index < currentBlock ? 0 : 1, transition:'0.35s' }}
             >
               <div
                 className="examples-content__blocks__block__gradient"

@@ -26,7 +26,7 @@ function MobileMenu(props) {
       position: {
         lgg: 1750,
         lg: 1450,
-        md: 1850,
+        md: 1800,
         sm: 1300,
       },
     },
@@ -35,47 +35,47 @@ function MobileMenu(props) {
         lgg: 1100,
         lg: 780,
         md: 1050,
-        sm: 850,
+        sm: 810,
       },
     },
     {
       position: {
-        lgg: 3600,
+        lgg: 4160,
         lg: 2970,
-        md: 4050,
-        sm: 3100,
+        md: 3980,
+        sm: 3050,
       },
     },
     {
       position: {
         lgg: 4550,
         lg: 3830,
-        md: 4900,
-        sm: 3700,
+        md: 4850,
+        sm: 3650,
       },
     },
     {
       position: {
         lgg: 6200,
         lg: 5230,
-        md: 5900,
-        sm: 5200,
+        md: 5840,
+        sm: 5170,
       },
     },
     {
       position: {
         lgg: 7200,
         lg: 6200,
-        md: 6300,
-        sm: 5790,
+        md: 6225,
+        sm: 5730,
       },
     },
     {
       position: {
         lgg: 7550,
         lg: 6450,
-        md: 7300,
-        sm: 7050,
+        md: 8860,
+        sm: 8635,
       },
     },
   ];

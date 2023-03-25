@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import Countdown from 'react-countdown';
+import Countdown from "react-countdown";
 
 import Footer from "/components/footer";
 import Features from "/components/features";
@@ -42,12 +42,20 @@ function useWindowSize() {
 
 const renderer = ({ days, hours, minutes, seconds, completed }) => {
   if (completed) {
-      return <span> </span>;
+    return <span> </span>;
   } else {
-      return <span>
-          {days/10>=1? '' : '0'}{days}
-          <div className="sep">:</div>{hours/10>=1? '' : '0'}{hours}
-          <div className="sep">:</div>{minutes/10>=1? '' : '0'}{minutes}</span>
+    return (
+      <span>
+        {days / 10 >= 1 ? "" : "0"}
+        {days}
+        <div className="sep">:</div>
+        {hours / 10 >= 1 ? "" : "0"}
+        {hours}
+        <div className="sep">:</div>
+        {minutes / 10 >= 1 ? "" : "0"}
+        {minutes}
+      </span>
+    );
   }
 };
 
@@ -86,22 +94,26 @@ export default function Home(props) {
   };
 
   const moreInfo = {
-    lgg: 9500,
-    lg: 8350,
-    md: 8800,
-    sm: 8600,
+    lgg: 10000,
+    lg: 8800,
+    md: 9200,
+    sm: 8850,
   };
 
   const [currentY, setCurrentY] = useState(0);
   const [openFaq, setOpenFaq] = useState(-1);
 
   useEffect(() => {
-    setTimerProgress(Math.round((Date.now() - 1679673600000) / (1680534000000 - 1679673600000) * 100))
+    setTimerProgress(
+      Math.round(
+        ((Date.now() - 1679673600000) / (1680534000000 - 1679673600000)) * 100
+      )
+    );
     const scroll = (event) => {
       setCurrentY(window.scrollY);
     };
     window.addEventListener("wheel", scroll, false);
-    router.replace('', undefined, {shallow:true})
+    router.replace("", undefined, { shallow: true });
     return () => window.removeEventListener("scroll", scroll, false);
   }, []);
 
@@ -113,8 +125,6 @@ export default function Home(props) {
     setOpenFaq(index);
     setCurrentY(moreInfo[resolution]);
   }
-
-
 
   return (
     <>
@@ -142,7 +152,6 @@ export default function Home(props) {
             <div className="app__container__earn__right-gradient"></div>
 
             <MobileMenu
-              
               open={mobileMenu}
               changeMobileMenu={() => changeMobileMenu(!mobileMenu)}
               resolution={resolution}
@@ -279,7 +288,7 @@ export default function Home(props) {
               </div>
               <div
                 className="app__container__guarantee__block__button"
-                onClick={() => toggleFaq(3)}
+                onClick={() => toggleFaq(2)}
               >
                 <div className="app__container__guarantee__block__button__text">
                   Подробнее
@@ -302,7 +311,7 @@ export default function Home(props) {
             <Examples resolution={resolution} />
           </div>
 
-          <div className="app__container__about-ceo"  id="founder">
+          <div className="app__container__about-ceo" id="founder">
             <div className="app__container__about-ceo__right-light"></div>
             <div className="app__container__about-ceo__title">Команда</div>
             <div className="app__container__about-ceo__ceo">
@@ -455,7 +464,7 @@ export default function Home(props) {
               <div className="app__container__subscribe__content__cost bottom">
                 <div className="app__container__subscribe__content__cost__block">
                   <div className="app__container__subscribe__content__cost__block__header">
-                  <div className="app__container__subscribe__content__cost__block__header__gradient _5"></div>
+                    <div className="app__container__subscribe__content__cost__block__header__gradient _5"></div>
                     <div className="app__container__subscribe__content__cost__block__header__title">
                       1 месяц
                     </div>
@@ -491,7 +500,7 @@ export default function Home(props) {
                 </div>
                 <div className="app__container__subscribe__content__cost__block">
                   <div className="app__container__subscribe__content__cost__block__header">
-                  <div className="app__container__subscribe__content__cost__block__header__gradient _8"></div>
+                    <div className="app__container__subscribe__content__cost__block__header__gradient _8"></div>
                     <div className="app__container__subscribe__content__cost__block__header__title">
                       12 месяцев
                     </div>
@@ -521,8 +530,13 @@ export default function Home(props) {
                 <div className="app__container__subscribe__content__timer__title"></div>
 
                 <div className="app__container__subscribe__content__timer__progress">
-                  <div className="app__container__subscribe__content__timer__progress__bar" style={{width:`${ timerProgress + '%'}`}}>
-                    <div className="app__container__subscribe__content__timer__progress__bar__circle"> </div>
+                  <div
+                    className="app__container__subscribe__content__timer__progress__bar"
+                    style={{ width: `${timerProgress + "%"}` }}
+                  >
+                    <div className="app__container__subscribe__content__timer__progress__bar__circle">
+                      {" "}
+                    </div>
                   </div>
                 </div>
                 <div className="app__container__subscribe__content__timer__countdown">
@@ -535,24 +549,35 @@ export default function Home(props) {
                 </div>
                 <div className="app__container__subscribe__content__timer__countdown__names">
                   <div className="app__container__subscribe__content__timer__countdown__names__block">
-                    <div className="app__container__subscribe__content__timer__countdown__names__block__text">дней</div>
-                    <div className="app__container__subscribe__content__timer__countdown__names__block__text">часов</div>
-                    <div className="app__container__subscribe__content__timer__countdown__names__block__text">минут</div>
+                    <div className="app__container__subscribe__content__timer__countdown__names__block__text">
+                      дней
+                    </div>
+                    <div className="app__container__subscribe__content__timer__countdown__names__block__text">
+                      часов
+                    </div>
+                    <div className="app__container__subscribe__content__timer__countdown__names__block__text">
+                      минут
+                    </div>
                   </div>
-                </div>
-                
-                <div className="app__container__subscribe__content__timer__countdown__plus"> 
-                  <div className="app__container__subscribe__content__timer__countdown__plus__icon"></div>
-                  <div className="app__container__subscribe__content__timer__countdown__plus__text">Продлевая подписку вовремя, вы навсегда закрепляете за собой старую цену</div>
                 </div>
 
-                <div
-                className="app__container__subscribe__content__timer__countdown__link__button"
-                onClick={() => toggleFaq(2)}
-                >
-                  <div className="app__container__subscribe__content__timer__countdown__link__button__text">
-                    Подробнее
+                <div className="app__container__subscribe__content__timer__countdown__plus">
+                  <div className="app__container__subscribe__content__timer__countdown__plus__icon"></div>
+                  <div className="app__container__subscribe__content__timer__countdown__plus__text">
+                    Продлевая подписку вовремя, вы навсегда закрепляете за собой
+                    старую цену
                   </div>
+                </div>
+
+                <div className="app__container__subscribe__content__timer__countdown__link__button">
+                  <a
+                    href={`https://t.me/cryptonannouncement/135`}
+                    target={"_blank"}
+                  >
+                    <div className="app__container__subscribe__content__timer__countdown__link__button__text">
+                      Подробнее
+                    </div>
+                  </a>
                   <div className="app__container__subscribe__content__timer__countdown__link__button__arrow">
                     <More />
                   </div>

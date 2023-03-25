@@ -21,12 +21,12 @@ function Footer(props) {
     });
     setCurrentY(position);
   }
-  const categories = [
+  const categories =  [
     {
       position: {
         lgg: 1750,
-        lg: 1450,
-        md: 1850,
+        lg: 1400,
+        md: 1800,
         sm: 1300,
       },
     },
@@ -35,39 +35,39 @@ function Footer(props) {
         lgg: 1100,
         lg: 780,
         md: 1050,
-        sm: 850,
+        sm: 810,
       },
     },
     {
       position: {
-        lgg: 3600,
-        lg: 2970,
-        md: 3550,
-        sm: 2640,
+        lgg: 4160,
+        lg: 3400,
+        md: 3980,
+        sm: 3050,
       },
     },
     {
       position: {
-        lgg: 4550,
-        lg: 3830,
-        md: 4400,
-        sm: 3250,
+        lgg: 5050,
+        lg: 4210,
+        md: 4850,
+        sm: 3650,
       },
     },
     {
       position: {
-        lgg: 6200,
-        lg: 5230,
-        md: 5400,
-        sm: 4800,
+        lgg: 6700,
+        lg: 5720,
+        md: 5840,
+        sm: 5170,
       },
     },
     {
       position: {
-        lgg: 7550,
-        lg: 6450,
-        md: 6800,
-        sm: 6650,
+        lgg: 9500,
+        lg: 8355,
+        md: 8860,
+        sm: 8635,
       },
     },
   ];
