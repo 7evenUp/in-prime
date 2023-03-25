@@ -286,9 +286,9 @@ function Features(props) {
                   background:
                     index != mapIndex && index != hovered ? elem.gradient : "",
                 }}
-                onClick={() => toggle(index)}
-                onMouseEnter={() => setHovered(index)}
-                onMouseLeave={() => setHovered(-1)}
+                // onClick={() => toggle(index)}
+                onMouseEnter={() => {setHovered(index); toggle(index)}}
+                // onMouseLeave={() => setHovered(-1)}
               ></div>
               {index == mapIndex ? (
                 <div
@@ -317,9 +317,9 @@ function Features(props) {
                   background:
                     index != mapIndex && index != hovered ? elem.gradient : "",
                 }}
-                onClick={() => toggle(index)}
-                onMouseEnter={() => setHovered(index)}
-                onMouseLeave={() => setHovered(-1)}
+                // onClick={() => toggle(index)}
+                onMouseEnter={() => {setHovered(index); toggle(index)}}
+                // onMouseLeave={() => setHovered(-1)}
               ></div>
               {index == mapIndex ? (
                 <div
@@ -342,7 +342,7 @@ function Features(props) {
       </div>
       {mapIndex == -1 ? (
         <div className="app__container__features__description default ">
-          НАЖМИТЕ НА КАТЕГОРИЮ ДЛЯ ВЗАИМОДЕЙСТВИЯ
+          НАВЕДИТЕ НА КАТЕГОРИЮ ДЛЯ ВЗАИМОДЕЙСТВИЯ
         </div>
       ) : (
         <div className="app__container__features__description ">

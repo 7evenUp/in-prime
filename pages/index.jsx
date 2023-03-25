@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import Countdown from 'react-countdown';
 
 import Footer from "/components/footer";
 import Features from "/components/features";
@@ -26,7 +27,6 @@ import SelectSmTariff from "/public/images/jsx/subscribe/select-tariff-sm.jsx";
 
 function useWindowSize() {
   const [currentWidth, setCurrentWidth] = useState(0);
-
   useEffect(() => {
     if (typeof window !== "undefined") {
       function handleResize() {
@@ -40,11 +40,24 @@ function useWindowSize() {
   return currentWidth;
 }
 
+const renderer = ({ days, hours, minutes, seconds, completed }) => {
+  if (completed) {
+      return <span> </span>;
+  } else {
+      return <span>
+          {days/10>=1? '' : '0'}{days}
+          <div className="sep">:</div>{hours/10>=1? '' : '0'}{hours}
+          <div className="sep">:</div>{minutes/10>=1? '' : '0'}{minutes}</span>
+  }
+};
+
 export default function Home(props) {
   const router = useRouter();
   const referral = router.query.ref || "agent";
 
   const [mobileMenu, changeMobileMenu] = useState(0);
+  const [timerProgress, setTimerProgress] = useState(0);
+
   const currentWidth = useWindowSize();
   let resolution = "lgg";
 
@@ -83,6 +96,7 @@ export default function Home(props) {
   const [openFaq, setOpenFaq] = useState(-1);
 
   useEffect(() => {
+    setTimerProgress(Math.round((Date.now() - 1679673600000) / (1680534000000 - 1679673600000) * 100))
     const scroll = (event) => {
       setCurrentY(window.scrollY);
     };
@@ -374,12 +388,20 @@ export default function Home(props) {
 
           <div className="app__container__subscribe" id="subscribe">
             <div className="app__container__subscribe__noise"></div>
-            <div className="app__container__subscribe__back"></div>
+            <div className="app__container__subscribe__back">
+              <div className="app__container__subscribe__back__left-gradient"></div>
+              <div className="app__container__subscribe__back__right-gradient"></div>
+            </div>
             <div className="app__container__subscribe__content">
-              <div className="app__container__subscribe__content__title"></div>
+              <div className="app__container__subscribe__content__header">
+                <div className="app__container__subscribe__content__title"></div>
+                <div className="app__container__subscribe__content__subtitle"></div>
+              </div>
+              <div className="app__container__subscribe__content__date"></div>
               <div className="app__container__subscribe__content__cost">
                 <div className="app__container__subscribe__content__cost__block">
                   <div className="app__container__subscribe__content__cost__block__header">
+                    <div className="app__container__subscribe__content__cost__block__header__gradient _1"></div>
                     <div className="app__container__subscribe__content__cost__block__header__title">
                       1 месяц
                     </div>
@@ -391,6 +413,7 @@ export default function Home(props) {
                 </div>
                 <div className="app__container__subscribe__content__cost__block">
                   <div className="app__container__subscribe__content__cost__block__header">
+                    <div className="app__container__subscribe__content__cost__block__header__gradient _2"></div>
                     <div className="app__container__subscribe__content__cost__block__header__title">
                       3 месяца
                     </div>
@@ -402,6 +425,7 @@ export default function Home(props) {
                 </div>
                 <div className="app__container__subscribe__content__cost__block">
                   <div className="app__container__subscribe__content__cost__block__header">
+                    <div className="app__container__subscribe__content__cost__block__header__gradient _3"></div>
                     <div className="app__container__subscribe__content__cost__block__header__title">
                       6 месяцев
                     </div>
@@ -413,6 +437,7 @@ export default function Home(props) {
                 </div>
                 <div className="app__container__subscribe__content__cost__block">
                   <div className="app__container__subscribe__content__cost__block__header">
+                    <div className="app__container__subscribe__content__cost__block__header__gradient _4"></div>
                     <div className="app__container__subscribe__content__cost__block__header__title">
                       12 месяцев
                     </div>
@@ -420,6 +445,59 @@ export default function Home(props) {
                   <div className="app__container__subscribe__content__cost__block__body">
                     <div className="app__container__subscribe__content__cost__block__body__price _459"></div>
                     <div className="app__container__subscribe__content__cost__block__body__discount _540"></div>
+                  </div>
+                </div>
+              </div>
+              <div className="app__container__subscribe__content__arrow">
+                <div className="app__container__subscribe__content__arrow__content"></div>
+              </div>
+              <div className="app__container__subscribe__content__cost bottom">
+                <div className="app__container__subscribe__content__cost__block">
+                  <div className="app__container__subscribe__content__cost__block__header">
+                  <div className="app__container__subscribe__content__cost__block__header__gradient _5"></div>
+                    <div className="app__container__subscribe__content__cost__block__header__title">
+                      1 месяц
+                    </div>
+                  </div>
+                  <div className="app__container__subscribe__content__cost__block__body">
+                    <div className="app__container__subscribe__content__cost__block__body__price _74"></div>
+                    <div className="app__container__subscribe__content__cost__block__body__discount _45"></div>
+                  </div>
+                </div>
+                <div className="app__container__subscribe__content__cost__block">
+                  <div className="app__container__subscribe__content__cost__block__header">
+                    <div className="app__container__subscribe__content__cost__block__header__gradient _6"></div>
+                    <div className="app__container__subscribe__content__cost__block__header__title">
+                      3 месяца
+                    </div>
+                  </div>
+                  <div className="app__container__subscribe__content__cost__block__body">
+                    <div className="app__container__subscribe__content__cost__block__body__price _214"></div>
+                    <div className="app__container__subscribe__content__cost__block__body__discount _225"></div>
+                  </div>
+                </div>
+                <div className="app__container__subscribe__content__cost__block">
+                  <div className="app__container__subscribe__content__cost__block__header">
+                    <div className="app__container__subscribe__content__cost__block__header__gradient _7"></div>
+                    <div className="app__container__subscribe__content__cost__block__header__title">
+                      6 месяцев
+                    </div>
+                  </div>
+                  <div className="app__container__subscribe__content__cost__block__body">
+                    <div className="app__container__subscribe__content__cost__block__body__price _405"></div>
+                    <div className="app__container__subscribe__content__cost__block__body__discount _446"></div>
+                  </div>
+                </div>
+                <div className="app__container__subscribe__content__cost__block">
+                  <div className="app__container__subscribe__content__cost__block__header">
+                  <div className="app__container__subscribe__content__cost__block__header__gradient _8"></div>
+                    <div className="app__container__subscribe__content__cost__block__header__title">
+                      12 месяцев
+                    </div>
+                  </div>
+                  <div className="app__container__subscribe__content__cost__block__body">
+                    <div className="app__container__subscribe__content__cost__block__body__price _765"></div>
+                    <div className="app__container__subscribe__content__cost__block__body__discount _880"></div>
                   </div>
                 </div>
               </div>
@@ -435,6 +513,48 @@ export default function Home(props) {
                 </a>
                 <div className="app__container__subscribe__content__link__description">
                   С оформлением тарифа вам поможет наш бот в Telegram
+                </div>
+              </div>
+
+              <div className="app__container__subscribe__content___timer__header">
+                <div className="app__container__subscribe__content__timer__title"></div>
+
+                <div className="app__container__subscribe__content__timer__progress">
+                  <div className="app__container__subscribe__content__timer__progress__bar" style={{width:`${ timerProgress + '%'}`}}>
+                    <div className="app__container__subscribe__content__timer__progress__bar__circle"> </div>
+                  </div>
+                </div>
+                <div className="app__container__subscribe__content__timer__countdown">
+                  <Countdown
+                    className="app__container__subscribe__content__timer__countdown__counter"
+                    date={new Date(1680534000 * 1000)}
+                    renderer={renderer}
+                    zeroPadDays={4}
+                  />
+                </div>
+                <div className="app__container__subscribe__content__timer__countdown__names">
+                  <div className="app__container__subscribe__content__timer__countdown__names__block">
+                    <div className="app__container__subscribe__content__timer__countdown__names__block__text">дней</div>
+                    <div className="app__container__subscribe__content__timer__countdown__names__block__text">часов</div>
+                    <div className="app__container__subscribe__content__timer__countdown__names__block__text">минут</div>
+                  </div>
+                </div>
+                
+                <div className="app__container__subscribe__content__timer__countdown__plus"> 
+                  <div className="app__container__subscribe__content__timer__countdown__plus__icon"></div>
+                  <div className="app__container__subscribe__content__timer__countdown__plus__text">Продлевая подписку вовремя, вы навсегда закрепляете за собой старую цену</div>
+                </div>
+
+                <div
+                className="app__container__subscribe__content__timer__countdown__link__button"
+                onClick={() => toggleFaq(2)}
+                >
+                  <div className="app__container__subscribe__content__timer__countdown__link__button__text">
+                    Подробнее
+                  </div>
+                  <div className="app__container__subscribe__content__timer__countdown__link__button__arrow">
+                    <More />
+                  </div>
                 </div>
               </div>
             </div>
