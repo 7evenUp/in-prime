@@ -86,10 +86,10 @@ export default function Home(props) {
   };
 
   const moreInfo = {
-    lgg: 8100,
-    lg: 6950,
-    md: 7300,
-    sm: 7050,
+    lgg: 9500,
+    lg: 8350,
+    md: 8800,
+    sm: 8600,
   };
 
   const [currentY, setCurrentY] = useState(0);
@@ -120,7 +120,7 @@ export default function Home(props) {
     <>
       <div
         className="app"
-        style={{ position: `${mobileMenu == 1 ? "fixed" : ""}` }}
+        // style={{ position: `${mobileMenu == 1 ? "fixed" : ""}` }}
       >
         <div className="app__unsupported-device">
           Your resolution is not supported
@@ -142,6 +142,7 @@ export default function Home(props) {
             <div className="app__container__earn__right-gradient"></div>
 
             <MobileMenu
+              
               open={mobileMenu}
               changeMobileMenu={() => changeMobileMenu(!mobileMenu)}
               resolution={resolution}
@@ -278,7 +279,7 @@ export default function Home(props) {
               </div>
               <div
                 className="app__container__guarantee__block__button"
-                onClick={() => toggleFaq(2)}
+                onClick={() => toggleFaq(3)}
               >
                 <div className="app__container__guarantee__block__button__text">
                   Подробнее

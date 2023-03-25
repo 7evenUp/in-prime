@@ -95,7 +95,7 @@ p {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    z-index: 100;
+    z-index: 1500;
 
     @media (max-width: 1919px) and (min-width: 1368px) {
       top: 284px;
@@ -346,7 +346,7 @@ p {
             letter-spacing: 0.017em;
 
             @media (max-width: 1919px) and (min-width: 768px) {
-              font-size: 16px;
+              // font-size: 16px;
             }
           }
           &__logo {
@@ -356,12 +356,12 @@ p {
             width: 12px;
             background: url("/images/svg/header/arrow-dark.svg");
 
-            @media (max-width: 1919px) and (min-width: 768px) {
-              height: 9px;
-              width: 9px;
-              margin-left: 8px;
-              margin-top: 6px;
-            }
+            // @media (max-width: 1919px) and (min-width: 768px) {
+            //   height: 9px;
+            //   width: 9px;
+            //   margin-left: 8px;
+            //   margin-top: 6px;
+            // }
           }
         }
       }
@@ -2455,7 +2455,7 @@ p {
                 background-repeat: no-repeat;
 
                 @media (max-width: 767px) {
-                  margin-top: 44px;
+                  margin-top: 34px;
                 }
 
                 &._45 {
@@ -2466,7 +2466,7 @@ p {
                     height: 60px;
                     width: 115px;
                     margin-left: 52px;
-                    margin-top: 52px;
+                    margin-top: 38px;
                   }
                 }
 
@@ -2479,6 +2479,8 @@ p {
                     height: 60px;
                     width: 62px;
                     margin-left: 82px;
+                    margin-top: 34px;
+
                   }
                 }
                 &._270 {
@@ -2490,6 +2492,8 @@ p {
                     height: 60px;
                     width: 62px;
                     margin-left: 75px;
+                    margin-top: 34px;
+
                   }
                 }
                 &._540 {
@@ -2502,7 +2506,8 @@ p {
                     height: 60px;
                     width: 62px;
                     margin-left: 71px;
-                    margin-top: 44px;
+                    margin-top: 34px;
+
                   }
                 }
                 &._225 {
@@ -2515,7 +2520,7 @@ p {
                     height: 60px;
                     width: 62px;
                     margin-left: 71px;
-                    margin-top: 44px;
+                    margin-top: 34px;
                   }
                 }
                 &._446 {
@@ -2528,7 +2533,7 @@ p {
                     height: 60px;
                     width: 62px;
                     margin-left: 71px;
-                    margin-top: 44px;
+                    margin-top: 34px;
                   }
                 }
                 &._880 {
@@ -2541,7 +2546,8 @@ p {
                     height: 60px;
                     width: 62px;
                     margin-left: 71px;
-                    margin-top: 44px;
+                    margin-top: 34px;
+
                   }
                 }
               }

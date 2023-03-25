@@ -42,8 +42,8 @@ function Menu(props) {
             lg:6200
         }},
         {number:'07', name:'FAQ', position:{
-            lgg:8100,
-            lg:6950
+            lgg:9500,
+            lg:8350
         }},
     ]
     return (
