@@ -1437,8 +1437,8 @@ function Team(props) {
           top: 459,
         },
         description: {
-          name: "Айдар",
-          role: "Куратор Airdrops и акций",
+          name: "Ирен",
+          role: "Дизайнер",
         },
         img: "iren",
         change_other: {
@@ -1675,8 +1675,8 @@ function Team(props) {
           top: 459,
         },
         description: {
-          name: "Евгений",
-          role: "Куратор NFT",
+          name: "Богдан",
+          role: "Эксперт по трейдингу",
         },
         img: "bogdan2",
         change_other: {
@@ -2279,8 +2279,8 @@ function Team(props) {
           top: 459,
         },
         description: {
-          name: "Айдар",
-          role: "Куратор Airdrops и акций",
+          name: "Ирен",
+          role: "Дизайнер",
         },
         img: "iren",
         change_other: {
@@ -2517,8 +2517,8 @@ function Team(props) {
           top: 459,
         },
         description: {
-          name: "Евгений",
-          role: "Куратор NFT",
+          name: "Богдан",
+          role: "Эксперт по трейдингу",
         },
         img: "bogdan2",
         change_other: {
@@ -3127,8 +3127,8 @@ function Team(props) {
           top: 210,
         },
         description: {
-          name: "Айдар",
-          role: "Куратор Airdrops и акций",
+          name: "Ирен",
+          role: "Дизайнер",
         },
         img: "iren",
         change_other: {
@@ -3364,8 +3364,8 @@ function Team(props) {
           top: 550,
         },
         description: {
-          name: "Евгений",
-          role: "Куратор NFT",
+          name: "Богдан",
+          role: "Эксперт по трейдингу",
         },
         img: "bogdan2",
         change_other: {
