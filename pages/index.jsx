@@ -113,7 +113,6 @@ export default function Home(props) {
       setCurrentY(window.scrollY);
     };
     window.addEventListener("wheel", scroll, false);
-    router.replace("", undefined, { shallow: true });
     return () => window.removeEventListener("scroll", scroll, false);
   }, []);
 
@@ -191,7 +190,10 @@ export default function Home(props) {
               Зарабатывай <br /> на криптовалюте
             </div>
             <div className="app__container__earn__description">
-            Prime – приватное комьюнити с авторским контентом по заработку в криптовалюте. Команда из 20 человек отбирает лучшие события, подготавливает детальные инструкции и помогает получить первую прибыль
+              Prime – приватное комьюнити с авторским контентом по заработку в
+              криптовалюте. Команда из 20 человек отбирает лучшие события,
+              подготавливает детальные инструкции и помогает получить первую
+              прибыль
             </div>
           </div>
 
@@ -214,7 +216,7 @@ export default function Home(props) {
                 <div className="app__container__benefits__points__col__point">
                   <div className="app__container__benefits__points__col__point__plus"></div>
                   <div className="app__container__benefits__points__col__point__text">
-                    ПОДРОБНЫЕ 
+                    ПОДРОБНЫЕ
                     <br />
                     ИНСТРУКЦИИ
                   </div>
@@ -222,7 +224,7 @@ export default function Home(props) {
                 <div className="app__container__benefits__points__col__point">
                   <div className="app__container__benefits__points__col__point__plus"></div>
                   <div className="app__container__benefits__points__col__point__text">
-                    СТРУКТУРИРОВАННАЯ 
+                    СТРУКТУРИРОВАННАЯ
                     <br /> ИНФОРМАЦИЯ
                   </div>
                 </div>
@@ -271,7 +273,8 @@ export default function Home(props) {
                 Все возможности Prime
               </div>
               <div className="app__container__video-block__description-block__description">
-                Узнай больше о том, что тебя ждет в Prime, после приобретения подписки!
+                Узнай больше о том, что тебя ждет в Prime, после приобретения
+                подписки!
               </div>
             </div>
           </div>
@@ -318,7 +321,8 @@ export default function Home(props) {
                   Павел Сычев
                 </div>
                 <div className="app__container__about-ceo__ceo__description__job">
-                  Основатель экосистемы <a href="https://crypton.xyz">Crypton </a>
+                  Основатель экосистемы{" "}
+                  <a href="https://crypton.xyz">Crypton </a>
                 </div>
                 <div className="app__container__about-ceo__ceo__description__channels">
                   <div className="app__container__about-ceo__ceo__description__channels__title">
@@ -567,14 +571,12 @@ export default function Home(props) {
                 </div>
 
                 <div className="app__container__subscribe__content__timer__countdown__link__button">
-                  <a
-                    href={`https://t.me/cryptonannouncement/135`}
-                    target={"_blank"}
+                  <div
+                    className="app__container__subscribe__content__timer__countdown__link__button__text"
+                    onClick={() => toggleFaq(3)}
                   >
-                    <div className="app__container__subscribe__content__timer__countdown__link__button__text">
-                      Подробнее
-                    </div>
-                  </a>
+                    Подробнее
+                  </div>
                   <div className="app__container__subscribe__content__timer__countdown__link__button__arrow">
                     <More />
                   </div>

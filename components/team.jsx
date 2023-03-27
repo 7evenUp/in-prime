@@ -596,7 +596,7 @@ function Team(props) {
         },
         description: {
           name: "Ирен",
-          role: "Дизайнер",
+          role: "Дизайнер Crypton",
         },
         img: "iren",
         change_other: {

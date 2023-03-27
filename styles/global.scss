@@ -321,10 +321,15 @@ p {
           height: 28px;
           display: flex;
           padding: 9px 18px 12px 20px;
-          background: linear-gradient(129.5deg, #FFCD9F 2.02%, #FF4A7A 56.6%, #BB44CC 104.76%);
+          background: linear-gradient(
+            129.5deg,
+            #ffcd9f 2.02%,
+            #ff4a7a 56.6%,
+            #bb44cc 104.76%
+          );
           border-radius: 8px;
-          &:hover{
-            background: #FFFFFF;
+          &:hover {
+            background: #ffffff;
           }
 
           @media (max-width: 1367px) and (min-width: 768px) {
@@ -1574,9 +1579,13 @@ p {
             line-height: 27px;
             color: #ffffff;
             > a {
-              color: #ffffff;
-              text-decoration: none;
+              color: white;
+
+              &:hover {
+                color: #ffcd9f;
+              }
             }
+
             @media (max-width: 1919px) and (min-width: 1368px) {
               font-size: 16px;
               line-height: 24px;
@@ -1767,10 +1776,10 @@ p {
             line-height: 33px;
             color: #ffffff;
 
-            a{
+            a {
               color: white;
 
-              &:hover{
+              &:hover {
                 color: #ffcd9f;
               }
             }
@@ -1955,8 +1964,8 @@ p {
       min-width: 1920px;
       width: 100%;
       height: 2274px;
-      border-top: 1px solid #FFFFFF;
-      border-bottom: 1px solid #FFFFFF;
+      border-top: 1px solid #ffffff;
+      border-bottom: 1px solid #ffffff;
       position: relative;
       z-index: 100;
       display: flex;
@@ -2004,26 +2013,26 @@ p {
           background-image: url("/images/png/subscribe/left-gradient-lgg.png");
           background-repeat: no-repeat;
           z-index: -1;
-  
+
           @media (max-width: 1919px) and (min-width: 1368px) {
             width: 100%;
             height: 1889px;
             background-image: url("/images/png/subscribe/left-gradient-lgg.png");
           }
-  
+
           @media (max-width: 1367px) and (min-width: 768px) {
             width: 100%;
             height: 2547px;
             background-image: url("/images/png/subscribe/left-gradient-lgg.png");
           }
-  
+
           @media (max-width: 767px) {
             width: 100%;
             height: 2874px;
             background-image: url("/images/png/subscribe/left-gradient-lgg.png");
           }
         }
-    
+
         &__right-gradient {
           position: absolute;
           right: 0;
@@ -2033,17 +2042,17 @@ p {
           background-image: url("/images/png/subscribe/right-gradient-lgg.png");
           background-repeat: no-repeat;
           z-index: -1;
-  
+
           @media (max-width: 1919px) and (min-width: 1368px) {
             top: 703px;
           }
-  
+
           @media (max-width: 1367px) and (min-width: 768px) {
             width: 408px;
             height: 1024px;
             background-image: url("/images/png/subscribe/right-gradient-lgg.png");
           }
-  
+
           @media (max-width: 767px) {
             width: 375px;
             height: 812px;
@@ -2237,7 +2246,7 @@ p {
               border-bottom: 1px solid rgba(255, 255, 255, 0.5);
               border-radius: 8px 8px 0px 0px;
               display: flex;
-              
+
               align-items: center;
               flex-direction: column;
               // text-align: center;
@@ -2259,29 +2268,47 @@ p {
                 height: 10px;
                 width: 100%;
                 border-radius: 7px 7px 0px 0px;
-                &._1 { 
-                  background: linear-gradient(90deg, #4AE0CE -13.06%, #FFCD9F 65.26%);
+                &._1 {
+                  background: linear-gradient(
+                    90deg,
+                    #4ae0ce -13.06%,
+                    #ffcd9f 65.26%
+                  );
                 }
-                &._2 { 
-                  background: linear-gradient(90deg, #FFCD9F 0%, #FF4A7A 100%);
+                &._2 {
+                  background: linear-gradient(90deg, #ffcd9f 0%, #ff4a7a 100%);
                 }
-                &._3 { 
-                  background: linear-gradient(90deg, #FF4A7A 0%, #BB44CC 100%);
+                &._3 {
+                  background: linear-gradient(90deg, #ff4a7a 0%, #bb44cc 100%);
                 }
-                &._4 { 
-                  background: linear-gradient(90deg, #BB44CC 0%, #8AAEFB 52.08%, #4AE0CE 100%);
+                &._4 {
+                  background: linear-gradient(
+                    90deg,
+                    #bb44cc 0%,
+                    #8aaefb 52.08%,
+                    #4ae0ce 100%
+                  );
                 }
-                &._5 { 
-                  background: linear-gradient(90deg, #BB44CC 0%, #8AAEFB 52.08%, #4AE0CE 100%);
+                &._5 {
+                  background: linear-gradient(
+                    90deg,
+                    #bb44cc 0%,
+                    #8aaefb 52.08%,
+                    #4ae0ce 100%
+                  );
                 }
-                &._6 { 
-                  background: linear-gradient(90deg, #FF4A7A 0%, #BB44CC 100%);
+                &._6 {
+                  background: linear-gradient(90deg, #ff4a7a 0%, #bb44cc 100%);
                 }
-                &._7 { 
-                  background: linear-gradient(90deg, #FFCD9F 0%, #FF4A7A 100%);
+                &._7 {
+                  background: linear-gradient(90deg, #ffcd9f 0%, #ff4a7a 100%);
                 }
-                &._8 { 
-                  background: linear-gradient(90deg, #4AE0CE -13.06%, #FFCD9F 65.26%);
+                &._8 {
+                  background: linear-gradient(
+                    90deg,
+                    #4ae0ce -13.06%,
+                    #ffcd9f 65.26%
+                  );
                 }
                 z-index: 10;
                 @media (max-width: 1919px) and (min-width: 1368px) {
@@ -2426,7 +2453,6 @@ p {
                   background-image: url("/images/svg/subscribe/405-price.svg");
                   width: 163px;
                   height: 65px;
-                  
 
                   @media (max-width: 767px) {
                     background-image: url("/images/svg/subscribe/405-sm-price.svg");
@@ -2483,7 +2509,6 @@ p {
                     width: 62px;
                     margin-left: 82px;
                     margin-top: 34px;
-
                   }
                 }
                 &._270 {
@@ -2496,7 +2521,6 @@ p {
                     width: 62px;
                     margin-left: 75px;
                     margin-top: 34px;
-
                   }
                 }
                 &._540 {
@@ -2510,7 +2534,6 @@ p {
                     width: 62px;
                     margin-left: 71px;
                     margin-top: 34px;
-
                   }
                 }
                 &._225 {
@@ -2550,20 +2573,19 @@ p {
                     width: 62px;
                     margin-left: 71px;
                     margin-top: 34px;
-
                   }
                 }
               }
             }
           }
         }
-        
+
         &__arrow {
           height: 330px;
           display: flex;
           justify-content: space-around;
           margin-top: -5px;
-          &__content{
+          &__content {
             background-image: url("/images/svg/subscribe/arrow.svg");
             background-repeat: no-repeat;
             width: 989px;
@@ -2616,7 +2638,12 @@ p {
           &__button {
             display: flex;
             height: 90px;
-            background: linear-gradient(118.53deg, #FFCD9F 0.97%, #FF4A7A 53.23%, #BB44CC 99.34%);
+            background: linear-gradient(
+              118.53deg,
+              #ffcd9f 0.97%,
+              #ff4a7a 53.23%,
+              #bb44cc 99.34%
+            );
             border-radius: 8px;
             padding: 0 65px 0 65px;
 
@@ -2750,17 +2777,17 @@ p {
             background-image: url("/images/svg/subscribe/title.svg");
             background-repeat: no-repeat;
             background-size: contain;
-  
+
             @media (max-width: 1919px) and (min-width: 1368px) {
               margin-top: 90px;
               width: 760px;
             }
-  
+
             @media (max-width: 1367px) and (min-width: 768px) {
               width: 557px;
               margin-top: 60px;
             }
-  
+
             @media (max-width: 767px) {
               background-image: url("/images/svg/subscribe/title-sm.svg");
               width: 225px;
@@ -2781,50 +2808,54 @@ p {
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
-            &__bar{
+            &__bar {
               height: 8px;
               width: 100%;
-              background: linear-gradient(110.4deg, #FFCD9F 13.55%, #FF4A7A 102.74%, #BB44CC 181.43%);
-              &__circle{
+              background: linear-gradient(
+                110.4deg,
+                #ffcd9f 13.55%,
+                #ff4a7a 102.74%,
+                #bb44cc 181.43%
+              );
+              &__circle {
                 width: 18px;
                 height: 18px;
-                background: #FFFFFF;
+                background: #ffffff;
                 margin-left: 95%;
                 border-radius: 50%;
                 margin-top: -4.5px;
-                
               }
             }
             @media (max-width: 767px) {
               margin-top: 10px;
             }
           }
-          &__countdown{
+          &__countdown {
             display: flex;
             justify-content: space-around;
             padding-top: 14px;
-            font-family: 'Benzin-Bold';
+            font-family: "Benzin-Bold";
             font-size: 28px;
             line-height: 42px;
             letter-spacing: 0.04em;
             text-transform: uppercase;
-            color: #FFFFFF;
+            color: #ffffff;
             > span {
               display: flex;
-              >.sep {
+              > .sep {
                 margin-left: 9px;
                 margin-right: 9px;
               }
             }
-            &__names{
+            &__names {
               display: flex;
               justify-content: space-around;
-              &__block{
+              &__block {
                 width: 250px;
                 display: flex;
                 justify-content: space-around;
-                &__text{
-                  font-family: 'Resist Sans';
+                &__text {
+                  font-family: "Resist Sans";
                   font-style: normal;
                   font-weight: 300;
                   font-size: 18px;
@@ -2834,10 +2865,10 @@ p {
                 }
               }
             }
-            &__plus{
+            &__plus {
               padding-top: 72px;
               display: flex;
-              &__icon{
+              &__icon {
                 width: 28px;
                 height: 28px;
                 margin-bottom: 24px;
@@ -2845,40 +2876,40 @@ p {
 
                 @media (max-width: 767px) {
                   width: 44px;
-                height: 20px;
+                  height: 20px;
                 }
               }
-              &__text{
-                font-family: 'Resist Sans';
+              &__text {
+                font-family: "Resist Sans";
                 font-style: normal;
                 font-weight: 400;
                 font-size: 18px;
                 line-height: 27px;
-                color: #FFFFFF;
+                color: #ffffff;
                 max-width: 480px;
                 padding-left: 24px;
                 margin-top: -10px;
               }
             }
-            &__link{
+            &__link {
               &__button {
                 cursor: pointer;
                 margin-top: 75px;
                 display: flex;
                 align-items: center;
                 inline-size: fit-content;
-      
+
                 @media (max-width: 1919px) and (min-width: 1368px) {
                 }
-      
+
                 @media (max-width: 1367px) and (min-width: 768px) {
                   margin-top: 48px;
                 }
-      
+
                 @media (max-width: 767px) {
                   margin-top: 36px;
                 }
-      
+
                 @media (min-width: 1368px) {
                   &:hover {
                     .app__container__subscribe__content__timer__countdown__link__button__text {
@@ -2891,7 +2922,7 @@ p {
                     }
                   }
                 }
-      
+
                 @media (max-width: 1367px) {
                   &:active {
                     .app__container__guarantee__block__button__text {
@@ -2904,37 +2935,37 @@ p {
                     }
                   }
                 }
-      
+
                 &__text {
                   font-family: "Benzin-Bold";
                   font-size: 32px;
                   letter-spacing: 0.04em;
                   text-transform: uppercase;
                   color: #ffffff;
-      
+
                   @media (max-width: 1367px) and (min-width: 768px) {
                     font-size: 28px;
                   }
-      
+
                   @media (max-width: 767px) {
                     font-size: 16px;
                   }
                 }
-      
+
                 &__arrow {
                   margin-left: 30px;
                   width: 36px;
                   height: 36px;
-      
+
                   @media (max-width: 1919px) and (min-width: 1368px) {
                   }
-      
+
                   @media (max-width: 1367px) and (min-width: 768px) {
                     margin-left: 20px;
                     width: 28px;
                     height: 28px;
                   }
-      
+
                   @media (max-width: 767px) {
                     margin-left: 12px;
                     width: 16px;
@@ -2945,7 +2976,6 @@ p {
             }
           }
         }
-        
       }
     }
 

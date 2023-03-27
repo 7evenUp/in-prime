@@ -17,7 +17,7 @@ const categories = [
         top: "113px",
       },
       sm: {
-        left: "-64px",
+        left: "-50px",
         top: "232px",
       },
     },
@@ -40,15 +40,15 @@ const categories = [
         top: "5px",
       },
       lg: {
-        left: "341px",
-        top: "-10px",
+        left: "338px",
+        top: "-11px",
       },
       md: {
-        left: "183px",
+        left: "178px",
         top: "29px",
       },
       sm: {
-        left: "69px",
+        left: "87px",
         top: "34px",
       },
     },
@@ -79,8 +79,8 @@ const categories = [
         top: "9px",
       },
       sm: {
-        left: "224px",
-        top: "10px",
+        left: "235px",
+        top: "8px",
       },
     },
     description:
@@ -98,19 +98,22 @@ const categories = [
     title: "Трансляции по заработку ",
     cords: {
       lgg: {
-        left: "1173px",
-        top: "93px",
+        left: "1064px",
+        top: "91px",
+        width: '350px'
       },
       lg: {
-        left: "1048px",
-        top: "82px",
+        left: "977px",
+        top: "78px",
+        width: '250px'
       },
       md: {
-        left: "608px",
+        left: "497px",
         top: "85px",
+        width: '283px'
       },
       sm: {
-        left: "248px",
+        left: "209px",
         top: "121px",
       },
     },
@@ -141,8 +144,8 @@ const categories = [
         top: "228px",
       },
       sm: {
-        left: "207px",
-        top: "226px",
+        left: "179px",
+        top: "228px",
       },
     },
     description:
@@ -172,8 +175,8 @@ const categories = [
         top: "313px",
       },
       sm: {
-        left: "136px",
-        top: "309px",
+        left: "90px",
+        top: "310px",
       },
     },
     description:
@@ -191,8 +194,8 @@ const categories = [
     title: "Гарантия окупаемости подписки",
     cords: {
       lgg: {
-        left: "260px",
-        top: "466px",
+        left: "256px",
+        top: "465px",
         fontSize: "1px",
       },
       lg: {
@@ -200,12 +203,12 @@ const categories = [
         top: "409px",
       },
       md: {
-        left: "63px",
-        top: "347px",
+        left: "68px",
+        top: "349px",
       },
       sm: {
-        left: "-55px",
-        top: "350px",
+        left: "-49px",
+        top: "351px",
       },
     },
     description:
@@ -235,7 +238,7 @@ const categories = [
         top: "269px",
       },
       sm: {
-        left: "-10px",
+        left: "-12px",
         top: "115px",
       },
     },
@@ -278,7 +281,7 @@ function Features(props) {
               }}
               key={index}
             >
-              <div className="features-category__title ">{elem.title}</div>
+              <div className="features-category__title "style={{width: elem.title == 'Трансляции по заработку ' ? elem.cords[props.resolution].width : 'auto'}}>{elem.title}</div>
               <div
                 className={`features-category__circle ${
                   index == mapIndex || index == hovered ? "selected" : ""
@@ -286,10 +289,11 @@ function Features(props) {
                 style={{
                   background:
                     index != mapIndex && index != hovered ? elem.gradient : "",
+                    transition:'0.5s'
                 }}
                 // onClick={() => toggle(index)}
-                onMouseEnter={() => {setHovered(index); toggle(index)}}
-                // onMouseLeave={() => setHovered(-1)}
+                onMouseEnter={() => { toggle(index)}}
+                onMouseLeave={() => {toggle(-1)}}
               ></div>
               {index == mapIndex ? (
                 <div
@@ -317,10 +321,11 @@ function Features(props) {
                 style={{
                   background:
                     index != mapIndex && index != hovered ? elem.gradient : "",
+                    transition:'0.5s'
                 }}
                 // onClick={() => toggle(index)}
-                onMouseEnter={() => {setHovered(index); toggle(index)}}
-                // onMouseLeave={() => setHovered(-1)}
+                onMouseEnter={() => {toggle(index)}}
+                onMouseLeave={() => {toggle(-1)}}
               ></div>
               {index == mapIndex ? (
                 <div
