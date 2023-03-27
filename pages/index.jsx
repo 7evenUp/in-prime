@@ -188,12 +188,10 @@ export default function Home(props) {
             </div>
             <Categories />
             <div className="app__container__earn__title">
-              Зарабатывайте на криптовалюте
+              Зарабатывай <br /> на криптовалюте
             </div>
             <div className="app__container__earn__description">
-              Prime - это комплексная подписка от команды Crypton, которая
-              включает все необходимые инструменты, сервисы, гайды и поддержку
-              для экономии вашего времени, развития и обучения.
+            Prime – приватное комьюнити с авторским контентом по заработку в криптовалюте. Команда из 20 человек отбирает лучшие события, подготавливает детальные инструкции и помогает получить первую прибыль
             </div>
           </div>
 
@@ -210,22 +208,22 @@ export default function Home(props) {
                 <div className="app__container__benefits__points__col__point">
                   <div className="app__container__benefits__points__col__point__plus"></div>
                   <div className="app__container__benefits__points__col__point__text">
-                    Структурированная информация
+                    ВЫЖИМКА ЛУЧШИХ СОБЫТИЙ РЫНКА
                   </div>
                 </div>
                 <div className="app__container__benefits__points__col__point">
                   <div className="app__container__benefits__points__col__point__plus"></div>
                   <div className="app__container__benefits__points__col__point__text">
-                    Экономия
+                    ПОДРОБНЫЕ 
                     <br />
-                    времени
+                    ИНСТРУКЦИИ
                   </div>
                 </div>
                 <div className="app__container__benefits__points__col__point">
                   <div className="app__container__benefits__points__col__point__plus"></div>
                   <div className="app__container__benefits__points__col__point__text">
-                    Для опытных
-                    <br /> и новичков
+                    СТРУКТУРИРОВАННАЯ 
+                    <br /> ИНФОРМАЦИЯ
                   </div>
                 </div>
               </div>
@@ -234,19 +232,19 @@ export default function Home(props) {
                 <div className="app__container__benefits__points__col__point">
                   <div className="app__container__benefits__points__col__point__plus"></div>
                   <div className="app__container__benefits__points__col__point__text">
-                    Доступный язык изложения
+                    ЭКОНОМИЯ ВРЕМЕНИ
                   </div>
                 </div>
                 <div className="app__container__benefits__points__col__point">
                   <div className="app__container__benefits__points__col__point__plus"></div>
                   <div className="app__container__benefits__points__col__point__text">
-                    Огромное количество возможностей
+                    ДЛЯ ОПЫТНЫХ И НОВИЧКОВ
                   </div>
                 </div>
                 <div className="app__container__benefits__points__col__point">
                   <div className="app__container__benefits__points__col__point__plus"></div>
                   <div className="app__container__benefits__points__col__point__text">
-                    Готовность к любым исходам на рынке
+                    КОМЬЮНИТИ ЕДИНОМЫШЛЕННИКОВ
                   </div>
                 </div>
               </div>
@@ -273,8 +271,7 @@ export default function Home(props) {
                 Все возможности Prime
               </div>
               <div className="app__container__video-block__description-block__description">
-                Смотрите наш видеоролик, где мы подробно объясняем, что вы
-                получите после приобретения подписки и как этим пользоваться
+                Узнай больше о том, что тебя ждет в Prime, после приобретения подписки!
               </div>
             </div>
           </div>
@@ -321,7 +318,7 @@ export default function Home(props) {
                   Павел Сычев
                 </div>
                 <div className="app__container__about-ceo__ceo__description__job">
-                  Основатель экосистемы Crypton
+                  Основатель экосистемы <a href="https://crypton.xyz">Crypton </a>
                 </div>
                 <div className="app__container__about-ceo__ceo__description__channels">
                   <div className="app__container__about-ceo__ceo__description__channels__title">

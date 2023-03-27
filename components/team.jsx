@@ -72,13 +72,13 @@ function Team(props) {
           aleksey: {
             cord: { left: 1062, top: 357 },
           },
-          jeka: {
+          bogdan2: {
             cord: { left: 1142, top: 579 },
           },
           eduard: {
             cord: { left: 833, top: 470 },
           },
-          aidar: {
+          iren: {
             cord: { left: 538, top: 579 },
           },
           daniil: {
@@ -124,7 +124,7 @@ function Team(props) {
           eduard: {
             cord: { left: 800, top: 470 },
           },
-          aidar: {
+          iren: {
             cord: { left: 573, top: 579 },
           },
           daniil: {
@@ -173,7 +173,7 @@ function Team(props) {
           eduard: {
             cord: { left: 784, top: 515 },
           },
-          aidar: {
+          iren: {
             cord: { left: 537, top: 579 },
           },
           daniil: {
@@ -231,7 +231,7 @@ function Team(props) {
           eduard: {
             cord: { left: 752, top: 515 },
           },
-          aidar: {
+          iren: {
             cord: { left: 517, top: 579 },
           },
           daniil: {
@@ -286,7 +286,7 @@ function Team(props) {
           eduard: {
             cord: { left: 792, top: 504 },
           },
-          aidar: {
+          iren: {
             cord: { left: 537, top: 579 },
           },
           daniil: {
@@ -344,7 +344,7 @@ function Team(props) {
           eduard: {
             cord: { left: 711, top: 504 },
           },
-          aidar: {
+          iren: {
             cord: { left: 505, top: 579 },
           },
           daniil: {
@@ -399,7 +399,7 @@ function Team(props) {
           eduard: {
             cord: { left: 821, top: 471 },
           },
-          aidar: {
+          iren: {
             cord: { left: 639, top: 579 },
           },
           daniil: {
@@ -451,7 +451,7 @@ function Team(props) {
           eduard: {
             cord: { left: 902, top: 504 },
           },
-          aidar: {
+          iren: {
             cord: { left: 538, top: 579 },
           },
           daniil: {
@@ -503,7 +503,7 @@ function Team(props) {
           eduard: {
             cord: { left: 792, top: 471 },
           },
-          aidar: {
+          iren: {
             cord: { left: 591, top: 579 },
           },
           daniil: {
@@ -558,7 +558,7 @@ function Team(props) {
           eduard: {
             cord: { left: 852, top: 515 },
           },
-          aidar: {
+          iren: {
             cord: { left: 670, top: 416 },
           },
           daniil: {
@@ -581,64 +581,64 @@ function Team(props) {
           },
         },
       },
-      // {
-      //   size: {
-      //     default: 120,
-      //     selected: 240,
-      //   },
-      //   default_cord: {
-      //     left: 493,
-      //     top: 573,
-      //   },
-      //   selected_cord: {
-      //     left: 442,
-      //     top: 459,
-      //   },
-      //   description: {
-      //     name: "Айдар",
-      //     role: "Куратор Airdrops и акций",
-      //   },
-      //   img: "aidar",
-      //   change_other: {
-      //     pavel: {
-      //       size: 150,
-      //       cord: { left: 519, top: 237 },
-      //     },
-      //     vadim: {
-      //       cord: { left: 234, top: 182 },
-      //     },
-      //     artem: {
-      //       cord: { left: 725, top: 36 },
-      //     },
-      //     aleksey: {
-      //       cord: { left: 1134, top: 332 },
-      //     },
-      //     daniil: {
-      //       cord: { left: 218, top: 471 },
-      //     },
-      //     ivan: {
-      //       cord: { left: 793, top: 224 },
-      //     },
-      //     karina: {
-      //       cord: { left: 977, top: 0 },
-      //     },
-      //     bogdan: {
-      //       cord: { left: 417, top: 30 },
-      //     },
-      //     sergey: {
-      //       cord: { left: 40, top: 312 },
-      //     },
-      //     nikita: {
-      //       cord: { left: 0, top: 545 },
-      //     },
-      //     jeka: {
-      //       cord: { left: 1074, top: 579 },
-      //     },
-      //     eduard: {
-      //       cord: { left: 924, top: 372 },
-      //     },
-      //   },
-      // },
+      {
+        size: {
+          default: 120,
+          selected: 240,
+        },
+        default_cord: {
+          left: 493,
+          top: 573,
+        },
+        selected_cord: {
+          left: 442,
+          top: 459,
+        },
+        description: {
+          name: "Ирен",
+          role: "Дизайнер",
+        },
+        img: "iren",
+        change_other: {
+          pavel: {
+            size: 150,
+            cord: { left: 519, top: 237 },
+          },
+          vadim: {
+            cord: { left: 234, top: 182 },
+          },
+          artem: {
+            cord: { left: 725, top: 36 },
+          },
+          aleksey: {
+            cord: { left: 1134, top: 332 },
+          },
+          daniil: {
+            cord: { left: 218, top: 471 },
+          },
+          ivan: {
+            cord: { left: 793, top: 224 },
+          },
+          karina: {
+            cord: { left: 977, top: 0 },
+          },
+          bogdan: {
+            cord: { left: 417, top: 30 },
+          },
+          sergey: {
+            cord: { left: 40, top: 312 },
+          },
+          nikita: {
+            cord: { left: 0, top: 545 },
+          },
+          bogdan2: {
+            cord: { left: 1074, top: 579 },
+          },
+          eduard: {
+            cord: { left: 924, top: 372 },
+          },
+        },
+      },
       {
         size: {
           default: 150,
@@ -671,7 +671,7 @@ function Team(props) {
           aleksey: {
             cord: { left: 1126, top: 327 },
           },
-          aidar: {
+          iren: {
             cord: { left: 455, top: 579 },
           },
           daniil: {
@@ -692,7 +692,7 @@ function Team(props) {
           nikita: {
             cord: { left: 0, top: 545 },
           },
-          jeka: {
+          bogdan2: {
             cord: { left: 1106, top: 579 },
           },
         },
@@ -729,7 +729,7 @@ function Team(props) {
           aleksey: {
             cord: { left: 1034, top: 405 },
           },
-          aidar: {
+          iren: {
             cord: { left: 539, top: 579 },
           },
           daniil: {
@@ -750,7 +750,7 @@ function Team(props) {
           nikita: {
             cord: { left: 0, top: 545 },
           },
-          jeka: {
+          bogdan2: {
             cord: { left: 1162, top: 579 },
           },
           eduard: {
@@ -790,7 +790,7 @@ function Team(props) {
           aleksey: {
             cord: { left: 1034, top: 405 },
           },
-          aidar: {
+          iren: {
             cord: { left: 458, top: 579 },
           },
           daniil: {
@@ -811,7 +811,7 @@ function Team(props) {
           nikita: {
             cord: { left: 0, top: 545 },
           },
-          jeka: {
+          bogdan2: {
             cord: { left: 1142, top: 579 },
           },
           eduard: {
@@ -833,10 +833,10 @@ function Team(props) {
           top: 459,
         },
         description: {
-          name: "Евгений",
-          role: "Куратор NFT",
+          name: "Богдан",
+          role: "Эксперт по трейдингу",
         },
-        img: "jeka",
+        img: "bogdan2",
         change_other: {
           pavel: {
             size: 150,
@@ -851,7 +851,7 @@ function Team(props) {
           aleksey: {
             cord: { left: 1027, top: 282 },
           },
-          aidar: {
+          iren: {
             cord: { left: 451, top: 579 },
           },
           daniil: {
@@ -914,13 +914,13 @@ function Team(props) {
           aleksey: {
             cord: { left: 1062, top: 357 },
           },
-          jeka: {
+          bogdan2: {
             cord: { left: 1142, top: 579 },
           },
           eduard: {
             cord: { left: 833, top: 470 },
           },
-          aidar: {
+          iren: {
             cord: { left: 538, top: 579 },
           },
           daniil: {
@@ -966,7 +966,7 @@ function Team(props) {
           eduard: {
             cord: { left: 800, top: 470 },
           },
-          aidar: {
+          iren: {
             cord: { left: 573, top: 579 },
           },
           daniil: {
@@ -1015,7 +1015,7 @@ function Team(props) {
           eduard: {
             cord: { left: 784, top: 515 },
           },
-          aidar: {
+          iren: {
             cord: { left: 537, top: 579 },
           },
           daniil: {
@@ -1073,7 +1073,7 @@ function Team(props) {
           eduard: {
             cord: { left: 752, top: 515 },
           },
-          aidar: {
+          iren: {
             cord: { left: 517, top: 579 },
           },
           daniil: {
@@ -1128,7 +1128,7 @@ function Team(props) {
           eduard: {
             cord: { left: 792, top: 504 },
           },
-          aidar: {
+          iren: {
             cord: { left: 537, top: 579 },
           },
           daniil: {
@@ -1186,7 +1186,7 @@ function Team(props) {
           eduard: {
             cord: { left: 711, top: 504 },
           },
-          aidar: {
+          iren: {
             cord: { left: 505, top: 579 },
           },
           daniil: {
@@ -1241,7 +1241,7 @@ function Team(props) {
           eduard: {
             cord: { left: 821, top: 471 },
           },
-          aidar: {
+          iren: {
             cord: { left: 639, top: 579 },
           },
           daniil: {
@@ -1293,7 +1293,7 @@ function Team(props) {
           eduard: {
             cord: { left: 902, top: 504 },
           },
-          aidar: {
+          iren: {
             cord: { left: 538, top: 579 },
           },
           daniil: {
@@ -1345,7 +1345,7 @@ function Team(props) {
           eduard: {
             cord: { left: 792, top: 471 },
           },
-          aidar: {
+          iren: {
             cord: { left: 591, top: 579 },
           },
           daniil: {
@@ -1400,7 +1400,7 @@ function Team(props) {
           eduard: {
             cord: { left: 852, top: 515 },
           },
-          aidar: {
+          iren: {
             cord: { left: 670, top: 416 },
           },
           daniil: {
@@ -1440,7 +1440,7 @@ function Team(props) {
           name: "Айдар",
           role: "Куратор Airdrops и акций",
         },
-        img: "aidar",
+        img: "iren",
         change_other: {
           pavel: {
             size: 150,
@@ -1473,7 +1473,7 @@ function Team(props) {
           nikita: {
             cord: { left: 0, top: 545 },
           },
-          jeka: {
+          bogdan2: {
             cord: { left: 1074, top: 579 },
           },
           eduard: {
@@ -1513,7 +1513,7 @@ function Team(props) {
           aleksey: {
             cord: { left: 1126, top: 327 },
           },
-          aidar: {
+          iren: {
             cord: { left: 455, top: 579 },
           },
           daniil: {
@@ -1534,7 +1534,7 @@ function Team(props) {
           nikita: {
             cord: { left: 0, top: 545 },
           },
-          jeka: {
+          bogdan2: {
             cord: { left: 1106, top: 579 },
           },
         },
@@ -1571,7 +1571,7 @@ function Team(props) {
           aleksey: {
             cord: { left: 1034, top: 405 },
           },
-          aidar: {
+          iren: {
             cord: { left: 539, top: 579 },
           },
           daniil: {
@@ -1592,7 +1592,7 @@ function Team(props) {
           nikita: {
             cord: { left: 0, top: 545 },
           },
-          jeka: {
+          bogdan2: {
             cord: { left: 1162, top: 579 },
           },
           eduard: {
@@ -1632,7 +1632,7 @@ function Team(props) {
           aleksey: {
             cord: { left: 1034, top: 405 },
           },
-          aidar: {
+          iren: {
             cord: { left: 458, top: 579 },
           },
           daniil: {
@@ -1653,7 +1653,7 @@ function Team(props) {
           nikita: {
             cord: { left: 0, top: 545 },
           },
-          jeka: {
+          bogdan2: {
             cord: { left: 1142, top: 579 },
           },
           eduard: {
@@ -1678,7 +1678,7 @@ function Team(props) {
           name: "Евгений",
           role: "Куратор NFT",
         },
-        img: "jeka",
+        img: "bogdan2",
         change_other: {
           pavel: {
             size: 150,
@@ -1693,7 +1693,7 @@ function Team(props) {
           aleksey: {
             cord: { left: 1027, top: 282 },
           },
-          aidar: {
+          iren: {
             cord: { left: 451, top: 579 },
           },
           daniil: {
@@ -1756,13 +1756,13 @@ function Team(props) {
           aleksey: {
             cord: { left: 1062, top: 357 },
           },
-          jeka: {
+          bogdan2: {
             cord: { left: 1142, top: 579 },
           },
           eduard: {
             cord: { left: 833, top: 470 },
           },
-          aidar: {
+          iren: {
             cord: { left: 538, top: 579 },
           },
           daniil: {
@@ -1808,7 +1808,7 @@ function Team(props) {
           eduard: {
             cord: { left: 800, top: 470 },
           },
-          aidar: {
+          iren: {
             cord: { left: 573, top: 579 },
           },
           daniil: {
@@ -1857,7 +1857,7 @@ function Team(props) {
           eduard: {
             cord: { left: 784, top: 515 },
           },
-          aidar: {
+          iren: {
             cord: { left: 537, top: 579 },
           },
           daniil: {
@@ -1915,7 +1915,7 @@ function Team(props) {
           eduard: {
             cord: { left: 752, top: 515 },
           },
-          aidar: {
+          iren: {
             cord: { left: 517, top: 579 },
           },
           daniil: {
@@ -1970,7 +1970,7 @@ function Team(props) {
           eduard: {
             cord: { left: 792, top: 504 },
           },
-          aidar: {
+          iren: {
             cord: { left: 537, top: 579 },
           },
           daniil: {
@@ -2028,7 +2028,7 @@ function Team(props) {
           eduard: {
             cord: { left: 711, top: 504 },
           },
-          aidar: {
+          iren: {
             cord: { left: 505, top: 579 },
           },
           daniil: {
@@ -2083,7 +2083,7 @@ function Team(props) {
           eduard: {
             cord: { left: 821, top: 471 },
           },
-          aidar: {
+          iren: {
             cord: { left: 639, top: 579 },
           },
           daniil: {
@@ -2135,7 +2135,7 @@ function Team(props) {
           eduard: {
             cord: { left: 902, top: 504 },
           },
-          aidar: {
+          iren: {
             cord: { left: 538, top: 579 },
           },
           daniil: {
@@ -2187,7 +2187,7 @@ function Team(props) {
           eduard: {
             cord: { left: 792, top: 471 },
           },
-          aidar: {
+          iren: {
             cord: { left: 591, top: 579 },
           },
           daniil: {
@@ -2242,7 +2242,7 @@ function Team(props) {
           eduard: {
             cord: { left: 852, top: 515 },
           },
-          aidar: {
+          iren: {
             cord: { left: 670, top: 416 },
           },
           daniil: {
@@ -2282,7 +2282,7 @@ function Team(props) {
           name: "Айдар",
           role: "Куратор Airdrops и акций",
         },
-        img: "aidar",
+        img: "iren",
         change_other: {
           pavel: {
             size: 150,
@@ -2315,7 +2315,7 @@ function Team(props) {
           nikita: {
             cord: { left: 0, top: 545 },
           },
-          jeka: {
+          bogdan2: {
             cord: { left: 1074, top: 579 },
           },
           eduard: {
@@ -2355,7 +2355,7 @@ function Team(props) {
           aleksey: {
             cord: { left: 1126, top: 327 },
           },
-          aidar: {
+          iren: {
             cord: { left: 455, top: 579 },
           },
           daniil: {
@@ -2376,7 +2376,7 @@ function Team(props) {
           nikita: {
             cord: { left: 0, top: 545 },
           },
-          jeka: {
+          bogdan2: {
             cord: { left: 1106, top: 579 },
           },
         },
@@ -2413,7 +2413,7 @@ function Team(props) {
           aleksey: {
             cord: { left: 1034, top: 405 },
           },
-          aidar: {
+          iren: {
             cord: { left: 539, top: 579 },
           },
           daniil: {
@@ -2434,7 +2434,7 @@ function Team(props) {
           nikita: {
             cord: { left: 0, top: 545 },
           },
-          jeka: {
+          bogdan2: {
             cord: { left: 1162, top: 579 },
           },
           eduard: {
@@ -2474,7 +2474,7 @@ function Team(props) {
           aleksey: {
             cord: { left: 1034, top: 405 },
           },
-          aidar: {
+          iren: {
             cord: { left: 458, top: 579 },
           },
           daniil: {
@@ -2495,7 +2495,7 @@ function Team(props) {
           nikita: {
             cord: { left: 0, top: 545 },
           },
-          jeka: {
+          bogdan2: {
             cord: { left: 1142, top: 579 },
           },
           eduard: {
@@ -2520,7 +2520,7 @@ function Team(props) {
           name: "Евгений",
           role: "Куратор NFT",
         },
-        img: "jeka",
+        img: "bogdan2",
         change_other: {
           pavel: {
             size: 150,
@@ -2535,7 +2535,7 @@ function Team(props) {
           aleksey: {
             cord: { left: 1027, top: 282 },
           },
-          aidar: {
+          iren: {
             cord: { left: 451, top: 579 },
           },
           daniil: {
@@ -2598,13 +2598,13 @@ function Team(props) {
           aleksey: {
             cord: { left: 16, top: 492 },
           },
-          jeka: {
+          bogdan2: {
             cord: { left: 0, top: 611 },
           },
           eduard: {
             cord: { left: 129, top: 407 },
           },
-          aidar: {
+          iren: {
             cord: { left: 0, top: 370 },
           },
           daniil: {
@@ -2650,7 +2650,7 @@ function Team(props) {
           eduard: {
             cord: { left: 23, top: 401 },
           },
-          aidar: {
+          iren: {
             cord: { left: 0, top: 274 },
           },
           daniil: {
@@ -2699,7 +2699,7 @@ function Team(props) {
           eduard: {
             cord: { left: 25, top: 456 },
           },
-          aidar: {
+          iren: {
             cord: { left: 0, top: 274 },
           },
           daniil: {
@@ -2760,7 +2760,7 @@ function Team(props) {
           eduard: {
             cord: { left: 14, top: 448 },
           },
-          aidar: {
+          iren: {
             cord: { left: 0, top: 351 },
           },
           daniil: {
@@ -2815,7 +2815,7 @@ function Team(props) {
           eduard: {
             cord: { left: 0, top: 385 },
           },
-          aidar: {
+          iren: {
             cord: { left: 16, top: 269 },
           },
           daniil: {
@@ -2873,7 +2873,7 @@ function Team(props) {
           eduard: {
             cord: { left: 19, top: 387 },
           },
-          aidar: {
+          iren: {
             cord: { left: 0, top: 265 },
           },
           daniil: {
@@ -2891,7 +2891,7 @@ function Team(props) {
           karina: {
             cord: { left: 257, top: 493 },
           },
-          jeka: {
+          bogdan2: {
             cord: { left: 0, top: 512 },
           },
         },
@@ -2931,7 +2931,7 @@ function Team(props) {
           eduard: {
             cord: { left: 11, top: 416 },
           },
-          aidar: {
+          iren: {
             cord: { left: 137, top: 203 },
           },
           daniil: {
@@ -2983,7 +2983,7 @@ function Team(props) {
           eduard: {
             cord: { left: 12, top: 426 },
           },
-          aidar: {
+          iren: {
             cord: { left: 86, top: 342 },
           },
           daniil: {
@@ -3038,7 +3038,7 @@ function Team(props) {
           eduard: {
             cord: { left: 23, top: 401 },
           },
-          aidar: {
+          iren: {
             cord: { left: 0, top: 274 },
           },
           daniil: {
@@ -3093,7 +3093,7 @@ function Team(props) {
           eduard: {
             cord: { left: 6, top: 409 },
           },
-          aidar: {
+          iren: {
             cord: { left: 0, top: 261 },
           },
           ivan: {
@@ -3130,7 +3130,7 @@ function Team(props) {
           name: "Айдар",
           role: "Куратор Airdrops и акций",
         },
-        img: "aidar",
+        img: "iren",
         change_other: {
           pavel: {
             size: 78,
@@ -3163,7 +3163,7 @@ function Team(props) {
           nikita: {
             cord: { left: 0, top: 0 },
           },
-          jeka: {
+          bogdan2: {
             cord: { left: 0, top: 598 },
           },
           eduard: {
@@ -3203,7 +3203,7 @@ function Team(props) {
           aleksey: {
             cord: { left: 104, top: 537 },
           },
-          aidar: {
+          iren: {
             cord: { left: -2, top: 299 },
           },
           daniil: {
@@ -3225,7 +3225,7 @@ function Team(props) {
           nikita: {
             cord: { left: 0, top: 0 },
           },
-          jeka: {
+          bogdan2: {
             cord: { left: 0, top: 598 },
           },
         },
@@ -3262,7 +3262,7 @@ function Team(props) {
           aleksey: {
             cord: { left: 101, top: 551 },
           },
-          aidar: {
+          iren: {
             cord: { left: 78, top: 215 },
           },
           daniil: {
@@ -3281,7 +3281,7 @@ function Team(props) {
           nikita: {
             cord: { left: 0, top: 0 },
           },
-          jeka: {
+          bogdan2: {
             cord: { left: 0, top: 607 },
           },
           eduard: {
@@ -3321,7 +3321,7 @@ function Team(props) {
           aleksey: {
             cord: { left: 76, top: 497 },
           },
-          aidar: {
+          iren: {
             cord: { left: 0, top: 274 },
           },
           daniil: {
@@ -3342,7 +3342,7 @@ function Team(props) {
           nikita: {
             cord: { left: 0, top: 0 },
           },
-          jeka: {
+          bogdan2: {
             cord: { left: 0, top: 598 },
           },
           eduard: {
@@ -3367,7 +3367,7 @@ function Team(props) {
           name: "Евгений",
           role: "Куратор NFT",
         },
-        img: "jeka",
+        img: "bogdan2",
         change_other: {
           pavel: {
             size: 78,
@@ -3382,7 +3382,7 @@ function Team(props) {
           aleksey: {
             cord: { left: 107, top: 460 },
           },
-          aidar: {
+          iren: {
             cord: { left: 13, top: 266 },
           },
           daniil: {

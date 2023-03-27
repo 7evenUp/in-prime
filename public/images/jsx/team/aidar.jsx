@@ -1,6 +1,6 @@
 import React from "react";
 
-function Aidar(props) {
+function iren(props) {
   return (
     <svg
       width="120"
@@ -45,4 +45,4 @@ function Aidar(props) {
   );
 }
 
-export default Aidar;
+export default iren;

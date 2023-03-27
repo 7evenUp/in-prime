@@ -1,6 +1,6 @@
 import React from "react";
 
-function Jeka(props) {
+function bogdan2(props) {
   return (
     <svg
       width="120"
@@ -51,4 +51,4 @@ function Jeka(props) {
   );
 }
 
-export default Jeka;
+export default bogdan2;

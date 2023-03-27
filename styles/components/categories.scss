@@ -326,35 +326,35 @@
   }
 
   &__node {
-    width: 61px;
-    height: 61px;
+    width: 140px;
+    height: 140px;
     position: absolute;
-    right: 52px;
-    bottom: 50px;
+    right: 23px;
+    bottom: 28px;
 
     path {
       animation: node 6s infinite;
     }
 
     @media (max-width: 1919px) and (min-width: 1368px) {
-      width: 43px;
-      height: 44px;
-      right: 35px;
-      top: 219px;
+      width: 80px;
+      height: 80px;
+      right: 26px;
+      top: 199px;
     }
 
     @media (max-width: 1367px) and (min-width: 768px) {
-      width: 56px;
-      height: 56px;
-      right: 49px;
-      top: 284px;
+      width: 100px;
+      height: 100px;
+      right: 33px;
+      top: 254px;
     }
 
     @media (max-width: 767px) {
-      width: 35px;
-      height: 36px;
-      left: 186px;
-      top: 183px;
+      width: 65px;
+      height: 65px;
+      left: 166px;
+      top: 163px;
     }
   }
 
