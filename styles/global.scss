@@ -2853,12 +2853,10 @@ p {
               display: flex;
               justify-content: space-around;
               &__block {
-                width: 210px;
-                
+                margin-left: 13px;
                 display: flex;
-                // justify-content: space-between; 
                 &__text {
-                  padding-right: 40px;
+                  width: 80px;
                   font-family: "Resist Sans";
                   font-style: normal;
                   font-weight: 300;
