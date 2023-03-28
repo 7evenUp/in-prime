@@ -125,6 +125,22 @@ export default function Home(props) {
     setCurrentY(moreInfo[resolution]);
   }
 
+  const [scrollY, setScrollY] = React.useState(0)
+
+  const onScroll = React.useCallback(event => {
+    const { pageYOffset, scrollY } = window;
+    setScrollY(window.pageYOffset);
+  }, []);
+
+  useEffect(() => {
+    //add eventlistener to window
+    window.addEventListener("scroll", onScroll, { passive: true });
+    // remove event on unmount to prevent a memory leak with the cleanup
+    return () => {
+      window.removeEventListener("scroll", onScroll, { passive: true });
+    }
+  }, []);
+
   return (
     <>
       <div
@@ -159,7 +175,7 @@ export default function Home(props) {
               referral={referral}
             />
 
-            <div className="app__container__earn__header">
+            <div className="app__container__earn__header" style={scrollY ? {opacity:1} : {}}>
               <div className="app__container__earn__header__logo"></div>
               <div className="menu-sub-block">
                 <a
