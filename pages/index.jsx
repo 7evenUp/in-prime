@@ -174,8 +174,8 @@ export default function Home(props) {
               setCurrentY={setCurrentY}
               referral={referral}
             />
-
-            <div className="app__container__earn__header" style={scrollY ? {opacity:1} : {}}>
+            <div className="app__container__earn__header-bg" style={scrollY ? {background: '#131313'} : {}}></div>
+            <div className="app__container__earn__header" >
               <div className="app__container__earn__header__logo"></div>
               <div className="menu-sub-block">
                 <a
