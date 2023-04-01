@@ -8,6 +8,8 @@ import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import ToggleLeft from "/public/images/jsx/icons/toggle-left";
 import ToggleRight from "/public/images/jsx/icons/toggle-right";
 
+const gradients = ["linear-gradient(90deg, #BB44CC 0%, #8AAEFB 52.08%, #4AE0CE 100%)","linear-gradient(90deg, #FF4A7A 0%, #BB44CC 100%)","linear-gradient(90deg, #FFCD9F 0%, #FF4A7A 100%)"]
+
 const examples = {
   февраль: [
     {
@@ -18,7 +20,6 @@ const examples = {
       condition: "Пройти регистрацию, выполнить задания с подписками.",
       resources: "10 минут на 1 аккаунт, прогретый кошелёк и Twitter.",
       reportUrl: "crypton.xyz",
-      gradient: "linear-gradient(90deg, #BB44CC 0%, #8AAEFB 52.08%, #4AE0CE 100%)",
     },
     {
       title: "Puma",
@@ -29,7 +30,6 @@ const examples = {
         "Пройти регистрацию в розыгрыше, выполнить задания, иметь 0.05 $ETH на кошельке для участия в розыгрыше. ",
       resources: "10 минут на 1 аккаунт, прогретый кошелёк.",
       reportUrl: "crypton.xyz",
-      gradient: "linear-gradient(90deg, #FF4A7A 0%, #BB44CC 100%)",
     },
     {
       title: "Modern Muse",
@@ -39,7 +39,6 @@ const examples = {
       condition: "Пройти регистрацию в розыгрыше, выполнить задания с подписками.",
       resources: "10 минут на 1 аккаунт, прогретый кошелёк и Twitter.",
       reportUrl: "crypton.xyz",
-      gradient: "linear-gradient(90deg, #FFCD9F 0%, #FF4A7A 100%)",
     },
     {
       title: "Ghost Boy",
@@ -49,7 +48,6 @@ const examples = {
       condition: "Проявлять активность в социальных сетях проекта, писать треды в Twitter на тему проекта, участвовать в розыгрышах. ",
       resources: "~5 минут–6 часов на 1 аккаунт",
       reportUrl: "crypton.xyz",
-      gradient: "linear-gradient(90deg, #BB44CC 0%, #8AAEFB 52.08%, #4AE0CE 100%)",
     },    
     {
       title: "Uniwhale",
@@ -59,7 +57,6 @@ const examples = {
       condition: "Протестировать протокол, выполнить задания на DeQuest и иметь BAB-токен. Участники могли бесплатно заминтить Uniwhale Genesis Pass и продать его.",
       resources: "40 минут на 1 аккаунт",
       reportUrl: "crypton.xyz",
-      gradient: "linear-gradient(90deg, #FF4A7A 0%, #BB44CC 100%)",
     },    
     {
       title: "Gleam & Quest3 от IF & Pine\nProtocol",
@@ -69,7 +66,6 @@ const examples = {
       condition: "Заполнить gleam-форму и выполнить задания на площадке Quest3. Шансы на победу были высокими.",
       resources: "10 минут на 1 аккаунт.",
       reportUrl: "crypton.xyz",
-      gradient: "linear-gradient(90deg, #FFCD9F 0%, #FF4A7A 100%)",
     },    
     {
       title: "DigiDaigaku Dragons Superbowl",
@@ -79,7 +75,6 @@ const examples = {
       condition: "Следить за первым днем Super Bowl и словить QR-код для бесплатного минта. Окно было в минуту, можно было спокойно заминтить 1 NFT.",
       resources: "2 часа на 1 аккаунт",
       reportUrl: "crypton.xyz",
-      gradient: "linear-gradient(90deg, #BB44CC 0%, #8AAEFB 52.08%, #4AE0CE 100%)",
     },    
     {
       title: "Planet COCO",
@@ -89,7 +84,6 @@ const examples = {
       condition: "Зарегистрироваться.",
       resources: "10 минут на 1 аккаунт",
       reportUrl: "crypton.xyz",
-      gradient: "linear-gradient(90deg, #FF4A7A 0%, #BB44CC 100%)",
     },    
     {
       title: "Kiyoshi's Seed",
@@ -99,7 +93,6 @@ const examples = {
       condition: "Зарегистрироваться.",
       resources: "10 минут на 1 аккаунт, прогретый кошелёк и Twitter.",
       reportUrl: "crypton.xyz",
-      gradient: "linear-gradient(90deg, #FFCD9F 0%, #FF4A7A 100%)",
     },
   ],
   январь: [
@@ -111,8 +104,6 @@ const examples = {
       condition: "Заполнить форму, проявлять активность в проекте.",
       resources: "От 30 минут.",
       reportUrl: "crypton.xyz",
-      gradient:
-        "linear-gradient(90deg, #BB44CC 0%, #8AAEFB 52.08%, #4AE0CE 100%)",
     },
     {
       title: "Airdrop боксов NFT от Link3",
@@ -123,7 +114,6 @@ const examples = {
         "Присутствовать на голосовых сессиях проектов и собрать определенное количество W3ST-токенов. Событие можно было масштабировать для увеличения шансов на победу.",
       resources: "$0 и 3 минуты времени",
       reportUrl: "crypton.xyz",
-      gradient: "linear-gradient(90deg, #FF4A7A 0%, #BB44CC 100%)",
     },
     {
       title: "Senior Pass на Bybit NFT",
@@ -133,7 +123,6 @@ const examples = {
       condition: "Успеть купить NFT.",
       resources: "$4 и 5 минут времени.",
       reportUrl: "crypton.xyz",
-      gradient: "linear-gradient(90deg, #FFCD9F 0%, #FF4A7A 100%)",
     },
   ],
   "август-декабрь 2022": [
@@ -146,8 +135,6 @@ const examples = {
         "Выполнить задания. Чем больше заданий выполнили, тем больше была награда.",
       resources: "15 минут на 1 аккаунт",
       reportUrl: "crypton.xyz",
-      gradient:
-        "linear-gradient(90deg, #BB44CC 0%, #8AAEFB 52.08%, #4AE0CE 100%)",
     },
     {
       title: "NFT от AltLayer",
@@ -158,7 +145,6 @@ const examples = {
         "Выполнить задания на сайте, после чего можно было получить WL, который давал право принять участие в NFT-сейле.",
       resources: "15 минут",
       reportUrl: "crypton.xyz",
-      gradient: "linear-gradient(90deg, #FF4A7A 0%, #BB44CC 100%)",
     },
     {
       title: "NFT-whitelist от Fates",
@@ -168,7 +154,6 @@ const examples = {
       condition: "Проявлять активность в проекте.",
       resources: "5–6 часов",
       reportUrl: "crypton.xyz",
-      gradient: "linear-gradient(90deg, #FFCD9F 0%, #FF4A7A 100%)",
     },
     {
       title: "NFT-whitelist в Shatter-\npoint",
@@ -178,8 +163,6 @@ const examples = {
       condition: "Проявлять активность в проекте.",
       resources: "1–2 часов",
       reportUrl: "crypton.xyz",
-      gradient:
-        "linear-gradient(90deg, #BB44CC 0%, #8AAEFB 52.08%, #4AE0CE 100%)",
     },
     {
       title: "Раффл от Hashverse",
@@ -190,8 +173,6 @@ const examples = {
         "Необходимо было пройти регистрацию в самом розыгрыше на Magic Eden.",
       resources: "$0 и 3 минуты времени",
       reportUrl: "crypton.xyz",
-      gradient:
-        "linear-gradient(90deg, #BB44CC 0%, #8AAEFB 52.08%, #4AE0CE 100%)",
     },
     {
       title: "WL от KPRVERSE ",
@@ -201,7 +182,6 @@ const examples = {
       condition: "Нужно было просто заполнить форму.",
       resources: "от $0 и 30 минут времени",
       reportUrl: "crypton.xyz",
-      gradient: "linear-gradient(90deg, #FF4A7A 0%, #BB44CC 100%)",
     },
     {
       title: "Тестнет Stride",
@@ -212,7 +192,6 @@ const examples = {
         "Требовалось тестировать платформу, выполнять поставленные задания и установить ноду.",
       resources: "$15 и 3 часа времени",
       reportUrl: "crypton.xyz",
-      gradient: "linear-gradient(90deg, #FFCD9F 0%, #FF4A7A 100%)",
     },
     {
       title: "Конкурс мемов от Leech Protocol",
@@ -223,8 +202,6 @@ const examples = {
         "Нужно было всего лишь создать мем и опубликовать его в твиттере и дискорде.",
       resources: "$0 и 10 минут времени",
       reportUrl: "crypton.xyz",
-      gradient:
-        "linear-gradient(90deg, #BB44CC 0%, #8AAEFB 52.08%, #4AE0CE 100%)",
     },
     {
       title: "Ранняя активность в Lens",
@@ -234,7 +211,6 @@ const examples = {
       condition: "Требовалось просто заполнив форму.",
       resources: "$0 и 2 минуты времени",
       reportUrl: "crypton.xyz",
-      gradient: "linear-gradient(90deg, #FF4A7A 0%, #BB44CC 100%)",
     },
     {
       title: "Airdrop от Castaways",
@@ -244,7 +220,6 @@ const examples = {
       condition: "Нужно было просто играть в игру.",
       resources: "$0 и 20 минут времени",
       reportUrl: "crypton.xyz",
-      gradient: "linear-gradient(90deg, #FFCD9F 0%, #FF4A7A 100%)",
     },
     {
       title: "WL в Mighty Hero Action",
@@ -255,8 +230,6 @@ const examples = {
         "Необходимо было заполнить форму и проявлять активность в проекте",
       resources: "$0 и 10 минут времени",
       reportUrl: "crypton.xyz",
-      gradient:
-        "linear-gradient(90deg, #BB44CC 0%, #8AAEFB 52.08%, #4AE0CE 100%)",
     },
     {
       title: "Нода Aptos",
@@ -267,8 +240,6 @@ const examples = {
         "Нужно было поставить ноду Aptos и принять участие в одной фазе, тем самым заполнив необходимую форму.",
       resources: "от $7.5 и 3 часов времени",
       reportUrl: "crypton.xyz",
-      gradient:
-        "linear-gradient(90deg, #BB44CC 0%, #8AAEFB 52.08%, #4AE0CE 100%)",
     },
     {
       title: "Раффл The Hopeful (Azra Games)",
@@ -279,7 +250,6 @@ const examples = {
         "Необходимо было пройти регистрацию в самом розыгрыше на Magic Eden.",
       resources: "$0 и 3 минуты времени",
       reportUrl: "crypton.xyz",
-      gradient: "linear-gradient(90deg, #FF4A7A 0%, #BB44CC 100%)",
     },
     {
       title: "Викторина BNB Boost",
@@ -289,7 +259,6 @@ const examples = {
       condition: "Достаточно было ответить на вопросы викторины.",
       resources: "$0 и 10 минут времени",
       reportUrl: "crypton.xyz",
-      gradient: "linear-gradient(90deg, #FFCD9F 0%, #FF4A7A 100%)",
     },
     {
       title: "Тестнет KYVE",
@@ -300,8 +269,6 @@ const examples = {
         "Требовалось тестировать протокол и выполнять поставленные задания, благодаря чему вы могли попасть в таблицу лидеров.",
       resources: "$0 и ~3 часа времени",
       reportUrl: "crypton.xyz",
-      gradient:
-        "linear-gradient(90deg, #BB44CC 0%, #8AAEFB 52.08%, #4AE0CE 100%)",
     },
     {
       title: "Бесплатная NFT от Aptos",
@@ -311,7 +278,6 @@ const examples = {
       condition: "Все, что нужно было - это забрать бесплатную NFT на сайте.",
       resources: "$0 и 2 минуты времени",
       reportUrl: "crypton.xyz",
-      gradient: "linear-gradient(90deg, #FF4A7A 0%, #BB44CC 100%)",
     },
     {
       title: "IEO токенов hiSAND33",
@@ -322,8 +288,6 @@ const examples = {
         "Надлежало пройти KYC на бирже KuCoin и принять участие в FCFS-распродаже токенов (кто успел, тот и купил токены).",
       resources: "$140 и 10 минут времени",
       reportUrl: "crypton.xyz",
-      gradient:
-        "linear-gradient(90deg, #BB44CC 0%, #8AAEFB 52.08%, #4AE0CE 100%)",
     },
     {
       title: "Публичное SHO Sweat Economy",
@@ -334,7 +298,6 @@ const examples = {
         "Нужно было держать на кошельке $500, после чего пройти регистрацию в розыгрыше.",
       resources: "$500 и 5 минут времени",
       reportUrl: "crypton.xyz",
-      gradient: "linear-gradient(90deg, #FF4A7A 0%, #BB44CC 100%)",
     },
     {
       title: "Раффл Wakuland на Magic Eden",
@@ -345,7 +308,6 @@ const examples = {
         "Требовалось пройти регистрацию в самом раффле, либо выбить WhiteList через Discord.",
       resources: "$45 и 5 минут времени",
       reportUrl: "crypton.xyz",
-      gradient: "linear-gradient(90deg, #FFCD9F 0%, #FF4A7A 100%)",
     },
     {
       title: "Вайтлист токена hiODBS",
@@ -356,8 +318,6 @@ const examples = {
         "Достаточно было заполнить форму KuCoin и принять участие в FCFS-распродаже токенов (кто первый успел, тот и купил)",
       resources: "$10 и 10 минут времени",
       reportUrl: "crypton.xyz",
-      gradient:
-        "linear-gradient(90deg, #BB44CC 0%, #8AAEFB 52.08%, #4AE0CE 100%)",
     },
     {
       title: "Тестнет Canto",
@@ -368,8 +328,6 @@ const examples = {
         "Требовалось заполнить форму-заявку, благодаря которой у вас появлялась возможность запросить тестовые токены в сети Canto.",
       resources: "15 минут времени",
       reportUrl: "crypton.xyz",
-      gradient:
-        "linear-gradient(90deg, #BB44CC 0%, #8AAEFB 52.08%, #4AE0CE 100%)",
     },
     {
       title: "Распродажа NFT-Egg",
@@ -380,7 +338,6 @@ const examples = {
         "Принять участие в продаже NFT на MechaFightClub. Начальные цены NFT составляли приблизительно 6.969 $SOL, а итоговый заработок зависел от редкости NFT.",
       resources: "6.969 SOL (270$ на момент сейла) и 2 минуты времени.",
       reportUrl: "crypton.xyz",
-      gradient: "linear-gradient(90deg, #FF4A7A 0%, #BB44CC 100%)",
     },
     {
       title: "Вайтлист OG Badge",
@@ -391,7 +348,6 @@ const examples = {
         "Нужно было заполнить форму, выполнив простые задания. После этого победители, которые попали в WhiteList, приняли участие в распродаже NFT на AltLayer.",
       resources: "5 минут времени",
       reportUrl: "crypton.xyz",
-      gradient: "linear-gradient(90deg, #FFCD9F 0%, #FF4A7A 100%)",
     },
     {
       title: "Продажа токенов hiSAND33",
@@ -402,8 +358,6 @@ const examples = {
         "Нужно было купить токены hiSAND33 на бирже KuCoin в формате FCFS, что значит “кто первый кликнул = тот и купил”.",
       resources: "$140 и 2 минуты времени",
       reportUrl: "crypton.xyz",
-      gradient:
-        "linear-gradient(90deg, #BB44CC 0%, #8AAEFB 52.08%, #4AE0CE 100%)",
     },
     {
       title: "Игровой ивент от Pikaster",
@@ -414,7 +368,6 @@ const examples = {
         "Достаточно было сыграть в саму игру и активно продвигаться в рейтинге. Стартовые вложения не требовались.",
       resources: "5-6 часов времени",
       reportUrl: "crypton.xyz",
-      gradient: "linear-gradient(90deg, #FF4A7A 0%, #BB44CC 100%)",
     },
     {
       title: "IGO Binance's 5th Anniversary",
@@ -425,8 +378,6 @@ const examples = {
         "Нужно было удерживать 0.1 $BNB на спотовом кошельке аккаунта Binance, после чего выкупить билеты для участия в розыгрыше. 1 билет стоил 2 $BUSD, максимум 4 билета на аккаунт.",
       resources: "0.1 $BNB, 2–8 $BUSD и 5 минут времени",
       reportUrl: "crypton.xyz",
-      gradient:
-        "linear-gradient(90deg, #BB44CC 0%, #8AAEFB 52.08%, #4AE0CE 100%)",
     },
     {
       title: "Публичное SHO beFITTER",
@@ -437,7 +388,6 @@ const examples = {
         "Перед событием достаточно было удерживать не менее $2500 в виде любых токенов на своем кошельке.",
       resources: "$2500 и 5 минут времени",
       reportUrl: "crypton.xyz",
-      gradient: "linear-gradient(90deg, #FF4A7A 0%, #BB44CC 100%)",
     },
     {
       title: "Публичное SHO beFITTER",
@@ -448,7 +398,6 @@ const examples = {
         "Необходимо было удерживать 0.1 $BNB на спотовом кошельке аккаунта Binance, после чего выкупить билеты для участия в розыгрыше. 1 билет стоил 10 $BUSD, максимум 1 билет на аккаунт.",
       resources: "0.1 $BNB, 10 $BUSD и 5 минут времени",
       reportUrl: "crypton.xyz",
-      gradient: "linear-gradient(90deg, #FFCD9F 0%, #FF4A7A 100%)",
     },
     {
       title: "Раффл от Ledger",
@@ -459,8 +408,6 @@ const examples = {
         "Требовалось иметь на вашем кошельке минимум 0.1337 $ETH ( ~$420), а также выполнить задания. В случае победы в розыгрыше вам предстояло выкупить NFT за 0.3 $ETH.",
       resources: "0.3 $ETH ( ~160$) и 5 минут вашего времени",
       reportUrl: "crypton.xyz",
-      gradient:
-        "linear-gradient(90deg, #BB44CC 0%, #8AAEFB 52.08%, #4AE0CE 100%)",
     },
     {
       title: "Раффл от POTATOZ",
@@ -471,7 +418,6 @@ const examples = {
         "Достаточно было иметь на кошельке 0.069 $ETH (~100$), после чего выполнить все задания. В случае победы в розыгрыше у вас появлялась возможность бесплатно заминить NFT на MEMELAND.",
       resources: "0.069 $ETH (~100$) и 5 минут вашего времени",
       reportUrl: "crypton.xyz",
-      gradient: "linear-gradient(90deg, #FF4A7A 0%, #BB44CC 100%)",
     },
     {
       title: "Token Sale проекта CUBE",
@@ -482,8 +428,6 @@ const examples = {
         "Достаточно было совершить торговый оборот на сумму не менее $500, а также удерживать на спотовом кошельке Huobi $100, после чего случайным образом выбирали победителей, которые смогут выкупить аллокацию в $50.",
       resources: "$110 и 10 минут времени",
       reportUrl: "crypton.xyz",
-      gradient:
-        "linear-gradient(90deg, #BB44CC 0%, #8AAEFB 52.08%, #4AE0CE 100%)",
     },
     {
       title: "IEO проекта Walken",
@@ -494,7 +438,6 @@ const examples = {
         "Нужно было удерживать 100 $USDT на спотовом кошельке аккаунта ByBit, после чего выиграть аллокацию.",
       resources: "$100 и 5 минут времени",
       reportUrl: "crypton.xyz",
-      gradient: "linear-gradient(90deg, #FF4A7A 0%, #BB44CC 100%)",
     },
   ],
 };
@@ -560,6 +503,8 @@ function Examples(props) {
 
   // console.log(Object.entries(examples)[currentMonth]);
 
+  let current_gradient = 0
+
   return (
     <div className="examples-content">
       <div className="examples-content__header">
@@ -622,79 +567,85 @@ function Examples(props) {
         style={{ width: width[props.resolution] }}
       >
         {Object.entries(examples)[currentMonth][1].map((elem, index) => {
-          return (
-            <SwiperSlide
-              className="examples-content__blocks__block"
-              key={currentMonth + index}
-              style={{ opacity:  index < currentBlock ? 0 : 1, transition:'0.35s' }}
-            >
-              <div
-                className="examples-content__blocks__block__gradient"
-                style={{ background: elem.gradient }}
-              ></div>
-              <div className="examples-content__blocks__block__content">
-                <div className="examples-content__blocks__block__content__title ">
-                  {elem.title}
-                </div>
-                <div className="examples-content__blocks__block__content__in-out">
-                  <div className="examples-content__blocks__block__content__in-out__col">
-                    <div className="examples-content__blocks__block__content__in-out__col__title">
-                      Заработано:
-                    </div>
-                    <div className="examples-content__blocks__block__content__in-out__col__sum">
-                      {elem.earn}
-                    </div>
-                  </div>
+          if (current_gradient > gradients.length - 1){
+            current_gradient = 0
+          }
 
-                  <div className="examples-content__blocks__block__content__in-out__col out">
-                    <div className="examples-content__blocks__block__content__in-out__col__title">
-                      Вложения:
-                    </div>
-                    <div className="examples-content__blocks__block__content__in-out__col__sum">
-                      {elem.spend}
-                    </div>
-                  </div>
+          const swiper_slide = <SwiperSlide
+          className="examples-content__blocks__block"
+          key={currentMonth + index}
+          style={{ opacity:  index < currentBlock ? 0 : 1, transition:'0.35s' }}
+        >
+          <div
+            className="examples-content__blocks__block__gradient"
+            style={{ background: gradients[current_gradient] }}
+          ></div>
+          <div className="examples-content__blocks__block__content">
+            <div className="examples-content__blocks__block__content__title ">
+              {elem.title}
+            </div>
+            <div className="examples-content__blocks__block__content__in-out">
+              <div className="examples-content__blocks__block__content__in-out__col">
+                <div className="examples-content__blocks__block__content__in-out__col__title">
+                  Заработано:
                 </div>
-
-                <div className="examples-content__blocks__block__content__cat-and-more">
-                  <div className="examples-content__blocks__block__content__cat-and-more__cat">
-                    {elem.category}
-                  </div>
-                  <div
-                    className="examples-content__blocks__block__content__cat-and-more__more toggle"
-                    onClick={() => toggleDescription(index)}
-                  >
-                    {showDescription == index ? "Скрыть" : "Подробнее"}
-                  </div>
-                </div>
-
-                <div
-                  className="examples-content__blocks__block__content__extended-info"
-                  aria-expanded={showDescription != index}
-                >
-                  <div className="examples-content__blocks__block__content__extended-info__condition-title">
-                    Условия:
-                  </div>
-                  <div className="examples-content__blocks__block__content__extended-info__condition-description">
-                    {elem.condition}
-                  </div>
-                  <div className="examples-content__blocks__block__content__extended-info__resources-title">
-                    Ресурсы:
-                  </div>
-                  <div className="examples-content__blocks__block__content__extended-info__resources-description">
-                    {elem.resources}
-                  </div>
-                  {/* <a href={elem.reportUrl}>
-                    <div className="examples-content__blocks__block__content__extended-info__full-report">
-                      <div className="examples-content__blocks__block__content__extended-info__full-report__text">
-                        Полный отчет
-                      </div>
-                      <div className="examples-content__blocks__block__content__extended-info__full-report__arrow"></div>
-                    </div>
-                  </a> */}
+                <div className="examples-content__blocks__block__content__in-out__col__sum">
+                  {elem.earn}
                 </div>
               </div>
-            </SwiperSlide>
+
+              <div className="examples-content__blocks__block__content__in-out__col out">
+                <div className="examples-content__blocks__block__content__in-out__col__title">
+                  Вложения:
+                </div>
+                <div className="examples-content__blocks__block__content__in-out__col__sum">
+                  {elem.spend}
+                </div>
+              </div>
+            </div>
+
+            <div className="examples-content__blocks__block__content__cat-and-more">
+              <div className="examples-content__blocks__block__content__cat-and-more__cat">
+                {elem.category}
+              </div>
+              <div
+                className="examples-content__blocks__block__content__cat-and-more__more toggle"
+                onClick={() => toggleDescription(index)}
+              >
+                {showDescription == index ? "Скрыть" : "Подробнее"}
+              </div>
+            </div>
+
+            <div
+              className="examples-content__blocks__block__content__extended-info"
+              aria-expanded={showDescription != index}
+            >
+              <div className="examples-content__blocks__block__content__extended-info__condition-title">
+                Условия:
+              </div>
+              <div className="examples-content__blocks__block__content__extended-info__condition-description">
+                {elem.condition}
+              </div>
+              <div className="examples-content__blocks__block__content__extended-info__resources-title">
+                Ресурсы:
+              </div>
+              <div className="examples-content__blocks__block__content__extended-info__resources-description">
+                {elem.resources}
+              </div>
+              {/* <a href={elem.reportUrl}>
+                <div className="examples-content__blocks__block__content__extended-info__full-report">
+                  <div className="examples-content__blocks__block__content__extended-info__full-report__text">
+                    Полный отчет
+                  </div>
+                  <div className="examples-content__blocks__block__content__extended-info__full-report__arrow"></div>
+                </div>
+              </a> */}
+            </div>
+          </div>
+        </SwiperSlide>
+          current_gradient++
+          return (
+            swiper_slide
           );
         })}
       </Swiper>
