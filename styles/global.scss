@@ -2349,6 +2349,9 @@ p {
                 letter-spacing: 0.02em;
                 text-transform: uppercase;
                 color: #ffffff;
+                @media (max-width: 767px) {
+                  padding-top: 14px;
+                }
               }
             }
 
