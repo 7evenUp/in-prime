@@ -22,28 +22,28 @@ function Menu(props) {
             lg:0
         }},
         {number:'02', name:'Преимущества', position:{
-            lgg:1100,
+            lgg:980,
             lg:780
         }},
         {number:'03', name:'Возможности', position:{
             lgg:1750,
-            lg:1400
+            lg:1370
         }},
         {number:'04', name:'Кейсы', position:{
-            lgg:4160,
-            lg:3400
+            lgg:4100,
+            lg:3380
         }},
         {number:'05', name:'Команда', position:{
             lgg:5050,
             lg:4210
         }},
         {number:'06', name:'Подписка', position:{
-            lgg:7200,
-            lg:6165
+            lgg:7050,
+            lg:6065
         }},
         {number:'07', name:'FAQ', position:{
-            lgg:9500,
-            lg:8355
+            lgg:8020,
+            lg:6900
         }},
     ]
     return (

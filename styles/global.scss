@@ -81,7 +81,7 @@ p {
     line-height: 150%;
     letter-spacing: 1px;
 
-    @media (max-width: 374px) {
+    @media (max-width: 350px) {
       display: flex;
     }
   }
@@ -174,7 +174,7 @@ p {
     width: 100%;
     align-items: center;
 
-    @media (max-width: 374px) {
+    @media (max-width: 350px) {
       display: none;
     }
 
@@ -202,7 +202,7 @@ p {
       @media (max-width: 767px) {
         min-width: 375px;
         height: 812px;
-        min-width: 375px;
+        min-width: 350px;
       }
 
       &__left-gradient {
@@ -1296,7 +1296,7 @@ p {
         }
 
         @media (max-width: 767px) {
-          animation: ticker 3s infinite linear;
+          animation: ticker 2.8s infinite linear;
         }
 
         &__text {

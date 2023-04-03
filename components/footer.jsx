@@ -26,7 +26,7 @@ function Footer(props) {
       position: {
         lgg: 1750,
         lg: 1400,
-        md: 1800,
+        md: 1780,
         sm: 1300,
       },
     },
@@ -34,31 +34,31 @@ function Footer(props) {
       position: {
         lgg: 1100,
         lg: 780,
-        md: 1050,
-        sm: 810,
+        md: 1000,
+        sm: 800,
       },
     },
     {
       position: {
         lgg: 4160,
         lg: 3400,
-        md: 3980,
-        sm: 3050,
+        md: 3970,
+        sm: 3000,
       },
     },
     {
       position: {
         lgg: 5050,
         lg: 4210,
-        md: 4850,
-        sm: 3650,
+        md: 4820,
+        sm: 3620,
       },
     },
     {
       position: {
         lgg: 6700,
         lg: 5720,
-        md: 5840,
+        md: 5800,
         sm: 5170,
       },
     },
@@ -66,8 +66,8 @@ function Footer(props) {
       position: {
         lgg: 9500,
         lg: 8355,
-        md: 8860,
-        sm: 8635,
+        md: 7200,
+        sm: 7000,
       },
     },
   ];

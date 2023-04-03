@@ -14,7 +14,10 @@ function Accordion(props) {
             ежемесячно вознаграждаем их бесплатной подпиской. Для этого мы
             создали систему лояльности, по которой и определяем самых активных.
             Подробнее можно узнать в{" "}
-            <a href="https://crypton-prime.notion.site/c2c7e0fb523c43e087698c579326651c" target="_blank">
+            <a
+              href="https://crypton-prime.notion.site/c2c7e0fb523c43e087698c579326651c"
+              target="_blank"
+            >
               этой
             </a>{" "}
             статье.
@@ -30,7 +33,12 @@ function Accordion(props) {
             Напрямую — нет. Для удобства мы создали для вас полноценное
             руководство, как с начальными знаниями в криптовалюте приобрести
             подписку, имея деньги только на карте. Ознакомиться с ним можно по{" "}
-            <a href="https://prime.crypton.xyz/buy-academy-card/" target="_blank">этой</a>{" "}
+            <a
+              href="https://prime.crypton.xyz/buy-academy-card/"
+              target="_blank"
+            >
+              этой
+            </a>{" "}
             ссылке.
           </p>
         </div>
@@ -41,17 +49,6 @@ function Accordion(props) {
       answer: (
         <div className="accordion__title text">
           <p>
-            В рамках нашего Prime-сообщества существуют
-            "гарант-активности", заработок на которых практически обеспечен.
-            Найти их не составит труда, т.к. они удобно расположены в
-            специальной таблице.<br/><br/>Если Вы ответственно выполняете данные
-            активности, придерживаясь ключевых правил и возможностей абуза, но у
-            Вас нет результата, то Вам достаточно написать наставнику и
-            предоставить все необходимые доказательства участия. В случае, если
-            Вы выполняли все "гарант-активности", но Вам за месяц так и не
-            удалось окупить подписку по вине нашего сообщества, мы без проблем
-            продлим Ваше участие на следующий месяц.<br/><br/>Любые вопросы по гарантии
-            окупаемости подписки Вы можете задать <a href="https://t.me/crypton_support" target="_blank">Наставнику</a> 
             В рамках нашего Prime-сообщества существуют "гарант-активности",
             заработок на которых практически обеспечен. Найти их не составит
             труда, т.к. они удобно расположены в специальной таблице.
@@ -66,10 +63,15 @@ function Accordion(props) {
             участие на следующий месяц.
             <br />
             <br />
-            Любые вопросы по гарантии окупаемости подписки Вы можете задать{" "}
+            Обязательно ознакомьтесь с{" "}
+            <a href="https://prime.crypton.xyz/pay-guarantee/" target="_blank">
+              полными условиями гарантии
+            </a>
+            . Если у Вас появятся вопросы, то Вы можете задать их{" "}
             <a href="https://t.me/crypton_support" target="_blank">
               Наставнику
             </a>
+            .
           </p>
         </div>
       ),
@@ -82,8 +84,8 @@ function Accordion(props) {
             Если вы приобретаете подписку по текущей цене, то фиксируете ее
             стоимость за собой навсегда. Таким образом, даже если цена будет
             повышена до 200 долларов - для вас тариф останется прежним.
-            <br/>
-            <br/>
+            <br />
+            <br />
             Единственное условие сохранения цены - это беспрерывное продление
             подписки.
           </p>
@@ -96,8 +98,10 @@ function Accordion(props) {
       answer: (
         <div className="accordion__title text">
           <p>
-            <a href="https://t.me/crypton_support" target="_blank">Наставник Prime</a> ответит
-            на все ваши вопросы, связанные с подпиской.
+            <a href="https://t.me/crypton_support" target="_blank">
+              Наставник Prime
+            </a>{" "}
+            ответит на все ваши вопросы, связанные с подпиской.
           </p>
         </div>
       ),
@@ -108,7 +112,10 @@ function Accordion(props) {
         <div className="accordion__title text">
           <p>
             Конечно!{" "}
-            <a href="https://member.crypton.xyz/Crypton-Prime-270eed81f9b748c8a06b4763a47a1acd" target="_blank">
+            <a
+              href="https://member.crypton.xyz/Crypton-Prime-270eed81f9b748c8a06b4763a47a1acd"
+              target="_blank"
+            >
               Здесь
             </a>{" "}
             Вы можете узнать всё о подарочных сертификатах Crypton.
@@ -122,7 +129,10 @@ function Accordion(props) {
         <div className="accordion__title text">
           <p>
             Детальную информацию о нашем фонде Вы можете узнать{" "}
-            <a href="https://prime.crypton.xyz/invest/" target="_blank">здесь</a>.
+            <a href="https://prime.crypton.xyz/invest/" target="_blank">
+              здесь
+            </a>
+            .
           </p>
         </div>
       ),
@@ -153,7 +163,6 @@ function Accordion(props) {
   }
 
   const renderedQuestionsAnswers = questionsAnswers.map((item, i) => {
-    
     const state = i === props.openFaq ? true : false;
     return (
       <>
