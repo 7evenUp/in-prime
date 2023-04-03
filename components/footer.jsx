@@ -25,14 +25,14 @@ function Footer(props) {
     {
       position: {
         lgg: 1750,
-        lg: 1400,
+        lg: 1380,
         md: 1780,
         sm: 1300,
       },
     },
     {
       position: {
-        lgg: 1100,
+        lgg: 1050,
         lg: 780,
         md: 1000,
         sm: 800,
@@ -40,8 +40,8 @@ function Footer(props) {
     },
     {
       position: {
-        lgg: 4160,
-        lg: 3400,
+        lgg: 4120,
+        lg: 3380,
         md: 3970,
         sm: 3000,
       },
@@ -56,16 +56,16 @@ function Footer(props) {
     },
     {
       position: {
-        lgg: 6700,
-        lg: 5720,
+        lgg: 6680,
+        lg: 5700,
         md: 5800,
         sm: 5170,
       },
     },
     {
       position: {
-        lgg: 9500,
-        lg: 8355,
+        lgg: 8050,
+        lg: 6900,
         md: 7200,
         sm: 7000,
       },
