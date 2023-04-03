@@ -104,11 +104,6 @@ export default function Home(props) {
   const [openFaq, setOpenFaq] = useState(-1);
 
   useEffect(() => {
-    setTimerProgress(
-      Math.round(
-        ((Date.now() - 1679673600000) / (1680534000000 - 1679673600000)) * 100
-      )
-    );
     const scroll = (event) => {
       setCurrentY(window.scrollY);
     };

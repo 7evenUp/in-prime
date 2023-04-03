@@ -24,58 +24,44 @@ function MobileMenu(props) {
   const categories = [
     {
       position: {
-        lgg: 1750,
-        lg: 1450,
         md: 1800,
         sm: 1300,
       },
     },
     {
       position: {
-        lgg: 1100,
-        lg: 780,
-        md: 1050,
-        sm: 810,
+        md: 1020,
+        sm: 800,
       },
     },
     {
       position: {
-        lgg: 4160,
-        lg: 2970,
         md: 3980,
-        sm: 3050,
+        sm: 3000,
       },
     },
     {
       position: {
-        lgg: 4550,
-        lg: 3830,
-        md: 4850,
-        sm: 3650,
+        md: 4800,
+        sm: 3630,
       },
     },
     {
       position: {
-        lgg: 6200,
-        lg: 5230,
-        md: 5840,
+        md: 5800,
         sm: 5170,
       },
     },
     {
       position: {
-        lgg: 7200,
-        lg: 6200,
-        md: 6225,
-        sm: 5730,
+        md: 6170,
+        sm: 5670,
       },
     },
     {
       position: {
-        lgg: 7550,
-        lg: 6450,
-        md: 8860,
-        sm: 8635,
+        md: 7230,
+        sm: 7000,
       },
     },
   ];
