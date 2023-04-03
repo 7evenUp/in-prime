@@ -94,10 +94,10 @@ export default function Home(props) {
   };
 
   const moreInfo = {
-    lgg: 10000,
-    lg: 8800,
-    md: 9200,
-    sm: 8850,
+    lgg: 8500,
+    lg: 7300,
+    md: 7600,
+    sm: 7230,
   };
 
   const [currentY, setCurrentY] = useState(0);
