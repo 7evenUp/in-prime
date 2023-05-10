@@ -251,7 +251,7 @@ export default function Home(props) {
                 <div className="app__container__benefits__points__col__point">
                   <div className="app__container__benefits__points__col__point__plus"></div>
                   <div className="app__container__benefits__points__col__point__text">
-                    ДЛЯ ОПЫТНЫХ И НОВИЧКОВ
+                  Для опытных и новичков с базовыми навыками
                   </div>
                 </div>
                 <div className="app__container__benefits__points__col__point">

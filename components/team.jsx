@@ -207,7 +207,7 @@ function Team(props) {
           top: 118,
         },
         description: {
-          name: "Артём",
+          name: "Захар",
           role: "Партнёрства и куратор амбассадоров",
         },
         img: "artem",
@@ -379,7 +379,7 @@ function Team(props) {
         },
         description: {
           name: "Сергей",
-          role: "Куратор токен-сейлов и NFT",
+          role: "Куратор NFT",
         },
         img: "sergey",
         change_other: {
@@ -773,7 +773,7 @@ function Team(props) {
         },
         description: {
           name: "Алексей",
-          role: "Директор календаря событий",
+          role: "Редактор календаря",
         },
         img: "aleksey",
         change_other: {
@@ -834,7 +834,7 @@ function Team(props) {
         },
         description: {
           name: "Богдан",
-          role: "Эксперт по трейдингу",
+          role: "Аналитик рынка",
         },
         img: "bogdan2",
         change_other: {
@@ -1049,7 +1049,7 @@ function Team(props) {
           top: 118,
         },
         description: {
-          name: "Артём",
+          name: "Захар",
           role: "Партнёрства и куратор амбассадоров",
         },
         img: "artem",
@@ -1221,7 +1221,7 @@ function Team(props) {
         },
         description: {
           name: "Сергей",
-          role: "Куратор токен-сейлов и NFT",
+          role: "Куратор NFT",
         },
         img: "sergey",
         change_other: {
@@ -1615,7 +1615,7 @@ function Team(props) {
         },
         description: {
           name: "Алексей",
-          role: "Директор календаря событий",
+          role: "Редактор календаря",
         },
         img: "aleksey",
         change_other: {
@@ -1676,7 +1676,7 @@ function Team(props) {
         },
         description: {
           name: "Богдан",
-          role: "Эксперт по трейдингу",
+          role: "Аналитик рынка",
         },
         img: "bogdan2",
         change_other: {
@@ -1891,7 +1891,7 @@ function Team(props) {
           top: 118,
         },
         description: {
-          name: "Артём",
+          name: "Захар",
           role: "Партнёрства и куратор амбассадоров",
         },
         img: "artem",
@@ -2063,7 +2063,7 @@ function Team(props) {
         },
         description: {
           name: "Сергей",
-          role: "Куратор токен-сейлов и NFT",
+          role: "Куратор NFT",
         },
         img: "sergey",
         change_other: {
@@ -2457,7 +2457,7 @@ function Team(props) {
         },
         description: {
           name: "Алексей",
-          role: "Директор календаря событий",
+          role: "Редактор календаря",
         },
         img: "aleksey",
         change_other: {
@@ -2518,7 +2518,7 @@ function Team(props) {
         },
         description: {
           name: "Богдан",
-          role: "Эксперт по трейдингу",
+          role: "Аналитик рынка",
         },
         img: "bogdan2",
         change_other: {
@@ -2739,7 +2739,7 @@ function Team(props) {
           top: 262,
         },
         description: {
-          name: "Артём",
+          name: "Захар",
           role: "Партнёрства и куратор амбассадоров",
         },
         img: "artem",
@@ -2911,7 +2911,7 @@ function Team(props) {
         },
         description: {
           name: "Сергей",
-          role: "Куратор токен-сейлов и NFT",
+          role: "Куратор NFT",
         },
         img: "sergey",
         change_other: {
@@ -3304,7 +3304,7 @@ function Team(props) {
         },
         description: {
           name: "Алексей",
-          role: "Директор календаря событий",
+          role: "Редактор календаря",
         },
         img: "aleksey",
         change_other: {
@@ -3365,7 +3365,7 @@ function Team(props) {
         },
         description: {
           name: "Богдан",
-          role: "Эксперт по трейдингу",
+          role: "Аналитик рынка",
         },
         img: "bogdan2",
         change_other: {
