@@ -208,7 +208,7 @@ function Team(props) {
         },
         description: {
           name: "Захар",
-          role: "Партнёрства и куратор амбассадоров",
+          role: "Амбассадорская программа для инфлюенсеров",
         },
         img: "artem",
         change_other: {
@@ -1050,7 +1050,7 @@ function Team(props) {
         },
         description: {
           name: "Захар",
-          role: "Партнёрства и куратор амбассадоров",
+          role: "Амбассадорская программа для инфлюенсеров",
         },
         img: "artem",
         change_other: {
@@ -1892,7 +1892,7 @@ function Team(props) {
         },
         description: {
           name: "Захар",
-          role: "Партнёрства и куратор амбассадоров",
+          role: "Амбассадорская программа для инфлюенсеров",
         },
         img: "artem",
         change_other: {
@@ -2740,7 +2740,7 @@ function Team(props) {
         },
         description: {
           name: "Захар",
-          role: "Партнёрства и куратор амбассадоров",
+          role: "Амбассадорская программа для инфлюенсеров",
         },
         img: "artem",
         change_other: {
