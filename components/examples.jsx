@@ -11,6 +11,35 @@ import ToggleRight from "/public/images/jsx/icons/toggle-right";
 const gradients = ["linear-gradient(90deg, #BB44CC 0%, #8AAEFB 52.08%, #4AE0CE 100%)","linear-gradient(90deg, #FF4A7A 0%, #BB44CC 100%)","linear-gradient(90deg, #FFCD9F 0%, #FF4A7A 100%)"]
 
 const examples = {
+  апрель:[
+    {
+      title: "Spiral DAO",
+      earn: "$250",
+      spend: "$30",
+      category: "Ретродропы",
+      condition: "Иметь DegenScore SBT (сделать его дешево мог каждый по нашему гайду) или быть топ-1000 DeBank (также неоднократно рассказывали), заминтить токены и продать их.",
+      resources: "10 минут времени и $30 на комиссии",
+      reportUrl: "crypton.xyz",
+    },
+    {
+      title: "Aevo",
+      earn: "$200",
+      spend: "$0",
+      category: "Ретродропы",
+      condition: "Иметь DegenScore SBT (сделать его дешево мог каждый по нашему гайду), заполнить форму, получить пасс и продать его.",
+      resources: "15 минут времени",
+      reportUrl: "crypton.xyz",
+    },
+    {
+      title: "AIDOGE",
+      earn: "$100",
+      spend: "$1",
+      category: "Ретродропы",
+      condition: "Поставить и поддерживать ноду в течение 2 месяцев.",
+      resources: "Ранее получить дроп ARB, заклеймить токены и продать. Ресурсы: 10 минут времени и $1 на комиссии",
+      reportUrl: "crypton.xyz",
+    },
+  ],
   март:[
     {
       title: "Arbitrum",
