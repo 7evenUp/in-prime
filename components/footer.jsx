@@ -120,7 +120,7 @@ function Footer(props) {
                   </a>
                 </div>
                 <div className="footer__rectangle__socials__links__link">
-                  <a href="https://discord.gg/pP7QMjs4yQ" target={"_blank"}>
+                  <a href="https://discord.gg/crypton" target={"_blank"}>
                     <Discord />
                   </a>
                 </div>
@@ -173,7 +173,7 @@ function Footer(props) {
           </div>
           <div className="footer__copyright-developers">
             <div className="footer__copyright-developers__text">
-              Copyright © Crypton Prime, 2022. Все права защищены
+              Copyright © Crypton Prime, 2023. Все права защищены
             </div>
             <div className="developers">
               <a href="https://t.me/airin7sh" target={"_blank"}>
@@ -256,7 +256,7 @@ function Footer(props) {
                 </div>
               </div>
               <div className="footer__copyright-developers__text copyright">
-                Copyright © Crypton Prime, 2022. Все права защищены
+                Copyright © Crypton Prime, 2023. Все права защищены
               </div>
               <div className="footer__rectangle__socials">
                 <div className="footer__rectangle__socials__links">
@@ -292,7 +292,7 @@ function Footer(props) {
                     </a>
                   </div>
                   <div className="footer__rectangle__socials__links__link">
-                    <a href="https://discord.gg/pP7QMjs4yQ" target={"_blank"}>
+                    <a href="https://discord.gg/crypton" target={"_blank"}>
                       <Discord />
                     </a>
                   </div>
@@ -416,7 +416,7 @@ function Footer(props) {
                       </a>
                     </div>
                     <div className="footer__rectangle__socials__links__link">
-                      <a href="https://discord.gg/pP7QMjs4yQ" target={"_blank"}>
+                      <a href="https://discord.gg/crypton" target={"_blank"}>
                         <Discord />
                       </a>
                     </div>
@@ -426,7 +426,7 @@ function Footer(props) {
             </div>
             <div className="footer__copyright-developers__text container">
               <div className="copyright">
-                Copyright © Crypton Prime, 2022. Все права защищены
+                Copyright © Crypton Prime, 2023. Все права защищены
               </div>
             </div>
             <div className="footer__copyright-developers">

@@ -21,15 +21,13 @@ function OtherProducts(props) {
                 </div>
               </div>
               </a>
-              <a href="https://prime.crypton.xyz/" target={"_blank"}>
               <div className="app__container__other-products__circles__num academy">02</div>
               <div className="app__container__other-products__circles__academy" >
                 <div className="app__container__other-products__circles__academy__content" >
                   <div className="app__container__other-products__circles__academy__content__title">Academy</div>
-                  <div className="app__container__other-products__circles__academy__content__description">Необходимые материалы<br/> по обучению <br/>криптовалютам</div>
+                  <div className="app__container__other-products__circles__academy__content__description">Необходимые материалы<br/> по обучению - Soon</div>
                 </div>
               </div>
-              </a>
               <a href="https://tools.crypton.xyz/" target={"_blank"}>
               <div className="app__container__other-products__circles__num tools">03</div>
               <div className="app__container__other-products__circles__tools">
