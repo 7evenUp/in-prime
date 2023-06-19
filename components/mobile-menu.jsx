@@ -163,7 +163,7 @@ function MobileMenu(props) {
             </a>
           </div>
           <div className="mobile-menu__container__socials__links__link">
-            <a href="https://discord.gg/pP7QMjs4yQ" target={"_blank"}>
+            <a href="https://discord.gg/crypton" target={"_blank"}>
               <Discord />
             </a>
           </div>
