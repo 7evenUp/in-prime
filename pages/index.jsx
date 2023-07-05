@@ -198,7 +198,7 @@ export default function Home(props) {
             </div>
             <Categories />
             <div className="app__container__earn__title">
-              Зарабатывай <br /> на криптовалюте
+              Зарабатывайте <br /> на криптовалюте
             </div>
             <div className="app__container__earn__description">
               Prime – приватное комьюнити с авторским контентом по заработку в
@@ -284,7 +284,7 @@ export default function Home(props) {
                 Все возможности Prime
               </div>
               <div className="app__container__video-block__description-block__description">
-                Узнай больше о том, что тебя ждет в Prime, после приобретения
+                Узнайте больше о том, что тебя ждет в Prime, после приобретения
                 подписки!
               </div>
             </div>

@@ -85,7 +85,7 @@ function Footer(props) {
 
             <div className="footer__rectangle__socials">
               <div className="footer__rectangle__socials__title">
-                Подписывайся на нас в соцсетях:
+                Подписывайтесь на нас в соцсетях:
               </div>
               <div className="footer__rectangle__socials__links">
                 <div className="footer__rectangle__socials__links__link">

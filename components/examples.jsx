@@ -8,16 +8,127 @@ import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import ToggleLeft from "/public/images/jsx/icons/toggle-left";
 import ToggleRight from "/public/images/jsx/icons/toggle-right";
 
-const gradients = ["linear-gradient(90deg, #BB44CC 0%, #8AAEFB 52.08%, #4AE0CE 100%)","linear-gradient(90deg, #FF4A7A 0%, #BB44CC 100%)","linear-gradient(90deg, #FFCD9F 0%, #FF4A7A 100%)"]
+const gradients = [
+  "linear-gradient(90deg, #BB44CC 0%, #8AAEFB 52.08%, #4AE0CE 100%)",
+  "linear-gradient(90deg, #FF4A7A 0%, #BB44CC 100%)",
+  "linear-gradient(90deg, #FFCD9F 0%, #FF4A7A 100%)",
+];
 
 const examples = {
-  апрель:[
+  июнь: [
+    {
+      title: "The GRAPES",
+      earn: "~$700",
+      spend: "~$150",
+      category: "NFT",
+      condition:
+        "Получить WL через активность в сообществе, заминтить 2 NFT и продать их.",
+      resources: "Время для получения WL, $150 на минт и комиссии.",
+      reportUrl: "crypton.xyz",
+    },
+    {
+      title: "Open Campus",
+      earn: "~$550",
+      spend: "$0",
+      category: "NFT",
+      condition:
+        "Получить WL через активность в сообществе, заминтить NFT, выбрать вариант получения всех токенов $EDU и продать их.",
+      resources: "Время для получения WL.",
+      reportUrl: "crypton.xyz",
+    },
+    {
+      title: "Промоакция от OKX",
+      earn: "~$150",
+      spend: "$1",
+      category: "Airdrops",
+      condition: "Сделать депозит на биржу до $10,001 и холдить 21 день (депозит от 1000$ — 30 $USDT, от 2000$ — 50 $USDT, от 3000$ — 100 $USDT, от 10 000$ — 150 $USDT).",
+      resources:
+        "До $10,001 депозита для холда на бирже.",
+      reportUrl: "crypton.xyz",
+    },
+    {
+      title: "Промоакция от Bybit х ELDA",
+      earn: "$15",
+      spend: "$1",
+      category: "Airdrops",
+      condition: "Сделать объем на споте Bybit на сумму не менее 501 $USDT за время акции (с пройденным KYC 1 уровня).",
+      resources:
+        "Время и средства для накрутки объема на споте.",
+      reportUrl: "crypton.xyz",
+    },
+  ],
+  май: [
+    {
+      title: "Sui",
+      earn: "$1600",
+      spend: "$45",
+      category: "Token Sale",
+      condition:
+        "Быть участником Discord проекта до 1 февраля 2023 года (первый пост в Prime о проекте был в мае 2022), заполнить форму, иметь KYC на биржах, где проводился сейл, выкупить токены и продать.",
+      resources: "30 минут времени и $45 на выкуп аллокации на один аккаунт.",
+      reportUrl: "crypton.xyz",
+    },
+    {
+      title: "Mobox DragonMO",
+      earn: "$400",
+      spend: "$0",
+      category: "NFT",
+      condition:
+        "Ранее получить дроп Arbitrum на кошелёк, зарегистрироваться в раффле, выиграть NFT и продать.",
+      resources: "5 минут времени на один аккаунт, кошелёк с дропом ARB.",
+      reportUrl: "crypton.xyz",
+    },
+    {
+      title: "Access Protocol х Bybit",
+      earn: "$230",
+      spend: "$3",
+      category: "Airdrop",
+      condition:
+        "Выполнить несложные задания, иметь UID на бирже 4, 4X или 4XX (необычно, но много кто мог забрать). Дополнительно проект раздал участникам акции по $40 на кошелёк.",
+      resources:
+        "30 минут времени, $3 на комиссии, $6 в токенах $ACS на стейкинг, $100 в $ACS для совершения торгового оборота или депозита на Bybit на один аккаунт.",
+      reportUrl: "crypton.xyz",
+    },
+    {
+      title: "Bursted Bubbles от Deblock",
+      earn: "$470",
+      spend: "$0",
+      category: "NFT",
+      condition:
+        "Получить WL через активность в проекте или раффле, получить NFT и продать.",
+      resources:
+        "От 10 минут времени на один аккаунт, 0.1 $ETH на кошельке для участия в раффле.",
+      reportUrl: "crypton.xyz",
+    },
+    {
+      title: "Sui",
+      earn: "$750",
+      spend: "$150",
+      category: "Ноды",
+      condition: "Поставить ноду и попасть в 3 волну.",
+      resources: "3 часа времени и $150 на сервер.",
+      reportUrl: "crypton.xyz",
+    },
+    {
+      title: "Bybit х Karate Combat ",
+      earn: "$20",
+      spend: "$4",
+      category: "Airdrop",
+      condition:
+        "Внести депозит в токенах $KARATE на биржу Bybit в рамках акции.",
+      resources:
+        "30 минут и $170 на покупку токенов для депозита (деньги возвращаются после депозита и продажи токенов) на один аккаунт.",
+      reportUrl: "crypton.xyz",
+    },
+  ],
+  апрель: [
     {
       title: "Spiral DAO",
       earn: "$250",
       spend: "$30",
       category: "Ретродропы",
-      condition: "Иметь DegenScore SBT (сделать его дешево мог каждый по нашему гайду) или быть топ-1000 DeBank (также неоднократно рассказывали), заминтить токены и продать их.",
+      condition:
+        "Иметь DegenScore SBT (сделать его дешево мог каждый по нашему гайду) или быть топ-1000 DeBank (также неоднократно рассказывали), заминтить токены и продать их.",
       resources: "10 минут времени и $30 на комиссии",
       reportUrl: "crypton.xyz",
     },
@@ -26,7 +137,8 @@ const examples = {
       earn: "$200",
       spend: "$0",
       category: "Ретродропы",
-      condition: "Иметь DegenScore SBT (сделать его дешево мог каждый по нашему гайду), заполнить форму, получить пасс и продать его.",
+      condition:
+        "Иметь DegenScore SBT (сделать его дешево мог каждый по нашему гайду), заполнить форму, получить пасс и продать его.",
       resources: "15 минут времени",
       reportUrl: "crypton.xyz",
     },
@@ -36,11 +148,12 @@ const examples = {
       spend: "$1",
       category: "Ретродропы",
       condition: "Поставить и поддерживать ноду в течение 2 месяцев.",
-      resources: "Ранее получить дроп ARB, заклеймить токены и продать. Ресурсы: 10 минут времени и $1 на комиссии",
+      resources:
+        "Ранее получить дроп ARB, заклеймить токены и продать. Ресурсы: 10 минут времени и $1 на комиссии",
       reportUrl: "crypton.xyz",
     },
   ],
-  март:[
+  март: [
     {
       title: "Arbitrum",
       earn: "$5000",
@@ -55,7 +168,8 @@ const examples = {
       earn: "$5000",
       spend: "$250",
       category: "NFT",
-      condition: "Активное участие в жизни проекта, победы в различных конкурсах.",
+      condition:
+        "Активное участие в жизни проекта, победы в различных конкурсах.",
       resources: "От 10 часов времени.",
       reportUrl: "crypton.xyz",
     },
@@ -82,7 +196,8 @@ const examples = {
       earn: "$450",
       spend: "$117",
       category: "Ноды",
-      condition: "Выполнить все задания в Incentivized Testnet и отказаться от валидирования в mainnet.",
+      condition:
+        "Выполнить все задания в Incentivized Testnet и отказаться от валидирования в mainnet.",
       resources: "До 16 часов времени в течение 9 месяцев.",
       reportUrl: "crypton.xyz",
     },
@@ -91,7 +206,8 @@ const examples = {
       earn: "$150",
       spend: "$5",
       category: "Ретродропы",
-      condition: "Cделать обмены в 4 уникальных торговых дня, где первый и последний обмены имеют разницу в один месяц.",
+      condition:
+        "Cделать обмены в 4 уникальных торговых дня, где первый и последний обмены имеют разницу в один месяц.",
       resources: "15 минут, $5 на комиссии включая депозит в сеть zkSync.",
       reportUrl: "crypton.xyz",
     },
@@ -157,7 +273,8 @@ const examples = {
       earn: "$1,825",
       spend: "$0",
       category: "NFT",
-      condition: "Пройти регистрацию в розыгрыше, выполнить задания с подписками.",
+      condition:
+        "Пройти регистрацию в розыгрыше, выполнить задания с подписками.",
       resources: "10 минут на 1 аккаунт, прогретый кошелёк и Twitter.",
       reportUrl: "crypton.xyz",
     },
@@ -166,37 +283,41 @@ const examples = {
       earn: "$670",
       spend: "$45",
       category: "NFT",
-      condition: "Проявлять активность в социальных сетях проекта, писать треды в Twitter на тему проекта, участвовать в розыгрышах. ",
+      condition:
+        "Проявлять активность в социальных сетях проекта, писать треды в Twitter на тему проекта, участвовать в розыгрышах. ",
       resources: "~5 минут–6 часов на 1 аккаунт",
       reportUrl: "crypton.xyz",
-    },    
+    },
     {
       title: "Uniwhale",
       earn: "$125",
       spend: "$0",
       category: "Тестнет",
-      condition: "Протестировать протокол, выполнить задания на DeQuest и иметь BAB-токен. Участники могли бесплатно заминтить Uniwhale Genesis Pass и продать его.",
+      condition:
+        "Протестировать протокол, выполнить задания на DeQuest и иметь BAB-токен. Участники могли бесплатно заминтить Uniwhale Genesis Pass и продать его.",
       resources: "40 минут на 1 аккаунт",
       reportUrl: "crypton.xyz",
-    },    
+    },
     {
       title: "Gleam & Quest3 от IF & Pine\nProtocol",
       earn: "$200",
       spend: "$50",
       category: "Whitelist",
-      condition: "Заполнить gleam-форму и выполнить задания на площадке Quest3. Шансы на победу были высокими.",
+      condition:
+        "Заполнить gleam-форму и выполнить задания на площадке Quest3. Шансы на победу были высокими.",
       resources: "10 минут на 1 аккаунт.",
       reportUrl: "crypton.xyz",
-    },    
+    },
     {
       title: "DigiDaigaku Dragons Superbowl",
       earn: "$700",
       spend: "$0",
       category: "NFT",
-      condition: "Следить за первым днем Super Bowl и словить QR-код для бесплатного минта. Окно было в минуту, можно было спокойно заминтить 1 NFT.",
+      condition:
+        "Следить за первым днем Super Bowl и словить QR-код для бесплатного минта. Окно было в минуту, можно было спокойно заминтить 1 NFT.",
       resources: "2 часа на 1 аккаунт",
       reportUrl: "crypton.xyz",
-    },    
+    },
     {
       title: "Planet COCO",
       earn: "$100",
@@ -205,7 +326,7 @@ const examples = {
       condition: "Зарегистрироваться.",
       resources: "10 минут на 1 аккаунт",
       reportUrl: "crypton.xyz",
-    },    
+    },
     {
       title: "Kiyoshi's Seed",
       earn: "$700",
@@ -624,7 +745,7 @@ function Examples(props) {
 
   // console.log(Object.entries(examples)[currentMonth]);
 
-  let current_gradient = 0
+  let current_gradient = 0;
 
   return (
     <div className="examples-content">
@@ -688,72 +809,76 @@ function Examples(props) {
         style={{ width: width[props.resolution] }}
       >
         {Object.entries(examples)[currentMonth][1].map((elem, index) => {
-          if (current_gradient > gradients.length - 1){
-            current_gradient = 0
+          if (current_gradient > gradients.length - 1) {
+            current_gradient = 0;
           }
 
-          const swiper_slide = <SwiperSlide
-          className="examples-content__blocks__block"
-          key={currentMonth + index}
-          style={{ opacity:  index < currentBlock ? 0 : 1, transition:'0.35s' }}
-        >
-          <div
-            className="examples-content__blocks__block__gradient"
-            style={{ background: gradients[current_gradient] }}
-          ></div>
-          <div className="examples-content__blocks__block__content">
-            <div className="examples-content__blocks__block__content__title ">
-              {elem.title}
-            </div>
-            <div className="examples-content__blocks__block__content__in-out">
-              <div className="examples-content__blocks__block__content__in-out__col">
-                <div className="examples-content__blocks__block__content__in-out__col__title">
-                  Заработано:
-                </div>
-                <div className="examples-content__blocks__block__content__in-out__col__sum">
-                  {elem.earn}
-                </div>
-              </div>
-
-              <div className="examples-content__blocks__block__content__in-out__col out">
-                <div className="examples-content__blocks__block__content__in-out__col__title">
-                  Вложения:
-                </div>
-                <div className="examples-content__blocks__block__content__in-out__col__sum">
-                  {elem.spend}
-                </div>
-              </div>
-            </div>
-
-            <div className="examples-content__blocks__block__content__cat-and-more">
-              <div className="examples-content__blocks__block__content__cat-and-more__cat">
-                {elem.category}
-              </div>
-              <div
-                className="examples-content__blocks__block__content__cat-and-more__more toggle"
-                onClick={() => toggleDescription(index)}
-              >
-                {showDescription == index ? "Скрыть" : "Подробнее"}
-              </div>
-            </div>
-
-            <div
-              className="examples-content__blocks__block__content__extended-info"
-              aria-expanded={showDescription != index}
+          const swiper_slide = (
+            <SwiperSlide
+              className="examples-content__blocks__block"
+              key={currentMonth + index}
+              style={{
+                opacity: index < currentBlock ? 0 : 1,
+                transition: "0.35s",
+              }}
             >
-              <div className="examples-content__blocks__block__content__extended-info__condition-title">
-                Условия:
-              </div>
-              <div className="examples-content__blocks__block__content__extended-info__condition-description">
-                {elem.condition}
-              </div>
-              <div className="examples-content__blocks__block__content__extended-info__resources-title">
-                Ресурсы:
-              </div>
-              <div className="examples-content__blocks__block__content__extended-info__resources-description">
-                {elem.resources}
-              </div>
-              {/* <a href={elem.reportUrl}>
+              <div
+                className="examples-content__blocks__block__gradient"
+                style={{ background: gradients[current_gradient] }}
+              ></div>
+              <div className="examples-content__blocks__block__content">
+                <div className="examples-content__blocks__block__content__title ">
+                  {elem.title}
+                </div>
+                <div className="examples-content__blocks__block__content__in-out">
+                  <div className="examples-content__blocks__block__content__in-out__col">
+                    <div className="examples-content__blocks__block__content__in-out__col__title">
+                      Заработано:
+                    </div>
+                    <div className="examples-content__blocks__block__content__in-out__col__sum">
+                      {elem.earn}
+                    </div>
+                  </div>
+
+                  <div className="examples-content__blocks__block__content__in-out__col out">
+                    <div className="examples-content__blocks__block__content__in-out__col__title">
+                      Вложения:
+                    </div>
+                    <div className="examples-content__blocks__block__content__in-out__col__sum">
+                      {elem.spend}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="examples-content__blocks__block__content__cat-and-more">
+                  <div className="examples-content__blocks__block__content__cat-and-more__cat">
+                    {elem.category}
+                  </div>
+                  <div
+                    className="examples-content__blocks__block__content__cat-and-more__more toggle"
+                    onClick={() => toggleDescription(index)}
+                  >
+                    {showDescription == index ? "Скрыть" : "Подробнее"}
+                  </div>
+                </div>
+
+                <div
+                  className="examples-content__blocks__block__content__extended-info"
+                  aria-expanded={showDescription != index}
+                >
+                  <div className="examples-content__blocks__block__content__extended-info__condition-title">
+                    Условия:
+                  </div>
+                  <div className="examples-content__blocks__block__content__extended-info__condition-description">
+                    {elem.condition}
+                  </div>
+                  <div className="examples-content__blocks__block__content__extended-info__resources-title">
+                    Ресурсы:
+                  </div>
+                  <div className="examples-content__blocks__block__content__extended-info__resources-description">
+                    {elem.resources}
+                  </div>
+                  {/* <a href={elem.reportUrl}>
                 <div className="examples-content__blocks__block__content__extended-info__full-report">
                   <div className="examples-content__blocks__block__content__extended-info__full-report__text">
                     Полный отчет
@@ -761,13 +886,12 @@ function Examples(props) {
                   <div className="examples-content__blocks__block__content__extended-info__full-report__arrow"></div>
                 </div>
               </a> */}
-            </div>
-          </div>
-        </SwiperSlide>
-          current_gradient++
-          return (
-            swiper_slide
+                </div>
+              </div>
+            </SwiperSlide>
           );
+          current_gradient++;
+          return swiper_slide;
         })}
       </Swiper>
 
