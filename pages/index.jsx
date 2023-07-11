@@ -284,7 +284,7 @@ export default function Home(props) {
                 Все возможности Prime
               </div>
               <div className="app__container__video-block__description-block__description">
-                Узнайте больше о том, что тебя ждет в Prime, после приобретения
+                Узнайте больше о том, что вас ждет в Prime, после приобретения
                 подписки!
               </div>
             </div>
