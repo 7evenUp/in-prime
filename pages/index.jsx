@@ -468,6 +468,9 @@ export default function Home(props) {
                   </div>
                 </div>
               </div>
+              <div className="app__container__subscribe__content__link__mark">
+              При оплате картой конвертация в рубли будет осуществлять по курсу ЦБ РФ
+                </div>
               <div className="app__container__subscribe__content__link">
                 <a
                   href={`https://t.me/CryptonLobbyBot?start=${referral}`}
