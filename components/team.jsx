@@ -434,7 +434,7 @@ function Team(props) {
         },
         description: {
           name: "Вадим",
-          role: "Сооснователь Prime",
+          role: "Сооснователь Crypton",
         },
         img: "vadim",
         change_other: {
@@ -1276,7 +1276,7 @@ function Team(props) {
         },
         description: {
           name: "Вадим",
-          role: "Сооснователь Prime",
+          role: "Сооснователь Crypton",
         },
         img: "vadim",
         change_other: {
@@ -2118,7 +2118,7 @@ function Team(props) {
         },
         description: {
           name: "Вадим",
-          role: "Сооснователь Prime",
+          role: "Сооснователь Crypton",
         },
         img: "vadim",
         change_other: {
@@ -2966,7 +2966,7 @@ function Team(props) {
         },
         description: {
           name: "Вадим",
-          role: "Сооснователь Prime",
+          role: "Сооснователь Crypton",
         },
         img: "vadim",
         change_other: {

@@ -94,10 +94,10 @@ export default function Home(props) {
   };
 
   const moreInfo = {
-    lgg: 8500,
-    lg: 7300,
-    md: 7600,
-    sm: 7230,
+    lgg: 9100,
+    lg: 7850,
+    md: 8000,
+    sm: 7870,
   };
 
   const [currentY, setCurrentY] = useState(0);
@@ -326,7 +326,7 @@ export default function Home(props) {
             <div className="app__container__about-ceo__right-light"></div>
             <div className="app__container__about-ceo__title">Команда</div>
             <div className="app__container__about-ceo__ceo">
-              <div className="app__container__about-ceo__ceo__photo"></div>
+              <div className="app__container__about-ceo__ceo__photo pavel"></div>
               <div className="app__container__about-ceo__ceo__description">
                 <div className="app__container__about-ceo__ceo__description__name">
                   Павел Сычев
@@ -373,6 +373,37 @@ export default function Home(props) {
                     по версии Binance
                   </a>
                   .
+                </div>
+              </div>
+            </div>
+
+            <div className="app__container__about-ceo__ceo">
+              <div className="app__container__about-ceo__ceo__photo vadim"></div>
+              <div className="app__container__about-ceo__ceo__description">
+                <div className="app__container__about-ceo__ceo__description__name">
+                  Вадим Тарасов
+                </div>
+                <div className="app__container__about-ceo__ceo__description__job">
+                  Основатель экосистемы{" "}
+                  <a href="https://crypton.xyz">Crypton </a>
+                </div>
+                <div className="app__container__about-ceo__ceo__description__channels">
+                  <div className="app__container__about-ceo__ceo__description__channels__title">
+                    Один из авторов канала
+                  </div>
+
+                  <a href="https://t.me/about_traders" target={"_blank"}>
+                    <div className="app__container__about-ceo__ceo__description__channels__link">
+                      <Telegram />
+                      <div className="app__container__about-ceo__ceo__description__channels__link__text">
+                        Уголок трейдера
+                      </div>
+                      <TeamArrow />
+                    </div>
+                  </a>
+                </div>
+                <div className="app__container__about-ceo__ceo__description__experience">
+                  В криптоиндустрии с 2017 года.
                 </div>
               </div>
             </div>
