@@ -384,7 +384,7 @@ export default function Home(props) {
                   Вадим Тарасов
                 </div>
                 <div className="app__container__about-ceo__ceo__description__job">
-                  Основатель экосистемы{" "}
+                  Сооснователь экосистемы{" "}
                   <a href="https://crypton.xyz">Crypton </a>
                 </div>
                 <div className="app__container__about-ceo__ceo__description__channels">
