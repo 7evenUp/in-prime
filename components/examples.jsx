@@ -807,9 +807,8 @@ function Examples(props) {
               <ToggleLeft opacity={currentBlock == 0 ? 0.5 : 1} />
             </div>
 
-            <div className="examples-content__header__toggle__elem ">{`${
-              currentBlock + 1
-            }/${Object.entries(examples)[currentMonth][1].length}`}</div>
+            <div className="examples-content__header__toggle__elem ">{`${currentBlock + 1
+              }/${Object.entries(examples)[currentMonth][1].length}`}</div>
 
             <div
               className="examples-content__header__toggle__arrow"
@@ -818,7 +817,7 @@ function Examples(props) {
               <ToggleRight
                 opacity={
                   currentBlock ==
-                  Object.entries(examples)[currentMonth][1].length - 1
+                    Object.entries(examples)[currentMonth][1].length - 1
                     ? 0.5
                     : 1
                 }
@@ -938,9 +937,8 @@ function Examples(props) {
             <ToggleLeft opacity={currentBlock == 0 ? 0.5 : 1} />
           </div>
 
-          <div className="examples-content__header__toggle__elem ">{`${
-            currentBlock + 1
-          }/${Object.entries(examples)[currentMonth][1].length}`}</div>
+          <div className="examples-content__header__toggle__elem ">{`${currentBlock + 1
+            }/${Object.entries(examples)[currentMonth][1].length}`}</div>
 
           <div
             className="examples-content__header__toggle__arrow"
@@ -949,7 +947,7 @@ function Examples(props) {
             <ToggleRight
               opacity={
                 currentBlock ==
-                Object.entries(examples)[currentMonth][1].length - 1
+                  Object.entries(examples)[currentMonth][1].length - 1
                   ? 0.5
                   : 1
               }
