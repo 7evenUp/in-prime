@@ -3295,7 +3295,6 @@ p {
           &.research {
             left: 400px;
             top: 55px;
-
             @media (max-width: 1919px) and (min-width: 1368px) {
               left: 350px;
               top: 56px;
@@ -3591,6 +3590,8 @@ p {
               background-image: url("/images/png/other-products/research-lgg.png");
               width: 130px;
               height: 130px;
+              background-size: cover;
+
 
               @media (max-width: 1919px) and (min-width: 1368px) {
                 background-image: url("/images/png/other-products/research-lg.png");
