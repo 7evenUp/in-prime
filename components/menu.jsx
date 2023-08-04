@@ -38,12 +38,12 @@ function Menu(props) {
             lg:4210
         }},
         {number:'06', name:'Подписка', position:{
-            lgg:7050,
-            lg:6065
+            lgg:7750,
+            lg:6665
         }},
         {number:'07', name:'FAQ', position:{
-            lgg:8020,
-            lg:6900
+            lgg:8620,
+            lg:7400
         }},
     ]
     return (
@@ -58,10 +58,10 @@ function Menu(props) {
                     </div>
                 })}
             </div>
-            : 
+            :
             ''
-            } 
-        </> 
+            }
+        </>
     );
 }
 
