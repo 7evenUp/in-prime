@@ -94,7 +94,7 @@ export default function Home(props) {
   };
 
   const moreInfo = {
-    lgg: 7800,
+    lgg: 8900,
     lg: 7650,
     md: 8000,
     sm: 7870,
