@@ -56,16 +56,16 @@ function Footer(props) {
     },
     {
       position: {
-        lgg: 7280,
-        lg: 6200,
+        lgg: 7080,
+        lg: 6000,
         md: 6200,
         sm: 5770,
       },
     },
     {
       position: {
-        lgg: 8550,
-        lg: 7400,
+        lgg: 8400,
+        lg: 7200,
         md: 7600,
         sm: 7600,
       },

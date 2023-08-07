@@ -51,19 +51,19 @@ function Team(props) {
           top: 225,
         },
         description: {
-          name: "Павел",
-          role: "Основатель экосистемы Crypton ",
+          name: "Карина",
+          role: "Руководитель Prime ",
         },
-        img: "pavel",
+        img: "karina",
         change_other: {
-          vadim: {
+          sanya: {
             size: 150,
             cord: { left: 214, top: 154 },
           },
           bogdan: {
             cord: { left: 418, top: 30 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 977, top: 0 },
           },
           ivan: {
@@ -108,17 +108,17 @@ function Team(props) {
         },
         img: "german",
         change_other: {
-          vadim: {
+          sanya: {
             cord: { left: 295, top: 259 },
           },
-          pavel: {
+          karina: {
             size: 150,
             cord: { left: 597, top: 312 },
           },
           bogdan: {
             cord: { left: 502, top: 30 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 976, top: 0 },
           },
           eduard: {
@@ -154,10 +154,10 @@ function Team(props) {
         },
         img: "bogdan",
         change_other: {
-          vadim: {
+          sanya: {
             cord: { left: 190, top: 175 },
           },
-          pavel: {
+          karina: {
             size: 150,
             cord: { left: 489, top: 365 },
           },
@@ -167,7 +167,7 @@ function Team(props) {
           aleksey: {
             cord: { left: 1006, top: 383 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 1031, top: 0 },
           },
           eduard: {
@@ -212,10 +212,10 @@ function Team(props) {
         },
         img: "artem",
         change_other: {
-          vadim: {
+          sanya: {
             cord: { left: 234, top: 182 },
           },
-          pavel: {
+          karina: {
             size: 150,
             cord: { left: 470, top: 349 },
           },
@@ -225,7 +225,7 @@ function Team(props) {
           aleksey: {
             cord: { left: 1102, top: 365 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 998, top: 0 },
           },
           eduard: {
@@ -265,15 +265,15 @@ function Team(props) {
           top: 0,
         },
         description: {
-          name: "Карина",
-          role: "Руководитель Prime",
+          name: "Владимир",
+          role: "Куратор амбассадорской программы",
         },
-        img: "karina",
+        img: "vladimir",
         change_other: {
-          vadim: {
+          sanya: {
             cord: { left: 234, top: 182 },
           },
-          pavel: {
+          karina: {
             size: 150,
             cord: { left: 485, top: 327 },
           },
@@ -328,10 +328,10 @@ function Team(props) {
         },
         img: "nikita_k",
         change_other: {
-          vadim: {
+          sanya: {
             cord: { left: 234, top: 182 },
           },
-          pavel: {
+          karina: {
             size: 150,
             cord: { left: 475, top: 350 },
           },
@@ -359,7 +359,7 @@ function Team(props) {
           nikita: {
             cord: { left: 0, top: 545 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 1089, top: 0 },
           },
         },
@@ -383,10 +383,10 @@ function Team(props) {
         },
         img: "sergey",
         change_other: {
-          vadim: {
+          sanya: {
             cord: { left: 260, top: 130 },
           },
-          pavel: {
+          karina: {
             size: 150,
             cord: { left: 597, top: 237 },
           },
@@ -411,7 +411,7 @@ function Team(props) {
           nikita: {
             cord: { left: 0, top: 579 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 976, top: 0 },
           },
           bogdan: {
@@ -433,12 +433,12 @@ function Team(props) {
           top: 192,
         },
         description: {
-          name: "Вадим",
-          role: "Сооснователь Crypton",
+          name: "Саня",
+          role: "Ведущий и диктор",
         },
-        img: "vadim",
+        img: "sanya",
         change_other: {
-          pavel: {
+          karina: {
             size: 150,
             cord: { left: 695, top: 395 },
           },
@@ -463,7 +463,7 @@ function Team(props) {
           nikita: {
             cord: { left: 0, top: 545 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 977, top: 0 },
           },
           bogdan: {
@@ -490,7 +490,7 @@ function Team(props) {
         },
         img: "nikita",
         change_other: {
-          pavel: {
+          karina: {
             size: 150,
             cord: { left: 615, top: 237 },
           },
@@ -512,7 +512,7 @@ function Team(props) {
           ivan: {
             cord: { left: 867, top: 223 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 977, top: 0 },
           },
           bogdan: {
@@ -542,11 +542,11 @@ function Team(props) {
         },
         img: "daniil",
         change_other: {
-          pavel: {
+          karina: {
             size: 150,
             cord: { left: 532, top: 208 },
           },
-          vadim: {
+          sanya: {
             cord: { left: 211, top: 186 },
           },
           artem: {
@@ -567,7 +567,7 @@ function Team(props) {
           ivan: {
             cord: { left: 867, top: 223 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 977, top: 0 },
           },
           bogdan: {
@@ -600,11 +600,11 @@ function Team(props) {
         },
         img: "iren",
         change_other: {
-          pavel: {
+          karina: {
             size: 150,
             cord: { left: 519, top: 237 },
           },
-          vadim: {
+          sanya: {
             cord: { left: 234, top: 182 },
           },
           artem: {
@@ -619,7 +619,7 @@ function Team(props) {
           ivan: {
             cord: { left: 793, top: 224 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 977, top: 0 },
           },
           bogdan: {
@@ -658,11 +658,11 @@ function Team(props) {
         },
         img: "eduard",
         change_other: {
-          pavel: {
+          karina: {
             size: 150,
             cord: { left: 511, top: 207 },
           },
-          vadim: {
+          sanya: {
             cord: { left: 234, top: 182 },
           },
           artem: {
@@ -680,7 +680,7 @@ function Team(props) {
           ivan: {
             cord: { left: 867, top: 223 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 977, top: 0 },
           },
           bogdan: {
@@ -716,11 +716,11 @@ function Team(props) {
         },
         img: "ivan",
         change_other: {
-          pavel: {
+          karina: {
             size: 150,
             cord: { left: 471, top: 372 },
           },
-          vadim: {
+          sanya: {
             cord: { left: 234, top: 182 },
           },
           artem: {
@@ -738,7 +738,7 @@ function Team(props) {
           ivan: {
             cord: { left: 867, top: 223 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 977, top: 0 },
           },
           bogdan: {
@@ -777,11 +777,11 @@ function Team(props) {
         },
         img: "aleksey",
         change_other: {
-          pavel: {
+          karina: {
             size: 150,
             cord: { left: 463, top: 321 },
           },
-          vadim: {
+          sanya: {
             cord: { left: 234, top: 182 },
           },
           artem: {
@@ -799,7 +799,7 @@ function Team(props) {
           ivan: {
             cord: { left: 669, top: 213 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 977, top: 0 },
           },
           bogdan: {
@@ -838,11 +838,11 @@ function Team(props) {
         },
         img: "bogdan2",
         change_other: {
-          pavel: {
+          karina: {
             size: 150,
             cord: { left: 519, top: 214 },
           },
-          vadim: {
+          sanya: {
             cord: { left: 227, top: 182 },
           },
           artem: {
@@ -860,7 +860,7 @@ function Team(props) {
           ivan: {
             cord: { left: 820, top: 224 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 977, top: 0 },
           },
           bogdan: {
@@ -893,19 +893,19 @@ function Team(props) {
           top: 225,
         },
         description: {
-          name: "Павел",
-          role: "Основатель экосистемы Crypton ",
+          name: "Карина",
+          role: "Руководитель Prime ",
         },
-        img: "pavel",
+        img: "karina",
         change_other: {
-          vadim: {
+          sanya: {
             size: 150,
             cord: { left: 214, top: 154 },
           },
           bogdan: {
             cord: { left: 418, top: 30 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 977, top: 0 },
           },
           ivan: {
@@ -950,17 +950,17 @@ function Team(props) {
         },
         img: "german",
         change_other: {
-          vadim: {
+          sanya: {
             cord: { left: 295, top: 259 },
           },
-          pavel: {
+          karina: {
             size: 150,
             cord: { left: 597, top: 312 },
           },
           bogdan: {
             cord: { left: 502, top: 30 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 976, top: 0 },
           },
           eduard: {
@@ -996,10 +996,10 @@ function Team(props) {
         },
         img: "bogdan",
         change_other: {
-          vadim: {
+          sanya: {
             cord: { left: 190, top: 175 },
           },
-          pavel: {
+          karina: {
             size: 150,
             cord: { left: 489, top: 365 },
           },
@@ -1009,7 +1009,7 @@ function Team(props) {
           aleksey: {
             cord: { left: 1006, top: 383 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 1031, top: 0 },
           },
           eduard: {
@@ -1054,10 +1054,10 @@ function Team(props) {
         },
         img: "artem",
         change_other: {
-          vadim: {
+          sanya: {
             cord: { left: 234, top: 182 },
           },
-          pavel: {
+          karina: {
             size: 150,
             cord: { left: 470, top: 349 },
           },
@@ -1067,7 +1067,7 @@ function Team(props) {
           aleksey: {
             cord: { left: 1102, top: 365 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 998, top: 0 },
           },
           eduard: {
@@ -1107,15 +1107,15 @@ function Team(props) {
           top: 0,
         },
         description: {
-          name: "Карина",
-          role: "Руководитель Prime",
+          name: "Владимир",
+          role: "Куратор амбассадорской программы",
         },
-        img: "karina",
+        img: "vladimir",
         change_other: {
-          vadim: {
+          sanya: {
             cord: { left: 234, top: 182 },
           },
-          pavel: {
+          karina: {
             size: 150,
             cord: { left: 485, top: 327 },
           },
@@ -1170,10 +1170,10 @@ function Team(props) {
         },
         img: "nikita_k",
         change_other: {
-          vadim: {
+          sanya: {
             cord: { left: 234, top: 182 },
           },
-          pavel: {
+          karina: {
             size: 150,
             cord: { left: 475, top: 350 },
           },
@@ -1201,7 +1201,7 @@ function Team(props) {
           nikita: {
             cord: { left: 0, top: 545 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 1089, top: 0 },
           },
         },
@@ -1225,10 +1225,10 @@ function Team(props) {
         },
         img: "sergey",
         change_other: {
-          vadim: {
+          sanya: {
             cord: { left: 260, top: 130 },
           },
-          pavel: {
+          karina: {
             size: 150,
             cord: { left: 597, top: 237 },
           },
@@ -1253,7 +1253,7 @@ function Team(props) {
           nikita: {
             cord: { left: 0, top: 579 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 976, top: 0 },
           },
           bogdan: {
@@ -1275,12 +1275,12 @@ function Team(props) {
           top: 192,
         },
         description: {
-          name: "Вадим",
-          role: "Сооснователь Crypton",
+          name: "Саня",
+          role: "Ведущий и диктор",
         },
-        img: "vadim",
+        img: "sanya",
         change_other: {
-          pavel: {
+          karina: {
             size: 150,
             cord: { left: 695, top: 395 },
           },
@@ -1305,7 +1305,7 @@ function Team(props) {
           nikita: {
             cord: { left: 0, top: 545 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 977, top: 0 },
           },
           bogdan: {
@@ -1332,7 +1332,7 @@ function Team(props) {
         },
         img: "nikita",
         change_other: {
-          pavel: {
+          karina: {
             size: 150,
             cord: { left: 615, top: 237 },
           },
@@ -1354,7 +1354,7 @@ function Team(props) {
           ivan: {
             cord: { left: 867, top: 223 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 977, top: 0 },
           },
           bogdan: {
@@ -1384,11 +1384,11 @@ function Team(props) {
         },
         img: "daniil",
         change_other: {
-          pavel: {
+          karina: {
             size: 150,
             cord: { left: 532, top: 208 },
           },
-          vadim: {
+          sanya: {
             cord: { left: 211, top: 186 },
           },
           artem: {
@@ -1409,7 +1409,7 @@ function Team(props) {
           ivan: {
             cord: { left: 867, top: 223 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 977, top: 0 },
           },
           bogdan: {
@@ -1442,11 +1442,11 @@ function Team(props) {
         },
         img: "iren",
         change_other: {
-          pavel: {
+          karina: {
             size: 150,
             cord: { left: 519, top: 237 },
           },
-          vadim: {
+          sanya: {
             cord: { left: 234, top: 182 },
           },
           artem: {
@@ -1461,7 +1461,7 @@ function Team(props) {
           ivan: {
             cord: { left: 793, top: 224 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 977, top: 0 },
           },
           bogdan: {
@@ -1500,11 +1500,11 @@ function Team(props) {
         },
         img: "eduard",
         change_other: {
-          pavel: {
+          karina: {
             size: 150,
             cord: { left: 511, top: 207 },
           },
-          vadim: {
+          sanya: {
             cord: { left: 234, top: 182 },
           },
           artem: {
@@ -1522,7 +1522,7 @@ function Team(props) {
           ivan: {
             cord: { left: 867, top: 223 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 977, top: 0 },
           },
           bogdan: {
@@ -1558,11 +1558,11 @@ function Team(props) {
         },
         img: "ivan",
         change_other: {
-          pavel: {
+          karina: {
             size: 150,
             cord: { left: 471, top: 372 },
           },
-          vadim: {
+          sanya: {
             cord: { left: 234, top: 182 },
           },
           artem: {
@@ -1580,7 +1580,7 @@ function Team(props) {
           ivan: {
             cord: { left: 867, top: 223 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 977, top: 0 },
           },
           bogdan: {
@@ -1619,11 +1619,11 @@ function Team(props) {
         },
         img: "aleksey",
         change_other: {
-          pavel: {
+          karina: {
             size: 150,
             cord: { left: 463, top: 321 },
           },
-          vadim: {
+          sanya: {
             cord: { left: 234, top: 182 },
           },
           artem: {
@@ -1641,7 +1641,7 @@ function Team(props) {
           ivan: {
             cord: { left: 669, top: 213 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 977, top: 0 },
           },
           bogdan: {
@@ -1680,11 +1680,11 @@ function Team(props) {
         },
         img: "bogdan2",
         change_other: {
-          pavel: {
+          karina: {
             size: 150,
             cord: { left: 519, top: 214 },
           },
-          vadim: {
+          sanya: {
             cord: { left: 227, top: 182 },
           },
           artem: {
@@ -1702,7 +1702,7 @@ function Team(props) {
           ivan: {
             cord: { left: 820, top: 224 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 977, top: 0 },
           },
           bogdan: {
@@ -1735,19 +1735,19 @@ function Team(props) {
           top: 225,
         },
         description: {
-          name: "Павел",
-          role: "Основатель экосистемы Crypton ",
+          name: "Карина",
+          role: "Руководитель Prime ",
         },
-        img: "pavel",
+        img: "karina",
         change_other: {
-          vadim: {
+          sanya: {
             size: 150,
             cord: { left: 214, top: 154 },
           },
           bogdan: {
             cord: { left: 418, top: 30 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 977, top: 0 },
           },
           ivan: {
@@ -1792,17 +1792,17 @@ function Team(props) {
         },
         img: "german",
         change_other: {
-          vadim: {
+          sanya: {
             cord: { left: 295, top: 259 },
           },
-          pavel: {
+          karina: {
             size: 150,
             cord: { left: 597, top: 312 },
           },
           bogdan: {
             cord: { left: 502, top: 30 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 976, top: 0 },
           },
           eduard: {
@@ -1838,10 +1838,10 @@ function Team(props) {
         },
         img: "bogdan",
         change_other: {
-          vadim: {
+          sanya: {
             cord: { left: 190, top: 175 },
           },
-          pavel: {
+          karina: {
             size: 150,
             cord: { left: 489, top: 365 },
           },
@@ -1851,7 +1851,7 @@ function Team(props) {
           aleksey: {
             cord: { left: 1006, top: 383 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 1031, top: 0 },
           },
           eduard: {
@@ -1896,10 +1896,10 @@ function Team(props) {
         },
         img: "artem",
         change_other: {
-          vadim: {
+          sanya: {
             cord: { left: 234, top: 182 },
           },
-          pavel: {
+          karina: {
             size: 150,
             cord: { left: 470, top: 349 },
           },
@@ -1909,7 +1909,7 @@ function Team(props) {
           aleksey: {
             cord: { left: 1102, top: 365 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 998, top: 0 },
           },
           eduard: {
@@ -1949,15 +1949,15 @@ function Team(props) {
           top: 0,
         },
         description: {
-          name: "Карина",
-          role: "Руководитель Prime",
+          name: "Владимир",
+          role: "Куратор амбассадорской программы",
         },
-        img: "karina",
+        img: "vladimir",
         change_other: {
-          vadim: {
+          sanya: {
             cord: { left: 234, top: 182 },
           },
-          pavel: {
+          karina: {
             size: 150,
             cord: { left: 485, top: 327 },
           },
@@ -2012,10 +2012,10 @@ function Team(props) {
         },
         img: "nikita_k",
         change_other: {
-          vadim: {
+          sanya: {
             cord: { left: 234, top: 182 },
           },
-          pavel: {
+          karina: {
             size: 150,
             cord: { left: 475, top: 350 },
           },
@@ -2043,7 +2043,7 @@ function Team(props) {
           nikita: {
             cord: { left: 0, top: 545 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 1089, top: 0 },
           },
         },
@@ -2067,10 +2067,10 @@ function Team(props) {
         },
         img: "sergey",
         change_other: {
-          vadim: {
+          sanya: {
             cord: { left: 260, top: 130 },
           },
-          pavel: {
+          karina: {
             size: 150,
             cord: { left: 597, top: 237 },
           },
@@ -2095,7 +2095,7 @@ function Team(props) {
           nikita: {
             cord: { left: 0, top: 579 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 976, top: 0 },
           },
           bogdan: {
@@ -2117,12 +2117,12 @@ function Team(props) {
           top: 192,
         },
         description: {
-          name: "Вадим",
-          role: "Сооснователь Crypton",
+          name: "Саня",
+          role: "Ведущий и диктор",
         },
-        img: "vadim",
+        img: "sanya",
         change_other: {
-          pavel: {
+          karina: {
             size: 150,
             cord: { left: 695, top: 395 },
           },
@@ -2147,7 +2147,7 @@ function Team(props) {
           nikita: {
             cord: { left: 0, top: 545 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 977, top: 0 },
           },
           bogdan: {
@@ -2174,7 +2174,7 @@ function Team(props) {
         },
         img: "nikita",
         change_other: {
-          pavel: {
+          karina: {
             size: 150,
             cord: { left: 615, top: 237 },
           },
@@ -2196,7 +2196,7 @@ function Team(props) {
           ivan: {
             cord: { left: 867, top: 223 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 977, top: 0 },
           },
           bogdan: {
@@ -2226,11 +2226,11 @@ function Team(props) {
         },
         img: "daniil",
         change_other: {
-          pavel: {
+          karina: {
             size: 150,
             cord: { left: 532, top: 208 },
           },
-          vadim: {
+          sanya: {
             cord: { left: 211, top: 186 },
           },
           artem: {
@@ -2251,7 +2251,7 @@ function Team(props) {
           ivan: {
             cord: { left: 867, top: 223 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 977, top: 0 },
           },
           bogdan: {
@@ -2284,11 +2284,11 @@ function Team(props) {
         },
         img: "iren",
         change_other: {
-          pavel: {
+          karina: {
             size: 150,
             cord: { left: 519, top: 237 },
           },
-          vadim: {
+          sanya: {
             cord: { left: 234, top: 182 },
           },
           artem: {
@@ -2303,7 +2303,7 @@ function Team(props) {
           ivan: {
             cord: { left: 793, top: 224 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 977, top: 0 },
           },
           bogdan: {
@@ -2342,11 +2342,11 @@ function Team(props) {
         },
         img: "eduard",
         change_other: {
-          pavel: {
+          karina: {
             size: 150,
             cord: { left: 511, top: 207 },
           },
-          vadim: {
+          sanya: {
             cord: { left: 234, top: 182 },
           },
           artem: {
@@ -2364,7 +2364,7 @@ function Team(props) {
           ivan: {
             cord: { left: 867, top: 223 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 977, top: 0 },
           },
           bogdan: {
@@ -2400,11 +2400,11 @@ function Team(props) {
         },
         img: "ivan",
         change_other: {
-          pavel: {
+          karina: {
             size: 150,
             cord: { left: 471, top: 372 },
           },
-          vadim: {
+          sanya: {
             cord: { left: 234, top: 182 },
           },
           artem: {
@@ -2422,7 +2422,7 @@ function Team(props) {
           ivan: {
             cord: { left: 867, top: 223 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 977, top: 0 },
           },
           bogdan: {
@@ -2461,11 +2461,11 @@ function Team(props) {
         },
         img: "aleksey",
         change_other: {
-          pavel: {
+          karina: {
             size: 150,
             cord: { left: 463, top: 321 },
           },
-          vadim: {
+          sanya: {
             cord: { left: 234, top: 182 },
           },
           artem: {
@@ -2483,7 +2483,7 @@ function Team(props) {
           ivan: {
             cord: { left: 669, top: 213 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 977, top: 0 },
           },
           bogdan: {
@@ -2522,11 +2522,11 @@ function Team(props) {
         },
         img: "bogdan2",
         change_other: {
-          pavel: {
+          karina: {
             size: 150,
             cord: { left: 519, top: 214 },
           },
-          vadim: {
+          sanya: {
             cord: { left: 227, top: 182 },
           },
           artem: {
@@ -2544,7 +2544,7 @@ function Team(props) {
           ivan: {
             cord: { left: 820, top: 224 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 977, top: 0 },
           },
           bogdan: {
@@ -2577,19 +2577,19 @@ function Team(props) {
           top: 244,
         },
         description: {
-          name: "Павел",
-          role: "Основатель экосистемы Crypton ",
+          name: "Карина",
+          role: "Руководитель Prime ",
         },
-        img: "pavel",
+        img: "karina",
         change_other: {
-          vadim: {
+          sanya: {
             size: 94,
             cord: { left: 153, top: 108 },
           },
           bogdan: {
             cord: { left: 273, top: 188 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 257, top: 504 },
           },
           ivan: {
@@ -2634,17 +2634,17 @@ function Team(props) {
         },
         img: "german",
         change_other: {
-          vadim: {
+          sanya: {
             cord: { left: 231, top: 120 },
           },
-          pavel: {
+          karina: {
             size: 78,
             cord: { left: 124, top: 310 },
           },
           bogdan: {
             cord: { left: 241, top: 261 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 257, top: 510 },
           },
           eduard: {
@@ -2680,10 +2680,10 @@ function Team(props) {
         },
         img: "bogdan",
         change_other: {
-          vadim: {
+          sanya: {
             cord: { left: 220, top: 106 },
           },
-          pavel: {
+          karina: {
             size: 78,
             cord: { left: 105, top: 365 },
           },
@@ -2693,7 +2693,7 @@ function Team(props) {
           aleksey: {
             cord: { left: 548, top: 98 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 257, top: 520 },
           },
           eduard: {
@@ -2744,17 +2744,17 @@ function Team(props) {
         },
         img: "artem",
         change_other: {
-          vadim: {
+          sanya: {
             cord: { left: 156, top: 105 },
           },
-          pavel: {
+          karina: {
             size: 78,
             cord: { left: 145, top: 432 },
           },
           aleksey: {
             cord: { left: 98, top: 544 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 257, top: 526 },
           },
           eduard: {
@@ -2794,15 +2794,15 @@ function Team(props) {
           top: 494,
         },
         description: {
-          name: "Карина",
-          role: "Руководитель Prime",
+          name: "Владимир",
+          role: "Куратор амбассадорской программы",
         },
-        img: "karina",
+        img: "vladimir",
         change_other: {
-          vadim: {
+          sanya: {
             cord: { left: 168, top: 113 },
           },
-          pavel: {
+          karina: {
             size: 78,
             cord: { left: 129, top: 246 },
           },
@@ -2857,10 +2857,10 @@ function Team(props) {
         },
         img: "nikita_k",
         change_other: {
-          vadim: {
+          sanya: {
             cord: { left: 202, top: 113 },
           },
-          pavel: {
+          karina: {
             size: 78,
             cord: { left: 124, top: 223 },
           },
@@ -2888,7 +2888,7 @@ function Team(props) {
           nikita: {
             cord: { left: 0, top: 0 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 257, top: 493 },
           },
           bogdan2: {
@@ -2915,10 +2915,10 @@ function Team(props) {
         },
         img: "sergey",
         change_other: {
-          vadim: {
+          sanya: {
             cord: { left: 203, top: 273 },
           },
-          pavel: {
+          karina: {
             size: 78,
             cord: { left: 79, top: 320 },
           },
@@ -2943,7 +2943,7 @@ function Team(props) {
           nikita: {
             cord: { left: 0, top: 0 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 257, top: 520 },
           },
           bogdan: {
@@ -2965,12 +2965,12 @@ function Team(props) {
           top: 107,
         },
         description: {
-          name: "Вадим",
-          role: "Сооснователь Crypton",
+          name: "Саня",
+          role: "Ведущий и диктор",
         },
-        img: "vadim",
+        img: "sanya",
         change_other: {
-          pavel: {
+          karina: {
             size: 78,
             cord: { left: 165, top: 257 },
           },
@@ -2995,7 +2995,7 @@ function Team(props) {
           nikita: {
             cord: { left: 0, top: 0 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 257, top: 504 },
           },
           bogdan: {
@@ -3022,10 +3022,10 @@ function Team(props) {
         },
         img: "nikita",
         change_other: {
-          vadim:{
+          sanya:{
             cord: { left: 241, top: 112 },
           },
-          pavel: {
+          karina: {
             size: 78,
             cord: { left: 120, top: 297 },
           },
@@ -3047,7 +3047,7 @@ function Team(props) {
           ivan: {
             cord: { left: 174, top: 440 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 257, top: 504 },
           },
           bogdan: {
@@ -3077,11 +3077,11 @@ function Team(props) {
         },
         img: "daniil",
         change_other: {
-          pavel: {
+          karina: {
             size: 78,
             cord: { left: 142, top: 378 },
           },
-          vadim: {
+          sanya: {
             cord: { left: 129, top: 225 },
           },
           artem: {
@@ -3099,7 +3099,7 @@ function Team(props) {
           ivan: {
             cord: { left: 268, top: 409 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 257, top: 514},
           },
           bogdan: {
@@ -3132,11 +3132,11 @@ function Team(props) {
         },
         img: "iren",
         change_other: {
-          pavel: {
+          karina: {
             size: 78,
             cord: { left: 145, top: 326 },
           },
-          vadim: {
+          sanya: {
             cord: { left: 176, top: 101 },
           },
           artem: {
@@ -3151,7 +3151,7 @@ function Team(props) {
           ivan: {
             cord: { left: 176, top: 444 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 257, top: 504 },
           },
           bogdan: {
@@ -3190,11 +3190,11 @@ function Team(props) {
         },
         img: "eduard",
         change_other: {
-          pavel: {
+          karina: {
             size: 78,
             cord: { left: 90, top: 231 },
           },
-          vadim: {
+          sanya: {
             cord: { left: 168, top: 113 },
           },
           artem: {
@@ -3212,7 +3212,7 @@ function Team(props) {
           ivan: {
             cord: { left: 177, top: 321 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 257, top: 504 },
           },
           bogdan: {
@@ -3249,11 +3249,11 @@ function Team(props) {
         },
         img: "ivan",
         change_other: {
-          pavel: {
+          karina: {
             size: 78,
             cord: { left: 160, top: 281},
           },
-          vadim: {
+          sanya: {
             cord: { left: 169, top: 101 },
           },
           artem: {
@@ -3269,7 +3269,7 @@ function Team(props) {
             cord: { left: 18, top: 101 },
           },
 
-          karina: {
+          vladimir: {
             cord: { left: 257, top: 512 },
           },
           bogdan: {
@@ -3308,11 +3308,11 @@ function Team(props) {
         },
         img: "aleksey",
         change_other: {
-          pavel: {
+          karina: {
             size: 78,
             cord: { left: 109, top: 246 },
           },
-          vadim: {
+          sanya: {
             cord: { left: 168, top: 113 },
           },
           artem: {
@@ -3330,7 +3330,7 @@ function Team(props) {
           ivan: {
             cord: { left: 145, top: 393 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 257, top: 416 },
           },
           bogdan: {
@@ -3369,11 +3369,11 @@ function Team(props) {
         },
         img: "bogdan2",
         change_other: {
-          pavel: {
+          karina: {
             size: 78,
             cord: { left: 129, top: 219 },
           },
-          vadim: {
+          sanya: {
             cord: { left: 225, top: 113 },
           },
           artem: {
@@ -3391,7 +3391,7 @@ function Team(props) {
           ivan: {
             cord: { left: 123, top: 346 },
           },
-          karina: {
+          vladimir: {
             cord: { left: 257, top: 481 },
           },
           bogdan: {
