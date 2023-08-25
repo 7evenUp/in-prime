@@ -1504,10 +1504,24 @@ p {
         }
       }
 
+      &__founders {
+        @media (min-width: 1368px) {
+          display: flex;
+        }
+      }
+
       &__ceo {
         margin-top: 70px;
-        display: flex;
-
+        @media (max-width: 1367px) {
+          display: flex;
+        }
+        @media (max-width: 1919px) and (min-width: 1368px) {
+          //font-size: 44px;
+          margin-right: 106px;
+        }
+        @media (min-width: 1920px) {
+          margin-right: 185px;
+        }
         @media (max-width: 1367px) and (min-width: 768px) {
           margin-top: 48px;
         }
@@ -1547,8 +1561,8 @@ p {
         }
 
         &__description {
-          margin-top: 50px;
-          margin-left: 90px;
+          margin-top: 36px;
+          //margin-left: 90px;
 
           @media (max-width: 1919px) and (min-width: 1368px) {
             margin-top: 31px;
@@ -1595,7 +1609,7 @@ p {
 
           &__job {
             margin-top: 8px;
-            width: 274px;
+            width: 300px;
             height: 27px;
             font-family: "Resist Sans";
             font-style: normal;
@@ -1631,10 +1645,10 @@ p {
           }
 
           &__channels {
-            margin-top: 67px;
+            margin-top: 30px;
 
             @media (max-width: 1919px) and (min-width: 1368px) {
-              margin-top: 64px;
+              margin-top: 30px;
             }
 
             @media (max-width: 1367px) and (min-width: 768px) {
@@ -1654,13 +1668,13 @@ p {
               font-size: 22px;
               line-height: 33px;
               color: #ffffff;
-              margin-bottom: 31px;
+              margin-bottom: 18px;
 
               @media (max-width: 1919px) and (min-width: 1368px) {
                 font-size: 18px;
                 line-height: 33px;
                 height: 33px;
-                margin-bottom: 26px;
+                margin-bottom: 18px;
               }
 
               @media (max-width: 1367px) and (min-width: 768px) {
@@ -1723,7 +1737,7 @@ p {
                 font-style: normal;
                 font-weight: 400;
                 font-size: 22px;
-                line-height: 33px;
+                line-height: 27px;
                 color: #ffffff;
 
                 @media (max-width: 1919px) and (min-width: 1368px) {
@@ -1791,7 +1805,7 @@ p {
           }
 
           &__experience {
-            margin-top: 55px;
+            margin-top: 30px;
             width: 465px;
             height: 66px;
             font-family: "Resist Sans";
@@ -1810,7 +1824,7 @@ p {
             }
 
             @media (max-width: 1919px) and (min-width: 1368px) {
-              margin-top: 46px;
+              margin-top: 31px;
               font-size: 18px;
               line-height: 33px;
               height: 33px;
@@ -2775,14 +2789,14 @@ p {
 
           &__mark {
             margin-top: 24px;
-            margin-left: 34px;
+            //margin-left: 34px;
             width: auto;
             font-family: "Resist Sans";
             font-style: normal;
             font-weight: 400;
-            font-size: 18px;
+            font-size: 14px;
             line-height: 27px;
-            color: #ffff;
+            color: rgba(255, 255, 255, 0.8);
 
             @media (max-width: 767px) {
               margin-top: 14px;

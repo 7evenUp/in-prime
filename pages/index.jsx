@@ -94,8 +94,8 @@ export default function Home(props) {
   };
 
   const moreInfo = {
-    lgg: 9100,
-    lg: 7850,
+    lgg: 8900,
+    lg: 7650,
     md: 8000,
     sm: 7870,
   };
@@ -325,85 +325,87 @@ export default function Home(props) {
           <div className="app__container__about-ceo" id="founder">
             <div className="app__container__about-ceo__right-light"></div>
             <div className="app__container__about-ceo__title">Команда</div>
-            <div className="app__container__about-ceo__ceo">
-              <div className="app__container__about-ceo__ceo__photo pavel"></div>
-              <div className="app__container__about-ceo__ceo__description">
-                <div className="app__container__about-ceo__ceo__description__name">
-                  Павел Сычев
-                </div>
-                <div className="app__container__about-ceo__ceo__description__job">
-                  Основатель экосистемы{" "}
-                  <a href="https://crypton.xyz">Crypton </a>
-                </div>
-                <div className="app__container__about-ceo__ceo__description__channels">
-                  <div className="app__container__about-ceo__ceo__description__channels__title">
-                    Автор каналов:
+            <div className="app__container__about-ceo__founders">
+              <div className="app__container__about-ceo__ceo">
+                <div className="app__container__about-ceo__ceo__photo pavel"></div>
+                <div className="app__container__about-ceo__ceo__description">
+                  <div className="app__container__about-ceo__ceo__description__name">
+                    Павел Сычев
                   </div>
-
-                  <a
-                    href="https://www.youtube.com/c/EnjoyMaloy"
-                    target={"_blank"}
-                  >
-                    <div className="app__container__about-ceo__ceo__description__channels__link">
-                      <YouTube />
-                      <div className="app__container__about-ceo__ceo__description__channels__link__text">
-                        EnjoyMaloy
-                      </div>
-                      <TeamArrow />
+                  <div className="app__container__about-ceo__ceo__description__job">
+                    Основатель экосистемы{" "}
+                    <a href="https://crypton.xyz">Crypton </a>
+                  </div>
+                  <div className="app__container__about-ceo__ceo__description__channels">
+                    <div className="app__container__about-ceo__ceo__description__channels__title">
+                      Автор каналов:
                     </div>
-                  </a>
 
-                  <a href="https://t.me/tradeparty1337" target={"_blank"}>
-                    <div className="app__container__about-ceo__ceo__description__channels__link">
-                      <Telegram />
-                      <div className="app__container__about-ceo__ceo__description__channels__link__text">
-                        TradeParty
+                    <a
+                        href="https://www.youtube.com/c/EnjoyMaloy"
+                        target={"_blank"}
+                    >
+                      <div className="app__container__about-ceo__ceo__description__channels__link">
+                        <YouTube />
+                        <div className="app__container__about-ceo__ceo__description__channels__link__text">
+                          EnjoyMaloy
+                        </div>
+                        <TeamArrow />
                       </div>
-                      <TeamArrow />
-                    </div>
-                  </a>
-                </div>
-                <div className="app__container__about-ceo__ceo__description__experience">
-                  Имеет более 5 лет опыта в криптоиндустрии. Инфлюенсер 2022
-                  года{" "}
-                  <a
-                    href="https://twitter.com/binance/status/1545462193155604481"
-                    target={"_blank"}
-                  >
-                    по версии Binance
-                  </a>
-                  .
+                    </a>
+
+                    <a href="https://t.me/tradeparty1337" target={"_blank"}>
+                      <div className="app__container__about-ceo__ceo__description__channels__link">
+                        <Telegram />
+                        <div className="app__container__about-ceo__ceo__description__channels__link__text">
+                          TradeParty
+                        </div>
+                        <TeamArrow />
+                      </div>
+                    </a>
+                  </div>
+                  <div className="app__container__about-ceo__ceo__description__experience">
+                    Имеет более 5 лет опыта в криптоиндустрии. Инфлюенсер 2022
+                    года{" "}
+                    <a
+                        href="https://twitter.com/binance/status/1545462193155604481"
+                        target={"_blank"}
+                    >
+                      по версии Binance
+                    </a>
+                    .
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div className="app__container__about-ceo__ceo">
-              <div className="app__container__about-ceo__ceo__photo vadim"></div>
-              <div className="app__container__about-ceo__ceo__description">
-                <div className="app__container__about-ceo__ceo__description__name">
-                  Вадим Тарасов
-                </div>
-                <div className="app__container__about-ceo__ceo__description__job">
-                  Сооснователь экосистемы{" "}
-                  <a href="https://crypton.xyz">Crypton </a>
-                </div>
-                <div className="app__container__about-ceo__ceo__description__channels">
-                  <div className="app__container__about-ceo__ceo__description__channels__title">
-                    Один из авторов канала
+              <div className="app__container__about-ceo__ceo">
+                <div className="app__container__about-ceo__ceo__photo vadim"></div>
+                <div className="app__container__about-ceo__ceo__description">
+                  <div className="app__container__about-ceo__ceo__description__name">
+                    Вадим Тарасов
                   </div>
-
-                  <a href="https://t.me/about_traders" target={"_blank"}>
-                    <div className="app__container__about-ceo__ceo__description__channels__link">
-                      <Telegram />
-                      <div className="app__container__about-ceo__ceo__description__channels__link__text">
-                        Уголок трейдера
-                      </div>
-                      <TeamArrow />
+                  <div className="app__container__about-ceo__ceo__description__job">
+                    Сооснователь экосистемы{" "}
+                    <a href="https://crypton.xyz">Crypton </a>
+                  </div>
+                  <div className="app__container__about-ceo__ceo__description__channels">
+                    <div className="app__container__about-ceo__ceo__description__channels__title">
+                      Один из авторов канала
                     </div>
-                  </a>
-                </div>
-                <div className="app__container__about-ceo__ceo__description__experience">
-                  В криптоиндустрии с 2017 года.
+
+                    <a href="https://t.me/about_traders" target={"_blank"}>
+                      <div className="app__container__about-ceo__ceo__description__channels__link">
+                        <Telegram />
+                        <div className="app__container__about-ceo__ceo__description__channels__link__text">
+                          Уголок трейдера
+                        </div>
+                        <TeamArrow />
+                      </div>
+                    </a>
+                  </div>
+                  <div className="app__container__about-ceo__ceo__description__experience">
+                    В криптоиндустрии с 2017 года.
+                  </div>
                 </div>
               </div>
             </div>
