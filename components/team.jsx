@@ -103,10 +103,10 @@ function Team(props) {
           top: 19,
         },
         description: {
-          name: "Герман",
-          role: "Фидбек",
+          name: "Александр",
+          role: "Глава технического отдела",
         },
-        img: "german",
+        img: "aleksandr",
         change_other: {
           sanya: {
             cord: { left: 295, top: 259 },
@@ -945,10 +945,10 @@ function Team(props) {
           top: 19,
         },
         description: {
-          name: "Герман",
-          role: "Фидбек",
+          name: "Александр",
+          role: "Глава технического отдела",
         },
-        img: "german",
+        img: "aleksandr",
         change_other: {
           sanya: {
             cord: { left: 295, top: 259 },
@@ -1787,10 +1787,10 @@ function Team(props) {
           top: 19,
         },
         description: {
-          name: "Герман",
-          role: "Фидбек",
+          name: "Александр",
+          role: "Глава технического отдела",
         },
-        img: "german",
+        img: "aleksandr",
         change_other: {
           sanya: {
             cord: { left: 295, top: 259 },
@@ -2629,10 +2629,10 @@ function Team(props) {
           top: 2,
         },
         description: {
-          name: "Герман",
-          role: "Фидбек",
+          name: "Александр",
+          role: "Глава технического отдела",
         },
-        img: "german",
+        img: "aleksandr",
         change_other: {
           sanya: {
             cord: { left: 231, top: 120 },
@@ -3436,7 +3436,7 @@ function Team(props) {
                 onClick={() => toggleMember(index)}
               >
                 <img
-                  src={`/images/png/team/bg/${elem.img}-bg.png`}
+                  src={`/images/png/team/${elem.img}.png`}
                   alt=""
                   style={{
                     width: elem.size.selected * currentScale + "px",
@@ -3518,7 +3518,7 @@ function Team(props) {
                 onMouseLeave={() => setHovered(-1)}
               >
                 <img
-                  src={`/images/png/team/bg/${elem.img}-bg.png`}
+                  src={`/images/png/team/${elem.img}.png`}
                   alt=""
                   style={{
                     transition: "0.5s",
