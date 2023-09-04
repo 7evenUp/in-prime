@@ -15,45 +15,107 @@ const gradients = [
 ];
 
 const examples = {
+  август: [
+    {
+      title: "Kartparty",
+      earn: "$1200",
+      spend: "$15",
+      category: "NFT",
+      condition:
+        "Выиграть в одном из раффлов или получить вайтлист путем активности в проекте.",
+      resources: "Время для регистраций в раффлы и фарма вайтлиста, $ETH для оплаты комиссии.",
+      reportUrl: "https://www.notion.so/crypton-prime/KartParty-48806888c7224ce7aa941693e6ec9929",
+    },
+    {
+      title: "Marginly",
+      earn: "$1000",
+      spend: "$0",
+      category: "Тестнеты",
+      condition:
+        "Попасть в топ-150, торгуя тестовыми токенами на платформе. Участников было менее 3000, поэтому было нетрудно.",
+      resources: "До 5 часов времени.",
+      reportUrl: "https://crypton-prime.notion.site/Marginly-576aab2ba7d54e54b7c0847ba3fe8855?pvs=4",
+    },
+    {
+      title: "Weebox",
+      earn: "$170",
+      spend: "$15",
+      category: "NFT",
+      condition: "Выиграть в одном из раффлов или получить вайтлист путем активности в проекте.",
+      resources:
+        "Время для регистраций в раффлы и фарма вайтлиста, $ETH для оплаты комиссии.",
+      reportUrl: "https://crypton-prime.notion.site/Weebox-1cec096b18df44ea9581484f0480e08b?pvs=4",
+    },
+    {
+      title: "ByVotes от Bybit",
+      earn: "$25",
+      spend: "$0.3",
+      category: "Airdrops",
+      condition: "Холдить стейблы на балансе биржи Bybit и проголосовать за выигрышный проект.",
+      resources:
+        "Холд до $10,000 на балансе биржи Bybit.",
+      reportUrl: "https://crypton-prime.notion.site/ByVotes-Bybit-03b19d1816024db58865db120173443e?pvs=4",
+    },
+    {
+      title: "OKX Cryptopedia Сезон 4 x Lifeform",
+      earn: "$25",
+      spend: "$1",
+      category: "Airdrops",
+      condition: "Выполнить задания в мобильном приложении OKX.",
+      resources:
+        "Иметь на балансе биржи $15 для выполнения заданий.",
+      reportUrl: "https://crypton-prime.notion.site/25-OKX-x-Lifeform-35879cd99e984998b0865b499ba7f7c0?pvs=4",
+    },
+    {
+      title: "OKX Cryptopedia Сезон 5",
+      earn: "$20",
+      spend: "$1",
+      category: "Airdrops",
+      condition: "Выполнить задания в мобильном приложении OKX.",
+      resources:
+        "Иметь на балансе биржи до 30 $SUI для выполнения заданий.",
+      reportUrl: "https://crypton-prime.notion.site/20-OKX-b2cb05d80af748f8b31f542af69ccc59?pvs=4",
+    },
+  ],
   июль: [
     {
       title: "Arkham",
-      earn: "~$150-$1500",
-      spend: "~$3",
+      earn: "$900",
+      spend: "$3",
       category: "Airdrops",
       condition:
-        "За простую регистрацию можно было получить $150 в токенах ARKM. Также можно было получить по $150 за каждого приглашенного реферала",
+        "За простую регистрацию можно было получить $150 в токенах ARKM. Также можно было получить по $150 за каждого приглашенного реферала.",
       resources: "Время для регистрации аккаунтов и рефералов, покупка почты, прокси.",
       reportUrl: "crypton.xyz",
     },
     {
-      title: "Mantle (MNT) на ByStarter",
-      earn: "~$100-$1200",
+      title: "Mantle на ByStarter",
+      earn: "$100-$1200",
       spend: "$0-2",
       category: "Token Sale",
       condition:
-        "Для участия в закрытом пуле нужно было удерживать 100 токенов $BIT (~$50), в публичном $100. В закрытом пуле было выбрано 12 500 победителей, каждый из которых получил 200 токенов $MNT (~$100). В публичным пуле было выбрано ~2500 победителей, каждый из которых получил 1000 - 2200 токенов $MNT ($600 - $1200)",
-      resources: "$50-100, которые нужно было похолдить.",
+        "Для участия в закрытом пуле нужно было удерживать 100 токенов $BIT (~$50), в публичном — $100. В закрытом пуле было выбрано 12 500 победителей, каждый из которых получил 200 токенов $MNT (~$100). В публичным пуле было выбрано ~2500 победителей, каждый из которых получил 1000 - 2200 токенов $MNT ($600–$1200).",
+      resources: "Холд $50–100 на балансе биржи.",
       reportUrl: "crypton.xyz",
     },
     {
-      title: "Токенсейл NEON на Coinlist",
-      earn: "~$100 - $500",
+      title: "NEON на Coinlist",
+      earn: "$800",
       spend: "$500",
       category: "Token Sale",
       condition: "Пользователи, которые вступили в Discord NEON до 19 мая 2023 г. получили приоритетную очередь в токенсейле, где гарантированно можно было выкупить аллокацию. NEON мы упоминали в мае 2022 года, тогда мы вступали в Discord и получали роли Neoner.",
       resources:
-        "Время, чтобы дождаться своей очереди. ",
+        "$500 для выкупа аллокации и время, чтобы дождаться своей очереди.",
       reportUrl: "crypton.xyz",
     },
     {
-      title: "Промоакция от Bybit х NYM",
+      title: "Bybit х NYM",
       earn: "$100",
       spend: "$1",
       category: "Airdrops",
-      condition: "Для участия нужно было удерживать минимум $100, проголосовать в Byvotes и заполнить форму. 800 первых пользователей, которые заполнили форму получили по $100 в токенах $NYM каждый.",
+      condition: "Удерживать минимум $100 на балансе биржи, проголосовать в ByVotes и заполнить форму. 800 первых пользователей, которые заполнили форму, получили по $100 в токенах $NYM каждый. ",
       resources:
-        "Холд $100 и минута на заполнения формы.",
+        "Холд $100 и минута на заполнение формы.",
       reportUrl: "crypton.xyz",
     },
   ],
@@ -911,14 +973,15 @@ function Examples(props) {
                   <div className="examples-content__blocks__block__content__extended-info__resources-description">
                     {elem.resources}
                   </div>
-                  {/* <a href={elem.reportUrl}>
+                  
+                  {elem.reportUrl != 'crypton.xyz' ? <a href={elem.reportUrl} target="_blank">
                 <div className="examples-content__blocks__block__content__extended-info__full-report">
                   <div className="examples-content__blocks__block__content__extended-info__full-report__text">
                     Полный отчет
                   </div>
                   <div className="examples-content__blocks__block__content__extended-info__full-report__arrow"></div>
                 </div>
-              </a> */}
+              </a>: ''}
                 </div>
               </div>
             </SwiperSlide>

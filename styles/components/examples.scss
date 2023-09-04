@@ -367,6 +367,13 @@
             display: flex;
             justify-content: flex-end;
 
+            &:hover{
+              
+                opacity: 0.8;
+  
+
+            }
+
             @media (max-width: 767px) {
               margin-top: 42px;
             }
