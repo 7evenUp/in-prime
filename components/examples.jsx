@@ -977,7 +977,7 @@ function Examples(props) {
                   {elem.reportUrl != 'crypton.xyz' ? <a href={elem.reportUrl} target="_blank">
                 <div className="examples-content__blocks__block__content__extended-info__full-report">
                   <div className="examples-content__blocks__block__content__extended-info__full-report__text">
-                    Полный отчет
+                    Событие в Calendar
                   </div>
                   <div className="examples-content__blocks__block__content__extended-info__full-report__arrow"></div>
                 </div>
