@@ -60,7 +60,7 @@ function Team(props) {
             size: 150,
             cord: { left: 214, top: 154 },
           },
-          bogdan: {
+          bogdan_bear: {
             cord: { left: 418, top: 30 },
           },
           vladimir: {
@@ -115,7 +115,7 @@ function Team(props) {
             size: 150,
             cord: { left: 597, top: 312 },
           },
-          bogdan: {
+          bogdan_bear: {
             cord: { left: 502, top: 30 },
           },
           vladimir: {
@@ -185,7 +185,7 @@ function Team(props) {
           ivan: {
             cord: { left: 724, top: 298 },
           },
-          nikita_k: {
+          nikita_jetix: {
             cord: { left: 1181, top: 206 },
           },
           nikita: {
@@ -243,7 +243,7 @@ function Team(props) {
           ivan: {
             cord: { left: 890, top: 364 },
           },
-          nikita_k: {
+          nikita_jetix: {
             cord: { left: 1181, top: 160 },
           },
           nikita: {
@@ -298,7 +298,7 @@ function Team(props) {
           ivan: {
             cord: { left: 890, top: 364 },
           },
-          nikita_k: {
+          nikita_jetix: {
             cord: { left: 1181, top: 244 },
           },
           nikita: {
@@ -414,7 +414,7 @@ function Team(props) {
           vladimir: {
             cord: { left: 976, top: 0 },
           },
-          bogdan: {
+          bogdan_bear: {
             cord: { left: 477, top: 30 },
           },
         },
@@ -466,7 +466,7 @@ function Team(props) {
           vladimir: {
             cord: { left: 977, top: 0 },
           },
-          bogdan: {
+          bogdan_bear: {
             cord: { left: 418, top: 15 },
           },
         },
@@ -515,7 +515,7 @@ function Team(props) {
           vladimir: {
             cord: { left: 977, top: 0 },
           },
-          bogdan: {
+          bogdan_bear: {
             cord: { left: 417, top: 30 },
           },
           sergey: {
@@ -570,7 +570,7 @@ function Team(props) {
           vladimir: {
             cord: { left: 977, top: 0 },
           },
-          bogdan: {
+          bogdan_bear: {
             cord: { left: 417, top: 30 },
           },
           sergey: {
@@ -622,7 +622,7 @@ function Team(props) {
           vladimir: {
             cord: { left: 977, top: 0 },
           },
-          bogdan: {
+          bogdan_bear: {
             cord: { left: 417, top: 30 },
           },
           sergey: {
@@ -683,7 +683,7 @@ function Team(props) {
           vladimir: {
             cord: { left: 977, top: 0 },
           },
-          bogdan: {
+          bogdan_bear: {
             cord: { left: 417, top: 30 },
           },
           sergey: {
@@ -741,7 +741,7 @@ function Team(props) {
           vladimir: {
             cord: { left: 977, top: 0 },
           },
-          bogdan: {
+          bogdan_bear: {
             cord: { left: 417, top: 30 },
           },
           sergey: {
@@ -802,7 +802,7 @@ function Team(props) {
           vladimir: {
             cord: { left: 977, top: 0 },
           },
-          bogdan: {
+          bogdan_bear: {
             cord: { left: 417, top: 30 },
           },
           sergey: {
@@ -863,7 +863,7 @@ function Team(props) {
           vladimir: {
             cord: { left: 977, top: 0 },
           },
-          bogdan: {
+          bogdan_bear: {
             cord: { left: 417, top: 30 },
           },
           sergey: {
@@ -902,7 +902,7 @@ function Team(props) {
             size: 150,
             cord: { left: 214, top: 154 },
           },
-          bogdan: {
+          bogdan_bear: {
             cord: { left: 418, top: 30 },
           },
           vladimir: {
@@ -957,7 +957,7 @@ function Team(props) {
             size: 150,
             cord: { left: 597, top: 312 },
           },
-          bogdan: {
+          bogdan_bear: {
             cord: { left: 502, top: 30 },
           },
           vladimir: {
@@ -1027,7 +1027,7 @@ function Team(props) {
           ivan: {
             cord: { left: 724, top: 298 },
           },
-          nikita_k: {
+          nikita_jetix: {
             cord: { left: 1181, top: 206 },
           },
           nikita: {
@@ -1085,7 +1085,7 @@ function Team(props) {
           ivan: {
             cord: { left: 890, top: 364 },
           },
-          nikita_k: {
+          nikita_jetix: {
             cord: { left: 1181, top: 160 },
           },
           nikita: {
@@ -1140,7 +1140,7 @@ function Team(props) {
           ivan: {
             cord: { left: 890, top: 364 },
           },
-          nikita_k: {
+          nikita_jetix: {
             cord: { left: 1181, top: 244 },
           },
           nikita: {
@@ -1256,7 +1256,7 @@ function Team(props) {
           vladimir: {
             cord: { left: 976, top: 0 },
           },
-          bogdan: {
+          bogdan_bear: {
             cord: { left: 477, top: 30 },
           },
         },
@@ -1308,7 +1308,7 @@ function Team(props) {
           vladimir: {
             cord: { left: 977, top: 0 },
           },
-          bogdan: {
+          bogdan_bear: {
             cord: { left: 418, top: 15 },
           },
         },
@@ -1357,7 +1357,7 @@ function Team(props) {
           vladimir: {
             cord: { left: 977, top: 0 },
           },
-          bogdan: {
+          bogdan_bear: {
             cord: { left: 417, top: 30 },
           },
           sergey: {
@@ -1412,7 +1412,7 @@ function Team(props) {
           vladimir: {
             cord: { left: 977, top: 0 },
           },
-          bogdan: {
+          bogdan_bear: {
             cord: { left: 417, top: 30 },
           },
           sergey: {
@@ -1464,7 +1464,7 @@ function Team(props) {
           vladimir: {
             cord: { left: 977, top: 0 },
           },
-          bogdan: {
+          bogdan_bear: {
             cord: { left: 417, top: 30 },
           },
           sergey: {
@@ -1525,7 +1525,7 @@ function Team(props) {
           vladimir: {
             cord: { left: 977, top: 0 },
           },
-          bogdan: {
+          bogdan_bear: {
             cord: { left: 417, top: 30 },
           },
           sergey: {
@@ -1583,7 +1583,7 @@ function Team(props) {
           vladimir: {
             cord: { left: 977, top: 0 },
           },
-          bogdan: {
+          bogdan_bear: {
             cord: { left: 417, top: 30 },
           },
           sergey: {
@@ -1644,7 +1644,7 @@ function Team(props) {
           vladimir: {
             cord: { left: 977, top: 0 },
           },
-          bogdan: {
+          bogdan_bear: {
             cord: { left: 417, top: 30 },
           },
           sergey: {
@@ -1705,7 +1705,7 @@ function Team(props) {
           vladimir: {
             cord: { left: 977, top: 0 },
           },
-          bogdan: {
+          bogdan_bear: {
             cord: { left: 417, top: 30 },
           },
           sergey: {
@@ -1744,7 +1744,7 @@ function Team(props) {
             size: 150,
             cord: { left: 214, top: 154 },
           },
-          bogdan: {
+          bogdan_bear: {
             cord: { left: 418, top: 30 },
           },
           vladimir: {
@@ -1799,7 +1799,7 @@ function Team(props) {
             size: 150,
             cord: { left: 597, top: 312 },
           },
-          bogdan: {
+          bogdan_bear: {
             cord: { left: 502, top: 30 },
           },
           vladimir: {
@@ -1869,7 +1869,7 @@ function Team(props) {
           ivan: {
             cord: { left: 724, top: 298 },
           },
-          nikita_k: {
+          nikita_jetix: {
             cord: { left: 1181, top: 206 },
           },
           nikita: {
@@ -1927,7 +1927,7 @@ function Team(props) {
           ivan: {
             cord: { left: 890, top: 364 },
           },
-          nikita_k: {
+          nikita_jetix: {
             cord: { left: 1181, top: 160 },
           },
           nikita: {
@@ -1982,7 +1982,7 @@ function Team(props) {
           ivan: {
             cord: { left: 890, top: 364 },
           },
-          nikita_k: {
+          nikita_jetix: {
             cord: { left: 1181, top: 244 },
           },
           nikita: {
@@ -2098,7 +2098,7 @@ function Team(props) {
           vladimir: {
             cord: { left: 976, top: 0 },
           },
-          bogdan: {
+          bogdan_bear: {
             cord: { left: 477, top: 30 },
           },
         },
@@ -2150,7 +2150,7 @@ function Team(props) {
           vladimir: {
             cord: { left: 977, top: 0 },
           },
-          bogdan: {
+          bogdan_bear: {
             cord: { left: 418, top: 15 },
           },
         },
@@ -2199,7 +2199,7 @@ function Team(props) {
           vladimir: {
             cord: { left: 977, top: 0 },
           },
-          bogdan: {
+          bogdan_bear: {
             cord: { left: 417, top: 30 },
           },
           sergey: {
@@ -2254,7 +2254,7 @@ function Team(props) {
           vladimir: {
             cord: { left: 977, top: 0 },
           },
-          bogdan: {
+          bogdan_bear: {
             cord: { left: 417, top: 30 },
           },
           sergey: {
@@ -2306,7 +2306,7 @@ function Team(props) {
           vladimir: {
             cord: { left: 977, top: 0 },
           },
-          bogdan: {
+          bogdan_bear: {
             cord: { left: 417, top: 30 },
           },
           sergey: {
@@ -2367,7 +2367,7 @@ function Team(props) {
           vladimir: {
             cord: { left: 977, top: 0 },
           },
-          bogdan: {
+          bogdan_bear: {
             cord: { left: 417, top: 30 },
           },
           sergey: {
@@ -2425,7 +2425,7 @@ function Team(props) {
           vladimir: {
             cord: { left: 977, top: 0 },
           },
-          bogdan: {
+          bogdan_bear: {
             cord: { left: 417, top: 30 },
           },
           sergey: {
@@ -2486,7 +2486,7 @@ function Team(props) {
           vladimir: {
             cord: { left: 977, top: 0 },
           },
-          bogdan: {
+          bogdan_bear: {
             cord: { left: 417, top: 30 },
           },
           sergey: {
@@ -2547,7 +2547,7 @@ function Team(props) {
           vladimir: {
             cord: { left: 977, top: 0 },
           },
-          bogdan: {
+          bogdan_bear: {
             cord: { left: 417, top: 30 },
           },
           sergey: {
@@ -2586,7 +2586,7 @@ function Team(props) {
             size: 94,
             cord: { left: 153, top: 108 },
           },
-          bogdan: {
+          bogdan_bear: {
             cord: { left: 273, top: 188 },
           },
           vladimir: {
@@ -2641,7 +2641,7 @@ function Team(props) {
             size: 78,
             cord: { left: 124, top: 310 },
           },
-          bogdan: {
+          bogdan_bear: {
             cord: { left: 241, top: 261 },
           },
           vladimir: {
@@ -2711,7 +2711,7 @@ function Team(props) {
           ivan: {
             cord: { left: 226, top: 433 },
           },
-          nikita_k: {
+          nikita_jetix: {
             cord: { left: 203, top: 629 },
           },
           nikita: {
@@ -2772,7 +2772,7 @@ function Team(props) {
           ivan: {
             cord: { left: 259, top: 401 },
           },
-          nikita_k: {
+          nikita_jetix: {
             cord: { left: 203, top: 629 },
           },
           nikita: {
@@ -2827,7 +2827,7 @@ function Team(props) {
           ivan: {
             cord: { left: 241, top: 323 },
           },
-          nikita_k: {
+          nikita_jetix: {
             cord: { left: 215, top: 629 },
           },
           nikita: {
@@ -2946,7 +2946,7 @@ function Team(props) {
           vladimir: {
             cord: { left: 257, top: 520 },
           },
-          bogdan: {
+          bogdan_bear: {
             cord: { left: 272, top: 182 },
           },
         },
@@ -2998,7 +2998,7 @@ function Team(props) {
           vladimir: {
             cord: { left: 257, top: 504 },
           },
-          bogdan: {
+          bogdan_bear: {
             cord: { left: 272, top: 227 },
           },
         },
@@ -3050,7 +3050,7 @@ function Team(props) {
           vladimir: {
             cord: { left: 257, top: 504 },
           },
-          bogdan: {
+          bogdan_bear: {
             cord: { left: 247, top: 245 },
           },
           sergey: {
@@ -3102,7 +3102,7 @@ function Team(props) {
           vladimir: {
             cord: { left: 257, top: 514},
           },
-          bogdan: {
+          bogdan_bear: {
             cord: { left: 273, top: 170 },
           },
           sergey: {
@@ -3154,7 +3154,7 @@ function Team(props) {
           vladimir: {
             cord: { left: 257, top: 504 },
           },
-          bogdan: {
+          bogdan_bear: {
             cord: { left: 272, top: 201 },
           },
           sergey: {
@@ -3272,7 +3272,7 @@ function Team(props) {
           vladimir: {
             cord: { left: 257, top: 512 },
           },
-          bogdan: {
+          bogdan_bear: {
             cord: { left: 274, top: 207 },
           },
           sergey: {
@@ -3333,7 +3333,7 @@ function Team(props) {
           vladimir: {
             cord: { left: 257, top: 416 },
           },
-          bogdan: {
+          bogdan_bear: {
             cord: { left: 272, top: 215 },
           },
           sergey: {
@@ -3394,7 +3394,7 @@ function Team(props) {
           vladimir: {
             cord: { left: 257, top: 481 },
           },
-          bogdan: {
+          bogdan_bear: {
             cord: { left: 272, top: 266 },
           },
           sergey: {
@@ -3406,7 +3406,7 @@ function Team(props) {
           eduard: {
             cord: { left: 2, top: 382 },
           },
-          nikita_k: {
+          nikita_jetix: {
             cord: { left: 272, top: 629 },
           },
         },
