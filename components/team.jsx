@@ -152,7 +152,7 @@ function Team(props) {
           name: "Богдан",
           role: "Куратор нод и редактор",
         },
-        img: "bogdan",
+        img: "bogdan_bear",
         change_other: {
           sanya: {
             cord: { left: 190, top: 175 },
@@ -326,7 +326,7 @@ function Team(props) {
           name: "Никита",
           role: "Куратор тестнетов и редактор",
         },
-        img: "nikita_k",
+        img: "nikita_jetix",
         change_other: {
           sanya: {
             cord: { left: 234, top: 182 },
@@ -836,7 +836,7 @@ function Team(props) {
           name: "Богдан",
           role: "Аналитик рынка",
         },
-        img: "bogdan2",
+        img: "bogdan",
         change_other: {
           karina: {
             size: 150,
@@ -994,7 +994,7 @@ function Team(props) {
           name: "Богдан",
           role: "Куратор нод и редактор",
         },
-        img: "bogdan",
+        img: "bogdan_bear",
         change_other: {
           sanya: {
             cord: { left: 190, top: 175 },
@@ -1168,7 +1168,7 @@ function Team(props) {
           name: "Никита",
           role: "Куратор тестнетов и редактор",
         },
-        img: "nikita_k",
+        img: "nikita_jetix",
         change_other: {
           sanya: {
             cord: { left: 234, top: 182 },
@@ -1678,7 +1678,7 @@ function Team(props) {
           name: "Богдан",
           role: "Аналитик рынка",
         },
-        img: "bogdan2",
+        img: "bogdan",
         change_other: {
           karina: {
             size: 150,
@@ -1836,7 +1836,7 @@ function Team(props) {
           name: "Богдан",
           role: "Куратор нод и редактор",
         },
-        img: "bogdan",
+        img: "bogdan_bear",
         change_other: {
           sanya: {
             cord: { left: 190, top: 175 },
@@ -2010,7 +2010,7 @@ function Team(props) {
           name: "Никита",
           role: "Куратор тестнетов и редактор",
         },
-        img: "nikita_k",
+        img: "nikita_jetix",
         change_other: {
           sanya: {
             cord: { left: 234, top: 182 },
@@ -2520,7 +2520,7 @@ function Team(props) {
           name: "Богдан",
           role: "Аналитик рынка",
         },
-        img: "bogdan2",
+        img: "bogdan",
         change_other: {
           karina: {
             size: 150,
@@ -2678,7 +2678,7 @@ function Team(props) {
           name: "Богдан",
           role: "Куратор нод и редактор",
         },
-        img: "bogdan",
+        img: "bogdan_bear",
         change_other: {
           sanya: {
             cord: { left: 220, top: 106 },
@@ -2855,7 +2855,7 @@ function Team(props) {
           name: "Никита",
           role: "Куратор тестнетов и редактор",
         },
-        img: "nikita_k",
+        img: "nikita_jetix",
         change_other: {
           sanya: {
             cord: { left: 202, top: 113 },
@@ -3367,7 +3367,7 @@ function Team(props) {
           name: "Богдан",
           role: "Аналитик рынка",
         },
-        img: "bogdan2",
+        img: "bogdan",
         change_other: {
           karina: {
             size: 78,
