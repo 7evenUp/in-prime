@@ -1,0 +1,111 @@
+import React, { useEffect, useState } from "react"
+
+import Categories from "@/components/categories"
+import MobileMenu from "@/components/mobile-menu"
+
+import { Resolution } from "@/types/resolution"
+
+import styles from "./Earn.module.scss"
+
+interface EarnProps {
+  resolution: Resolution
+  referral: string | string[]
+  currentY: number
+  setCurrentY: React.Dispatch<React.SetStateAction<number>>
+}
+
+const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
+  const [mobileMenu, changeMobileMenu] = useState(false)
+  const [scrollY, setScrollY] = React.useState(0)
+
+  const scrollHandler = React.useCallback((event) => {
+    setScrollY(window.scrollY)
+  }, [])
+
+  useEffect(() => {
+    window.addEventListener("scroll", scrollHandler, { passive: true })
+    return () => window.removeEventListener("scroll", scrollHandler)
+  }, [])
+
+  return (
+    <div className="app__container__earn">
+      <div className="app__container__earn__left-gradient" />
+      <div className="app__container__earn__right-gradient" />
+
+      <MobileMenu
+        open={mobileMenu}
+        changeMobileMenu={() => changeMobileMenu(!mobileMenu)}
+        resolution={resolution}
+        currentY={currentY}
+        setCurrentY={setCurrentY}
+        referral={referral}
+      />
+      <div
+        className="app__container__earn__header-bg"
+        style={scrollY ? { background: "#131313" } : {}}
+      />
+      <div className="app__container__earn__header">
+        <div className="app__container__earn__header__logo" />
+        <div className="menu-sub-block">
+          <a
+            href={`https://t.me/CryptonLobbyBot?start=${referral}`}
+            target={"_blank"}
+          >
+            <div className="app__container__earn__header__subscribe">
+              <div className="app__container__earn__header__subscribe__text">
+                Оформить подписку
+              </div>
+              <div className="app__container__earn__header__subscribe__logo" />
+            </div>
+          </a>
+          {["md", "sm"].includes(resolution) ? (
+            <div style={{ width: "25px", zIndex: 101 }}>
+              <div
+                className={`mobile-menu-button open`}
+                onClick={() => changeMobileMenu(!mobileMenu)}
+              />
+            </div>
+          ) : (
+            ""
+          )}
+        </div>
+      </div>
+      <Categories />
+      <div className="app__container__earn__title">
+        Зарабатывайте <br /> на криптовалюте
+      </div>
+      <div className="app__container__earn__description">
+        Prime – приватное комьюнити с авторским контентом по заработку в
+        криптовалюте. Команда из 20 человек отбирает лучшие события,
+        подготавливает детальные инструкции и помогает получить первую прибыль
+      </div>
+      <div className={styles.footer}>
+        <p>
+          PRIME - ПРОДУКТ ЭКОСИСТЕМЫ{" "}
+          <a
+            href="https://crypton.xyz"
+            target="_blank"
+            className={styles.footer_link}
+          >
+            CRYPTON
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 12 12"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1 11L11 1M11 1H2.24088M11 1V9.24818"
+                stroke="#FF4A7A"
+                strokeWidth="2"
+              />
+            </svg>
+          </a>
+        </p>
+      </div>
+    </div>
+  )
+}
+
+export default Earn

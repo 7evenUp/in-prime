@@ -186,8 +186,6 @@ p {
       background-repeat: no-repeat;
       display: flex;
       flex-direction: column;
-      border: 1px solid rgba(255, 255, 255, 0.5);
-      border-width: 0px 0px 1px 0px;
 
       @media (max-width: 1919px) and (min-width: 1368px) {
         height: 768px;
