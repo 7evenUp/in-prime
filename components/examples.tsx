@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react"
 
-import { Pagination } from "swiper"
+import { Pagination } from "swiper/modules"
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react"
 
 import ToggleLeft from "../public/images/jsx/icons/toggle-left"
@@ -803,16 +803,16 @@ const width = {
 const Examples = (props) => {
   const [currentBlock, setCurrentBlock] = useState(0)
   const [currentMonth, setCurrentMonth] = useState(0)
-  const [showDescription, setShowDescription] = useState(-1)
+  const [showDescription, setShowDescription] = useState(false)
 
   const swiperRef = useRef(null)
   swiperRef.current?.swiper.slideTo(currentBlock)
 
-  function changeBlock(index) {
+  const changeBlock = (index: number) => {
     setCurrentBlock(index)
   }
 
-  function toggleMonth(monthIndex) {
+  const toggleMonth = (monthIndex: number) => {
     if (currentMonth == monthIndex) {
       setCurrentMonth(0)
       setCurrentBlock(0)
@@ -824,7 +824,7 @@ const Examples = (props) => {
     }
   }
 
-  function toggleBlock(action) {
+  const toggleBlock = (action: "up" | "down") => {
     if (
       action == "up" &&
       currentBlock < Object.entries(examples)[currentMonth][1].length - 1
@@ -837,15 +837,13 @@ const Examples = (props) => {
     }
   }
 
-  function toggleDescription(currentDescription) {
+  const toggleDescription = (currentDescription: number) => {
     if (showDescription == currentDescription) {
       setShowDescription(-1)
     } else {
       setShowDescription(currentDescription)
     }
   }
-
-  // console.log(Object.entries(examples)[currentMonth]);
 
   let current_gradient = 0
 
@@ -867,35 +865,12 @@ const Examples = (props) => {
           })}
         </div>
 
-        {["lgg", "lg"].includes(props.resolution) ? (
-          <div className="examples-content__header__toggle">
-            <div
-              className="examples-content__header__toggle__arrow"
-              onClick={() => toggleBlock("down")}
-            >
-              <ToggleLeft opacity={currentBlock == 0 ? 0.5 : 1} />
-            </div>
-
-            <div className="examples-content__header__toggle__elem ">{`${
-              currentBlock + 1
-            }/${Object.entries(examples)[currentMonth][1].length}`}</div>
-
-            <div
-              className="examples-content__header__toggle__arrow"
-              onClick={() => toggleBlock("up")}
-            >
-              <ToggleRight
-                opacity={
-                  currentBlock ==
-                  Object.entries(examples)[currentMonth][1].length - 1
-                    ? 0.5
-                    : 1
-                }
-              />
-            </div>
-          </div>
-        ) : (
-          ""
+        {["lgg", "lg"].includes(props.resolution) && (
+          <PaginationToggle
+            currentBlock={currentBlock}
+            currentMonth={currentMonth}
+            toggleBlock={toggleBlock}
+          />
         )}
       </div>
       <Swiper
@@ -1003,38 +978,51 @@ const Examples = (props) => {
         })}
       </Swiper>
 
-      {["md", "sm"].includes(props.resolution) ? (
-        <div className="examples-content__header__toggle">
-          <div
-            className="examples-content__header__toggle__arrow"
-            onClick={() => toggleBlock("down")}
-          >
-            <ToggleLeft opacity={currentBlock == 0 ? 0.5 : 1} />
-          </div>
-
-          <div className="examples-content__header__toggle__elem ">{`${
-            currentBlock + 1
-          }/${Object.entries(examples)[currentMonth][1].length}`}</div>
-
-          <div
-            className="examples-content__header__toggle__arrow"
-            onClick={() => toggleBlock("up")}
-          >
-            <ToggleRight
-              opacity={
-                currentBlock ==
-                Object.entries(examples)[currentMonth][1].length - 1
-                  ? 0.5
-                  : 1
-              }
-            />
-          </div>
-        </div>
-      ) : (
-        ""
+      {["md", "sm"].includes(props.resolution) && (
+        <PaginationToggle
+          currentBlock={currentBlock}
+          currentMonth={currentMonth}
+          toggleBlock={toggleBlock}
+        />
       )}
     </div>
   )
 }
 
 export default Examples
+
+const PaginationToggle = ({
+  toggleBlock,
+  currentBlock,
+  currentMonth,
+}: {
+  currentMonth: number
+  currentBlock: number
+  toggleBlock: (action: "up" | "down") => void
+}) => (
+  <div className="examples-content__header__toggle">
+    <div
+      className="examples-content__header__toggle__arrow"
+      onClick={() => toggleBlock("down")}
+    >
+      <ToggleLeft opacity={currentBlock == 0 ? 0.5 : 1} />
+    </div>
+
+    <div className="examples-content__header__toggle__elem ">{`${
+      currentBlock + 1
+    }/${Object.entries(examples)[currentMonth][1].length}`}</div>
+
+    <div
+      className="examples-content__header__toggle__arrow"
+      onClick={() => toggleBlock("up")}
+    >
+      <ToggleRight
+        opacity={
+          currentBlock == Object.entries(examples)[currentMonth][1].length - 1
+            ? 0.5
+            : 1
+        }
+      />
+    </div>
+  </div>
+)
