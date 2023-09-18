@@ -1,12 +1,13 @@
-import React, { useRef, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 
-import { Pagination } from "swiper/modules"
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react"
+import { Swiper, SwiperSlide } from "swiper/react"
 
 import ToggleLeft from "../public/images/jsx/icons/toggle-left"
 import ToggleRight from "../public/images/jsx/icons/toggle-right"
 
-const gradients = [
+import { Resolution } from "@/types/resolution"
+
+const LINEAR_GRADIENTS = [
   "linear-gradient(90deg, #BB44CC 0%, #8AAEFB 52.08%, #4AE0CE 100%)",
   "linear-gradient(90deg, #FF4A7A 0%, #BB44CC 100%)",
   "linear-gradient(90deg, #FFCD9F 0%, #FF4A7A 100%)",
@@ -800,13 +801,16 @@ const width = {
   sm: 270,
 }
 
-const Examples = (props) => {
+const Examples = ({ resolution }: { resolution: Resolution }) => {
   const [currentBlock, setCurrentBlock] = useState(0)
   const [currentMonth, setCurrentMonth] = useState(0)
-  const [showDescription, setShowDescription] = useState(false)
+  const [showDescription, setShowDescription] = useState(-1)
 
   const swiperRef = useRef(null)
-  swiperRef.current?.swiper.slideTo(currentBlock)
+
+  useEffect(() => {
+    swiperRef.current?.swiper.slideTo(currentBlock)
+  }, [currentBlock])
 
   const changeBlock = (index: number) => {
     setCurrentBlock(index)
@@ -845,27 +849,25 @@ const Examples = (props) => {
     }
   }
 
-  let current_gradient = 0
+  let currentGradient = 0
 
   return (
     <div className="examples-content">
       <div className="examples-content__header">
         <div className="examples-content__header__months">
-          {Object.keys(examples).map((elem, index) => {
-            return (
-              <div
-                className="examples-content__header__months__month "
-                style={{ opacity: `${index != currentMonth ? 0.5 : 1}` }}
-                onClick={() => toggleMonth(index)}
-                key={index}
-              >
-                {elem}
-              </div>
-            )
-          })}
+          {Object.keys(examples).map((month, monthIndex) => (
+            <div
+              className="examples-content__header__months__month"
+              style={{ opacity: monthIndex === currentMonth ? 1 : 0.5 }}
+              onClick={() => toggleMonth(monthIndex)}
+              key={monthIndex}
+            >
+              {month}
+            </div>
+          ))}
         </div>
 
-        {["lgg", "lg"].includes(props.resolution) && (
+        {["lgg", "lg"].includes(resolution) && (
           <PaginationToggle
             currentBlock={currentBlock}
             currentMonth={currentMonth}
@@ -873,112 +875,111 @@ const Examples = (props) => {
           />
         )}
       </div>
+
       <Swiper
         ref={swiperRef}
         onSlideChange={(swiper) => changeBlock(swiper.activeIndex)}
         initialSlide={currentBlock}
         className="examples-content__blocks"
-        modules={[Pagination]}
-        spaceBetween={spaces[props.resolution]}
+        spaceBetween={spaces[resolution]}
         slidesPerView={1}
-        navigation
-        pagination={{ clickable: true }}
-        scrollbar={{ draggable: true }}
-        style={{ width: width[props.resolution] }}
+        style={{ width: width[resolution] }}
       >
-        {Object.entries(examples)[currentMonth][1].map((elem, index) => {
-          if (current_gradient > gradients.length - 1) {
-            current_gradient = 0
-          }
+        {Object.entries(examples)[currentMonth][1].map(
+          (
+            { category, condition, earn, reportUrl, resources, spend, title },
+            projectIndex
+          ) => {
+            if (currentGradient >= LINEAR_GRADIENTS.length) {
+              currentGradient = 0
+            }
 
-          const swiper_slide = (
-            <SwiperSlide
-              className="examples-content__blocks__block"
-              key={currentMonth + index}
-              style={{
-                opacity: index < currentBlock ? 0 : 1,
-                transition: "0.35s",
-              }}
-            >
-              <div
-                className="examples-content__blocks__block__gradient"
-                style={{ background: gradients[current_gradient] }}
-              ></div>
-              <div className="examples-content__blocks__block__content">
-                <div className="examples-content__blocks__block__content__title ">
-                  {elem.title}
-                </div>
-                <div className="examples-content__blocks__block__content__in-out">
-                  <div className="examples-content__blocks__block__content__in-out__col">
-                    <div className="examples-content__blocks__block__content__in-out__col__title">
-                      Заработано:
-                    </div>
-                    <div className="examples-content__blocks__block__content__in-out__col__sum">
-                      {elem.earn}
-                    </div>
-                  </div>
-
-                  <div className="examples-content__blocks__block__content__in-out__col out">
-                    <div className="examples-content__blocks__block__content__in-out__col__title">
-                      Вложения:
-                    </div>
-                    <div className="examples-content__blocks__block__content__in-out__col__sum">
-                      {elem.spend}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="examples-content__blocks__block__content__cat-and-more">
-                  <div className="examples-content__blocks__block__content__cat-and-more__cat">
-                    {elem.category}
-                  </div>
-                  <div
-                    className="examples-content__blocks__block__content__cat-and-more__more toggle"
-                    onClick={() => toggleDescription(index)}
-                  >
-                    {showDescription == index ? "Скрыть" : "Подробнее"}
-                  </div>
-                </div>
-
+            const swiper_slide = (
+              <SwiperSlide
+                className="examples-content__blocks__block"
+                key={title + projectIndex}
+                style={{
+                  opacity: projectIndex < currentBlock ? 0 : 1,
+                }}
+              >
                 <div
-                  className="examples-content__blocks__block__content__extended-info"
-                  aria-expanded={showDescription != index}
-                >
-                  <div className="examples-content__blocks__block__content__extended-info__condition-title">
-                    Условия:
+                  className="examples-content__blocks__block__gradient"
+                  style={{ background: LINEAR_GRADIENTS[currentGradient] }}
+                />
+                <div className="examples-content__blocks__block__content">
+                  <div className="examples-content__blocks__block__content__title ">
+                    {title}
                   </div>
-                  <div className="examples-content__blocks__block__content__extended-info__condition-description">
-                    {elem.condition}
-                  </div>
-                  <div className="examples-content__blocks__block__content__extended-info__resources-title">
-                    Ресурсы:
-                  </div>
-                  <div className="examples-content__blocks__block__content__extended-info__resources-description">
-                    {elem.resources}
+                  <div className="examples-content__blocks__block__content__in-out">
+                    <div className="examples-content__blocks__block__content__in-out__col">
+                      <div className="examples-content__blocks__block__content__in-out__col__title">
+                        Заработано:
+                      </div>
+                      <div className="examples-content__blocks__block__content__in-out__col__sum">
+                        {earn}
+                      </div>
+                    </div>
+
+                    <div className="examples-content__blocks__block__content__in-out__col out">
+                      <div className="examples-content__blocks__block__content__in-out__col__title">
+                        Вложения:
+                      </div>
+                      <div className="examples-content__blocks__block__content__in-out__col__sum">
+                        {spend}
+                      </div>
+                    </div>
                   </div>
 
-                  {elem.reportUrl != "crypton.xyz" ? (
-                    <a href={elem.reportUrl} target="_blank">
-                      <div className="examples-content__blocks__block__content__extended-info__full-report">
-                        <div className="examples-content__blocks__block__content__extended-info__full-report__text">
-                          Событие в Calendar
+                  <div className="examples-content__blocks__block__content__cat-and-more">
+                    <div className="examples-content__blocks__block__content__cat-and-more__cat">
+                      {category}
+                    </div>
+                    <div
+                      className="examples-content__blocks__block__content__cat-and-more__more toggle"
+                      onClick={() => toggleDescription(projectIndex)}
+                    >
+                      {showDescription == projectIndex ? "Скрыть" : "Подробнее"}
+                    </div>
+                  </div>
+
+                  <div
+                    className="examples-content__blocks__block__content__extended-info"
+                    aria-expanded={showDescription != projectIndex}
+                  >
+                    <div className="examples-content__blocks__block__content__extended-info__condition-title">
+                      Условия:
+                    </div>
+                    <div className="examples-content__blocks__block__content__extended-info__condition-description">
+                      {condition}
+                    </div>
+                    <div className="examples-content__blocks__block__content__extended-info__resources-title">
+                      Ресурсы:
+                    </div>
+                    <div className="examples-content__blocks__block__content__extended-info__resources-description">
+                      {resources}
+                    </div>
+
+                    {reportUrl != "crypton.xyz" && (
+                      <a href={reportUrl} target="_blank">
+                        <div className="examples-content__blocks__block__content__extended-info__full-report">
+                          <div className="examples-content__blocks__block__content__extended-info__full-report__text">
+                            Событие в Calendar
+                          </div>
+                          <div className="examples-content__blocks__block__content__extended-info__full-report__arrow" />
                         </div>
-                        <div className="examples-content__blocks__block__content__extended-info__full-report__arrow"></div>
-                      </div>
-                    </a>
-                  ) : (
-                    ""
-                  )}
+                      </a>
+                    )}
+                  </div>
                 </div>
-              </div>
-            </SwiperSlide>
-          )
-          current_gradient++
-          return swiper_slide
-        })}
+              </SwiperSlide>
+            )
+            currentGradient++
+            return swiper_slide
+          }
+        )}
       </Swiper>
 
-      {["md", "sm"].includes(props.resolution) && (
+      {["md", "sm"].includes(resolution) && (
         <PaginationToggle
           currentBlock={currentBlock}
           currentMonth={currentMonth}
@@ -999,30 +1000,28 @@ const PaginationToggle = ({
   currentMonth: number
   currentBlock: number
   toggleBlock: (action: "up" | "down") => void
-}) => (
-  <div className="examples-content__header__toggle">
-    <div
-      className="examples-content__header__toggle__arrow"
-      onClick={() => toggleBlock("down")}
-    >
-      <ToggleLeft opacity={currentBlock == 0 ? 0.5 : 1} />
-    </div>
+}) => {
+  const projectsLength = Object.entries(examples)[currentMonth][1].length
 
-    <div className="examples-content__header__toggle__elem ">{`${
-      currentBlock + 1
-    }/${Object.entries(examples)[currentMonth][1].length}`}</div>
+  return (
+    <div className="examples-content__header__toggle">
+      <div
+        className="examples-content__header__toggle__arrow"
+        onClick={() => toggleBlock("down")}
+      >
+        <ToggleLeft opacity={currentBlock === 0 ? 0.5 : 1} />
+      </div>
 
-    <div
-      className="examples-content__header__toggle__arrow"
-      onClick={() => toggleBlock("up")}
-    >
-      <ToggleRight
-        opacity={
-          currentBlock == Object.entries(examples)[currentMonth][1].length - 1
-            ? 0.5
-            : 1
-        }
-      />
+      <div className="examples-content__header__toggle__elem">
+        {`${currentBlock + 1}/${projectsLength}`}
+      </div>
+
+      <div
+        className="examples-content__header__toggle__arrow"
+        onClick={() => toggleBlock("up")}
+      >
+        <ToggleRight opacity={currentBlock === projectsLength - 1 ? 0.5 : 1} />
+      </div>
     </div>
-  </div>
-)
+  )
+}

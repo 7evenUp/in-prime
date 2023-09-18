@@ -255,13 +255,11 @@ const categories = [
 ]
 
 function Features(props) {
-  const [mapIndex, SetMapIndex] = useState(-1)
-  //background: radial-gradient(106.67% 106.67% at 26.67% 88.33%, #FF4A7A 1.04%, #BB44CC 100%) !important;
-
+  const [mapIndex, setMapIndex] = useState(-1)
   const [hovered, setHovered] = useState(-1)
 
   function toggle(currentIndex) {
-    currentIndex == mapIndex ? SetMapIndex(-1) : SetMapIndex(currentIndex)
+    currentIndex == mapIndex ? setMapIndex(-1) : setMapIndex(currentIndex)
   }
 
   return (

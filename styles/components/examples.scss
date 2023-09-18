@@ -127,6 +127,7 @@
       max-height: 1100px;
       display: flex;
       flex-direction: column;
+      transition: 0.35s;
 
       @media (max-width: 767px) {
         width: 270px;
@@ -367,11 +368,8 @@
             display: flex;
             justify-content: flex-end;
 
-            &:hover{
-              
-                opacity: 0.8;
-  
-
+            &:hover {
+              opacity: 0.8;
             }
 
             @media (max-width: 767px) {

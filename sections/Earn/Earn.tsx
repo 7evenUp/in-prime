@@ -28,7 +28,7 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
   }, [])
 
   return (
-    <div className="app__container__earn">
+    <section className="app__container__earn">
       <div className="app__container__earn__left-gradient" />
       <div className="app__container__earn__right-gradient" />
 
@@ -104,7 +104,7 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
           </a>
         </p>
       </div>
-    </div>
+    </section>
   )
 }
 
