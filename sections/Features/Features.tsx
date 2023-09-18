@@ -5,6 +5,21 @@ import { Swiper, SwiperSlide } from "swiper/react"
 
 import { useSwiperReactive } from "@/hooks/useSwiperReactive"
 
+import {
+  CalendarIcon,
+  CalendarIconGradient,
+  ChatIcon,
+  ChatIconGradient,
+  ContentIcon,
+  ContentIconGradient,
+  GuaranteeIcon,
+  GuaranteeIconGradient,
+  HelperIcon,
+  HelperIconGradient,
+  MeetupsIcon,
+  MeetupsIconGradient,
+} from "./Icons"
+
 import styles from "./Features.module.scss"
 
 import featuresData from "@/data/features.json"
@@ -29,22 +44,46 @@ const FeaturesTabs = () => {
     >
       <Tabs.List className={styles.TabsList} aria-label="Prime Features">
         <Tabs.Trigger className={styles.TabsTrigger} value="tab1">
-          <p>Календарь по заработку</p>
+          <div>
+            <CalendarIcon />
+            <CalendarIconGradient />
+            <span>Календарь по заработку</span>
+          </div>
         </Tabs.Trigger>
         <Tabs.Trigger className={styles.TabsTrigger} value="tab2">
-          <p>Экспертный контент</p>
+          <div>
+            <ContentIcon />
+            <ContentIconGradient />
+            <span>Экспертный контент</span>
+          </div>
         </Tabs.Trigger>
         <Tabs.Trigger className={styles.TabsTrigger} value="tab3">
-          <p>Чат и дружное комьюнити</p>
+          <div>
+            <ChatIcon />
+            <ChatIconGradient />
+            <span>Чат и дружное комьюнити</span>
+          </div>
         </Tabs.Trigger>
         <Tabs.Trigger className={styles.TabsTrigger} value="tab4">
-          <p>Онлайн встречи и практика</p>
+          <div>
+            <MeetupsIcon />
+            <MeetupsIconGradient />
+            <span>Онлайн встречи и практика</span>
+          </div>
         </Tabs.Trigger>
         <Tabs.Trigger className={styles.TabsTrigger} value="tab5">
-          <p>Личный помощник</p>
+          <div>
+            <HelperIcon />
+            <HelperIconGradient />
+            <span>Личный помощник</span>
+          </div>
         </Tabs.Trigger>
         <Tabs.Trigger className={styles.TabsTrigger} value="tab6">
-          <p>Гарантия прибыли</p>
+          <div>
+            <GuaranteeIcon />
+            <GuaranteeIconGradient />
+            <span>Гарантия прибыли</span>
+          </div>
         </Tabs.Trigger>
       </Tabs.List>
       <Tabs.Content className={styles.TabsContent} value="tab1">
