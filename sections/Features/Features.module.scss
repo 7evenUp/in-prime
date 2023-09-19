@@ -11,7 +11,6 @@
   @media (max-width: 1919px) and (min-width: 1368px) {
     width: 1143px;
     margin-top: 50px;
-    height: 781px;
     padding: 0px 112px 0px 113px;
   }
 
@@ -212,19 +211,12 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding-top: 36px;
+  padding-top: 16px;
   position: relative;
 
   &[data-state="inactive"] {
     display: none;
   }
-}
-
-.img_wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
 }
 
 .swipe_btn {
@@ -272,8 +264,10 @@
 
   &_slide {
     height: 100%;
+    width: 700px;
     transition: all 0.05s ease-in;
     display: flex;
+    align-items: center;
     flex-direction: column;
     justify-content: space-between;
   }
@@ -282,7 +276,7 @@
 .pagination {
   position: absolute;
   left: 50%;
-  top: 525px;
+  top: 540px;
   translate: -50%;
   display: flex;
   justify-content: space-between;
@@ -298,6 +292,7 @@
     border-radius: 50%;
     transition: all 0.1s ease-in;
     cursor: pointer;
+    padding: 0;
 
     &:hover {
       opacity: 1;

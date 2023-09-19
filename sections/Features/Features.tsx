@@ -1,7 +1,8 @@
 import React from "react"
-import Image from "next/image"
+import Image, { StaticImageData } from "next/image"
 import * as Tabs from "@radix-ui/react-tabs"
 import { Swiper, SwiperSlide } from "swiper/react"
+
 
 import { useSwiperReactive } from "@/hooks/useSwiperReactive"
 
@@ -22,7 +23,7 @@ import {
 
 import styles from "./Features.module.scss"
 
-import featuresData from "@/data/features.json"
+import {data as featuresData} from "@/data/features"
 
 const Features = () => {
   return (
@@ -111,7 +112,7 @@ const FeaturesTabs = () => {
 const Slider = ({
   data,
 }: {
-  data: Array<{ imgSrc: string; description: string }>
+  data: Array<{ imgSrc: StaticImageData; description: string }>
 }) => {
   return (
     <Swiper
@@ -121,18 +122,17 @@ const Slider = ({
       wrapperClass={styles.swiper_wrapper}
     >
       {data.map(({ imgSrc, description }, i) => (
-        <SwiperSlide>
+        <SwiperSlide key={description}>
           {({ isActive }) => (
             <div
               className={styles.swiper_slide}
               style={{ opacity: isActive ? 1 : 0 }}
             >
+
               <Image
                 src={imgSrc}
-                alt="Web calendar"
+                alt={`Image of: ${description}`}
                 quality={100}
-                width={700}
-                height={450}
               />
               <p className={styles.description}>{description}</p>
             </div>
