@@ -162,7 +162,7 @@ const Home = (props) => {
           />
 
           <Benefits />
-          <Features />
+          <Features resolution={resolution} />
 
           {/* <Features resolution={resolution} /> */}
 

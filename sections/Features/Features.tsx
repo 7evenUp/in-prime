@@ -3,7 +3,6 @@ import Image, { StaticImageData } from "next/image"
 import * as Tabs from "@radix-ui/react-tabs"
 import { Swiper, SwiperSlide } from "swiper/react"
 
-
 import { useSwiperReactive } from "@/hooks/useSwiperReactive"
 
 import {
@@ -23,20 +22,29 @@ import {
 
 import styles from "./Features.module.scss"
 
-import {data as featuresData} from "@/data/features"
+import { data as featuresData } from "@/data/features"
 
-const Features = () => {
+import { Resolution } from "@/types/resolution"
+
+const swiperWidth = {
+  lgg: 700,
+  lg: 621,
+  md: "100%",
+  sm: "100%",
+}
+
+const Features = ({ resolution }: { resolution: Resolution }) => {
   return (
     <section className={styles.container}>
       <h2 className={styles.title}>Что входит в подписку</h2>
-      <FeaturesTabs />
+      <FeaturesTabs resolution={resolution} />
     </section>
   )
 }
 
 export default Features
 
-const FeaturesTabs = () => {
+const FeaturesTabs = ({ resolution }: { resolution: Resolution }) => {
   return (
     <Tabs.Root
       className={styles.TabsRoot}
@@ -88,22 +96,22 @@ const FeaturesTabs = () => {
         </Tabs.Trigger>
       </Tabs.List>
       <Tabs.Content className={styles.TabsContent} value="tab1">
-        <Slider data={featuresData.calendar} />
+        <Slider data={featuresData.calendar} resolution={resolution} />
       </Tabs.Content>
       <Tabs.Content className={styles.TabsContent} value="tab2">
-        <Slider data={featuresData.content} />
+        <Slider data={featuresData.content} resolution={resolution} />
       </Tabs.Content>
       <Tabs.Content className={styles.TabsContent} value="tab3">
-        <Slider data={featuresData.chat} />
+        <Slider data={featuresData.chat} resolution={resolution} />
       </Tabs.Content>
       <Tabs.Content className={styles.TabsContent} value="tab4">
-        <Slider data={featuresData.meetups} />
+        <Slider data={featuresData.meetups} resolution={resolution} />
       </Tabs.Content>
       <Tabs.Content className={styles.TabsContent} value="tab5">
-        <Slider data={featuresData.guarantee} />
+        <Slider data={featuresData.guarantee} resolution={resolution} />
       </Tabs.Content>
       <Tabs.Content className={styles.TabsContent} value="tab6">
-        <Slider data={featuresData.helper} />
+        <Slider data={featuresData.helper} resolution={resolution} />
       </Tabs.Content>
     </Tabs.Root>
   )
@@ -111,25 +119,27 @@ const FeaturesTabs = () => {
 
 const Slider = ({
   data,
+  resolution,
 }: {
   data: Array<{ imgSrc: StaticImageData; description: string }>
+  resolution: Resolution
 }) => {
   return (
     <Swiper
       slidesPerView={1}
-      style={{ width: 700 }}
+      style={{ width: swiperWidth[resolution] }}
       className={styles.swiper}
       wrapperClass={styles.swiper_wrapper}
     >
-      {data.map(({ imgSrc, description }, i) => (
-        <SwiperSlide key={description}>
+      {data.map(({ imgSrc, description }) => (
+        <SwiperSlide key={description} className={styles.swiper_slide_wrapper}>
           {({ isActive }) => (
             <div
               className={styles.swiper_slide}
               style={{ opacity: isActive ? 1 : 0 }}
             >
-
               <Image
+                className={styles.swiper_image}
                 src={imgSrc}
                 alt={`Image of: ${description}`}
                 quality={100}
