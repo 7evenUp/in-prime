@@ -13,9 +13,24 @@
   border-style: solid;
   margin-top: auto;
   color: white;
-  font-family: 'Resist Sans', sans-serif;
+  font-family: "Resist Sans", sans-serif;
   font-size: 22px;
   line-height: 160%;
+
+  @media (max-width: 1919px) and (min-width: 1368px) {
+    height: 55px;
+    font-size: 18px;
+  }
+
+  @media (max-width: 1367px) and (min-width: 768px) {
+    height: 48px;
+    font-size: 18px;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 12px;
+    height: 42px;
+  }
 }
 
 .footer_link {
@@ -23,13 +38,40 @@
   text-underline-offset: 3px;
   display: inline-flex;
   gap: 6px;
+  line-height: 100%;
+
+  @media (max-width: 1367px) and (min-width: 768px) {
+    color: #ffcd9f;
+  }
+
+  @media (max-width: 767px) {
+    color: #ffcd9f;
+  }
 
   svg {
-    translate: 0 100%;
+    width: 16px;
+    height: 16px;
+
+    @media (max-width: 1367px) and (min-width: 768px) {
+      color: #ffcd9f;
+    }
+
+    @media (max-width: 767px) {
+      width: 12px;
+      height: 12px;
+      color: #ffcd9f;
+    }
   }
 
   &:hover {
     color: #ff4a7a;
     opacity: 0.8;
+
+    @media (max-width: 1367px) and (min-width: 768px) {
+      color: #ffcd9f;
+    }
+    @media (max-width: 767px) {
+      color: #ffcd9f;
+    }
   }
 }

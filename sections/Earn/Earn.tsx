@@ -89,17 +89,17 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
           >
             CRYPTON
             <svg
-              width="12"
-              height="12"
-              viewBox="0 0 12 12"
-              fill="currentColor"
               xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="square"
             >
-              <path
-                d="M1 11L11 1M11 1H2.24088M11 1V9.24818"
-                stroke="#FF4A7A"
-                strokeWidth="2"
-              />
+              <path d="M7 7h10v10" />
+              <path d="M7 17 17 7" />
             </svg>
           </a>
         </p>
