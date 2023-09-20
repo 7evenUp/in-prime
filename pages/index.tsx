@@ -28,6 +28,7 @@ import Earn from "@/sections/Earn/Earn"
 import { Resolution } from "@/types/resolution"
 import Benefits from "@/sections/Benefits/Benefits"
 import Features from "@/sections/Features/Features"
+import Roadmap from "@/sections/Roadmap/Roadmap"
 
 const useWindowSize = () => {
   const [currentWidth, setCurrentWidth] = useState(0)
@@ -144,15 +145,15 @@ const Home = (props) => {
           <br />
           Try rotating device
         </div>
-        {["lgg", "lg"].includes(resolution) ? (
+        
+        {["lgg", "lg"].includes(resolution) && (
           <Menu
             resolution={resolution}
             currentY={currentY}
             setCurrentY={setCurrentY}
           />
-        ) : (
-          ""
         )}
+
         <div className="app__container">
           <Earn
             currentY={currentY}
@@ -163,6 +164,7 @@ const Home = (props) => {
 
           <Benefits />
           <Features resolution={resolution} />
+          <Roadmap />
 
           {/* <Features resolution={resolution} /> */}
 
