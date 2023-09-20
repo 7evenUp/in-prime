@@ -1,6 +1,5 @@
 .container {
   width: 1300px;
-  height: 961px;
   margin-top: 90px;
   padding: 0px 310px 0px 310px;
   position: relative;
@@ -17,14 +16,12 @@
   @media (max-width: 1367px) and (min-width: 768px) {
     width: 672px;
     margin-top: 90px;
-    height: 1380px;
     padding: 0px 48px 0px 48px;
   }
 
   @media (max-width: 767px) {
     width: 337px;
     margin-top: 60px;
-    height: 1110px;
     padding: 0px 18px 0px 18px;
   }
 }
