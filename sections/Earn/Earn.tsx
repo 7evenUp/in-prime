@@ -40,11 +40,13 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
         setCurrentY={setCurrentY}
         referral={referral}
       />
+      
       <div
         className="app__container__earn__header-bg"
-        style={scrollY ? { background: "#131313" } : {}}
+        style={{ background: scrollY ? "#131313" : "transparent" }}
       />
-      <div className="app__container__earn__header">
+
+      <header className="app__container__earn__header">
         <div className="app__container__earn__header__logo" />
         <div className="menu-sub-block">
           <a
@@ -58,22 +60,23 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
               <div className="app__container__earn__header__subscribe__logo" />
             </div>
           </a>
-          {["md", "sm"].includes(resolution) ? (
+          {["md", "sm"].includes(resolution) && (
             <div style={{ width: "25px", zIndex: 101 }}>
               <div
                 className={`mobile-menu-button open`}
                 onClick={() => changeMobileMenu(!mobileMenu)}
               />
             </div>
-          ) : (
-            ""
           )}
         </div>
-      </div>
+      </header>
+
       <Categories />
-      <div className="app__container__earn__title">
+
+      <h1 className="app__container__earn__title">
         Зарабатывайте <br /> на криптовалюте
-      </div>
+      </h1>
+
       <div className="app__container__earn__description">
         Prime – приватное комьюнити с авторским контентом по заработку в
         криптовалюте. Команда из 20 человек отбирает лучшие события,

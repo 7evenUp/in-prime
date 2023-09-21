@@ -72,12 +72,12 @@ const Footer = (props) => {
   ]
 
   return (
-    <div className="footer">
+    <footer className="footer">
       {["lgg", "lg"].includes(props.resolution) ? (
         <>
           <div className="footer__rectangle">
             <Link href="/">
-              <div className="footer__rectangle__logo"></div>
+              <div className="footer__rectangle__logo" />
             </Link>
 
             <div className="footer__rectangle__socials">
@@ -185,14 +185,14 @@ const Footer = (props) => {
               </a>
             </div>
           </div>
-          <div className="footer__gradient"></div>
+          <div className="footer__gradient" />
         </>
       ) : props.resolution == "md" ? (
         <>
           <div className="footer__rectangle">
             <div className="container">
               <Link href="/">
-                <div className="footer__rectangle__logo"></div>
+                <div className="footer__rectangle__logo" />
               </Link>
 
               <div className="footer__rectangle__right">
@@ -309,7 +309,7 @@ const Footer = (props) => {
               </a>
             </div>
           </div>
-          <div className="footer__gradient"></div>
+          <div className="footer__gradient" />
         </>
       ) : (
         <>
@@ -317,7 +317,7 @@ const Footer = (props) => {
             <div className="footer__rectangle">
               <div className="container">
                 <Link href="/">
-                  <div className="footer__rectangle__logo"></div>
+                  <div className="footer__rectangle__logo" />
                 </Link>
 
                 <div className="footer__rectangle__right">
@@ -436,11 +436,11 @@ const Footer = (props) => {
                 </a>
               </div>
             </div>
-            <div className="footer__gradient"></div>
+            <div className="footer__gradient" />
           </>
         </>
       )}
-    </div>
+    </footer>
   )
 }
 
