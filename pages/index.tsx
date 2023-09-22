@@ -29,6 +29,7 @@ import { Resolution } from "@/types/resolution"
 import Benefits from "@/sections/Benefits/Benefits"
 import Features from "@/sections/Features/Features"
 import Roadmap from "@/sections/Roadmap/Roadmap"
+import Partners from "@/sections/Partners/Partners"
 
 const useWindowSize = () => {
   const [currentWidth, setCurrentWidth] = useState(0)
@@ -314,33 +315,7 @@ const Home = (props) => {
 
           <Team resolution={resolution} />
 
-          <div className="app__container__partners" id="partners">
-            <div className="app__container__partners__title">Нам доверяют</div>
-            <div className="app__container__partners__logos">
-              {["lgg", "lg"].includes(resolution) ? (
-                <>
-                  <div className="binance" />
-                  <div className="impossible" />
-                  <div className="aura" />
-                  <div className="near" />
-                </>
-              ) : resolution == "md" ? (
-                <>
-                  <div className="binance" />
-                  <div className="near" />
-                  <div className="impossible" />
-                  <div className="aura" />
-                </>
-              ) : (
-                <>
-                  <div className="binance" />
-                  <div className="impossible" />
-                  <div className="aura" />
-                  <div className="near" />
-                </>
-              )}
-            </div>
-          </div>
+          <Partners />
 
           <div className="app__container__subscribe" id="subscribe">
             <div className="app__container__subscribe__noise" />
