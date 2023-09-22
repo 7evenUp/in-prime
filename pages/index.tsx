@@ -145,7 +145,7 @@ const Home = (props) => {
           <br />
           Try rotating device
         </div>
-        
+
         {["lgg", "lg"].includes(resolution) && (
           <Menu
             resolution={resolution}
@@ -164,7 +164,7 @@ const Home = (props) => {
 
           <Benefits />
           <Features resolution={resolution} />
-          <Roadmap />
+          <Roadmap resolution={resolution} />
 
           {/* <Features resolution={resolution} /> */}
 

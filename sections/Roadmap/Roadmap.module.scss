@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
   color: white;
+  padding-bottom: 160px;
 
   @media (max-width: 1919px) and (min-width: 1368px) {
     width: 1143px;
@@ -70,10 +71,13 @@
 
 .map_wrapper {
   width: 100vw;
-  height: 525px;
+  height: 405px;
   position: relative;
   align-self: center;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  @media (max-width: 767px) {
+    height: 362px;
+  }
 }
 
 .mid_line {
@@ -97,7 +101,6 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  margin-top: 61px;
 }
 
 .map {
@@ -112,8 +115,13 @@
     box-sizing: border-box;
     position: relative;
 
+    @media (max-width: 767px) {
+      width: 283px;
+      height: 89px;
+    }
+
     &_price {
-      color: rgba(255,255,255,0.5);
+      color: rgba(255, 255, 255, 0.5);
 
       b {
         font-weight: 400;
@@ -128,6 +136,15 @@
       font-family: "Resist Sans", sans-serif;
       font-size: 16px;
       background: rgba(210, 210, 210, 0.1);
+
+      @media (max-width: 767px) {
+        font-size: 14px;
+        padding: 8px 15px;
+      }
+
+      &__descOpen {
+        backdrop-filter: blur(4px);
+      }
 
       &::before {
         content: "";
@@ -153,6 +170,17 @@
       border-radius: 14px;
       // border: 1px solid rgba(255, 255, 255, 0.5);
       background: rgba(210, 210, 210, 0.1);
+      transition: all 0.15s ease-in;
+
+      @media (max-width: 767px) {
+        padding: 6px;
+      }
+
+      &__descOpen {
+        backdrop-filter: blur(4px);
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
     }
 
     &__done &_content {
@@ -174,6 +202,10 @@
     &__top &_content {
       margin-top: 36px;
       border-top-right-radius: 0;
+
+      @media (max-width: 767px) {
+        margin-top: 30px;
+      }
     }
     &__top &_price_wrapper {
       top: 0;
@@ -226,6 +258,21 @@
       display: flex;
       justify-content: center;
       align-items: center;
+
+      img {
+        width: 48px;
+        height: 48px;
+      }
+
+      @media (max-width: 767px) {
+        width: 48px;
+        height: 48px;
+
+        img {
+          width: 36px;
+          height: 36px;
+        }
+      }
     }
 
     &_title {
@@ -233,6 +280,37 @@
       margin-left: 14px;
       font-size: 18px;
       color: white;
+
+      @media (max-width: 767px) {
+        font-size: 16px;
+        margin-left: 10px;
+      }
+    }
+
+    &_arrow {
+      background-color: transparent;
+      border: none;
+      outline: none;
+      transition: all 0.15s ease-in;
+      cursor: pointer;
+      padding: 0;
+      margin-left: 6px;
+      margin-top: 6px;
+
+      @media (max-width: 767px) {
+        svg {
+          width: 18px;
+          height: 18px;
+        }
+      }
+
+      &:hover {
+        opacity: 0.7;
+      }
+
+      &_rotated {
+        rotate: 180deg;
+      }
     }
   }
 }
@@ -243,6 +321,7 @@
   bottom: 3px;
   left: 50%;
   translate: 0 100%;
+  z-index: -1;
 }
 .line_top__done {
   display: none;
@@ -250,6 +329,7 @@
   bottom: 3px;
   left: 50%;
   translate: 0 100%;
+  z-index: -1;
 }
 
 .line_bottom {
@@ -258,6 +338,7 @@
   top: 3px;
   left: 50%;
   translate: 0 -100%;
+  z-index: -1;
 }
 .line_bottom__done {
   display: none;
@@ -265,6 +346,7 @@
   top: 3px;
   left: 50%;
   translate: 0 -100%;
+  z-index: -1;
 }
 
 .we_are_here {
@@ -281,4 +363,49 @@
   border-bottom-left-radius: 0;
   background: rgba(210, 210, 210, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.5);
+  z-index: -1;
+
+  @media (max-width: 767px) {
+    font-size: 12px;
+  }
+}
+
+.collapse {
+  display: grid;
+  grid-template-rows: 0fr;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.2s ease-in;
+  font-family: "Resist Sans", sans-serif;
+  font-size: 14px;
+  line-height: 160%;
+  width: 300px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background: rgba(210, 210, 210, 0.1);
+  backdrop-filter: blur(4px);
+
+  @media (max-width: 767px) {
+    width: 243px;
+  }
+
+  &_done {
+    background: rgba(235, 74, 161, 0.3);
+  }
+
+  &_open {
+    padding-top: 12px;
+    padding-bottom: 20px;
+    opacity: 1;
+    grid-template-rows: 1fr;
+  }
+}
+
+.map_item__top .collapse {
+  border-bottom-left-radius: 14px;
+  border-bottom-right-radius: 14px;
+}
+
+.map_item__bottom .collapse {
+  border-bottom-left-radius: 14px;
 }
