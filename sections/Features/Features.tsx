@@ -189,6 +189,7 @@ const Pagination = ({ amount }: { amount: number }) => {
     <div className={styles.pagination}>
       {new Array(amount).fill(null).map((_, i) => (
         <button
+          key={i}
           className={styles.pagination_button}
           onClick={() => swiper.slideTo(i)}
           style={{

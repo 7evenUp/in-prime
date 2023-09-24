@@ -39,8 +39,8 @@ export const CalendarIconGradient = () => (
         y2="30"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#BB44CC" />
-        <stop offset="1" stop-color="#FF4A7A" />
+        <stop stopColor="#BB44CC" />
+        <stop offset="1" stopColor="#FF4A7A" />
       </linearGradient>
     </defs>
   </svg>
@@ -85,8 +85,8 @@ export const ContentIconGradient = () => (
         y2="38"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#BB44CC" />
-        <stop offset="1" stop-color="#FF4A7A" />
+        <stop stopColor="#BB44CC" />
+        <stop offset="1" stopColor="#FF4A7A" />
       </linearGradient>
     </defs>
   </svg>
@@ -131,8 +131,8 @@ export const ChatIconGradient = () => (
         y2="38.5"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#BB44CC" />
-        <stop offset="1" stop-color="#FF4A7A" />
+        <stop stopColor="#BB44CC" />
+        <stop offset="1" stopColor="#FF4A7A" />
       </linearGradient>
     </defs>
   </svg>
@@ -206,8 +206,8 @@ export const MeetupsIconGradient = () => (
         y2="11.8011"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#BB44CC" />
-        <stop offset="1" stop-color="#FF4A7A" />
+        <stop stopColor="#BB44CC" />
+        <stop offset="1" stopColor="#FF4A7A" />
       </linearGradient>
       <linearGradient
         id="paint1_linear_1681_952"
@@ -217,8 +217,8 @@ export const MeetupsIconGradient = () => (
         y2="28.562"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#BB44CC" />
-        <stop offset="1" stop-color="#FF4A7A" />
+        <stop stopColor="#BB44CC" />
+        <stop offset="1" stopColor="#FF4A7A" />
       </linearGradient>
       <linearGradient
         id="paint2_linear_1681_952"
@@ -228,8 +228,8 @@ export const MeetupsIconGradient = () => (
         y2="32.1933"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#BB44CC" />
-        <stop offset="1" stop-color="#FF4A7A" />
+        <stop stopColor="#BB44CC" />
+        <stop offset="1" stopColor="#FF4A7A" />
       </linearGradient>
       <linearGradient
         id="paint3_linear_1681_952"
@@ -239,8 +239,8 @@ export const MeetupsIconGradient = () => (
         y2="40.8824"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#BB44CC" />
-        <stop offset="1" stop-color="#FF4A7A" />
+        <stop stopColor="#BB44CC" />
+        <stop offset="1" stopColor="#FF4A7A" />
       </linearGradient>
     </defs>
   </svg>
@@ -285,8 +285,8 @@ export const HelperIconGradient = () => (
         y2="36.5"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#BB44CC" />
-        <stop offset="1" stop-color="#FF4A7A" />
+        <stop stopColor="#BB44CC" />
+        <stop offset="1" stopColor="#FF4A7A" />
       </linearGradient>
     </defs>
   </svg>
@@ -331,8 +331,8 @@ export const GuaranteeIconGradient = () => (
         y2="39.5"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#BB44CC" />
-        <stop offset="1" stop-color="#FF4A7A" />
+        <stop stopColor="#BB44CC" />
+        <stop offset="1" stopColor="#FF4A7A" />
       </linearGradient>
     </defs>
   </svg>
