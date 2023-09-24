@@ -1,0 +1,103 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 1040px;
+
+  @media (max-width: 1919px) and (min-width: 1368px) {
+    padding: 0 216px 0 112px;
+  }
+
+  @media (max-width: 1367px) and (min-width: 768px) {
+    width: 672px;
+  }
+
+  @media (max-width: 767px) {
+    width: 335px;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-family: "Benzin-Bold";
+  font-size: 54px;
+  line-height: 160%;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #ffffff;
+
+  @media (max-width: 1919px) and (min-width: 1368px) {
+    font-size: 44px;
+  }
+
+  @media (max-width: 1367px) and (min-width: 768px) {
+    font-size: 40px;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 18px;
+  }
+}
+
+.swiper {
+
+  &_wrapper {
+    gap: 42px;
+  }
+}
+
+.testimonial {
+  box-sizing: border-box;
+  width: 400px;
+  height: 407px;
+  border: 1px solid rgba(255,255,255,0.5);
+  border-radius: 10px;
+  color: white;
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  font-family: "Resist Sans", sans-serif;
+  transition: opacity 0.15s ease-in;
+
+  &_header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+
+  &_text {
+    font-size: 18px;
+    line-height: 155%;
+  }
+
+  &_footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+  }
+}
+
+.name {
+  font-family: "Resist Sans Medium", sans-serif;
+  font-weight: 500;
+  font-size: 28px;
+}
+
+.date {
+  color: rgba(255,255,255,0.5);
+  font-size: 16px;
+}
+
+.link {
+  color: rgba(255,255,255,0.5);
+  font-size: 16px;
+  
+  &:hover {
+    color: rgba(255,255,255,0.8);
+  }
+}
