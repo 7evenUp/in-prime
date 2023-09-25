@@ -24,44 +24,50 @@ const MobileMenu = (props) => {
   const categories = [
     {
       position: {
-        md: 1800,
-        sm: 1300,
+        md: 1776,
+        sm: 1296,
       },
     },
     {
       position: {
-        md: 1020,
-        sm: 800,
+        md: 930,
+        sm: 740,
       },
     },
     {
       position: {
-        md: 3980,
-        sm: 3000,
+        md: 5350,
+        sm: 4025,
       },
     },
     {
       position: {
-        md: 4800,
-        sm: 3630,
+        md: 6270,
+        sm: 4600,
       },
     },
     {
       position: {
-        md: 6200,
-        sm: 5770,
+        md: 7660,
+        sm: 6780,
       },
     },
     {
       position: {
-        md: 6600,
-        sm: 6330,
+        md: 8250,
+        sm: 7670,
       },
     },
     {
       position: {
-        md: 7600,
-        sm: 7600,
+        md: 9220,
+        sm: 8920,
+      },
+    },
+    {
+      position: {
+        md: 10790,
+        sm: 10130,
       },
     },
   ]
@@ -129,6 +135,12 @@ const MobileMenu = (props) => {
           <div
             className="mobile-menu__container__cat-place__item"
             onClick={() => toggleMenu(categories[6].position[resolution])}
+          >
+            Отзывы
+          </div>
+          <div
+            className="mobile-menu__container__cat-place__item"
+            onClick={() => toggleMenu(categories[7].position[resolution])}
           >
             FAQ
           </div>
