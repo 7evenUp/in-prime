@@ -128,6 +128,7 @@
       display: flex;
       flex-direction: column;
       transition: 0.35s;
+      position: relative;
 
       @media (max-width: 767px) {
         width: 270px;
@@ -142,21 +143,38 @@
         }
       }
 
+      &__image {
+        position: absolute;
+        left: 1px;
+        top: 10px;
+        width: 398px;
+
+        @media (max-width: 767px) {
+          top: 9px;
+          width: 268px;
+          object-fit: cover;
+        }
+      }
+
       &__content {
         padding: 0px 48px 48px;
         // min-height: 470px;
         border: solid rgba(255, 255, 255, 0.5);
         border-width: 0 1px 1px 1px;
         border-radius: 0 0 6px 6px;
+        position: relative;
+        z-index: 100;
 
         @media (max-width: 767px) {
           padding: 0px 24px 24px;
         }
 
         &__title {
+          display: flex;
+          align-items: end;
           margin-top: 56px;
           width: 310px;
-          height: 51px;
+          height: 220px;
           font-family: "Benzin-Bold";
           font-size: 32px;
           line-height: 160%;
@@ -168,13 +186,13 @@
             font-size: 18px;
             width: 212px;
             margin-top: 42px;
-            height: 25px;
+            height: 100px;
           }
         }
 
         &__in-out {
-          margin-top: 161px;
           display: flex;
+          margin-top: 48px;
           justify-content: space-between;
           width: 263px;
           height: 74px;
@@ -182,7 +200,7 @@
           @media (max-width: 767px) {
             width: 207px;
             height: 61px;
-            margin-top: 122px;
+            margin-top: 24px;
           }
 
           &__col {
