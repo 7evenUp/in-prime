@@ -1,0 +1,100 @@
+.overlay {
+  position: fixed;
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  inset: 0;
+  animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.content {
+  overflow: auto;
+  box-sizing: border-box;
+  background-color: #121212;
+  color: white;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  position: fixed;
+  z-index: 1001;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90vw;
+  max-width: 1060px;
+  max-height: 85vh;
+  padding: 60px;
+  animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  @media (max-width: 1367px) {
+    padding: 42px;
+  }
+
+  @media (max-width: 767px) {
+    padding: 20px;
+  }
+}
+.content:focus {
+  outline: none;
+}
+
+.title {
+  font-family: "Benzin-Bold", sans-serif;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 160%;
+  letter-spacing: 0.04em;
+  margin: 0;
+  text-transform: uppercase;
+
+  @media (max-width: 1367px) {
+    font-size: 32px;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 20px;
+  }
+}
+
+.text {
+  font-family: "Resist Sans", sans-serif;
+  font-size: 18px;
+  margin-top: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @media (max-width: 1367px) {
+    font-size: 16px;
+    margin-top: 36px;
+    gap: 20px;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 14px;
+    margin-top: 24px;
+    gap: 16px;
+  }
+
+  p {
+    line-height: normal;
+  }
+}
+
+@keyframes overlayShow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes contentShow {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}

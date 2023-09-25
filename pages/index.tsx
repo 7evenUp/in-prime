@@ -31,6 +31,7 @@ import Features from "@/sections/Features/Features"
 import Roadmap from "@/sections/Roadmap/Roadmap"
 import Partners from "@/sections/Partners/Partners"
 import Testimonials from "@/sections/Testimonials/Testimonials"
+import Histories from "@/sections/Histories/Histories"
 
 const useWindowSize = () => {
   const [currentWidth, setCurrentWidth] = useState(0)
@@ -400,6 +401,7 @@ const Home = (props) => {
           </div>
 
           <Testimonials />
+          <Histories />
 
           <div className="app__container__faq" id="faq">
             <div className="app__container__faq__title">
