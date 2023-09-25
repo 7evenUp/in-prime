@@ -59,6 +59,7 @@ const MapItem = ({
   imgSrc,
   title,
   isDone,
+  isBlured,
   description,
   earned,
   isCurrent,
@@ -67,6 +68,7 @@ const MapItem = ({
   imgSrc: any
   title: string
   isDone: boolean
+  isBlured?: boolean
   earned?: number
   description: string
   isCurrent?: boolean
@@ -91,9 +93,9 @@ const MapItem = ({
         )}
       >
         <div className={styles.map_item_img_wrapper}>
-          <Image src={imgSrc} alt="Project image" />
+          <Image src={imgSrc} alt="Project image" className={clsx(isBlured && styles.blur)} />
         </div>
-        <span className={styles.map_item_title}>{title}</span>
+        <span className={clsx(styles.map_item_title, isBlured && styles.blur)}>{title}</span>
         <button
           className={clsx(
             styles.map_item_arrow,
