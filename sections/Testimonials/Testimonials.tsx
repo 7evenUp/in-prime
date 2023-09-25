@@ -80,7 +80,14 @@ const TestimonialsItem = ({
   return (
     <div
       className={styles.testimonial}
-      style={{ opacity: cardIndex < swiper.activeIndex ? 0 : 1 }}
+      style={{
+        opacity:
+          cardIndex < swiper.activeIndex
+            ? 0
+            : cardIndex > swiper.activeIndex + 2
+            ? 0.5
+            : 1,
+      }}
     >
       <div className={styles.testimonial_header}>
         <Image src={avatar} alt="avatar" width={48} height={48} />
