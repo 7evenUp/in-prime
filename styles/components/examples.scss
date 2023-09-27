@@ -129,6 +129,7 @@
       flex-direction: column;
       transition: 0.35s;
       position: relative;
+      background: #181818 url("/images/svg/noise.svg");
 
       @media (max-width: 767px) {
         width: 270px;
