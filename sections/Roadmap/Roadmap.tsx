@@ -45,8 +45,16 @@ const Map = ({ resolution }: { resolution: Resolution }) => {
         >
           {roadmapData.map(({ top, bottom }, i) => (
             <SwiperSlide className={styles.slide} key={i}>
-              <MapItem {...top} className={styles.map_item__top} />
-              <MapItem {...bottom} className={styles.map_item__bottom} />
+              <MapItem
+                {...top}
+                className={styles.map_item__top}
+                resolution={resolution}
+              />
+              <MapItem
+                {...bottom}
+                className={styles.map_item__bottom}
+                resolution={resolution}
+              />
             </SwiperSlide>
           ))}
         </Swiper>
@@ -64,6 +72,7 @@ const MapItem = ({
   earned,
   isCurrent,
   className,
+  resolution,
 }: {
   imgSrc: any
   title: string
@@ -73,6 +82,7 @@ const MapItem = ({
   description: string
   isCurrent?: boolean
   className?: string
+  resolution: Resolution
 }) => {
   const [showDescription, setShowDescription] = useState(false)
 
@@ -83,6 +93,11 @@ const MapItem = ({
         className,
         isDone && styles.map_item__done
       )}
+      onMouseEnter={() => setShowDescription(true)}
+      onMouseLeave={() => setShowDescription(false)}
+      onClick={() =>
+        resolution === "sm" && setShowDescription(!showDescription)
+      }
     >
       {isDone ? <VerticalDoneLines /> : <VerticalLines />}
 
