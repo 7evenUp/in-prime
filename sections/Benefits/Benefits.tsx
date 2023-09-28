@@ -46,7 +46,7 @@ const Benefits = () => {
             <div className="app__container__benefits__points__col__point">
               <div className="app__container__benefits__points__col__point__plus" />
               <div className="app__container__benefits__points__col__point__text">
-                Для опытных и новичков с базовыми навыками
+                Для опытных и новичков
               </div>
             </div>
             <div className="app__container__benefits__points__col__point">
