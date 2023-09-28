@@ -116,27 +116,8 @@
   }
 }
 
-.content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  @media (max-width: 1367px) {
-    flex-direction: column;
-    gap: 30px;
-  }
-}
-
 .swiper {
-  width: 532px;
-
-  @media (max-width: 1919) {
-    width: 468px;
-  }
-
-  @media (max-width: 1367px) {
-    width: 100%;
-  }
+  width: 100%;
 }
 
 .slide {
@@ -168,7 +149,18 @@
 .card {
   color: white;
   font-family: "Resist Sans", sans-serif;
-  transition: opacity 0.1s ease-in;
+
+  &_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: opacity 0.1s ease-in;
+  
+    @media (max-width: 1367px) {
+      flex-direction: column;
+      gap: 30px;
+    }
+  }
 
   &_avatar {
     width: 120px;

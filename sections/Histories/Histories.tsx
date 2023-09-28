@@ -44,26 +44,19 @@ const Histories = () => {
           </button>
         </div>
       </div>
-      <div className={styles.content}>
-        <Swiper
-          ref={swiperRef}
-          slidesPerView={1}
-          onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
-          className={styles.swiper}
-          wrapperClass={styles.swiper_wrapper}
-        >
-          {historiesData.map((history, i) => (
-            <SwiperSlide key={i} className={styles.slide}>
-              <HistoryCard {...history} cardIndex={i} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-        <Image
-          src={HistoriesImage}
-          alt="Истории успеха"
-          className={styles.histories_image}
-        />
-      </div>
+      <Swiper
+        ref={swiperRef}
+        slidesPerView={1}
+        onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+        className={styles.swiper}
+        wrapperClass={styles.swiper_wrapper}
+      >
+        {historiesData.map((history, i) => (
+          <SwiperSlide key={i} className={styles.slide}>
+            <HistoryCard {...history} cardIndex={i} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </section>
   )
 }
@@ -80,9 +73,11 @@ const HistoryCard = ({
   telegramLink,
   telegramUsername,
   timeWithPrime,
+  picture,
 }: {
   cardIndex: number
   avatar: StaticImageData
+  picture: StaticImageData
   name: string
   timeWithPrime: string
   description: string
@@ -95,30 +90,37 @@ const HistoryCard = ({
 
   return (
     <div
-      className={styles.card}
+      className={styles.card_wrapper}
       style={{ opacity: cardIndex === swiper.activeIndex ? 1 : 0 }}
     >
-      <div className={styles.card_header}>
-        <Image src={avatar} alt="Avatar" className={styles.card_avatar} />
-        <div className={styles.card_header_info}>
-          <span className={styles.card_name}>{name}</span>
-          <span className={styles.card_time}>{timeWithPrime}</span>
+      <div className={styles.card}>
+        <div className={styles.card_header}>
+          <Image src={avatar} alt="Avatar" className={styles.card_avatar} />
+          <div className={styles.card_header_info}>
+            <span className={styles.card_name}>{name}</span>
+            <span className={styles.card_time}>{timeWithPrime}</span>
+          </div>
+        </div>
+        <p className={styles.card_description}>{description}</p>
+        <div className={styles.card_buttons}>
+          <Modal title={historyTitle} textHtml={historyDataHTML}>
+            <button className={styles.card_button}>Читать историю</button>
+          </Modal>
+          <a href={telegramLink} target="_blank" className={styles.card_button}>
+            <Image
+              src={TelegramIcon}
+              alt="Telegram icon"
+              className={styles.card_tg}
+            />
+            {telegramUsername}
+          </a>
         </div>
       </div>
-      <p className={styles.card_description}>{description}</p>
-      <div className={styles.card_buttons}>
-        <Modal title={historyTitle} textHtml={historyDataHTML}>
-          <button className={styles.card_button}>Читать историю</button>
-        </Modal>
-        <a href={telegramLink} target="_blank" className={styles.card_button}>
-          <Image
-            src={TelegramIcon}
-            alt="Telegram icon"
-            className={styles.card_tg}
-          />
-          {telegramUsername}
-        </a>
-      </div>
+      <Image
+        src={picture}
+        alt="Истории успеха"
+        className={styles.histories_image}
+      />
     </div>
   )
 }
