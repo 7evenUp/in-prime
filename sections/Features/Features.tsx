@@ -108,10 +108,10 @@ const FeaturesTabs = ({ resolution }: { resolution: Resolution }) => {
         <Slider data={featuresData.meetups} resolution={resolution} />
       </Tabs.Content>
       <Tabs.Content className={styles.TabsContent} value="tab5">
-        <Slider data={featuresData.guarantee} resolution={resolution} />
+        <Slider data={featuresData.helper} resolution={resolution} />
       </Tabs.Content>
       <Tabs.Content className={styles.TabsContent} value="tab6">
-        <Slider data={featuresData.helper} resolution={resolution} />
+        <Slider data={featuresData.guarantee} resolution={resolution} />
       </Tabs.Content>
     </Tabs.Root>
   )
