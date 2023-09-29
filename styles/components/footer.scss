@@ -21,6 +21,12 @@
     min-width: 375px;
   }
 
+  @media (max-width: 420px) {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 100%;
+  }
+
   &__gradient {
     position: absolute;
     background-image: url("/images/png/footer/gradient-lgg.png");
@@ -65,6 +71,11 @@
     @media (max-width: 767px) {
       padding: 0 19px 0 20px;
       width: 335px;
+    }
+
+    @media (max-width: 420px) {
+      box-sizing: border-box;
+      padding-inline: 12px;
     }
 
     .developers {

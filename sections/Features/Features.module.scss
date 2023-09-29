@@ -24,6 +24,11 @@
     margin-top: 60px;
     padding: 0px 18px 0px 18px;
   }
+
+  @media (max-width: 420px) {
+    box-sizing: border-box;
+    width: 100%;
+  }
 }
 
 .title {

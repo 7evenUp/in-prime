@@ -14,6 +14,12 @@
   @media (max-width: 767px) {
     width: 337px;
   }
+
+  @media (max-width: 420px) {
+    box-sizing: border-box;
+    width: 100%;
+    padding-inline: 12px;
+  }
 }
 
 .header {
@@ -144,6 +150,10 @@
     width: 335px;
     height: 188px;
   }
+
+  @media (max-width: 420px) {
+    width: 100%;
+  }
 }
 
 .card {
@@ -155,7 +165,7 @@
     align-items: center;
     justify-content: space-between;
     transition: opacity 0.1s ease-in;
-  
+
     @media (max-width: 1367px) {
       flex-direction: column;
       gap: 30px;

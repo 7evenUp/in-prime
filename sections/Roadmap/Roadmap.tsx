@@ -39,7 +39,6 @@ const Map = ({ resolution }: { resolution: Resolution }) => {
         <Swiper
           slidesPerView={1}
           initialSlide={currentSlide}
-          style={{ width: resolution === "sm" ? 343 : 440 }}
           className={styles.swiper}
           wrapperClass={styles.swiper_wrapper}
         >

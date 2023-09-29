@@ -16,6 +16,12 @@
   @media (max-width: 767px) {
     width: 337px;
   }
+
+  @media (max-width: 420px) {
+    width: 100%;
+    box-sizing: border-box;
+    padding-inline: 8px;
+  }
 }
 
 .title {
@@ -91,6 +97,17 @@
 
 .swiper {
   height: 100%;
+  width: 440px;
+
+  @media (max-width: 767px) {
+    width: 343px;
+  }
+
+  @media (max-width: 420px) {
+    box-sizing: border-box;
+    width: 100%;
+    padding-inline: 8px;
+  }
 
   &_wrapper {
     height: 100%;
@@ -224,16 +241,28 @@
     &__top {
       .line_top {
         display: block;
+
+        @media (max-width: 420px) {
+          left: 30%;
+        }
       }
 
       .line_top__done {
         display: block;
+
+        @media (max-width: 420px) {
+          left: 30%;
+        }
       }
     }
 
     &__bottom {
       margin-left: 100px;
       margin-top: 185px;
+
+      @media (max-width: 420px) {
+        margin-left: 30px;
+      }
 
       .line_bottom {
         display: block;
@@ -409,10 +438,18 @@
 
 .map_item__bottom .map_item_price_wrapper::before {
   rotate: 0deg;
-  background-image: radial-gradient(circle at 0% 100%, transparent 11px, rgba(210, 210, 210, 0.1) 12px);
+  background-image: radial-gradient(
+    circle at 0% 100%,
+    transparent 11px,
+    rgba(210, 210, 210, 0.1) 12px
+  );
 }
 
 .map_item__bottom.map_item__done .map_item_price_wrapper::before {
   rotate: 0deg;
-  background-image: radial-gradient(circle at 0% 100%, transparent 11px, rgba(235, 74, 161, 0.3) 12px);
+  background-image: radial-gradient(
+    circle at 0% 100%,
+    transparent 11px,
+    rgba(235, 74, 161, 0.3) 12px
+  );
 }

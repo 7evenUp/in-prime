@@ -12,10 +12,10 @@ import OtherProducts from "@/components/other-products"
 import Team from "@/components/team"
 import Ribbon from "@/components/ribbon"
 
+import SubscribeArrow from "@/public/images/jsx/subscribe/arrow"
 import Telegram from "@/public/images/jsx/ceo/telegram"
 import YouTube from "@/public/images/jsx/ceo/you-tube"
 import TeamArrow from "@/public/images/jsx/ceo/arrow"
-import SubscribeArrow from "@/public/images/jsx/subscribe/arrow"
 import More from "@/public/images/jsx/subscribe/more"
 
 import SelectLggTariff from "@/public/images/jsx/subscribe/select-tariff-lgg"
@@ -23,15 +23,15 @@ import SelectLgTariff from "@/public/images/jsx/subscribe/select-tariff-lg"
 import SelectMdTariff from "@/public/images/jsx/subscribe/select-tariff-md"
 import SelectSmTariff from "@/public/images/jsx/subscribe/select-tariff-sm"
 
+import Testimonials from "@/sections/Testimonials/Testimonials"
+import Histories from "@/sections/Histories/Histories"
+import Benefits from "@/sections/Benefits/Benefits"
+import Features from "@/sections/Features/Features"
+import Partners from "@/sections/Partners/Partners"
+import Roadmap from "@/sections/Roadmap/Roadmap"
 import Earn from "@/sections/Earn/Earn"
 
 import { Resolution } from "@/types/resolution"
-import Benefits from "@/sections/Benefits/Benefits"
-import Features from "@/sections/Features/Features"
-import Roadmap from "@/sections/Roadmap/Roadmap"
-import Partners from "@/sections/Partners/Partners"
-import Testimonials from "@/sections/Testimonials/Testimonials"
-import Histories from "@/sections/Histories/Histories"
 
 const useWindowSize = () => {
   const [currentWidth, setCurrentWidth] = useState(0)
@@ -143,11 +143,11 @@ const Home = (props) => {
         className="app"
         // style={{ position: `${mobileMenu == 1 ? "fixed" : ""}` }}
       >
-        <div className="app__unsupported-device">
+        {/* <div className="app__unsupported-device">
           Your resolution is not supported
           <br />
           Try rotating device
-        </div>
+        </div> */}
 
         {["lgg", "lg"].includes(resolution) && (
           <Menu
