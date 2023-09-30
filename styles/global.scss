@@ -188,8 +188,9 @@ p {
       flex-direction: column;
 
       @media (max-width: 1919px) and (min-width: 1368px) {
-        height: 768px;
+        height: 838px;
         min-width: 1368px;
+        position: relative;
       }
 
       @media (max-width: 1367px) and (min-width: 768px) {
@@ -247,6 +248,7 @@ p {
           width: 588px;
           height: 768px;
           background-image: url("/images/png/earn/right-gradient-lg.png");
+          bottom: 0;
         }
 
         @media (max-width: 1367px) and (min-width: 768px) {
@@ -493,7 +495,7 @@ p {
       );
 
       @media (max-width: 1919px) and (min-width: 1368px) {
-        top: 768px;
+        top: 838px;
         height: 668px;
       }
 

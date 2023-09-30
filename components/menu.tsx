@@ -61,7 +61,7 @@ const Menu = (props) => {
       name: "Подписка",
       position: {
         lgg: 8444,
-        lg: 7339,
+        lg: 7400,
       },
     },
     {
@@ -69,7 +69,7 @@ const Menu = (props) => {
       name: "Отзывы",
       position: {
         lgg: 9246,
-        lg: 8048,
+        lg: 8150,
       },
     },
     {
@@ -77,7 +77,7 @@ const Menu = (props) => {
       name: "FAQ",
       position: {
         lgg: 10842,
-        lg: 9414,
+        lg: 9500,
       },
     },
   ]
