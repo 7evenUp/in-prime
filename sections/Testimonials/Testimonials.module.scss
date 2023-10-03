@@ -116,6 +116,7 @@
 .swiper {
   display: flex;
   width: 442px;
+  cursor: pointer;
 
   @media (max-width: 767px) {
     width: 290px;

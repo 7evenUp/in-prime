@@ -98,6 +98,7 @@
 .swiper {
   height: 100%;
   width: 440px;
+  cursor: pointer;
 
   @media (max-width: 767px) {
     width: 343px;
@@ -105,8 +106,7 @@
 
   @media (max-width: 420px) {
     box-sizing: border-box;
-    width: 100%;
-    padding-inline: 8px;
+    width: 313px;
   }
 
   &_wrapper {

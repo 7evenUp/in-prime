@@ -53,44 +53,56 @@ const FeaturesTabs = ({ resolution }: { resolution: Resolution }) => {
     >
       <Tabs.List className={styles.TabsList} aria-label="Prime Features">
         <Tabs.Trigger className={styles.TabsTrigger} value="tab1">
-          <div>
-            <CalendarIcon />
-            <CalendarIconGradient />
+          <div className={styles.trigger_container}>
+            <div className={styles.icon_wrapper}>
+              <CalendarIcon />
+              <CalendarIconGradient />
+            </div>
             <span>Календарь по заработку</span>
           </div>
         </Tabs.Trigger>
         <Tabs.Trigger className={styles.TabsTrigger} value="tab2">
-          <div>
-            <ContentIcon />
-            <ContentIconGradient />
+          <div className={styles.trigger_container}>
+            <div className={styles.icon_wrapper}>
+              <ContentIcon />
+              <ContentIconGradient />
+            </div>
             <span>Экспертный контент</span>
           </div>
         </Tabs.Trigger>
         <Tabs.Trigger className={styles.TabsTrigger} value="tab3">
-          <div>
-            <ChatIcon />
-            <ChatIconGradient />
+          <div className={styles.trigger_container}>
+            <div className={styles.icon_wrapper}>
+              <ChatIcon />
+              <ChatIconGradient />
+            </div>
             <span>Чат и дружное комьюнити</span>
           </div>
         </Tabs.Trigger>
         <Tabs.Trigger className={styles.TabsTrigger} value="tab4">
-          <div>
-            <MeetupsIcon />
-            <MeetupsIconGradient />
+          <div className={styles.trigger_container}>
+            <div className={styles.icon_wrapper}>
+              <MeetupsIcon />
+              <MeetupsIconGradient />
+            </div>
             <span>Онлайн встречи и практика</span>
           </div>
         </Tabs.Trigger>
         <Tabs.Trigger className={styles.TabsTrigger} value="tab5">
-          <div>
-            <HelperIcon />
-            <HelperIconGradient />
+          <div className={styles.trigger_container}>
+            <div className={styles.icon_wrapper}>
+              <HelperIcon />
+              <HelperIconGradient />
+            </div>
             <span>Личный помощник</span>
           </div>
         </Tabs.Trigger>
         <Tabs.Trigger className={styles.TabsTrigger} value="tab6">
-          <div>
-            <GuaranteeIcon />
-            <GuaranteeIconGradient />
+          <div className={styles.trigger_container}>
+            <div className={styles.icon_wrapper}>
+              <GuaranteeIcon />
+              <GuaranteeIconGradient />
+            </div>
             <span>Гарантия прибыли</span>
           </div>
         </Tabs.Trigger>
