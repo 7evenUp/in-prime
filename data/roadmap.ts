@@ -1,4 +1,15 @@
 import metamaskSrc from "@/public/images/svg/roadmap/metamask.svg"
+import aptosSrc from "@/public/images/svg/roadmap/aptos.svg"
+import arbitrumSrc from "@/public/images/svg/roadmap/arbitrum.svg"
+import suiSrc from "@/public/images/svg/roadmap/sui.svg"
+import cantoSrc from "@/public/images/svg/roadmap/canto.svg"
+import arkhamSrc from "@/public/images/svg/roadmap/arkham.svg"
+import layerzeroSrc from "@/public/images/svg/roadmap/layer_zero.svg"
+import partyDAOSrc from "@/public/images/svg/roadmap/party_dao.svg"
+import zkSyncSrc from "@/public/images/svg/roadmap/zksync.svg"
+import starknetSrc from "@/public/images/svg/roadmap/starknet.svg"
+import zoraSrc from "@/public/images/svg/roadmap/zora.svg"
+import lineaSrc from "@/public/images/svg/roadmap/linea.svg"
 
 // Данные имеют тип вида:
 // [
@@ -22,91 +33,108 @@ import metamaskSrc from "@/public/images/svg/roadmap/metamask.svg"
 export const data = [
   {
     top: {
-      imgSrc: metamaskSrc,
-      title: "Ретродроп от Metamask",
+      imgSrc: aptosSrc,
+      title: "Aptos",
       isDone: true,
-      earned: 2000,
+      earned: 3600,
       description:
-        "Проект собрал $900 000 000 инвестиций, не имеет своего токена. Мы ожидаем, что будет бесплатная раздача токенов ранним пользователям.",
+        "Ставили ноду Aptos по нашему руководству, попали в одну из фаз, заполнили форму и получили токены. Также в рамках активности можно было просто заминтить NFT, за которую команда начислила токены проекта на $1200.",
     },
     bottom: {
-      imgSrc: metamaskSrc,
-      title: "Ретродроп от Metamask",
+      imgSrc: arbitrumSrc,
+      title: "Arbitrum",
       isDone: true,
-      earned: 2000,
+      earned: 5000,
       description:
-        "Проект собрал $900 000 000 инвестиций, не имеет своего токена. Мы ожидаем, что будет бесплатная раздача токенов ранним пользователям.",
+        "Были уверены в ретродропе от Arbitrum, отрабатывали эту активность по нашим руководствам и получили ретродроп на круглую сумму.",
     },
   },
   {
     top: {
-      imgSrc: metamaskSrc,
-      title: "Ретродроп от Metamask",
+      imgSrc: suiSrc,
+      title: "Sui",
       isDone: true,
-      earned: 2000,
+      earned: 2350,
       description:
-        "Проект собрал $900 000 000 инвестиций, не имеет своего токена. Мы ожидаем, что будет бесплатная раздача токенов ранним пользователям.",
+        "Получили вайтлист к токенсейлу за раннее вступление в Discord проекта и успешно поучаствовали в нем. Также ставили ноду и получили за это токены проекта.",
     },
     bottom: {
-      imgSrc: metamaskSrc,
-      title: "Ретродроп от Metamask",
+      imgSrc: cantoSrc,
+      title: "Canto",
       isDone: true,
-      earned: 1000,
+      earned: 3400,
       description:
-        "Проект собрал $900 000 000 инвестиций, не имеет своего токена. Мы ожидаем, что будет бесплатная раздача токенов ранним пользователям.",
+        "Участвовали в тестнете и получили за это ретродроп.",
     },
   },
   {
     top: {
-      imgSrc: metamaskSrc,
-      title: "Ретродроп от Metamask",
+      imgSrc: arkhamSrc,
+      title: "Arkham",
       isDone: true,
       earned: 1500,
       description:
-        "Проект собрал $900 000 000 инвестиций, не имеет своего токена. Мы ожидаем, что будет бесплатная раздача токенов ранним пользователям.",
-    },
-    bottom: {
-      imgSrc: metamaskSrc,
-      title: "Ретродроп от Metamask",
-      isDone: true,
-      earned: 200,
-      description:
-        "Проект собрал $900 000 000 инвестиций, не имеет своего токена. Мы ожидаем, что будет бесплатная раздача токенов ранним пользователям.",
-    },
-  },
-  {
-    top: {
-      imgSrc: metamaskSrc,
-      title: "Ретродроп от Metamask",
-      isDone: true,
-      earned: 478,
-      description:
-        "Проект собрал $900 000 000 инвестиций, не имеет своего токена. Мы ожидаем, что будет бесплатная раздача токенов ранним пользователям.",
+        "Участвовали в кампании по приглашению пользователей на сайт и получили за это дроп.",
       isCurrent: true,
     },
     bottom: {
-      imgSrc: metamaskSrc,
-      title: "Ретродроп от Metamask",
+      imgSrc: layerzeroSrc,
+      title: "LayerZero",
       isDone: false,
       description:
-        "Проект собрал $900 000 000 инвестиций, не имеет своего токена. Мы ожидаем, что будет бесплатная раздача токенов ранним пользователям.",
+        "Максимально отрабатываем этот проект по авторской стратегии Даниила, нашего автора и эксперта по ретродропам.",
     },
   },
   {
     top: {
-      imgSrc: metamaskSrc,
+      imgSrc: partyDAOSrc,
       title: "Ретродроп от Metamask",
+      isDone: false,
+      description:
+        "В рамках проекта создаем “party”, участвуя в которых вы получаете больше шансов на дроп от проекта за взаимодействие с ним при минимальных затратах на отработку. В них может поучаствовать каждый подписчик Prime.",
+
+    },
+    bottom: {
+      imgSrc: zkSyncSrc,
+      title: "zkSync",
+      isDone: false,
+      description:
+        "Дроп неизбежен, особенно для подписчиков Prime, которые отрабатывают проект еще с сентября 2021.",
+    },
+  },
+  {
+    top: {
+      imgSrc: starknetSrc,
+      title: "Starknet",
       isDone: false,
       description:
         "Проект собрал $900 000 000 инвестиций, не имеет своего токена. Мы ожидаем, что будет бесплатная раздача токенов ранним пользователям.",
     },
     bottom: {
-      imgSrc: metamaskSrc,
-      title: "Ретродроп от Metamask",
+      imgSrc: aptosSrc,
+      title: "Aptos",
       isDone: false,
       isBlured: true,
       description:
-        "Проект собрал $900 000 000 инвестиций, не имеет своего токена. Мы ожидаем, что будет бесплатная раздача токенов ранним пользователям.",
+        "Считаем, что у этого проекта будет второй дроп. Подробный разбор с инструкциями сделали в Prime.",
+    },
+  },
+  {
+    top: {
+      imgSrc: zoraSrc,
+      title: "Zora",
+      isDone: false,
+      isBlured: true,
+      description:
+        "Токен проекта подтвержден, поэтому это только вопрос времени.",
+    },
+    bottom: {
+      imgSrc: lineaSrc,
+      title: "Linea",
+      isDone: false,
+      isBlured: true,
+      description:
+        "Официально токен не подтвержден, но судя по Roadmap, в 3 фазе планируется “децентрализованное управление сообществом”, данный пункт может указывать, что токен всё же будет. Поэтому уже проявляем активность в проекте для получения дропа.",
     },
   },
 ]

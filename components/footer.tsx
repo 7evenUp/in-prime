@@ -114,6 +114,12 @@ const Footer = (props) => {
 
             <div className="footer__rectangle__right">
               <div className="footer__rectangle__right__column">
+              <div
+                  className="footer__rectangle__right__column__route"
+                  onClick={() => toggleMenu(categories.advantages[resolution])}
+                >
+                  Преимущества
+                </div>
                 <div
                   className="footer__rectangle__right__column__route"
                   onClick={() =>
@@ -121,12 +127,6 @@ const Footer = (props) => {
                   }
                 >
                   Возможности
-                </div>
-                <div
-                  className="footer__rectangle__right__column__route"
-                  onClick={() => toggleMenu(categories.advantages[resolution])}
-                >
-                  Преимущества
                 </div>
                 <div
                   className="footer__rectangle__right__column__route"

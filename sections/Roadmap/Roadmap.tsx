@@ -18,8 +18,7 @@ const Roadmap = ({ resolution }: { resolution: Resolution }) => {
       <h2 className={styles.title}>Дорожная карта по заработку</h2>
 
       <span className={styles.subtitle}>
-        событий в Prime, на которых уже заработали и тех, на которых планируем
-        заработать
+      События в Prime, на которых уже заработали или ожидаем заработок в будущем.
       </span>
 
       <Map resolution={resolution} />
@@ -158,7 +157,7 @@ const MapItem = ({
         )}
       >
         <span className={styles.map_item_price}>
-          Заработано: <b>{earned ? "$" + earned : "????"}</b>
+          <b>{earned ? "Заработано: $" + earned : "????"}</b>
         </span>
       </div>
 

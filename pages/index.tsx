@@ -141,13 +141,7 @@ const Home = (props) => {
     <>
       <div
         className="app"
-        // style={{ position: `${mobileMenu == 1 ? "fixed" : ""}` }}
       >
-        {/* <div className="app__unsupported-device">
-          Your resolution is not supported
-          <br />
-          Try rotating device
-        </div> */}
 
         {["lgg", "lg"].includes(resolution) && (
           <Menu
@@ -169,9 +163,7 @@ const Home = (props) => {
           <Features resolution={resolution} />
           <Roadmap resolution={resolution} />
 
-          {/* <Features resolution={resolution} /> */}
-
-          <div className="app__container__video-block" id="video">
+          {/* <div className="app__container__video-block" id="video">
             <div className="app__container__video-block__video">
               <iframe
                 style={{ borderRadius: "8px", border: 0 }}
@@ -192,7 +184,7 @@ const Home = (props) => {
                 подписки!
               </div>
             </div>
-          </div>
+          </div> */}
 
           <div className="app__container__guarantee" id="guarantee">
             <div className="app__container__guarantee__block">
@@ -380,8 +372,7 @@ const Home = (props) => {
                 </div>
               </div>
               <div className="app__container__subscribe__content__link__mark">
-                При оплате картой конвертация в рубли будет осуществлять по
-                курсу ЦБ РФ
+              При оплате картой конвертация в рубли осуществляется по курсу ЦБ РФ
               </div>
               <div className="app__container__subscribe__content__link">
                 <a

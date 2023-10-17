@@ -1008,7 +1008,7 @@ p {
     }
 
     &__ribbon {
-      top: 4780px;
+      top: 4225px;
       position: absolute;
       overflow: hidden;
       left: 0;
@@ -1018,17 +1018,17 @@ p {
       z-index: 100;
 
       @media (max-width: 1919px) and (min-width: 1368px) {
-        top: 4025px;
+        top: 3625px;
         height: 88px;
       }
 
       @media (max-width: 1367px) and (min-width: 768px) {
-        top: 5300px;
+        top: 4585px;
         height: 65px;
       }
 
       @media (max-width: 767px) {
-        top: 4015px;
+        top: 3585px;
         height: 49px;
       }
 
