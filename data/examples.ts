@@ -11,6 +11,7 @@ export const examples = {
         "Время для регистраций в раффлы и фарма вайтлиста, $ETH для оплаты комиссии.",
       reportUrl:
         "https://www.notion.so/crypton-prime/KartParty-48806888c7224ce7aa941693e6ec9929",
+      img: ''
     },
     {
       title: "Marginly",

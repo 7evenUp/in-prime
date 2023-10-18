@@ -118,7 +118,7 @@ const Examples = ({ resolution }: { resolution: Resolution }) => {
       >
         {Object.entries(examples)[currentMonth][1].map(
           (
-            { category, condition, earn, reportUrl, resources, spend, title },
+            { category, condition, earn, reportUrl, resources, spend, title, img },
             projectIndex
           ) => {
             if (currentGradient >= LINEAR_GRADIENTS.length) {
@@ -143,7 +143,7 @@ const Examples = ({ resolution }: { resolution: Resolution }) => {
                   style={{ background: LINEAR_GRADIENTS[currentGradient] }}
                 />
                 <Image
-                  src={SeiImg}
+                  src={img ? img : SeiImg}
                   alt={title}
                   className="examples-content__blocks__block__image"
                 />
