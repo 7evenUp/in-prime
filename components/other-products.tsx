@@ -32,7 +32,7 @@ const OtherProducts = (props) => {
             <div className="app__container__other-products__circles__calendar__content">
               <div className="app__container__other-products__circles__calendar__content__logo" />
               <div className="app__container__other-products__circles__calendar__content__title">
-                Календарь
+                Calendar
                 <div className="app__container__other-products__circles__arrow">
                   <svg
                     width="100%"

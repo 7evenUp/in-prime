@@ -95,7 +95,7 @@ const HistoryCard = ({
     >
       <div className={styles.card}>
         <div className={styles.card_header}>
-          <Image src={avatar} alt="Avatar" className={styles.card_avatar} />
+          <Image src={avatar} alt="Avatar" className={styles.card_avatar} style={{borderRadius: '50%'}}/>
           <div className={styles.card_header_info}>
             <span className={styles.card_name}>{name}</span>
             <span className={styles.card_time}>{timeWithPrime}</span>
