@@ -178,6 +178,19 @@
   }
 }
 
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(147deg, #4ae0ce 8.86%, #1d7167 91.82%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 20px;
+}
+
 .name {
   font-family: "Resist Sans Medium", sans-serif;
   font-weight: 500;

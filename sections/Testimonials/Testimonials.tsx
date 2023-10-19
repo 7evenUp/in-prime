@@ -90,7 +90,17 @@ const TestimonialsItem = ({
       }}
     >
       <div className={styles.testimonial_header}>
-        <Image src={avatar} alt="avatar" width={48} height={48} style={{borderRadius:'50%'}}/>
+        {avatar === null ? (
+          <div className={styles.avatar}>{`${name[0]}${name[1]}`}</div>
+        ) : (
+          <Image
+            src={avatar}
+            alt="avatar"
+            width={48}
+            height={48}
+            style={{ borderRadius: "50%" }}
+          />
+        )}
         <span className={styles.name}>{name}</span>
       </div>
       <p className={styles.testimonial_text}>{text}</p>

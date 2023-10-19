@@ -1220,27 +1220,27 @@ p {
         width: 860px;
         height: 1100px;
         right: 0px;
-        top: 5000px;
+        top: 5350px;
         background-image: url("/images/svg/ceo/right-light-lgg.svg");
         background-repeat: no-repeat;
         z-index: -1;
 
         @media (max-width: 1919px) and (min-width: 1368px) {
-          top: 4250px;
+          top: 5000px;
           background-image: url("/images/svg/ceo/right-light-lg.svg");
           width: 638px;
           height: 766px;
         }
 
         @media (max-width: 1367px) and (min-width: 768px) {
-          top: 5025px;
+          top: 5750px;
           background-image: url("/images/svg/ceo/right-light-md.svg");
           width: 257px;
           height: 330px;
         }
 
         @media (max-width: 767px) {
-          top: 4070px;
+          top: 4600px;
           background-image: url("/images/svg/ceo/right-light-sm.svg");
           width: 252px;
           height: 341px;
