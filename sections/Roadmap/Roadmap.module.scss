@@ -331,7 +331,8 @@
       transition: all 0.15s ease-in;
       cursor: pointer;
       padding: 0;
-      margin-left: 6px;
+      margin-left: auto;
+      margin-right: 12px;
       margin-top: 6px;
 
       @media (max-width: 767px) {

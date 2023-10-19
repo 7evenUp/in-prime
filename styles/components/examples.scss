@@ -150,11 +150,12 @@
         left: 1px;
         top: 10px;
         width: 398px;
+        height: 200px;
+        object-fit: cover;
 
         @media (max-width: 767px) {
           top: 9px;
           width: 268px;
-          object-fit: cover;
         }
       }
 

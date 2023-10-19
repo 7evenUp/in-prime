@@ -96,7 +96,7 @@ export const historiesData = [
     avatar: Junhoh,
     picture: History5,
     name: "Junhoh",
-    timeWithPrime: "Заглушка” на “В Prime с 20 октября 2022",
+    timeWithPrime: "В Prime с 20 октября 2022",
     description: "Накрутил рефералов про реф. программе Arkham через сайты для заработка в Интернете и получил ретродроп от проекта на $3000.",
     telegramUsername: "@degen_junhoh",
     telegramLink: "https://t.me/degen_junhoh",
