@@ -1,9 +1,86 @@
-import Kartpary from "../public/images/png/examples/kartparty.png"
-import Marginly from "../public/images/png/examples/marginly.png"
-import Weebox from "../public/images/png/examples/weebox.png"
-import YieldFarming from "../public/images/png/examples/yield-farming.png"
-import OKX4 from "../public/images/png/examples/okx-season-4.png"
-import OKX5 from "../public/images/png/examples/okx-season-5.png"
+import Connext from "@/public/images/png/examples/september/connext.png"
+import Sugartown from "@/public/images/png/examples/september/sugartown.png"
+import ZTX from "@/public/images/png/examples/september/ztx.png"
+import Aurora from "@/public/images/png/examples/september/aurora.png"
+import LilPudgys from "@/public/images/png/examples/september/lil-pudgys.png"
+import TipCoin from "@/public/images/png/examples/september/tip-coin.png"
+import HTX from "@/public/images/png/examples/september/htx.png"
+import Nakamigos from "@/public/images/png/examples/september/nakamigos.png"
+
+import Kartpary from "@/public/images/png/examples/august/kartparty.png"
+import Marginly from "@/public/images/png/examples/august/marginly.png"
+import Weebox from "@/public/images/png/examples/august/weebox.png"
+import YieldFarming from "@/public/images/png/examples/august/yield-farming.png"
+import OKX4 from "@/public/images/png/examples/august/okx-season-4.png"
+import OKX5 from "@/public/images/png/examples/august/okx-season-5.png"
+
+import Arkham from "@/public/images/png/examples/july/arkham.png"
+import Mantle from "@/public/images/png/examples/july/mantle.png"
+import Neon from "@/public/images/png/examples/july/neon.png"
+import Bybit from "@/public/images/png/examples/july/bybit.png"
+
+import Grapes from "@/public/images/png/examples/june-january/grapes.png"
+import OpenCampus from "@/public/images/png/examples/june-january/open-campus.png"
+import BybitElda from "@/public/images/png/examples/june-january/bybit-elda.png"
+import Sui from "@/public/images/png/examples/june-january/sui.png"
+import MoboxDragonmo from "@/public/images/png/examples/june-january/mobox-dragonmo.png"
+import ACSBybit from "@/public/images/png/examples/june-january/acs-bybit.png"
+import Deblock from "@/public/images/png/examples/june-january/deblock.png"
+import Sui2 from "@/public/images/png/examples/june-january/sui-2.png"
+import BybitKarate from "@/public/images/png/examples/june-january/bybit-karate.png"
+import SpiralDao from "@/public/images/png/examples/june-january/spiral-dao.png"
+import AEVO from "@/public/images/png/examples/june-january/aevo.png"
+import AIDOGE from "@/public/images/png/examples/june-january/aidoge.png"
+import Arbitrum from "@/public/images/png/examples/june-january/arbitrum.png"
+import Mocaverse from "@/public/images/png/examples/june-january/mocaverse.png"
+import Momoguro from "@/public/images/png/examples/june-january/momoguro.png"
+import Exorde from "@/public/images/png/examples/june-january/exorde.png"
+import AuraNetwork from "@/public/images/png/examples/june-january/aura-network.png"
+import ZigZag from "@/public/images/png/examples/june-january/zig-zag.png"
+import SpaceID from "@/public/images/png/examples/june-january/space-id.png"
+import PlayPopGo from "@/public/images/png/examples/june-january/play-pop-go.png"
+import TheDevs from "@/public/images/png/examples/june-january/the-devs.png"
+import Podfast from "@/public/images/png/examples/june-january/podfast.png"
+import XanaPenpenz from "@/public/images/png/examples/june-january/xana-penpenz.png"
+import Puma from "@/public/images/png/examples/june-january/puma.png"
+import ModernMuse from "@/public/images/png/examples/june-january/modern-muse.png"
+import GhostBoy from "@/public/images/png/examples/june-january/ghost-boy.png"
+import Uniwhale from "@/public/images/png/examples/june-january/uniwhale.png"
+import IfPineProtocol from "@/public/images/png/examples/june-january/impossiblef-pine-protocol.png"
+import DigiDaigaku from "@/public/images/png/examples/june-january/digi-daigaku.png"
+import PlanetCoco from "@/public/images/png/examples/june-january/planet-coco.png"
+import KiyoshiSeed from "@/public/images/png/examples/june-january/kiyoshi-seed.png"
+import NFTCreatera from "@/public/images/png/examples/june-january/nft-createra.png"
+import Link3Airdrop from "@/public/images/png/examples/june-january/link3-airdrop.png"
+import SeniorPass from "@/public/images/png/examples/june-january/senior-pass.png"
+
+import SfpAirdrop from "@/public/images/png/examples/2022/sfp-airdrop.png"
+import NFTAltlayer from "@/public/images/png/examples/2022/nft-altlayer.png"
+import NFTFates from "@/public/images/png/examples/2022/nft-fates.png"
+import NFTShatterpoint from "@/public/images/png/examples/2022/nft-shatterpoint.png"
+import Hashverse from "@/public/images/png/examples/2022/hashverse.png"
+import Kprverse from "@/public/images/png/examples/2022/kprverse.png"
+import TestnetStride from "@/public/images/png/examples/2022/testnet-stride.png"
+import LeechProtocol from "@/public/images/png/examples/2022/leech-protocol.png"
+import Lens from "@/public/images/png/examples/2022/lens.png"
+import Castaways from "@/public/images/png/examples/2022/castaways.png"
+import MightyHero from "@/public/images/png/examples/2022/mighty-hero.png"
+import Aptos from "@/public/images/png/examples/2022/aptos.png"
+import AzraGames from "@/public/images/png/examples/2022/azra-games.png"
+import BNBBoost from "@/public/images/png/examples/2022/bnb-boost.png"
+import Kyve from "@/public/images/png/examples/2022/kyve.png"
+import Fracton from "@/public/images/png/examples/2022/fracton.png"
+import SweatEconomy from "@/public/images/png/examples/2022/sweat-economy.png"
+import Wakuland from "@/public/images/png/examples/2022/wakuland.png"
+import TestnetCanto from "@/public/images/png/examples/2022/testnet-canto.png"
+import NFTEgg from "@/public/images/png/examples/2022/nft-egg.png"
+import Pikaster from "@/public/images/png/examples/2022/pikaster.png"
+import Binance5 from "@/public/images/png/examples/2022/binance-5.png"
+import Befitter from "@/public/images/png/examples/2022/befitter.png"
+import Ledger from "@/public/images/png/examples/2022/ledger.png"
+import Potatoz from "@/public/images/png/examples/2022/potatoz.png"
+import Cube from "@/public/images/png/examples/2022/cube.png"
+import Walken from "@/public/images/png/examples/2022/walken.png"
 
 export const examples = {
   сентябрь: [
@@ -17,6 +94,7 @@ export const examples = {
         "$3000 для депозита в пул (деньги вернулись) и несколько долларов на комиссии.",
       reportUrl:
         "https://crypton-prime.notion.site/Connext-5-16-00-377e64dad9d5418d8df292b7d88d1897?pvs=4",
+      img: Connext,
     },
     {
       title: "Sugartown",
@@ -29,6 +107,7 @@ export const examples = {
         "Время для получения whitelist, несколько долларов на комиссии на минт и продажу на торговой площадке.",
       reportUrl:
         "https://crypton-prime.notion.site/Sugartown-6d3b44f3bc30475ab627d90aba899ae6?pvs=4",
+      img: Sugartown,
     },
     {
       title: "ZTX",
@@ -41,6 +120,7 @@ export const examples = {
         "Время для получения whitelist, $50 для WL-минта или $100 для публичного минта, несколько долларов на комиссии.",
       reportUrl:
         "https://crypton-prime.notion.site/ZTX-e57b6816eb5f4a9fbdfbf298dd5b34c7?pvs=4",
+      img: ZTX,
     },
     {
       title: "Aurora",
@@ -53,6 +133,7 @@ export const examples = {
         "Полчаса в неделю, до $50 для выполнения задач (деньги вернулись) и до $15 на комиссии.",
       reportUrl:
         "https://crypton-prime.notion.site/Aurora-0bfd8ddce66f43bd91d12fcafcbd9fb6?pvs=4",
+      img: Aurora,
     },
     {
       title: "Sugartown",
@@ -63,6 +144,7 @@ export const examples = {
       resources:
         "До $400 на покупку NFT (депозит возвращается), до $10 на комиссии.",
       reportUrl: "crypton.xyz",
+      img: Sugartown,
     },
     {
       title: "Lil Pudgys",
@@ -73,6 +155,7 @@ export const examples = {
       resources:
         "До $522 на покупку NFT (депозит возвращается), до $10 на комиссии.",
       reportUrl: "crypton.xyz",
+      img: LilPudgys,
     },
     {
       title: "Weebox",
@@ -83,6 +166,7 @@ export const examples = {
       resources:
         "До $114 на покупку NFT (депозит возвращается), до $10 на комиссии.",
       reportUrl: "crypton.xyz",
+      img: Weebox,
     },
     {
       title: "Tip Coin",
@@ -93,6 +177,7 @@ export const examples = {
         "Авторизоваться на сайте для получения 100 тыс. базовых очков. Для большего заработка можно было делать задания с публикациями, просмотрами и лайками.",
       resources: "10 твиттер-аккаунтов, несколько долларов на комиссии.",
       reportUrl: "crypton.xyz",
+      img: TipCoin,
     },
     {
       title: "ID x Huobi",
@@ -104,6 +189,7 @@ export const examples = {
       resources:
         "$2000 в токенах $ID для депозита в пул (деньги вернулись) и несколько долларов на комиссии. Стратегией по минимизации рисков потери на курсе поделились в канале.",
       reportUrl: "crypton.xyz",
+      img: HTX,
     },
     {
       title: "Nakamigos Cloaks",
@@ -114,6 +200,7 @@ export const examples = {
       resources:
         "До $100 на покупку NFT (депозит возвращается), до $10 на комиссии.",
       reportUrl: "crypton.xyz",
+      img: Nakamigos,
     },
   ],
   август: [
@@ -225,6 +312,7 @@ export const examples = {
       resources:
         "Время для регистрации аккаунтов и рефералов, покупка почты, прокси.",
       reportUrl: "crypton.xyz",
+      img: Arkham,
     },
     {
       title: "Mantle на ByStarter",
@@ -235,6 +323,7 @@ export const examples = {
         "Для участия в закрытом пуле нужно было удерживать 100 токенов $BIT (~$50), в публичном — $100. В закрытом пуле было выбрано 12 500 победителей, каждый из которых получил 200 токенов $MNT (~$100). В публичным пуле было выбрано ~2500 победителей, каждый из которых получил 1000 - 2200 токенов $MNT ($600–$1200).",
       resources: "Холд $50–100 на балансе биржи.",
       reportUrl: "crypton.xyz",
+      img: Mantle,
     },
     {
       title: "NEON на Coinlist",
@@ -246,6 +335,7 @@ export const examples = {
       resources:
         "$500 для выкупа аллокации и время, чтобы дождаться своей очереди.",
       reportUrl: "crypton.xyz",
+      img: Neon,
     },
     {
       title: "Bybit х NYM",
@@ -256,6 +346,7 @@ export const examples = {
         "Удерживать минимум $100 на балансе биржи, проголосовать в ByVotes и заполнить форму. 800 первых пользователей, которые заполнили форму, получили по $100 в токенах $NYM каждый. ",
       resources: "Холд $100 и минута на заполнение формы.",
       reportUrl: "crypton.xyz",
+      img: Bybit,
     },
   ],
   "июнь-январь": [
@@ -268,6 +359,7 @@ export const examples = {
         "Получить WL через активность в сообществе, заминтить 2 NFT и продать их.",
       resources: "Время для получения WL, $150 на минт и комиссии.",
       reportUrl: "crypton.xyz",
+      img: Grapes,
     },
     {
       title: "Open Campus",
@@ -278,6 +370,7 @@ export const examples = {
         "Получить WL через активность в сообществе, заминтить NFT, выбрать вариант получения всех токенов $EDU и продать их.",
       resources: "Время для получения WL.",
       reportUrl: "crypton.xyz",
+      img: OpenCampus,
     },
     {
       title: "Промоакция от OKX",
@@ -288,6 +381,7 @@ export const examples = {
         "Сделать депозит на биржу до $10,001 и холдить 21 день (депозит от 1000$ — 30 $USDT, от 2000$ — 50 $USDT, от 3000$ — 100 $USDT, от 10 000$ — 150 $USDT).",
       resources: "До $10,001 депозита для холда на бирже.",
       reportUrl: "crypton.xyz",
+      img: OKX5,
     },
     {
       title: "Промоакция от Bybit х ELDA",
@@ -298,6 +392,7 @@ export const examples = {
         "Сделать объем на споте Bybit на сумму не менее 501 $USDT за время акции (с пройденным KYC 1 уровня).",
       resources: "Время и средства для накрутки объема на споте.",
       reportUrl: "crypton.xyz",
+      img: BybitElda,
     },
     {
       title: "Sui",
@@ -308,6 +403,7 @@ export const examples = {
         "Быть участником Discord проекта до 1 февраля 2023 года (первый пост в Prime о проекте был в мае 2022), заполнить форму, иметь KYC на биржах, где проводился сейл, выкупить токены и продать.",
       resources: "30 минут времени и $45 на выкуп аллокации на один аккаунт.",
       reportUrl: "crypton.xyz",
+      img: Sui,
     },
     {
       title: "Mobox DragonMO",
@@ -318,6 +414,7 @@ export const examples = {
         "Ранее получить дроп Arbitrum на кошелёк, зарегистрироваться в раффле, выиграть NFT и продать.",
       resources: "5 минут времени на один аккаунт, кошелёк с дропом ARB.",
       reportUrl: "crypton.xyz",
+      img: MoboxDragonmo,
     },
     {
       title: "Access Protocol х Bybit",
@@ -329,6 +426,7 @@ export const examples = {
       resources:
         "30 минут времени, $3 на комиссии, $6 в токенах $ACS на стейкинг, $100 в $ACS для совершения торгового оборота или депозита на Bybit на один аккаунт.",
       reportUrl: "crypton.xyz",
+      img: ACSBybit,
     },
     {
       title: "Bursted Bubbles от Deblock",
@@ -340,6 +438,7 @@ export const examples = {
       resources:
         "От 10 минут времени на один аккаунт, 0.1 $ETH на кошельке для участия в раффле.",
       reportUrl: "crypton.xyz",
+      img: Deblock,
     },
     {
       title: "Sui",
@@ -349,6 +448,7 @@ export const examples = {
       condition: "Поставить ноду и попасть в 3 волну.",
       resources: "3 часа времени и $150 на сервер.",
       reportUrl: "crypton.xyz",
+      img: Sui2,
     },
     {
       title: "Bybit х Karate Combat ",
@@ -360,6 +460,7 @@ export const examples = {
       resources:
         "30 минут и $170 на покупку токенов для депозита (деньги возвращаются после депозита и продажи токенов) на один аккаунт.",
       reportUrl: "crypton.xyz",
+      img: BybitKarate,
     },
     {
       title: "Spiral DAO",
@@ -370,6 +471,7 @@ export const examples = {
         "Иметь DegenScore SBT (сделать его дешево мог каждый по нашему гайду) или быть топ-1000 DeBank (также неоднократно рассказывали), заминтить токены и продать их.",
       resources: "10 минут времени и $30 на комиссии",
       reportUrl: "crypton.xyz",
+      img: SpiralDao,
     },
     {
       title: "Aevo",
@@ -380,6 +482,7 @@ export const examples = {
         "Иметь DegenScore SBT (сделать его дешево мог каждый по нашему гайду), заполнить форму, получить пасс и продать его.",
       resources: "15 минут времени",
       reportUrl: "crypton.xyz",
+      img: AEVO,
     },
     {
       title: "AIDOGE",
@@ -390,6 +493,7 @@ export const examples = {
       resources:
         "Ранее получить дроп ARB, заклеймить токены и продать. Ресурсы: 10 минут времени и $1 на комиссии",
       reportUrl: "crypton.xyz",
+      img: AIDOGE,
     },
     {
       title: "Arbitrum",
@@ -399,6 +503,7 @@ export const examples = {
       condition: "Использовать протоколы блокчейна Arbitrum.",
       resources: "5 часов времени и $20 на комиссии на 1 аккаунт.",
       reportUrl: "crypton.xyz",
+      img: Arbitrum,
     },
     {
       title: "Mocaverse",
@@ -409,6 +514,7 @@ export const examples = {
         "Активное участие в жизни проекта, победы в различных конкурсах.",
       resources: "От 10 часов времени.",
       reportUrl: "crypton.xyz",
+      img: Mocaverse,
     },
     {
       title: "Momoguro",
@@ -418,6 +524,7 @@ export const examples = {
       condition: "Выиграть в раффлах, получить whitelist.",
       resources: "От 10 минут в день.",
       reportUrl: "crypton.xyz",
+      img: Momoguro,
     },
     {
       title: "Exorde",
@@ -427,6 +534,7 @@ export const examples = {
       condition: "Поставить и поддерживать ноду в течение 2 месяцев.",
       resources: "До 8 часов времени в течение 2 месяцев.",
       reportUrl: "crypton.xyz",
+      img: Exorde,
     },
     {
       title: "Aura Network",
@@ -437,6 +545,7 @@ export const examples = {
         "Выполнить все задания в Incentivized Testnet и отказаться от валидирования в mainnet.",
       resources: "До 16 часов времени в течение 9 месяцев.",
       reportUrl: "crypton.xyz",
+      img: AuraNetwork,
     },
     {
       title: "ZigZag",
@@ -447,6 +556,7 @@ export const examples = {
         "Cделать обмены в 4 уникальных торговых дня, где первый и последний обмены имеют разницу в один месяц.",
       resources: "15 минут, $5 на комиссии включая депозит в сеть zkSync.",
       reportUrl: "crypton.xyz",
+      img: ZigZag,
     },
     {
       title: "SpaceID",
@@ -456,6 +566,7 @@ export const examples = {
       condition: "Купить домен на 1 год.",
       resources: "10 минут",
       reportUrl: "crypton.xyz",
+      img: SpaceID,
     },
     {
       title: "PLAY! POP! GO!",
@@ -465,6 +576,7 @@ export const examples = {
       condition: "Выиграть в раффле.",
       resources: "2 минуты на регистрацию.",
       reportUrl: "crypton.xyz",
+      img: PlayPopGo,
     },
     {
       title: "The Dev's",
@@ -474,6 +586,7 @@ export const examples = {
       condition: "Выиграть в раффлах, получить whitelist.",
       resources: "От 10 минут в день.",
       reportUrl: "crypton.xyz",
+      img: TheDevs,
     },
     {
       title: "Podfast на DaoMaker",
@@ -483,6 +596,7 @@ export const examples = {
       condition: "Держать на кошельке от $500.",
       resources: "От $500.",
       reportUrl: "crypton.xyz",
+      img: Podfast,
     },
     {
       title: "XANA PENPENZ",
@@ -492,6 +606,7 @@ export const examples = {
       condition: "Пройти регистрацию, выполнить задания с подписками.",
       resources: "10 минут на 1 аккаунт, прогретый кошелёк и Twitter.",
       reportUrl: "crypton.xyz",
+      img: XanaPenpenz,
     },
     {
       title: "Puma",
@@ -502,6 +617,7 @@ export const examples = {
         "Пройти регистрацию в розыгрыше, выполнить задания, иметь 0.05 $ETH на кошельке для участия в розыгрыше. ",
       resources: "10 минут на 1 аккаунт, прогретый кошелёк.",
       reportUrl: "crypton.xyz",
+      img: Puma,
     },
     {
       title: "Modern Muse",
@@ -512,6 +628,7 @@ export const examples = {
         "Пройти регистрацию в розыгрыше, выполнить задания с подписками.",
       resources: "10 минут на 1 аккаунт, прогретый кошелёк и Twitter.",
       reportUrl: "crypton.xyz",
+      img: ModernMuse,
     },
     {
       title: "Ghost Boy",
@@ -522,6 +639,7 @@ export const examples = {
         "Проявлять активность в социальных сетях проекта, писать треды в Twitter на тему проекта, участвовать в розыгрышах. ",
       resources: "~5 минут–6 часов на 1 аккаунт",
       reportUrl: "crypton.xyz",
+      img: GhostBoy,
     },
     {
       title: "Uniwhale",
@@ -532,6 +650,7 @@ export const examples = {
         "Протестировать протокол, выполнить задания на DeQuest и иметь BAB-токен. Участники могли бесплатно заминтить Uniwhale Genesis Pass и продать его.",
       resources: "40 минут на 1 аккаунт",
       reportUrl: "crypton.xyz",
+      img: Uniwhale,
     },
     {
       title: "Gleam & Quest3 от IF & Pine\nProtocol",
@@ -542,6 +661,7 @@ export const examples = {
         "Заполнить gleam-форму и выполнить задания на площадке Quest3. Шансы на победу были высокими.",
       resources: "10 минут на 1 аккаунт.",
       reportUrl: "crypton.xyz",
+      img: IfPineProtocol,
     },
     {
       title: "DigiDaigaku Dragons Superbowl",
@@ -552,6 +672,7 @@ export const examples = {
         "Следить за первым днем Super Bowl и словить QR-код для бесплатного минта. Окно было в минуту, можно было спокойно заминтить 1 NFT.",
       resources: "2 часа на 1 аккаунт",
       reportUrl: "crypton.xyz",
+      img: DigiDaigaku,
     },
     {
       title: "Planet COCO",
@@ -561,6 +682,7 @@ export const examples = {
       condition: "Зарегистрироваться.",
       resources: "10 минут на 1 аккаунт",
       reportUrl: "crypton.xyz",
+      img: PlanetCoco,
     },
     {
       title: "Kiyoshi's Seed",
@@ -570,6 +692,7 @@ export const examples = {
       condition: "Зарегистрироваться.",
       resources: "10 минут на 1 аккаунт, прогретый кошелёк и Twitter.",
       reportUrl: "crypton.xyz",
+      img: KiyoshiSeed,
     },
     {
       title: "NFT-whitelist Createra",
@@ -579,6 +702,7 @@ export const examples = {
       condition: "Заполнить форму, проявлять активность в проекте.",
       resources: "От 30 минут.",
       reportUrl: "crypton.xyz",
+      img: NFTCreatera,
     },
     {
       title: "Airdrop боксов NFT от Link3",
@@ -589,6 +713,7 @@ export const examples = {
         "Присутствовать на голосовых сессиях проектов и собрать определенное количество W3ST-токенов. Событие можно было масштабировать для увеличения шансов на победу.",
       resources: "$0 и 3 минуты времени",
       reportUrl: "crypton.xyz",
+      img: Link3Airdrop,
     },
     {
       title: "Senior Pass на Bybit NFT",
@@ -598,6 +723,7 @@ export const examples = {
       condition: "Успеть купить NFT.",
       resources: "$4 и 5 минут времени.",
       reportUrl: "crypton.xyz",
+      img: SeniorPass,
     },
   ],
   " 2022": [
@@ -610,6 +736,7 @@ export const examples = {
         "Выполнить задания. Чем больше заданий выполнили, тем больше была награда.",
       resources: "15 минут на 1 аккаунт",
       reportUrl: "crypton.xyz",
+      img: SfpAirdrop,
     },
     {
       title: "NFT от AltLayer",
@@ -620,6 +747,7 @@ export const examples = {
         "Выполнить задания на сайте, после чего можно было получить WL, который давал право принять участие в NFT-сейле.",
       resources: "15 минут",
       reportUrl: "crypton.xyz",
+      img: NFTAltlayer,
     },
     {
       title: "NFT-whitelist от Fates",
@@ -629,6 +757,7 @@ export const examples = {
       condition: "Проявлять активность в проекте.",
       resources: "5–6 часов",
       reportUrl: "crypton.xyz",
+      img: NFTFates,
     },
     {
       title: "NFT-whitelist в Shatter-\npoint",
@@ -638,6 +767,7 @@ export const examples = {
       condition: "Проявлять активность в проекте.",
       resources: "1–2 часов",
       reportUrl: "crypton.xyz",
+      img: NFTShatterpoint,
     },
     {
       title: "Раффл от Hashverse",
@@ -648,6 +778,7 @@ export const examples = {
         "Необходимо было пройти регистрацию в самом розыгрыше на Magic Eden.",
       resources: "$0 и 3 минуты времени",
       reportUrl: "crypton.xyz",
+      img: Hashverse,
     },
     {
       title: "WL от KPRVERSE ",
@@ -657,6 +788,7 @@ export const examples = {
       condition: "Нужно было просто заполнить форму.",
       resources: "от $0 и 30 минут времени",
       reportUrl: "crypton.xyz",
+      img: Kprverse,
     },
     {
       title: "Тестнет Stride",
@@ -667,6 +799,7 @@ export const examples = {
         "Требовалось тестировать платформу, выполнять поставленные задания и установить ноду.",
       resources: "$15 и 3 часа времени",
       reportUrl: "crypton.xyz",
+      img: TestnetStride,
     },
     {
       title: "Конкурс мемов от Leech Protocol",
@@ -677,6 +810,7 @@ export const examples = {
         "Нужно было всего лишь создать мем и опубликовать его в твиттере и дискорде.",
       resources: "$0 и 10 минут времени",
       reportUrl: "crypton.xyz",
+      img: LeechProtocol,
     },
     {
       title: "Ранняя активность в Lens",
@@ -686,6 +820,7 @@ export const examples = {
       condition: "Требовалось просто заполнив форму.",
       resources: "$0 и 2 минуты времени",
       reportUrl: "crypton.xyz",
+      img: Lens,
     },
     {
       title: "Airdrop от Castaways",
@@ -695,6 +830,7 @@ export const examples = {
       condition: "Нужно было просто играть в игру.",
       resources: "$0 и 20 минут времени",
       reportUrl: "crypton.xyz",
+      img: Castaways,
     },
     {
       title: "WL в Mighty Hero Action",
@@ -705,6 +841,7 @@ export const examples = {
         "Необходимо было заполнить форму и проявлять активность в проекте",
       resources: "$0 и 10 минут времени",
       reportUrl: "crypton.xyz",
+      img: MightyHero,
     },
     {
       title: "Нода Aptos",
@@ -715,6 +852,7 @@ export const examples = {
         "Нужно было поставить ноду Aptos и принять участие в одной фазе, тем самым заполнив необходимую форму.",
       resources: "от $7.5 и 3 часов времени",
       reportUrl: "crypton.xyz",
+      img: Aptos,
     },
     {
       title: "Раффл The Hopeful (Azra Games)",
@@ -725,6 +863,7 @@ export const examples = {
         "Необходимо было пройти регистрацию в самом розыгрыше на Magic Eden.",
       resources: "$0 и 3 минуты времени",
       reportUrl: "crypton.xyz",
+      img: AzraGames,
     },
     {
       title: "Викторина BNB Boost",
@@ -734,6 +873,7 @@ export const examples = {
       condition: "Достаточно было ответить на вопросы викторины.",
       resources: "$0 и 10 минут времени",
       reportUrl: "crypton.xyz",
+      img: BNBBoost,
     },
     {
       title: "Тестнет KYVE",
@@ -744,6 +884,7 @@ export const examples = {
         "Требовалось тестировать протокол и выполнять поставленные задания, благодаря чему вы могли попасть в таблицу лидеров.",
       resources: "$0 и ~3 часа времени",
       reportUrl: "crypton.xyz",
+      img: Kyve,
     },
     {
       title: "Бесплатная NFT от Aptos",
@@ -753,6 +894,7 @@ export const examples = {
       condition: "Все, что нужно было - это забрать бесплатную NFT на сайте.",
       resources: "$0 и 2 минуты времени",
       reportUrl: "crypton.xyz",
+      img: Aptos,
     },
     {
       title: "IEO токенов hiSAND33",
@@ -763,6 +905,7 @@ export const examples = {
         "Надлежало пройти KYC на бирже KuCoin и принять участие в FCFS-распродаже токенов (кто успел, тот и купил токены).",
       resources: "$140 и 10 минут времени",
       reportUrl: "crypton.xyz",
+      img: Fracton,
     },
     {
       title: "Публичное SHO Sweat Economy",
@@ -773,6 +916,7 @@ export const examples = {
         "Нужно было держать на кошельке $500, после чего пройти регистрацию в розыгрыше.",
       resources: "$500 и 5 минут времени",
       reportUrl: "crypton.xyz",
+      img: SweatEconomy,
     },
     {
       title: "Раффл Wakuland на Magic Eden",
@@ -783,6 +927,7 @@ export const examples = {
         "Требовалось пройти регистрацию в самом раффле, либо выбить WhiteList через Discord.",
       resources: "$45 и 5 минут времени",
       reportUrl: "crypton.xyz",
+      img: Wakuland,
     },
     {
       title: "Вайтлист токена hiODBS",
@@ -793,6 +938,7 @@ export const examples = {
         "Достаточно было заполнить форму KuCoin и принять участие в FCFS-распродаже токенов (кто первый успел, тот и купил)",
       resources: "$10 и 10 минут времени",
       reportUrl: "crypton.xyz",
+      img: Fracton,
     },
     {
       title: "Тестнет Canto",
@@ -803,6 +949,7 @@ export const examples = {
         "Требовалось заполнить форму-заявку, благодаря которой у вас появлялась возможность запросить тестовые токены в сети Canto.",
       resources: "15 минут времени",
       reportUrl: "crypton.xyz",
+      img: TestnetCanto,
     },
     {
       title: "Распродажа NFT-Egg",
@@ -813,6 +960,7 @@ export const examples = {
         "Принять участие в продаже NFT на MechaFightClub. Начальные цены NFT составляли приблизительно 6.969 $SOL, а итоговый заработок зависел от редкости NFT.",
       resources: "6.969 SOL (270$ на момент сейла) и 2 минуты времени.",
       reportUrl: "crypton.xyz",
+      img: NFTEgg,
     },
     {
       title: "Вайтлист OG Badge",
@@ -823,6 +971,7 @@ export const examples = {
         "Нужно было заполнить форму, выполнив простые задания. После этого победители, которые попали в WhiteList, приняли участие в распродаже NFT на AltLayer.",
       resources: "5 минут времени",
       reportUrl: "crypton.xyz",
+      img: NFTAltlayer,
     },
     {
       title: "Продажа токенов hiSAND33",
@@ -833,6 +982,7 @@ export const examples = {
         "Нужно было купить токены hiSAND33 на бирже KuCoin в формате FCFS, что значит “кто первый кликнул = тот и купил”.",
       resources: "$140 и 2 минуты времени",
       reportUrl: "crypton.xyz",
+      img: Fracton,
     },
     {
       title: "Игровой ивент от Pikaster",
@@ -843,6 +993,7 @@ export const examples = {
         "Достаточно было сыграть в саму игру и активно продвигаться в рейтинге. Стартовые вложения не требовались.",
       resources: "5-6 часов времени",
       reportUrl: "crypton.xyz",
+      img: Pikaster,
     },
     {
       title: "IGO Binance's 5th Anniversary",
@@ -853,6 +1004,7 @@ export const examples = {
         "Нужно было удерживать 0.1 $BNB на спотовом кошельке аккаунта Binance, после чего выкупить билеты для участия в розыгрыше. 1 билет стоил 2 $BUSD, максимум 4 билета на аккаунт.",
       resources: "0.1 $BNB, 2–8 $BUSD и 5 минут времени",
       reportUrl: "crypton.xyz",
+      img: Binance5,
     },
     {
       title: "Публичное SHO beFITTER",
@@ -863,6 +1015,7 @@ export const examples = {
         "Перед событием достаточно было удерживать не менее $2500 в виде любых токенов на своем кошельке.",
       resources: "$2500 и 5 минут времени",
       reportUrl: "crypton.xyz",
+      img: Befitter,
     },
     {
       title: "Публичное SHO beFITTER",
@@ -873,6 +1026,7 @@ export const examples = {
         "Необходимо было удерживать 0.1 $BNB на спотовом кошельке аккаунта Binance, после чего выкупить билеты для участия в розыгрыше. 1 билет стоил 10 $BUSD, максимум 1 билет на аккаунт.",
       resources: "0.1 $BNB, 10 $BUSD и 5 минут времени",
       reportUrl: "crypton.xyz",
+      img: Befitter,
     },
     {
       title: "Раффл от Ledger",
@@ -883,6 +1037,7 @@ export const examples = {
         "Требовалось иметь на вашем кошельке минимум 0.1337 $ETH ( ~$420), а также выполнить задания. В случае победы в розыгрыше вам предстояло выкупить NFT за 0.3 $ETH.",
       resources: "0.3 $ETH ( ~160$) и 5 минут вашего времени",
       reportUrl: "crypton.xyz",
+      img: Ledger,
     },
     {
       title: "Раффл от POTATOZ",
@@ -893,6 +1048,7 @@ export const examples = {
         "Достаточно было иметь на кошельке 0.069 $ETH (~100$), после чего выполнить все задания. В случае победы в розыгрыше у вас появлялась возможность бесплатно заминить NFT на MEMELAND.",
       resources: "0.069 $ETH (~100$) и 5 минут вашего времени",
       reportUrl: "crypton.xyz",
+      img: Potatoz,
     },
     {
       title: "Token Sale проекта CUBE",
@@ -903,6 +1059,7 @@ export const examples = {
         "Достаточно было совершить торговый оборот на сумму не менее $500, а также удерживать на спотовом кошельке Huobi $100, после чего случайным образом выбирали победителей, которые смогут выкупить аллокацию в $50.",
       resources: "$110 и 10 минут времени",
       reportUrl: "crypton.xyz",
+      img: Cube,
     },
     {
       title: "IEO проекта Walken",
@@ -913,6 +1070,7 @@ export const examples = {
         "Нужно было удерживать 100 $USDT на спотовом кошельке аккаунта ByBit, после чего выиграть аллокацию.",
       resources: "$100 и 5 минут времени",
       reportUrl: "crypton.xyz",
+      img: Walken,
     },
   ],
 }

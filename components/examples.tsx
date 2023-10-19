@@ -6,8 +6,6 @@ import { Swiper, SwiperSlide } from "swiper/react"
 import ToggleLeft from "../public/images/jsx/icons/toggle-left"
 import ToggleRight from "../public/images/jsx/icons/toggle-right"
 
-import SeiImg from "@/public/images/png/examples/sei.png"
-
 import { examples } from "@/data/examples"
 
 import { Resolution } from "@/types/resolution"
@@ -143,7 +141,7 @@ const Examples = ({ resolution }: { resolution: Resolution }) => {
                   style={{ background: LINEAR_GRADIENTS[currentGradient] }}
                 />
                 <Image
-                  src={img ? img : SeiImg}
+                  src={img}
                   alt={title}
                   className="examples-content__blocks__block__image"
                 />
