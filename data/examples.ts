@@ -1,4 +1,121 @@
+import Kartpary from "../public/images/png/examples/kartparty.png"
+import Marginly from "../public/images/png/examples/marginly.png"
+import Weebox from "../public/images/png/examples/weebox.png"
+import YieldFarming from "../public/images/png/examples/yield-farming.png"
+import OKX4 from "../public/images/png/examples/okx-season-4.png"
+import OKX5 from "../public/images/png/examples/okx-season-5.png"
+
 export const examples = {
+  сентябрь: [
+    {
+      title: "Connext",
+      earn: "$300",
+      spend: "$2",
+      category: "Ретродропы",
+      condition: "Сделать депозит DAI или USDT в пул любой из доступных сетей.",
+      resources:
+        "$3000 для депозита в пул (деньги вернулись) и несколько долларов на комиссии.",
+      reportUrl:
+        "https://crypton-prime.notion.site/Connext-5-16-00-377e64dad9d5418d8df292b7d88d1897?pvs=4",
+    },
+    {
+      title: "Sugartown",
+      earn: "$250",
+      spend: "$5",
+      category: "NFT",
+      condition:
+        "Участвовать в раффлах, проявлять активность в проекте для получения WL, заминтить NFT и продать на торговой площадке.",
+      resources:
+        "Время для получения whitelist, несколько долларов на комиссии на минт и продажу на торговой площадке.",
+      reportUrl:
+        "https://crypton-prime.notion.site/Sugartown-6d3b44f3bc30475ab627d90aba899ae6?pvs=4",
+    },
+    {
+      title: "ZTX",
+      earn: "$200",
+      spend: "$50",
+      category: "NFT",
+      condition:
+        "Участвовать в раффлах, проявлять активность в проекте для получения WL, заполнить форму, заминтить NFT и продать на торговой площадке.",
+      resources:
+        "Время для получения whitelist, $50 для WL-минта или $100 для публичного минта, несколько долларов на комиссии.",
+      reportUrl:
+        "https://crypton-prime.notion.site/ZTX-e57b6816eb5f4a9fbdfbf298dd5b34c7?pvs=4",
+    },
+    {
+      title: "Aurora",
+      earn: "$175",
+      spend: "$15",
+      category: "Airdrop",
+      condition:
+        "Выполнять простые задания от проекта на площадке Galxe на протяжении 12 недель.",
+      resources:
+        "Полчаса в неделю, до $50 для выполнения задач (деньги вернулись) и до $15 на комиссии.",
+      reportUrl:
+        "https://crypton-prime.notion.site/Aurora-0bfd8ddce66f43bd91d12fcafcbd9fb6?pvs=4",
+    },
+    {
+      title: "Sugartown",
+      earn: "$168",
+      spend: "$10",
+      category: "NFT Call",
+      condition: "Следовать рекомендациям колла в чате.",
+      resources:
+        "До $400 на покупку NFT (депозит возвращается), до $10 на комиссии.",
+      reportUrl: "crypton.xyz",
+    },
+    {
+      title: "Lil Pudgys",
+      earn: "$144",
+      spend: "$10",
+      category: "NFT Call",
+      condition: "Следовать рекомендациям колла в чате.",
+      resources:
+        "До $522 на покупку NFT (депозит возвращается), до $10 на комиссии.",
+      reportUrl: "crypton.xyz",
+    },
+    {
+      title: "Weebox",
+      earn: "$119",
+      spend: "$10",
+      category: "NFT Call",
+      condition: "Следовать рекомендациям колла в чате.",
+      resources:
+        "До $114 на покупку NFT (депозит возвращается), до $10 на комиссии.",
+      reportUrl: "crypton.xyz",
+    },
+    {
+      title: "Tip Coin",
+      earn: "$80",
+      spend: "$5",
+      category: "Airdrop",
+      condition:
+        "Авторизоваться на сайте для получения 100 тыс. базовых очков. Для большего заработка можно было делать задания с публикациями, просмотрами и лайками.",
+      resources: "10 твиттер-аккаунтов, несколько долларов на комиссии.",
+      reportUrl: "crypton.xyz",
+    },
+    {
+      title: "ID x Huobi",
+      earn: "$75",
+      spend: "$2",
+      category: "Airdrop",
+      condition:
+        "Внести депозит 10000 $ID в пул на централизованной бирже Huobi и продержать их 14 дней. Для минимизации потери на курсе токены можно было взять в долг.",
+      resources:
+        "$2000 в токенах $ID для депозита в пул (деньги вернулись) и несколько долларов на комиссии. Стратегией по минимизации рисков потери на курсе поделились в канале.",
+      reportUrl: "crypton.xyz",
+    },
+    {
+      title: "Nakamigos Cloaks",
+      earn: "$64",
+      spend: "$10",
+      category: "NFT Call",
+      condition: "Следовать рекомендациям колла в чате.",
+      resources:
+        "До $100 на покупку NFT (депозит возвращается), до $10 на комиссии.",
+      reportUrl: "crypton.xyz",
+    },
+  ],
   август: [
     {
       title: "Kartparty",
@@ -11,7 +128,7 @@ export const examples = {
         "Время для регистраций в раффлы и фарма вайтлиста, $ETH для оплаты комиссии.",
       reportUrl:
         "https://www.notion.so/crypton-prime/KartParty-48806888c7224ce7aa941693e6ec9929",
-      img: ''
+      img: Kartpary,
     },
     {
       title: "Marginly",
@@ -23,6 +140,7 @@ export const examples = {
       resources: "До 5 часов времени.",
       reportUrl:
         "https://crypton-prime.notion.site/Marginly-576aab2ba7d54e54b7c0847ba3fe8855?pvs=4",
+      img: Marginly,
     },
     {
       title: "Weebox",
@@ -35,17 +153,43 @@ export const examples = {
         "Время для регистраций в раффлы и фарма вайтлиста, $ETH для оплаты комиссии.",
       reportUrl:
         "https://crypton-prime.notion.site/Weebox-1cec096b18df44ea9581484f0480e08b?pvs=4",
+      img: Weebox,
     },
     {
-      title: "ByVotes от Bybit",
-      earn: "$25",
-      spend: "$0.3",
-      category: "Airdrops",
+      title: "Magnate Finance",
+      earn: "$90",
+      spend: "$2",
+      category: "Degen Farming",
       condition:
-        "Холдить стейблы на балансе биржи Bybit и проголосовать за выигрышный проект.",
-      resources: "Холд до $10,000 на балансе биржи Bybit.",
-      reportUrl:
-        "https://crypton-prime.notion.site/ByVotes-Bybit-03b19d1816024db58865db120173443e?pvs=4",
+        "Добавить ликвидность, получать процент с комиссий и вовремя забрать деньги с протокола по коллу нашего эксперта.",
+      resources:
+        "$1000 для депозита (деньги вернулись), несколько долларов на комисии.",
+      reportUrl: "",
+      img: YieldFarming,
+    },
+    {
+      title: "SwirlLend",
+      earn: "$47",
+      spend: "$2",
+      category: "Degen Farming",
+      condition:
+        "Добавить ликвидность, получать процент с комиссий и вовремя забрать деньги с протокола по коллу нашего эксперта.",
+      resources:
+        "$1000 для депозита (деньги вернулись), несколько долларов на комисии.",
+      reportUrl: "crypton.xyz",
+      img: YieldFarming,
+    },
+    {
+      title: "UncleSam_Fi",
+      earn: "$40",
+      spend: "$2",
+      category: "Degen Farming",
+      condition:
+        "Добавить ликвидность, получать процент с комиссий и вовремя забрать деньги с протокола по коллу нашего эксперта.",
+      resources:
+        "$1000 для депозита (деньги вернулись), несколько долларов на комисии.",
+      reportUrl: "crypton.xyz",
+      img: YieldFarming,
     },
     {
       title: "OKX Cryptopedia Сезон 4 x Lifeform",
@@ -56,6 +200,7 @@ export const examples = {
       resources: "Иметь на балансе биржи $15 для выполнения заданий.",
       reportUrl:
         "https://crypton-prime.notion.site/25-OKX-x-Lifeform-35879cd99e984998b0865b499ba7f7c0?pvs=4",
+      img: OKX4,
     },
     {
       title: "OKX Cryptopedia Сезон 5",
@@ -66,6 +211,7 @@ export const examples = {
       resources: "Иметь на балансе биржи до 30 $SUI для выполнения заданий.",
       reportUrl:
         "https://crypton-prime.notion.site/20-OKX-b2cb05d80af748f8b31f542af69ccc59?pvs=4",
+      img: OKX5,
     },
   ],
   июль: [
@@ -112,7 +258,7 @@ export const examples = {
       reportUrl: "crypton.xyz",
     },
   ],
-  июнь: [
+  "июнь-январь": [
     {
       title: "The GRAPES",
       earn: "~$700",
@@ -153,8 +299,6 @@ export const examples = {
       resources: "Время и средства для накрутки объема на споте.",
       reportUrl: "crypton.xyz",
     },
-  ],
-  "май-январь": [
     {
       title: "Sui",
       earn: "$1600",
