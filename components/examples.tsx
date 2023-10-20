@@ -1,7 +1,6 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useRef, useState } from "react"
 import Image from "next/image"
-import { Swiper, SwiperSlide } from "swiper/react"
-
+import { Swiper, SwiperRef, SwiperSlide } from "swiper/react"
 
 import ToggleLeft from "../public/images/jsx/icons/toggle-left"
 import ToggleRight from "../public/images/jsx/icons/toggle-right"
@@ -35,26 +34,22 @@ const Examples = ({ resolution }: { resolution: Resolution }) => {
   const [currentMonth, setCurrentMonth] = useState(0)
   const [showDescription, setShowDescription] = useState(-1)
 
-  const swiperRef = useRef(null)
+  const swiperRef = useRef<SwiperRef>(null)
 
-  useEffect(() => {
-    swiperRef.current?.swiper.slideTo(currentBlock)
-  }, [currentBlock])
-
- const changeBlock = (index: number) => {
-   const projectsLength = Object.entries(examples)[currentMonth][1].length
-   if (projectsLength < index) {
-     setCurrentBlock(index)
-   }
- }
+  const changeBlock = (index: number) => {
+    setCurrentBlock(index)
+    setShowDescription(-1)
+  }
 
   const toggleMonth = (monthIndex: number) => {
     if (currentMonth == monthIndex) {
+      swiperRef.current?.swiper.slideTo(0)
       setCurrentMonth(0)
       setCurrentBlock(0)
       setShowDescription(-1)
     } else {
       setCurrentMonth(monthIndex)
+      swiperRef.current?.swiper.slideTo(0)
       setCurrentBlock(0)
       setShowDescription(-1)
     }
@@ -65,9 +60,12 @@ const Examples = ({ resolution }: { resolution: Resolution }) => {
       action == "up" &&
       currentBlock < Object.entries(examples)[currentMonth][1].length - 1
     ) {
+      swiperRef.current?.swiper.slideTo(currentBlock + 1)
       setCurrentBlock(currentBlock + 1)
       setShowDescription(-1)
     } else if (action == "down" && currentBlock > 0) {
+      swiperRef.current?.swiper.slideTo(currentBlock - 1)
+
       setCurrentBlock(currentBlock - 1)
       setShowDescription(-1)
     }
@@ -119,7 +117,16 @@ const Examples = ({ resolution }: { resolution: Resolution }) => {
       >
         {Object.entries(examples)[currentMonth][1].map(
           (
-            { category, condition, earn, reportUrl, resources, spend, title, img },
+            {
+              category,
+              condition,
+              earn,
+              reportUrl,
+              resources,
+              spend,
+              title,
+              img,
+            },
             projectIndex
           ) => {
             if (currentGradient >= LINEAR_GRADIENTS.length) {
