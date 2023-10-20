@@ -41,9 +41,12 @@ const Examples = ({ resolution }: { resolution: Resolution }) => {
     swiperRef.current?.swiper.slideTo(currentBlock)
   }, [currentBlock])
 
-  const changeBlock = (index: number) => {
-    setCurrentBlock(index)
-  }
+ const changeBlock = (index: number) => {
+   const projectsLength = Object.entries(examples)[currentMonth][1].length
+   if (projectsLength < index) {
+     setCurrentBlock(index)
+   }
+ }
 
   const toggleMonth = (monthIndex: number) => {
     if (currentMonth == monthIndex) {
