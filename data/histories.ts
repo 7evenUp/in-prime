@@ -47,7 +47,7 @@ export const historiesData = [
     picture: History2,
     name: "Ioann",
     timeWithPrime: "В Prime с 14 марта 2023",
-    description: "Как, бросив всё, заработать более полумиллиона рублей 🏆",
+    description: "Ушел с хорошо оплачиваемой работы, вместе с беременной женой создал 100 аккаунтов для участия в Link3 Funclub, отрабатывал это событие по 4–5 часов в день, благодаря чему выбил NFT на более полумиллиона рублей.",
     telegramUsername: "@iomayb",
     telegramLink: "https://t.me/iomayb",
     historyTitle: "Как, бросив всё, заработать более полумиллиона рублей 🏆",
