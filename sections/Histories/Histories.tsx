@@ -19,7 +19,7 @@ const Histories = () => {
   const [activeIndex, setActiveIndex] = useState(0)
 
   return (
-    <section className={styles.container}>
+    <section className={styles.container} id="histories">
       <div className={styles.header}>
         <h2 className={styles.title}>Истории успеха</h2>
         <div className={styles.navigation}>

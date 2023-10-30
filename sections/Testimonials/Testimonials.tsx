@@ -14,7 +14,7 @@ const Testimonials = () => {
   const [activeIndex, setActiveIndex] = useState(0)
 
   return (
-    <section className={styles.container}>
+    <section className={styles.container} id="testimonials">
       <div className={styles.header}>
         <h2 className={styles.title}>Отзывы</h2>
         <div className={styles.navigation}>
