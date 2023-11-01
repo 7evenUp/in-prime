@@ -40,8 +40,6 @@ const Map = ({ resolution }: { resolution: Resolution }) => {
           slidesPerView={1}
           initialSlide={currentSlide}
           className={styles.swiper}
-          wrapperClass={styles.swiper_wrapper}
-          touchEventsTarget="container"
         >
           {roadmapData.map(({ top, bottom }, i) => (
             <SwiperSlide className={styles.slide} key={i}>
