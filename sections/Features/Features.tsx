@@ -141,7 +141,6 @@ const Slider = ({
       slidesPerView={1}
       style={{ width: swiperWidth[resolution] }}
       className={styles.swiper}
-      wrapperClass={styles.swiper_wrapper}
     >
       {data.map(({ imgSrc, description }) => (
         <SwiperSlide key={description} className={styles.swiper_slide_wrapper}>
