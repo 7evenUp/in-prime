@@ -1,18 +1,18 @@
 @import "./imports/fonts";
 
-* {
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none; /* Chrome/Safari/Opera */
-  -khtml-user-select: none; /* Konqueror */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* Internet Explorer/Edge */
-  user-select: none;
-}
+// * {
+//   -webkit-touch-callout: none; /* iOS Safari */
+//   -webkit-user-select: none; /* Chrome/Safari/Opera */
+//   -khtml-user-select: none; /* Konqueror */
+//   -moz-user-select: none; /* Firefox */
+//   -ms-user-select: none; /* Internet Explorer/Edge */
+//   user-select: none;
+// }
 
-html {
-  line-height: 1; /* 1 */
-  -webkit-text-size-adjust: 100%; /* 2 */
-}
+// html {
+//   line-height: 1; /* 1 */
+//   -webkit-text-size-adjust: 100%; /* 2 */
+// }
 
 body {
   width: 100%;
@@ -20,7 +20,7 @@ body {
   background: #e3e3e3;
   margin: 0;
   padding: 0;
-  overflow: overlay;
+  // overflow: overlay;
 }
 
 h1 {
