@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react"
 import Image from "next/image"
-import { Swiper, SwiperRef, SwiperSlide } from "swiper/react"
+import { Swiper, SwiperSlide } from "swiper/react"
 
 import ToggleLeft from "../public/images/jsx/icons/toggle-left"
 import ToggleRight from "../public/images/jsx/icons/toggle-right"
@@ -34,7 +34,7 @@ const Examples = ({ resolution }: { resolution: Resolution }) => {
   const [currentMonth, setCurrentMonth] = useState(0)
   const [showDescription, setShowDescription] = useState(-1)
 
-  const swiperRef = useRef<SwiperRef>(null)
+  const swiperRef = useRef(null)
 
   const changeBlock = (index: number) => {
     setCurrentBlock(index)
@@ -107,6 +107,7 @@ const Examples = ({ resolution }: { resolution: Resolution }) => {
       </div>
 
       <Swiper
+      // @ts-ignore
         ref={swiperRef}
         onSlideChange={(swiper) => changeBlock(swiper.activeIndex)}
         initialSlide={currentBlock}

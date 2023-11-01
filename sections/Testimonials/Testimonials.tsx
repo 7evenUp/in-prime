@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react"
-import { Swiper, SwiperRef, SwiperSlide } from "swiper/react"
+import { Swiper, SwiperSlide } from "swiper/react"
 import Image from "next/image"
 import clsx from "clsx"
 
@@ -10,7 +10,7 @@ import { useSwiperReactive } from "@/hooks/useSwiperReactive"
 import styles from "./Testimonials.module.scss"
 
 const Testimonials = () => {
-  const swiperRef = useRef<SwiperRef>(null)
+  const swiperRef = useRef(null)
   const [activeIndex, setActiveIndex] = useState(0)
 
   return (
@@ -41,6 +41,7 @@ const Testimonials = () => {
       </div>
 
       <Swiper
+        // @ts-ignore
         ref={swiperRef}
         slidesPerView={1}
         onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}

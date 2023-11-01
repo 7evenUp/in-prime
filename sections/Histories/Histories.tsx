@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react"
 import Image, { StaticImageData } from "next/image"
-import { Swiper, SwiperRef, SwiperSlide } from "swiper/react"
+import { Swiper, SwiperSlide } from "swiper/react"
 import clsx from "clsx"
 
 import HistoriesImage from "@/public/images/png/histories/histories.png"
@@ -15,7 +15,7 @@ import Modal from "./Modal/Modal"
 import styles from "./Histories.module.scss"
 
 const Histories = () => {
-  const swiperRef = useRef<SwiperRef>(null)
+  const swiperRef = useRef(null)
   const [activeIndex, setActiveIndex] = useState(0)
 
   return (
@@ -45,6 +45,7 @@ const Histories = () => {
         </div>
       </div>
       <Swiper
+        // @ts-ignore
         ref={swiperRef}
         slidesPerView={1}
         onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
