@@ -20,7 +20,7 @@
     "react-dom": "18.2.0",
     "react-markdown": "8.0.0",
     "sass": "^1.67.0",
-    "swiper": "^10.2.0"
+    "swiper": "^11.0.3"
   },
   "devDependencies": {
     "@types/node": "20.6.2",
