@@ -41,7 +41,6 @@ const Map = ({ resolution }: { resolution: Resolution }) => {
           initialSlide={currentSlide}
           className={styles.swiper}
           wrapperClass={styles.swiper_wrapper}
-          cssMode={true}
         >
           {roadmapData.map(({ top, bottom }, i) => (
             <SwiperSlide className={styles.slide} key={i}>
