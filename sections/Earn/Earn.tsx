@@ -74,7 +74,7 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
       <Categories />
 
       <h1 className="app__container__earn__title">
-        Зарабатывайте <br /> на криптовалюте
+        Зарабатывайте <br /> на криптовалюте 123
       </h1>
 
       <div className="app__container__earn__description">
