@@ -33,6 +33,13 @@ import lineaSrc from "@/public/images/svg/roadmap/linea.svg"
 export const data = [
   {
     top: {
+      imgSrc: cantoSrc,
+      title: "Canto",
+      isDone: true,
+      earned: 3400,
+      description: "Участвовали в тестнете и получили за это ретродроп.",
+    },
+    bottom: {
       imgSrc: aptosSrc,
       title: "Aptos",
       isDone: true,
@@ -40,7 +47,9 @@ export const data = [
       description:
         "Ставили ноду Aptos по нашему руководству, попали в одну из фаз, заполнили форму и получили токены. Также в рамках активности можно было просто заминтить NFT, за которую команда начислила токены проекта на $1200.",
     },
-    bottom: {
+  },
+  {
+    top: {
       imgSrc: arbitrumSrc,
       title: "Arbitrum",
       isDone: true,
@@ -48,23 +57,13 @@ export const data = [
       description:
         "Были уверены в ретродропе от Arbitrum, отрабатывали эту активность по нашим руководствам и получили ретродроп на круглую сумму.",
     },
-  },
-  {
-    top: {
+    bottom: {
       imgSrc: suiSrc,
       title: "Sui",
       isDone: true,
       earned: 2350,
       description:
         "Получили вайтлист к токенсейлу за раннее вступление в Discord проекта и успешно поучаствовали в нем. Также ставили ноду и получили за это токены проекта.",
-    },
-    bottom: {
-      imgSrc: cantoSrc,
-      title: "Canto",
-      isDone: true,
-      earned: 3400,
-      description:
-        "Участвовали в тестнете и получили за это ретродроп.",
     },
   },
   {
@@ -92,7 +91,6 @@ export const data = [
       isDone: false,
       description:
         "В рамках проекта создаем “party”, участвуя в которых вы получаете больше шансов на дроп от проекта за взаимодействие с ним при минимальных затратах на отработку. В них может поучаствовать каждый подписчик Prime.",
-
     },
     bottom: {
       imgSrc: zkSyncSrc,
