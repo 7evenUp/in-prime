@@ -1,3 +1,12 @@
+import ByvotesBybit from "@/public/images/png/examples/october/byvotes-bybit.png"
+import Celestia2 from "@/public/images/png/examples/october/celestia-2.png"
+import Celestia from "@/public/images/png/examples/october/celestia.png"
+import Conviction from "@/public/images/png/examples/october/conviction.png"
+import Forge from "@/public/images/png/examples/october/forge.png"
+import Jioverse from "@/public/images/png/examples/october/jioverse.png"
+import OnchainAutumnOKX from "@/public/images/png/examples/october/onchain-autumn-okx.png"
+import WalletWars from "@/public/images/png/examples/october/wallet-wars.png"
+
 import Connext from "@/public/images/png/examples/september/connext.png"
 import Sugartown from "@/public/images/png/examples/september/sugartown.png"
 import ZTX from "@/public/images/png/examples/september/ztx.png"
@@ -83,6 +92,103 @@ import Cube from "@/public/images/png/examples/2022/cube.png"
 import Walken from "@/public/images/png/examples/2022/walken.png"
 
 export const examples = {
+  октябрь: [
+    {
+      title: "Celestia",
+      earn: "$17000",
+      spend: "$15",
+      category: "Ноды",
+      condition:
+        "Поучаствовать в Incentivized Testnet. Заполнить форму, получить письмо-приглашение от разработчиков на участие в тестнете, поставить ноду по инструкции и поддерживать её.",
+      resources: "$15 на оплату сервера, время на поддержание ноды.",
+      reportUrl: "crypton.xyz",
+      img: Celestia,
+    },
+    {
+      title: "Celestia",
+      earn: "$250",
+      spend: "$15",
+      category: "Ретродропы",
+      condition:
+        "Команда проекта не раскрывала конкретных условий дропа. Мы думаем, что эта была активность в сети Ethereum до января 2023 года, которую вы могли получить, участвуя в других событиях, рассматриваемых ранее в Prime.",
+      resources: "ETH для транзакций в сети Ethereum.",
+      reportUrl: "crypton.xyz",
+      img: Celestia2,
+    },
+    {
+      title: "Forge",
+      earn: "$185",
+      spend: "$10",
+      category: "NFT",
+      condition: "Получить вайтлист через разные активности в проекте.",
+      resources: "Время на получение вайтлиста.",
+      reportUrl:
+        "https://crypton-prime.notion.site/Forge-c2ce31fbe2484135a94f6853e74514e2?pvs=4",
+      img: Forge,
+    },
+    {
+      title: "WalletWars",
+      earn: "$110",
+      spend: "$10",
+      category: "NFT",
+      condition:
+        "Получить вайтлист через разные активности в проекте или поучаствовать в публичной продаже.",
+      resources: "До 0.035 ETH и ~$10 на комиссии для чеканки NFT.",
+      reportUrl:
+        "https://crypton-prime.notion.site/WalletWars-f1baa72ab8504254bd49c06cbb25fde9?pvs=4",
+      img: WalletWars,
+    },
+    {
+      title: "Conviction",
+      earn: "$75",
+      spend: "$10",
+      category: "NFT",
+      condition:
+        "Получить вайтлист через разные активности в проекте или поучаствовать в публичной продаже.",
+      resources:
+        "0.1 ETH для приватного ранунда или 0.2 ETH — для публичного. ~$10 на комиссии для чеканки NFT.",
+      reportUrl:
+        "https://crypton-prime.notion.site/Conviction-bcec432fe497469c8ca991797ba4349f?pvs=4",
+      img: Conviction,
+    },
+    {
+      title: "JIOVERSE",
+      earn: "$37",
+      spend: "$5",
+      category: "NFT",
+      condition: "Получить вайтлист через разные активности в проекте.",
+      resources:
+        "0.042–0.05 ETH (цена зависила от вашего раунда) и средства на комиссию сети.",
+      reportUrl:
+        "https://crypton-prime.notion.site/JIOVERSE-6a1ff2e11af84e80b589b86b5cfdd381?pvs=4",
+      img: Jioverse,
+    },
+    {
+      title: "Byvotes на Bybit",
+      earn: "$25+",
+      spend: "$1",
+      category: "Airdrops",
+      condition:
+        "Через абуз получить максимальное количество голосов при наличии всего $100, проголосовать за проект, который наберет большее количество голосов (узнать победителя гарантировано можно было используя второй аккаунт, отдав голос за любой проект, чтобы посмотреть результаты).",
+      resources:
+        "До $10,000 на балансе биржи (1 стейблкоин = 1 голос). На 1 аккаунт хватило и $100 для получения максимального числа голосов при использовании абуза.",
+      reportUrl:
+        "https://crypton-prime.notion.site/Byvotes-Bybit-6457de0d5f6b423884e22af0aa1093a5?pvs=4",
+      img: ByvotesBybit,
+    },
+    {
+      title: "Onchain Autumn от OKX",
+      earn: "$10–50",
+      spend: "$1",
+      category: "Airdrops",
+      condition:
+        "Сделать депозит от $100, увеличить торговый объем через фьючерсы.",
+      resources: "От $100 депозита на биржу.",
+      reportUrl:
+        "https://crypton-prime.notion.site/Onchain-Autumn-OKX-594485e9bdf34885a1083e7fd821ef92?pvs=4",
+      img: OnchainAutumnOKX,
+    },
+  ],
   сентябрь: [
     {
       title: "Connext",
@@ -301,7 +407,7 @@ export const examples = {
       img: OKX5,
     },
   ],
-  июль: [
+  "июль-январь": [
     {
       title: "Arkham",
       earn: "$900",
@@ -348,8 +454,6 @@ export const examples = {
       reportUrl: "crypton.xyz",
       img: Bybit,
     },
-  ],
-  "июнь-январь": [
     {
       title: "The GRAPES",
       earn: "~$700",
