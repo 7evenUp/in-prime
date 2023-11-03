@@ -158,7 +158,7 @@ export const examples = {
       category: "NFT",
       condition: "Получить вайтлист через разные активности в проекте.",
       resources:
-        "0.042–0.05 ETH (цена зависила от вашего раунда) и средства на комиссию сети.",
+        "0.042–0.05 ETH (цена зависела от вашего раунда) и средства на комиссию сети.",
       reportUrl:
         "https://crypton-prime.notion.site/JIOVERSE-6a1ff2e11af84e80b589b86b5cfdd381?pvs=4",
       img: Jioverse,
