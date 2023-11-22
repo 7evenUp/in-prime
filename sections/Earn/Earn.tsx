@@ -14,6 +14,13 @@ interface EarnProps {
   setCurrentY: React.Dispatch<React.SetStateAction<number>>
 }
 
+const positions = {
+  lgg: 7900,
+  lg: 6940,
+  md: 7530,
+  sm: 7220,
+}
+
 const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
   const [mobileMenu, changeMobileMenu] = useState(false)
   const [scrollY, setScrollY] = React.useState(0)
@@ -21,6 +28,13 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
   const scrollHandler = React.useCallback((event) => {
     setScrollY(window.scrollY)
   }, [])
+
+  const onFridayClick = () => {
+    window.scrollTo({
+      top: positions[resolution],
+      behavior: "smooth",
+    })
+  }
 
   useEffect(() => {
     window.addEventListener("scroll", scrollHandler, { passive: true })
@@ -45,8 +59,23 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
         className="app__container__earn__header-bg"
         style={{ background: scrollY ? "#131313" : "transparent" }}
       />
+      <div className="app__container__earn__friday__container">
+                      {/* <div className="app__container__fridaybtn" style={{ display: scrollY ? "block" : "none" }}> */}
 
-      <header className="app__container__earn__header">
+        <div className="app__container__earn__friday__container__block" style={{opacity: scrollY ? "1" : "0"}}>
+          <div className="app__container__earn__friday__container__block__btn" onClick={onFridayClick}>
+            <div className="app__container__earn__friday__container__block__btn__text">% BLACK FRIDAY</div>
+            <div className="app__container__earn__friday__container__block__btn__arrow">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 17">
+                <path className="app__container__earn__friday__container__block__btn__arrow__path" d="M0.514719 8.48528H17.4853M17.4853 8.48528L10.0529 1.05292M17.4853 8.48528L10.4865 15.4841" stroke-width="3" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+
+      <header className="app__container__earn__header">        
         <div className="app__container__earn__header__logo" />
         <div className="menu-sub-block">
           <a

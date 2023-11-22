@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { useRouter } from "next/router"
 import Image from "next/image"
-import Countdown from "react-countdown"
 
 import Footer from "@/components/footer"
 // import Features from "@/components/features"
@@ -33,6 +32,8 @@ import Earn from "@/sections/Earn/Earn"
 
 import { Resolution } from "@/types/resolution"
 import RibbonSale from "@/components/ribbon-sale"
+import Countdown from "@/components/countdown"
+import FeaturesMobile from "@/sections/Features/FeaturesMobile"
 
 const useWindowSize = () => {
   const [currentWidth, setCurrentWidth] = useState(0)
@@ -56,10 +57,10 @@ const useWindowSize = () => {
 
 const renderer = ({ days, hours, minutes, seconds, completed }) => {
   if (completed) {
-    return <div> </div>;
+    return <div />;
   } else {
     return (
-      <div>
+      <span>
         <div className="date">
           {days / 10 >= 1 ? "" : "0"}
           {days}
@@ -75,11 +76,11 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
           {minutes}
         </div>
         <div className="sep">:</div>
-        <div className="date fixed">
+        <div className="date">
           {seconds / 10 >= 1 ? "" : "0"}
           {seconds}
         </div>
-      </div>
+      </span>
     );
   }
 }
@@ -172,7 +173,6 @@ const Home = (props) => {
             setCurrentY={setCurrentY}
           />
         )}
-
         <div className="app__container">
           <Earn
             currentY={currentY}
@@ -182,7 +182,8 @@ const Home = (props) => {
           />
 
           <Benefits />
-          <Features resolution={resolution} />
+          {resolution === "sm" ? <FeaturesMobile resolution={resolution} /> : <Features resolution={resolution} />}
+          {/* <Features resolution={resolution} /> */}
           <Roadmap resolution={resolution} />
 
           {/* <div className="app__container__video-block" id="video">
@@ -356,7 +357,10 @@ const Home = (props) => {
                   </div>
                   <div className="app__container__subscribe__content__cost__block__body _63">
                     <div className="app__container__subscribe__content__cost__block__body__price _63" />
-                    <div className="app__container__subscribe__content__cost__block__body__text _63">Фирменный</div>
+                    <div className="app__container__subscribe__content__cost__block__body__text _63">
+                      Фирменный <br/>
+                      560/600
+                      </div>
                     <div className="app__container__subscribe__content__cost__block__body__gift _63" />
                     <a
                       href={`https://t.me/CryptonLobbyBot?start=${referral}`}
@@ -390,7 +394,10 @@ const Home = (props) => {
                   </div>
                   <div className="app__container__subscribe__content__cost__block__body _189">
                     <div className="app__container__subscribe__content__cost__block__body__price _189" />
-                    <div className="app__container__subscribe__content__cost__block__body__text _189">Необычный</div>
+                    <div className="app__container__subscribe__content__cost__block__body__text _189">
+                      Необычный <br/>
+                      98/100
+                    </div>
                     <div className="app__container__subscribe__content__cost__block__body__gift _189" />
                     <a
                       href={`https://t.me/CryptonLobbyBot?start=${referral}`}
@@ -425,7 +432,10 @@ const Home = (props) => {
                   </div>
                   <div className="app__container__subscribe__content__cost__block__body _355">
                     <div className="app__container__subscribe__content__cost__block__body__price _355" />
-                    <div className="app__container__subscribe__content__cost__block__body__text _355">Редкий</div>
+                    <div className="app__container__subscribe__content__cost__block__body__text _355">
+                      Редкий<br/>
+                      69/70
+                    </div>
                     <div className="app__container__subscribe__content__cost__block__body__gift _355" />
                     <a
                       href={`https://t.me/CryptonLobbyBot?start=${referral}`}
@@ -460,7 +470,10 @@ const Home = (props) => {
                   </div>
                   <div className="app__container__subscribe__content__cost__block__body _666">
                     <div className="app__container__subscribe__content__cost__block__body__price _666" />
-                    <div className="app__container__subscribe__content__cost__block__body__text _666">Мистический</div>
+                    <div className="app__container__subscribe__content__cost__block__body__text _666">
+                      Мистический<br/>
+                      21/30
+                      </div>
                     <div className="app__container__subscribe__content__cost__block__body__gift _666" />
                     <a
                       href={`https://t.me/CryptonLobbyBot?start=${referral}`}
@@ -508,12 +521,10 @@ const Home = (props) => {
                 </div>
                 <div className="app__container__subscribe__content__timer__countdown">
                   <div className="more"></div>
-                  {/* <Countdown
+                  <Countdown
                     className="app__container__subscribe__content__timer__countdown__counter"
-                    date={new Date(1700787179 * 1000)}
-                    renderer={renderer}
-                    zeroPadDays={4}
-                  /> */}
+                    date={1700787179}
+                  />
                 </div>
                 <div className="app__container__subscribe__content__timer__countdown__names">
                   <div className="app__container__subscribe__content__timer__countdown__names__block">

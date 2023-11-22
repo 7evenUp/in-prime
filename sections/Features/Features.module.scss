@@ -113,7 +113,6 @@
   user-select: none;
   outline: none;
   border: 1px solid rgba(255, 255, 255, 0.5);
-  border-top: none;
   position: relative;
   cursor: pointer;
 
@@ -277,6 +276,11 @@
   align-items: center;
   padding-top: 16px;
   position: relative;
+
+  @media (max-width: 767px) {
+    padding-top: 35px;
+    margin-bottom: 28px;
+  }
 
   &[data-state="inactive"] {
     display: none;
