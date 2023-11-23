@@ -60,14 +60,12 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
         style={{ background: scrollY ? "#131313" : "transparent" }}
       />
       <div className="app__container__earn__friday__container">
-                      {/* <div className="app__container__fridaybtn" style={{ display: scrollY ? "block" : "none" }}> */}
-
         <div className="app__container__earn__friday__container__block" style={{opacity: scrollY ? "1" : "0"}}>
           <div className="app__container__earn__friday__container__block__btn" onClick={onFridayClick}>
             <div className="app__container__earn__friday__container__block__btn__text">% BLACK FRIDAY</div>
             <div className="app__container__earn__friday__container__block__btn__arrow">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 17">
-                <path className="app__container__earn__friday__container__block__btn__arrow__path" d="M0.514719 8.48528H17.4853M17.4853 8.48528L10.0529 1.05292M17.4853 8.48528L10.4865 15.4841" stroke-width="3" />
+                <path className="app__container__earn__friday__container__block__btn__arrow__path" d="M0.514719 8.48528H17.4853M17.4853 8.48528L10.0529 1.05292M17.4853 8.48528L10.4865 15.4841" strokeWidth="3" />
               </svg>
             </div>
           </div>
