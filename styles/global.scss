@@ -291,7 +291,7 @@ p {
             &__arrow {
               width: 20px;
               height: 15px;
-              margin-top: 5px;
+              margin-top: 0px;
               @media (max-width: 1367px) and (min-width: 768px) {
                 width: 13px;
                 height: 12px;
@@ -305,6 +305,7 @@ p {
               }
               &__path {
                 stroke: #181818;
+                fill: #181818;
               }
             }
             transition: .3s ease;
@@ -319,19 +320,8 @@ p {
                   color: #fff;
                 }
                 &__arrow{
-                  margin-top: -28px;
-
-                  @media (max-width: 1919px) and (min-width: 1368px) {
-                    margin-top: -22px;
-                  }
-                  @media (max-width: 1367px) and (min-width: 768px) {
-                    margin-top: -18px;
-                  }
-                  @media (max-width: 767px) {
-                    margin-top: -18px;
-                  }
-  
                   &__path {
+                    fill: #FFF;
                     stroke: #FFF;
                   }
                 }
