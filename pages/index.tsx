@@ -222,7 +222,7 @@ const Home = (props) => {
               </div>
               <div
                 className="app__container__guarantee__block__button"
-                onClick={() => toggleFaq(2)}
+                onClick={() => toggleFaq(3)}
               >
                 <div className="app__container__guarantee__block__button__text">
                   Подробнее

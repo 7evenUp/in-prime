@@ -5,6 +5,27 @@ import AccordionItem from "./accordionItem"
 const Accordion = (props) => {
   const questionsAnswers = [
     {
+      question: "Условия участия в акции Black Friday & день рождения Crypton",
+      answer: (
+        <div className="accordion__title text">
+          <p>
+            В случае, если вы приобретаете подписку в период с 24 по 30 ноября, то гарантированно делаете это с соответствующей скидкой, а также получаете один из нескольких подарков, которые привязаны к конкретному тарифу.
+            <br />
+            <br />
+            Изначально мы передаем вам NFT подарка, а далее вы уже можете обменять NFT на реальный подарок. Подробная <a
+              href="https://telegra.ph/Instrukciya-aktivacii-podarka-11-23"
+              target="_blank"
+            >
+              инструкция по активации подарка
+            </a>.
+            <br />
+            <br />
+            После открытия подарка в боте его замена или возврат средств за тариф не предусмотрены.
+          </p>
+        </div>
+      ),
+    },
+    {
       question: "Как получить подписку бесплатно?",
       answer: (
         <div className="accordion__title text">
