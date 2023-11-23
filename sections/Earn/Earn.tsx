@@ -15,10 +15,10 @@ interface EarnProps {
 }
 
 const positions = {
-  lgg: 7900,
-  lg: 6940,
-  md: 7530,
-  sm: 7220,
+  lgg: 8050,
+  lg: 7090,
+  md: 7630,
+  sm: 6160,
 }
 
 const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {

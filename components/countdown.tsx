@@ -32,24 +32,24 @@ const Countdown: React.FC<CountdownProps> = ({ className, date }) => {
   
     return (
         <span className={className}>
-        <div className="date">
+        <div className="date" key={1}>
           {timeLeft.days / 10 >= 1 ? "" : "0"}
           {timeLeft.days}
         </div>
         <div className="sep">:</div>
-        <div className="date">
+        <div className="date" key={2}>
           {timeLeft.hours / 10 >= 1 ? "" : "0"}
           {timeLeft.hours}
         </div>
         <div className="sep">:</div>
-        <div className="date">
+        <div className="date" key={3}>
           {timeLeft.minutes / 10 >= 1 ? "" : "0"}
           {timeLeft.minutes}
         </div>
         <div className="sep">:</div>
-        <div className="date">
+        <div className="date" key={4} suppressHydrationWarning >
           {timeLeft.seconds / 10 >= 1 ? "" : "0"}
-          {timeLeft.seconds}
+          {timeLeft.seconds} 
         </div>
       </span>
     );

@@ -34,6 +34,10 @@ import { Resolution } from "@/types/resolution"
 import RibbonSale from "@/components/ribbon-sale"
 import Countdown from "@/components/countdown"
 import FeaturesMobile from "@/sections/Features/FeaturesMobile"
+import { Swiper, SwiperSlide } from "swiper/react"
+import Founders from "@/sections/founders/Founders"
+import FoundersMobile from "@/sections/founders/FoundersMobile"
+import PartnersMobile from "@/sections/Partners/PartnersMobile"
 
 const useWindowSize = () => {
   const [currentWidth, setCurrentWidth] = useState(0)
@@ -123,25 +127,25 @@ const Home = (props) => {
   }
 
   const moreInfo = {
-    lgg: 10923,
-    lg: 9531,
-    md: 10500,
-    sm: 10070,
+    lgg: 11945,
+    lg: 10531,
+    md: 12000,
+    sm: 11710,
   }
 
   const wheelHandler = (event) => {
     setCurrentY(window.scrollY)
   }
 
-  // useEffect(() => {
-  //   setTimerProgress(
-  //     Math.round(
-  //       Date.now() >= 1682110800000 ?
-  //       ((Date.now() - 1682110800000) / (1682370000000 - 1682110800000)) * 100
-  //       : 0
-  //     )
-  //   );
-  // }, []);
+  useEffect(() => {
+    setTimerProgress(
+      Math.round(
+        Date.now() >= 1700802000000 ?
+        ((Date.now() - 1700802000000) / (1701349140000 - 1700802000000)) * 100
+        : 0
+      )
+    );
+  }, []);
 
   useEffect(() => {
     window.addEventListener("wheel", wheelHandler)
@@ -241,98 +245,19 @@ const Home = (props) => {
             <Examples resolution={resolution} />
           </div>
 
-          <div className="app__container__about-ceo" id="founder">
-            <div className="app__container__about-ceo__right-light" />
-            <div className="app__container__about-ceo__title">Команда</div>
-            <div className="app__container__about-ceo__founders">
-              <div className="app__container__about-ceo__ceo">
-                <div className="app__container__about-ceo__ceo__photo pavel" />
-                <div className="app__container__about-ceo__ceo__description">
-                  <div className="app__container__about-ceo__ceo__description__name">
-                    Павел Сычев
-                  </div>
-                  <div className="app__container__about-ceo__ceo__description__job">
-                    Основатель экосистемы{" "}
-                    <a href="https://crypton.xyz">Crypton </a>
-                  </div>
-                  <div className="app__container__about-ceo__ceo__description__channels">
-                    <div className="app__container__about-ceo__ceo__description__channels__title">
-                      Автор каналов:
-                    </div>
-
-                    <a
-                      href="https://www.youtube.com/c/EnjoyMaloy"
-                      target={"_blank"}
-                    >
-                      <div className="app__container__about-ceo__ceo__description__channels__link">
-                        <YouTube />
-                        <div className="app__container__about-ceo__ceo__description__channels__link__text">
-                          EnjoyMaloy
-                        </div>
-                        <TeamArrow />
-                      </div>
-                    </a>
-
-                    <a href="https://t.me/tradeparty1337" target={"_blank"}>
-                      <div className="app__container__about-ceo__ceo__description__channels__link">
-                        <Telegram />
-                        <div className="app__container__about-ceo__ceo__description__channels__link__text">
-                          TradeParty
-                        </div>
-                        <TeamArrow />
-                      </div>
-                    </a>
-                  </div>
-                  <div className="app__container__about-ceo__ceo__description__experience">
-                    Имеет более 5 лет опыта в криптоиндустрии. Инфлюенсер 2022
-                    года{" "}
-                    <a
-                      href="https://twitter.com/binance/status/1545462193155604481"
-                      target={"_blank"}
-                    >
-                      по версии Binance
-                    </a>
-                    .
-                  </div>
-                </div>
-              </div>
-
-              <div className="app__container__about-ceo__ceo">
-                <div className="app__container__about-ceo__ceo__photo vadim" />
-                <div className="app__container__about-ceo__ceo__description">
-                  <div className="app__container__about-ceo__ceo__description__name">
-                    Вадим Тарасов
-                  </div>
-                  <div className="app__container__about-ceo__ceo__description__job">
-                    Сооснователь экосистемы{" "}
-                    <a href="https://crypton.xyz">Crypton </a>
-                  </div>
-                  <div className="app__container__about-ceo__ceo__description__channels">
-                    <div className="app__container__about-ceo__ceo__description__channels__title">
-                      Один из авторов канала
-                    </div>
-
-                    <a href="https://t.me/about_traders" target={"_blank"}>
-                      <div className="app__container__about-ceo__ceo__description__channels__link">
-                        <Telegram />
-                        <div className="app__container__about-ceo__ceo__description__channels__link__text">
-                          Уголок трейдера
-                        </div>
-                        <TeamArrow />
-                      </div>
-                    </a>
-                  </div>
-                  <div className="app__container__about-ceo__ceo__description__experience">
-                    В криптоиндустрии с 2017 года.
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          {resolution === "sm" ? (
+            <FoundersMobile />
+          ) : (
+            <Founders />
+          )}
 
           <Team resolution={resolution} />
 
-          <Partners />
+          {resolution === "sm" ? (
+            <PartnersMobile />
+          ) : (
+            <Partners />
+          )}
 
           <div className="app__container__subscribe" id="subscribe">
             <RibbonSale currentWidth={currentWidth} />
@@ -380,7 +305,7 @@ const Home = (props) => {
                         Шанс получить:
                       </div>
                       <div className="app__container__subscribe__content__cost__block__chance__text__list _63">
-                        Подписка на Telegram Premium на 3 месяца - 50% <br />
+                        Подписка на {["lgg", "lg"].includes(resolution) ? 'Telegram ' : 'TG-'}Premium на 3 месяца - 50% <br />
                         Фирменную Кружку + Носки Crypton - 50% 
                       </div>
                     </div>
@@ -512,7 +437,7 @@ const Home = (props) => {
                 <div className="app__container__subscribe__content__timer__progress">
                   <div
                     className="app__container__subscribe__content__timer__progress__bar"
-                    // style={{ width: `${timerProgress + "%"}` }}
+                    style={{ width: `${timerProgress + "%"}` }}
                   >
                     <div className="app__container__subscribe__content__timer__progress__bar__circle">
                       {" "}
@@ -520,10 +445,9 @@ const Home = (props) => {
                   </div>
                 </div>
                 <div className="app__container__subscribe__content__timer__countdown">
-                  <div className="more"></div>
                   <Countdown
                     className="app__container__subscribe__content__timer__countdown__counter"
-                    date={1700787179}
+                    date={1701349140000}
                   />
                 </div>
                 <div className="app__container__subscribe__content__timer__countdown__names">
