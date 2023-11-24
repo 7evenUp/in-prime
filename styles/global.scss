@@ -2371,7 +2371,7 @@ p {
                 }
 
                 &._355 {
-                  background-image: url("/images/svg/subscribe/friday/355-price.svg");
+                  background-image: url("/images/svg/subscribe/friday/355-price-new.svg");
                   width: 155.622px;
                   height: 110.256px;
 
@@ -2384,19 +2384,22 @@ p {
                   @media (max-width: 1367px) and (min-width: 768px) {
                     width: 160.38px;
                     height: 109.412px;
-                    background-image: url("/images/svg/subscribe/friday/355-price-md.svg");
+                    // background-image: url("/images/svg/subscribe/friday/355-price-md.svg");
+                  background-image: url("/images/svg/subscribe/friday/355-price-new.svg");
                   }
 
                   @media (max-width: 767px) {
                     width: 155.622px;
                     height: 106.532px;
-                    background-image: url("/images/svg/subscribe/friday/355-price-sm.svg");
+                    // background-image: url("/images/svg/subscribe/friday/355-price-sm.svg");
+                  background-image: url("/images/svg/subscribe/friday/355-price-new.svg");
+
                     margin-left: 0;
                   }
                 }
 
                 &._666 {
-                  background-image: url("/images/svg/subscribe/friday/666-price.svg");
+                  background-image: url("/images/svg/subscribe/friday/666-price-new.svg");
                   width: 154.579px;
                   height: 110.256px;
 
@@ -2409,13 +2412,19 @@ p {
                   @media (max-width: 1367px) and (min-width: 768px) {
                     width: 154.579px;
                     height: 110.256px;
-                    background-image: url("/images/svg/subscribe/friday/666-price-md.svg");
+                    // background-image: url("/images/svg/subscribe/friday/666-price-md.svg");
+                  background-image: url("/images/svg/subscribe/friday/666-price-new.svg");
+                  background-size: contain;
+
                   }
 
                   @media (max-width: 767px) {
                     width: 154.579px;
                     height: 107.256px;
-                    background-image: url("/images/svg/subscribe/friday/666-price-sm.svg");
+                    // background-image: url("/images/svg/subscribe/friday/666-price-sm.svg");
+                  background-image: url("/images/svg/subscribe/friday/666-price-new.svg");
+                  background-size: contain;
+
                     margin-left: 0;
                   }
                 }
