@@ -431,6 +431,9 @@ const Home = (props) => {
               <div className="app__container__subscribe__content__link__mark">
                 Мы отмечаем не только Черную пятницу, но еще и День рождения Crypton, поэтому мы решили сделать <b>гарантированные</b> подарки для всех! 
               </div>
+              <div className="app__container__subscribe__content__link__mark">
+              * Итоговый дисконт включает в себе две скидки, которые отнимаются от цены по очереди. 
+              </div>
               <div className="app__container__subscribe__content___timer__header">
                 <div className="app__container__subscribe__content__timer__title"></div>
 
