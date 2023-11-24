@@ -2334,6 +2334,8 @@ p {
                     width: 125.65px;
                     height: 109.412px;
                     background-image: url("/images/svg/subscribe/friday/63-price.svg");
+                    background-size: contain;
+
                   }
 
                   @media (max-width: 767px) {
@@ -2341,6 +2343,8 @@ p {
                     width: 133.65px;
                     height: 104.256px;
                     margin-left: 0;
+                    background-size: contain;
+
                   }
                 }
 
