@@ -2357,6 +2357,8 @@ p {
                   }
 
                   @media (max-width: 1367px) and (min-width: 768px) {
+                    background-size: contain;
+
                     width: 156.77px;
                     height: 109.412px;
                     // background-image: url("/images/svg/subscribe/friday/189-price-md.svg");
@@ -2366,6 +2368,7 @@ p {
                   @media (max-width: 767px) {
                     // background-image: url("/images/svg/subscribe/friday/189-price-sm.svg");
                   background-image: url("/images/svg/subscribe/friday/189-price.svg");
+                  background-size: contain;
 
                     width: 154.529px;
                     height: 104.256px;
@@ -2385,6 +2388,8 @@ p {
                   }
 
                   @media (max-width: 1367px) and (min-width: 768px) {
+                    background-size: contain;
+
                     width: 160.38px;
                     height: 109.412px;
                     // background-image: url("/images/svg/subscribe/friday/355-price-md.svg");
@@ -2392,6 +2397,8 @@ p {
                   }
 
                   @media (max-width: 767px) {
+                    background-size: contain;
+
                     width: 155.622px;
                     height: 106.532px;
                     // background-image: url("/images/svg/subscribe/friday/355-price-sm.svg");
@@ -2413,6 +2420,7 @@ p {
                   }
 
                   @media (max-width: 1367px) and (min-width: 768px) {
+                  
                     width: 154.579px;
                     height: 110.256px;
                     // background-image: url("/images/svg/subscribe/friday/666-price-md.svg");
@@ -2468,25 +2476,25 @@ p {
                 background-size: contain;
                   background-repeat: no-repeat;
                 &._63 {
-                  background-image: url("/images/png/subscribe/friday/63-gift-lgg.png");
+                  background-image: url("/images/png/subscribe/friday/63-gift-lgg-new.png");
                   width: 247.279px;
                   height: 321px;
 
                   @media (max-width: 1919px) and (min-width: 1368px) {
-                    background-image: url("/images/png/subscribe/friday/63-gift-lg.png");
+                    background-image: url("/images/png/subscribe/friday/63-gift-lg-new.png");
                     width: 247.279px;
                     height: 321px;
                     margin-left: 8px;
                   }
 
                   @media (max-width: 1367px) and (min-width: 768px) {
-                    background-image: url("/images/png/subscribe/friday/63-gift-md.png");
+                    background-image: url("/images/png/subscribe/friday/63-gift-md-new.png");
                     width: 258px;
                     height: 320.998px;
                   }
 
                   @media (max-width: 767px) {
-                    background-image: url("/images/png/subscribe/friday/63-gift-sm.png");
+                    background-image: url("/images/png/subscribe/friday/63-gift-sm-new.png");
                     width: 262px;
                     height: 364.34px;
                     margin-top: 19px;
