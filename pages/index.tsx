@@ -140,13 +140,13 @@ const Home = (props) => {
   useEffect(() => {
     setTimerProgress(
       Math.round(
-        Date.now() >= 1700802000000 ?
-        ((Date.now() - 1700802000000) / (1701349140000 - 1700802000000)) * 100
+        Date.now() >= 1700830800000 ?
+        ((Date.now() - 1700830800000) / (1701377940000 - 1700830800000)) * 100
         : 0
       )
     );
   }, []);
-
+  console.log(new Date(1701377940000))
   useEffect(() => {
     window.addEventListener("wheel", wheelHandler)
 
@@ -447,7 +447,7 @@ const Home = (props) => {
                 <div className="app__container__subscribe__content__timer__countdown">
                   <Countdown
                     className="app__container__subscribe__content__timer__countdown__counter"
-                    date={1701349140000}
+                    date={1701377940000}
                   />
                 </div>
                 <div className="app__container__subscribe__content__timer__countdown__names">

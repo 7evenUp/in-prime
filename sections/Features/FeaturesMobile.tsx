@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import Image, { StaticImageData } from "next/image"
 import * as Tabs from "@radix-ui/react-tabs"
 import { Swiper, SwiperSlide } from "swiper/react"
@@ -42,104 +42,161 @@ const FeaturesMobile = ({ resolution }: { resolution: Resolution }) => {
   )
 }
 
+
 export default FeaturesMobile
 
 const FeaturesTabs = ({ resolution }: { resolution: Resolution }) => {
+  const [openFaq, setOpenFaq] = useState(1)
+
+  function toggle(current) {
+    if (current == openFaq) {
+      setOpenFaq(-1)
+    } else {
+      setOpenFaq(current)
+    }
+  }
+  const checkOpened = (id: number) => id === openFaq ? true : false
+  const checkOpenedState = (id: number) => id === openFaq ? "active" : ""
+
   return (
-    <Tabs.Root
-      className={styles.TabsRoot}
-      defaultValue="tab1"
-      orientation="vertical"
-    >
-      <Tabs.List className={styles.TabsList} aria-label="Prime Features">
-        <Tabs.Trigger className={styles.TabsTrigger} value="tab1">
-          <div className={styles.trigger_container}>
-            <div className={styles.icon_wrapper}>
-              <CalendarIcon />
-              <CalendarIconGradient />
-            </div>
-            <span>Календарь по заработку</span>
+    <div className={styles.TabsRoot}>
+      <div
+        className={styles.TabsTrigger}
+        onClick={() => toggle(1)}
+        aria-expanded={checkOpened(1)}
+        data-state={checkOpenedState(1)}
+      >
+        <div className={styles.trigger_container}>
+          <div className={styles.icon_wrapper}>
+            <CalendarIcon />
+            <CalendarIconGradient />
           </div>
-        </Tabs.Trigger>
-        <Tabs.Content className={styles.TabsContent} value="tab1">
-          <Slider data={featuresData.calendar} resolution={resolution} />
-        </Tabs.Content>
+          <span>Календарь по заработку</span>
+        </div>
+      </div>
+      <div
+        className={`accordion__content faq`}
+        aria-expanded={!checkOpened(1)}
+      >
+        <Slider opened={checkOpened(1)} data={featuresData.calendar} resolution={resolution} />
+      </div>
 
-        <Tabs.Trigger className={styles.TabsTrigger} value="tab2">
-          <div className={styles.trigger_container}>
-            <div className={styles.icon_wrapper}>
-              <ContentIcon />
-              <ContentIconGradient />
-            </div>
-            <span>Экспертный контент</span>
+      <div
+        className={styles.TabsTrigger}
+        onClick={() => toggle(2)}
+        aria-expanded={checkOpened(2)}
+        data-state={checkOpenedState(2)}
+      >
+        <div className={styles.trigger_container}>
+          <div className={styles.icon_wrapper}>
+            <ContentIcon />
+            <ContentIconGradient />
           </div>
-        </Tabs.Trigger>
-        <Tabs.Content className={styles.TabsContent} value="tab2">
-          <Slider data={featuresData.content} resolution={resolution} />
-        </Tabs.Content>
+          <span>Экспертный контент</span>
+        </div>
+      </div>
+      <div
+        className={`accordion__content faq`}
+        aria-expanded={!checkOpened(2)}
+      >
+        <Slider opened={checkOpened(2)}  data={featuresData.content} resolution={resolution} />
+      </div>
 
-        <Tabs.Trigger className={styles.TabsTrigger} value="tab3">
-          <div className={styles.trigger_container}>
-            <div className={styles.icon_wrapper}>
-              <ChatIcon />
-              <ChatIconGradient />
-            </div>
-            <span>Чат и дружное комьюнити</span>
+      <div
+        className={styles.TabsTrigger}
+        onClick={() => toggle(3)}
+        aria-expanded={checkOpened(3)}
+        data-state={checkOpenedState(3)}
+      >
+        <div className={styles.trigger_container}>
+          <div className={styles.icon_wrapper}>
+            <ChatIcon />
+            <ChatIconGradient />
           </div>
-        </Tabs.Trigger>
-        <Tabs.Content className={styles.TabsContent} value="tab3">
-          <Slider data={featuresData.chat} resolution={resolution} />
-        </Tabs.Content>
+          <span>Чат и дружное комьюнити</span>
+        </div>
+      </div>
+      <div
+        className={`accordion__content faq`}
+        aria-expanded={!checkOpened(3)}
+      >
+        <Slider opened={checkOpened(3)}  data={featuresData.chat} resolution={resolution} />
+      </div>
 
-        <Tabs.Trigger className={styles.TabsTrigger} value="tab4">
-          <div className={styles.trigger_container}>
-            <div className={styles.icon_wrapper}>
-              <MeetupsIcon />
-              <MeetupsIconGradient />
-            </div>
-            <span>Онлайн встречи и практика</span>
+      <div
+        className={styles.TabsTrigger}
+        onClick={() => toggle(4)}
+        aria-expanded={checkOpened(4)}
+        data-state={checkOpenedState(4)}
+      >
+        <div className={styles.trigger_container}>
+          <div className={styles.icon_wrapper}>
+            <MeetupsIcon />
+            <MeetupsIconGradient />
           </div>
-        </Tabs.Trigger>
-        <Tabs.Content className={styles.TabsContent} value="tab4">
-          <Slider data={featuresData.meetups} resolution={resolution} />
-        </Tabs.Content>
+          <span>Онлайн встречи и практика</span>
+        </div>
+      </div>
+      <div
+        className={`accordion__content faq`}
+        aria-expanded={!checkOpened(4)}
+      >
+        <Slider opened={checkOpened(4)}  data={featuresData.meetups} resolution={resolution} />
+      </div>
 
-        <Tabs.Trigger className={styles.TabsTrigger} value="tab5">
-          <div className={styles.trigger_container}>
-            <div className={styles.icon_wrapper}>
-              <HelperIcon />
-              <HelperIconGradient />
-            </div>
-            <span>Личный помощник</span>
+      <div
+        className={styles.TabsTrigger}
+        onClick={() => toggle(5)}
+        aria-expanded={checkOpened(5)}
+        data-state={checkOpenedState(5)}
+      >
+        <div className={styles.trigger_container}>
+          <div className={styles.icon_wrapper}>
+            <HelperIcon />
+            <HelperIconGradient />
           </div>
-        </Tabs.Trigger>
-        <Tabs.Content className={styles.TabsContent} value="tab5">
-          <Slider data={featuresData.helper} resolution={resolution} />
-        </Tabs.Content>
+          <span>Личный помощник</span>
+        </div>
+      </div>
+      <div
+        className={`accordion__content faq`}
+        aria-expanded={!checkOpened(5)}
+      >
+        <Slider opened={checkOpened(5)}  data={featuresData.helper} resolution={resolution} />
+      </div>
 
-        <Tabs.Trigger className={styles.TabsTrigger} value="tab6">
-          <div className={styles.trigger_container}>
-            <div className={styles.icon_wrapper}>
-              <GuaranteeIcon />
-              <GuaranteeIconGradient />
-            </div>
-            <span>Гарантия прибыли</span>
-          </div>
-        </Tabs.Trigger>
-        <Tabs.Content className={styles.TabsContent} value="tab6">
-          <Slider data={featuresData.guarantee} resolution={resolution} />
-        </Tabs.Content>
-      </Tabs.List>
-    </Tabs.Root>
+      <div
+        className={styles.TabsTrigger}
+        onClick={() => toggle(6)}
+        aria-expanded={checkOpened(6)}
+        data-state={checkOpenedState(6)}
+      >
+        <div className={styles.trigger_container}>
+             <div className={styles.icon_wrapper}>
+               <GuaranteeIcon />
+               <GuaranteeIconGradient />
+             </div>
+             <span>Гарантия прибыли</span>
+           </div>
+      </div>
+      <div
+        className={`accordion__content faq`}
+        aria-expanded={!checkOpened(6)}
+      >
+        <Slider opened={checkOpened(6)}  data={featuresData.guarantee} resolution={resolution} />
+      </div>
+    </div>
   )
 }
 
 const Slider = ({
   data,
   resolution,
+  opened
 }: {
   data: Array<{ imgSrc: StaticImageData; description: string }>
-  resolution: Resolution
+  resolution: Resolution,
+  opened: boolean
 }) => {
   return (
     <Swiper
@@ -160,6 +217,7 @@ const Slider = ({
                 alt={`Image of: ${description}`}
                 quality={100}
               />
+              <Pagination amount={data.length} />
               <p className={styles.description}>{description}</p>
             </div>
           )}
@@ -167,7 +225,7 @@ const Slider = ({
       ))}
 
       <Navigation />
-      <Pagination amount={data.length} />
+      
     </Swiper>
   )
 }

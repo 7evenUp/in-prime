@@ -23,11 +23,13 @@
     width: 337px;
     margin-top: 60px;
     padding: 0px 18px 0px 18px;
+    height: 1230px;
   }
 
   @media (max-width: 420px) {
     box-sizing: border-box;
     width: 100%;
+    height: auto;
   }
 }
 
@@ -299,7 +301,7 @@
   transition: opacity 0.15s ease-in;
 
   @media (max-width: 1367px) {
-    display: none;
+    display: none !important;
   }
 
   &:hover {
@@ -328,6 +330,7 @@
 
   @media (max-width: 767px) {
     font-size: 16px;
+    margin-bottom: 60px;
   }
 }
 
@@ -355,7 +358,9 @@
 
     @media (max-width: 767px) {
       width: 100%;
-      gap: 60px;
+      gap: 24px;
+      // gap: 0;
+      margin-top: 30px;
     }
 
     &_wrapper {
@@ -406,8 +411,10 @@
   }
 
   @media (max-width: 767px) {
-    top: 295px;
+    // top: 295px;
+    position: static;
     gap: 16px;
+    translate: 0%;
   }
 
   &_button {
