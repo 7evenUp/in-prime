@@ -64,7 +64,7 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
           <div className="app__container__earn__friday__container__block__btn" onClick={onFridayClick}>
             <div className="app__container__earn__friday__container__block__btn__text">% BLACK FRIDAY</div>
             <div className="app__container__earn__friday__container__block__btn__arrow">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17" fill="none">
+              <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 20 17" fill="none">
                 <path className="app__container__earn__friday__container__block__btn__arrow__path"  d="M13.864 6.9854L8.99225 2.11369L11.1136 -0.00762881L19.6066 8.48539L11.5471 16.5449L9.42581 14.4235L13.864 9.98539L0.514712 9.98539L0.514712 6.9854H13.864Z" strokeWidth="0"/>
               </svg>
             </div>
