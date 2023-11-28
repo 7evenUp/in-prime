@@ -106,6 +106,15 @@ const FeaturesTabs = ({ resolution }: { resolution: Resolution }) => {
             <span>Гарантия прибыли</span>
           </div>
         </Tabs.Trigger>
+        {/* <Tabs.Trigger className={styles.TabsTrigger} value="tab7">
+          <div className={styles.trigger_container}>
+            <div className={styles.icon_wrapper}>
+              <GuaranteeIcon />
+              <GuaranteeIconGradient />
+            </div>
+            <span>Инвестфонд</span>
+          </div>
+        </Tabs.Trigger> */}
       </Tabs.List>
       <Tabs.Content className={styles.TabsContent} value="tab1">
         <Slider data={featuresData.calendar} resolution={resolution} />
@@ -125,6 +134,9 @@ const FeaturesTabs = ({ resolution }: { resolution: Resolution }) => {
       <Tabs.Content className={styles.TabsContent} value="tab6">
         <Slider data={featuresData.guarantee} resolution={resolution} />
       </Tabs.Content>
+      {/* <Tabs.Content className={styles.TabsContent} value="tab7">
+        <Slider data={featuresData.investfund} resolution={resolution} />
+      </Tabs.Content> */}
     </Tabs.Root>
   )
 }

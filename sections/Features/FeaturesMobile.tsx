@@ -185,6 +185,27 @@ const FeaturesTabs = ({ resolution }: { resolution: Resolution }) => {
       >
         <Slider opened={checkOpened(6)}  data={featuresData.guarantee} resolution={resolution} />
       </div>
+
+      {/* <div
+        className={styles.TabsTrigger}
+        onClick={() => toggle(7)}
+        aria-expanded={checkOpened(7)}
+        data-state={checkOpenedState(7)}
+      >
+        <div className={styles.trigger_container}>
+             <div className={styles.icon_wrapper}>
+               <GuaranteeIcon />
+               <GuaranteeIconGradient />
+             </div>
+             <span>Гарантия прибыли</span>
+           </div>
+      </div>
+      <div
+        className={`accordion__content faq`}
+        aria-expanded={!checkOpened(7)}
+      >
+        <Slider opened={checkOpened(7)}  data={featuresData.investfund} resolution={resolution} />
+      </div> */}
     </div>
   )
 }
