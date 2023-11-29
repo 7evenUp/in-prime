@@ -18,6 +18,8 @@ import {
   HelperIconGradient,
   MeetupsIcon,
   MeetupsIconGradient,
+  InvestingIcon,
+  InvestingIconGradient
 } from "./Icons"
 
 import styles from "./Features.module.scss"
@@ -25,6 +27,7 @@ import styles from "./Features.module.scss"
 import { data as featuresData } from "@/data/features"
 
 import { Resolution } from "@/types/resolution"
+import { makeDescrLink } from "./Features"
 
 const swiperWidth = {
   lgg: 700,
@@ -186,7 +189,7 @@ const FeaturesTabs = ({ resolution }: { resolution: Resolution }) => {
         <Slider opened={checkOpened(6)}  data={featuresData.guarantee} resolution={resolution} />
       </div>
 
-      {/* <div
+      <div
         className={styles.TabsTrigger}
         onClick={() => toggle(7)}
         aria-expanded={checkOpened(7)}
@@ -194,18 +197,18 @@ const FeaturesTabs = ({ resolution }: { resolution: Resolution }) => {
       >
         <div className={styles.trigger_container}>
              <div className={styles.icon_wrapper}>
-               <GuaranteeIcon />
-               <GuaranteeIconGradient />
+              <InvestingIcon />
+              <InvestingIconGradient />
              </div>
-             <span>Гарантия прибыли</span>
+             <span>Инвестируем за вас</span>
            </div>
       </div>
       <div
         className={`accordion__content faq`}
         aria-expanded={!checkOpened(7)}
       >
-        <Slider opened={checkOpened(7)}  data={featuresData.investfund} resolution={resolution} />
-      </div> */}
+        <Slider opened={checkOpened(7)}  data={featuresData.investing} resolution={resolution} />
+      </div>
     </div>
   )
 }
@@ -239,7 +242,8 @@ const Slider = ({
                 quality={100}
               />
               <Pagination amount={data.length} />
-              <p className={styles.description}>{description}</p>
+              {/* <p className={styles.description}>{description}</p> */}
+              {makeDescrLink(description)}
             </div>
           )}
         </SwiperSlide>

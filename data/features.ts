@@ -21,6 +21,9 @@ import helper2 from "@/public/images/png/features/helper-2.png"
 import guarantee1 from "@/public/images/png/features/guarantee-1.png"
 import guarantee2 from "@/public/images/png/features/guarantee-2.png"
 
+import investing1 from "@/public/images/png/features/investing-1.png"
+import investing2 from "@/public/images/png/features/investing-2.png"
+
 export const data = {
   calendar: [
     {
@@ -117,6 +120,17 @@ export const data = {
       imgSrc: guarantee2,
       description:
       "Если подписка не окупилась, отправьте список выполненных гарант. событий с доказательствами. При подтверждении, мы начислим недостающую сумму на ваш баланс.",
+    },
+  ],
+  investing: [
+    {
+      imgSrc: investing1,
+      description:
+      `Мы берем 10% от цены каждой купленной подписки Prime и инвестируем их в различные крипто-активы. Взамен, мы выдаем вам NFT "SHARES", которые являются подтверждением владения доли в фонде пропорционально номиналу.`
+    },
+    {
+      imgSrc: investing2,
+      description: 'Наша цель — увеличить стоимость фонда в 10 раз, то есть до $1 миллиона, после чего распределить эту прибыль между вами, владельцами SHARES. Отследить текущее состояние фонда <a href="https://bit.ly/3R27F0e">можно здесь</a>.'
     },
   ]
   // investfund: [

@@ -14,8 +14,6 @@ const FoundersMobile =() => {
         className="app__container__about-ceo__founders__swiper"
         spaceBetween={60}
         slidesPerView={1}
-        onSlideChange={() => console.log('slide change')}
-        onSwiper={(swiper) => console.log(swiper)}
     >
         <SwiperSlide>
         <div className="app__container__about-ceo__ceo">

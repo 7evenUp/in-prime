@@ -169,9 +169,10 @@
       justify-content: center;
     }
 
-    .icon_gradient {
-      display: none;
-    }
+    // .icon_gradient {
+    //   display: none;
+    //   // opacity: 0;
+    // }
   }
 
   // замена border-top для активных элементов
@@ -260,10 +261,16 @@
       }
 
       .icon_gradient {
-        display: block;
+        display: block !important;
       }
     }
   }
+
+  &[data-state="inactive"] {
+      .icon_gradient {
+        display: none;
+      }
+    }
 
   &:focus {
     position: relative;
@@ -327,10 +334,31 @@
   color: white;
   font-size: 18px;
   line-height: 160%;
+  height: 175px;
+
+  @media (max-width: 1919px) and (min-width: 1368px) {
+    height: 160px;
+  }
+
+  @media (max-width: 1367px) and (min-width: 768px) {
+    height: 100px;
+  }
 
   @media (max-width: 767px) {
     font-size: 16px;
     margin-bottom: 60px;
+    height: 125px;
+  }
+}
+
+.descriptionLink {
+  color: white;
+  font-size: 18px;
+  line-height: 160%;
+  text-decoration: underline;
+
+  &:hover {
+    color: #bb44cc;
   }
 }
 
@@ -407,7 +435,7 @@
 
   @media (max-width: 1367px) and (min-width: 768px) {
     top: auto;
-    bottom: 90px;
+    bottom: 140px;
   }
 
   @media (max-width: 767px) {

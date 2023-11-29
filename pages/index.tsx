@@ -146,7 +146,6 @@ const Home = (props) => {
       )
     );
   }, []);
-  console.log(new Date(1701377940000))
   useEffect(() => {
     window.addEventListener("wheel", wheelHandler)
 
