@@ -32,6 +32,12 @@
     height: auto;
   }
 }
+.icon {
+  position: absolute;
+}
+.icon_gradient {
+  position: absolute;
+}
 
 .title {
   width: 1070px;
@@ -139,6 +145,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
   }
 
   .trigger_container {
@@ -169,10 +176,10 @@
       justify-content: center;
     }
 
-    // .icon_gradient {
-    //   display: none;
-    //   // opacity: 0;
-    // }
+    .icon_gradient {
+      // display: none;
+      opacity: 0;
+    }
   }
 
   // замена border-top для активных элементов
@@ -257,20 +264,16 @@
       );
 
       .icon {
-        display: none;
+        // display: none;
+        opacity: 0;
       }
 
       .icon_gradient {
-        display: block !important;
+        // display: block !important;
+        opacity: 1;
       }
     }
   }
-
-  &[data-state="inactive"] {
-      .icon_gradient {
-        display: none;
-      }
-    }
 
   &:focus {
     position: relative;

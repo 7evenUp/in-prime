@@ -127,10 +127,10 @@ const Home = (props) => {
   }
 
   const moreInfo = {
-    lgg: 11945,
-    lg: 10531,
-    md: 12000,
-    sm: 11710,
+    lgg: 12225,
+    lg: 10821,
+    md: 12270,
+    sm: 11980,
   }
 
   const wheelHandler = (event) => {
