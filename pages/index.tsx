@@ -283,7 +283,7 @@ const Home = (props) => {
                     <div className="app__container__subscribe__content__cost__block__body__price _63" />
                     <div className="app__container__subscribe__content__cost__block__body__text _63">
                       Фирменный <br/>
-                      908/999
+                      867/999
                       </div>
                     <div className="app__container__subscribe__content__cost__block__body__gift _63" />
                     <a
@@ -320,7 +320,7 @@ const Home = (props) => {
                     <div className="app__container__subscribe__content__cost__block__body__price _189" />
                     <div className="app__container__subscribe__content__cost__block__body__text _189">
                       Необычный <br/>
-                      66/119
+                      40/119
                     </div>
                     <div className="app__container__subscribe__content__cost__block__body__gift _189" />
                     <a
@@ -358,7 +358,7 @@ const Home = (props) => {
                     <div className="app__container__subscribe__content__cost__block__body__price _355" />
                     <div className="app__container__subscribe__content__cost__block__body__text _355">
                       Редкий<br/>
-                      37/99
+                      9/99
                     </div>
                     <div className="app__container__subscribe__content__cost__block__body__gift _355" />
                     <a
@@ -396,7 +396,7 @@ const Home = (props) => {
                     <div className="app__container__subscribe__content__cost__block__body__price _666" />
                     <div className="app__container__subscribe__content__cost__block__body__text _666">
                       Мистический<br/>
-                      44/99
+                      30/99
                       </div>
                     <div className="app__container__subscribe__content__cost__block__body__gift _666" />
                     <a
