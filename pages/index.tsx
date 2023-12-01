@@ -127,10 +127,10 @@ const Home = (props) => {
   }
 
   const moreInfo = {
-    lgg: 12225,
-    lg: 10821,
-    md: 12270,
-    sm: 11980,
+    lgg: 11025,
+    lg: 9601,
+    md: 10620,
+    sm: 9010,
   }
 
   const wheelHandler = (event) => {
@@ -221,7 +221,7 @@ const Home = (props) => {
               </div>
               <div
                 className="app__container__guarantee__block__button"
-                onClick={() => toggleFaq(3)}
+                onClick={() => toggleFaq(2)}
               >
                 <div className="app__container__guarantee__block__button__text">
                   Подробнее
@@ -259,8 +259,6 @@ const Home = (props) => {
           )}
 
           <div className="app__container__subscribe" id="subscribe">
-            <RibbonSale currentWidth={currentWidth} />
-
             <div className="app__container__subscribe__noise" />
             <div className="app__container__subscribe__back">
               <div className="app__container__subscribe__back__left-gradient" />
@@ -269,206 +267,73 @@ const Home = (props) => {
             <div className="app__container__subscribe__content">
               <div className="app__container__subscribe__content__header">
                 <div className="app__container__subscribe__content__title" />
-                <div className="app__container__subscribe__content__subtitle" />
-
               </div>
               <div className="app__container__subscribe__content__cost bottom">
                 <div className="app__container__subscribe__content__cost__block">
-                  <div className="app__container__subscribe__content__cost__block__header _63">
+                  <div className="app__container__subscribe__content__cost__block__header">
+                    <div className="app__container__subscribe__content__cost__block__header__gradient _5" />
                     <div className="app__container__subscribe__content__cost__block__header__title">
                       1 месяц
                     </div>
                   </div>
-                  <div className="app__container__subscribe__content__cost__block__body _63">
-                    <div className="app__container__subscribe__content__cost__block__body__price _63" />
-                    <div className="app__container__subscribe__content__cost__block__body__text _63">
-                      Фирменный <br/>
-                      867/999
-                      </div>
-                    <div className="app__container__subscribe__content__cost__block__body__gift _63" />
-                    <a
-                      href={`https://t.me/CryptonLobbyBot?start=${referral}`}
-                      target={"_blank"}
-                    >
-                      <div className="app__container__subscribe__content__cost__block__body__btn _63">
-                        <div className="app__container__subscribe__content__cost__block__body__btn__text">
-                          Забрать подарок
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-
-                  <div className="app__container__subscribe__content__cost__block__chance"> 
-                    <div className="app__container__subscribe__content__cost__block__chance__text">
-                      <div className="app__container__subscribe__content__cost__block__chance__text-white">
-                        Шанс получить:
-                      </div>
-                      <div className="app__container__subscribe__content__cost__block__chance__text__list _63">
-                        Подписка на {["lgg", "lg"].includes(resolution) ? 'Telegram ' : 'TG-'}Premium на 3 месяца - 50% <br />
-                        Фирменную Кружку + Носки Crypton - 50% 
-                      </div>
-                    </div>
+                  <div className="app__container__subscribe__content__cost__block__body">
+                    <div className="app__container__subscribe__content__cost__block__body__price _74" />
+                    <div className="app__container__subscribe__content__cost__block__body__discount _45" />
                   </div>
                 </div>
                 <div className="app__container__subscribe__content__cost__block">
-                  <div className="app__container__subscribe__content__cost__block__header _189">
+                  <div className="app__container__subscribe__content__cost__block__header">
+                    <div className="app__container__subscribe__content__cost__block__header__gradient _6" />
                     <div className="app__container__subscribe__content__cost__block__header__title">
                       3 месяца
                     </div>
                   </div>
-                  <div className="app__container__subscribe__content__cost__block__body _189">
-                    <div className="app__container__subscribe__content__cost__block__body__price _189" />
-                    <div className="app__container__subscribe__content__cost__block__body__text _189">
-                      Необычный <br/>
-                      40/119
-                    </div>
-                    <div className="app__container__subscribe__content__cost__block__body__gift _189" />
-                    <a
-                      href={`https://t.me/CryptonLobbyBot?start=${referral}`}
-                      target={"_blank"}
-                    >
-                      <div className="app__container__subscribe__content__cost__block__body__btn _189">
-                        <div className="app__container__subscribe__content__cost__block__body__btn__text">
-                          Забрать подарок
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-
-                  <div className="app__container__subscribe__content__cost__block__chance"> 
-                    <div className="app__container__subscribe__content__cost__block__chance__text">
-                      <div className="app__container__subscribe__content__cost__block__chance__text-white">
-                        Шанс получить:
-                      </div>
-                      <div className="app__container__subscribe__content__cost__block__chance__text__list _189">
-                        Airpods 3 - 10% <br />
-                        Safepal S1 - 40% <br />
-                        Футболку Crypton - 50% <br />
-                      </div>
-                    </div>
+                  <div className="app__container__subscribe__content__cost__block__body">
+                    <div className="app__container__subscribe__content__cost__block__body__price _214" />
+                    <div className="app__container__subscribe__content__cost__block__body__discount _225" />
                   </div>
                 </div>
                 <div className="app__container__subscribe__content__cost__block">
-                  <div className="app__container__subscribe__content__cost__block__header _355">
+                  <div className="app__container__subscribe__content__cost__block__header">
+                    <div className="app__container__subscribe__content__cost__block__header__gradient _7" />
                     <div className="app__container__subscribe__content__cost__block__header__title">
                       6 месяцев
                     </div>
                   </div>
-                  <div className="app__container__subscribe__content__cost__block__body _355">
-                    <div className="app__container__subscribe__content__cost__block__body__price _355" />
-                    <div className="app__container__subscribe__content__cost__block__body__text _355">
-                      Редкий<br/>
-                      9/99
-                    </div>
-                    <div className="app__container__subscribe__content__cost__block__body__gift _355" />
-                    <a
-                      href={`https://t.me/CryptonLobbyBot?start=${referral}`}
-                      target={"_blank"}
-                    >
-                      <div className="app__container__subscribe__content__cost__block__body__btn _355">
-                        <div className="app__container__subscribe__content__cost__block__body__btn__text">
-                          Забрать подарок
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-
-                  <div className="app__container__subscribe__content__cost__block__chance"> 
-                    <div className="app__container__subscribe__content__cost__block__chance__text">
-                      <div className="app__container__subscribe__content__cost__block__chance__text-white">
-                        Шанс получить:
-                      </div>
-                      <div className="app__container__subscribe__content__cost__block__chance__text__list _355">
-                        PS 5 Digital - 10% <br />
-                        Safepal x1 - 40% <br />
-                        худи Crypton - 50% <br />
-                      </div>
-                    </div>
+                  <div className="app__container__subscribe__content__cost__block__body">
+                    <div className="app__container__subscribe__content__cost__block__body__price _405" />
+                    <div className="app__container__subscribe__content__cost__block__body__discount _446" />
                   </div>
                 </div>
                 <div className="app__container__subscribe__content__cost__block">
-                  <div className="app__container__subscribe__content__cost__block__header _666">
+                  <div className="app__container__subscribe__content__cost__block__header">
+                    <div className="app__container__subscribe__content__cost__block__header__gradient _8" />
                     <div className="app__container__subscribe__content__cost__block__header__title">
                       12 месяцев
                     </div>
                   </div>
-                  <div className="app__container__subscribe__content__cost__block__body _666">
-                    <div className="app__container__subscribe__content__cost__block__body__price _666" />
-                    <div className="app__container__subscribe__content__cost__block__body__text _666">
-                      Мистический<br/>
-                      30/99
-                      </div>
-                    <div className="app__container__subscribe__content__cost__block__body__gift _666" />
-                    <a
-                      href={`https://t.me/CryptonLobbyBot?start=${referral}`}
-                      target={"_blank"}
-                    >
-                      <div className="app__container__subscribe__content__cost__block__body__btn _666">
-                        <div className="app__container__subscribe__content__cost__block__body__btn__text">
-                          Забрать подарок
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-
-                  <div className="app__container__subscribe__content__cost__block__chance"> 
-                    <div className="app__container__subscribe__content__cost__block__chance__text">
-                      <div className="app__container__subscribe__content__cost__block__chance__text-white">
-                        Шанс получить:
-                      </div>
-                      <div className="app__container__subscribe__content__cost__block__chance__text__list _666">
-                        Macbook Air M1 - 10% <br />
-                        Ledger Nano S Plus - 40% <br />
-                        Фирменную худи + футболку <br />
-                        Trust Wallet - 50%
-                      </div>
-                    </div>
+                  <div className="app__container__subscribe__content__cost__block__body">
+                    <div className="app__container__subscribe__content__cost__block__body__price _765" />
+                    <div className="app__container__subscribe__content__cost__block__body__discount _880" />
                   </div>
                 </div>
-              </div>
-
-              <div className="app__container__subscribe__content__link__mark">
-                Мы отмечаем не только Черную пятницу, но еще и День рождения Crypton, поэтому мы решили сделать <b>гарантированные</b> подарки для всех! 
               </div>
               <div className="app__container__subscribe__content__link__mark">
-              * Итоговый дисконт включает в себе две скидки, которые отнимаются от цены по очереди. 
+              При оплате картой конвертация в рубли осуществляется по курсу ЦБ РФ
               </div>
-              <div className="app__container__subscribe__content___timer__header">
-                <div className="app__container__subscribe__content__timer__title"></div>
-
-                <div className="app__container__subscribe__content__timer__progress">
-                  <div
-                    className="app__container__subscribe__content__timer__progress__bar"
-                    style={{ width: `${timerProgress + "%"}` }}
-                  >
-                    <div className="app__container__subscribe__content__timer__progress__bar__circle">
-                      {" "}
-                    </div>
+              <div className="app__container__subscribe__content__link">
+                <a
+                  href={`https://t.me/CryptonLobbyBot?start=${referral}`}
+                  target={"_blank"}
+                >
+                  <div className="app__container__subscribe__content__link__button">
+                    {tariffs[resolution]}
+                    <SubscribeArrow />
                   </div>
+                </a>
+                <div className="app__container__subscribe__content__link__description">
+                  С оформлением тарифа вам поможет наш бот в Telegram
                 </div>
-                <div className="app__container__subscribe__content__timer__countdown">
-                  <Countdown
-                    className="app__container__subscribe__content__timer__countdown__counter"
-                    date={1701377940000}
-                  />
-                </div>
-                <div className="app__container__subscribe__content__timer__countdown__names">
-                  <div className="app__container__subscribe__content__timer__countdown__names__block">
-                    <div className="app__container__subscribe__content__timer__countdown__names__block__text">
-                      дней
-                    </div>
-                    <div className="app__container__subscribe__content__timer__countdown__names__block__text">
-                      часов
-                    </div>
-                    <div className="app__container__subscribe__content__timer__countdown__names__block__text">
-                      минут
-                    </div>
-                    <div className="app__container__subscribe__content__timer__countdown__names__block__text">
-                      секунд
-                    </div>
-                  </div>
-                </div>
-
               </div>
             </div>
           </div>

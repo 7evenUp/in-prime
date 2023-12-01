@@ -45,7 +45,7 @@ const Menu = (props) => {
       name: "Кейсы",
       position: {
         lgg: 4378,
-        lg: 3708,
+        lg: 3748,
       },
     },
     {
@@ -60,24 +60,24 @@ const Menu = (props) => {
       number: "06",
       name: "Подписка",
       position: {
-        lgg: 8170,
-        lg: 7150,
+        lgg: 8070,
+        lg: 7050,
       },
     },
     {
       number: "07",
       name: "Отзывы",
       position: {
-        lgg: 9990,
-        lg: 8890,
+        lgg: 8890,
+        lg: 8590,
       },
     },
     {
       number: "08",
       name: "FAQ",
       position: {
-        lgg: 11600,
-        lg: 10250,
+        lgg: 10500,
+        lg: 9150,
       },
     },
   ]

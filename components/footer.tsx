@@ -36,26 +36,26 @@ const Footer = (props) => {
     examples: {
       lgg: 4348,
       lg: 3708,
-      md: 4638,
+      md: 4688,
       sm: 3700,
     },
     team: {
       lgg: 5312,
       lg: 4610,
-      md: 5550,
+      md: 5590,
       sm: 4290,
     },
     partners: {
       lgg: 7341,
       lg: 6430,
-      md: 6950,
+      md: 6990,
       sm: 5830,
     },
     faq: {
-      lgg: 11600,
-      lg: 10250,
-      md: 11600,
-      sm: 11590,
+      lgg: 10450,
+      lg: 9150,
+      md: 10200,
+      sm: 8740,
     },
   }
 
