@@ -1,6 +1,6 @@
 import React, { Fragment } from "react"
 
-const Ribbon = ({ currentWidth }) => {
+const Ribbon = ({ currentWidth}) => {
   let blockWidth = 580
 
   switch (true) {
@@ -42,7 +42,7 @@ const Ribbon = ({ currentWidth }) => {
   }
 
   return (
-    <div className="app__container__ribbon">
+    <div className='app__container__ribbon'>
       <div className="app__container__ribbon__ticker">{ribbon_text()}</div>
     </div>
   )

@@ -15,6 +15,7 @@
 
   @media (max-width: 767px) {
     flex-direction: column;
+    // flex-direction: row;
     gap: 40px;
     margin-top: 44px;
   }
@@ -33,5 +34,40 @@
 
   @media (max-width: 767px) {
     gap: 40px;
+    flex-direction: row;
   }
 }
+
+@media (max-width: 767px) {
+  .binance {
+    width: 56px;
+    height: 55px;
+  }
+  .if {
+    width: 43.799px;
+    height: 51.762px;
+  }
+  .trust {
+    width: 46.625px;
+    height: 55.212px;
+  }
+  .near {
+    width: 50px;
+    height: 50px;
+  }
+  .taiko {
+    width: 56px;
+    height: 50px;
+  }
+  .aura {
+    width: 59px;
+    height: 66px;
+    margin-top: -9px;
+  }
+  .dequest {
+    width: 154px;
+    height: 41px;
+  }
+}
+
+

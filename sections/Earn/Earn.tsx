@@ -14,6 +14,13 @@ interface EarnProps {
   setCurrentY: React.Dispatch<React.SetStateAction<number>>
 }
 
+const positions = {
+  lgg: 8130,
+  lg: 7150,
+  md: 7740,
+  sm: 6250,
+}
+
 const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
   const [mobileMenu, changeMobileMenu] = useState(false)
   const [scrollY, setScrollY] = React.useState(0)
@@ -21,6 +28,7 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
   const scrollHandler = React.useCallback((event) => {
     setScrollY(window.scrollY)
   }, [])
+
 
   useEffect(() => {
     window.addEventListener("scroll", scrollHandler, { passive: true })
@@ -46,7 +54,7 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
         style={{ background: scrollY ? "#131313" : "transparent" }}
       />
 
-      <header className="app__container__earn__header">
+      <header className="app__container__earn__header">        
         <div className="app__container__earn__header__logo" />
         <div className="menu-sub-block">
           <a

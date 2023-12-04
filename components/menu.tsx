@@ -37,47 +37,47 @@ const Menu = (props) => {
       name: "Возможности",
       position: {
         lgg: 1750,
-        lg: 1370,
+        lg: 1450,
       },
     },
     {
       number: "04",
       name: "Кейсы",
       position: {
-        lgg: 4338,
-        lg: 3708,
+        lgg: 4378,
+        lg: 3748,
       },
     },
     {
       number: "05",
       name: "Команда",
       position: {
-        lgg: 5312,
-        lg: 4610,
+        lgg: 5372,
+        lg: 4650,
       },
     },
     {
       number: "06",
       name: "Подписка",
       position: {
-        lgg: 7900,
-        lg: 6940,
+        lgg: 8070,
+        lg: 7050,
       },
     },
     {
       number: "07",
       name: "Отзывы",
       position: {
-        lgg: 8700,
-        lg: 7650,
+        lgg: 8890,
+        lg: 8590,
       },
     },
     {
       number: "08",
       name: "FAQ",
       position: {
-        lgg: 10400,
-        lg: 9050,
+        lgg: 10500,
+        lg: 9150,
       },
     },
   ]

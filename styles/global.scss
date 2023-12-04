@@ -174,11 +174,11 @@ p {
     flex-direction: column;
     width: 100%;
     align-items: center;
-
     // @media (max-width: 350px) {
     //   display: none;
     // }
 
+    
     &__earn {
       min-width: 1920px;
       width: 100%;
@@ -187,6 +187,7 @@ p {
       background-repeat: no-repeat;
       display: flex;
       flex-direction: column;
+      position: relative;
 
       @media (max-width: 1919px) and (min-width: 1368px) {
         height: 838px;
@@ -206,6 +207,129 @@ p {
 
       @media (max-width: 420px) {
         min-width: 100%;
+      }
+
+      
+      &__friday__container{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        &__block {
+          z-index: 1000;
+          transition: .3s ease opacity;
+          width: 1300px;
+          position: fixed;
+          top: 92vh;
+          display: flex;
+          justify-content: end;
+          @media (max-width: 1919px) and (min-width: 1368px) {
+            width: 1143px;
+          }
+
+          @media (max-width: 1367px) and (min-width: 768px) {
+            width: 672px;
+          }
+
+          @media (max-width: 767px) {
+            width: 335px;
+          }
+          &__btn {
+            width: 275px;
+            height: 52px;
+            border-radius: 8px;
+            border: 1px solid #181818;
+            background: #FFF;
+            left: auto;
+
+            display: flex;
+            align-items: center;
+
+            @media (max-width: 1919px) and (min-width: 1368px) {
+              width: 249px;
+              height: 45px;
+            }
+  
+            @media (max-width: 1367px) and (min-width: 768px) {
+              width: 168px;
+              height: 31px;
+            }
+  
+            @media (max-width: 767px) {
+              width: 168px;
+              height: 31px;
+            }
+
+            &__text {
+              color: #181818;
+              font-family: "Benzin-Bold";
+              font-size: 20px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: normal;
+              letter-spacing: 0.8px;
+              margin-left: 14px;
+              margin-right: 5px;
+
+              @media (max-width: 1919px) and (min-width: 1368px) {
+                font-size: 18px;
+                margin-left: 12px;
+              }
+    
+              @media (max-width: 1367px) and (min-width: 768px) {
+                font-size: 12px;
+                margin-left: 8px;
+                margin-right: 2px;
+              }
+    
+              @media (max-width: 767px) {
+                font-size: 12px;
+                margin-left: 8px;
+                margin-right: 2px;
+              }
+            }
+
+            &__arrow {
+              width: 20px;
+              height: 15px;
+              margin-top: 0px;
+              @media (max-width: 1367px) and (min-width: 768px) {
+                width: 13px;
+                height: 15px;
+                margin-top: 0;
+              }
+    
+              @media (max-width: 767px) {
+                width: 13px;
+                height: 15px;
+                margin-top: 0;
+              }
+              &__path {
+                stroke: #181818;
+                fill: #181818;
+              }
+            }
+            transition: .3s ease;
+
+            &:hover {
+              cursor: pointer;
+              border-radius: 8px;
+              border: 1px solid #181818;
+              background: #181818;
+              .app__container__earn__friday__container__block__btn{
+                &__text {
+                  color: #fff;
+                }
+                &__arrow{
+                  &__path {
+                    fill: #FFF;
+                    stroke: #FFF;
+                  }
+                }
+              }
+            }
+      
+          }
+        }
       }
 
       &__left-gradient {
@@ -1009,7 +1133,7 @@ p {
     }
 
     &__ribbon {
-      top: 4225px;
+      top: 4345px;
       position: absolute;
       overflow: hidden;
       left: 0;
@@ -1019,22 +1143,49 @@ p {
       z-index: 100;
 
       @media (max-width: 1919px) and (min-width: 1368px) {
-        top: 3625px;
+        top: 3720px;
         height: 88px;
       }
 
       @media (max-width: 1367px) and (min-width: 768px) {
-        top: 4585px;
+        top: 4710px;
         height: 65px;
       }
 
       @media (max-width: 767px) {
-        top: 3585px;
+        // top: 3585px;
+        top: 3731px;
         height: 49px;
       }
 
       @media (max-width: 420px) {
         display: none;
+      }
+
+      &__sale {
+        position: absolute;
+        overflow: hidden;
+        left: 0;
+        width: 250%;
+        height: 96px;
+        background: linear-gradient(108deg, #FF4A7A 14.61%, #FFCD9F 88.38%);
+        z-index: 100;
+
+        @media (max-width: 1919px) and (min-width: 1368px) {
+          height: 88px;
+        }
+
+        @media (max-width: 1367px) and (min-width: 768px) {
+          height: 65px;
+        }
+
+        @media (max-width: 767px) {
+          display: none;
+        }
+
+        @media (max-width: 420px) {
+          display: none;
+        }
       }
 
       &__ticker {
@@ -1054,6 +1205,21 @@ p {
 
         @media (max-width: 767px) {
           animation: ticker 2.8s infinite linear;
+        }
+
+        &.sale {
+          animation: ticker-sale 5s infinite linear;
+          @media (max-width: 1919px) and (min-width: 1368px) {
+            animation: ticker-sale 8s infinite linear;
+          }
+
+          @media (max-width: 1367px) and (min-width: 768px) {
+            animation: ticker-sale 3s infinite linear;
+          }
+
+          @media (max-width: 767px) {
+            animation: ticker 2.8s infinite linear;
+          }
         }
 
         &__text {
@@ -1100,6 +1266,12 @@ p {
         }
       }
 
+      @keyframes ticker-sale {
+        100% {
+          left: -1410px;
+        }
+      }
+
       @media (max-width: 1919px) and (min-width: 1368px) {
         @keyframes ticker {
           100% {
@@ -1108,10 +1280,26 @@ p {
         }
       }
 
+      @media (max-width: 1919px) and (min-width: 1368px) {
+        @keyframes ticker-sale {
+          100% {
+            left: -1289px;
+          }
+        }
+      }
+
       @media (max-width: 1367px) and (min-width: 768px) {
         @keyframes ticker {
           100% {
             left: -439px;
+          }
+        }
+      }
+
+      @media (max-width: 1367px) and (min-width: 768px) {
+        @keyframes ticker-sale {
+          100% {
+            left: -525px;
           }
         }
       }
@@ -1279,6 +1467,13 @@ p {
         @media (min-width: 1368px) {
           display: flex;
         }
+
+        &__swiper {
+          width: 250px;
+          &-slide {
+            width: 250px;
+          }
+        }
       }
 
       &__ceo {
@@ -1326,8 +1521,8 @@ p {
           }
 
           @media (max-width: 767px) {
-            width: 248px;
-            height: 315px;
+            width: 232px;
+            height: 295px;
           }
         }
 
@@ -1612,8 +1807,8 @@ p {
             @media (max-width: 767px) {
               font-size: 14px;
               line-height: 24px;
-              height: 48px;
-              width: 332px;
+              height: 100px;
+              width: 232px;
               margin-top: 37px;
             }
           }
@@ -2770,7 +2965,7 @@ p {
 
       @media (max-width: 767px) {
         width: 335px;
-        margin-top: 70px;
+        margin-top: 30px;
         padding: 0 19px 0 20px;
       }
 

@@ -23,39 +23,39 @@ const Footer = (props) => {
   const categories = {
     opportunities: {
       lgg: 1750,
-      lg: 1370,
+      lg: 1410,
       md: 1776,
       sm: 1296,
     },
     advantages: {
       lgg: 980,
-      lg: 780,
+      lg: 810,
       md: 930,
       sm: 740,
     },
     examples: {
-      lgg: 4338,
+      lgg: 4348,
       lg: 3708,
-      md: 4638,
-      sm: 3600,
+      md: 4688,
+      sm: 3700,
     },
     team: {
       lgg: 5312,
       lg: 4610,
-      md: 5550,
-      sm: 4160,
+      md: 5590,
+      sm: 4290,
     },
     partners: {
       lgg: 7341,
       lg: 6430,
-      md: 6950,
-      sm: 6370,
+      md: 6990,
+      sm: 5830,
     },
     faq: {
-      lgg: 10400,
-      lg: 9050,
-      md: 10100,
-      sm: 9780,
+      lgg: 10450,
+      lg: 9150,
+      md: 10200,
+      sm: 8740,
     },
   }
 

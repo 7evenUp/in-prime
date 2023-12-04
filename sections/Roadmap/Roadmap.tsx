@@ -14,7 +14,7 @@ import { Resolution } from "@/types/resolution"
 
 const Roadmap = ({ resolution }: { resolution: Resolution }) => {
   return (
-    <section className={styles.container}>
+    <section className={styles.container} id="roadmap">
       <h2 className={styles.title}>Дорожная карта по заработку</h2>
 
       <span className={styles.subtitle}>

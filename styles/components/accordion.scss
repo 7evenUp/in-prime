@@ -96,16 +96,18 @@
   &__content {
     overflow: hidden;
     max-height: 1000px;
-
+    // padding: 30px 0;
     &.faq {
-      transition: max-height 2s ease-in-out;
+      transition: max-height .5s ease-in-out;
+      // transition: padding 2s ease-in-out;
     }
-
     &[aria-expanded="true"] {
       max-height: 0px;
-
+      padding: 0;
       &.faq {
         transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+        // transition: padding 0.5s cubic-bezier(0, 1, 0, 1);
+
       }
     }
   }

@@ -101,12 +101,13 @@
   cursor: pointer;
 
   @media (max-width: 767px) {
-    width: 343px;
+    // width: 343px;
+    width: 235px;
   }
 
   @media (max-width: 420px) {
     box-sizing: border-box;
-    width: 313px;
+    width: 258px;
   }
 }
 
@@ -131,7 +132,8 @@
     position: relative;
 
     @media (max-width: 767px) {
-      width: 283px;
+      // width: 283px;
+      width: 206px;
       height: 89px;
     }
 
@@ -401,6 +403,7 @@
 
   @media (max-width: 767px) {
     font-size: 12px;
+    right: -75px;
   }
 }
 
@@ -418,7 +421,7 @@
   padding-right: 20px;
 
   @media (max-width: 767px) {
-    width: 243px;
+    width: 183px;
   }
 
   &_open {

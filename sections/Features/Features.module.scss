@@ -23,12 +23,20 @@
     width: 337px;
     margin-top: 60px;
     padding: 0px 18px 0px 18px;
+    height: 1230px;
   }
 
   @media (max-width: 420px) {
     box-sizing: border-box;
     width: 100%;
+    height: auto;
   }
+}
+.icon {
+  position: absolute;
+}
+.icon_gradient {
+  position: absolute;
 }
 
 .title {
@@ -113,7 +121,6 @@
   user-select: none;
   outline: none;
   border: 1px solid rgba(255, 255, 255, 0.5);
-  border-top: none;
   position: relative;
   cursor: pointer;
 
@@ -138,6 +145,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
   }
 
   .trigger_container {
@@ -169,7 +177,8 @@
     }
 
     .icon_gradient {
-      display: none;
+      // display: none;
+      opacity: 0;
     }
   }
 
@@ -255,11 +264,13 @@
       );
 
       .icon {
-        display: none;
+        // display: none;
+        opacity: 0;
       }
 
       .icon_gradient {
-        display: block;
+        // display: block !important;
+        opacity: 1;
       }
     }
   }
@@ -278,6 +289,11 @@
   padding-top: 16px;
   position: relative;
 
+  @media (max-width: 767px) {
+    padding-top: 35px;
+    margin-bottom: 28px;
+  }
+
   &[data-state="inactive"] {
     display: none;
   }
@@ -295,7 +311,7 @@
   transition: opacity 0.15s ease-in;
 
   @media (max-width: 1367px) {
-    display: none;
+    display: none !important;
   }
 
   &:hover {
@@ -321,9 +337,31 @@
   color: white;
   font-size: 18px;
   line-height: 160%;
+  height: 175px;
+
+  @media (max-width: 1919px) and (min-width: 1368px) {
+    height: 160px;
+  }
+
+  @media (max-width: 1367px) and (min-width: 768px) {
+    height: 100px;
+  }
 
   @media (max-width: 767px) {
     font-size: 16px;
+    margin-bottom: 60px;
+    height: 125px;
+  }
+}
+
+.descriptionLink {
+  color: white;
+  font-size: 18px;
+  line-height: 160%;
+  text-decoration: underline;
+
+  &:hover {
+    color: #bb44cc;
   }
 }
 
@@ -351,7 +389,9 @@
 
     @media (max-width: 767px) {
       width: 100%;
-      gap: 60px;
+      gap: 24px;
+      // gap: 0;
+      margin-top: 30px;
     }
 
     &_wrapper {
@@ -398,12 +438,14 @@
 
   @media (max-width: 1367px) and (min-width: 768px) {
     top: auto;
-    bottom: 90px;
+    bottom: 140px;
   }
 
   @media (max-width: 767px) {
-    top: 295px;
+    // top: 295px;
+    position: static;
     gap: 16px;
+    translate: 0%;
   }
 
   &_button {

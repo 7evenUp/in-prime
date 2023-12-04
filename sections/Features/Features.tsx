@@ -18,6 +18,8 @@ import {
   HelperIconGradient,
   MeetupsIcon,
   MeetupsIconGradient,
+  InvestingIcon,
+  InvestingIconGradient
 } from "./Icons"
 
 import styles from "./Features.module.scss"
@@ -31,7 +33,7 @@ const swiperWidth = {
   lg: 621,
   md: "100%",
   sm: "100%",
-}
+} 
 
 const Features = ({ resolution }: { resolution: Resolution }) => {
   return (
@@ -40,6 +42,30 @@ const Features = ({ resolution }: { resolution: Resolution }) => {
       <FeaturesTabs resolution={resolution} />
     </section>
   )
+}
+
+export const makeDescrLink = (inputString: string) => {
+  const regex = /<a\b[^>]*>(.*?)<\/a>/;
+
+  // Проверяем, содержит ли входная строка ссылку
+  const match = inputString.match(regex);
+
+  if (match) {
+    // находим href и текст
+    const findText = match[0].match(/<a\s+(?:[^>]*?\s+)?href="([^"]*)"[^>]*>(.*?)<\/a>/i);
+
+    return (
+      <p className={styles.description}>
+        {inputString.split(match[0])[0]}
+        <a className={styles.descriptionLink} href={findText[1]} target="_blank">{findText[2]}</a>
+        {inputString.split(match[0])[1]}
+        </p>
+    )
+  } else {
+    return (
+      <p className={styles.description}>{inputString}</p>
+    )
+  }
 }
 
 export default Features
@@ -106,6 +132,15 @@ const FeaturesTabs = ({ resolution }: { resolution: Resolution }) => {
             <span>Гарантия прибыли</span>
           </div>
         </Tabs.Trigger>
+        <Tabs.Trigger className={styles.TabsTrigger} value="tab7">
+          <div className={styles.trigger_container}>
+            <div className={styles.icon_wrapper}>
+              <InvestingIcon />
+              <InvestingIconGradient />
+            </div>
+            <span>Инвестируем за вас</span>
+          </div>
+        </Tabs.Trigger>
       </Tabs.List>
       <Tabs.Content className={styles.TabsContent} value="tab1">
         <Slider data={featuresData.calendar} resolution={resolution} />
@@ -124,6 +159,9 @@ const FeaturesTabs = ({ resolution }: { resolution: Resolution }) => {
       </Tabs.Content>
       <Tabs.Content className={styles.TabsContent} value="tab6">
         <Slider data={featuresData.guarantee} resolution={resolution} />
+      </Tabs.Content>
+      <Tabs.Content className={styles.TabsContent} value="tab7">
+        <Slider data={featuresData.investing} resolution={resolution} />
       </Tabs.Content>
     </Tabs.Root>
   )
@@ -155,7 +193,8 @@ const Slider = ({
                 alt={`Image of: ${description}`}
                 quality={100}
               />
-              <p className={styles.description}>{description}</p>
+              {/* <p className={styles.description}>{description}</p> */}
+              {makeDescrLink(description)}
             </div>
           )}
         </SwiperSlide>
