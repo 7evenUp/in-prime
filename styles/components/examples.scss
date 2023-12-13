@@ -220,6 +220,7 @@
               font-size: 16px;
               line-height: 160%;
               color: #ffffff;
+              text-align: right;
 
               @media (max-width: 767px) {
                 font-size: 12px;
@@ -233,17 +234,21 @@
               font-style: normal;
               font-weight: 400;
               font-size: 24px;
-              line-height: 160%;
+              // line-height: 160%;
+              line-height: 90%;
               color: #ffffff;
+              width: 78px;
 
               @media (max-width: 767px) {
                 font-size: 20px;
                 height: 32px;
+                width: 57px;
               }
             }
 
             &.out {
               opacity: 0.5;
+              align-items: end;
             }
           }
         }

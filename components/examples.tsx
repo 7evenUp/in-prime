@@ -172,7 +172,7 @@ const Examples = ({ resolution }: { resolution: Resolution }) => {
 
                     <div className="examples-content__blocks__block__content__in-out__col out">
                       <div className="examples-content__blocks__block__content__in-out__col__title">
-                        Вложения:
+                        Вложения: 
                       </div>
                       <div className="examples-content__blocks__block__content__in-out__col__sum">
                         {spend}
@@ -202,12 +202,19 @@ const Examples = ({ resolution }: { resolution: Resolution }) => {
                     <div className="examples-content__blocks__block__content__extended-info__condition-description">
                       {condition}
                     </div>
-                    <div className="examples-content__blocks__block__content__extended-info__resources-title">
-                      Ресурсы:
-                    </div>
-                    <div className="examples-content__blocks__block__content__extended-info__resources-description">
-                      {resources}
-                    </div>
+                    {
+                      resources ? (
+                        <>
+                          <div className="examples-content__blocks__block__content__extended-info__resources-title">
+                            Ресурсы:
+                          </div>
+                          <div className="examples-content__blocks__block__content__extended-info__resources-description">
+                            {resources}
+                          </div>
+                        </>
+                      ) : null
+                    }
+                    
 
                     {reportUrl != "crypton.xyz" && (
                       <a href={reportUrl} target="_blank">
