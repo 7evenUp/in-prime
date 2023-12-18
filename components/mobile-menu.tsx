@@ -1,24 +1,24 @@
-import React from "react"
+import React from "react";
 
-import Crypton from "../public/images/jsx/footer/crypton"
-import Discord from "../public/images/jsx/footer/discord"
-import Vk from "../public/images/jsx/footer/vk"
-import Instagram from "../public/images/jsx/footer/instagram"
-import Telegram from "../public/images/jsx/footer/telegram"
-import Youtube from "../public/images/jsx/footer/youtube"
+import Crypton from "../public/images/jsx/footer/crypton";
+import Discord from "../public/images/jsx/footer/discord";
+import Vk from "../public/images/jsx/footer/vk";
+import Instagram from "../public/images/jsx/footer/instagram";
+import Telegram from "../public/images/jsx/footer/telegram";
+import Youtube from "../public/images/jsx/footer/youtube";
 
 const MobileMenu = (props) => {
-  const resolution = props.resolution
-  const currentY = props.currentY
-  const setCurrentY = props.setCurrentY
+  const resolution = props.resolution;
+  const currentY = props.currentY;
+  const setCurrentY = props.setCurrentY;
 
   async function toggleMenu(position) {
-    await props.changeMobileMenu(!props.open)
+    await props.changeMobileMenu(!props.open);
     window.scrollTo({
       top: position,
       behavior: "smooth",
-    })
-    setCurrentY(position)
+    });
+    setCurrentY(position);
   }
 
   const categories = [
@@ -70,7 +70,7 @@ const MobileMenu = (props) => {
         sm: 8750,
       },
     },
-  ]
+  ];
 
   return (
     <div
@@ -182,7 +182,7 @@ const MobileMenu = (props) => {
         </div>
         <div className="mobile-menu__container__subscribe-block">
           <a
-            href={`https://t.me/CryptonLobbyBot?start=${props.referral}`}
+            href={`https://id.crypton.xyz?ref_code=${props.referral}`}
             target={"_blank"}
           >
             <div className="mobile-menu__container__subscribe-block__subscribe">
@@ -195,7 +195,7 @@ const MobileMenu = (props) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default MobileMenu
+export default MobileMenu;

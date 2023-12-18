@@ -1,63 +1,63 @@
-import React, { useState, useEffect } from "react"
-import { useRouter } from "next/router"
-import Image from "next/image"
+import React, { useState, useEffect } from "react";
+import { useRouter } from "next/router";
+import Image from "next/image";
 
-import Footer from "@/components/footer"
+import Footer from "@/components/footer";
 // import Features from "@/components/features"
-import Examples from "@/components/examples"
-import Accordion from "@/components/accordion/accordion"
-import Menu from "@/components/menu"
-import OtherProducts from "@/components/other-products"
-import Team from "@/components/team"
-import Ribbon from "@/components/ribbon"
+import Examples from "@/components/examples";
+import Accordion from "@/components/accordion/accordion";
+import Menu from "@/components/menu";
+import OtherProducts from "@/components/other-products";
+import Team from "@/components/team";
+import Ribbon from "@/components/ribbon";
 
-import SubscribeArrow from "@/public/images/jsx/subscribe/arrow"
-import Telegram from "@/public/images/jsx/ceo/telegram"
-import YouTube from "@/public/images/jsx/ceo/you-tube"
-import TeamArrow from "@/public/images/jsx/ceo/arrow"
-import More from "@/public/images/jsx/subscribe/more"
+import SubscribeArrow from "@/public/images/jsx/subscribe/arrow";
+import Telegram from "@/public/images/jsx/ceo/telegram";
+import YouTube from "@/public/images/jsx/ceo/you-tube";
+import TeamArrow from "@/public/images/jsx/ceo/arrow";
+import More from "@/public/images/jsx/subscribe/more";
 
-import SelectLggTariff from "@/public/images/jsx/subscribe/select-tariff-lgg"
-import SelectLgTariff from "@/public/images/jsx/subscribe/select-tariff-lg"
-import SelectMdTariff from "@/public/images/jsx/subscribe/select-tariff-md"
-import SelectSmTariff from "@/public/images/jsx/subscribe/select-tariff-sm"
+import SelectLggTariff from "@/public/images/jsx/subscribe/select-tariff-lgg";
+import SelectLgTariff from "@/public/images/jsx/subscribe/select-tariff-lg";
+import SelectMdTariff from "@/public/images/jsx/subscribe/select-tariff-md";
+import SelectSmTariff from "@/public/images/jsx/subscribe/select-tariff-sm";
 
-import Testimonials from "@/sections/Testimonials/Testimonials"
-import Histories from "@/sections/Histories/Histories"
-import Benefits from "@/sections/Benefits/Benefits"
-import Features from "@/sections/Features/Features"
-import Partners from "@/sections/Partners/Partners"
-import Roadmap from "@/sections/Roadmap/Roadmap"
-import Earn from "@/sections/Earn/Earn"
+import Testimonials from "@/sections/Testimonials/Testimonials";
+import Histories from "@/sections/Histories/Histories";
+import Benefits from "@/sections/Benefits/Benefits";
+import Features from "@/sections/Features/Features";
+import Partners from "@/sections/Partners/Partners";
+import Roadmap from "@/sections/Roadmap/Roadmap";
+import Earn from "@/sections/Earn/Earn";
 
-import { Resolution } from "@/types/resolution"
-import RibbonSale from "@/components/ribbon-sale"
-import Countdown from "@/components/countdown"
-import FeaturesMobile from "@/sections/Features/FeaturesMobile"
-import { Swiper, SwiperSlide } from "swiper/react"
-import Founders from "@/sections/founders/Founders"
-import FoundersMobile from "@/sections/founders/FoundersMobile"
-import PartnersMobile from "@/sections/Partners/PartnersMobile"
+import { Resolution } from "@/types/resolution";
+import RibbonSale from "@/components/ribbon-sale";
+import Countdown from "@/components/countdown";
+import FeaturesMobile from "@/sections/Features/FeaturesMobile";
+import { Swiper, SwiperSlide } from "swiper/react";
+import Founders from "@/sections/founders/Founders";
+import FoundersMobile from "@/sections/founders/FoundersMobile";
+import PartnersMobile from "@/sections/Partners/PartnersMobile";
 
 const useWindowSize = () => {
-  const [currentWidth, setCurrentWidth] = useState(0)
+  const [currentWidth, setCurrentWidth] = useState(0);
 
   const handleResize = () => {
-    setCurrentWidth(window.innerWidth)
-  }
+    setCurrentWidth(window.innerWidth);
+  };
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      window.addEventListener("resize", handleResize)
+      window.addEventListener("resize", handleResize);
 
-      handleResize()
+      handleResize();
 
-      return () => window.removeEventListener("resize", handleResize)
+      return () => window.removeEventListener("resize", handleResize);
     }
-  }, [])
+  }, []);
 
-  return currentWidth
-}
+  return currentWidth;
+};
 
 const renderer = ({ days, hours, minutes, seconds, completed }) => {
   if (completed) {
@@ -87,36 +87,36 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
       </span>
     );
   }
-}
+};
 
 const Home = (props) => {
-  const router = useRouter()
-  const referral = router.query.ref || "agent"
+  const router = useRouter();
+  const referral = router.query.ref || "agent";
 
-  const [currentY, setCurrentY] = useState(0)
-  const [openFaq, setOpenFaq] = useState(-1)
+  const [currentY, setCurrentY] = useState(0);
+  const [openFaq, setOpenFaq] = useState(-1);
 
-  const [timerProgress, setTimerProgress] = useState(0)
+  const [timerProgress, setTimerProgress] = useState(0);
 
-  const currentWidth = useWindowSize()
+  const currentWidth = useWindowSize();
 
-  let resolution: Resolution = "lgg"
+  let resolution: Resolution = "lgg";
 
   switch (true) {
     case currentWidth >= 1920:
-      resolution = "lgg"
-      break
+      resolution = "lgg";
+      break;
     case currentWidth < 1920 && currentWidth >= 1368:
-      resolution = "lg"
-      break
+      resolution = "lg";
+      break;
     case currentWidth < 1368 && currentWidth >= 768:
-      resolution = "md"
-      break
+      resolution = "md";
+      break;
     case currentWidth < 768:
-      resolution = "sm"
-      break
+      resolution = "sm";
+      break;
     default:
-      break
+      break;
   }
 
   const tariffs = {
@@ -124,51 +124,49 @@ const Home = (props) => {
     lg: <SelectLgTariff />,
     md: <SelectMdTariff />,
     sm: <SelectSmTariff />,
-  }
+  };
 
   const moreInfo = {
     lgg: 11025,
     lg: 9601,
     md: 10620,
     sm: 9010,
-  }
+  };
 
   const wheelHandler = (event) => {
-    setCurrentY(window.scrollY)
-  }
+    setCurrentY(window.scrollY);
+  };
 
   useEffect(() => {
     setTimerProgress(
       Math.round(
-        Date.now() >= 1700830800000 ?
-        ((Date.now() - 1700830800000) / (1701377940000 - 1700830800000)) * 100
-        : 0
+        Date.now() >= 1700830800000
+          ? ((Date.now() - 1700830800000) / (1701377940000 - 1700830800000)) *
+              100
+          : 0
       )
     );
   }, []);
   useEffect(() => {
-    window.addEventListener("wheel", wheelHandler)
+    window.addEventListener("wheel", wheelHandler);
 
     return () => {
-      window.removeEventListener("wheel", wheelHandler)
-    }
-  }, [])
+      window.removeEventListener("wheel", wheelHandler);
+    };
+  }, []);
 
   const toggleFaq = (index: number) => {
     window.scrollTo({
       top: moreInfo[resolution],
       behavior: "smooth",
-    })
-    setOpenFaq(index)
-    setCurrentY(moreInfo[resolution])
-  }
+    });
+    setOpenFaq(index);
+    setCurrentY(moreInfo[resolution]);
+  };
 
   return (
     <>
-      <div
-        className="app"
-      >
-
+      <div className="app">
         {["lgg", "lg"].includes(resolution) && (
           <Menu
             resolution={resolution}
@@ -185,7 +183,11 @@ const Home = (props) => {
           />
 
           <Benefits />
-          {resolution === "sm" ? <FeaturesMobile resolution={resolution} /> : <Features resolution={resolution} />}
+          {resolution === "sm" ? (
+            <FeaturesMobile resolution={resolution} />
+          ) : (
+            <Features resolution={resolution} />
+          )}
           {/* <Features resolution={resolution} /> */}
           <Roadmap resolution={resolution} />
 
@@ -233,7 +235,7 @@ const Home = (props) => {
             </div>
           </div>
 
-          <Ribbon currentWidth={currentWidth}/>
+          <Ribbon currentWidth={currentWidth} />
 
           <div className="app__container__examples" id="examples">
             <div className="app__container__examples__title">
@@ -244,19 +246,11 @@ const Home = (props) => {
             <Examples resolution={resolution} />
           </div>
 
-          {resolution === "sm" ? (
-            <FoundersMobile />
-          ) : (
-            <Founders />
-          )}
+          {resolution === "sm" ? <FoundersMobile /> : <Founders />}
 
           <Team resolution={resolution} />
 
-          {resolution === "sm" ? (
-            <PartnersMobile />
-          ) : (
-            <Partners />
-          )}
+          {resolution === "sm" ? <PartnersMobile /> : <Partners />}
 
           <div className="app__container__subscribe" id="subscribe">
             <div className="app__container__subscribe__noise" />
@@ -319,11 +313,12 @@ const Home = (props) => {
                 </div>
               </div>
               <div className="app__container__subscribe__content__link__mark">
-              При оплате картой конвертация в рубли осуществляется по курсу ЦБ РФ
+                При оплате картой конвертация в рубли осуществляется по курсу ЦБ
+                РФ
               </div>
               <div className="app__container__subscribe__content__link">
                 <a
-                  href={`https://t.me/CryptonLobbyBot?start=${referral}`}
+                  href={`https://id.crypton.xyz?ref_code=${referral}`}
                   target={"_blank"}
                 >
                   <div className="app__container__subscribe__content__link__button">
@@ -360,7 +355,7 @@ const Home = (props) => {
       <div className="back color dark" />
       <div className="back noise" />
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
