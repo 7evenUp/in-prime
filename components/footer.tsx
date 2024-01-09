@@ -8,6 +8,8 @@ import Instagram from "../public/images/jsx/footer/instagram"
 import Telegram from "../public/images/jsx/footer/telegram"
 import Youtube from "../public/images/jsx/footer/youtube"
 
+const currentYear = new Date().getFullYear()
+
 const Footer = (props) => {
   const resolution = props.resolution
   const currentY = props.currentY
@@ -114,7 +116,7 @@ const Footer = (props) => {
 
             <div className="footer__rectangle__right">
               <div className="footer__rectangle__right__column">
-              <div
+                <div
                   className="footer__rectangle__right__column__route"
                   onClick={() => toggleMenu(categories.advantages[resolution])}
                 >
@@ -160,7 +162,7 @@ const Footer = (props) => {
           </div>
           <div className="footer__copyright-developers">
             <div className="footer__copyright-developers__text">
-              Copyright © Crypton Prime, 2023. Все права защищены
+              Copyright © Crypton Prime, {currentYear}. Все права защищены
             </div>
             <div className="developers">
               <a href="https://t.me/airin7sh" target={"_blank"}>
@@ -233,7 +235,7 @@ const Footer = (props) => {
                 </div>
               </div>
               <div className="footer__copyright-developers__text copyright">
-                Copyright © Crypton Prime, 2023. Все права защищены
+                Copyright © Crypton Prime, {currentYear}. Все права защищены
               </div>
               <div className="footer__rectangle__socials">
                 <div className="footer__rectangle__socials__links">
@@ -392,7 +394,7 @@ const Footer = (props) => {
           </div>
           <div className="footer__copyright-developers__text container">
             <div className="copyright">
-              Copyright © Crypton Prime, 2023. Все права защищены
+              Copyright © Crypton Prime, {currentYear}. Все права защищены
             </div>
           </div>
           <div className="footer__copyright-developers">
