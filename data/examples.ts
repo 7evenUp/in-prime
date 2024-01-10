@@ -105,19 +105,223 @@ import Captain from "@/public/images/png/examples/november/captain.png"
 import Blur from "@/public/images/png/examples/november/blur.png"
 import BackPack from "@/public/images/png/examples/november/backpack.png"
 
-
+import Points from "@/public/images/png/examples/december/december-points.png"
+import SugartownDecember from "@/public/images/png/examples/december/december-sugartown.png"
+import PudgysDecember from "@/public/images/png/examples/december/december-pudgys.png"
+import YogapetzDecember from "@/public/images/png/examples/december/december-yogapetz.png"
+import BlockgamesDecember from "@/public/images/png/examples/december/december-blockgames.png"
+import Matr1xDecember from "@/public/images/png/examples/december/december-matr1x.png"
+import OverworldDecember from "@/public/images/png/examples/december/december-overworld.png"
+import ChampionDecember from "@/public/images/png/examples/december/december-champions.png"
+import NfpromptDecember from "@/public/images/png/examples/december/december-nfprompt.png"
+import RawpassDecember from "@/public/images/png/examples/december/december-rawpass.png"
+import BomkusDecember from "@/public/images/png/examples/december/december-bomkus.png"
+import HftDecember from "@/public/images/png/examples/december/december-hft.png"
+import ThetaDecember from "@/public/images/png/examples/december/december-theta.png"
+import EgldDecember from "@/public/images/png/examples/december/december-egld.png"
+import CoreDecember from "@/public/images/png/examples/december/december-core.png"
+import KlayDecember from "@/public/images/png/examples/december/december-klay.png"
 
 export const examples = {
+  декабрь: [
+    {
+      title: "Points",
+      earn: "4500%",
+      spend: "любая сумма",
+      category: "Shitcoin-колл",
+      condition:
+        "Выделить комфортную для Вас сумму от депозита по риск-менеджменту, которую не страшно потерять. Следовать инструкциям из чата. Продать по приемлемой Вам цене.",
+      resources:
+        "Выделенная Вами сумма на покупку shitcoin по риск-менеджменту, время на отслеживание цены и фиксирование прибыли.",
+      reportUrl: "crypton.xyz",
+      img: Points,
+    },
+    {
+      title: "SugarTown",
+      earn: "$1300",
+      spend: "$15",
+      category: "NFT-колл",
+      condition:
+        "Следовать рекомендациям из колла нашого эксперта: купить NFT по указанной цене, выставить на продажу через лимитный ордер по высшей цене из колла и ожидать продажи. Обязательно следить за своей позицией и уведомлениями от эксперта.",
+      resources:
+        "$370 на покупку NFT (депозит возвращается) и $15 на комиссию.",
+      reportUrl: "crypton.xyz",
+      img: SugartownDecember,
+    },
+    {
+      title: "Lil Pudgys",
+      earn: "$1085",
+      spend: "$15",
+      category: "NFT-колл",
+      condition:
+        "Следовать рекомендациям из колла нашого эксперта: купить NFT по указанной цене, выставить на продажу через лимитный ордер по высшей цене из колла и ожидать продажи. Обязательно следить за своей позицией и уведомлениями от эксперта.",
+      resources:
+        "$805 на покупку NFT (депозит возвращается) и $15 на комиссию.",
+      reportUrl: "crypton.xyz",
+      img: PudgysDecember,
+    },
+    {
+      title: "YogaPetz",
+      earn: "$445",
+      spend: "$15",
+      category: "NFT-колл",
+      condition:
+        "Следовать рекомендациям из колла нашого эксперта: купить NFT по указанной цене, выставить на продажу через лимитный ордер по высшей цене из колла и ожидать продажи. Обязательно следить за своей позицией и уведомлениями от эксперта.",
+      resources:
+        "$1210 на покупку NFT (депозит возвращается) и $15 на комиссию.",
+      reportUrl: "crypton.xyz",
+      img: YogapetzDecember,
+    },
+    {
+      title: "BlockGames",
+      earn: "$374",
+      spend: "$15",
+      category: "NFT-колл",
+      condition:
+        "Следовать рекомендациям из колла нашого эксперта: купить NFT по указанной цене, выставить на продажу через лимитный ордер по высшей цене из колла и ожидать продажи. Обязательно следить за своей позицией и уведомлениями от эксперта.",
+      resources:
+        "$1020 на покупку NFT (депозит возвращается) и $15 на комиссию.",
+      reportUrl: "crypton.xyz",
+      img: BlockgamesDecember,
+    },
+    {
+      title: "Matr1x Kuku",
+      earn: "$5520",
+      spend: "$935",
+      category: "NFT",
+      condition: "Получить WL через различные активности в проекте.",
+      resources:
+        "Ферма аккаунтов, время для получения WL. $920 на минт NFT и $15 на комиссии.",
+      reportUrl: "crypton.xyz",
+      img: Matr1xDecember,
+    },
+    {
+      title: "Overworld",
+      earn: "$3800",
+      spend: "$360",
+      category: "NFT",
+      condition: "Получить WL, заминтить NFT и продать на торговой площадке.",
+      resources: "Время для получения WL. $345 на минт NFT и $15 на комиссии.",
+      reportUrl: "crypton.xyz",
+      img: OverworldDecember,
+    },
+    {
+      title: "Champions Tactic",
+      earn: "$460",
+      spend: "$15",
+      category: "NFT",
+      condition: "Получить WL через различные активности в проекте.",
+      resources: "Ферма аккаунтов, время для получения WL.",
+      reportUrl: "crypton.xyz",
+      img: ChampionDecember,
+    },
+    {
+      title: "NFPrompt",
+      earn: "$300",
+      spend: "$3",
+      category: "NFT",
+      condition:
+        "Ежедневно заходить на платформу выполнять ежедневные задания.",
+      resources: "Время на отработку активности, $3 на комиссии.",
+      reportUrl: "crypton.xyz",
+      img: NfpromptDecember,
+    },
+    {
+      title: "raW Pass",
+      earn: "$270",
+      spend: "$15",
+      category: "NFT-колл",
+      condition:
+        "Следовать рекомендациям из колла нашого эксперта: купить NFT по указанной цене, выставить на продажу через лимитный ордер по высшей цене из колла и ожидать продажи. Обязательно следить за своей позицией и уведомлениями от эксперта.",
+      resources:
+        "$600 на покупку NFT (депозит возвращается) и $15 на комиссию.",
+      reportUrl: "crypton.xyz",
+      img: RawpassDecember,
+    },
+    {
+      title: "Sandbox Dr. Bomkus’ Trials",
+      earn: "$200",
+      spend: "$3,5",
+      category: "NFT",
+      condition: "Выполнить все задания на представленных картах.",
+      resources:
+        'Время на прохождения всех карт, $3,5 на покупку "Bomkus Pass".',
+      reportUrl:
+        "https://www.notion.so/crypton-prime/6b17e625702f412f8ccda548b0f3fb0f?v=e40c0dce572642baa5a6e3a2105ef345&p=24d07355b65546f5867b66ba91f5f0ae&pm=s",
+      img: BomkusDecember,
+    },
+    {
+      title: "HFT",
+      earn: "+27%",
+      spend: "любая сумма",
+      category: "Трейдинг",
+      condition:
+        "Выделить комфортную для Вас сумму от депозита по риск-менеджменту, которую не страшно потерять. Следовать инструкциям с поста: тейки, стопы, дополнительные комментарии.",
+      resources:
+        "Выделенная Вами сумма на трейдинг по риск-менеджменту, время на отслеживание позиций.",
+      reportUrl: "crypton.xyz",
+      img: HftDecember,
+    },
+    {
+      title: "THETA",
+      earn: "+19.8%",
+      spend: "любая сумма",
+      category: "Трейдинг",
+      condition:
+        "Выделить комфортную для Вас сумму от депозита по риск-менеджменту, которую не страшно потерять. Следовать инструкциям с поста: тейки, стопы, дополнительные комментарии.",
+      resources:
+        "Выделенная Вами сумма на трейдинг по риск-менеджменту, время на отслеживание позиций.",
+      reportUrl: "crypton.xyz",
+      img: ThetaDecember,
+    },
+    {
+      title: "EGLD",
+      earn: "+19.7%",
+      spend: "любая сумма",
+      category: "Трейдинг",
+      condition:
+        "Выделить комфортную для Вас сумму от депозита по риск-менеджменту, которую не страшно потерять. Следовать инструкциям с поста: тейки, стопы, дополнительные комментарии.",
+      resources:
+        "Выделенная Вами сумма на трейдинг по риск-менеджменту, время на отслеживание позиций.",
+      reportUrl: "crypton.xyz",
+      img: EgldDecember,
+    },
+    {
+      title: "CORE",
+      earn: "+10%",
+      spend: "любая сумма",
+      category: "Трейдинг",
+      condition:
+        "Выделить комфортную для Вас сумму от депозита по риск-менеджменту, которую не страшно потерять. Следовать инструкциям с поста: тейки, стопы, дополнительные комментарии.",
+      resources:
+        "Выделенная Вами сумма на трейдинг по риск-менеджменту, время на отслеживание позиций.",
+      reportUrl: "crypton.xyz",
+      img: CoreDecember,
+    },
+    {
+      title: "KLAY",
+      earn: "+4.4%",
+      spend: "любая сумма",
+      category: "Трейдинг",
+      condition:
+        "Выделить комфортную для Вас сумму от депозита по риск-менеджменту, которую не страшно потерять. Следовать инструкциям с поста: тейки, стопы, дополнительные комментарии.",
+      resources:
+        "Выделенная Вами сумма на трейдинг по риск-менеджменту, время на отслеживание позиций.",
+      reportUrl: "crypton.xyz",
+      img: KlayDecember,
+    },
+  ],
   ноябрь: [
     {
       title: "L3E7",
       earn: "$4600",
       spend: "$20",
       category: "NFT",
-      condition:
-        "Получить WL, заминтить NFT и продать на торговой площадке.",
-      resources: "Время для получения WL через разные мероприятия на Discord-сервере проекта.",
-      reportUrl: "https://crypton-prime.notion.site/L3E7-1a18359f0739423c9e215198e7dda7ec?pvs=4",
+      condition: "Получить WL, заминтить NFT и продать на торговой площадке.",
+      resources:
+        "Время для получения WL через разные мероприятия на Discord-сервере проекта.",
+      reportUrl:
+        "https://crypton-prime.notion.site/L3E7-1a18359f0739423c9e215198e7dda7ec?pvs=4",
       img: L3E7,
     },
     {
@@ -137,7 +341,8 @@ export const examples = {
       category: "Трейдинг",
       condition:
         "Выделить комфортную для Вас сумму от депозита по риск-менеджменту, которую не страшно потерять. Следовать инструкциям с поста: тейки, стопы, дополнительные комментарии.",
-      resources: "Выделенная Вами сумма на трейдинг по риск-менеджменту, время на отслеживание позиций.",
+      resources:
+        "Выделенная Вами сумма на трейдинг по риск-менеджменту, время на отслеживание позиций.",
       reportUrl: "crypton.xyz",
       img: Sol,
     },
@@ -179,10 +384,10 @@ export const examples = {
       earn: "$470",
       spend: "$20",
       category: "NFT",
-      condition:
-        "Получить WL через различные активности в проекте.",
+      condition: "Получить WL через различные активности в проекте.",
       resources: "Ферма аккаунтов, время для получения WL, $ETH для комиссии.",
-      reportUrl: "https://crypton-prime.notion.site/Vendetta-Games-41ec1536689247f28318a4c05111eb32?pvs=4",
+      reportUrl:
+        "https://crypton-prime.notion.site/Vendetta-Games-41ec1536689247f28318a4c05111eb32?pvs=4",
       img: Vendetta,
     },
     {
@@ -190,10 +395,10 @@ export const examples = {
       earn: "$400",
       spend: "$20",
       category: "NFT",
-      condition:
-        "Получить WL через розыгрыш.",
+      condition: "Получить WL через розыгрыш.",
       resources: "Ферма аккаунтов, $ETH для оплаты комиссии.",
-      reportUrl: "https://crypton-prime.notion.site/Pirate-Nation-c755e440e4a34e2288c048f0ad222331?pvs=4",
+      reportUrl:
+        "https://crypton-prime.notion.site/Pirate-Nation-c755e440e4a34e2288c048f0ad222331?pvs=4",
       img: Pirate,
     },
     {
@@ -203,7 +408,8 @@ export const examples = {
       category: "Трейдинг",
       condition:
         "Выделить комфортную для Вас сумму от депозита по риск-менеджменту, которую не страшно потерять. Следовать инструкциям с поста: тейки, стопы, дополнительные комментарии.",
-      resources: "Выделенная Вами сумма на трейдинг по риск-менеджменту, время на отслеживание позиций.",
+      resources:
+        "Выделенная Вами сумма на трейдинг по риск-менеджменту, время на отслеживание позиций.",
       reportUrl: "crypton.xyz",
       img: Sol,
     },
@@ -214,7 +420,8 @@ export const examples = {
       category: "Трейдинг",
       condition:
         "Выделить комфортную для Вас сумму от депозита по риск-менеджменту, которую не страшно потерять. Следовать инструкциям с поста: тейки, стопы, дополнительные комментарии.",
-      resources: "Выделенная Вами сумма на трейдинг по риск-менеджменту, время на отслеживание позиций.",
+      resources:
+        "Выделенная Вами сумма на трейдинг по риск-менеджменту, время на отслеживание позиций.",
       reportUrl: "crypton.xyz",
       img: Sol,
     },
@@ -225,7 +432,8 @@ export const examples = {
       category: "Трейдинг",
       condition:
         "Выделить комфортную для Вас сумму от депозита по риск-менеджменту, которую не страшно потерять. Следовать инструкциям с поста: тейки, стопы, дополнительные комментарии.",
-      resources: "Выделенная Вами сумма на трейдинг по риск-менеджменту, время на отслеживание позиций.",
+      resources:
+        "Выделенная Вами сумма на трейдинг по риск-менеджменту, время на отслеживание позиций.",
       reportUrl: "crypton.xyz",
       img: Sol,
     },
@@ -236,7 +444,8 @@ export const examples = {
       category: "Трейдинг",
       condition:
         "Выделить комфортную для Вас сумму от депозита по риск-менеджменту, которую не страшно потерять. Следовать инструкциям с поста: тейки, стопы, дополнительные комментарии.",
-      resources: "Выделенная Вами сумма на трейдинг по риск-менеджменту, время на отслеживание позиций.",
+      resources:
+        "Выделенная Вами сумма на трейдинг по риск-менеджменту, время на отслеживание позиций.",
       reportUrl: "crypton.xyz",
       img: Sol,
     },
@@ -247,7 +456,8 @@ export const examples = {
       category: "Трейдинг",
       condition:
         "Выделить комфортную для Вас сумму от депозита по риск-менеджменту, которую не страшно потерять. Следовать инструкциям с поста: тейки, стопы, дополнительные комментарии.",
-      resources: "Выделенная Вами сумма на трейдинг по риск-менеджменту, время на отслеживание позиций.",
+      resources:
+        "Выделенная Вами сумма на трейдинг по риск-менеджменту, время на отслеживание позиций.",
       reportUrl: "crypton.xyz",
       img: Sol,
     },
@@ -258,7 +468,8 @@ export const examples = {
       category: "Трейдинг",
       condition:
         "Выделить комфортную для Вас сумму от депозита по риск-менеджменту, которую не страшно потерять. Следовать инструкциям с поста: тейки, стопы, дополнительные комментарии.",
-      resources: "Выделенная Вами сумма на трейдинг по риск-менеджменту, время на отслеживание позиций.",
+      resources:
+        "Выделенная Вами сумма на трейдинг по риск-менеджменту, время на отслеживание позиций.",
       reportUrl: "crypton.xyz",
       img: Sol,
     },
@@ -269,7 +480,8 @@ export const examples = {
       category: "NFT-колл",
       condition:
         "Следовать рекомендациям из колла нашого эксперта: купить NFT по указанной цене, выставить на продажу через лимитный ордер по высшей цене из колла и ожидать продажи. Обязательно следить за своей позицией и уведомлениями от эксперта.",
-      resources: "$805 на покупку NFT (депозит возвращается) и $15 на комиссию.",
+      resources:
+        "$805 на покупку NFT (депозит возвращается) и $15 на комиссию.",
       reportUrl: "crypton.xyz",
       img: LilPudgys,
     },
@@ -289,10 +501,10 @@ export const examples = {
       earn: "$70",
       spend: "$20",
       category: "NFT",
-      condition:
-        "Получить WL через различные активности в проекте.",
+      condition: "Получить WL через различные активности в проекте.",
       resources: "Ферма аккаунтов, время для получения WL.",
-      reportUrl: "https://crypton-prime.notion.site/Captain-Company-305106c4880e4f359f5de23d8ae0c558?pvs=4",
+      reportUrl:
+        "https://crypton-prime.notion.site/Captain-Company-305106c4880e4f359f5de23d8ae0c558?pvs=4",
       img: Captain,
     },
     {
@@ -300,10 +512,11 @@ export const examples = {
       earn: "$70",
       spend: "$15",
       category: "NFT",
-      condition:
-        "Получить WL от проекта.",
-      resources: "Время на получение WL, опыт написания тредов, навыки рисования или свободный бюджет.",
-      reportUrl: "https://crypton-prime.notion.site/Vastega-9ee0c12fbced4a249ff666e014f83805?pvs=4",
+      condition: "Получить WL от проекта.",
+      resources:
+        "Время на получение WL, опыт написания тредов, навыки рисования или свободный бюджет.",
+      reportUrl:
+        "https://crypton-prime.notion.site/Vastega-9ee0c12fbced4a249ff666e014f83805?pvs=4",
       img: Vastega,
     },
     {
@@ -426,7 +639,7 @@ export const examples = {
       img: OnchainAutumnOKX,
     },
   ],
-  сентябрь: [
+  "сентябрь-январь": [
     {
       title: "Connext",
       earn: "$300",
@@ -545,8 +758,6 @@ export const examples = {
       reportUrl: "crypton.xyz",
       img: Nakamigos,
     },
-  ],
-  август: [
     {
       title: "Kartparty",
       earn: "$1200",
@@ -643,8 +854,6 @@ export const examples = {
         "https://crypton-prime.notion.site/20-OKX-b2cb05d80af748f8b31f542af69ccc59?pvs=4",
       img: OKX5,
     },
-  ],
-  "июль-январь": [
     {
       title: "Arkham",
       earn: "$900",
