@@ -107,7 +107,7 @@ const Footer = (props) => {
                   </a>
                 </div>
                 <div className="footer__rectangle__socials__links__link">
-                  <a href="https://discord.gg/crypton" target={"_blank"}>
+                  <a href="https://discord.gg/8b6vmMtqwA" target={"_blank"}>
                     <Discord />
                   </a>
                 </div>
@@ -271,7 +271,7 @@ const Footer = (props) => {
                     </a>
                   </div>
                   <div className="footer__rectangle__socials__links__link">
-                    <a href="https://discord.gg/crypton" target={"_blank"}>
+                    <a href="https://discord.gg/8b6vmMtqwA" target={"_blank"}>
                       <Discord />
                     </a>
                   </div>
@@ -384,7 +384,7 @@ const Footer = (props) => {
                     </a>
                   </div>
                   <div className="footer__rectangle__socials__links__link">
-                    <a href="https://discord.gg/crypton" target={"_blank"}>
+                    <a href="https://discord.gg/8b6vmMtqwA" target={"_blank"}>
                       <Discord />
                     </a>
                   </div>
