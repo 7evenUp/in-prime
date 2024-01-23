@@ -165,7 +165,7 @@ const Footer = (props) => {
               Copyright © Crypton Prime, {currentYear}. Все права защищены
             </div>
             <div className="developers">
-              <a href="https://t.me/airin7sh" target={"_blank"}>
+              {/* <a href="https://t.me/airin7sh" target={"_blank"}>
                 <div className="footer__copyright-developers__text">
                   Designed by Iren Shcherbakova
                 </div>
@@ -174,7 +174,7 @@ const Footer = (props) => {
                 <div className="footer__copyright-developers__text">
                   Developed by Granium
                 </div>
-              </a>
+              </a> */}
             </div>
           </div>
           <div className="footer__gradient" />
@@ -279,7 +279,7 @@ const Footer = (props) => {
               </div>
             </div>
           </div>
-          <div className="footer__copyright-developers">
+          {/* <div className="footer__copyright-developers">
             <div className="developers">
               <a href="https://t.me/airin7sh" target={"_blank"}>
                 <div className="footer__copyright-developers__text">
@@ -292,7 +292,7 @@ const Footer = (props) => {
                 </div>
               </a>
             </div>
-          </div>
+          </div> */}
           <div className="footer__gradient" />
         </>
       ) : (
@@ -397,7 +397,7 @@ const Footer = (props) => {
               Copyright © Crypton Prime, {currentYear}. Все права защищены
             </div>
           </div>
-          <div className="footer__copyright-developers">
+          {/* <div className="footer__copyright-developers">
             <div className="developers">
               <a href="https://t.me/airin7sh" target={"_blank"}>
                 <div className="footer__copyright-developers__text">
@@ -410,7 +410,7 @@ const Footer = (props) => {
                 </div>
               </a>
             </div>
-          </div>
+          </div> */}
           <div className="footer__gradient" />
         </>
       )}
