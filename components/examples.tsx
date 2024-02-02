@@ -80,7 +80,6 @@ const Examples = ({ resolution }: { resolution: Resolution }) => {
   }
 
   let currentGradient = 0
-
   return (
     <div className="examples-content">
       <div className="examples-content__header">

@@ -48,11 +48,11 @@ const Map = ({ resolution }: { resolution: Resolution }) => {
                 className={styles.map_item__top}
                 resolution={resolution}
               />
-              <MapItem
-                {...bottom}
-                className={styles.map_item__bottom}
-                resolution={resolution}
-              />
+              {bottom ? <MapItem
+                  {...bottom}
+                  className={styles.map_item__bottom}
+                  resolution={resolution}
+              /> : null}
             </SwiperSlide>
           ))}
         </Swiper>

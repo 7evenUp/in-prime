@@ -10,8 +10,16 @@ import Markus from "@/public/images/png/testimonials/markus.png"
 import Yurii from "@/public/images/png/testimonials/yurii.png"
 import Artem from "@/public/images/png/testimonials/artem.png"
 import Ujin from "@/public/images/png/testimonials/ujin.jpg"
+import FeD9 from "@/public/images/png/testimonials/FeD9.png"
 
 export const testimonialsData = [
+  {
+    avatar: FeD9,
+    name: "FeD9",
+    text: `Пишу свой отзыв за 1 год нахождения в приватном сообществе Prime. Без всякой воды буду перечислять плюсы и минусы данного продукта. Конечно мнение будет субъективным. Что я могу выдели из плюсов? Это активное комьюнити. В главном чате по поиску с большой долей вероятности вы сможете найти ответ на ваш вопрос. Можно считать что это некая база данных. Но, если вы не смогли найти ответ, то группа активных участников или амбассадоры смогут вам ответить. Качество постов и инструкция к выполнению активности. Разбор проектов мне очень понравился, вся нужная информация есть, и что самое главное, это не скучно читать. Последовательность действий отработки проекта понятны, как и логика.`,
+    date: "14.01.24",
+    link: "https://t.me/reviews_prime/232",
+  },
   {
     avatar: Ujin,
     name: "Ujin 247",
