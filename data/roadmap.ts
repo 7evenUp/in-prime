@@ -10,6 +10,7 @@ import zkSyncSrc from "@/public/images/svg/roadmap/zksync.svg"
 import starknetSrc from "@/public/images/svg/roadmap/starknet.svg"
 import zoraSrc from "@/public/images/svg/roadmap/zora.svg"
 import lineaSrc from "@/public/images/svg/roadmap/linea.svg"
+import altlayer from "@/public/images/svg/roadmap/altlayer.svg"
 
 // Данные имеют тип вида:
 // [
@@ -77,48 +78,59 @@ export const data = [
       isCurrent: true,
     },
     bottom: {
-      imgSrc: layerzeroSrc,
-      title: "LayerZero",
-      isDone: false,
+      imgSrc: altlayer,
+      title: "Altlayer",
+      isDone: true,
+      earned: 50000,
       description:
-        "Максимально отрабатываем этот проект по авторской стратегии Даниила, нашего автора и эксперта по ретродропам.",
+        "Проект, о котором мы говорили ещё в 2022 году, раздал дроп своим преданным пользователям. За холд пары NFT проекта получили токенов на сумму $50 000.",
     },
   },
   {
     top: {
+      imgSrc: layerzeroSrc,
+      title: "LayerZero",
+      isDone: false,
+      description:
+          "Максимально отрабатываем этот проект по авторской стратегии Даниила, нашего автора и эксперта по ретродропам.",
+    },
+
+    bottom: {
       imgSrc: partyDAOSrc,
       title: "PartyDAO",
       isDone: false,
       description:
         "В рамках проекта создаем “party”, участвуя в которых вы получаете больше шансов на дроп от проекта за взаимодействие с ним при минимальных затратах на отработку. В них может поучаствовать каждый подписчик Prime.",
     },
-    bottom: {
+
+  },
+  {
+    top: {
       imgSrc: zkSyncSrc,
       title: "zkSync",
       isDone: false,
       description:
-        "Дроп неизбежен, особенно для подписчиков Prime, которые отрабатывают проект еще с сентября 2021.",
+          "Дроп неизбежен, особенно для подписчиков Prime, которые отрабатывают проект еще с сентября 2021.",
     },
-  },
-  {
-    top: {
+    bottom: {
       imgSrc: starknetSrc,
       title: "Starknet",
       isDone: false,
       description:
         "Проект собрал $900 000 000 инвестиций, не имеет своего токена. Мы ожидаем, что будет бесплатная раздача токенов ранним пользователям.",
     },
-    bottom: {
+
+  },
+  {
+    top: {
       imgSrc: aptosSrc,
       title: "Aptos",
       isDone: false,
       isBlured: true,
       description:
-        "Считаем, что у этого проекта будет второй дроп. Подробный разбор с инструкциями сделали в Prime.",
+          "Считаем, что у этого проекта будет второй дроп. Подробный разбор с инструкциями сделали в Prime.",
     },
-  },
-  {
-    top: {
+    bottom: {
       imgSrc: zoraSrc,
       title: "Zora",
       isDone: false,
@@ -126,13 +138,16 @@ export const data = [
       description:
         "Токен проекта подтвержден, поэтому это только вопрос времени.",
     },
-    bottom: {
+
+  },
+  {
+    top: {
       imgSrc: lineaSrc,
       title: "Linea",
       isDone: false,
       isBlured: true,
       description:
-        "Официально токен не подтвержден, но судя по Roadmap, в 3 фазе планируется “децентрализованное управление сообществом”, данный пункт может указывать, что токен всё же будет. Поэтому уже проявляем активность в проекте для получения дропа.",
+          "Официально токен не подтвержден, но судя по Roadmap, в 3 фазе планируется “децентрализованное управление сообществом”, данный пункт может указывать, что токен всё же будет. Поэтому уже проявляем активность в проекте для получения дропа.",
     },
-  },
+  }
 ]

@@ -1,67 +1,67 @@
-import ByvotesBybit from "@/public/images/png/examples/october/byvotes-bybit.png"
-import Celestia2 from "@/public/images/png/examples/october/celestia-2.png"
-import Celestia from "@/public/images/png/examples/october/celestia.png"
-import Conviction from "@/public/images/png/examples/october/conviction.png"
-import Forge from "@/public/images/png/examples/october/forge.png"
-import Jioverse from "@/public/images/png/examples/october/jioverse.png"
-import OnchainAutumnOKX from "@/public/images/png/examples/october/onchain-autumn-okx.png"
-import WalletWars from "@/public/images/png/examples/october/wallet-wars.png"
+import ByvotesBybit from "@/public/images/png/examples/2023/october/byvotes-bybit.png"
+import Celestia2 from "@/public/images/png/examples/2023/october/celestia-2.png"
+import Celestia from "@/public/images/png/examples/2023/october/celestia.png"
+import Conviction from "@/public/images/png/examples/2023/october/conviction.png"
+import Forge from "@/public/images/png/examples/2023/october/forge.png"
+import Jioverse from "@/public/images/png/examples/2023/october/jioverse.png"
+import OnchainAutumnOKX from "@/public/images/png/examples/2023/october/onchain-autumn-okx.png"
+import WalletWars from "@/public/images/png/examples/2023/october/wallet-wars.png"
 
-import Connext from "@/public/images/png/examples/september/connext.png"
-import Sugartown from "@/public/images/png/examples/september/sugartown.png"
-import ZTX from "@/public/images/png/examples/september/ztx.png"
-import Aurora from "@/public/images/png/examples/september/aurora.png"
-import LilPudgys from "@/public/images/png/examples/september/lil-pudgys.png"
-import TipCoin from "@/public/images/png/examples/september/tip-coin.png"
-import HTX from "@/public/images/png/examples/september/htx.png"
-import Nakamigos from "@/public/images/png/examples/september/nakamigos.png"
+import Connext from "@/public/images/png/examples/2023/september/connext.png"
+import Sugartown from "@/public/images/png/examples/2023/september/sugartown.png"
+import ZTX from "@/public/images/png/examples/2023/september/ztx.png"
+import Aurora from "@/public/images/png/examples/2023/september/aurora.png"
+import LilPudgys from "@/public/images/png/examples/2023/september/lil-pudgys.png"
+import TipCoin from "@/public/images/png/examples/2023/september/tip-coin.png"
+import HTX from "@/public/images/png/examples/2023/september/htx.png"
+import Nakamigos from "@/public/images/png/examples/2023/september/nakamigos.png"
 
-import Kartpary from "@/public/images/png/examples/august/kartparty.png"
-import Marginly from "@/public/images/png/examples/august/marginly.png"
-import Weebox from "@/public/images/png/examples/august/weebox.png"
-import YieldFarming from "@/public/images/png/examples/august/yield-farming.png"
-import OKX4 from "@/public/images/png/examples/august/okx-season-4.png"
-import OKX5 from "@/public/images/png/examples/august/okx-season-5.png"
+import Kartpary from "@/public/images/png/examples/2023/august/kartparty.png"
+import Marginly from "@/public/images/png/examples/2023/august/marginly.png"
+import Weebox from "@/public/images/png/examples/2023/august/weebox.png"
+import YieldFarming from "@/public/images/png/examples/2023/august/yield-farming.png"
+import OKX4 from "@/public/images/png/examples/2023/august/okx-season-4.png"
+import OKX5 from "@/public/images/png/examples/2023/august/okx-season-5.png"
 
-import Arkham from "@/public/images/png/examples/july/arkham.png"
-import Mantle from "@/public/images/png/examples/july/mantle.png"
-import Neon from "@/public/images/png/examples/july/neon.png"
-import Bybit from "@/public/images/png/examples/july/bybit.png"
+import Arkham from "@/public/images/png/examples/2023/july/arkham.png"
+import Mantle from "@/public/images/png/examples/2023/july/mantle.png"
+import Neon from "@/public/images/png/examples/2023/july/neon.png"
+import Bybit from "@/public/images/png/examples/2023/july/bybit.png"
 
-import Grapes from "@/public/images/png/examples/june-january/grapes.png"
-import OpenCampus from "@/public/images/png/examples/june-january/open-campus.png"
-import BybitElda from "@/public/images/png/examples/june-january/bybit-elda.png"
-import Sui from "@/public/images/png/examples/june-january/sui.png"
-import MoboxDragonmo from "@/public/images/png/examples/june-january/mobox-dragonmo.png"
-import ACSBybit from "@/public/images/png/examples/june-january/acs-bybit.png"
-import Deblock from "@/public/images/png/examples/june-january/deblock.png"
-import Sui2 from "@/public/images/png/examples/june-january/sui-2.png"
-import BybitKarate from "@/public/images/png/examples/june-january/bybit-karate.png"
-import SpiralDao from "@/public/images/png/examples/june-january/spiral-dao.png"
-import AEVO from "@/public/images/png/examples/june-january/aevo.png"
-import AIDOGE from "@/public/images/png/examples/june-january/aidoge.png"
-import Arbitrum from "@/public/images/png/examples/june-january/arbitrum.png"
-import Mocaverse from "@/public/images/png/examples/june-january/mocaverse.png"
-import Momoguro from "@/public/images/png/examples/june-january/momoguro.png"
-import Exorde from "@/public/images/png/examples/june-january/exorde.png"
-import AuraNetwork from "@/public/images/png/examples/june-january/aura-network.png"
-import ZigZag from "@/public/images/png/examples/june-january/zig-zag.png"
-import SpaceID from "@/public/images/png/examples/june-january/space-id.png"
-import PlayPopGo from "@/public/images/png/examples/june-january/play-pop-go.png"
-import TheDevs from "@/public/images/png/examples/june-january/the-devs.png"
-import Podfast from "@/public/images/png/examples/june-january/podfast.png"
-import XanaPenpenz from "@/public/images/png/examples/june-january/xana-penpenz.png"
-import Puma from "@/public/images/png/examples/june-january/puma.png"
-import ModernMuse from "@/public/images/png/examples/june-january/modern-muse.png"
-import GhostBoy from "@/public/images/png/examples/june-january/ghost-boy.png"
-import Uniwhale from "@/public/images/png/examples/june-january/uniwhale.png"
-import IfPineProtocol from "@/public/images/png/examples/june-january/impossiblef-pine-protocol.png"
-import DigiDaigaku from "@/public/images/png/examples/june-january/digi-daigaku.png"
-import PlanetCoco from "@/public/images/png/examples/june-january/planet-coco.png"
-import KiyoshiSeed from "@/public/images/png/examples/june-january/kiyoshi-seed.png"
-import NFTCreatera from "@/public/images/png/examples/june-january/nft-createra.png"
-import Link3Airdrop from "@/public/images/png/examples/june-january/link3-airdrop.png"
-import SeniorPass from "@/public/images/png/examples/june-january/senior-pass.png"
+import Grapes from "@/public/images/png/examples/2023/june-january/grapes.png"
+import OpenCampus from "@/public/images/png/examples/2023/june-january/open-campus.png"
+import BybitElda from "@/public/images/png/examples/2023/june-january/bybit-elda.png"
+import Sui from "@/public/images/png/examples/2023/june-january/sui.png"
+import MoboxDragonmo from "@/public/images/png/examples/2023/june-january/mobox-dragonmo.png"
+import ACSBybit from "@/public/images/png/examples/2023/june-january/acs-bybit.png"
+import Deblock from "@/public/images/png/examples/2023/june-january/deblock.png"
+import Sui2 from "@/public/images/png/examples/2023/june-january/sui-2.png"
+import BybitKarate from "@/public/images/png/examples/2023/june-january/bybit-karate.png"
+import SpiralDao from "@/public/images/png/examples/2023/june-january/spiral-dao.png"
+import AEVO from "@/public/images/png/examples/2023/june-january/aevo.png"
+import AIDOGE from "@/public/images/png/examples/2023/june-january/aidoge.png"
+import Arbitrum from "@/public/images/png/examples/2023/june-january/arbitrum.png"
+import Mocaverse from "@/public/images/png/examples/2023/june-january/mocaverse.png"
+import Momoguro from "@/public/images/png/examples/2023/june-january/momoguro.png"
+import Exorde from "@/public/images/png/examples/2023/june-january/exorde.png"
+import AuraNetwork from "@/public/images/png/examples/2023/june-january/aura-network.png"
+import ZigZag from "@/public/images/png/examples/2023/june-january/zig-zag.png"
+import SpaceID from "@/public/images/png/examples/2023/june-january/space-id.png"
+import PlayPopGo from "@/public/images/png/examples/2023/june-january/play-pop-go.png"
+import TheDevs from "@/public/images/png/examples/2023/june-january/the-devs.png"
+import Podfast from "@/public/images/png/examples/2023/june-january/podfast.png"
+import XanaPenpenz from "@/public/images/png/examples/2023/june-january/xana-penpenz.png"
+import Puma from "@/public/images/png/examples/2023/june-january/puma.png"
+import ModernMuse from "@/public/images/png/examples/2023/june-january/modern-muse.png"
+import GhostBoy from "@/public/images/png/examples/2023/june-january/ghost-boy.png"
+import Uniwhale from "@/public/images/png/examples/2023/june-january/uniwhale.png"
+import IfPineProtocol from "@/public/images/png/examples/2023/june-january/impossiblef-pine-protocol.png"
+import DigiDaigaku from "@/public/images/png/examples/2023/june-january/digi-daigaku.png"
+import PlanetCoco from "@/public/images/png/examples/2023/june-january/planet-coco.png"
+import KiyoshiSeed from "@/public/images/png/examples/2023/june-january/kiyoshi-seed.png"
+import NFTCreatera from "@/public/images/png/examples/2023/june-january/nft-createra.png"
+import Link3Airdrop from "@/public/images/png/examples/2023/june-january/link3-airdrop.png"
+import SeniorPass from "@/public/images/png/examples/2023/june-january/senior-pass.png"
 
 import SfpAirdrop from "@/public/images/png/examples/2022/sfp-airdrop.png"
 import NFTAltlayer from "@/public/images/png/examples/2022/nft-altlayer.png"
@@ -91,39 +91,198 @@ import Potatoz from "@/public/images/png/examples/2022/potatoz.png"
 import Cube from "@/public/images/png/examples/2022/cube.png"
 import Walken from "@/public/images/png/examples/2022/walken.png"
 
-import L3E7 from "@/public/images/png/examples/november/l3e7.png"
-import Vendetta from "@/public/images/png/examples/november/vendetta.png"
-import Vastega from "@/public/images/png/examples/november/vastega.png"
-import Treki from "@/public/images/png/examples/november/treki.png"
-import Sol from "@/public/images/png/examples/november/sol.png"
-import Sofa from "@/public/images/png/examples/november/sofa.png"
-import Pyth from "@/public/images/png/examples/november/pyth.png"
-import Pirate from "@/public/images/png/examples/november/pirate.png"
-import Lilpudgys from "@/public/images/png/examples/november/lilpudgys.png"
-import Fijis from "@/public/images/png/examples/november/fijis.png"
-import Captain from "@/public/images/png/examples/november/captain.png"
-import Blur from "@/public/images/png/examples/november/blur.png"
-import BackPack from "@/public/images/png/examples/november/backpack.png"
+import L3E7 from "@/public/images/png/examples/2023/november/l3e7.png"
+import Vendetta from "@/public/images/png/examples/2023/november/vendetta.png"
+import Vastega from "@/public/images/png/examples/2023/november/vastega.png"
+import Treki from "@/public/images/png/examples/2023/november/treki.png"
+import Sol from "@/public/images/png/examples/2023/november/sol.png"
+import Sofa from "@/public/images/png/examples/2023/november/sofa.png"
+import Pyth from "@/public/images/png/examples/2023/november/pyth.png"
+import Pirate from "@/public/images/png/examples/2023/november/pirate.png"
+import Lilpudgys from "@/public/images/png/examples/2023/november/lilpudgys.png"
+import Fijis from "@/public/images/png/examples/2023/november/fijis.png"
+import Captain from "@/public/images/png/examples/2023/november/captain.png"
+import Blur from "@/public/images/png/examples/2023/november/blur.png"
+import BackPack from "@/public/images/png/examples/2023/november/backpack.png"
 
-import Points from "@/public/images/png/examples/december/december-points.png"
-import SugartownDecember from "@/public/images/png/examples/december/december-sugartown.png"
-import PudgysDecember from "@/public/images/png/examples/december/december-pudgys.png"
-import YogapetzDecember from "@/public/images/png/examples/december/december-yogapetz.png"
-import BlockgamesDecember from "@/public/images/png/examples/december/december-blockgames.png"
-import Matr1xDecember from "@/public/images/png/examples/december/december-matr1x.png"
-import OverworldDecember from "@/public/images/png/examples/december/december-overworld.png"
-import ChampionDecember from "@/public/images/png/examples/december/december-champions.png"
-import NfpromptDecember from "@/public/images/png/examples/december/december-nfprompt.png"
-import RawpassDecember from "@/public/images/png/examples/december/december-rawpass.png"
-import BomkusDecember from "@/public/images/png/examples/december/december-bomkus.png"
-import HftDecember from "@/public/images/png/examples/december/december-hft.png"
-import ThetaDecember from "@/public/images/png/examples/december/december-theta.png"
-import EgldDecember from "@/public/images/png/examples/december/december-egld.png"
-import CoreDecember from "@/public/images/png/examples/december/december-core.png"
-import KlayDecember from "@/public/images/png/examples/december/december-klay.png"
+import Points from "@/public/images/png/examples/2023/december/december-points.png"
+import SugartownDecember from "@/public/images/png/examples/2023/december/december-sugartown.png"
+import PudgysDecember from "@/public/images/png/examples/2023/december/december-pudgys.png"
+import YogapetzDecember from "@/public/images/png/examples/2023/december/december-yogapetz.png"
+import BlockgamesDecember from "@/public/images/png/examples/2023/december/december-blockgames.png"
+import Matr1xDecember from "@/public/images/png/examples/2023/december/december-matr1x.png"
+import OverworldDecember from "@/public/images/png/examples/2023/december/december-overworld.png"
+import ChampionDecember from "@/public/images/png/examples/2023/december/december-champions.png"
+import NfpromptDecember from "@/public/images/png/examples/2023/december/december-nfprompt.png"
+import RawpassDecember from "@/public/images/png/examples/2023/december/december-rawpass.png"
+import BomkusDecember from "@/public/images/png/examples/2023/december/december-bomkus.png"
+import HftDecember from "@/public/images/png/examples/2023/december/december-hft.png"
+import ThetaDecember from "@/public/images/png/examples/2023/december/december-theta.png"
+import EgldDecember from "@/public/images/png/examples/2023/december/december-egld.png"
+import CoreDecember from "@/public/images/png/examples/2023/december/december-core.png"
+import KlayDecember from "@/public/images/png/examples/2023/december/december-klay.png"
+
+import Altlayer from "@/public/images/png/examples/january/Altlayer.png"
+import Ninjalerts from "@/public/images/png/examples/january/Ninjalerts.png"
+import Dino from "@/public/images/png/examples/january/Age of Dino.png"
+import Xai from "@/public/images/png/examples/january/Xai.png"
+import Pudgys from "@/public/images/png/examples/january/Lil Pudgys.png"
+import Playember from "@/public/images/png/examples/january/Playember.png"
+import Jupiter from "@/public/images/png/examples/january/Jupiter.png"
+import Bobblehead from "@/public/images/png/examples/january/Hal Froggy Bobblehead.png"
+import Shrapnel from "@/public/images/png/examples/january/Shrapnel Operators.png"
+import BlockGames from "@/public/images/png/examples/january/BlockGames.png"
+import Square from "@/public/images/png/examples/january/Magic Square.png"
+
 
 export const examples = {
-  декабрь: [
+  "январь": [
+    {
+      title: "Altlayer",
+      earn: "$50 000",
+      spend: "$0",
+      category: "Ретродропы",
+      condition:
+          "Проект, о котором мы говорили ещё в июле 2022 года, раздал дроп своим преданным пользователям. За холд пары NFT проекта получили токенов на сумму $50 000.",
+      resources:
+          "Терпение, чтобы не продать эти NFT, учитывая, что их флор был $20 000 и $5 000 соответственно.",
+      reportUrl: "crypton.xyz",
+      img: Altlayer,
+    },
+    {
+      title: "Ninjalerts",
+      earn: "$4 700",
+      spend: "$1 340",
+      category: "NFT",
+      condition:
+          "Получить WL, заминтить NFT и продать на торговой площадке.",
+      resources:
+          "Время для получения WL. $1 300 на минт NFT и $40 на комиссии.",
+      reportUrl: "crypton.xyz",
+      img: Ninjalerts,
+    },
+    {
+      title: "Age of Dino",
+      earn: "$2 760",
+      spend: "$1 365",
+      category: "NFT",
+      condition:
+          "Получить WL через различные активности в проекте.",
+      resources:
+          "Ферма аккаунтов, время для получения WL. $1 350 на минт NFT и $15 на комиссии.",
+      reportUrl: "crypton.xyz",
+      img: Dino,
+    },
+    {
+      title: "Xai",
+      earn: "$1 500",
+      spend: "$0",
+      category: "Ретродропы",
+      condition:
+          "Проект раздал дроп за роли, полученные в первой фазе тестнета.",
+      resources:
+          "Время на отработку активности.",
+      reportUrl: "crypton.xyz",
+      img: Xai,
+    },
+    {
+      title: "Lil Pudgys",
+      earn: "$910",
+      spend: "$15",
+      category: "NFT-колл",
+      condition:
+          "Следовать рекомендациям из колла нашого эксперта: купить NFT по указанной цене, выставить на продажу через лимитный ордер по высшей цене из колла и ожидать продажи. Обязательно следить за своей позицией и уведомлениями от эксперта.",
+      resources:
+          "$2 210 на покупку NFT (депозит возвращается) и $15 на комиссию.",
+      reportUrl: "crypton.xyz",
+      img: Pudgys,
+    },
+    {
+      title: "Playember",
+      earn: "$870",
+      spend: "$15",
+      category: "NFT",
+      condition:
+          "Фармить поинты за взаимодействие с соц. сетями, участие конкурсах, мероприятиях и т.д.",
+      resources:
+          "Время на фарм поинтов, $15 на комиссию для чеканки NFT.",
+      reportUrl: "crypton.xyz",
+      img: Playember,
+    },
+    {
+      title: "Jupiter",
+      earn: "$500",
+      spend: "$10",
+      category: "Ретродропы",
+      condition:
+          "Проявлять активность на децентрализованном агрегаторе в сети Solana “Jupiter”. Получили дроп с большой вероятностью те, кто следовал инструкциям из рубрики \"Возможности”.",
+      resources:
+          "Ферма аккаунтов, средства на оплату комиссий при отработке.",
+      reportUrl: "crypton.xyz",
+      img: Jupiter,
+    },
+    {
+      title: "Altlayer",
+      earn: "$300",
+      spend: "$0",
+      category: "Ретродропы",
+      condition:
+          "Дроп в размере ~$300 можно было получить за прохождение Galxe-кампании.",
+      resources:
+          "Время на прохождение кампании, ферма аккаунтов.",
+      reportUrl: "crypton.xyz",
+      img: Altlayer,
+    },
+    {
+      title: "Hal Froggy Bobblehead",
+      earn: "$250",
+      spend: "$15",
+      category: "NFT-колл",
+      condition:
+          "Следовать рекомендациям из колла нашего эксперта: купить NFT по указанной цене, выставить на продажу через лимитный ордер по высшей цене из колла и ожидать продажи. Обязательно следить за своей позицией и уведомлениями от эксперта.",
+      resources:
+          "$60 на покупку NFT (депозит возвращается) и $15 на комиссию.",
+      reportUrl: "crypton.xyz",
+      img: Bobblehead,
+    },
+    {
+      title: "Shrapnel Operators",
+      earn: "$140",
+      spend: "$15",
+      category: "NFT-колл",
+      condition:
+          "Следовать рекомендациям из колла нашего эксперта: купить NFT по указанной цене, выставить на продажу через лимитный ордер по высшей цене из колла и ожидать продажи. Обязательно следить за своей позицией и уведомлениями от эксперта.",
+      resources:
+          "$550 на покупку NFT (депозит возвращается) и $15 на комиссию.",
+      reportUrl: "crypton.xyz",
+      img: Shrapnel,
+    },
+    {
+      title: "BlockGames",
+      earn: "$115",
+      spend: "$15",
+      category: "NFT-колл",
+      condition:
+          "Следовать рекомендациям из колла нашего эксперта: купить NFT по указанной цене, выставить на продажу через лимитный ордер по высшей цене из колла и ожидать продажи. Обязательно следить за своей позицией и уведомлениями от эксперта.",
+      resources:
+          "$670 на покупку NFT (депозит возвращается) и $15 на комиссию.",
+      reportUrl: "crypton.xyz",
+      img: BlockGames,
+    },
+    {
+      title: "Magic Square",
+      earn: "$70",
+      spend: "$0",
+      category: "Аирдропы",
+      condition:
+          "Выполнять квесты на площадке проекта.",
+      resources:
+          "Время на прохождение квестов.",
+      reportUrl: "crypton.xyz",
+      img: Square,
+    },
+  ],
+  " 2023": [
     {
       title: "Points",
       earn: "4500%",
@@ -310,8 +469,6 @@ export const examples = {
       reportUrl: "crypton.xyz",
       img: KlayDecember,
     },
-  ],
-  ноябрь: [
     {
       title: "L3E7",
       earn: "$4600",
@@ -541,8 +698,6 @@ export const examples = {
       reportUrl: "crypton.xyz",
       img: BackPack,
     },
-  ],
-  октябрь: [
     {
       title: "Celestia",
       earn: "$17000",
@@ -638,8 +793,6 @@ export const examples = {
         "https://crypton-prime.notion.site/Onchain-Autumn-OKX-594485e9bdf34885a1083e7fd821ef92?pvs=4",
       img: OnchainAutumnOKX,
     },
-  ],
-  "сентябрь-январь": [
     {
       title: "Connext",
       earn: "$300",

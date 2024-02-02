@@ -387,7 +387,8 @@
 
 .we_are_here {
   position: absolute;
-  right: -34px;
+  //right: -34px; // - если активный проект находится в top
+  right: -134px; // - если активный проект находится в bottom
   bottom: -76px;
   font-family: "Benzin-Bold", sans-serif;
   text-transform: uppercase;
@@ -403,7 +404,8 @@
 
   @media (max-width: 767px) {
     font-size: 12px;
-    right: -75px;
+    //right: -75px; // - если активный проект находится в top
+    right: -87px; // - если активный проект находится в bottom
   }
 }
 
