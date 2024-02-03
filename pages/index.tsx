@@ -17,11 +17,6 @@ import YouTube from "@/public/images/jsx/ceo/you-tube";
 import TeamArrow from "@/public/images/jsx/ceo/arrow";
 import More from "@/public/images/jsx/subscribe/more";
 
-import SelectLggTariff from "@/public/images/jsx/subscribe/select-tariff-lgg";
-import SelectLgTariff from "@/public/images/jsx/subscribe/select-tariff-lg";
-import SelectMdTariff from "@/public/images/jsx/subscribe/select-tariff-md";
-import SelectSmTariff from "@/public/images/jsx/subscribe/select-tariff-sm";
-
 import Testimonials from "@/sections/Testimonials/Testimonials";
 import Histories from "@/sections/Histories/Histories";
 import Benefits from "@/sections/Benefits/Benefits";
@@ -32,12 +27,16 @@ import Earn from "@/sections/Earn/Earn";
 
 import { Resolution } from "@/types/resolution";
 import RibbonSale from "@/components/ribbon-sale";
-import Countdown from "@/components/countdown";
+// import Countdown from "@/components/countdown";
 import FeaturesMobile from "@/sections/Features/FeaturesMobile";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Founders from "@/sections/founders/Founders";
 import FoundersMobile from "@/sections/founders/FoundersMobile";
 import PartnersMobile from "@/sections/Partners/PartnersMobile";
+import BuySubscr from "@/public/images/jsx/subscribe/buy-subscr";
+import BuySubscrLg from "@/public/images/jsx/subscribe/buy-subscr-lg";
+import BuySubscrMd from "@/public/images/jsx/subscribe/buy-subscr-md";
+import BuySubscrSm from "@/public/images/jsx/subscribe/buy-subscr-sm";
 
 const useWindowSize = () => {
   const [currentWidth, setCurrentWidth] = useState(0);
@@ -119,11 +118,17 @@ const Home = (props) => {
       break;
   }
 
+  // const tariffs = {
+  //   lgg: <SelectLggTariff />,
+  //   lg: <SelectLgTariff />,
+  //   md: <SelectMdTariff />,
+  //   sm: <SelectSmTariff />,
+  // };
   const tariffs = {
-    lgg: <SelectLggTariff />,
-    lg: <SelectLgTariff />,
-    md: <SelectMdTariff />,
-    sm: <SelectSmTariff />,
+    lgg: <BuySubscr />,
+    lg: <BuySubscrLg />,
+    md: <BuySubscrMd />,
+    sm: <BuySubscrSm />,
   };
 
   const moreInfo = {
@@ -326,9 +331,9 @@ const Home = (props) => {
                     <SubscribeArrow />
                   </div>
                 </a>
-                <div className="app__container__subscribe__content__link__description">
-                  С оформлением тарифа вам поможет наш бот в Telegram
-                </div>
+                {/*<div className="app__container__subscribe__content__link__description">*/}
+                {/*  С оформлением тарифа вам поможет наш бот в Telegram*/}
+                {/*</div>*/}
               </div>
             </div>
           </div>

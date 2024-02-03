@@ -2623,13 +2623,14 @@ p {
             &__text {
               background-repeat: no-repeat;
               margin-top: 29px;
-              width: 648px;
-
+              //width: 648px;
+              width: 520px;
               @media (max-width: 1919px) and (min-width: 1368px) {
                 font-size: 31px;
                 line-height: 26px;
-                margin-top: 26px;
-                width: 576px;
+                margin-top: 23px;
+                //width: 576px;
+                width: 415px;
               }
 
               @media (max-width: 1367px) and (min-width: 768px) {
@@ -2637,7 +2638,9 @@ p {
                 line-height: 21px;
                 height: 23px;
                 margin-top: 25px;
-                width: 504px;
+                //width: 504px;
+                width: 400px;
+                padding-left: 63px;
               }
 
               @media (max-width: 767px) {
