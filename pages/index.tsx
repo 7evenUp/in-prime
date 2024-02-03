@@ -38,6 +38,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Founders from "@/sections/founders/Founders";
 import FoundersMobile from "@/sections/founders/FoundersMobile";
 import PartnersMobile from "@/sections/Partners/PartnersMobile";
+import BuySubscr from "@/public/images/jsx/subscribe/buy-subscr";
+import BuySubscrLg from "@/public/images/jsx/subscribe/buy-subscr-lg";
+import BuySubscrMd from "@/public/images/jsx/subscribe/buy-subscr-md";
+import BuySubscrSm from "@/public/images/jsx/subscribe/buy-subscr-sm";
 
 const useWindowSize = () => {
   const [currentWidth, setCurrentWidth] = useState(0);
@@ -119,11 +123,17 @@ const Home = (props) => {
       break;
   }
 
+  // const tariffs = {
+  //   lgg: <SelectLggTariff />,
+  //   lg: <SelectLgTariff />,
+  //   md: <SelectMdTariff />,
+  //   sm: <SelectSmTariff />,
+  // };
   const tariffs = {
-    lgg: <SelectLggTariff />,
-    lg: <SelectLgTariff />,
-    md: <SelectMdTariff />,
-    sm: <SelectSmTariff />,
+    lgg: <BuySubscr />,
+    lg: <BuySubscrLg />,
+    md: <BuySubscrMd />,
+    sm: <BuySubscrSm />,
   };
 
   const moreInfo = {
@@ -326,9 +336,9 @@ const Home = (props) => {
                     <SubscribeArrow />
                   </div>
                 </a>
-                <div className="app__container__subscribe__content__link__description">
-                  С оформлением тарифа вам поможет наш бот в Telegram
-                </div>
+                {/*<div className="app__container__subscribe__content__link__description">*/}
+                {/*  С оформлением тарифа вам поможет наш бот в Telegram*/}
+                {/*</div>*/}
               </div>
             </div>
           </div>
