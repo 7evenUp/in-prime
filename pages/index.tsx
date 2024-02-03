@@ -17,11 +17,6 @@ import YouTube from "@/public/images/jsx/ceo/you-tube";
 import TeamArrow from "@/public/images/jsx/ceo/arrow";
 import More from "@/public/images/jsx/subscribe/more";
 
-import SelectLggTariff from "@/public/images/jsx/subscribe/select-tariff-lgg";
-import SelectLgTariff from "@/public/images/jsx/subscribe/select-tariff-lg";
-import SelectMdTariff from "@/public/images/jsx/subscribe/select-tariff-md";
-import SelectSmTariff from "@/public/images/jsx/subscribe/select-tariff-sm";
-
 import Testimonials from "@/sections/Testimonials/Testimonials";
 import Histories from "@/sections/Histories/Histories";
 import Benefits from "@/sections/Benefits/Benefits";
@@ -32,7 +27,7 @@ import Earn from "@/sections/Earn/Earn";
 
 import { Resolution } from "@/types/resolution";
 import RibbonSale from "@/components/ribbon-sale";
-import Countdown from "@/components/countdown";
+// import Countdown from "@/components/countdown";
 import FeaturesMobile from "@/sections/Features/FeaturesMobile";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Founders from "@/sections/founders/Founders";
