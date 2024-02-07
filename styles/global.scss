@@ -1507,7 +1507,10 @@ p {
             background-image: url("/images/png/ceo/ceo.png");
           }
           &.vadim {
-            background-image: url("/images/png/ceo/vadim.png");
+            background-image: url("/images/png/ceo/vadim.jpg");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
           }
 
           @media (max-width: 1919px) and (min-width: 1368px) {
