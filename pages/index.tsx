@@ -323,7 +323,7 @@ const Home = (props) => {
               </div>
               <div className="app__container__subscribe__content__link">
                 <a
-                  href={`https://id.crypton.xyz?ref_code=${referral}`}
+                  href={`https://t.me/CryptonLobbyBot?start=${referral}`}
                   target={"_blank"}
                 >
                   <div className="app__container__subscribe__content__link__button">

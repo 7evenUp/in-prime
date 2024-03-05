@@ -75,7 +75,6 @@ export const data = [
       earned: 1500,
       description:
         "Участвовали в кампании по приглашению пользователей на сайт и получили за это дроп.",
-      isCurrent: true,
     },
     bottom: {
       imgSrc: altlayer,
@@ -88,14 +87,24 @@ export const data = [
   },
   {
     top: {
+      imgSrc: starknetSrc,
+      title: "Starknet",
+      isDone: true,
+      earned: '2000+',
+      description:
+        "Отрабатывали проект с марта 2022 года, что и привело нас к заработку в виде $2000 на аккаунт.",
+      isCurrent: true,
+    },
+    bottom: {
       imgSrc: layerzeroSrc,
       title: "LayerZero",
       isDone: false,
       description:
           "Максимально отрабатываем этот проект по авторской стратегии Даниила, нашего автора и эксперта по ретродропам.",
     },
-
-    bottom: {
+  },
+  {
+    top: {
       imgSrc: partyDAOSrc,
       title: "PartyDAO",
       isDone: false,
@@ -103,23 +112,13 @@ export const data = [
         "В рамках проекта создаем “party”, участвуя в которых вы получаете больше шансов на дроп от проекта за взаимодействие с ним при минимальных затратах на отработку. В них может поучаствовать каждый подписчик Prime.",
     },
 
-  },
-  {
-    top: {
+    bottom: {
       imgSrc: zkSyncSrc,
       title: "zkSync",
       isDone: false,
       description:
           "Дроп неизбежен, особенно для подписчиков Prime, которые отрабатывают проект еще с сентября 2021.",
-    },
-    bottom: {
-      imgSrc: starknetSrc,
-      title: "Starknet",
-      isDone: false,
-      description:
-        "Проект собрал $900 000 000 инвестиций, не имеет своего токена. Мы ожидаем, что будет бесплатная раздача токенов ранним пользователям.",
-    },
-
+      },
   },
   {
     top: {
