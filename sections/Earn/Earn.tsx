@@ -57,7 +57,7 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
         <div className="app__container__earn__header__logo" />
         <div className="menu-sub-block">
           <a
-            href={`https://id.crypton.xyz?ref_code=${referral}`}
+            href={`https://t.me/CryptonLobbyBot?start=${referral}`}
             target={"_blank"}
           >
             <div className="app__container__earn__header__subscribe">

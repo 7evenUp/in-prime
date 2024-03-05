@@ -76,7 +76,7 @@ const MapItem = ({
   title: string
   isDone: boolean
   isBlured?: boolean
-  earned?: number
+  earned?: number | string
   description: string
   isCurrent?: boolean
   className?: string

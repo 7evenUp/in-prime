@@ -182,7 +182,7 @@ const MobileMenu = (props) => {
         </div>
         <div className="mobile-menu__container__subscribe-block">
           <a
-            href={`https://id.crypton.xyz?ref_code=${props.referral}`}
+            href={`https://t.me/CryptonLobbyBot?start=${props.referral}`}
             target={"_blank"}
           >
             <div className="mobile-menu__container__subscribe-block__subscribe">

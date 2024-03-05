@@ -11,8 +11,16 @@ import Yurii from "@/public/images/png/testimonials/yurii.png"
 import Artem from "@/public/images/png/testimonials/artem.png"
 import Ujin from "@/public/images/png/testimonials/ujin.jpg"
 import FeD9 from "@/public/images/png/testimonials/FeD9.png"
+import HappyHolder from "@/public/images/png/testimonials/HappyHolder.png"
 
 export const testimonialsData = [
+  {
+    avatar: HappyHolder,
+    name: "Happy Holder",
+    text: `Прошла всего неделя а я уже создал ферму. И отработал кучу проектов. Жду дропы. Что могу сказать о Crypton Prime. Начну пожалуй с краткого экскурса о себе. Уже более двух лет в крипте. С перерывами. Был большой опыт в разных направлениях. И всегда учился где то новому. За эти годы опробовал разные платные каналы и випки. Так что есть с чем сравнить. Crypton Prime на мой взгляд лучшее из того что я до этого пробовал. Преимущества: Низкий порог входа. Цена за месяц довольно демократичная. За тот сонм информации и возможностей это более чем справедливая цена. В отличии от других подобных сервисов где ценник в разы выше. Плюс важно добавить что команда Crypton дает бесплатное продление подписки в случае если отработка проектов с пометкой «гарант» не дают прибыли, и вы не окупаете стоимость.`,
+    date: "21.02.24",
+    link: "https://t.me/reviews_prime/263",
+  },
   {
     avatar: FeD9,
     name: "FeD9",

@@ -134,8 +134,188 @@ import Shrapnel from "@/public/images/png/examples/january/Shrapnel Operators.pn
 import BlockGames from "@/public/images/png/examples/january/BlockGames.png"
 import Square from "@/public/images/png/examples/january/Magic Square.png"
 
+import ByBit from "@/public/images/png/examples/february/Bybit.png"
+import Farcana from "@/public/images/png/examples/february/Farcana.png"
+import Milady from "@/public/images/png/examples/february/Milady.png"
+import Persona from "@/public/images/png/examples/february/Persona.png"
+import Pixels from "@/public/images/png/examples/february/Pixels.png"
+import PudgyPresents from "@/public/images/png/examples/february/PudgyPresents.png"
+import QnA3 from "@/public/images/png/examples/february/QnA3.png"
+import ShrapnelFeb from "@/public/images/png/examples/february/Shrapnel.png"
+import Starknet from "@/public/images/png/examples/february/Starknet.png"
+
 
 export const examples = {
+  "февраль": [
+    {
+      title: "Milady",
+      earn: "$2 720",
+      spend: "$15",
+      category: "NFT-колл",
+      condition:
+          "Следовать рекомендациям из колла нашего эксперта: купить NFT по указанной цене, выставить на продажу через лимитный ордер по высшей цене из колла и ожидать продажи. Обязательно следить за своей позицией и уведомлениями от эксперта.",
+      resources:
+          "$6 100 на покупку NFT (депозит возвращается) и $15 на комиссию.",
+      reportUrl: "crypton.xyz",
+      img: Milady,
+    },
+    {
+      title: "Persona",
+      earn: "$2 040",
+      spend: "$1 060",
+      category: "GameFi",
+      condition:
+          "Принять участие в аукционе на покупку NFT.",
+      resources:
+          "$990 для участия в аукционе и $70 на комиссию.",
+      reportUrl: "crypton.xyz",
+      img: Persona,
+    },
+    {
+      title: "Starknet",
+      earn: "$2 040",
+      spend: "$20",
+      category: "Ретродропы",
+      condition:
+          "Проявлять активность в сети Starknet.",
+      resources:
+          "$20 на комиссии и время для отработки активности.",
+      reportUrl: "crypton.xyz",
+      img: Starknet,
+    },
+    {
+      title: "Lil Pudgys",
+      earn: "$750",
+      spend: "$15",
+      category: "NFT-колл",
+      condition:
+          "Следовать рекомендациям из колла нашего эксперта: купить NFT по указанной цене, выставить на продажу через лимитный ордер по высшей цене из колла и ожидать продажи. Обязательно следить за своей позицией и уведомлениями от эксперта.",
+      resources:
+          "$2 236 на покупку NFT (депозит возвращается) и $15 на комиссию.",
+      reportUrl: "crypton.xyz",
+      img: Pudgys,
+    },
+    {
+      title: "Pixels",
+      earn: "$500+",
+      spend: "$0",
+      category: "GameFi",
+      condition:
+          "Играть в игру, попасть в топ 20 000.",
+      resources:
+          "Ферма аккаунтов, время на игру.",
+      reportUrl: "crypton.xyz",
+      img: Pixels,
+    },
+    {
+      title: "Pudgy Presents",
+      earn: "$425",
+      spend: "$15",
+      category: "NFT-колл",
+      condition:
+          "Следовать рекомендациям из колла нашего эксперта: купить NFT по указанной цене, выставить на продажу через лимитный ордер по высшей цене из колла и ожидать продажи. Обязательно следить за своей позицией и уведомлениями от эксперта.",
+      resources:
+          "$1400 на покупку NFT (депозит возвращается) и $15 на комиссию.",
+      reportUrl: "crypton.xyz",
+      img: PudgyPresents,
+    },
+    {
+      title: "BlockGames",
+      earn: "$345",
+      spend: "$15",
+      category: "NFT-колл",
+      condition:
+          "Следовать рекомендациям из колла нашего эксперта: купить NFT по указанной цене, выставить на продажу через лимитный ордер по высшей цене из колла и ожидать продажи. Обязательно следить за своей позицией и уведомлениями от эксперта.",
+      resources:
+          "$990 на покупку NFT (депозит возвращается) и $15 на комиссию.",
+      reportUrl: "crypton.xyz",
+      img: BlockGames,
+    },
+    {
+      title: "Bybit",
+      earn: "$220",
+      spend: "$0.2",
+      category: "Аирдропы",
+      condition:
+          "Совершить торговый оборот с токеном $MAVIA на сумму $100 и заполнить форму.",
+      resources:
+          "Аккаунт биржи Bybit, 101+ $USDT и время на выполнение активности.",
+      reportUrl: "crypton.xyz",
+      img: ByBit,
+    },
+    {
+      title: "Farcana",
+      earn: "$150",
+      spend: "$0",
+      category: "Аирдропы",
+      condition:
+          "Выполнить квесты на площадке.",
+      resources:
+          "Ферма аккаунтов, 30 минут времени на выполнение квестов на 1 аккаунт.",
+      reportUrl: "crypton.xyz",
+      img: Farcana,
+    },
+    {
+      title: "Shrapnel Operators",
+      earn: "$138",
+      spend: "$15",
+      category: "NFT-колл",
+      condition:
+          "Следовать рекомендациям из колла нашего эксперта: купить NFT по указанной цене, выставить на продажу через лимитный ордер по высшей цене из колла и ожидать продажи. Обязательно следить за своей позицией и уведомлениями от эксперта.",
+      resources:
+          "$440 на покупку NFT (депозит возвращается) и $15 на комиссию.",
+      reportUrl: "crypton.xyz",
+      img: ShrapnelFeb,
+    },
+    {
+      title: "Bybit",
+      earn: "$120",
+      spend: "$1",
+      category: "Токенсейл",
+      condition:
+          "Держать на балансе биржи не менее 100 $USDT.",
+      resources:
+          "Аккаунт биржи Bybit и 100+ $USDT.",
+      reportUrl: "crypton.xyz",
+      img: ByBit,
+    },
+    {
+      title: "QnA3",
+      earn: "$50",
+      spend: "$2",
+      category: "Аирдропы",
+      condition:
+          "Совершать ежедневный check in на сайте проекта.",
+      resources:
+          "Ферма аккаунтов, время на выполнение активности.",
+      reportUrl: "crypton.xyz",
+      img: QnA3,
+    },
+    {
+      title: "Bybit",
+      earn: "$25",
+      spend: "$0.2",
+      category: "Аирдропы",
+      condition:
+          "Совершить торговый оборот с токеном $DMAIL на сумму $100.",
+      resources:
+          "Аккаунт биржи Bybit, 101+ $USDT и время на выполнение активности.",
+      reportUrl: "crypton.xyz",
+      img: ByBit,
+    },
+    {
+      title: "Bybit",
+      earn: "$25",
+      spend: "$0.2",
+      category: "Аирдропы",
+      condition:
+          "Совершить торговый оборот с токеном $JUP на сумму $100.",
+      resources:
+          "Аккаунт биржи Bybit, 101+ $USDT и время на выполнение активности.",
+      reportUrl: "crypton.xyz",
+      img: ByBit,
+    },
+  ],
   "январь": [
     {
       title: "Altlayer",
