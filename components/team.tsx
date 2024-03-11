@@ -50,40 +50,40 @@ const Team = (props) => {
           top: 225,
         },
         description: {
-          name: "Карина",
+          name: "Иван",
           role: "Руководитель Prime ",
         },
-        img: "karina",
+        img: "1",
         change_other: {
-          sanya: {
+          2: {
             size: 150,
             cord: { left: 214, top: 154 },
           },
-          bogdan_bear: {
+          3: {
             cord: { left: 418, top: 30 },
           },
-          vladimir: {
+          4: {
             cord: { left: 977, top: 0 },
           },
-          ivan: {
+          5: {
             cord: { left: 917, top: 214 },
           },
-          aleksey: {
+          6: {
             cord: { left: 1062, top: 357 },
           },
-          bogdan2: {
+          7: {
             cord: { left: 1142, top: 579 },
           },
-          eduard: {
+          8: {
             cord: { left: 833, top: 470 },
           },
-          iren: {
+          9: {
             cord: { left: 538, top: 579 },
           },
-          daniil: {
+          10: {
             cord: { left: 204, top: 489 },
           },
-          sergey: {
+          11: {
             cord: { left: 41, top: 312 },
           },
         },
@@ -105,31 +105,31 @@ const Team = (props) => {
           name: "Александр",
           role: "Глава технического отдела",
         },
-        img: "aleksandr",
+        img: "15",
         change_other: {
-          sanya: {
+          2: {
             cord: { left: 295, top: 259 },
           },
-          karina: {
+          1: {
             size: 150,
             cord: { left: 597, top: 312 },
           },
-          bogdan_bear: {
+          3: {
             cord: { left: 502, top: 30 },
           },
-          vladimir: {
+          4: {
             cord: { left: 976, top: 0 },
           },
-          eduard: {
+          8: {
             cord: { left: 800, top: 470 },
           },
-          iren: {
+          9: {
             cord: { left: 573, top: 579 },
           },
-          daniil: {
+          10: {
             cord: { left: 253, top: 504 },
           },
-          sergey: {
+          11: {
             cord: { left: 40, top: 312 },
           },
         },
@@ -151,43 +151,43 @@ const Team = (props) => {
           name: "Богдан",
           role: "Куратор нод и редактор",
         },
-        img: "bogdan_bear",
+        img: "3",
         change_other: {
-          sanya: {
+          2: {
             cord: { left: 190, top: 175 },
           },
-          karina: {
+          1: {
             size: 150,
             cord: { left: 489, top: 365 },
           },
-          artem: {
+          12: {
             cord: { left: 900, top: 176 },
           },
-          aleksey: {
+          6: {
             cord: { left: 1006, top: 383 },
           },
-          vladimir: {
+          4: {
             cord: { left: 1031, top: 0 },
           },
-          eduard: {
+          8: {
             cord: { left: 784, top: 515 },
           },
-          iren: {
+          9: {
             cord: { left: 537, top: 579 },
           },
-          daniil: {
+          10: {
             cord: { left: 253, top: 504 },
           },
-          sergey: {
+          11: {
             cord: { left: 26, top: 312 },
           },
-          ivan: {
+          5: {
             cord: { left: 724, top: 298 },
           },
-          nikita_jetix: {
+          13: {
             cord: { left: 1181, top: 206 },
           },
-          nikita: {
+          14: {
             cord: { left: 0, top: 545 },
           },
         },
@@ -209,43 +209,43 @@ const Team = (props) => {
           name: "Захар",
           role: "Амбассадорская программа для инфлюенсеров",
         },
-        img: "artem",
+        img: "12",
         change_other: {
-          sanya: {
+          2: {
             cord: { left: 234, top: 182 },
           },
-          karina: {
+          1: {
             size: 150,
             cord: { left: 470, top: 349 },
           },
-          artem: {
+          12: {
             cord: { left: 900, top: 176 },
           },
-          aleksey: {
+          6: {
             cord: { left: 1102, top: 365 },
           },
-          vladimir: {
+          4: {
             cord: { left: 998, top: 0 },
           },
-          eduard: {
+          8: {
             cord: { left: 752, top: 515 },
           },
-          iren: {
+          9: {
             cord: { left: 517, top: 579 },
           },
-          daniil: {
+          10: {
             cord: { left: 252, top: 471 },
           },
-          sergey: {
+          11: {
             cord: { left: 40, top: 312 },
           },
-          ivan: {
+          5: {
             cord: { left: 890, top: 364 },
           },
-          nikita_jetix: {
+          13: {
             cord: { left: 1181, top: 160 },
           },
-          nikita: {
+          14: {
             cord: { left: 0, top: 545 },
           },
         },
@@ -267,40 +267,40 @@ const Team = (props) => {
           name: "Владимир",
           role: "Куратор амбассадорской программы",
         },
-        img: "vladimir",
+        img: "4",
         change_other: {
-          sanya: {
+          2: {
             cord: { left: 234, top: 182 },
           },
-          karina: {
+          1: {
             size: 150,
             cord: { left: 485, top: 327 },
           },
-          artem: {
+          12: {
             cord: { left: 597, top: 139 },
           },
-          aleksey: {
+          6: {
             cord: { left: 986, top: 364 },
           },
-          eduard: {
+          8: {
             cord: { left: 792, top: 504 },
           },
-          iren: {
+          9: {
             cord: { left: 537, top: 579 },
           },
-          daniil: {
+          10: {
             cord: { left: 252, top: 471 },
           },
-          sergey: {
+          11: {
             cord: { left: 40, top: 312 },
           },
-          nikita_jetix: {
+          13: {
             cord: { left: 1181, top: 244 },
           },
-          nikita: {
+          14: {
             cord: { left: 0, top: 545 },
           },
-          ivan: {
+          5: {
             cord: { left: 758, top: 299 },
           },
         },
@@ -322,40 +322,40 @@ const Team = (props) => {
           name: "Никита",
           role: "Куратор тестнетов и редактор",
         },
-        img: "nikita_jetix",
+        img: "13",
         change_other: {
-          sanya: {
+          2: {
             cord: { left: 234, top: 182 },
           },
-          karina: {
+          1: {
             size: 150,
             cord: { left: 475, top: 350 },
           },
-          artem: {
+          12: {
             cord: { left: 761, top: 30 },
           },
-          aleksey: {
+          6: {
             cord: { left: 941, top: 470 },
           },
-          eduard: {
+          8: {
             cord: { left: 711, top: 504 },
           },
-          iren: {
+          9: {
             cord: { left: 505, top: 579 },
           },
-          daniil: {
+          10: {
             cord: { left: 252, top: 471 },
           },
-          sergey: {
+          11: {
             cord: { left: 40, top: 312 },
           },
-          ivan: {
+          5: {
             cord: { left: 603, top: 169 },
           },
-          nikita: {
+          14: {
             cord: { left: 0, top: 545 },
           },
-          vladimir: {
+          4: {
             cord: { left: 1089, top: 0 },
           },
         },
@@ -374,43 +374,43 @@ const Team = (props) => {
           top: 299,
         },
         description: {
-          name: "Сергей",
-          role: "Куратор NFT",
+          name: "Кирилл",
+          role: "Куратор инвестфонда",
         },
-        img: "sergey",
+        img: "11",
         change_other: {
-          sanya: {
+          2: {
             cord: { left: 260, top: 130 },
           },
-          karina: {
+          1: {
             size: 150,
             cord: { left: 597, top: 237 },
           },
-          artem: {
+          12: {
             cord: { left: 724, top: 36 },
           },
-          aleksey: {
+          6: {
             cord: { left: 1036, top: 357 },
           },
-          eduard: {
+          8: {
             cord: { left: 821, top: 471 },
           },
-          iren: {
+          9: {
             cord: { left: 639, top: 579 },
           },
-          daniil: {
+          10: {
             cord: { left: 370, top: 528 },
           },
-          ivan: {
+          5: {
             cord: { left: 867, top: 223 },
           },
-          nikita: {
+          14: {
             cord: { left: 0, top: 579 },
           },
-          vladimir: {
+          4: {
             cord: { left: 976, top: 0 },
           },
-          bogdan_bear: {
+          3: {
             cord: { left: 477, top: 30 },
           },
         },
@@ -432,37 +432,37 @@ const Team = (props) => {
           name: "Саня",
           role: "Ведущий и диктор",
         },
-        img: "sanya",
+        img: "2",
         change_other: {
-          karina: {
+          1: {
             size: 150,
             cord: { left: 695, top: 395 },
           },
-          artem: {
+          12: {
             cord: { left: 725, top: 36 },
           },
-          aleksey: {
+          6: {
             cord: { left: 1036, top: 329 },
           },
-          eduard: {
+          8: {
             cord: { left: 902, top: 504 },
           },
-          iren: {
+          9: {
             cord: { left: 538, top: 579 },
           },
-          daniil: {
+          10: {
             cord: { left: 253, top: 504 },
           },
-          ivan: {
+          5: {
             cord: { left: 871, top: 214 },
           },
-          nikita: {
+          14: {
             cord: { left: 0, top: 545 },
           },
-          vladimir: {
+          4: {
             cord: { left: 977, top: 0 },
           },
-          bogdan_bear: {
+          3: {
             cord: { left: 418, top: 15 },
           },
         },
@@ -484,37 +484,37 @@ const Team = (props) => {
           name: "Никита",
           role: "Модератор",
         },
-        img: "nikita",
+        img: "14",
         change_other: {
-          karina: {
+          1: {
             size: 150,
             cord: { left: 615, top: 237 },
           },
-          artem: {
+          12: {
             cord: { left: 725, top: 36 },
           },
-          aleksey: {
+          6: {
             cord: { left: 1036, top: 357 },
           },
-          eduard: {
+          8: {
             cord: { left: 792, top: 471 },
           },
-          iren: {
+          9: {
             cord: { left: 591, top: 579 },
           },
-          daniil: {
+          10: {
             cord: { left: 420, top: 384 },
           },
-          ivan: {
+          5: {
             cord: { left: 867, top: 223 },
           },
-          vladimir: {
+          4: {
             cord: { left: 977, top: 0 },
           },
-          bogdan_bear: {
+          3: {
             cord: { left: 417, top: 30 },
           },
-          sergey: {
+          11: {
             cord: { left: 40, top: 283 },
           },
         },
@@ -536,43 +536,43 @@ const Team = (props) => {
           name: "Даниил",
           role: "Директор контента",
         },
-        img: "daniil",
+        img: "10",
         change_other: {
-          karina: {
+          1: {
             size: 150,
             cord: { left: 532, top: 208 },
           },
-          sanya: {
+          2: {
             cord: { left: 211, top: 186 },
           },
-          artem: {
+          12: {
             cord: { left: 725, top: 36 },
           },
-          aleksey: {
+          6: {
             cord: { left: 1036, top: 357 },
           },
-          eduard: {
+          8: {
             cord: { left: 852, top: 515 },
           },
-          iren: {
+          9: {
             cord: { left: 670, top: 416 },
           },
-          daniil: {
+          10: {
             cord: { left: 420, top: 384 },
           },
-          ivan: {
+          5: {
             cord: { left: 867, top: 223 },
           },
-          vladimir: {
+          4: {
             cord: { left: 977, top: 0 },
           },
-          bogdan_bear: {
+          3: {
             cord: { left: 417, top: 30 },
           },
-          sergey: {
+          11: {
             cord: { left: 40, top: 312 },
           },
-          nikita: {
+          14: {
             cord: { left: 0, top: 536 },
           },
         },
@@ -594,43 +594,43 @@ const Team = (props) => {
           name: "Ирен",
           role: "Дизайнер Crypton",
         },
-        img: "iren",
+        img: "9",
         change_other: {
-          karina: {
+          1: {
             size: 150,
             cord: { left: 519, top: 237 },
           },
-          sanya: {
+          2: {
             cord: { left: 234, top: 182 },
           },
-          artem: {
+          12: {
             cord: { left: 725, top: 36 },
           },
-          aleksey: {
+          6: {
             cord: { left: 1134, top: 332 },
           },
-          daniil: {
+          10: {
             cord: { left: 218, top: 471 },
           },
-          ivan: {
+          5: {
             cord: { left: 793, top: 224 },
           },
-          vladimir: {
+          4: {
             cord: { left: 977, top: 0 },
           },
-          bogdan_bear: {
+          3: {
             cord: { left: 417, top: 30 },
           },
-          sergey: {
+          11: {
             cord: { left: 40, top: 312 },
           },
-          nikita: {
+          14: {
             cord: { left: 0, top: 545 },
           },
-          bogdan2: {
+          7: {
             cord: { left: 1074, top: 579 },
           },
-          eduard: {
+          8: {
             cord: { left: 924, top: 372 },
           },
         },
@@ -650,45 +650,45 @@ const Team = (props) => {
         },
         description: {
           name: "Эдуард",
-          role: "Комьюнити-менеджер Prime",
+          role: "Руководитель календаря и редактор",
         },
-        img: "eduard",
+        img: "8",
         change_other: {
-          karina: {
+          1: {
             size: 150,
             cord: { left: 511, top: 207 },
           },
-          sanya: {
+          2: {
             cord: { left: 234, top: 182 },
           },
-          artem: {
+          12: {
             cord: { left: 725, top: 36 },
           },
-          aleksey: {
+          6: {
             cord: { left: 1126, top: 327 },
           },
-          iren: {
+          9: {
             cord: { left: 455, top: 579 },
           },
-          daniil: {
+          10: {
             cord: { left: 225, top: 471 },
           },
-          ivan: {
+          5: {
             cord: { left: 867, top: 223 },
           },
-          vladimir: {
+          4: {
             cord: { left: 977, top: 0 },
           },
-          bogdan_bear: {
+          3: {
             cord: { left: 417, top: 30 },
           },
-          sergey: {
+          11: {
             cord: { left: 40, top: 312 },
           },
-          nikita: {
+          14: {
             cord: { left: 0, top: 545 },
           },
-          bogdan2: {
+          7: {
             cord: { left: 1106, top: 579 },
           },
         },
@@ -707,49 +707,49 @@ const Team = (props) => {
           top: 212,
         },
         description: {
-          name: "Иван",
-          role: "Главный редактор ",
+          name: "Герман",
+          role: "Продукт-менеджер Crypton",
         },
-        img: "ivan",
+        img: "5",
         change_other: {
-          karina: {
+          1: {
             size: 150,
             cord: { left: 471, top: 372 },
           },
-          sanya: {
+          2: {
             cord: { left: 234, top: 182 },
           },
-          artem: {
+          12: {
             cord: { left: 726, top: 36 },
           },
-          aleksey: {
+          6: {
             cord: { left: 1034, top: 405 },
           },
-          iren: {
+          9: {
             cord: { left: 539, top: 579 },
           },
-          daniil: {
+          10: {
             cord: { left: 254, top: 471 },
           },
-          ivan: {
+          5: {
             cord: { left: 867, top: 223 },
           },
-          vladimir: {
+          4: {
             cord: { left: 977, top: 0 },
           },
-          bogdan_bear: {
+          3: {
             cord: { left: 417, top: 30 },
           },
-          sergey: {
+          11: {
             cord: { left: 40, top: 312 },
           },
-          nikita: {
+          14: {
             cord: { left: 0, top: 545 },
           },
-          bogdan2: {
+          7: {
             cord: { left: 1162, top: 579 },
           },
-          eduard: {
+          8: {
             cord: { left: 817, top: 515 },
           },
         },
@@ -771,46 +771,46 @@ const Team = (props) => {
           name: "Алексей",
           role: "Редактор календаря",
         },
-        img: "aleksey",
+        img: "6",
         change_other: {
-          karina: {
+          1: {
             size: 150,
             cord: { left: 463, top: 321 },
           },
-          sanya: {
+          2: {
             cord: { left: 234, top: 182 },
           },
-          artem: {
+          12: {
             cord: { left: 726, top: 36 },
           },
-          aleksey: {
+          6: {
             cord: { left: 1034, top: 405 },
           },
-          iren: {
+          9: {
             cord: { left: 458, top: 579 },
           },
-          daniil: {
+          10: {
             cord: { left: 254, top: 471 },
           },
-          ivan: {
+          5: {
             cord: { left: 669, top: 213 },
           },
-          vladimir: {
+          4: {
             cord: { left: 977, top: 0 },
           },
-          bogdan_bear: {
+          3: {
             cord: { left: 417, top: 30 },
           },
-          sergey: {
+          11: {
             cord: { left: 40, top: 312 },
           },
-          nikita: {
+          14: {
             cord: { left: 0, top: 545 },
           },
-          bogdan2: {
+          7: {
             cord: { left: 1142, top: 579 },
           },
-          eduard: {
+          8: {
             cord: { left: 669, top: 515 },
           },
         },
@@ -832,43 +832,43 @@ const Team = (props) => {
           name: "Богдан",
           role: "Аналитик рынка",
         },
-        img: "bogdan",
+        img: "7",
         change_other: {
-          karina: {
+          1: {
             size: 150,
             cord: { left: 519, top: 214 },
           },
-          sanya: {
+          2: {
             cord: { left: 227, top: 182 },
           },
-          artem: {
+          12: {
             cord: { left: 726, top: 36 },
           },
-          aleksey: {
+          6: {
             cord: { left: 1027, top: 282 },
           },
-          iren: {
+          9: {
             cord: { left: 451, top: 579 },
           },
-          daniil: {
+          10: {
             cord: { left: 254, top: 471 },
           },
-          ivan: {
+          5: {
             cord: { left: 820, top: 224 },
           },
-          vladimir: {
+          4: {
             cord: { left: 977, top: 0 },
           },
-          bogdan_bear: {
+          3: {
             cord: { left: 417, top: 30 },
           },
-          sergey: {
+          11: {
             cord: { left: 40, top: 312 },
           },
-          nikita: {
+          14: {
             cord: { left: 0, top: 545 },
           },
-          eduard: {
+          8: {
             cord: { left: 626, top: 422 },
           },
         },
@@ -889,40 +889,40 @@ const Team = (props) => {
           top: 225,
         },
         description: {
-          name: "Карина",
+          name: "Иван",
           role: "Руководитель Prime ",
         },
-        img: "karina",
+        img: "1",
         change_other: {
-          sanya: {
+          2: {
             size: 150,
             cord: { left: 214, top: 154 },
           },
-          bogdan_bear: {
+          3: {
             cord: { left: 418, top: 30 },
           },
-          vladimir: {
+          4: {
             cord: { left: 977, top: 0 },
           },
-          ivan: {
+          5: {
             cord: { left: 917, top: 214 },
           },
-          aleksey: {
+          6: {
             cord: { left: 1062, top: 357 },
           },
-          bogdan2: {
+          7: {
             cord: { left: 1142, top: 579 },
           },
-          eduard: {
+          8: {
             cord: { left: 833, top: 470 },
           },
-          iren: {
+          9: {
             cord: { left: 538, top: 579 },
           },
-          daniil: {
+          10: {
             cord: { left: 204, top: 489 },
           },
-          sergey: {
+          11: {
             cord: { left: 41, top: 312 },
           },
         },
@@ -944,31 +944,31 @@ const Team = (props) => {
           name: "Александр",
           role: "Глава технического отдела",
         },
-        img: "aleksandr",
+        img: "15",
         change_other: {
-          sanya: {
+          2: {
             cord: { left: 295, top: 259 },
           },
-          karina: {
+          1: {
             size: 150,
             cord: { left: 597, top: 312 },
           },
-          bogdan_bear: {
+          3: {
             cord: { left: 502, top: 30 },
           },
-          vladimir: {
+          4: {
             cord: { left: 976, top: 0 },
           },
-          eduard: {
+          8: {
             cord: { left: 800, top: 470 },
           },
-          iren: {
+          9: {
             cord: { left: 573, top: 579 },
           },
-          daniil: {
+          10: {
             cord: { left: 253, top: 504 },
           },
-          sergey: {
+          11: {
             cord: { left: 40, top: 312 },
           },
         },
@@ -990,43 +990,43 @@ const Team = (props) => {
           name: "Богдан",
           role: "Куратор нод и редактор",
         },
-        img: "bogdan_bear",
+        img: "3",
         change_other: {
-          sanya: {
+          2: {
             cord: { left: 190, top: 175 },
           },
-          karina: {
+          1: {
             size: 150,
             cord: { left: 489, top: 365 },
           },
-          artem: {
+          12: {
             cord: { left: 900, top: 176 },
           },
-          aleksey: {
+          6: {
             cord: { left: 1006, top: 383 },
           },
-          vladimir: {
+          4: {
             cord: { left: 1031, top: 0 },
           },
-          eduard: {
+          8: {
             cord: { left: 784, top: 515 },
           },
-          iren: {
+          9: {
             cord: { left: 537, top: 579 },
           },
-          daniil: {
+          10: {
             cord: { left: 253, top: 504 },
           },
-          sergey: {
+          11: {
             cord: { left: 26, top: 312 },
           },
-          ivan: {
+          5: {
             cord: { left: 724, top: 298 },
           },
-          nikita_jetix: {
+          13: {
             cord: { left: 1181, top: 206 },
           },
-          nikita: {
+          14: {
             cord: { left: 0, top: 545 },
           },
         },
@@ -1048,43 +1048,43 @@ const Team = (props) => {
           name: "Захар",
           role: "Амбассадорская программа для инфлюенсеров",
         },
-        img: "artem",
+        img: "12",
         change_other: {
-          sanya: {
+          2: {
             cord: { left: 234, top: 182 },
           },
-          karina: {
+          1: {
             size: 150,
             cord: { left: 470, top: 349 },
           },
-          artem: {
+          12: {
             cord: { left: 900, top: 176 },
           },
-          aleksey: {
+          6: {
             cord: { left: 1102, top: 365 },
           },
-          vladimir: {
+          4: {
             cord: { left: 998, top: 0 },
           },
-          eduard: {
+          8: {
             cord: { left: 752, top: 515 },
           },
-          iren: {
+          9: {
             cord: { left: 517, top: 579 },
           },
-          daniil: {
+          10: {
             cord: { left: 252, top: 471 },
           },
-          sergey: {
+          11: {
             cord: { left: 40, top: 312 },
           },
-          ivan: {
+          5: {
             cord: { left: 890, top: 364 },
           },
-          nikita_jetix: {
+          13: {
             cord: { left: 1181, top: 160 },
           },
-          nikita: {
+          14: {
             cord: { left: 0, top: 545 },
           },
         },
@@ -1106,40 +1106,40 @@ const Team = (props) => {
           name: "Владимир",
           role: "Куратор амбассадорской программы",
         },
-        img: "vladimir",
+        img: "4",
         change_other: {
-          sanya: {
+          2: {
             cord: { left: 234, top: 182 },
           },
-          karina: {
+          1: {
             size: 150,
             cord: { left: 485, top: 327 },
           },
-          artem: {
+          12: {
             cord: { left: 597, top: 139 },
           },
-          aleksey: {
+          6: {
             cord: { left: 986, top: 364 },
           },
-          eduard: {
+          8: {
             cord: { left: 792, top: 504 },
           },
-          iren: {
+          9: {
             cord: { left: 537, top: 579 },
           },
-          daniil: {
+          10: {
             cord: { left: 252, top: 471 },
           },
-          sergey: {
+          11: {
             cord: { left: 40, top: 312 },
           },
-          nikita_jetix: {
+          13: {
             cord: { left: 1181, top: 244 },
           },
-          nikita: {
+          14: {
             cord: { left: 0, top: 545 },
           },
-          ivan: {
+          5: {
             cord: { left: 758, top: 299 },
           },
         },
@@ -1161,40 +1161,40 @@ const Team = (props) => {
           name: "Никита",
           role: "Куратор тестнетов и редактор",
         },
-        img: "nikita_jetix",
+        img: "13",
         change_other: {
-          sanya: {
+          2: {
             cord: { left: 234, top: 182 },
           },
-          karina: {
+          1: {
             size: 150,
             cord: { left: 475, top: 350 },
           },
-          artem: {
+          12: {
             cord: { left: 761, top: 30 },
           },
-          aleksey: {
+          6: {
             cord: { left: 941, top: 470 },
           },
-          eduard: {
+          8: {
             cord: { left: 711, top: 504 },
           },
-          iren: {
+          9: {
             cord: { left: 505, top: 579 },
           },
-          daniil: {
+          10: {
             cord: { left: 252, top: 471 },
           },
-          sergey: {
+          11: {
             cord: { left: 40, top: 312 },
           },
-          ivan: {
+          5: {
             cord: { left: 603, top: 169 },
           },
-          nikita: {
+          14: {
             cord: { left: 0, top: 545 },
           },
-          vladimir: {
+          4: {
             cord: { left: 1089, top: 0 },
           },
         },
@@ -1213,43 +1213,43 @@ const Team = (props) => {
           top: 299,
         },
         description: {
-          name: "Сергей",
-          role: "Куратор NFT",
+          name: "Кирилл",
+          role: "Куратор инвестфонда",
         },
-        img: "sergey",
+        img: "11",
         change_other: {
-          sanya: {
+          2: {
             cord: { left: 260, top: 130 },
           },
-          karina: {
+          1: {
             size: 150,
             cord: { left: 597, top: 237 },
           },
-          artem: {
+          12: {
             cord: { left: 724, top: 36 },
           },
-          aleksey: {
+          6: {
             cord: { left: 1036, top: 357 },
           },
-          eduard: {
+          8: {
             cord: { left: 821, top: 471 },
           },
-          iren: {
+          9: {
             cord: { left: 639, top: 579 },
           },
-          daniil: {
+          10: {
             cord: { left: 370, top: 528 },
           },
-          ivan: {
+          5: {
             cord: { left: 867, top: 223 },
           },
-          nikita: {
+          14: {
             cord: { left: 0, top: 579 },
           },
-          vladimir: {
+          4: {
             cord: { left: 976, top: 0 },
           },
-          bogdan_bear: {
+          3: {
             cord: { left: 477, top: 30 },
           },
         },
@@ -1271,37 +1271,37 @@ const Team = (props) => {
           name: "Саня",
           role: "Ведущий и диктор",
         },
-        img: "sanya",
+        img: "2",
         change_other: {
-          karina: {
+          1: {
             size: 150,
             cord: { left: 695, top: 395 },
           },
-          artem: {
+          12: {
             cord: { left: 725, top: 36 },
           },
-          aleksey: {
+          6: {
             cord: { left: 1036, top: 329 },
           },
-          eduard: {
+          8: {
             cord: { left: 902, top: 504 },
           },
-          iren: {
+          9: {
             cord: { left: 538, top: 579 },
           },
-          daniil: {
+          10: {
             cord: { left: 253, top: 504 },
           },
-          ivan: {
+          5: {
             cord: { left: 871, top: 214 },
           },
-          nikita: {
+          14: {
             cord: { left: 0, top: 545 },
           },
-          vladimir: {
+          4: {
             cord: { left: 977, top: 0 },
           },
-          bogdan_bear: {
+          3: {
             cord: { left: 418, top: 15 },
           },
         },
@@ -1323,37 +1323,37 @@ const Team = (props) => {
           name: "Никита",
           role: "Модератор",
         },
-        img: "nikita",
+        img: "14",
         change_other: {
-          karina: {
+          1: {
             size: 150,
             cord: { left: 615, top: 237 },
           },
-          artem: {
+          12: {
             cord: { left: 725, top: 36 },
           },
-          aleksey: {
+          6: {
             cord: { left: 1036, top: 357 },
           },
-          eduard: {
+          8: {
             cord: { left: 792, top: 471 },
           },
-          iren: {
+          9: {
             cord: { left: 591, top: 579 },
           },
-          daniil: {
+          10: {
             cord: { left: 420, top: 384 },
           },
-          ivan: {
+          5: {
             cord: { left: 867, top: 223 },
           },
-          vladimir: {
+          4: {
             cord: { left: 977, top: 0 },
           },
-          bogdan_bear: {
+          3: {
             cord: { left: 417, top: 30 },
           },
-          sergey: {
+          11: {
             cord: { left: 40, top: 283 },
           },
         },
@@ -1375,43 +1375,43 @@ const Team = (props) => {
           name: "Даниил",
           role: "Директор контента",
         },
-        img: "daniil",
+        img: "10",
         change_other: {
-          karina: {
+          1: {
             size: 150,
             cord: { left: 532, top: 208 },
           },
-          sanya: {
+          2: {
             cord: { left: 211, top: 186 },
           },
-          artem: {
+          12: {
             cord: { left: 725, top: 36 },
           },
-          aleksey: {
+          6: {
             cord: { left: 1036, top: 357 },
           },
-          eduard: {
+          8: {
             cord: { left: 852, top: 515 },
           },
-          iren: {
+          9: {
             cord: { left: 670, top: 416 },
           },
-          daniil: {
+          10: {
             cord: { left: 420, top: 384 },
           },
-          ivan: {
+          5: {
             cord: { left: 867, top: 223 },
           },
-          vladimir: {
+          4: {
             cord: { left: 977, top: 0 },
           },
-          bogdan_bear: {
+          3: {
             cord: { left: 417, top: 30 },
           },
-          sergey: {
+          11: {
             cord: { left: 40, top: 312 },
           },
-          nikita: {
+          14: {
             cord: { left: 0, top: 536 },
           },
         },
@@ -1433,43 +1433,43 @@ const Team = (props) => {
           name: "Ирен",
           role: "Дизайнер",
         },
-        img: "iren",
+        img: "9",
         change_other: {
-          karina: {
+          1: {
             size: 150,
             cord: { left: 519, top: 237 },
           },
-          sanya: {
+          2: {
             cord: { left: 234, top: 182 },
           },
-          artem: {
+          12: {
             cord: { left: 725, top: 36 },
           },
-          aleksey: {
+          6: {
             cord: { left: 1134, top: 332 },
           },
-          daniil: {
+          10: {
             cord: { left: 218, top: 471 },
           },
-          ivan: {
+          5: {
             cord: { left: 793, top: 224 },
           },
-          vladimir: {
+          4: {
             cord: { left: 977, top: 0 },
           },
-          bogdan_bear: {
+          3: {
             cord: { left: 417, top: 30 },
           },
-          sergey: {
+          11: {
             cord: { left: 40, top: 312 },
           },
-          nikita: {
+          14: {
             cord: { left: 0, top: 545 },
           },
-          bogdan2: {
+          7: {
             cord: { left: 1074, top: 579 },
           },
-          eduard: {
+          8: {
             cord: { left: 924, top: 372 },
           },
         },
@@ -1489,45 +1489,45 @@ const Team = (props) => {
         },
         description: {
           name: "Эдуард",
-          role: "Комьюнити-менеджер Prime",
+          role: "Руководитель календаря и редактор",
         },
-        img: "eduard",
+        img: "8",
         change_other: {
-          karina: {
+          1: {
             size: 150,
             cord: { left: 511, top: 207 },
           },
-          sanya: {
+          2: {
             cord: { left: 234, top: 182 },
           },
-          artem: {
+          12: {
             cord: { left: 725, top: 36 },
           },
-          aleksey: {
+          6: {
             cord: { left: 1126, top: 327 },
           },
-          iren: {
+          9: {
             cord: { left: 455, top: 579 },
           },
-          daniil: {
+          10: {
             cord: { left: 225, top: 471 },
           },
-          ivan: {
+          5: {
             cord: { left: 867, top: 223 },
           },
-          vladimir: {
+          4: {
             cord: { left: 977, top: 0 },
           },
-          bogdan_bear: {
+          3: {
             cord: { left: 417, top: 30 },
           },
-          sergey: {
+          11: {
             cord: { left: 40, top: 312 },
           },
-          nikita: {
+          14: {
             cord: { left: 0, top: 545 },
           },
-          bogdan2: {
+          7: {
             cord: { left: 1106, top: 579 },
           },
         },
@@ -1546,49 +1546,49 @@ const Team = (props) => {
           top: 212,
         },
         description: {
-          name: "Иван",
-          role: "Главный редактор ",
+          name: "Герман",
+          role: "Продукт-менеджер Crypton",
         },
-        img: "ivan",
+        img: "5",
         change_other: {
-          karina: {
+          1: {
             size: 150,
             cord: { left: 471, top: 372 },
           },
-          sanya: {
+          2: {
             cord: { left: 234, top: 182 },
           },
-          artem: {
+          12: {
             cord: { left: 726, top: 36 },
           },
-          aleksey: {
+          6: {
             cord: { left: 1034, top: 405 },
           },
-          iren: {
+          9: {
             cord: { left: 539, top: 579 },
           },
-          daniil: {
+          10: {
             cord: { left: 254, top: 471 },
           },
-          ivan: {
+          5: {
             cord: { left: 867, top: 223 },
           },
-          vladimir: {
+          4: {
             cord: { left: 977, top: 0 },
           },
-          bogdan_bear: {
+          3: {
             cord: { left: 417, top: 30 },
           },
-          sergey: {
+          11: {
             cord: { left: 40, top: 312 },
           },
-          nikita: {
+          14: {
             cord: { left: 0, top: 545 },
           },
-          bogdan2: {
+          7: {
             cord: { left: 1162, top: 579 },
           },
-          eduard: {
+          8: {
             cord: { left: 817, top: 515 },
           },
         },
@@ -1610,46 +1610,46 @@ const Team = (props) => {
           name: "Алексей",
           role: "Редактор календаря",
         },
-        img: "aleksey",
+        img: "6",
         change_other: {
-          karina: {
+          1: {
             size: 150,
             cord: { left: 463, top: 321 },
           },
-          sanya: {
+          2: {
             cord: { left: 234, top: 182 },
           },
-          artem: {
+          12: {
             cord: { left: 726, top: 36 },
           },
-          aleksey: {
+          6: {
             cord: { left: 1034, top: 405 },
           },
-          iren: {
+          9: {
             cord: { left: 458, top: 579 },
           },
-          daniil: {
+          10: {
             cord: { left: 254, top: 471 },
           },
-          ivan: {
+          5: {
             cord: { left: 669, top: 213 },
           },
-          vladimir: {
+          4: {
             cord: { left: 977, top: 0 },
           },
-          bogdan_bear: {
+          3: {
             cord: { left: 417, top: 30 },
           },
-          sergey: {
+          11: {
             cord: { left: 40, top: 312 },
           },
-          nikita: {
+          14: {
             cord: { left: 0, top: 545 },
           },
-          bogdan2: {
+          7: {
             cord: { left: 1142, top: 579 },
           },
-          eduard: {
+          8: {
             cord: { left: 669, top: 515 },
           },
         },
@@ -1671,43 +1671,43 @@ const Team = (props) => {
           name: "Богдан",
           role: "Аналитик рынка",
         },
-        img: "bogdan",
+        img: "7",
         change_other: {
-          karina: {
+          1: {
             size: 150,
             cord: { left: 519, top: 214 },
           },
-          sanya: {
+          2: {
             cord: { left: 227, top: 182 },
           },
-          artem: {
+          12: {
             cord: { left: 726, top: 36 },
           },
-          aleksey: {
+          6: {
             cord: { left: 1027, top: 282 },
           },
-          iren: {
+          9: {
             cord: { left: 451, top: 579 },
           },
-          daniil: {
+          10: {
             cord: { left: 254, top: 471 },
           },
-          ivan: {
+          5: {
             cord: { left: 820, top: 224 },
           },
-          vladimir: {
+          4: {
             cord: { left: 977, top: 0 },
           },
-          bogdan_bear: {
+          3: {
             cord: { left: 417, top: 30 },
           },
-          sergey: {
+          11: {
             cord: { left: 40, top: 312 },
           },
-          nikita: {
+          14: {
             cord: { left: 0, top: 545 },
           },
-          eduard: {
+          8: {
             cord: { left: 626, top: 422 },
           },
         },
@@ -1728,40 +1728,40 @@ const Team = (props) => {
           top: 225,
         },
         description: {
-          name: "Карина",
+          name: "Иван",
           role: "Руководитель Prime ",
         },
-        img: "karina",
+        img: "1",
         change_other: {
-          sanya: {
+          2: {
             size: 150,
             cord: { left: 214, top: 154 },
           },
-          bogdan_bear: {
+          3: {
             cord: { left: 418, top: 30 },
           },
-          vladimir: {
+          4: {
             cord: { left: 977, top: 0 },
           },
-          ivan: {
+          5: {
             cord: { left: 917, top: 214 },
           },
-          aleksey: {
+          6: {
             cord: { left: 1062, top: 357 },
           },
-          bogdan2: {
+          7: {
             cord: { left: 1142, top: 579 },
           },
-          eduard: {
+          8: {
             cord: { left: 833, top: 470 },
           },
-          iren: {
+          9: {
             cord: { left: 538, top: 579 },
           },
-          daniil: {
+          10: {
             cord: { left: 204, top: 489 },
           },
-          sergey: {
+          11: {
             cord: { left: 41, top: 312 },
           },
         },
@@ -1783,31 +1783,31 @@ const Team = (props) => {
           name: "Александр",
           role: "Глава технического отдела",
         },
-        img: "aleksandr",
+        img: "15",
         change_other: {
-          sanya: {
+          2: {
             cord: { left: 295, top: 259 },
           },
-          karina: {
+          1: {
             size: 150,
             cord: { left: 597, top: 312 },
           },
-          bogdan_bear: {
+          3: {
             cord: { left: 502, top: 30 },
           },
-          vladimir: {
+          4: {
             cord: { left: 976, top: 0 },
           },
-          eduard: {
+          8: {
             cord: { left: 800, top: 470 },
           },
-          iren: {
+          9: {
             cord: { left: 573, top: 579 },
           },
-          daniil: {
+          10: {
             cord: { left: 253, top: 504 },
           },
-          sergey: {
+          11: {
             cord: { left: 40, top: 312 },
           },
         },
@@ -1829,43 +1829,43 @@ const Team = (props) => {
           name: "Богдан",
           role: "Куратор нод и редактор",
         },
-        img: "bogdan_bear",
+        img: "3",
         change_other: {
-          sanya: {
+          2: {
             cord: { left: 190, top: 175 },
           },
-          karina: {
+          1: {
             size: 150,
             cord: { left: 489, top: 365 },
           },
-          artem: {
+          12: {
             cord: { left: 900, top: 176 },
           },
-          aleksey: {
+          6: {
             cord: { left: 1006, top: 383 },
           },
-          vladimir: {
+          4: {
             cord: { left: 1031, top: 0 },
           },
-          eduard: {
+          8: {
             cord: { left: 784, top: 515 },
           },
-          iren: {
+          9: {
             cord: { left: 537, top: 579 },
           },
-          daniil: {
+          10: {
             cord: { left: 253, top: 504 },
           },
-          sergey: {
+          11: {
             cord: { left: 26, top: 312 },
           },
-          ivan: {
+          5: {
             cord: { left: 724, top: 298 },
           },
-          nikita_jetix: {
+          13: {
             cord: { left: 1181, top: 206 },
           },
-          nikita: {
+          14: {
             cord: { left: 0, top: 545 },
           },
         },
@@ -1887,43 +1887,43 @@ const Team = (props) => {
           name: "Захар",
           role: "Амбассадорская программа для инфлюенсеров",
         },
-        img: "artem",
+        img: "12",
         change_other: {
-          sanya: {
+          2: {
             cord: { left: 234, top: 182 },
           },
-          karina: {
+          1: {
             size: 150,
             cord: { left: 470, top: 349 },
           },
-          artem: {
+          12: {
             cord: { left: 900, top: 176 },
           },
-          aleksey: {
+          6: {
             cord: { left: 1102, top: 365 },
           },
-          vladimir: {
+          4: {
             cord: { left: 998, top: 0 },
           },
-          eduard: {
+          8: {
             cord: { left: 752, top: 515 },
           },
-          iren: {
+          9: {
             cord: { left: 517, top: 579 },
           },
-          daniil: {
+          10: {
             cord: { left: 252, top: 471 },
           },
-          sergey: {
+          11: {
             cord: { left: 40, top: 312 },
           },
-          ivan: {
+          5: {
             cord: { left: 890, top: 364 },
           },
-          nikita_jetix: {
+          13: {
             cord: { left: 1181, top: 160 },
           },
-          nikita: {
+          14: {
             cord: { left: 0, top: 545 },
           },
         },
@@ -1945,40 +1945,40 @@ const Team = (props) => {
           name: "Владимир",
           role: "Куратор амбассадорской программы",
         },
-        img: "vladimir",
+        img: "4",
         change_other: {
-          sanya: {
+          2: {
             cord: { left: 234, top: 182 },
           },
-          karina: {
+          1: {
             size: 150,
             cord: { left: 485, top: 327 },
           },
-          artem: {
+          12: {
             cord: { left: 597, top: 139 },
           },
-          aleksey: {
+          6: {
             cord: { left: 986, top: 364 },
           },
-          eduard: {
+          8: {
             cord: { left: 792, top: 504 },
           },
-          iren: {
+          9: {
             cord: { left: 537, top: 579 },
           },
-          daniil: {
+          10: {
             cord: { left: 252, top: 471 },
           },
-          sergey: {
+          11: {
             cord: { left: 40, top: 312 },
           },
-          nikita_jetix: {
+          13: {
             cord: { left: 1181, top: 244 },
           },
-          nikita: {
+          14: {
             cord: { left: 0, top: 545 },
           },
-          ivan: {
+          5: {
             cord: { left: 758, top: 299 },
           },
         },
@@ -2000,40 +2000,40 @@ const Team = (props) => {
           name: "Никита",
           role: "Куратор тестнетов и редактор",
         },
-        img: "nikita_jetix",
+        img: "13",
         change_other: {
-          sanya: {
+          2: {
             cord: { left: 234, top: 182 },
           },
-          karina: {
+          1: {
             size: 150,
             cord: { left: 475, top: 350 },
           },
-          artem: {
+          12: {
             cord: { left: 761, top: 30 },
           },
-          aleksey: {
+          6: {
             cord: { left: 941, top: 470 },
           },
-          eduard: {
+          8: {
             cord: { left: 711, top: 504 },
           },
-          iren: {
+          9: {
             cord: { left: 505, top: 579 },
           },
-          daniil: {
+          10: {
             cord: { left: 252, top: 471 },
           },
-          sergey: {
+          11: {
             cord: { left: 40, top: 312 },
           },
-          ivan: {
+          5: {
             cord: { left: 603, top: 169 },
           },
-          nikita: {
+          14: {
             cord: { left: 0, top: 545 },
           },
-          vladimir: {
+          4: {
             cord: { left: 1089, top: 0 },
           },
         },
@@ -2052,43 +2052,43 @@ const Team = (props) => {
           top: 299,
         },
         description: {
-          name: "Сергей",
-          role: "Куратор NFT",
+          name: "Кирилл",
+          role: "Куратор инвестфонда",
         },
-        img: "sergey",
+        img: "11",
         change_other: {
-          sanya: {
+          2: {
             cord: { left: 260, top: 130 },
           },
-          karina: {
+          1: {
             size: 150,
             cord: { left: 597, top: 237 },
           },
-          artem: {
+          12: {
             cord: { left: 724, top: 36 },
           },
-          aleksey: {
+          6: {
             cord: { left: 1036, top: 357 },
           },
-          eduard: {
+          8: {
             cord: { left: 821, top: 471 },
           },
-          iren: {
+          9: {
             cord: { left: 639, top: 579 },
           },
-          daniil: {
+          10: {
             cord: { left: 370, top: 528 },
           },
-          ivan: {
+          5: {
             cord: { left: 867, top: 223 },
           },
-          nikita: {
+          14: {
             cord: { left: 0, top: 579 },
           },
-          vladimir: {
+          4: {
             cord: { left: 976, top: 0 },
           },
-          bogdan_bear: {
+          3: {
             cord: { left: 477, top: 30 },
           },
         },
@@ -2110,37 +2110,37 @@ const Team = (props) => {
           name: "Саня",
           role: "Ведущий и диктор",
         },
-        img: "sanya",
+        img: "2",
         change_other: {
-          karina: {
+          1: {
             size: 150,
             cord: { left: 695, top: 395 },
           },
-          artem: {
+          12: {
             cord: { left: 725, top: 36 },
           },
-          aleksey: {
+          6: {
             cord: { left: 1036, top: 329 },
           },
-          eduard: {
+          8: {
             cord: { left: 902, top: 504 },
           },
-          iren: {
+          9: {
             cord: { left: 538, top: 579 },
           },
-          daniil: {
+          10: {
             cord: { left: 253, top: 504 },
           },
-          ivan: {
+          5: {
             cord: { left: 871, top: 214 },
           },
-          nikita: {
+          14: {
             cord: { left: 0, top: 545 },
           },
-          vladimir: {
+          4: {
             cord: { left: 977, top: 0 },
           },
-          bogdan_bear: {
+          3: {
             cord: { left: 418, top: 15 },
           },
         },
@@ -2162,37 +2162,37 @@ const Team = (props) => {
           name: "Никита",
           role: "Модератор",
         },
-        img: "nikita",
+        img: "14",
         change_other: {
-          karina: {
+          1: {
             size: 150,
             cord: { left: 615, top: 237 },
           },
-          artem: {
+          12: {
             cord: { left: 725, top: 36 },
           },
-          aleksey: {
+          6: {
             cord: { left: 1036, top: 357 },
           },
-          eduard: {
+          8: {
             cord: { left: 792, top: 471 },
           },
-          iren: {
+          9: {
             cord: { left: 591, top: 579 },
           },
-          daniil: {
+          10: {
             cord: { left: 420, top: 384 },
           },
-          ivan: {
+          5: {
             cord: { left: 867, top: 223 },
           },
-          vladimir: {
+          4: {
             cord: { left: 977, top: 0 },
           },
-          bogdan_bear: {
+          3: {
             cord: { left: 417, top: 30 },
           },
-          sergey: {
+          11: {
             cord: { left: 40, top: 283 },
           },
         },
@@ -2214,43 +2214,43 @@ const Team = (props) => {
           name: "Даниил",
           role: "Директор контента",
         },
-        img: "daniil",
+        img: "10",
         change_other: {
-          karina: {
+          1: {
             size: 150,
             cord: { left: 532, top: 208 },
           },
-          sanya: {
+          2: {
             cord: { left: 211, top: 186 },
           },
-          artem: {
+          12: {
             cord: { left: 725, top: 36 },
           },
-          aleksey: {
+          6: {
             cord: { left: 1036, top: 357 },
           },
-          eduard: {
+          8: {
             cord: { left: 852, top: 515 },
           },
-          iren: {
+          9: {
             cord: { left: 670, top: 416 },
           },
-          daniil: {
+          10: {
             cord: { left: 420, top: 384 },
           },
-          ivan: {
+          5: {
             cord: { left: 867, top: 223 },
           },
-          vladimir: {
+          4: {
             cord: { left: 977, top: 0 },
           },
-          bogdan_bear: {
+          3: {
             cord: { left: 417, top: 30 },
           },
-          sergey: {
+          11: {
             cord: { left: 40, top: 312 },
           },
-          nikita: {
+          14: {
             cord: { left: 0, top: 536 },
           },
         },
@@ -2272,43 +2272,43 @@ const Team = (props) => {
           name: "Ирен",
           role: "Дизайнер",
         },
-        img: "iren",
+        img: "9",
         change_other: {
-          karina: {
+          1: {
             size: 150,
             cord: { left: 519, top: 237 },
           },
-          sanya: {
+          2: {
             cord: { left: 234, top: 182 },
           },
-          artem: {
+          12: {
             cord: { left: 725, top: 36 },
           },
-          aleksey: {
+          6: {
             cord: { left: 1134, top: 332 },
           },
-          daniil: {
+          10: {
             cord: { left: 218, top: 471 },
           },
-          ivan: {
+          5: {
             cord: { left: 793, top: 224 },
           },
-          vladimir: {
+          4: {
             cord: { left: 977, top: 0 },
           },
-          bogdan_bear: {
+          3: {
             cord: { left: 417, top: 30 },
           },
-          sergey: {
+          11: {
             cord: { left: 40, top: 312 },
           },
-          nikita: {
+          14: {
             cord: { left: 0, top: 545 },
           },
-          bogdan2: {
+          7: {
             cord: { left: 1074, top: 579 },
           },
-          eduard: {
+          8: {
             cord: { left: 924, top: 372 },
           },
         },
@@ -2328,45 +2328,45 @@ const Team = (props) => {
         },
         description: {
           name: "Эдуард",
-          role: "Комьюнити-менеджер Prime",
+          role: "Руководитель календаря и редактор",
         },
-        img: "eduard",
+        img: "8",
         change_other: {
-          karina: {
+          1: {
             size: 150,
             cord: { left: 511, top: 207 },
           },
-          sanya: {
+          2: {
             cord: { left: 234, top: 182 },
           },
-          artem: {
+          12: {
             cord: { left: 725, top: 36 },
           },
-          aleksey: {
+          6: {
             cord: { left: 1126, top: 327 },
           },
-          iren: {
+          9: {
             cord: { left: 455, top: 579 },
           },
-          daniil: {
+          10: {
             cord: { left: 225, top: 471 },
           },
-          ivan: {
+          5: {
             cord: { left: 867, top: 223 },
           },
-          vladimir: {
+          4: {
             cord: { left: 977, top: 0 },
           },
-          bogdan_bear: {
+          3: {
             cord: { left: 417, top: 30 },
           },
-          sergey: {
+          11: {
             cord: { left: 40, top: 312 },
           },
-          nikita: {
+          14: {
             cord: { left: 0, top: 545 },
           },
-          bogdan2: {
+          7: {
             cord: { left: 1106, top: 579 },
           },
         },
@@ -2385,49 +2385,49 @@ const Team = (props) => {
           top: 212,
         },
         description: {
-          name: "Иван",
-          role: "Главный редактор ",
+          name: "Герман",
+          role: "Продукт-менеджер Crypton",
         },
-        img: "ivan",
+        img: "5",
         change_other: {
-          karina: {
+          1: {
             size: 150,
             cord: { left: 471, top: 372 },
           },
-          sanya: {
+          2: {
             cord: { left: 234, top: 182 },
           },
-          artem: {
+          12: {
             cord: { left: 726, top: 36 },
           },
-          aleksey: {
+          6: {
             cord: { left: 1034, top: 405 },
           },
-          iren: {
+          9: {
             cord: { left: 539, top: 579 },
           },
-          daniil: {
+          10: {
             cord: { left: 254, top: 471 },
           },
-          ivan: {
+          5: {
             cord: { left: 867, top: 223 },
           },
-          vladimir: {
+          4: {
             cord: { left: 977, top: 0 },
           },
-          bogdan_bear: {
+          3: {
             cord: { left: 417, top: 30 },
           },
-          sergey: {
+          11: {
             cord: { left: 40, top: 312 },
           },
-          nikita: {
+          14: {
             cord: { left: 0, top: 545 },
           },
-          bogdan2: {
+          7: {
             cord: { left: 1162, top: 579 },
           },
-          eduard: {
+          8: {
             cord: { left: 817, top: 515 },
           },
         },
@@ -2449,46 +2449,46 @@ const Team = (props) => {
           name: "Алексей",
           role: "Редактор календаря",
         },
-        img: "aleksey",
+        img: "6",
         change_other: {
-          karina: {
+          1: {
             size: 150,
             cord: { left: 463, top: 321 },
           },
-          sanya: {
+          2: {
             cord: { left: 234, top: 182 },
           },
-          artem: {
+          12: {
             cord: { left: 726, top: 36 },
           },
-          aleksey: {
+          6: {
             cord: { left: 1034, top: 405 },
           },
-          iren: {
+          9: {
             cord: { left: 458, top: 579 },
           },
-          daniil: {
+          10: {
             cord: { left: 254, top: 471 },
           },
-          ivan: {
+          5: {
             cord: { left: 669, top: 213 },
           },
-          vladimir: {
+          4: {
             cord: { left: 977, top: 0 },
           },
-          bogdan_bear: {
+          3: {
             cord: { left: 417, top: 30 },
           },
-          sergey: {
+          11: {
             cord: { left: 40, top: 312 },
           },
-          nikita: {
+          14: {
             cord: { left: 0, top: 545 },
           },
-          bogdan2: {
+          7: {
             cord: { left: 1142, top: 579 },
           },
-          eduard: {
+          8: {
             cord: { left: 669, top: 515 },
           },
         },
@@ -2510,43 +2510,43 @@ const Team = (props) => {
           name: "Богдан",
           role: "Аналитик рынка",
         },
-        img: "bogdan",
+        img: "7",
         change_other: {
-          karina: {
+          1: {
             size: 150,
             cord: { left: 519, top: 214 },
           },
-          sanya: {
+          2: {
             cord: { left: 227, top: 182 },
           },
-          artem: {
+          12: {
             cord: { left: 726, top: 36 },
           },
-          aleksey: {
+          6: {
             cord: { left: 1027, top: 282 },
           },
-          iren: {
+          9: {
             cord: { left: 451, top: 579 },
           },
-          daniil: {
+          10: {
             cord: { left: 254, top: 471 },
           },
-          ivan: {
+          5: {
             cord: { left: 820, top: 224 },
           },
-          vladimir: {
+          4: {
             cord: { left: 977, top: 0 },
           },
-          bogdan_bear: {
+          3: {
             cord: { left: 417, top: 30 },
           },
-          sergey: {
+          11: {
             cord: { left: 40, top: 312 },
           },
-          nikita: {
+          14: {
             cord: { left: 0, top: 545 },
           },
-          eduard: {
+          8: {
             cord: { left: 626, top: 422 },
           },
         },
@@ -2567,40 +2567,40 @@ const Team = (props) => {
           top: 244,
         },
         description: {
-          name: "Карина",
+          name: "Иван",
           role: "Руководитель Prime ",
         },
-        img: "karina",
+        img: "1",
         change_other: {
-          sanya: {
+          2: {
             size: 94,
             cord: { left: 153, top: 108 },
           },
-          bogdan_bear: {
+          3: {
             cord: { left: 273, top: 188 },
           },
-          vladimir: {
+          4: {
             cord: { left: 257, top: 504 },
           },
-          ivan: {
+          5: {
             cord: { left: 145, top: 539 },
           },
-          aleksey: {
+          6: {
             cord: { left: 16, top: 492 },
           },
-          bogdan2: {
+          7: {
             cord: { left: 0, top: 611 },
           },
-          eduard: {
+          8: {
             cord: { left: 129, top: 407 },
           },
-          iren: {
+          9: {
             cord: { left: 0, top: 370 },
           },
-          daniil: {
+          10: {
             cord: { left: 16, top: 134 },
           },
-          sergey: {
+          11: {
             cord: { left: 114, top: 20 },
           },
         },
@@ -2622,31 +2622,31 @@ const Team = (props) => {
           name: "Александр",
           role: "Глава технического отдела",
         },
-        img: "aleksandr",
+        img: "15",
         change_other: {
-          sanya: {
+          2: {
             cord: { left: 231, top: 120 },
           },
-          karina: {
+          1: {
             size: 78,
             cord: { left: 124, top: 310 },
           },
-          bogdan_bear: {
+          3: {
             cord: { left: 241, top: 261 },
           },
-          vladimir: {
+          4: {
             cord: { left: 257, top: 510 },
           },
-          eduard: {
+          8: {
             cord: { left: 23, top: 401 },
           },
-          iren: {
+          9: {
             cord: { left: 0, top: 274 },
           },
-          daniil: {
+          10: {
             cord: { left: 114, top: 180 },
           },
-          sergey: {
+          11: {
             cord: { left: 23, top: 128 },
           },
         },
@@ -2668,43 +2668,43 @@ const Team = (props) => {
           name: "Богдан",
           role: "Куратор нод и редактор",
         },
-        img: "bogdan_bear",
+        img: "3",
         change_other: {
-          sanya: {
+          2: {
             cord: { left: 220, top: 106 },
           },
-          karina: {
+          1: {
             size: 78,
             cord: { left: 105, top: 365 },
           },
-          vladimir: {
+          4: {
             cord: { left: 257, top: 520 },
           },
-          eduard: {
+          8: {
             cord: { left: 25, top: 456 },
           },
-          iren: {
+          9: {
             cord: { left: 0, top: 274 },
           },
-          daniil: {
+          10: {
             cord: { left: 31, top: 129 },
           },
-          sergey: {
+          11: {
             cord: { left: 124, top: 20 },
           },
-          ivan: {
+          5: {
             cord: { left: 226, top: 433 },
           },
-          nikita_jetix: {
+          13: {
             cord: { left: 203, top: 629 },
           },
-          nikita: {
+          14: {
             cord: { left: 0, top: 0 },
           },
-          artem: {
+          12: {
             cord: { left: 263, top: 334 },
           },
-          aleksey: {
+          6: {
             cord: { left: 98, top: 546 },
           },
         },
@@ -2726,40 +2726,40 @@ const Team = (props) => {
           name: "Захар",
           role: "Амбассадорская программа для инфлюенсеров",
         },
-        img: "artem",
+        img: "12",
         change_other: {
-          sanya: {
+          2: {
             cord: { left: 156, top: 105 },
           },
-          karina: {
+          1: {
             size: 78,
             cord: { left: 145, top: 432 },
           },
-          aleksey: {
+          6: {
             cord: { left: 98, top: 544 },
           },
-          vladimir: {
+          4: {
             cord: { left: 257, top: 526 },
           },
-          eduard: {
+          8: {
             cord: { left: 14, top: 448 },
           },
-          iren: {
+          9: {
             cord: { left: 0, top: 351 },
           },
-          daniil: {
+          10: {
             cord: { left: 23, top: 131 },
           },
-          sergey: {
+          11: {
             cord: { left: 106, top: 22 },
           },
-          ivan: {
+          5: {
             cord: { left: 259, top: 401 },
           },
-          nikita_jetix: {
+          13: {
             cord: { left: 203, top: 629 },
           },
-          nikita: {
+          14: {
             cord: { left: 0, top: 0 },
           },
         },
@@ -2781,40 +2781,40 @@ const Team = (props) => {
           name: "Владимир",
           role: "Куратор амбассадорской программы",
         },
-        img: "vladimir",
+        img: "4",
         change_other: {
-          sanya: {
+          2: {
             cord: { left: 168, top: 113 },
           },
-          karina: {
+          1: {
             size: 78,
             cord: { left: 129, top: 246 },
           },
-          artem: {
+          12: {
             cord: { left: 272, top: 426 },
           },
-          aleksey: {
+          6: {
             cord: { left: 129, top: 387 },
           },
-          eduard: {
+          8: {
             cord: { left: 0, top: 385 },
           },
-          iren: {
+          9: {
             cord: { left: 16, top: 269 },
           },
-          daniil: {
+          10: {
             cord: { left: 31, top: 121 },
           },
-          sergey: {
+          11: {
             cord: { left: 114, top: 20 },
           },
-          nikita_jetix: {
+          13: {
             cord: { left: 215, top: 629 },
           },
-          nikita: {
+          14: {
             cord: { left: 0, top: 0 },
           },
-          ivan: {
+          5: {
             cord: { left: 241, top: 323 },
           },
         },
@@ -2836,43 +2836,43 @@ const Team = (props) => {
           name: "Никита",
           role: "Куратор тестнетов и редактор",
         },
-        img: "nikita_jetix",
+        img: "13",
         change_other: {
-          sanya: {
+          2: {
             cord: { left: 202, top: 113 },
           },
-          karina: {
+          1: {
             size: 78,
             cord: { left: 124, top: 223 },
           },
-          artem: {
+          12: {
             cord: { left: 263, top: 364 },
           },
-          aleksey: {
+          6: {
             cord: { left: 129, top: 465 },
           },
-          eduard: {
+          8: {
             cord: { left: 19, top: 387 },
           },
-          iren: {
+          9: {
             cord: { left: 0, top: 265 },
           },
-          daniil: {
+          10: {
             cord: { left: 31, top: 129 },
           },
-          sergey: {
+          11: {
             cord: { left: 114, top: 20 },
           },
-          ivan: {
+          5: {
             cord: { left: 149, top: 352 },
           },
-          nikita: {
+          14: {
             cord: { left: 0, top: 0 },
           },
-          vladimir: {
+          4: {
             cord: { left: 257, top: 493 },
           },
-          bogdan2: {
+          7: {
             cord: { left: 0, top: 512 },
           },
         },
@@ -2891,43 +2891,43 @@ const Team = (props) => {
           top: 67,
         },
         description: {
-          name: "Сергей",
-          role: "Куратор NFT",
+          name: "Куратор инвестфонда",
+          role: "Кирилл",
         },
-        img: "sergey",
+        img: "11",
         change_other: {
-          sanya: {
+          2: {
             cord: { left: 203, top: 273 },
           },
-          karina: {
+          1: {
             size: 78,
             cord: { left: 79, top: 320 },
           },
-          artem: {
+          12: {
             cord: { left: 266, top: 398 },
           },
-          aleksey: {
+          6: {
             cord: { left: 94, top: 532 },
           },
-          eduard: {
+          8: {
             cord: { left: 11, top: 416 },
           },
-          iren: {
+          9: {
             cord: { left: 137, top: 203 },
           },
-          daniil: {
+          10: {
             cord: { left: 1, top: 213 },
           },
-          ivan: {
+          5: {
             cord: { left: 160, top: 434 },
           },
-          nikita: {
+          14: {
             cord: { left: 0, top: 0 },
           },
-          vladimir: {
+          4: {
             cord: { left: 257, top: 520 },
           },
-          bogdan_bear: {
+          3: {
             cord: { left: 272, top: 182 },
           },
         },
@@ -2949,37 +2949,37 @@ const Team = (props) => {
           name: "Саня",
           role: "Ведущий и диктор",
         },
-        img: "sanya",
+        img: "2",
         change_other: {
-          karina: {
+          1: {
             size: 78,
             cord: { left: 165, top: 257 },
           },
-          artem: {
+          12: {
             cord: { left: 263, top: 364 },
           },
-          aleksey: {
+          6: {
             cord: { left: 90, top: 526 },
           },
-          eduard: {
+          8: {
             cord: { left: 12, top: 426 },
           },
-          iren: {
+          9: {
             cord: { left: 86, top: 342 },
           },
-          daniil: {
+          10: {
             cord: { left: 0, top: 241 },
           },
-          ivan: {
+          5: {
             cord: { left: 173, top: 448 },
           },
-          nikita: {
+          14: {
             cord: { left: 0, top: 0 },
           },
-          vladimir: {
+          4: {
             cord: { left: 257, top: 504 },
           },
-          bogdan_bear: {
+          3: {
             cord: { left: 272, top: 227 },
           },
         },
@@ -3001,40 +3001,40 @@ const Team = (props) => {
           name: "Никита",
           role: "Модератор",
         },
-        img: "nikita",
+        img: "14",
         change_other: {
-          sanya: {
+          2: {
             cord: { left: 241, top: 112 },
           },
-          karina: {
+          1: {
             size: 78,
             cord: { left: 120, top: 297 },
           },
-          artem: {
+          12: {
             cord: { left: 263, top: 362 },
           },
-          aleksey: {
+          6: {
             cord: { left: 75, top: 520 },
           },
-          eduard: {
+          8: {
             cord: { left: 23, top: 401 },
           },
-          iren: {
+          9: {
             cord: { left: 0, top: 274 },
           },
-          daniil: {
+          10: {
             cord: { left: 11, top: 145 },
           },
-          ivan: {
+          5: {
             cord: { left: 174, top: 440 },
           },
-          vladimir: {
+          4: {
             cord: { left: 257, top: 504 },
           },
-          bogdan_bear: {
+          3: {
             cord: { left: 247, top: 245 },
           },
-          sergey: {
+          11: {
             cord: { left: 134, top: 183 },
           },
         },
@@ -3056,40 +3056,40 @@ const Team = (props) => {
           name: "Даниил",
           role: "Директор контента",
         },
-        img: "daniil",
+        img: "10",
         change_other: {
-          karina: {
+          1: {
             size: 78,
             cord: { left: 142, top: 378 },
           },
-          sanya: {
+          2: {
             cord: { left: 129, top: 225 },
           },
-          artem: {
+          12: {
             cord: { left: 263, top: 299 },
           },
-          aleksey: {
+          6: {
             cord: { left: 90, top: 520 },
           },
-          eduard: {
+          8: {
             cord: { left: 6, top: 409 },
           },
-          iren: {
+          9: {
             cord: { left: 0, top: 261 },
           },
-          ivan: {
+          5: {
             cord: { left: 268, top: 409 },
           },
-          vladimir: {
+          4: {
             cord: { left: 257, top: 514 },
           },
-          bogdan_bear: {
+          3: {
             cord: { left: 273, top: 170 },
           },
-          sergey: {
+          11: {
             cord: { left: 114, top: 20 },
           },
-          nikita: {
+          14: {
             cord: { left: 0, top: 0 },
           },
         },
@@ -3111,43 +3111,43 @@ const Team = (props) => {
           name: "Ирен",
           role: "Дизайнер",
         },
-        img: "iren",
+        img: "9",
         change_other: {
-          karina: {
+          1: {
             size: 78,
             cord: { left: 145, top: 326 },
           },
-          sanya: {
+          2: {
             cord: { left: 176, top: 101 },
           },
-          artem: {
+          12: {
             cord: { left: 263, top: 370 },
           },
-          aleksey: {
+          6: {
             cord: { left: 81, top: 520 },
           },
-          daniil: {
+          10: {
             cord: { left: 31, top: 101 },
           },
-          ivan: {
+          5: {
             cord: { left: 176, top: 444 },
           },
-          vladimir: {
+          4: {
             cord: { left: 257, top: 504 },
           },
-          bogdan_bear: {
+          3: {
             cord: { left: 272, top: 201 },
           },
-          sergey: {
+          11: {
             cord: { left: 114, top: 20 },
           },
-          nikita: {
+          14: {
             cord: { left: 0, top: 0 },
           },
-          bogdan2: {
+          7: {
             cord: { left: 0, top: 598 },
           },
-          eduard: {
+          8: {
             cord: { left: 21, top: 393 },
           },
         },
@@ -3167,48 +3167,48 @@ const Team = (props) => {
         },
         description: {
           name: "Эдуард",
-          role: "Комьюнити-менеджер Prime",
+          role: "Руководитель календаря и редактор",
         },
-        img: "eduard",
+        img: "8",
         change_other: {
-          karina: {
+          1: {
             size: 78,
             cord: { left: 90, top: 231 },
           },
-          sanya: {
+          2: {
             cord: { left: 168, top: 113 },
           },
-          artem: {
+          12: {
             cord: { left: 265, top: 383 },
           },
-          aleksey: {
+          6: {
             cord: { left: 104, top: 537 },
           },
-          iren: {
+          9: {
             cord: { left: -2, top: 299 },
           },
-          daniil: {
+          10: {
             cord: { left: 26, top: 121 },
           },
-          ivan: {
+          5: {
             cord: { left: 177, top: 321 },
           },
-          vladimir: {
+          4: {
             cord: { left: 257, top: 504 },
           },
-          bogdan: {
+          7: {
             size: 62,
             cord: { left: 272, top: 215 },
           },
-          sergey: {
+          11: {
             cord: { left: 114, top: 20 },
           },
-          nikita: {
+          14: {
             cord: { left: 0, top: 0 },
           },
-          bogdan2: {
-            cord: { left: 0, top: 598 },
-          },
+          // 7: {
+          //   cord: { left: 0, top: 598 },
+          // },
         },
       },
       {
@@ -3225,47 +3225,47 @@ const Team = (props) => {
           top: 403,
         },
         description: {
-          name: "Иван",
-          role: "Главный редактор ",
+          name: "Герман",
+          role: "Продукт-менеджер Crypton",
         },
-        img: "ivan",
+        img: "5",
         change_other: {
-          karina: {
+          1: {
             size: 78,
             cord: { left: 160, top: 281 },
           },
-          sanya: {
+          2: {
             cord: { left: 169, top: 101 },
           },
-          artem: {
+          12: {
             cord: { left: 263, top: 360 },
           },
-          aleksey: {
+          6: {
             cord: { left: 101, top: 551 },
           },
-          iren: {
+          9: {
             cord: { left: 78, top: 215 },
           },
-          daniil: {
+          10: {
             cord: { left: 18, top: 101 },
           },
 
-          vladimir: {
+          4: {
             cord: { left: 257, top: 512 },
           },
-          bogdan_bear: {
+          3: {
             cord: { left: 274, top: 207 },
           },
-          sergey: {
+          11: {
             cord: { left: 114, top: 20 },
           },
-          nikita: {
+          14: {
             cord: { left: 0, top: 0 },
           },
-          bogdan2: {
+          7: {
             cord: { left: 0, top: 607 },
           },
-          eduard: {
+          8: {
             cord: { left: 0, top: 307 },
           },
         },
@@ -3287,46 +3287,46 @@ const Team = (props) => {
           name: "Алексей",
           role: "Редактор календаря",
         },
-        img: "aleksey",
+        img: "6",
         change_other: {
-          karina: {
+          1: {
             size: 78,
             cord: { left: 109, top: 246 },
           },
-          sanya: {
+          2: {
             cord: { left: 168, top: 113 },
           },
-          artem: {
+          12: {
             cord: { left: 231, top: 316 },
           },
-          aleksey: {
+          6: {
             cord: { left: 76, top: 497 },
           },
-          iren: {
+          9: {
             cord: { left: 0, top: 274 },
           },
-          daniil: {
+          10: {
             cord: { left: 31, top: 129 },
           },
-          ivan: {
+          5: {
             cord: { left: 145, top: 393 },
           },
-          vladimir: {
+          4: {
             cord: { left: 257, top: 416 },
           },
-          bogdan_bear: {
+          3: {
             cord: { left: 272, top: 215 },
           },
-          sergey: {
+          11: {
             cord: { left: 114, top: 20 },
           },
-          nikita: {
+          14: {
             cord: { left: 0, top: 0 },
           },
-          bogdan2: {
+          7: {
             cord: { left: 0, top: 598 },
           },
-          eduard: {
+          8: {
             cord: { left: 16, top: 403 },
           },
         },
@@ -3348,46 +3348,46 @@ const Team = (props) => {
           name: "Богдан",
           role: "Аналитик рынка",
         },
-        img: "bogdan",
+        img: "7",
         change_other: {
-          karina: {
+          1: {
             size: 78,
             cord: { left: 129, top: 219 },
           },
-          sanya: {
+          2: {
             cord: { left: 225, top: 113 },
           },
-          artem: {
+          12: {
             cord: { left: 241, top: 372 },
           },
-          aleksey: {
+          6: {
             cord: { left: 107, top: 460 },
           },
-          iren: {
+          9: {
             cord: { left: 13, top: 266 },
           },
-          daniil: {
+          10: {
             cord: { left: 36, top: 121 },
           },
-          ivan: {
+          5: {
             cord: { left: 123, top: 346 },
           },
-          vladimir: {
+          4: {
             cord: { left: 257, top: 481 },
           },
-          bogdan_bear: {
+          3: {
             cord: { left: 272, top: 266 },
           },
-          sergey: {
+          11: {
             cord: { left: 114, top: 20 },
           },
-          nikita: {
+          14: {
             cord: { left: 0, top: 0 },
           },
-          eduard: {
+          8: {
             cord: { left: 2, top: 382 },
           },
-          nikita_jetix: {
+          13: {
             cord: { left: 272, top: 629 },
           },
         },
