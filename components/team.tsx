@@ -2891,8 +2891,8 @@ const Team = (props) => {
           top: 67,
         },
         description: {
-          name: "Куратор инвестфонда",
-          role: "Кирилл",
+          name: "Кирилл",
+          role: "Куратор инвестфонда",
         },
         img: "11",
         change_other: {
