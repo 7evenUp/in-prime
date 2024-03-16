@@ -4,6 +4,7 @@
   "description": "",
   "scripts": {
     "dev": "next dev",
+    "dev:5173": "next dev -p 5173 --experimental-https",
     "build": "next build",
     "start": "next start"
   },
@@ -12,8 +13,11 @@
   "license": "MIT",
   "dependencies": {
     "@radix-ui/react-dialog": "^1.0.5",
+    "@radix-ui/react-select": "^2.0.0",
     "@radix-ui/react-tabs": "^1.0.4",
-    "next": "13.4.19",
+    "@tanstack/react-query": "^5.28.4",
+    "axios": "^1.6.7",
+    "next": "13.5.1",
     "prisma": "^4.16.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -23,7 +27,7 @@
   },
   "devDependencies": {
     "@types/node": "20.6.2",
-    "@types/react": "18.2.21",
+    "@types/react": "18.2.65",
     "clsx": "^2.0.0",
     "typescript": "5.2.2"
   }

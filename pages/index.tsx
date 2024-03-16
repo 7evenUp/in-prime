@@ -37,6 +37,7 @@ import BuySubscr from "@/public/images/jsx/subscribe/buy-subscr";
 import BuySubscrLg from "@/public/images/jsx/subscribe/buy-subscr-lg";
 import BuySubscrMd from "@/public/images/jsx/subscribe/buy-subscr-md";
 import BuySubscrSm from "@/public/images/jsx/subscribe/buy-subscr-sm";
+import BuySubscriptionDialog from "@/components/BuySubscriptionDialog"
 
 const useWindowSize = () => {
   const [currentWidth, setCurrentWidth] = useState(0);
@@ -322,15 +323,12 @@ const Home = (props) => {
                 РФ
               </div>
               <div className="app__container__subscribe__content__link">
-                <a
-                  href={`https://t.me/CryptonLobbyBot?start=${referral}`}
-                  target={"_blank"}
-                >
+                <BuySubscriptionDialog>
                   <div className="app__container__subscribe__content__link__button">
                     {tariffs[resolution]}
                     <SubscribeArrow />
                   </div>
-                </a>
+                </BuySubscriptionDialog>
                 {/*<div className="app__container__subscribe__content__link__description">*/}
                 {/*  С оформлением тарифа вам поможет наш бот в Telegram*/}
                 {/*</div>*/}
@@ -360,7 +358,7 @@ const Home = (props) => {
       <div className="back color dark" />
       <div className="back noise" />
     </>
-  );
+  )
 };
 
 export default Home;

@@ -1,5 +1,8 @@
 import Head from "next/head"
 import type { AppProps } from "next/app"
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
+
+const queryClient = new QueryClient()
 
 import "/styles/global.scss"
 
@@ -40,7 +43,9 @@ const App = ({ Component, pageProps }: AppProps) => (
       <meta name="msapplication-TileColor" content="#da532c" />
       <meta name="theme-color" content="#ffffff"></meta>
     </Head>
-    <Component {...pageProps} />
+    <QueryClientProvider client={queryClient}>
+      <Component {...pageProps} />
+    </QueryClientProvider>
   </>
 )
 
