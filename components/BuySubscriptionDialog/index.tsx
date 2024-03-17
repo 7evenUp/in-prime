@@ -116,16 +116,17 @@ const BuySubscriptionDialog = ({ children }: { children: React.ReactNode }) => {
   }
 
   const onPromoInputChange = (evt: ChangeEvent<HTMLInputElement>) => {
-    if (selectedCardId === undefined) return
-
     if (isPromoError || isPromoSuccess) resetPromo()
 
-    const { baseDiscountAmount, price } = subscriptions.find(
-      (el) => el.id === selectedCardId
-    )
-
-    setTotalPrice(baseDiscountAmount ? price - baseDiscountAmount : price)
     setPromocode(evt.currentTarget.value)
+
+    if (selectedCardId) {
+      const { baseDiscountAmount, price } = subscriptions.find(
+        (el) => el.id === selectedCardId
+      )
+
+      setTotalPrice(baseDiscountAmount ? price - baseDiscountAmount : price)
+    }
   }
 
   const applyPromocode = async () => {
@@ -269,13 +270,7 @@ const BuySubscriptionDialog = ({ children }: { children: React.ReactNode }) => {
                           gap: 4,
                         }}
                       >
-                        <div
-                          style={{
-                            display: "flex",
-                            alignItems: "flex-end",
-                            gap: 12,
-                          }}
-                        >
+                        <div className={styles.promo_wrapper}>
                           <label className={styles.label}>
                             Промокод
                             <input
@@ -286,15 +281,17 @@ const BuySubscriptionDialog = ({ children }: { children: React.ReactNode }) => {
                               onChange={onPromoInputChange}
                             />
                           </label>
-                          {!isPromoSuccess && (
-                            <button
-                              className={styles.button}
-                              type="button"
-                              onClick={applyPromocode}
-                            >
-                              {isPromoPending ? "Применяем..." : "Применить"}
-                            </button>
-                          )}
+                          {!isPromoSuccess &&
+                            selectedCardId &&
+                            promocode.length > 0 && (
+                              <button
+                                className={styles.button}
+                                type="button"
+                                onClick={applyPromocode}
+                              >
+                                {isPromoPending ? "Применяем..." : "Применить"}
+                              </button>
+                            )}
                         </div>
                         {isPromoError && (
                           <span style={{ color: "#ff4a7a", fontSize: 12 }}>
@@ -407,14 +404,7 @@ const TopUpContent = ({
           Назад к выбору подписки
         </button>
 
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 16,
-            marginTop: 16,
-          }}
-        >
+        <div className={styles.method_wrapper}>
           <span>Выберите способ пополнения:</span>
           <Select
             value={paymentType}
@@ -435,7 +425,7 @@ const TopUpContent = ({
         {paymentType === "crypto" && (
           <>
             <span>Выберите валюту</span>
-            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+            <div className={styles.tokens}>
               {[...tokens].map((el, i) => (
                 <button
                   key={i}
