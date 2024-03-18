@@ -3532,26 +3532,26 @@ p {
             margin-left: 30px;
 
             &__logo {
-              background-image: url("/images/png/other-products/research-lgg.png");
-              width: 130px;
+              background-image: url("/images/svg/other-products/research.svg");
+              width: 125px;
               height: 130px;
               background-size: cover;
 
               @media (max-width: 1919px) and (min-width: 1368px) {
-                background-image: url("/images/png/other-products/research-lg.png");
-                width: 120px;
+                background-image: url("/images/svg/other-products/research.svg");
+                width: 115px;
                 height: 120px;
               }
 
               @media (max-width: 1367px) and (min-width: 768px) {
-                background-image: url("/images/png/other-products/research-md.png");
-                width: 140px;
+                background-image: url("/images/svg/other-products/research.svg");
+                width: 135px;
                 height: 140px;
               }
 
               @media (max-width: 767px) {
-                background-image: url("/images/png/other-products/research-sm.png");
-                width: 160px;
+                background-image: url("/images/svg/other-products/research.svg");
+                width: 155px;
                 height: 160px;
               }
             }
