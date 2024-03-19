@@ -4,7 +4,6 @@ import { useMutation, useQuery } from "@tanstack/react-query"
 import axios from "axios"
 import clsx from "clsx"
 
-import styles from "./styles.module.scss"
 import {
   Select,
   SelectContent,
@@ -12,6 +11,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./Select"
+import { Loader, Check, Error, Help } from "./Icons"
+
+import styles from "./styles.module.scss"
 
 interface Subscription {
   id: number
@@ -52,15 +54,32 @@ interface PaymentsMethod {
   } | null
 }
 
+interface PaymentRequestArgs {
+  paymentType: "crypto" | "card"
+  network?: string
+  currency?: string
+  isReceiptNeed: boolean
+  successUrl: string
+  failUrl: string
+  subscriptionId: number
+  promoCode?: string
+  email: string
+}
+
 const PRIME_SUBSCRIPTION_KIND_ID = 1
 const ID_URL = "https://id-dev.crypton.xyz/api/v1/"
 
 const BuySubscriptionDialog = ({ children }: { children: React.ReactNode }) => {
-  const [isTopUpOpen, setIsTopUpOpen] = useState(false)
   const [totalPrice, setTotalPrice] = useState(0)
   const [selectedCardId, setSelectedCardId] = useState<number | undefined>(
     undefined
   )
+  const [showEmailHelper, setShowEmailHelper] = useState(false)
+  // isSecondStep started
+  const [isTopUpOpen, setIsTopUpOpen] = useState(false)
+  // input values
+  const [promocode, setPromocode] = useState("")
+  const [email, setEmail] = useState("")
 
   const { data: subscriptions, isError: isSubscriptionsError } = useQuery({
     queryKey: ["subscriptions"],
@@ -103,10 +122,6 @@ const BuySubscriptionDialog = ({ children }: { children: React.ReactNode }) => {
         subscription: subscriptionId,
       }),
   })
-
-  // input values
-  const [promocode, setPromocode] = useState("")
-  const [email, setEmail] = useState("")
 
   const onSelect = ({ id, baseDiscountAmount, price }: Subscription) => {
     if (isPromoError || isPromoSuccess) resetPromo()
@@ -170,6 +185,9 @@ const BuySubscriptionDialog = ({ children }: { children: React.ReactNode }) => {
         <Dialog.Content className={styles.content}>
           {isTopUpOpen && methods ? (
             <TopUpContent
+              email={email}
+              subscriptionId={selectedCardId}
+              promocode={promocode}
               methods={methods}
               back={() => setIsTopUpOpen(false)}
             />
@@ -253,15 +271,46 @@ const BuySubscriptionDialog = ({ children }: { children: React.ReactNode }) => {
                     <div className={styles.bottom_left}>
                       <label className={styles.label}>
                         Почта
-                        <input
-                          name="email"
-                          type="email"
-                          required
-                          placeholder="Введите вашу почту"
-                          className={styles.input}
-                          value={email}
-                          onChange={(evt) => setEmail(evt.currentTarget.value)}
-                        />
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: 8,
+                          }}
+                        >
+                          <input
+                            name="email"
+                            type="email"
+                            required
+                            placeholder="Введите вашу почту"
+                            className={styles.input}
+                            value={email}
+                            onChange={(evt) =>
+                              setEmail(evt.currentTarget.value)
+                            }
+                          />
+                          <button
+                            style={{
+                              background: "transparent",
+                              color: "white",
+                              outline: "none",
+                              border: "none",
+                              position: "relative",
+                            }}
+                            onClick={() => setShowEmailHelper(!showEmailHelper)}
+                            onMouseEnter={() => setShowEmailHelper(true)}
+                            onMouseLeave={() => setShowEmailHelper(false)}
+                          >
+                            {showEmailHelper && (
+                              <div className={styles.emailHelper}>
+                                Данная почта будет использована для создания
+                                аккаунта Crypton ID, на который будет начислена
+                                подписка
+                              </div>
+                            )}
+                            <Help />
+                          </button>
+                        </div>
                       </label>
                       <div
                         style={{
@@ -336,9 +385,15 @@ export default BuySubscriptionDialog
 const TopUpContent = ({
   back,
   methods,
+  email,
+  subscriptionId,
+  promocode,
 }: {
   back: () => void
   methods: PaymentsMethod[]
+  email: string
+  subscriptionId: number
+  promocode: string
 }) => {
   const [paymentType, setPaymentType] = useState<"crypto" | "card">("crypto")
   const [activeToken, setActiveToken] = useState<string | undefined>(undefined)
@@ -347,6 +402,16 @@ const TopUpContent = ({
   )
   const [checkboxValue, setCheckboxValue] = useState(false)
   const [paymentURL, setPaymentURL] = useState("")
+  const [paymentID, setPaymentID] = useState<number | null>(null)
+
+  const { mutateAsync, isSuccess, reset } = useMutation({
+    mutationFn: (args: PaymentRequestArgs) =>
+      axios.post<
+        PaymentRequestArgs & { paymentId: number; paymentUrl: string }
+      >(ID_URL + "landing/subscriptions/buy/", {
+        ...args,
+      }),
+  })
 
   const cryptoMethods = methods
     .filter((el) => el.method.id === "crypto" && el.isActive)
@@ -366,35 +431,59 @@ const TopUpContent = ({
   })
 
   const onSubmit = async () => {
-    let paymentUrl = ""
+    let payload: PaymentRequestArgs = {
+      paymentType: "card",
+      isReceiptNeed: checkboxValue,
+      successUrl: "https://id.crypton.xyz/payment-success",
+      failUrl: "https://id.crypton.xyz/payment-error",
+      email,
+      subscriptionId,
+    }
+
+    if (promocode) {
+      payload = {
+        ...payload,
+        promoCode: promocode,
+      }
+    }
 
     try {
       if (paymentType === "card") {
-        paymentUrl = await axios.post(ID_URL + "top-up-balance/", {
-          amount: 50,
-          is_receipt_need: checkboxValue,
-          payment_type: "card",
-          successUrl: "https://id.crypton.xyz/payment-success",
-          failUrl: "https://id.crypton.xyz/payment-error",
-        })
+        payload = {
+          ...payload,
+          paymentType: "card",
+        }
       } else {
-        paymentUrl = await axios.post(ID_URL + "top-up-balance/", {
-          amount: 100,
-          is_receipt_need: checkboxValue,
-          payment_type: "crypto",
+        payload = {
+          ...payload,
+          paymentType: "crypto",
           network: activeNetwork ?? "BSC",
           currency: activeToken ?? "USDT",
-          successUrl: "https://id.crypton.xyz/payment-success",
-          failUrl: "https://id.crypton.xyz/payment-error",
-        })
+        }
       }
 
+      const {
+        data: { paymentUrl, paymentId },
+      } = await mutateAsync(payload)
+
       setPaymentURL(paymentUrl)
+      setPaymentID(paymentId)
+
       window.open(paymentUrl, "_blank")
     } catch {
       console.log("error happened")
     }
   }
+
+  if (isSuccess)
+    return (
+      <PaymentStatus
+        paymentId={paymentID}
+        paymentUrl={paymentURL}
+        reset={reset}
+      />
+    )
+  // return <PaymentStatus paymentId={paymentID} paymentUrl={paymentURL} />
 
   return (
     <>
@@ -482,6 +571,109 @@ const TopUpContent = ({
         >
           Оплатить
         </button>
+      </div>
+    </>
+  )
+}
+
+const PaymentStatus = ({
+  paymentUrl,
+  paymentId,
+  reset,
+}: {
+  paymentUrl: string
+  paymentId: number
+  reset: () => void
+}) => {
+  const { data: status, isLoading } = useQuery({
+    queryKey: ["payment-status"],
+    queryFn: async () => {
+      const response = await axios.get<{
+        status: "PENDING" | "CANCELLED" | "COMPLETED"
+      }>(ID_URL + "landing/subscriptions/status/?paymentId=" + paymentId)
+
+      return response.data.status
+    },
+    refetchInterval: 5000,
+  })
+
+  if (isLoading || status === "PENDING") {
+    return (
+      <>
+        <Dialog.Title className={styles.title}>Ожидание оплаты</Dialog.Title>
+        <div className={styles.status}>
+          <p>Запрос на пополнение был успешно отправлен</p>
+          <p>
+            Если у вас не открылась новая вкладка, перейдите по данной ссылке
+            для оплаты:{" "}
+            <a href={paymentUrl} target="_blank">
+              {paymentUrl}
+            </a>
+          </p>
+        </div>
+        <div className={styles.status_wait}>
+          <p>Оплата в процессе ожидания</p>
+          <Loader />
+          <p className={styles.status_after}>
+            После успешной операции, мы предоставим Вам полезные ссылки для
+            использования продукта Prime
+          </p>
+        </div>
+      </>
+    )
+  }
+
+  if (status === "COMPLETED") {
+    return (
+      <>
+        <Dialog.Title className={styles.title} style={{ textAlign: "center" }}>
+          Дальнейшие шаги
+        </Dialog.Title>
+        <div className={styles.status}>
+          <div className={styles.status_wait}>
+            <Check />
+            <p className={styles.status_after}>
+              Авторизуйтесь в личном кабинете{" "}
+              <a href="https://id.crypton.xyz" target="_blank">
+                Crypton ID
+              </a>
+              , с почтой, указанной на первом этапе, чтобы воспользоваться всеми
+              преимуществами Prime
+            </p>
+          </div>
+        </div>
+      </>
+    )
+  }
+
+  if (status === "CANCELLED") {
+    return (
+      <>
+        <Dialog.Title className={styles.title} style={{ textAlign: "center" }}>
+          Отмена оплаты
+        </Dialog.Title>
+        <div className={styles.status}>
+          <div className={styles.status_wait}>
+            <Error />
+            <p className={styles.status_after}>
+              Во время операции пополнения произошла отмена платежа, либо вышло
+              время на оплату. Пожалуйста, выполните повторный выбор необходимой
+              Вам подписки и метода оплаты
+            </p>
+            <button onClick={reset} className={styles.button}>
+              Повторить
+            </button>
+          </div>
+        </div>
+      </>
+    )
+  }
+
+  return (
+    <>
+      <Dialog.Title className={styles.title}>Ожидание оплаты</Dialog.Title>
+      <div className={styles.status}>
+        <p>Невозможно получить данные платежа</p>
       </div>
     </>
   )
