@@ -54,10 +54,10 @@ const Footer = (props) => {
       sm: 5830,
     },
     faq: {
-      lgg: 10450,
-      lg: 9150,
-      md: 10200,
-      sm: 8740,
+      lgg: 11250,
+      lg: 9950,
+      md: 11100,
+      sm: 10150,
     },
   }
 
@@ -75,7 +75,7 @@ const Footer = (props) => {
                 Подписывайтесь на нас в соцсетях:
               </div>
               <div className="footer__rectangle__socials__links">
-                <div className="footer__rectangle__socials__links__link">
+                <div className="footer__rectangle__socials__links__link crypton">
                   <a href="https://crypton.xyz" target={"_blank"}>
                     <Crypton />
                   </a>
@@ -239,7 +239,7 @@ const Footer = (props) => {
               </div>
               <div className="footer__rectangle__socials">
                 <div className="footer__rectangle__socials__links">
-                  <div className="footer__rectangle__socials__links__link">
+                  <div className="footer__rectangle__socials__links__link crypton">
                     <a href="https://crypton.xyz" target={"_blank"}>
                       <Crypton />
                     </a>
@@ -352,7 +352,7 @@ const Footer = (props) => {
               </div>
               <div className="footer__rectangle__socials">
                 <div className="footer__rectangle__socials__links">
-                  <div className="footer__rectangle__socials__links__link">
+                  <div className="footer__rectangle__socials__links__link crypton">
                     <a href="https://crypton.xyz" target={"_blank"}>
                       <Crypton />
                     </a>

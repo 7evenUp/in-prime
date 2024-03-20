@@ -56,20 +56,20 @@ const MobileMenu = (props) => {
     },
     {
       position: {
-        md: 7680,
-        sm: 6240,
+        md: 8580,
+        sm: 7700,
       },
     },
     {
       position: {
-        md: 9350,
-        sm: 8050,
+        md: 9550,
+        sm: 8950,
       },
     },
     {
       position: {
-        md: 10200,
-        sm: 8750,
+        md: 11100,
+        sm: 10150,
       },
     },
   ];
