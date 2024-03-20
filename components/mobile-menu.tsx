@@ -7,6 +7,8 @@ import Instagram from "../public/images/jsx/footer/instagram";
 import Telegram from "../public/images/jsx/footer/telegram";
 import Youtube from "../public/images/jsx/footer/youtube";
 
+import BuySubscriptionDialog from "./BuySubscriptionDialog"
+
 const MobileMenu = (props) => {
   const resolution = props.resolution;
   const currentY = props.currentY;
@@ -181,7 +183,15 @@ const MobileMenu = (props) => {
           </div>
         </div>
         <div className="mobile-menu__container__subscribe-block">
-          <a
+          <BuySubscriptionDialog>
+            <div className="mobile-menu__container__subscribe-block__subscribe">
+              <div className="mobile-menu__container__subscribe-block__subscribe__text">
+                Оформить подписку
+              </div>
+              <div className="mobile-menu__container__subscribe-block__subscribe__logo"></div>
+            </div>
+          </BuySubscriptionDialog>
+          {/* <a
             href={`https://t.me/CryptonLobbyBot?start=${props.referral}`}
             target={"_blank"}
           >
@@ -191,7 +201,7 @@ const MobileMenu = (props) => {
               </div>
               <div className="mobile-menu__container__subscribe-block__subscribe__logo"></div>
             </div>
-          </a>
+          </a> */}
         </div>
       </div>
     </div>
