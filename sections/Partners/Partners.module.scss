@@ -46,14 +46,23 @@
   .if {
     width: 43.799px;
     height: 51.762px;
+    @media (min-width: 376px) {
+      margin-left: 10px;
+    }
   }
   .trust {
     width: 46.625px;
     height: 55.212px;
+    @media (min-width: 376px) {
+      margin-left: 10px;
+    }
   }
   .near {
     width: 50px;
     height: 50px;
+    @media (min-width: 376px) {
+      margin-left: 16px;
+    }
   }
   .taiko {
     width: 56px;
@@ -65,8 +74,15 @@
     margin-top: -9px;
   }
   .dequest {
-    width: 154px;
-    height: 41px;
+    width: 72px;
+    height: 45px;
+  }
+  .cyberconnect {
+    width: 49px;
+    height: 43px;
+    @media (max-width: 375px) {
+      margin-left: -22px;
+    }
   }
 }
 

@@ -60,24 +60,24 @@ const Menu = (props) => {
       number: "06",
       name: "Подписка",
       position: {
-        lgg: 8070,
-        lg: 7050,
+        lgg: 8880,
+        lg: 7910,
       },
     },
     {
       number: "07",
       name: "Отзывы",
       position: {
-        lgg: 8890,
-        lg: 8590,
+        lgg: 9790,
+        lg: 8700,
       },
     },
     {
       number: "08",
       name: "FAQ",
       position: {
-        lgg: 10500,
-        lg: 9150,
+        lgg: 11300,
+        lg: 9950,
       },
     },
   ]
