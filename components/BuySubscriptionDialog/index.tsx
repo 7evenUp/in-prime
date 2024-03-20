@@ -1,3 +1,4 @@
+import { useRouter } from "next/router"
 import React, { ChangeEvent, useState } from "react"
 import * as Dialog from "@radix-ui/react-dialog"
 import { useMutation, useQuery } from "@tanstack/react-query"
@@ -63,6 +64,7 @@ interface PaymentRequestArgs {
   failUrl: string
   subscriptionId: number
   promoCode?: string
+  referral_code?: string | string[]
   email: string
 }
 
@@ -404,6 +406,9 @@ const TopUpContent = ({
   const [paymentURL, setPaymentURL] = useState("")
   const [paymentID, setPaymentID] = useState<number | null>(null)
 
+  const router = useRouter()
+  const referral = router.query.ref || ""
+
   const { mutateAsync, isSuccess, reset } = useMutation({
     mutationFn: (args: PaymentRequestArgs) =>
       axios.post<
@@ -438,6 +443,13 @@ const TopUpContent = ({
       failUrl: "https://id.crypton.xyz/payment-error",
       email,
       subscriptionId,
+    }
+
+    if (referral) {
+      payload = {
+        ...payload,
+        referral_code: referral,
+      }
     }
 
     if (promocode) {
