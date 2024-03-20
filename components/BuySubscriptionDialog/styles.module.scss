@@ -356,7 +356,6 @@
 }
 
 .buyBtn {
-  margin-top: 16px;
   width: fit-content;
 }
 
@@ -429,6 +428,12 @@
   width: 60px;
   height: 60px;
   animation: spin 1s linear infinite;
+
+  &_small {
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+  }
 }
 
 .check {

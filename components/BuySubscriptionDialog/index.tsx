@@ -12,7 +12,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./Select"
-import { Loader, Check, Error, Help } from "./Icons"
+import { Loader, LoaderSmall, Check, Error, Help } from "./Icons"
 
 import styles from "./styles.module.scss"
 
@@ -420,7 +420,7 @@ const TopUpContent = ({
   const router = useRouter()
   const referral = router.query.ref || ""
 
-  const { mutateAsync, isSuccess, reset } = useMutation({
+  const { mutateAsync, isSuccess, reset, isPending } = useMutation({
     mutationFn: (args: PaymentRequestArgs) =>
       axios.post<
         PaymentRequestArgs & { paymentId: number; paymentUrl: string }
@@ -588,12 +588,22 @@ const TopUpContent = ({
           прислать чек на почту
         </label>
 
-        <button
-          className={clsx(styles.button, styles.buyBtn)}
-          onClick={onSubmit}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 8,
+            marginTop: 16,
+          }}
         >
-          Оплатить
-        </button>
+          <button
+            className={clsx(styles.button, styles.buyBtn)}
+            onClick={onSubmit}
+          >
+            Оплатить
+          </button>
+          {isPending && <LoaderSmall />}
+        </div>
       </div>
     </>
   )
