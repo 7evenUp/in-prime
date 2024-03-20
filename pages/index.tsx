@@ -10,6 +10,7 @@ import Menu from "@/components/menu";
 import OtherProducts from "@/components/other-products";
 import Team from "@/components/team";
 import Ribbon from "@/components/ribbon";
+import BuySubscriptionDialog from "@/components/BuySubscriptionDialog"
 
 import SubscribeArrow from "@/public/images/jsx/subscribe/arrow";
 import Telegram from "@/public/images/jsx/ceo/telegram";
@@ -50,7 +51,6 @@ import Points150Md from "@/public/images/jsx/loyalty/points150-md";
 import Points500Md from "@/public/images/jsx/loyalty/points500-md";
 import Points50Sm from "@/public/images/jsx/loyalty/points50-sm";
 import Points150Sm from "@/public/images/jsx/loyalty/points150-sm";
-import BuySubscriptionDialog from "@/components/BuySubscriptionDialog"
 
 const useWindowSize = () => {
   const [currentWidth, setCurrentWidth] = useState(0);

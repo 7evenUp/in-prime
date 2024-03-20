@@ -68,8 +68,10 @@ interface PaymentRequestArgs {
   email: string
 }
 
+console.log(process.env.NEXT_PUBLIC_ID_URL)
+
 const PRIME_SUBSCRIPTION_KIND_ID = 1
-const ID_URL = "https://id-dev.crypton.xyz/api/v1/"
+const ID_URL = process.env.NEXT_PUBLIC_ID_URL + "/api/v1/"
 
 const BuySubscriptionDialog = ({ children }: { children: React.ReactNode }) => {
   const [totalPrice, setTotalPrice] = useState(0)
