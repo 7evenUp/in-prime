@@ -132,6 +132,10 @@
       border-radius: 6px;
       padding-inline: 6px;
       padding-bottom: 3px;
+
+      @media (max-width: 500px) {
+        padding-top: 3px;
+      }
     }
 
     &_amount {
@@ -190,7 +194,7 @@
   display: flex;
   justify-content: space-between;
 
-  @media (max-width: 500px) {
+  @media (max-width: 620px) {
     flex-direction: column;
     gap: 20px;
   }

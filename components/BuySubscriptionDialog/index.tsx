@@ -79,6 +79,7 @@ const BuySubscriptionDialog = ({ children }: { children: React.ReactNode }) => {
     undefined
   )
   const [showEmailHelper, setShowEmailHelper] = useState(false)
+  const [promoForSubmit, setPromoForSubmit] = useState<string | null>(null)
   // isSecondStep started
   const [isTopUpOpen, setIsTopUpOpen] = useState(false)
   // input values
@@ -131,6 +132,7 @@ const BuySubscriptionDialog = ({ children }: { children: React.ReactNode }) => {
     if (isPromoError || isPromoSuccess) resetPromo()
 
     setSelectedCardId(id)
+    setPromoForSubmit(null)
     setTotalPrice(baseDiscountAmount ? price - baseDiscountAmount : price)
   }
 
@@ -138,6 +140,7 @@ const BuySubscriptionDialog = ({ children }: { children: React.ReactNode }) => {
     if (isPromoError || isPromoSuccess) resetPromo()
 
     setPromocode(evt.currentTarget.value)
+    setPromoForSubmit(null)
 
     if (selectedCardId) {
       const { baseDiscountAmount, price } = subscriptions.find(
@@ -171,6 +174,9 @@ const BuySubscriptionDialog = ({ children }: { children: React.ReactNode }) => {
         promocode,
         subscriptionId: selectedCardId,
       })
+
+      setPromoForSubmit(promocode)
+
       if (discountKind.id === "MONEY") {
         setTotalPrice(price - discountAmount)
       } else {
@@ -191,7 +197,7 @@ const BuySubscriptionDialog = ({ children }: { children: React.ReactNode }) => {
             <TopUpContent
               email={email}
               subscriptionId={selectedCardId}
-              promocode={promocode}
+              promocode={promoForSubmit}
               methods={methods}
               back={() => setIsTopUpOpen(false)}
             />
@@ -300,6 +306,9 @@ const BuySubscriptionDialog = ({ children }: { children: React.ReactNode }) => {
                               outline: "none",
                               border: "none",
                               position: "relative",
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "center",
                             }}
                             onClick={() => setShowEmailHelper(!showEmailHelper)}
                             onMouseEnter={() => setShowEmailHelper(true)}
@@ -397,7 +406,7 @@ const TopUpContent = ({
   methods: PaymentsMethod[]
   email: string
   subscriptionId: number
-  promocode: string
+  promocode: string | null
 }) => {
   const [paymentType, setPaymentType] = useState<"crypto" | "card">("crypto")
   const [activeToken, setActiveToken] = useState<string | undefined>(undefined)
