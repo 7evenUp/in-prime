@@ -34,6 +34,10 @@ interface Promocode {
   code: string
   discountAmount: number
   discountKind: { id: "MONEY" | "PERCENT"; label: "Money" | "%" }
+  discounts: Array<{
+    subscriptionId: number
+    discountAmount: number
+  }>
 }
 
 interface PaymentsMethod {
@@ -67,8 +71,6 @@ interface PaymentRequestArgs {
   referral_code?: string | string[]
   email: string
 }
-
-console.log(process.env.NEXT_PUBLIC_ID_URL)
 
 const PRIME_SUBSCRIPTION_KIND_ID = 1
 const ID_URL = process.env.NEXT_PUBLIC_ID_URL + "/api/v1/"
@@ -169,18 +171,26 @@ const BuySubscriptionDialog = ({ children }: { children: React.ReactNode }) => {
 
     try {
       const {
-        data: { discountAmount, discountKind },
+        data: { discountAmount, discountKind, discounts },
       } = await mutatePromoValidation({
         promocode,
         subscriptionId: selectedCardId,
       })
 
+      const matchedDiscount = discounts.find(
+        (el) => el.subscriptionId === selectedCardId
+      )
+
+      const preferedDiscount = matchedDiscount
+        ? matchedDiscount.discountAmount
+        : discountAmount
+
       setPromoForSubmit(promocode)
 
       if (discountKind.id === "MONEY") {
-        setTotalPrice(price - discountAmount)
+        setTotalPrice(price - preferedDiscount)
       } else {
-        setTotalPrice(price - price * discountAmount)
+        setTotalPrice(price - price * preferedDiscount)
       }
     } catch {}
   }
@@ -506,7 +516,6 @@ const TopUpContent = ({
         reset={reset}
       />
     )
-  // return <PaymentStatus paymentId={paymentID} paymentUrl={paymentURL} />
 
   return (
     <>
