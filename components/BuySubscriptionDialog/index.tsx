@@ -327,8 +327,9 @@ const BuySubscriptionDialog = ({ children }: { children: React.ReactNode }) => {
                             {showEmailHelper && (
                               <div className={styles.emailHelper}>
                                 Данная почта будет использована для создания
-                                аккаунта Crypton ID, на который будет начислена
-                                подписка
+                                аккаунта Crypton ID, если у вас нет аккаунта,
+                                или для использования Вашей индивидуальной цены
+                                при создании счета, если профиль существует
                               </div>
                             )}
                             <Help />
