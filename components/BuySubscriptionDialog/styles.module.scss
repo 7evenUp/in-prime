@@ -15,10 +15,10 @@
   font-family: "Resist Sans", sans-serif;
   overflow: auto;
   box-sizing: border-box;
-  background-color: #121212;
+  background-color: #232323;
   color: white;
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   position: fixed;
   z-index: 1001;
   top: 50%;
@@ -27,7 +27,7 @@
   width: 90vw;
   max-width: 870px;
   max-height: 85vh;
-  padding: 24px;
+  padding: 48px;
   animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
 
   @media (max-width: 1367px) {
@@ -40,24 +40,6 @@
 }
 .content:focus {
   outline: none;
-}
-
-.title {
-  font-family: "Benzin-Bold", sans-serif;
-  font-weight: 700;
-  font-size: 28px;
-  line-height: 100%;
-  letter-spacing: 0.04em;
-  margin: 0;
-  text-transform: uppercase;
-
-  @media (max-width: 1367px) {
-    font-size: 24px;
-  }
-
-  @media (max-width: 767px) {
-    font-size: 18px;
-  }
 }
 
 .subscriptions {

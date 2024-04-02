@@ -57,15 +57,15 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
       <header className="app__container__earn__header">
         <div className="app__container__earn__header__logo" />
         <div className="menu-sub-block">
-          <BuySubscriptionDialog>
+          {/* <BuySubscriptionDialog>
             <div className="app__container__earn__header__subscribe">
               <div className="app__container__earn__header__subscribe__text">
                 Оформить подписку
               </div>
               <div className="app__container__earn__header__subscribe__logo" />
             </div>
-          </BuySubscriptionDialog>
-          {/* <a
+          </BuySubscriptionDialog> */}
+          <a
             href={`https://t.me/CryptonLobbyBot?start=${referral}`}
             target={"_blank"}
           >
@@ -75,7 +75,7 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
               </div>
               <div className="app__container__earn__header__subscribe__logo" />
             </div>
-          </a> */}
+          </a>
           {["md", "sm"].includes(resolution) && (
             <div style={{ width: "25px", zIndex: 101 }}>
               <div

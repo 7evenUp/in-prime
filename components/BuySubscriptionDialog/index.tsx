@@ -213,9 +213,6 @@ const BuySubscriptionDialog = ({ children }: { children: React.ReactNode }) => {
             />
           ) : (
             <>
-              <Dialog.Title className={styles.title}>
-                Оформление подписки
-              </Dialog.Title>
               {isSubscriptionsError ? (
                 <p>
                   К сожалению, не удалось загрузить данные. Пожалуйста,
@@ -520,7 +517,6 @@ const TopUpContent = ({
 
   return (
     <>
-      <Dialog.Title className={styles.title}>Выбор метода оплаты</Dialog.Title>
       <div className={styles.topup}>
         <button className={clsx(styles.button, styles.back)} onClick={back}>
           Назад к выбору подписки
@@ -643,7 +639,6 @@ const PaymentStatus = ({
   if (isLoading || status === "PENDING") {
     return (
       <>
-        <Dialog.Title className={styles.title}>Ожидание оплаты</Dialog.Title>
         <div className={styles.status}>
           <p>Запрос на пополнение был успешно отправлен</p>
           <p>
@@ -669,9 +664,6 @@ const PaymentStatus = ({
   if (status === "COMPLETED") {
     return (
       <>
-        <Dialog.Title className={styles.title} style={{ textAlign: "center" }}>
-          Дальнейшие шаги
-        </Dialog.Title>
         <div className={styles.status}>
           <div className={styles.status_wait}>
             <Check />
@@ -692,9 +684,6 @@ const PaymentStatus = ({
   if (status === "CANCELLED") {
     return (
       <>
-        <Dialog.Title className={styles.title} style={{ textAlign: "center" }}>
-          Отмена оплаты
-        </Dialog.Title>
         <div className={styles.status}>
           <div className={styles.status_wait}>
             <Error />
@@ -714,7 +703,6 @@ const PaymentStatus = ({
 
   return (
     <>
-      <Dialog.Title className={styles.title}>Ожидание оплаты</Dialog.Title>
       <div className={styles.status}>
         <p>Невозможно получить данные платежа</p>
       </div>
