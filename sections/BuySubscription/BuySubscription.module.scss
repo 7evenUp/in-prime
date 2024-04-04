@@ -1,0 +1,443 @@
+.subscriptions {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  font-family: "Resist Sans", sans-serif;
+
+  @media (max-width: 1367px) and (min-width: 768px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  @media (max-width: 767px) {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 20px;
+  }
+}
+
+.subscription {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  background: rgba(96, 96, 96, 0.2);
+  border-radius: 12px;
+  padding: 24px;
+  backdrop-filter: blur(2px);
+
+  @media (max-width: 375px) {
+    padding: 16px;
+  }
+
+  &:nth-child(1) {
+    .duration {
+      background: #4ddfd0;
+    }
+
+    .bonuses_heading {
+      display: none;
+    }
+  }
+  &:nth-child(2) {
+    .duration,
+    .bonuses_icon {
+      background: #ffcd9f;
+    }
+
+    .bonuses_heading {
+      color: #ffcd9f;
+    }
+  }
+  &:nth-child(3) {
+    .duration,
+    .bonuses_icon {
+      background: #bb44cc;
+    }
+
+    .bonuses_heading {
+      color: #bb44cc;
+    }
+  }
+  &:nth-child(4) {
+    border: 1px solid #ff4a7a;
+
+    .duration,
+    .bonuses_icon {
+      background: #ff4a7a;
+    }
+
+    .bonuses_heading {
+      color: #ff4a7a;
+    }
+
+    .button {
+      background: linear-gradient(
+        129.5deg,
+        #ffcd9f 2.02%,
+        #ff4a7a 56.6%,
+        #bb44cc 104.76%
+      );
+      font-family: "Resist Sans Medium", sans-serif;
+      border: none;
+      color: #181818;
+
+      &:hover {
+        background: white;
+        color: #181818;
+      }
+    }
+  }
+}
+
+.duration {
+  font-family: "Resist Sans Medium", sans-serif;
+  line-height: 100%;
+  color: #181818;
+  border-radius: 6px;
+  padding-top: 4px;
+  padding-bottom: 6px;
+  padding-inline: 16px;
+  font-size: 18px;
+  max-width: fit-content;
+  margin-bottom: 40px;
+
+  @media (max-width: 1919px) {
+    font-size: 16px;
+  }
+
+  @media (max-width: 375px) {
+    font-size: 14px;
+  }
+}
+
+.price {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 44px;
+
+  @media (max-width: 1919px) and (min-width: 1368px) {
+    flex-direction: column;
+    align-items: start;
+    gap: 16px;
+  }
+
+  @media (max-width: 375px) {
+    margin-bottom: 32px;
+    justify-content: start;
+    align-items: center;
+    gap: 64px;
+  }
+
+  &_left {
+    font-family: "Resist Sans Bold", sans-serif;
+    font-weight: 700;
+    font-size: 50px;
+    position: relative;
+
+    @media (max-width: 375px) {
+      font-size: 40px;
+    }
+  }
+
+  &_fractional {
+    font-size: 24px;
+    position: absolute;
+    top: 7px;
+    left: calc(100% + 3px);
+
+    @media (max-width: 375px) {
+      font-size: 20px;
+    }
+  }
+
+  &_discount {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    @media (max-width: 1919px) and (min-width: 1368px) {
+      flex-direction: row;
+    }
+
+    @media (max-width: 375px) {
+      margin-top: 6px;
+    }
+
+    &_percent {
+      font-family: "Resist Sans", sans-serif;
+      font-size: 20px;
+
+      @media (max-width: 375px) {
+        font-size: 16px;
+      }
+    }
+
+    &_amount {
+      font-family: "Resist Sans", sans-serif;
+      font-size: 20px;
+      opacity: 50%;
+      position: relative;
+
+      @media (max-width: 375px) {
+        font-size: 16px;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        left: 0;
+        top: 60%;
+        background: rgba(255, 255, 255, 1);
+      }
+    }
+  }
+}
+
+.bonuses {
+  margin: 0;
+  margin-bottom: 48px;
+  padding-left: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  &_heading {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: "Resist Sans Medium", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+
+    &_text {
+      margin-top: -2px;
+    }
+  }
+
+  &_icon {
+    border-radius: 100%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.bonus {
+  position: relative;
+  margin-left: 4px;
+  font-family: "Resist Sans", sans-serif;
+  font-size: 16px;
+  line-height: 105%;
+
+  &_text {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    padding: 3px 0px;
+  }
+}
+
+.button {
+  margin-top: auto;
+  outline: none;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 64px;
+  font-family: "Resist Sans", sans-serif;
+  font-size: 18px;
+  color: white;
+  background: transparent;
+  border-radius: 6px;
+  cursor: pointer;
+
+  @media (max-width: 1919px) {
+    height: 60px;
+  }
+
+  @media (max-width: 375px) {
+    height: 48px;
+    padding-bottom: 4px;
+  }
+
+  &:hover {
+    background: white;
+    color: #181818;
+  }
+}
+
+.support {
+  font-family: "Resist Sans", sans-serif;
+  color: white;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 36px;
+
+  @media (max-width: 1367px) {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 16px;
+  }
+
+  &_link {
+    font-family: "Resist Sans Medium", sans-serif;
+    font-weight: 500;
+    color: #ffcd9f;
+    font-size: 16px;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    transition: color 0.1s ease-in;
+
+    &:hover {
+      color: #ffcd9fcc;
+    }
+  }
+}
+
+.HoverCardTrigger {
+  cursor: pointer;
+  color: white;
+  text-decoration: underline;
+
+  &:hover {
+    color: rgba(255, 255, 255, 0.7);
+  }
+}
+
+.HoverCardContent {
+  border-radius: 6px;
+  width: 300px;
+  background-color: white;
+  position: relative;
+  z-index: 99999;
+  box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
+    hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
+  animation-duration: 400ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+.HoverCardContent[data-side="top"] {
+  animation-name: slideDownAndFade;
+}
+.HoverCardContent[data-side="right"] {
+  animation-name: slideLeftAndFade;
+}
+.HoverCardContent[data-side="bottom"] {
+  animation-name: slideUpAndFade;
+}
+.HoverCardContent[data-side="left"] {
+  animation-name: slideRightAndFade;
+}
+
+.HoverCardImage {
+  max-width: 100%;
+  display: block;
+  border-radius: 6px;
+}
+
+.PopoverTrigger {
+  cursor: pointer;
+  color: white;
+  text-decoration: underline;
+  background: transparent;
+  border: none;
+  text-align: left;
+  padding: 0;
+
+  &:hover {
+    color: rgba(255, 255, 255, 0.7);
+  }
+}
+
+.PopoverContent {
+  border-radius: 6px;
+  background-color: white;
+  position: relative;
+  z-index: 99999;
+  box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
+    hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
+  animation-duration: 400ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+.PopoverContent[data-side="top"] {
+  animation-name: slideDownAndFade;
+}
+.PopoverContent[data-side="right"] {
+  animation-name: slideLeftAndFade;
+}
+.PopoverContent[data-side="bottom"] {
+  animation-name: slideUpAndFade;
+}
+.PopoverContent[data-side="left"] {
+  animation-name: slideRightAndFade;
+}
+
+.PopoverImage {
+  max-width: 100%;
+  width: 400px;
+  display: block;
+  border-radius: 6px;
+
+  @media (max-width: 460px) {
+    width: 320px;
+  }
+}
+
+@keyframes slideUpAndFade {
+  0% {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideRightAndFade {
+  0% {
+    opacity: 0;
+    transform: translateX(-2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideDownAndFade {
+  0% {
+    opacity: 0;
+    transform: translateY(-2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideLeftAndFade {
+  0% {
+    opacity: 0;
+    transform: translateX(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

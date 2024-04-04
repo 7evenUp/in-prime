@@ -1,6 +1,8 @@
+import React, { ChangeEvent, useEffect, useState } from "react"
 import { useRouter } from "next/router"
-import React, { ChangeEvent, useState } from "react"
 import * as Dialog from "@radix-ui/react-dialog"
+import * as HoverCard from "@radix-ui/react-hover-card"
+import * as Popover from "@radix-ui/react-popover"
 import { useMutation, useQuery } from "@tanstack/react-query"
 import axios from "axios"
 import clsx from "clsx"
@@ -14,92 +16,55 @@ import {
 } from "./Select"
 import { Loader, LoaderSmall, Check, Error, Help } from "./Icons"
 
+import { RadioGroup, RadioGroupItem } from "@/shared/ui/RadioGroup/RadioGroup"
+import Checkbox from "@/shared/ui/Checkbox/Checkbox"
+
+import {
+  PaymentRequestArgs,
+  PaymentsMethod,
+  Promocode,
+  Subscription,
+} from "@/types/api-types"
+import { Resolution } from "@/types/resolution"
+
 import styles from "./styles.module.scss"
 
-interface Subscription {
-  id: number
-  baseDiscount: number | null
-  baseDiscountAmount: number | null
-  duration: {
-    id: number
-    label: string
-  }
-  isActive: boolean
-  kind: 1 | 2 // 1 - prime | 2 - calendar
-  name: string
-  price: number
-}
-
-interface Promocode {
-  code: string
-  discountAmount: number
-  discountKind: { id: "MONEY" | "PERCENT"; label: "Money" | "%" }
-  discounts: Array<{
-    subscriptionId: number
-    discountAmount: number
-  }>
-}
-
-interface PaymentsMethod {
-  createdDatetime: string
-  currency: {
-    id: string
-    label: string
-  }
-  id: number
-  isActive: boolean
-  isDefault: boolean
-  method: {
-    id: "crypto" | "card"
-    label: string
-  }
-  network: {
-    id: string
-    label: string
-  } | null
-}
-
-interface PaymentRequestArgs {
-  paymentType: "crypto" | "card"
-  network?: string
-  currency?: string
-  isReceiptNeed: boolean
-  successUrl: string
-  failUrl: string
-  subscriptionId: number
-  promoCode?: string
-  referral_code?: string | string[]
-  email: string
-}
-
-const PRIME_SUBSCRIPTION_KIND_ID = 1
 const ID_URL = process.env.NEXT_PUBLIC_ID_URL + "/api/v1/"
 
-const BuySubscriptionDialog = ({ children }: { children: React.ReactNode }) => {
+const BuySubscriptionDialog = ({
+  children,
+  selectedSubscription: { baseDiscountAmount, price, id, duration, benefits },
+  order,
+  resolution,
+}: {
+  children: React.ReactNode
+  selectedSubscription: Subscription
+  order: number
+  resolution: Resolution
+}) => {
+  const router = useRouter()
+  const referral = router.query.ref || ""
+
   const [totalPrice, setTotalPrice] = useState(0)
-  const [selectedCardId, setSelectedCardId] = useState<number | undefined>(
+  const [paymentType, setPaymentType] = useState<"crypto" | "card">("crypto")
+  const [activeToken, setActiveToken] = useState<string | undefined>(undefined)
+  const [activeNetwork, setActiveNetwork] = useState<string | undefined>(
     undefined
   )
-  const [showEmailHelper, setShowEmailHelper] = useState(false)
   const [promoForSubmit, setPromoForSubmit] = useState<string | null>(null)
-  // isSecondStep started
-  const [isTopUpOpen, setIsTopUpOpen] = useState(false)
+  const [paymentURL, setPaymentURL] = useState("")
+  const [paymentID, setPaymentID] = useState<number | null>(null)
   // input values
   const [promocode, setPromocode] = useState("")
   const [email, setEmail] = useState("")
+  const [checkboxValue, setCheckboxValue] = useState<boolean | "indeterminate">(
+    false
+  )
 
-  const { data: subscriptions, isError: isSubscriptionsError } = useQuery({
-    queryKey: ["subscriptions"],
-    queryFn: async () => {
-      const response = await axios.get<Subscription[]>(
-        ID_URL + "subscriptions/get-active/"
-      )
+  useEffect(() => {
+    setTotalPrice(baseDiscountAmount ? price - baseDiscountAmount : price)
+  }, [])
 
-      return response.data.filter(
-        (el) => el.isActive && el.kind === PRIME_SUBSCRIPTION_KIND_ID
-      )
-    },
-  })
   const { data: methods } = useQuery({
     queryKey: ["methods"],
     queryFn: async () => {
@@ -130,304 +95,6 @@ const BuySubscriptionDialog = ({ children }: { children: React.ReactNode }) => {
       }),
   })
 
-  const onSelect = ({ id, baseDiscountAmount, price }: Subscription) => {
-    if (isPromoError || isPromoSuccess) resetPromo()
-
-    setSelectedCardId(id)
-    setPromoForSubmit(null)
-    setTotalPrice(baseDiscountAmount ? price - baseDiscountAmount : price)
-  }
-
-  const onPromoInputChange = (evt: ChangeEvent<HTMLInputElement>) => {
-    if (isPromoError || isPromoSuccess) resetPromo()
-
-    setPromocode(evt.currentTarget.value)
-    setPromoForSubmit(null)
-
-    if (selectedCardId) {
-      const { baseDiscountAmount, price } = subscriptions.find(
-        (el) => el.id === selectedCardId
-      )
-
-      setTotalPrice(baseDiscountAmount ? price - baseDiscountAmount : price)
-    }
-  }
-
-  const applyPromocode = async () => {
-    if (
-      isPromoPending ||
-      promocode.length === 0 ||
-      selectedCardId === undefined
-    )
-      return
-
-    const { baseDiscountAmount, price: subscriptionPrice } = subscriptions.find(
-      (el) => el.id === selectedCardId
-    )
-
-    const price = baseDiscountAmount
-      ? subscriptionPrice - baseDiscountAmount
-      : subscriptionPrice
-
-    try {
-      const {
-        data: { discountAmount, discountKind, discounts },
-      } = await mutatePromoValidation({
-        promocode,
-        subscriptionId: selectedCardId,
-      })
-
-      const matchedDiscount = discounts.find(
-        (el) => el.subscriptionId === selectedCardId
-      )
-
-      const preferedDiscount = matchedDiscount
-        ? matchedDiscount.discountAmount
-        : discountAmount
-
-      setPromoForSubmit(promocode)
-
-      if (discountKind.id === "MONEY") {
-        setTotalPrice(price - preferedDiscount)
-      } else {
-        setTotalPrice(price - price * preferedDiscount)
-      }
-    } catch {}
-  }
-
-  return (
-    <Dialog.Root>
-      <Dialog.Trigger className={styles.trigger} asChild>
-        {children}
-      </Dialog.Trigger>
-      <Dialog.Portal>
-        <Dialog.Overlay className={styles.overlay} />
-        <Dialog.Content className={styles.content}>
-          {isTopUpOpen && methods ? (
-            <TopUpContent
-              email={email}
-              subscriptionId={selectedCardId}
-              promocode={promoForSubmit}
-              methods={methods}
-              back={() => setIsTopUpOpen(false)}
-            />
-          ) : (
-            <>
-              {isSubscriptionsError ? (
-                <p>
-                  К сожалению, не удалось загрузить данные. Пожалуйста,
-                  перезагрузите страницу или попробуйте позже.
-                </p>
-              ) : (
-                <>
-                  {subscriptions && (
-                    <div className={styles.subscriptions}>
-                      {subscriptions.map((el) => (
-                        <div
-                          key={el.id}
-                          className={clsx(
-                            styles.card,
-                            selectedCardId === el.id && styles.card_selected
-                          )}
-                        >
-                          <span className={styles.card_duration}>
-                            {el.duration.id === 1
-                              ? "1 месяц"
-                              : el.duration.id === 3
-                              ? "3 месяца"
-                              : el.duration.id === 6
-                              ? "6 месяцев"
-                              : el.duration.id === 12 && "12 месяцев"}
-                          </span>
-
-                          <span className={styles.card_price}>
-                            $
-                            {el.baseDiscountAmount
-                              ? el.price - el.baseDiscountAmount
-                              : el.price}
-                          </span>
-
-                          <div className={styles.card_bottom}>
-                            {el.baseDiscountAmount && (
-                              <div className={styles.card_discount}>
-                                <span className={styles.card_discount_percent}>
-                                  -{el.baseDiscount}%
-                                </span>
-                                <span className={styles.card_discount_amount}>
-                                  экономия ${el.baseDiscountAmount}
-                                </span>
-                              </div>
-                            )}
-
-                            <button
-                              className={clsx(
-                                styles.card_button,
-                                selectedCardId === el.id &&
-                                  styles.card_button__selected
-                              )}
-                              onClick={() => {
-                                onSelect(el)
-                              }}
-                            >
-                              {selectedCardId === el.id ? "Выбрано" : "Выбрать"}
-                            </button>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                  <form
-                    className={styles.bottom}
-                    onSubmit={() => {
-                      if (email.length === 0 || selectedCardId === undefined)
-                        return
-
-                      setIsTopUpOpen(true)
-                    }}
-                  >
-                    <div className={styles.bottom_left}>
-                      <label className={styles.label}>
-                        Почта
-                        <div
-                          style={{
-                            display: "flex",
-                            alignItems: "center",
-                            gap: 8,
-                          }}
-                        >
-                          <input
-                            name="email"
-                            type="email"
-                            required
-                            placeholder="Введите вашу почту"
-                            className={styles.input}
-                            value={email}
-                            onChange={(evt) =>
-                              setEmail(evt.currentTarget.value)
-                            }
-                          />
-                          <button
-                            style={{
-                              background: "transparent",
-                              color: "white",
-                              outline: "none",
-                              border: "none",
-                              position: "relative",
-                              display: "flex",
-                              alignItems: "center",
-                              justifyContent: "center",
-                            }}
-                            onClick={() => setShowEmailHelper(!showEmailHelper)}
-                            onMouseEnter={() => setShowEmailHelper(true)}
-                            onMouseLeave={() => setShowEmailHelper(false)}
-                          >
-                            {showEmailHelper && (
-                              <div className={styles.emailHelper}>
-                                Данная почта будет использована для создания
-                                аккаунта Crypton ID, если у вас нет аккаунта,
-                                или для использования Вашей индивидуальной цены
-                                при создании счета, если профиль существует
-                              </div>
-                            )}
-                            <Help />
-                          </button>
-                        </div>
-                      </label>
-                      <div
-                        style={{
-                          display: "flex",
-                          flexDirection: "column",
-                          gap: 4,
-                        }}
-                      >
-                        <div className={styles.promo_wrapper}>
-                          <label className={styles.label}>
-                            Промокод
-                            <input
-                              name="promocode"
-                              placeholder="Введите промокод"
-                              className={styles.input}
-                              value={promocode}
-                              onChange={onPromoInputChange}
-                            />
-                          </label>
-                          {!isPromoSuccess &&
-                            selectedCardId &&
-                            promocode.length > 0 && (
-                              <button
-                                className={styles.button}
-                                type="button"
-                                onClick={applyPromocode}
-                              >
-                                {isPromoPending ? "Применяем..." : "Применить"}
-                              </button>
-                            )}
-                        </div>
-                        {isPromoError && (
-                          <span style={{ color: "#ff4a7a", fontSize: 12 }}>
-                            Такого промокода не существует
-                          </span>
-                        )}
-                        {isPromoSuccess && (
-                          <span style={{ color: "#4ae0ce", fontSize: 12 }}>
-                            Промокод применён
-                          </span>
-                        )}
-                      </div>
-                    </div>
-                    <div className={styles.bottom_right}>
-                      <span className={styles.total}>
-                        Итого: ${totalPrice.toFixed(2)}
-                      </span>
-                      <button
-                        className={styles.button}
-                        disabled={
-                          email.length === 0 ||
-                          selectedCardId === undefined ||
-                          methods === undefined
-                        }
-                      >
-                        Выбрать способ оплаты
-                      </button>
-                    </div>
-                  </form>
-                </>
-              )}
-            </>
-          )}
-        </Dialog.Content>
-      </Dialog.Portal>
-    </Dialog.Root>
-  )
-}
-
-export default BuySubscriptionDialog
-
-const TopUpContent = ({
-  back,
-  methods,
-  email,
-  subscriptionId,
-  promocode,
-}: {
-  back: () => void
-  methods: PaymentsMethod[]
-  email: string
-  subscriptionId: number
-  promocode: string | null
-}) => {
-  const [paymentType, setPaymentType] = useState<"crypto" | "card">("crypto")
-  const [activeToken, setActiveToken] = useState<string | undefined>(undefined)
-  const [activeNetwork, setActiveNetwork] = useState<string | undefined>(
-    undefined
-  )
-  const [checkboxValue, setCheckboxValue] = useState(false)
-  const [paymentURL, setPaymentURL] = useState("")
-  const [paymentID, setPaymentID] = useState<number | null>(null)
-
-  const router = useRouter()
-  const referral = router.query.ref || ""
-
   const { mutateAsync, isSuccess, reset, isPending } = useMutation({
     mutationFn: (args: PaymentRequestArgs) =>
       axios.post<
@@ -438,13 +105,13 @@ const TopUpContent = ({
   })
 
   const cryptoMethods = methods
-    .filter((el) => el.method.id === "crypto" && el.isActive)
+    ?.filter((el) => el.method.id === "crypto" && el.isActive)
     .sort((a, b) => +b.isDefault - +a.isDefault)
 
   const networks = new Set<string>()
   const tokens = new Set<string>()
 
-  cryptoMethods.forEach((method) => {
+  cryptoMethods?.forEach((method) => {
     tokens.add(method.currency.label)
 
     if (method.network && method.network.label && activeToken) {
@@ -454,14 +121,18 @@ const TopUpContent = ({
     }
   })
 
-  const onSubmit = async () => {
+  const onSubmit = async (event) => {
+    if (email.length === 0) return
+
+    event.preventDefault()
+
     let payload: PaymentRequestArgs = {
       paymentType: "card",
-      isReceiptNeed: checkboxValue,
+      isReceiptNeed: checkboxValue as boolean,
       successUrl: "https://id.crypton.xyz/payment-success",
       failUrl: "https://id.crypton.xyz/payment-error",
       email,
-      subscriptionId,
+      subscriptionId: id,
     }
 
     if (referral) {
@@ -471,10 +142,10 @@ const TopUpContent = ({
       }
     }
 
-    if (promocode) {
+    if (promoForSubmit) {
       payload = {
         ...payload,
-        promoCode: promocode,
+        promoCode: promoForSubmit,
       }
     }
 
@@ -500,120 +171,471 @@ const TopUpContent = ({
       setPaymentURL(paymentUrl)
       setPaymentID(paymentId)
 
-      window.open(paymentUrl, "_blank")
+      // window.open(paymentUrl, "_blank")
     } catch {
       console.log("error happened")
     }
   }
 
-  if (isSuccess)
-    return (
-      <PaymentStatus
-        paymentId={paymentID}
-        paymentUrl={paymentURL}
-        reset={reset}
-      />
-    )
+  const onPromoInputChange = (evt: ChangeEvent<HTMLInputElement>) => {
+    if (isPromoError || isPromoSuccess) resetPromo()
+
+    setPromocode(evt.currentTarget.value)
+
+    if (promoForSubmit) return
+
+    setTotalPrice(baseDiscountAmount ? price - baseDiscountAmount : price)
+  }
+
+  const applyPromocode = async () => {
+    if (isPromoPending || promocode.length === 0) return
+
+    const tempPrice = baseDiscountAmount ? price - baseDiscountAmount : price
+
+    try {
+      const {
+        data: { discountAmount, discountKind, discounts },
+      } = await mutatePromoValidation({
+        promocode,
+        subscriptionId: id,
+      })
+
+      const matchedDiscount = discounts.find((el) => el.subscriptionId === id)
+
+      const preferedDiscount = matchedDiscount
+        ? matchedDiscount.discountAmount
+        : discountAmount
+
+      setPromoForSubmit(promocode)
+
+      if (discountKind.id === "MONEY") {
+        setTotalPrice(tempPrice - preferedDiscount)
+      } else {
+        setTotalPrice(tempPrice - tempPrice * preferedDiscount)
+      }
+    } catch {}
+  }
+
+  const onPromoRemoveClick = () => {
+    setPromoForSubmit(null)
+    setTotalPrice(baseDiscountAmount ? price - baseDiscountAmount : price)
+  }
 
   return (
-    <>
-      <div className={styles.topup}>
-        <button className={clsx(styles.button, styles.back)} onClick={back}>
-          Назад к выбору подписки
-        </button>
-
-        <div className={styles.method_wrapper}>
-          <span>Выберите способ пополнения:</span>
-          <Select
-            value={paymentType}
-            onValueChange={(value) =>
-              setPaymentType(value as "crypto" | "card")
-            }
-          >
-            <SelectTrigger>
-              <SelectValue placeholder="Выбрать" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="crypto">Криптовалюта</SelectItem>
-              <SelectItem value="card">Банковская карта</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
-
-        {paymentType === "crypto" && (
-          <>
-            <span>Выберите валюту</span>
-            <div className={styles.tokens}>
-              {[...tokens].map((el, i) => (
-                <button
-                  key={i}
-                  className={clsx(
-                    styles.button,
-                    el === activeToken && styles.button__selected
+    <Dialog.Root>
+      <Dialog.Trigger className={styles.trigger} asChild>
+        {children}
+      </Dialog.Trigger>
+      <Dialog.Portal>
+        <Dialog.Overlay className={styles.overlay} />
+        <Dialog.Content
+          className={styles.content}
+          onEscapeKeyDown={() => reset()}
+          onInteractOutside={() => reset()}
+          onPointerDownOutside={() => reset()}
+        >
+          {isSuccess ? (
+            <PaymentStatus
+              paymentId={paymentID}
+              paymentUrl={paymentURL}
+              reset={reset}
+            />
+          ) : (
+            <form className={styles.form} onSubmit={onSubmit}>
+              <div className={styles.top}>
+                <div className={styles.top_left}>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 8,
+                    }}
+                  >
+                    <input
+                      name="email"
+                      type="email"
+                      required
+                      placeholder="Электронная почта"
+                      className={styles.input_standard}
+                      value={email}
+                      onChange={(evt) => setEmail(evt.currentTarget.value)}
+                    />
+                    {resolution === "sm" ? (
+                      <Popover.Root>
+                        <Popover.Trigger className={styles.PopoverTrigger}>
+                          <button
+                            style={{
+                              background: "transparent",
+                              color: "white",
+                              outline: "none",
+                              border: "none",
+                              position: "relative",
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "center",
+                            }}
+                            type="button"
+                          >
+                            <Help />
+                          </button>
+                        </Popover.Trigger>
+                        <Popover.Portal>
+                          <Popover.Content
+                            className={styles.PopoverContent}
+                            sideOffset={5}
+                          >
+                            <p>
+                              Если у вас нет аккаунта Crypton ID, данная почта
+                              будет использована для его создания. <br /> Если у
+                              вас существует профиль, почта будет использована
+                              для вашей индивидуальной цены при создании счёта.
+                            </p>
+                          </Popover.Content>
+                        </Popover.Portal>
+                      </Popover.Root>
+                    ) : (
+                      <HoverCard.Root openDelay={150}>
+                        <HoverCard.Trigger
+                          className={styles.HoverCardTrigger}
+                          asChild
+                        >
+                          <button
+                            style={{
+                              background: "transparent",
+                              color: "white",
+                              outline: "none",
+                              border: "none",
+                              position: "relative",
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "center",
+                            }}
+                            type="button"
+                          >
+                            <Help />
+                          </button>
+                        </HoverCard.Trigger>
+                        <HoverCard.Portal>
+                          <HoverCard.Content
+                            className={styles.HoverCardContent}
+                            sideOffset={5}
+                            side="right"
+                          >
+                            <p>
+                              Если у вас нет аккаунта Crypton ID, данная почта
+                              будет использована для его создания. <br /> Если у
+                              вас существует профиль, почта будет использована
+                              для вашей индивидуальной цены при создании счёта.
+                            </p>
+                          </HoverCard.Content>
+                        </HoverCard.Portal>
+                      </HoverCard.Root>
+                    )}
+                  </div>
+                  <Checkbox
+                    id="receipt"
+                    checked={checkboxValue}
+                    onCheckedChange={setCheckboxValue}
+                  >
+                    Прислать чек на почту
+                  </Checkbox>
+                  <div className={styles.payment}>
+                    <h3 className={styles.payment_heading}>Способ оплаты</h3>
+                    <RadioGroup
+                      value={paymentType}
+                      onValueChange={(value) =>
+                        setPaymentType(value as "crypto" | "card")
+                      }
+                    >
+                      <RadioGroupItem value="card">
+                        Банковская карта
+                      </RadioGroupItem>
+                      <RadioGroupItem value="crypto">
+                        Криптовалюта
+                      </RadioGroupItem>
+                    </RadioGroup>
+                  </div>
+                  {paymentType === "card" ? (
+                    <p className={styles.payment_card}>
+                      При оплате картой конвертация <br /> осуществляется по
+                      курсу ЦБ РФ
+                    </p>
+                  ) : (
+                    <div className={styles.payment_crypto}>
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "space-between",
+                          gap: 16,
+                        }}
+                      >
+                        <span>Выберите валюту:</span>
+                        <Select
+                          key={activeToken}
+                          value={activeToken}
+                          onValueChange={(value) => {
+                            setActiveToken(value)
+                            setActiveNetwork(undefined)
+                          }}
+                        >
+                          <SelectTrigger>
+                            <SelectValue placeholder="Не выбрано" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            {[...tokens].map((el) => (
+                              <SelectItem key={el} value={el}>
+                                {el}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "space-between",
+                          gap: 16,
+                        }}
+                      >
+                        <span>Выберите сеть:</span>
+                        <Select
+                          key={activeToken}
+                          value={activeNetwork}
+                          onValueChange={(value) => {
+                            setActiveNetwork(value)
+                          }}
+                          disabled={!activeToken}
+                        >
+                          <SelectTrigger>
+                            <SelectValue placeholder="Не выбрано" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            {[...networks].map((el) => (
+                              <SelectItem key={el} value={el}>
+                                {el}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      </div>
+                    </div>
                   )}
-                  onClick={() => {
-                    setActiveToken(el)
-                    setActiveNetwork(undefined)
+                </div>
+
+                <div className={styles.top_right}>
+                  <div
+                    className={clsx(
+                      styles.cards,
+                      order === 0 && styles.cards_0__active,
+                      order === 1 && styles.cards_1__active,
+                      order === 2 && styles.cards_2__active,
+                      order === 3 && styles.cards_3__active
+                    )}
+                  >
+                    {[0, 1, 2, 3].map((el) => (
+                      <div className={clsx(styles.card, styles[`card_${el}`])}>
+                        <span
+                          className={clsx(
+                            styles.card_duration,
+                            order === 0 && styles.card_duration__active1,
+                            order === 1 && styles.card_duration__active2,
+                            order === 2 && styles.card_duration__active3,
+                            order === 3 && styles.card_duration__active4
+                          )}
+                        >
+                          {duration.id} МЕС
+                        </span>
+                        {order !== 0 && (
+                          <div
+                            className={clsx(
+                              styles.bonuses_heading,
+                              order === 1 && styles.bonuses_heading1,
+                              order === 2 && styles.bonuses_heading2,
+                              order === 3 && styles.bonuses_heading3
+                            )}
+                          >
+                            <div className={styles.bonuses_heading_icon}>
+                              <svg
+                                width="12"
+                                height="12"
+                                viewBox="0 0 12 12"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M10.6834 6.57031H6.3916V11.9998H10.6834V6.57031Z"
+                                  fill="#171717"
+                                />
+                                <path
+                                  d="M5.60823 6.57031H1.31641V11.9998H5.60823V6.57031Z"
+                                  fill="#171717"
+                                />
+                                <path
+                                  d="M9.34618 2.21325C9.46227 2.00055 9.52834 1.75683 9.52834 1.49791C9.52836 0.671953 8.85638 0 8.03045 0C7.41955 0 6.79447 0.315656 6.31557 0.866039C6.19705 1.00223 6.09149 1.1486 6.0002 1.30104C5.90891 1.1486 5.80334 1.00223 5.68482 0.866039C5.20592 0.315656 4.58087 0 3.96995 0C3.14401 0 2.47203 0.671977 2.47203 1.49791C2.47203 1.7568 2.53808 2.00055 2.65419 2.21325H0.614258V5.78791H5.60888V2.21325H6.39149V5.78791H11.3861V2.21325H9.34618ZM3.96995 2.21325C3.57554 2.21325 3.25463 1.89234 3.25463 1.49791C3.25463 1.10348 3.57554 0.782602 3.96995 0.782602C4.68008 0.782602 5.35524 1.509 5.55172 2.21323L3.96995 2.21325ZM8.03045 2.21325H6.44867C6.64515 1.509 7.32031 0.782625 8.03045 0.782625C8.42485 0.782625 8.74576 1.10353 8.74576 1.49794C8.74574 1.89237 8.42485 2.21325 8.03045 2.21325Z"
+                                  fill="#171717"
+                                />
+                              </svg>
+                            </div>
+                            <span className={styles.bonuses_heading_text}>
+                              БОНУСЫ
+                            </span>
+                          </div>
+                        )}
+                        <ul className={styles.bonuses}>
+                          {benefits.map((benefit) =>
+                            benefit.file ? (
+                              resolution === "sm" ? (
+                                <Popover.Root key={benefit.id}>
+                                  <Popover.Trigger
+                                    className={styles.BonusPopoverTrigger}
+                                  >
+                                    <li className={styles.bonus}>
+                                      <p className={styles.bonus_text}>
+                                        {benefit.translations.ru.name}
+                                      </p>
+                                    </li>
+                                  </Popover.Trigger>
+                                  <Popover.Portal>
+                                    <Popover.Content
+                                      className={styles.BonusPopoverContent}
+                                      sideOffset={5}
+                                    >
+                                      <img
+                                        className={styles.BonusPopoverImage}
+                                        src={benefit.file}
+                                        alt={benefit.translations.ru.name}
+                                      />
+                                    </Popover.Content>
+                                  </Popover.Portal>
+                                </Popover.Root>
+                              ) : (
+                                <HoverCard.Root
+                                  key={benefit.id}
+                                  openDelay={150}
+                                >
+                                  <HoverCard.Trigger
+                                    className={styles.BonusHoverCardTrigger}
+                                  >
+                                    <li className={styles.bonus}>
+                                      <p className={styles.bonus_text}>
+                                        {benefit.translations.ru.name}
+                                      </p>
+                                    </li>
+                                  </HoverCard.Trigger>
+                                  <HoverCard.Portal>
+                                    <HoverCard.Content
+                                      className={styles.BonusHoverCardContent}
+                                      sideOffset={5}
+                                      side="right"
+                                    >
+                                      <img
+                                        className={styles.BonusHoverCardImage}
+                                        src={benefit.file}
+                                        alt={benefit.translations.ru.name}
+                                      />
+                                    </HoverCard.Content>
+                                  </HoverCard.Portal>
+                                </HoverCard.Root>
+                              )
+                            ) : (
+                              <li key={benefit.id} className={styles.bonus}>
+                                <p className={styles.bonus_text}>
+                                  {benefit.translations.ru.name}
+                                </p>
+                              </li>
+                            )
+                          )}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                  <div className={styles.promocode}>
+                    {promoForSubmit && (
+                      <div className={styles.promocode_submit}>
+                        <div className={styles.promocode_submit_text}>
+                          <span className={styles.promocode_submit_text_1}>
+                            {promoForSubmit}
+                          </span>
+                          <span className={styles.promocode_submit_text_2}>
+                            активирован
+                          </span>
+                        </div>
+                        <button
+                          className={styles.promocode_submit_button}
+                          type="button"
+                          onClick={onPromoRemoveClick}
+                        >
+                          Удалить
+                        </button>
+                      </div>
+                    )}
+                    <div className={styles.promo_wrapper}>
+                      <input
+                        name="promocode"
+                        placeholder="Промокод"
+                        className={styles.input}
+                        value={promocode}
+                        onChange={onPromoInputChange}
+                      />
+                      <button
+                        className={styles.button}
+                        type="button"
+                        onClick={applyPromocode}
+                        disabled={promocode.length <= 0}
+                      >
+                        {isPromoPending ? "Применяем..." : "Применить"}
+                      </button>
+                    </div>
+                    {isPromoError && (
+                      <span style={{ color: "#ff4a7a", fontSize: 12 }}>
+                        Такого промокода не существует
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </div>
+              <div className={styles.bottom}>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 8,
                   }}
                 >
-                  {el}
-                </button>
-              ))}
-            </div>
-            <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-              <span>Выберите сеть:</span>
-              <Select
-                key={activeToken}
-                value={activeNetwork}
-                onValueChange={(value) => {
-                  setActiveNetwork(value)
-                }}
-                disabled={!activeToken}
-              >
-                <SelectTrigger>
-                  <SelectValue placeholder="Выбрать" />
-                </SelectTrigger>
-                <SelectContent>
-                  {[...networks].map((el) => (
-                    <SelectItem key={el} value={el}>
-                      {el}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-          </>
-        )}
+                  <button
+                    className={styles.button_main}
+                    disabled={email.length === 0 || methods === undefined}
+                  >
+                    Оплатить
+                  </button>
+                  {isPending && <LoaderSmall />}
+                </div>
 
-        <label className={styles.checkbox}>
-          <input
-            type="checkbox"
-            checked={checkboxValue}
-            onChange={(evt) => setCheckboxValue(evt.currentTarget.checked)}
-          />
-          прислать чек на почту
-        </label>
-
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 8,
-            marginTop: 16,
-          }}
-        >
-          <button
-            className={clsx(styles.button, styles.buyBtn)}
-            onClick={onSubmit}
-          >
-            Оплатить
-          </button>
-          {isPending && <LoaderSmall />}
-        </div>
-      </div>
-    </>
+                <div className={styles.total_container}>
+                  <span className={styles.total}>
+                    Итого: ${totalPrice.toFixed(2)}
+                  </span>
+                  {promoForSubmit && (
+                    <span className={styles.total_full}>
+                      вместо $
+                      {baseDiscountAmount
+                        ? (price - baseDiscountAmount).toFixed(2)
+                        : price.toFixed(2)}
+                    </span>
+                  )}
+                </div>
+              </div>
+            </form>
+          )}
+        </Dialog.Content>
+      </Dialog.Portal>
+    </Dialog.Root>
   )
 }
+
+export default BuySubscriptionDialog
 
 const PaymentStatus = ({
   paymentUrl,
