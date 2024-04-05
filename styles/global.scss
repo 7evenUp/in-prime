@@ -1819,68 +1819,6 @@ p {
       }
     }
 
-    &__partners {
-      width: 1300px;
-      padding: 0 310px 0 310px;
-      margin-top: 160px;
-      margin-bottom: 160px;
-
-      @media (max-width: 1919px) and (min-width: 1368px) {
-        margin-top: 140px;
-        margin-bottom: 140px;
-        width: 1144px;
-        padding: 0 112px 0 112px;
-      }
-
-      @media (max-width: 1367px) and (min-width: 768px) {
-        margin-top: 100px;
-        margin-bottom: 94px;
-        width: 672px;
-        padding: 0 48px 0 48px;
-      }
-
-      @media (max-width: 767px) {
-        margin-top: 80px;
-        margin-bottom: 80px;
-        width: 314px;
-        padding: 0 40px 0 20px;
-      }
-
-      @media (max-width: 420px) {
-        box-sizing: border-box;
-        width: 100%;
-      }
-
-      &__title {
-        width: 680px;
-        height: 86px;
-        font-family: "Benzin-Bold";
-        font-size: 54px;
-        line-height: 160%;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-        color: #ffffff;
-
-        @media (max-width: 1919px) and (min-width: 1368px) {
-          font-size: 44px;
-        }
-
-        @media (max-width: 1367px) and (min-width: 768px) {
-          font-size: 40px;
-          height: 64px;
-        }
-
-        @media (max-width: 767px) {
-          font-size: 26px;
-          height: 42px;
-        }
-
-        @media (max-width: 420px) {
-          font-size: 25px;
-        }
-      }
-    }
-
     &__loyalty {
       min-width: 1920px;
       width: 100%;

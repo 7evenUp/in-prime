@@ -14,22 +14,71 @@ import styles from "./Partners.module.scss"
 
 const Partners = () => {
   return (
-    <div className="app__container__partners" id="partners">
-      <h2 className="app__container__partners__title" style={{ margin: 0 }}>
-        Нам доверяют
-      </h2>
+    <div className={styles.container} id="partners">
+      <h2 className={styles.heading}>Нам доверяют</h2>
       <div className={styles.partners}>
         <div className={styles.row}>
           <Image src={BinanceImg} alt="Binance" className={styles.binance} />
-          <Image src={ImpossibleImg} alt="Impossible Finance" className={styles.if} />
+          <Image
+            src={ImpossibleImg}
+            alt="Impossible Finance"
+            className={styles.if}
+          />
           <Image src={AuraImg} alt="Aura Network" className={styles.aura} />
           <Image src={NearImg} alt="Near" className={styles.near} />
-        </div>
-        <div className={styles.row}>
           <Image src={TrustImg} alt="Trust Wallet" className={styles.trust} />
           <Image src={TaikoImg} alt="Taiko" className={styles.taiko} />
           <Image src={DequestImg} alt="DeQuest" className={styles.dequest} />
           <Image src={CyberImg} alt="Cyber Connect" className={styles.cyber} />
+          {/* Дублирование для корректной анимации */}
+          <Image
+            src={BinanceImg}
+            alt="Binance"
+            className={styles.binance}
+            aria-hidden="true"
+          />
+          <Image
+            src={ImpossibleImg}
+            alt="Impossible Finance"
+            className={styles.if}
+            aria-hidden="true"
+          />
+          <Image
+            src={AuraImg}
+            alt="Aura Network"
+            className={styles.aura}
+            aria-hidden="true"
+          />
+          <Image
+            src={NearImg}
+            alt="Near"
+            className={styles.near}
+            aria-hidden="true"
+          />
+          <Image
+            src={TrustImg}
+            alt="Trust Wallet"
+            className={styles.trust}
+            aria-hidden="true"
+          />
+          <Image
+            src={TaikoImg}
+            alt="Taiko"
+            className={styles.taiko}
+            aria-hidden="true"
+          />
+          <Image
+            src={DequestImg}
+            alt="DeQuest"
+            className={styles.dequest}
+            aria-hidden="true"
+          />
+          <Image
+            src={CyberImg}
+            alt="Cyber Connect"
+            className={styles.cyber}
+            aria-hidden="true"
+          />
         </div>
       </div>
     </div>

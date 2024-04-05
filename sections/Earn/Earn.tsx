@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react"
 
-import Categories from "@/components/categories";
-import MobileMenu from "@/components/mobile-menu";
+import Categories from "@/components/categories"
+import MobileMenu from "@/components/mobile-menu"
 import BuySubscriptionDialog from "@/components/BuySubscriptionDialog"
 
-import { Resolution } from "@/types/resolution";
+import { Resolution } from "@/types/resolution"
 
-import styles from "./Earn.module.scss";
+import styles from "./Earn.module.scss"
 
 interface EarnProps {
-  resolution: Resolution;
-  referral: string | string[];
-  currentY: number;
-  setCurrentY: React.Dispatch<React.SetStateAction<number>>;
+  resolution: Resolution
+  referral: string | string[]
+  currentY: number
+  setCurrentY: React.Dispatch<React.SetStateAction<number>>
 }
 
 const positions = {
@@ -20,20 +20,20 @@ const positions = {
   lg: 7150,
   md: 7740,
   sm: 6250,
-};
+}
 
 const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
-  const [mobileMenu, changeMobileMenu] = useState(false);
-  const [scrollY, setScrollY] = React.useState(0);
+  const [mobileMenu, changeMobileMenu] = useState(false)
+  const [scrollY, setScrollY] = React.useState(0)
 
   const scrollHandler = React.useCallback((event) => {
-    setScrollY(window.scrollY);
-  }, []);
+    setScrollY(window.scrollY)
+  }, [])
 
   useEffect(() => {
-    window.addEventListener("scroll", scrollHandler, { passive: true });
-    return () => window.removeEventListener("scroll", scrollHandler);
-  }, []);
+    window.addEventListener("scroll", scrollHandler, { passive: true })
+    return () => window.removeEventListener("scroll", scrollHandler)
+  }, [])
 
   return (
     <section className="app__container__earn">
@@ -94,9 +94,9 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
       </h1>
 
       <div className="app__container__earn__description">
-        Prime – приватное комьюнити с авторским контентом по заработку в
+        Prime – приватное сообщество с авторским контентом по заработку в
         криптовалюте. Наша команда отбирает лучшие события, подготавливает
-        детальные инструкции и помогает получить первую прибыль.
+        детальные инструкции и помогает вам получать прибыль.
       </div>
       <div className={styles.footer}>
         <p>
@@ -124,7 +124,7 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
         </p>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Earn;
+export default Earn

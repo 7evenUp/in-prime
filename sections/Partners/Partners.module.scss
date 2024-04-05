@@ -1,89 +1,134 @@
+.container {
+  width: 100vw;
+  padding: 100px 0;
+  background-color: rgba(96, 96, 96, 0.2);
+  margin-top: 140px;
+
+  @media (max-width: 1919px) and (min-width: 1368px) {
+    padding: 64px 0;
+  }
+
+  @media (max-width: 1367px) and (min-width: 768px) {
+    padding: 60px 0;
+  }
+
+  @media (max-width: 767px) {
+    padding: 48px 0;
+  }
+}
+
+.heading {
+  font-family: "Benzin-Bold";
+  font-size: 36px;
+  line-height: 160%;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #ffffff;
+  width: 1300px;
+  margin: 0;
+  margin-inline: auto;
+
+  @media (max-width: 1919px) and (min-width: 1368px) {
+    width: 1144px;
+  }
+
+  @media (max-width: 1367px) and (min-width: 768px) {
+    width: 672px;
+    font-size: 34px;
+  }
+
+  @media (max-width: 767px) {
+    width: 335px;
+    font-size: 26px;
+  }
+
+  @media (max-width: 420px) {
+    width: 290px;
+    font-size: 20px;
+  }
+}
+
 .partners {
   margin-top: 100px;
   display: flex;
-  flex-direction: column;
-  gap: 86px;
+
+  -webkit-mask: linear-gradient(
+    90deg,
+    transparent,
+    white 30%,
+    white 70%,
+    transparent
+  );
+  mask: linear-gradient(90deg, transparent, white 30%, white 70%, transparent);
 
   @media (max-width: 1919px) {
     margin-top: 73px;
   }
 
   @media (max-width: 1367px) {
-    flex-direction: row;
     margin-top: 50px;
   }
 
   @media (max-width: 767px) {
-    flex-direction: column;
-    // flex-direction: row;
-    gap: 40px;
     margin-top: 44px;
+
+    -webkit-mask: linear-gradient(
+      90deg,
+      transparent,
+      white 15%,
+      white 85%,
+      transparent
+    );
+    mask: linear-gradient(
+      90deg,
+      transparent,
+      white 15%,
+      white 85%,
+      transparent
+    );
   }
 }
 
 .row {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  gap: 120px;
+  width: fit-content;
 
-  @media (max-width: 1367px) {
-    flex-direction: column;
-    align-items: start;
-    gap: 48px;
-  }
+  animation: scroll 20s linear infinite;
 
   @media (max-width: 767px) {
     gap: 40px;
-    flex-direction: row;
-  }
-}
+    animation: scrollMd 20s linear infinite;
 
-@media (max-width: 767px) {
-  .binance {
-    width: 56px;
-    height: 55px;
-  }
-  .if {
-    width: 43.799px;
-    height: 51.762px;
-    @media (min-width: 376px) {
-      margin-left: 10px;
+    img {
+      scale: 0.8;
     }
   }
-  .trust {
-    width: 46.625px;
-    height: 55.212px;
-    @media (min-width: 376px) {
-      margin-left: 10px;
-    }
-  }
-  .near {
-    width: 50px;
-    height: 50px;
-    @media (min-width: 376px) {
-      margin-left: 16px;
-    }
-  }
-  .taiko {
-    width: 56px;
-    height: 50px;
-  }
-  .aura {
-    width: 59px;
-    height: 66px;
-    margin-top: -9px;
-  }
-  .dequest {
-    width: 72px;
-    height: 45px;
-  }
-  .cyberconnect {
-    width: 49px;
-    height: 43px;
-    @media (max-width: 375px) {
-      margin-left: -22px;
+
+  @media (max-width: 500px) {
+    gap: 0px;
+    animation: scrollSm 15s linear infinite;
+
+    img {
+      scale: 0.7;
     }
   }
 }
 
+@keyframes scroll {
+  to {
+    transform: translate(calc(-50% - 60px));
+  }
+}
 
+@keyframes scrollMd {
+  to {
+    transform: translate(calc(-50% - 20px));
+  }
+}
+@keyframes scrollSm {
+  to {
+    transform: translate(calc(-50%));
+  }
+}

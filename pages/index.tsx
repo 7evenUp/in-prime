@@ -24,7 +24,6 @@ import Earn from "@/sections/Earn/Earn"
 import FeaturesMobile from "@/sections/Features/FeaturesMobile"
 import Founders from "@/sections/founders/Founders"
 import FoundersMobile from "@/sections/founders/FoundersMobile"
-import PartnersMobile from "@/sections/Partners/PartnersMobile"
 import BuySubscription from "@/sections/BuySubscription/BuySubscription"
 
 import { Resolution } from "@/types/resolution"
@@ -255,14 +254,14 @@ const Home = (props) => {
 
           <Team resolution={resolution} />
 
-          {resolution === "sm" ? <PartnersMobile /> : <Partners />}
-
-          <LoyaltySystem resolution={resolution} />
+          {/* <LoyaltySystem resolution={resolution} /> */}
 
           <BuySubscription tariffs={tariffs} resolution={resolution} />
 
           <Testimonials />
           <Histories />
+
+          <Partners />
 
           <div className="app__container__faq" id="faq">
             <div className="app__container__faq__title">
