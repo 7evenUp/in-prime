@@ -171,7 +171,7 @@ const BuySubscriptionDialog = ({
       setPaymentURL(paymentUrl)
       setPaymentID(paymentId)
 
-      // window.open(paymentUrl, "_blank")
+      window.open(paymentUrl, "_blank")
     } catch {
       console.log("error happened")
     }
@@ -597,16 +597,15 @@ const BuySubscriptionDialog = ({
                 </div>
               </div>
               <div className={styles.bottom}>
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 8,
-                  }}
-                >
+                <div className={styles.button_wrapper}>
                   <button
                     className={styles.button_main}
-                    disabled={email.length === 0 || methods === undefined}
+                    disabled={
+                      email.length === 0 ||
+                      methods === undefined ||
+                      (paymentType === "crypto" &&
+                        (!activeToken || !activeNetwork))
+                    }
                   >
                     Оплатить
                   </button>
@@ -661,22 +660,24 @@ const PaymentStatus = ({
   if (isLoading || status === "PENDING") {
     return (
       <>
+        <h2 className={styles.status_heading} style={{ marginBottom: 24 }}>
+          Ожидание оплаты
+        </h2>
+
         <div className={styles.status}>
-          <p>Запрос на пополнение был успешно отправлен</p>
+          <p>Запрос на пополнение был успешно отправлен.</p>
           <p>
-            Если у вас не открылась новая вкладка, перейдите по данной ссылке
-            для оплаты:{" "}
+            После завершения операции мы предоставим вам ссылки для
+            использования продуктов Prime.
+          </p>
+          <Loader />
+
+          <p>
+            Если у вас не открылась новая вкладка, перейдите по ссылке для
+            оплаты:{" "}
             <a href={paymentUrl} target="_blank">
               {paymentUrl}
             </a>
-          </p>
-        </div>
-        <div className={styles.status_wait}>
-          <p>Оплата в процессе ожидания</p>
-          <Loader />
-          <p className={styles.status_after}>
-            После успешной операции, мы предоставим Вам полезные ссылки для
-            использования продукта Prime
           </p>
         </div>
       </>
@@ -687,17 +688,21 @@ const PaymentStatus = ({
     return (
       <>
         <div className={styles.status}>
-          <div className={styles.status_wait}>
-            <Check />
-            <p className={styles.status_after}>
-              Авторизуйтесь в личном кабинете{" "}
-              <a href="https://id.crypton.xyz" target="_blank">
-                Crypton ID
-              </a>
-              , с почтой, указанной на первом этапе, чтобы воспользоваться всеми
-              преимуществами Prime
-            </p>
-          </div>
+          <Check />
+          <h2
+            className={styles.status_heading}
+            style={{ marginBottom: 30, lineHeight: 1.3 }}
+          >
+            Успешно <br /> Оплачено
+          </h2>
+          <p className={styles.status_after}>
+            Авторизуйтесь в{" "}
+            <a href="https://id.crypton.xyz" target="_blank">
+              личном кабинете Crypton ID
+            </a>{" "}
+            с почтой, указанной при оплате, чтобы воспользоваться всеми
+            возможностями Crypton Prime
+          </p>
         </div>
       </>
     )
@@ -707,15 +712,21 @@ const PaymentStatus = ({
     return (
       <>
         <div className={styles.status}>
+          <Error />
+          <h2 className={styles.status_heading} style={{ marginBottom: 30 }}>
+            Оплата отменена
+          </h2>
           <div className={styles.status_wait}>
-            <Error />
             <p className={styles.status_after}>
-              Во время операции пополнения произошла отмена платежа, либо вышло
-              время на оплату. Пожалуйста, выполните повторный выбор необходимой
-              Вам подписки и метода оплаты
+              Во время операции пополнения произошла отмена платежа или вышло
+              время на оплату.
             </p>
-            <button onClick={reset} className={styles.button}>
-              Повторить
+            <p className={styles.status_after}>
+              Пожалуйста, выполните повторный выбор необходимой Вам подписки и
+              метода оплаты
+            </p>
+            <button onClick={reset} className={styles.button_repeat}>
+              Повторить оплату
             </button>
           </div>
         </div>
