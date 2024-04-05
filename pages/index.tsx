@@ -6,7 +6,6 @@ import Footer from "@/components/footer"
 import Examples from "@/components/examples"
 import Accordion from "@/components/accordion/accordion"
 import Menu from "@/components/menu"
-import OtherProducts from "@/components/other-products"
 import Team from "@/components/team"
 import Ribbon from "@/components/ribbon"
 
@@ -25,6 +24,7 @@ import FeaturesMobile from "@/sections/Features/FeaturesMobile"
 import Founders from "@/sections/founders/Founders"
 import FoundersMobile from "@/sections/founders/FoundersMobile"
 import BuySubscription from "@/sections/BuySubscription/BuySubscription"
+import OtherProducts from "@/sections/OtherProducts/OtherProducts"
 
 import { Resolution } from "@/types/resolution"
 import RibbonSale from "@/components/ribbon-sale"
@@ -271,6 +271,7 @@ const Home = (props) => {
           </div>
 
           <OtherProducts />
+
           <Footer
             resolution={resolution}
             currentY={currentY}
