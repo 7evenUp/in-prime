@@ -435,7 +435,10 @@ const BuySubscriptionDialog = ({
                     )}
                   >
                     {[0, 1, 2, 3].map((el) => (
-                      <div className={clsx(styles.card, styles[`card_${el}`])}>
+                      <div
+                        key={el}
+                        className={clsx(styles.card, styles[`card_${el}`])}
+                      >
                         <span
                           className={clsx(
                             styles.card_duration,

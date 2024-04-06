@@ -22,7 +22,6 @@ import Roadmap from "@/sections/Roadmap/Roadmap"
 import Earn from "@/sections/Earn/Earn"
 import FeaturesMobile from "@/sections/Features/FeaturesMobile"
 import Founders from "@/sections/founders/Founders"
-import FoundersMobile from "@/sections/founders/FoundersMobile"
 import BuySubscription from "@/sections/BuySubscription/BuySubscription"
 import OtherProducts from "@/sections/OtherProducts/OtherProducts"
 
@@ -193,8 +192,6 @@ const Home = (props) => {
             <Features resolution={resolution} />
           )}
 
-          <Roadmap resolution={resolution} />
-
           {/* <div className="app__container__video-block" id="video">
             <div className="app__container__video-block__video">
               <iframe
@@ -250,7 +247,9 @@ const Home = (props) => {
             <Examples resolution={resolution} />
           </div>
 
-          {resolution === "sm" ? <FoundersMobile /> : <Founders />}
+          <Roadmap resolution={resolution} />
+
+          <Founders />
 
           <Team resolution={resolution} />
 

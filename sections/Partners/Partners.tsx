@@ -18,67 +18,27 @@ const Partners = () => {
       <h2 className={styles.heading}>Нам доверяют</h2>
       <div className={styles.partners}>
         <div className={styles.row}>
-          <Image src={BinanceImg} alt="Binance" className={styles.binance} />
-          <Image
-            src={ImpossibleImg}
-            alt="Impossible Finance"
-            className={styles.if}
-          />
-          <Image src={AuraImg} alt="Aura Network" className={styles.aura} />
-          <Image src={NearImg} alt="Near" className={styles.near} />
-          <Image src={TrustImg} alt="Trust Wallet" className={styles.trust} />
-          <Image src={TaikoImg} alt="Taiko" className={styles.taiko} />
-          <Image src={DequestImg} alt="DeQuest" className={styles.dequest} />
-          <Image src={CyberImg} alt="Cyber Connect" className={styles.cyber} />
+          <Image src={BinanceImg} alt="Binance" />
+          <Image src={ImpossibleImg} alt="Impossible Finance" />
+          <Image src={AuraImg} alt="Aura Network" />
+          <Image src={NearImg} alt="Near" />
+          <Image src={TrustImg} alt="Trust Wallet" />
+          <Image src={TaikoImg} alt="Taiko" />
+          <Image src={DequestImg} alt="DeQuest" />
+          <Image src={CyberImg} alt="Cyber Connect" />
           {/* Дублирование для корректной анимации */}
-          <Image
-            src={BinanceImg}
-            alt="Binance"
-            className={styles.binance}
-            aria-hidden="true"
-          />
+          <Image src={BinanceImg} alt="Binance" aria-hidden="true" />
           <Image
             src={ImpossibleImg}
             alt="Impossible Finance"
-            className={styles.if}
             aria-hidden="true"
           />
-          <Image
-            src={AuraImg}
-            alt="Aura Network"
-            className={styles.aura}
-            aria-hidden="true"
-          />
-          <Image
-            src={NearImg}
-            alt="Near"
-            className={styles.near}
-            aria-hidden="true"
-          />
-          <Image
-            src={TrustImg}
-            alt="Trust Wallet"
-            className={styles.trust}
-            aria-hidden="true"
-          />
-          <Image
-            src={TaikoImg}
-            alt="Taiko"
-            className={styles.taiko}
-            aria-hidden="true"
-          />
-          <Image
-            src={DequestImg}
-            alt="DeQuest"
-            className={styles.dequest}
-            aria-hidden="true"
-          />
-          <Image
-            src={CyberImg}
-            alt="Cyber Connect"
-            className={styles.cyber}
-            aria-hidden="true"
-          />
+          <Image src={AuraImg} alt="Aura Network" aria-hidden="true" />
+          <Image src={NearImg} alt="Near" aria-hidden="true" />
+          <Image src={TrustImg} alt="Trust Wallet" aria-hidden="true" />
+          <Image src={TaikoImg} alt="Taiko" aria-hidden="true" />
+          <Image src={DequestImg} alt="DeQuest" aria-hidden="true" />
+          <Image src={CyberImg} alt="Cyber Connect" aria-hidden="true" />
         </div>
       </div>
     </div>
