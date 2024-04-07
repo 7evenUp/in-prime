@@ -257,7 +257,7 @@ const Home = (props) => {
 
           <BuySubscription tariffs={tariffs} resolution={resolution} />
 
-          <Testimonials />
+          <Testimonials resolution={resolution} />
           <Histories />
 
           <Partners />

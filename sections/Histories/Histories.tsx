@@ -1,9 +1,7 @@
 import React, { useRef, useState } from "react"
 import Image, { StaticImageData } from "next/image"
 import { Swiper, SwiperSlide } from "swiper/react"
-import clsx from "clsx"
 
-import HistoriesImage from "@/public/images/png/histories/histories.png"
 import TelegramIcon from "@/public/images/png/histories/telegram.svg"
 
 import { useSwiperReactive } from "@/hooks/useSwiperReactive"
@@ -24,21 +22,26 @@ const Histories = () => {
         <h2 className={styles.title}>Истории успеха</h2>
         <div className={styles.navigation}>
           <button
-            className={clsx(
-              styles.arrow_btn,
-              activeIndex === 0 && styles.arrow_btn_disabled
-            )}
-            onClick={() => swiperRef.current.swiper.slidePrev()}
+            className={styles.arrow_btn}
+            onClick={() => {
+              if (activeIndex === 0) {
+                swiperRef.current.swiper.slideTo(historiesData.length - 1)
+              } else {
+                swiperRef.current.swiper.slidePrev()
+              }
+            }}
           >
             <Arrow className={styles.arrow_prev} />
           </button>
           <button
-            className={clsx(
-              styles.arrow_btn,
-              activeIndex === historiesData.length - 1 &&
-                styles.arrow_btn_disabled
-            )}
-            onClick={() => swiperRef.current.swiper.slideNext()}
+            className={styles.arrow_btn}
+            onClick={() => {
+              if (activeIndex === historiesData.length - 1) {
+                swiperRef.current.swiper.slideTo(0)
+              } else {
+                swiperRef.current.swiper.slideNext()
+              }
+            }}
           >
             <Arrow className={styles.arrow_next} />
           </button>
@@ -96,7 +99,12 @@ const HistoryCard = ({
     >
       <div className={styles.card}>
         <div className={styles.card_header}>
-          <Image src={avatar} alt="Avatar" className={styles.card_avatar} style={{borderRadius: '50%'}}/>
+          <Image
+            src={avatar}
+            alt="Avatar"
+            className={styles.card_avatar}
+            style={{ borderRadius: "50%" }}
+          />
           <div className={styles.card_header_info}>
             <span className={styles.card_name}>{name}</span>
             <span className={styles.card_time}>{timeWithPrime}</span>
