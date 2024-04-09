@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { useRouter } from "next/router"
+import { Swiper, SwiperSlide } from "swiper/react"
 
 import Footer from "@/components/footer"
 // import Features from "@/components/features"
@@ -8,6 +9,8 @@ import Accordion from "@/components/accordion/accordion"
 import Menu from "@/components/menu"
 import Team from "@/components/team"
 import Ribbon from "@/components/ribbon"
+import RibbonSale from "@/components/ribbon-sale"
+// import Countdown from "@/components/countdown";
 
 import YouTube from "@/public/images/jsx/ceo/you-tube"
 import TeamArrow from "@/public/images/jsx/ceo/arrow"
@@ -17,23 +20,21 @@ import Testimonials from "@/sections/Testimonials/Testimonials"
 import Histories from "@/sections/Histories/Histories"
 import Benefits from "@/sections/Benefits/Benefits"
 import Features from "@/sections/Features/Features"
+import FeaturesMd from "@/sections/Features/FeaturesMd"
 import Partners from "@/sections/Partners/Partners"
 import Roadmap from "@/sections/Roadmap/Roadmap"
 import Earn from "@/sections/Earn/Earn"
-import FeaturesMobile from "@/sections/Features/FeaturesMobile"
 import Founders from "@/sections/founders/Founders"
 import BuySubscription from "@/sections/BuySubscription/BuySubscription"
 import OtherProducts from "@/sections/OtherProducts/OtherProducts"
+import LoyaltySystem from "@/sections/LoyaltySystem/LoyaltySystem"
 
-import { Resolution } from "@/types/resolution"
-import RibbonSale from "@/components/ribbon-sale"
-// import Countdown from "@/components/countdown";
-import { Swiper, SwiperSlide } from "swiper/react"
 import BuySubscr from "@/public/images/jsx/subscribe/buy-subscr"
 import BuySubscrLg from "@/public/images/jsx/subscribe/buy-subscr-lg"
 import BuySubscrMd from "@/public/images/jsx/subscribe/buy-subscr-md"
 import BuySubscrSm from "@/public/images/jsx/subscribe/buy-subscr-sm"
-import LoyaltySystem from "@/sections/LoyaltySystem/LoyaltySystem"
+
+import { Resolution } from "@/types/resolution"
 
 const useWindowSize = () => {
   const [currentWidth, setCurrentWidth] = useState(0)
@@ -186,8 +187,8 @@ const Home = (props) => {
 
           <Benefits />
 
-          {resolution === "sm" ? (
-            <FeaturesMobile resolution={resolution} />
+          {resolution === "sm" || resolution === "md" ? (
+            <FeaturesMd resolution={resolution} />
           ) : (
             <Features resolution={resolution} />
           )}
