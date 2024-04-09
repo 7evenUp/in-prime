@@ -182,25 +182,21 @@ p {
       min-width: 1920px;
       width: 100%;
       align-items: center;
-      height: 1051px;
       background-repeat: no-repeat;
       display: flex;
       flex-direction: column;
       position: relative;
 
       @media (max-width: 1919px) and (min-width: 1368px) {
-        height: 838px;
         min-width: 1368px;
         position: relative;
       }
 
       @media (max-width: 1367px) and (min-width: 768px) {
-        height: 1024px;
         min-width: 768px;
       }
 
       @media (max-width: 767px) {
-        height: 812px;
         min-width: 350px;
       }
 
@@ -360,6 +356,7 @@ p {
       &__right-gradient {
         position: absolute;
         right: 0;
+        bottom: 0;
         width: 1920px;
         height: 1051px;
         background-image: url("/images/png/earn/right-gradient-lgg.png");
@@ -407,7 +404,7 @@ p {
         }
 
         @media (max-width: 767px) {
-          margin-top: 23px;
+          margin-top: 24px;
           width: 335px;
           height: 36px;
         }
@@ -460,8 +457,8 @@ p {
           }
 
           @media (max-width: 767px) {
-            width: 94px;
-            height: 36px;
+            width: 88px;
+            height: 32px;
             background-image: url("/images/svg/logo/logo-sm.svg");
           }
         }
@@ -601,13 +598,16 @@ p {
         @media (max-width: 420px) {
           margin-top: 40px;
           width: 100%;
+          height: auto;
+          padding-inline: 12px;
+          box-sizing: border-box;
         }
       }
     }
 
     &__benefits-gradient {
       position: absolute;
-      top: 1051px;
+      top: 1084px;
       width: 100%;
       height: 758px;
       background: radial-gradient(
@@ -617,18 +617,26 @@ p {
       );
 
       @media (max-width: 1919px) and (min-width: 1368px) {
-        top: 838px;
+        top: 872px;
         height: 668px;
       }
 
       @media (max-width: 1367px) and (min-width: 768px) {
-        top: 1024px;
+        top: 1030px;
         height: 762px;
       }
 
       @media (max-width: 767px) {
-        top: 812px;
+        top: 808px;
         height: 524px;
+      }
+
+      @media (max-width: 420px) {
+        top: 816px;
+      }
+
+      @media (max-width: 375px) {
+        top: 836px;
       }
     }
 

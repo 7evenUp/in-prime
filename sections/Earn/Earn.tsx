@@ -30,6 +30,22 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
     setScrollY(window.scrollY)
   }, [])
 
+  const scrollToSubscriptions = () => {
+    window.scrollTo({
+      top: 6775,
+      behavior: "smooth",
+    })
+    setCurrentY(6775)
+  }
+
+  const scrollToGuarantee = () => {
+    window.scrollTo({
+      top: 700,
+      behavior: "smooth",
+    })
+    setCurrentY(700)
+  }
+
   useEffect(() => {
     window.addEventListener("scroll", scrollHandler, { passive: true })
     return () => window.removeEventListener("scroll", scrollHandler)
@@ -99,29 +115,12 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
         детальные инструкции и помогает вам получать прибыль.
       </div>
       <div className={styles.footer}>
-        <p>
-          PRIME - ПРОДУКТ ЭКОСИСТЕМЫ{" "}
-          <a
-            href="https://crypton.xyz"
-            target="_blank"
-            className={styles.footer_link}
-          >
-            CRYPTON
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="square"
-            >
-              <path d="M7 7h10v10" />
-              <path d="M7 17 17 7" />
-            </svg>
-          </a>
-        </p>
+        <button className={styles.button} onClick={scrollToGuarantee}>
+          Гарантируем окупаемость
+        </button>
+        <button className={styles.button} onClick={scrollToSubscriptions}>
+          Вступить в сообщество
+        </button>
       </div>
     </section>
   )
