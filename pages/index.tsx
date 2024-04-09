@@ -27,6 +27,7 @@ import Earn from "@/sections/Earn/Earn"
 import Founders from "@/sections/founders/Founders"
 import BuySubscription from "@/sections/BuySubscription/BuySubscription"
 import OtherProducts from "@/sections/OtherProducts/OtherProducts"
+import Guarantee from "@/sections/Guarantee/Guarantee"
 import LoyaltySystem from "@/sections/LoyaltySystem/LoyaltySystem"
 
 import BuySubscr from "@/public/images/jsx/subscribe/buy-subscr"
@@ -91,7 +92,6 @@ const Home = (props) => {
   const referral = router.query.ref || "agent"
 
   const [currentY, setCurrentY] = useState(0)
-  const [openFaq, setOpenFaq] = useState(-1)
 
   const [timerProgress, setTimerProgress] = useState(0)
 
@@ -158,15 +158,6 @@ const Home = (props) => {
     }
   }, [])
 
-  const toggleFaq = (index: number) => {
-    window.scrollTo({
-      top: moreInfo[resolution],
-      behavior: "smooth",
-    })
-    setOpenFaq(index)
-    setCurrentY(moreInfo[resolution])
-  }
-
   return (
     <>
       <div className="app">
@@ -216,26 +207,7 @@ const Home = (props) => {
             </div>
           </div> */}
 
-          <div className="app__container__guarantee" id="guarantee">
-            <div className="app__container__guarantee__block">
-              <div className="app__container__guarantee__block__title" />
-              <div className="app__container__guarantee__block__description">
-                Если по какой-то причине подписка за месяц не окупилась, то мы
-                продлим её ещё на месяц бесплатно!
-              </div>
-              <div
-                className="app__container__guarantee__block__button"
-                onClick={() => toggleFaq(2)}
-              >
-                <div className="app__container__guarantee__block__button__text">
-                  Подробнее
-                </div>
-                <div className="app__container__guarantee__block__button__arrow">
-                  <More />
-                </div>
-              </div>
-            </div>
-          </div>
+          <Guarantee />
 
           <Ribbon currentWidth={currentWidth} />
 
@@ -267,7 +239,7 @@ const Home = (props) => {
             <div className="app__container__faq__title">
               Часто задаваемые вопросы
             </div>
-            <Accordion mode={"faq"} openFaq={openFaq} setOpenFaq={setOpenFaq} />
+            <Accordion mode={"faq"} />
           </div>
 
           <OtherProducts />
