@@ -1,4 +1,4 @@
-import cryptonBonuses1 from "@/public/images/png/features/cryptonBonuses2.png"
+import cryptonBonuses1 from "@/public/images/png/features/cryptonBonuses1.png"
 import cryptonBonuses2 from "@/public/images/png/features/cryptonBonuses2.png"
 import cryptonBonuses3 from "@/public/images/png/features/cryptonBonuses3.png"
 import cryptonBonuses4 from "@/public/images/png/features/cryptonBonuses4.png"
@@ -28,6 +28,10 @@ import guarantee2 from "@/public/images/png/features/guarantee-2.png"
 
 import investing1 from "@/public/images/png/features/investing-1.png"
 import investing2 from "@/public/images/png/features/investing-2.png"
+
+import primeKit1 from "@/public/images/png/features/primeKit1.png"
+import primeKit2 from "@/public/images/png/features/primeKit2.png"
+import primeKit3 from "@/public/images/png/features/primeKit3.png"
 
 export const data = {
   cryptonBonuses: [
@@ -162,24 +166,19 @@ export const data = {
   ],
   primeKit: [
     {
-      imgSrc: investing1,
+      imgSrc: primeKit1,
       description:
-        "Пошаговый обучающий курс по базовым и более продвинутым темам.",
+        "План действий для заработка, включающий в себя обучающий курс по базовым и продвинутым темам, и пошаговые действия по отработке активностей с видео-гайдами.",
     },
     {
-      imgSrc: investing2,
+      imgSrc: primeKit2,
       description:
-        "Координата по актуальным и прибыльным событиям, включающая простые видео-инструкции.",
+        "Координата по актуальным и прибыльным событиям с простыми видео-инструкциями.",
     },
     {
-      imgSrc: investing1,
+      imgSrc: primeKit3,
       description:
-        "Понятный план действий для заработка, состоящий из различных полезных материалов и лайфхаков опытных криптанов.",
-    },
-    {
-      imgSrc: investing2,
-      description:
-        "Индивидуальная поддержка от личного Наставника и команды Prime, а также более опытных участников нашего сообщества.",
+        "Постоянная поддержка от личного Наставника, команды Prime, а также более опытных участников нашего комьюнити.",
     },
   ],
 }

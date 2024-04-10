@@ -17,8 +17,6 @@ import {
   ChatIconGradient,
   ContentIcon,
   ContentIconGradient,
-  GuaranteeIcon,
-  GuaranteeIconGradient,
   HelperIcon,
   HelperIconGradient,
   MeetupsIcon,
@@ -85,7 +83,7 @@ const FeaturesTabs = ({ resolution }: { resolution: Resolution }) => {
   return (
     <Tabs.Root
       className={styles.TabsRoot}
-      defaultValue="tab1"
+      defaultValue="cryptonBonuses"
       orientation="vertical"
     >
       <Tabs.List className={styles.TabsList} aria-label="Prime Features">
@@ -143,15 +141,6 @@ const FeaturesTabs = ({ resolution }: { resolution: Resolution }) => {
             <span>Личный помощник</span>
           </div>
         </Tabs.Trigger>
-        <Tabs.Trigger className={styles.TabsTrigger} value="tab6">
-          <div className={styles.trigger_container}>
-            <div className={styles.icon_wrapper}>
-              <GuaranteeIcon />
-              <GuaranteeIconGradient />
-            </div>
-            <span>Гарантия прибыли</span>
-          </div>
-        </Tabs.Trigger>
         <Tabs.Trigger className={styles.TabsTrigger} value="primeKit">
           <div className={styles.trigger_container}>
             <div className={styles.icon_wrapper}>
@@ -188,9 +177,6 @@ const FeaturesTabs = ({ resolution }: { resolution: Resolution }) => {
       </Tabs.Content>
       <Tabs.Content className={styles.TabsContent} value="tab5">
         <Slider data={featuresData.helper} resolution={resolution} />
-      </Tabs.Content>
-      <Tabs.Content className={styles.TabsContent} value="tab6">
-        <Slider data={featuresData.guarantee} resolution={resolution} />
       </Tabs.Content>
       <Tabs.Content className={styles.TabsContent} value="primeKit">
         <Slider data={featuresData.primeKit} resolution={resolution} />
