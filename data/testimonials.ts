@@ -1,3 +1,5 @@
+import { StaticImageData } from "next/image"
+
 import Jason from "@/public/images/png/testimonials/jason.png"
 import Dmitrii from "@/public/images/png/testimonials/dmitrii.png"
 import Fiji from "@/public/images/png/testimonials/fiji.png"
@@ -13,7 +15,14 @@ import Ujin from "@/public/images/png/testimonials/ujin.jpg"
 import FeD9 from "@/public/images/png/testimonials/FeD9.png"
 import HappyHolder from "@/public/images/png/testimonials/HappyHolder.png"
 
-export const testimonialsData = [
+export const testimonialsData: Array<{
+  avatar: StaticImageData | string
+  name: string
+  text: string
+  date: string
+  link: string
+  isNew?: boolean
+}> = [
   {
     avatar: HappyHolder,
     name: "Happy Holder",
