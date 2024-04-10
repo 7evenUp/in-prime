@@ -16,6 +16,8 @@
 }
 
 .subscription {
+  position: relative;
+  overflow: hidden;
   color: white;
   display: flex;
   flex-direction: column;
@@ -86,6 +88,24 @@
       }
     }
   }
+}
+
+.last_chance {
+  position: absolute;
+  rotate: 45deg;
+  right: -35px;
+  top: 35px;
+  height: 30px;
+  width: 170px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #FF4A7A;
+  color: #181818;
+  font-family: "Resist Sans Medium", sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  text-transform: uppercase;
 }
 
 .duration {
