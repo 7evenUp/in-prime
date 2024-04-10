@@ -467,6 +467,7 @@ p {
           width: 203px;
           height: 28px;
           display: flex;
+          justify-content: center;
           padding: 9px 18px 12px 20px;
           background: linear-gradient(
             129.5deg,
@@ -475,6 +476,8 @@ p {
             #bb44cc 104.76%
           );
           border-radius: 8px;
+          cursor: pointer;
+
           &:hover {
             background: #ffffff;
           }

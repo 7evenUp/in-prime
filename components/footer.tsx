@@ -23,41 +23,41 @@ const Footer = (props) => {
     setCurrentY(position)
   }
   const categories = {
-    opportunities: {
-      lgg: 1750,
-      lg: 1410,
-      md: 1776,
-      sm: 1296,
-    },
     advantages: {
-      lgg: 980,
-      lg: 810,
-      md: 930,
+      lgg: 984,
+      lg: 780,
+      md: 940,
       sm: 740,
     },
+    opportunities: {
+      lgg: 1812,
+      lg: 1450,
+      md: 1750,
+      sm: 1296,
+    },
     examples: {
-      lgg: 4348,
-      lg: 3708,
-      md: 4688,
-      sm: 3700,
+      lgg: 4000,
+      lg: 3415,
+      md: 4166,
+      sm: 3177,
     },
     team: {
-      lgg: 5312,
-      lg: 4610,
-      md: 5590,
-      sm: 4290,
+      lgg: 5888,
+      lg: 5155,
+      md: 5950,
+      sm: 4430,
     },
     partners: {
-      lgg: 7341,
-      lg: 6430,
-      md: 6990,
-      sm: 5830,
+      lgg: 9720,
+      lg: 8670,
+      md: 10096,
+      sm: 9289,
     },
     faq: {
-      lgg: 11250,
-      lg: 9950,
-      md: 11100,
-      sm: 10150,
+      lgg: 10290,
+      lg: 9120,
+      md: 10495,
+      sm: 9614,
     },
   }
 
@@ -192,18 +192,18 @@ const Footer = (props) => {
                   <div
                     className="footer__rectangle__right__column__route"
                     onClick={() =>
-                      toggleMenu(categories.opportunities[resolution])
-                    }
-                  >
-                    Возможности
-                  </div>
-                  <div
-                    className="footer__rectangle__right__column__route"
-                    onClick={() =>
                       toggleMenu(categories.advantages[resolution])
                     }
                   >
                     Преимущества
+                  </div>
+                  <div
+                    className="footer__rectangle__right__column__route"
+                    onClick={() =>
+                      toggleMenu(categories.opportunities[resolution])
+                    }
+                  >
+                    Возможности
                   </div>
                   <div
                     className="footer__rectangle__right__column__route"
@@ -308,18 +308,18 @@ const Footer = (props) => {
                   <div
                     className="footer__rectangle__right__column__route"
                     onClick={() =>
-                      toggleMenu(categories.opportunities[resolution])
-                    }
-                  >
-                    Возможности
-                  </div>
-                  <div
-                    className="footer__rectangle__right__column__route"
-                    onClick={() =>
                       toggleMenu(categories.advantages[resolution])
                     }
                   >
                     Преимущества
+                  </div>
+                  <div
+                    className="footer__rectangle__right__column__route"
+                    onClick={() =>
+                      toggleMenu(categories.opportunities[resolution])
+                    }
+                  >
+                    Возможности
                   </div>
                   <div
                     className="footer__rectangle__right__column__route"

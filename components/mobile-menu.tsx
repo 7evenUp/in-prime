@@ -7,8 +7,6 @@ import Instagram from "../public/images/jsx/footer/instagram"
 import Telegram from "../public/images/jsx/footer/telegram"
 import Youtube from "../public/images/jsx/footer/youtube"
 
-import BuySubscriptionDialog from "./BuySubscriptionDialog"
-
 const MobileMenu = (props) => {
   const resolution = props.resolution
   const currentY = props.currentY
@@ -24,52 +22,60 @@ const MobileMenu = (props) => {
   }
 
   const categories = [
+    // Преимущества
     {
       position: {
-        md: 1776,
-        sm: 1296,
-      },
-    },
-    {
-      position: {
-        md: 930,
+        md: 940,
         sm: 740,
       },
     },
+    // Возможности
     {
       position: {
-        md: 4730,
-        sm: 3730,
+        md: 1750,
+        sm: 1296,
+      },
+    },
+    // Примеры заработка
+    {
+      position: {
+        md: 4166,
+        sm: 3177,
+      },
+    },
+    // Команда
+    {
+      position: {
+        md: 5950,
+        sm: 4430,
+      },
+    },
+    // Подписка
+    {
+      position: {
+        md: 7140,
+        sm: 5797,
+      },
+    },
+    // Отзывы
+    {
+      position: {
+        md: 8441,
+        sm: 7969,
       },
     },
     {
+      // Партнёры
       position: {
-        md: 5630,
-        sm: 4290,
+        md: 10096,
+        sm: 9289,
       },
     },
     {
+      // FAQ
       position: {
-        md: 7080,
-        sm: 5850,
-      },
-    },
-    {
-      position: {
-        md: 8580,
-        sm: 7700,
-      },
-    },
-    {
-      position: {
-        md: 9550,
-        sm: 8950,
-      },
-    },
-    {
-      position: {
-        md: 11100,
-        sm: 10150,
+        md: 10495,
+        sm: 9614,
       },
     },
   ]
@@ -102,13 +108,13 @@ const MobileMenu = (props) => {
             className="mobile-menu__container__cat-place__item"
             onClick={() => toggleMenu(categories[0].position[resolution])}
           >
-            Возможности
+            Преимущества
           </div>
           <div
             className="mobile-menu__container__cat-place__item"
             onClick={() => toggleMenu(categories[1].position[resolution])}
           >
-            Преимущества
+            Возможности
           </div>
           <div
             className="mobile-menu__container__cat-place__item"
@@ -126,19 +132,19 @@ const MobileMenu = (props) => {
             className="mobile-menu__container__cat-place__item"
             onClick={() => toggleMenu(categories[4].position[resolution])}
           >
-            Партнеры
+            Подписка
           </div>
           <div
             className="mobile-menu__container__cat-place__item"
             onClick={() => toggleMenu(categories[5].position[resolution])}
           >
-            Подписка
+            Отзывы
           </div>
           <div
             className="mobile-menu__container__cat-place__item"
             onClick={() => toggleMenu(categories[6].position[resolution])}
           >
-            Отзывы
+            Партнеры
           </div>
           <div
             className="mobile-menu__container__cat-place__item"
@@ -183,25 +189,20 @@ const MobileMenu = (props) => {
           </div>
         </div>
         <div className="mobile-menu__container__subscribe-block">
-          {/* <BuySubscriptionDialog>
-            <div className="mobile-menu__container__subscribe-block__subscribe">
-              <div className="mobile-menu__container__subscribe-block__subscribe__text">
-                Оформить подписку
-              </div>
-              <div className="mobile-menu__container__subscribe-block__subscribe__logo"></div>
-            </div>
-          </BuySubscriptionDialog> */}
-          <a
-            href={`https://t.me/CryptonLobbyBot?start=${props.referral}`}
-            target={"_blank"}
+          <button
+            style={{
+              background: "transparent",
+              outline: "none",
+              border: "none",
+              cursor: "pointer",
+            }}
+            className="mobile-menu__container__subscribe-block__subscribe"
+            onClick={() => toggleMenu(categories[4].position[resolution])}
           >
-            <div className="mobile-menu__container__subscribe-block__subscribe">
-              <div className="mobile-menu__container__subscribe-block__subscribe__text">
-                Оформить подписку
-              </div>
-              <div className="mobile-menu__container__subscribe-block__subscribe__logo"></div>
+            <div className="mobile-menu__container__subscribe-block__subscribe__text">
+              Оформить подписку
             </div>
-          </a>
+          </button>
         </div>
       </div>
     </div>

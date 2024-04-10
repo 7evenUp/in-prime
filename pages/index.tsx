@@ -129,13 +129,6 @@ const Home = (props) => {
     sm: <BuySubscrSm />,
   }
 
-  const moreInfo = {
-    lgg: 11825,
-    lg: 10451,
-    md: 11520,
-    sm: 10450,
-  }
-
   const wheelHandler = (event) => {
     setCurrentY(window.scrollY)
   }

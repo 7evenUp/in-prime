@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react"
 
 import Categories from "@/components/categories"
 import MobileMenu from "@/components/mobile-menu"
-import BuySubscriptionDialog from "@/components/BuySubscriptionDialog"
 
 import { Resolution } from "@/types/resolution"
 
@@ -15,13 +14,6 @@ interface EarnProps {
   setCurrentY: React.Dispatch<React.SetStateAction<number>>
 }
 
-const positions = {
-  lgg: 8130,
-  lg: 7150,
-  md: 7740,
-  sm: 6250,
-}
-
 const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
   const [mobileMenu, changeMobileMenu] = useState(false)
   const [scrollY, setScrollY] = React.useState(0)
@@ -30,20 +22,35 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
     setScrollY(window.scrollY)
   }, [])
 
+  const positions = {
+    guarantee: {
+      lgg: 3150,
+      lg: 2660,
+      md: 3476,
+      sm: 2676,
+    },
+    subscription: {
+      lgg: 7220,
+      lg: 6390,
+      md: 7140,
+      sm: 5797,
+    },
+  }
+
   const scrollToSubscriptions = () => {
     window.scrollTo({
-      top: 6775,
+      top: positions.subscription[resolution],
       behavior: "smooth",
     })
-    setCurrentY(6775)
+    setCurrentY(positions.subscription[resolution])
   }
 
   const scrollToGuarantee = () => {
     window.scrollTo({
-      top: 700,
+      top: positions.guarantee[resolution],
       behavior: "smooth",
     })
-    setCurrentY(700)
+    setCurrentY(positions.guarantee[resolution])
   }
 
   useEffect(() => {
@@ -73,25 +80,14 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
       <header className="app__container__earn__header">
         <div className="app__container__earn__header__logo" />
         <div className="menu-sub-block">
-          {/* <BuySubscriptionDialog>
-            <div className="app__container__earn__header__subscribe">
-              <div className="app__container__earn__header__subscribe__text">
-                Оформить подписку
-              </div>
-              <div className="app__container__earn__header__subscribe__logo" />
-            </div>
-          </BuySubscriptionDialog> */}
-          <a
-            href={`https://t.me/CryptonLobbyBot?start=${referral}`}
-            target={"_blank"}
+          <div
+            className="app__container__earn__header__subscribe"
+            onClick={scrollToSubscriptions}
           >
-            <div className="app__container__earn__header__subscribe">
-              <div className="app__container__earn__header__subscribe__text">
-                Оформить подписку
-              </div>
-              <div className="app__container__earn__header__subscribe__logo" />
+            <div className="app__container__earn__header__subscribe__text">
+              Оформить подписку
             </div>
-          </a>
+          </div>
           {["md", "sm"].includes(resolution) && (
             <div style={{ width: "25px", zIndex: 101 }}>
               <div
