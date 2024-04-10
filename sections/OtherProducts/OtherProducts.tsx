@@ -49,7 +49,7 @@ const OtherProducts = () => {
             </div>
           </a>
           <a
-            href="https://t.me/Crypton_Calendar_bot"
+            href="https://research.crypton.xyz/"
             target={"_blank"}
             className={styles.product}
           >
