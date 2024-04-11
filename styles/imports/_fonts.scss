@@ -5,41 +5,34 @@
 
 @font-face {
   font-family: "Resist Sans";
-  src: local("fonts/Resist Sans Display Regular"),
-    local("Resist-Sans-Display-Regular"),
-    url("/fonts/ResistSansDisplay-Regular.woff2") format("woff2"),
-    url("/fonts/ResistSansDisplay-Regular.woff") format("woff"),
-    url("/fonts/ResistSansDisplay-Regular.ttf") format("truetype");
+  src: url("/fonts/ResistSansDisplay-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Resist Sans Bold";
-  src: local("Resist Sans Display Bold"), local("Resist-Sans-Display-Bold"),
-    url("/fonts/ResistSansDisplay-Bold.woff2") format("woff2"),
-    url("/fonts/ResistSansDisplay-Bold.woff") format("woff"),
-    url("/fonts/ResistSansDisplay-Bold.ttf") format("truetype");
-  font-weight: 700;
+  src: url("/fonts/ResistSansDisplay-Bold.woff2") format("woff2");
+  font-weight: bold;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Resist Sans Light";
-  src: local("Resist Sans Display Light"), local("Resist-Sans-Display-Light"),
-    url("/fonts/ResistSansDisplay-Light.woff2") format("woff2"),
-    url("/fonts/ResistSansDisplay-Light.woff") format("woff"),
-    url("/fonts/ResistSansDisplay-Light.ttf") format("truetype");
+  src: url("/fonts/ResistSansDisplay-Light.woff2") format("woff2");
   font-weight: 300;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Resist Sans Medium";
-  src: local("Resist Sans Display Medium"), local("Resist-Sans-Display-Medium"),
-    url("/fonts/ResistSansDisplay-Medium.woff2") format("woff2"),
-    url("/fonts/ResistSansDisplay-Medium.woff") format("woff"),
-    url("/fonts/ResistSansDisplay-Medium.ttf") format("truetype");
+  src: url("/fonts/ResistSansDisplay-Medium.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {

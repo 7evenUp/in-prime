@@ -201,27 +201,33 @@ const SubscriptionCard = ({
 
     const validate = async () => {
       if (SPECIAL_PROMO) {
-        const {
-          data: { discountAmount, discountKind, discounts },
-        } = await mutatePromoValidation({
-          promocode: SPECIAL_PROMO,
-          subscriptionId: id,
-        })
+        try {
+          const {
+            data: { discountAmount, discountKind, discounts },
+          } = await mutatePromoValidation({
+            promocode: SPECIAL_PROMO,
+            subscriptionId: id,
+          })
 
-        setDiscountAmount(discountAmount)
-        setDiscountKind(discountKind)
-        setDiscounts(discounts)
+          setDiscountAmount(discountAmount)
+          setDiscountKind(discountKind)
+          setDiscounts(discounts)
 
-        const matchedDiscount = discounts.find((el) => el.subscriptionId === id)
+          const matchedDiscount = discounts.find(
+            (el) => el.subscriptionId === id
+          )
 
-        const preferedDiscount = matchedDiscount
-          ? matchedDiscount.discountAmount
-          : discountAmount
+          const preferedDiscount = matchedDiscount
+            ? matchedDiscount.discountAmount
+            : discountAmount
 
-        if (discountKind.id === "MONEY") {
-          setCardPrice(fullPrice - preferedDiscount)
-        } else {
-          setCardPrice(fullPrice - fullPrice * preferedDiscount)
+          if (discountKind.id === "MONEY") {
+            setCardPrice(fullPrice - preferedDiscount)
+          } else {
+            setCardPrice(fullPrice - fullPrice * preferedDiscount)
+          }
+        } catch {
+          console.log("Error while validating promocode: ", SPECIAL_PROMO)
         }
       }
     }
