@@ -39,6 +39,19 @@ const Partners = () => {
           <Image src={TaikoImg} alt="Taiko" aria-hidden="true" />
           <Image src={DequestImg} alt="DeQuest" aria-hidden="true" />
           <Image src={CyberImg} alt="Cyber Connect" aria-hidden="true" />
+          {/* Дублирование для корректной анимации */}
+          <Image src={BinanceImg} alt="Binance" aria-hidden="true" />
+          <Image
+            src={ImpossibleImg}
+            alt="Impossible Finance"
+            aria-hidden="true"
+          />
+          <Image src={AuraImg} alt="Aura Network" aria-hidden="true" />
+          <Image src={NearImg} alt="Near" aria-hidden="true" />
+          <Image src={TrustImg} alt="Trust Wallet" aria-hidden="true" />
+          <Image src={TaikoImg} alt="Taiko" aria-hidden="true" />
+          <Image src={DequestImg} alt="DeQuest" aria-hidden="true" />
+          <Image src={CyberImg} alt="Cyber Connect" aria-hidden="true" />
         </div>
       </div>
     </div>

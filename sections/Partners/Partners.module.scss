@@ -99,7 +99,7 @@
   animation: scroll 20s linear infinite;
 
   @media (max-width: 767px) {
-    gap: 40px;
+    gap: 42px;
     animation: scrollMd 20s linear infinite;
 
     img {
@@ -119,17 +119,17 @@
 
 @keyframes scroll {
   to {
-    transform: translate(calc(-50% - 60px));
+    transform: translate(calc(-33.3333% - 40px));
   }
 }
 
 @keyframes scrollMd {
   to {
-    transform: translate(calc(-50% - 20px));
+    transform: translate(calc(-33.3333% - 14px));
   }
 }
 @keyframes scrollSm {
   to {
-    transform: translate(calc(-50%));
+    transform: translate(calc(-33.3333%));
   }
 }
