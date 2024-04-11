@@ -1,9 +1,11 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import { useRouter } from "next/router"
 import { useMutation, useQuery } from "@tanstack/react-query"
 import axios from "axios"
 import * as HoverCard from "@radix-ui/react-hover-card"
 import * as Popover from "@radix-ui/react-popover"
+import * as Switch from "@radix-ui/react-switch"
+import clsx from "clsx"
 
 import SubscribeArrow from "@/public/images/jsx/subscribe/arrow"
 
@@ -30,6 +32,8 @@ const BuySubscription = ({
   }
   resolution: Resolution
 }) => {
+  const [showMonthlyPrice, setShowMonthlyPrice] = useState(false)
+
   const {
     data: subscriptions,
     isError: isSubscriptionsError,
@@ -63,6 +67,37 @@ const BuySubscription = ({
           <div className="app__container__subscribe__content__title" />
         </div>
 
+        <div className={styles.switch}>
+          <span className={styles.show_price}>Показать цену:</span>
+          <div className={styles.switch_container}>
+            <span
+              className={clsx(
+                styles.switch_text,
+                showMonthlyPrice && styles.switch_text__active
+              )}
+              onClick={() => setShowMonthlyPrice(true)}
+            >
+              в месяц
+            </span>
+            <Switch.Root
+              className={styles.SwitchRoot}
+              checked={showMonthlyPrice}
+              onCheckedChange={setShowMonthlyPrice}
+            >
+              <Switch.Thumb className={styles.SwitchThumb} />
+            </Switch.Root>
+            <span
+              className={clsx(
+                styles.switch_text,
+                !showMonthlyPrice && styles.switch_text__active
+              )}
+              onClick={() => setShowMonthlyPrice(false)}
+            >
+              за весь период
+            </span>
+          </div>
+        </div>
+
         {subscriptions && (
           <div className={styles.subscriptions}>
             {subscriptions.map((el, i) => (
@@ -71,6 +106,7 @@ const BuySubscription = ({
                 subscription={el}
                 order={i}
                 resolution={resolution}
+                showMonthlyPrice={showMonthlyPrice}
               />
             ))}
           </div>
@@ -110,10 +146,12 @@ const SubscriptionCard = ({
   subscription,
   order,
   resolution,
+  showMonthlyPrice,
 }: {
   subscription: Subscription
   order: number
   resolution: Resolution
+  showMonthlyPrice: boolean
 }) => {
   const { baseDiscountAmount, baseDiscount, price, id, duration, benefits } =
     subscription
@@ -137,7 +175,14 @@ const SubscriptionCard = ({
       }),
   })
 
-  const fullPrice = baseDiscountAmount ? price - baseDiscountAmount : price
+  const subscriptionPrice = baseDiscountAmount
+    ? price - baseDiscountAmount
+    : price
+
+  const fullPrice = showMonthlyPrice
+    ? subscriptionPrice / duration.id
+    : subscriptionPrice
+
   const isInteger = Number.isInteger(fullPrice)
   let integer: string, fractional: string
 
@@ -176,7 +221,9 @@ const SubscriptionCard = ({
             <span className={styles.price_discount_percent}>
               -{baseDiscount}%
             </span>
-            <span className={styles.price_discount_amount}>${price}</span>
+            <span className={styles.price_discount_amount}>
+              ${showMonthlyPrice ? price / duration.id : price}
+            </span>
           </div>
         )}
       </div>

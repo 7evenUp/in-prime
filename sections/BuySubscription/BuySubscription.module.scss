@@ -15,6 +15,81 @@
   }
 }
 
+.switch {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 24px;
+
+  @media (max-width: 767px) {
+    margin-bottom: 12px;
+  }
+
+  &_container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+}
+
+.SwitchRoot {
+  width: 42px;
+  height: 25px;
+  background: linear-gradient(90deg, #bb44cc, #ff4a7a);
+  border-radius: 9999px;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  padding: 0;
+  margin: 0;
+  border: none;
+  cursor: pointer;
+}
+.SwitchRoot[data-state="checked"] {
+  background: linear-gradient(-90deg, #4ae0ce, #ffcd9f);
+}
+
+.SwitchThumb {
+  display: block;
+  width: 21px;
+  height: 21px;
+  background-color: #101010;
+  border-radius: 9999px;
+  transition: transform 100ms;
+  transform: translateX(19px);
+  will-change: transform;
+}
+.SwitchThumb[data-state="checked"] {
+  transform: translateX(2px);
+}
+
+.show_price {
+  color: rgba(255, 255, 255, 0.5);
+  font-family: "Resist Sans", sans-serif;
+  font-size: 16px;
+  margin-top: -6px;
+
+  @media (max-width: 767px) {
+    display: none;
+  }
+}
+
+.switch_text {
+  color: rgba(255, 255, 255, 0.5);
+  font-family: "Resist Sans", sans-serif;
+  font-size: 16px;
+  margin-top: -6px;
+  cursor: pointer;
+
+  @media (max-width: 767px) {
+    margin-top: -4px;
+  }
+
+  &__active {
+    font-family: "Resist Sans Medium", sans-serif;
+    color: white;
+  }
+}
+
 .subscription {
   position: relative;
   overflow: hidden;
@@ -100,7 +175,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #FF4A7A;
+  background: #ff4a7a;
   color: #181818;
   font-family: "Resist Sans Medium", sans-serif;
   font-weight: 500;
@@ -174,9 +249,11 @@
     display: flex;
     flex-direction: column;
     gap: 6px;
+    margin-top: 4px;
 
     @media (max-width: 1919px) and (min-width: 1368px) {
       flex-direction: row;
+      margin-top: 0;
     }
 
     @media (max-width: 375px) {
@@ -197,6 +274,7 @@
       font-size: 20px;
       opacity: 50%;
       position: relative;
+      width: fit-content;
 
       @media (max-width: 375px) {
         font-size: 16px;
