@@ -44,40 +44,40 @@ const Menu = (props) => {
       number: "04",
       name: "Кейсы",
       position: {
-        lgg: 4000,
-        lg: 3415,
+        lgg: 4366,
+        lg: 3765,
       },
     },
     {
       number: "05",
       name: "Команда",
       position: {
-        lgg: 5888,
-        lg: 5155,
+        lgg: 6267,
+        lg: 5505,
       },
     },
     {
       number: "06",
       name: "Подписка",
       position: {
-        lgg: 7220,
-        lg: 6390,
+        lgg: 7597,
+        lg: 6737,
       },
     },
     {
       number: "07",
       name: "Отзывы",
       position: {
-        lgg: 8030,
-        lg: 7210,
+        lgg: 8400,
+        lg: 7559,
       },
     },
     {
       number: "08",
       name: "FAQ",
       position: {
-        lgg: 10290,
-        lg: 9120,
+        lgg: 10670,
+        lg: 9472,
       },
     },
   ]

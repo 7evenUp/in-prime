@@ -30,10 +30,10 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
       sm: 2676,
     },
     subscription: {
-      lgg: 7220,
-      lg: 6390,
-      md: 7140,
-      sm: 5797,
+      lgg: 7597,
+      lg: 6737,
+      md: 8047,
+      sm: 6404,
     },
   }
 

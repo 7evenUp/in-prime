@@ -63,7 +63,7 @@
   font-family: "Resist Sans", sans-serif;
   font-size: 20px;
   color: white;
-  line-height: 130%;
+  line-height: 160%;
   width: 660px;
   margin-bottom: 16px;
 
@@ -95,6 +95,89 @@
   }
 }
 
+.text_first {
+  font-family: "Resist Sans", sans-serif;
+  font-size: 20px;
+  color: white;
+  line-height: 160%;
+  margin-bottom: 16px;
+
+  @media (max-width: 1919px) {
+    font-size: 18px;
+  }
+
+  @media (max-width: 1367px) {
+    font-size: 16px;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 14px;
+    width: 335px;
+  }
+
+  @media (max-width: 375px) {
+    width: 290px;
+  }
+
+  a {
+    color: white;
+    text-underline-offset: 3px;
+    transition: all 0.15s ease-in-out;
+
+    &:hover {
+      color: #bb44cc;
+    }
+  }
+}
+
+.content {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  gap: 120px;
+  margin-top: 24px;
+
+  @media (max-width: 1367px) {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  &_item {
+    box-sizing: border-box;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @media (max-width: 1367px) {
+      width: 100%;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    p {
+      font-family: "Resist Sans", sans-serif;
+      font-size: 18px;
+      color: white;
+      line-height: 160%;
+
+      @media (max-width: 1367px) {
+        font-size: 16px;
+      }
+
+      @media (max-width: 767px) {
+        font-size: 14px;
+      }
+
+      @media (max-width: 375px) {
+      }
+    }
+  }
+}
+
 .CollapsibleRoot {
   display: flex;
   flex-direction: column;
@@ -102,7 +185,7 @@
   margin-top: 50px;
 
   @media (max-width: 767px) {
-    margin-top: 16px;
+    margin-top: 40px;
   }
   @media (max-width: 375px) {
     width: 290px;

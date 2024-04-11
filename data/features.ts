@@ -23,9 +23,6 @@ import meetups3 from "@/public/images/png/features/meetups-3.png"
 import helper1 from "@/public/images/png/features/helper-1.png"
 import helper2 from "@/public/images/png/features/helper-2.png"
 
-import guarantee1 from "@/public/images/png/features/guarantee-1.png"
-import guarantee2 from "@/public/images/png/features/guarantee-2.png"
-
 import investing1 from "@/public/images/png/features/investing-1.png"
 import investing2 from "@/public/images/png/features/investing-2.png"
 
@@ -139,18 +136,6 @@ export const data = {
       imgSrc: helper2,
       description:
         "Надо созвониться и решить вопрос голосом или через демонстрацию экрана? Не вопрос!",
-    },
-  ],
-  guarantee: [
-    {
-      imgSrc: guarantee1,
-      description:
-        "Выполняйте активности с пометкой “Гарант” и будьте уверены, что цена подписки окупится!",
-    },
-    {
-      imgSrc: guarantee2,
-      description:
-        "Если подписка не окупилась, отправьте список выполненных гарант. событий с доказательствами. При подтверждении, мы начислим недостающую сумму на ваш баланс.",
     },
   ],
   investing: [
