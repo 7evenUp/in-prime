@@ -156,6 +156,19 @@ const SubscriptionCard = ({
   const { baseDiscountAmount, baseDiscount, price, id, duration, benefits } =
     subscription
 
+  const [cardPrice, setCardPrice] = useState(0)
+  const [discountAmount, setDiscountAmount] = useState(0)
+  const [discountKind, setDiscountKind] = useState<{
+    id: "MONEY" | "PERCENT"
+    label: "Money" | "%"
+  }>()
+  const [discounts, setDiscounts] = useState<
+    Array<{
+      subscriptionId: number
+      discountAmount: number
+    }>
+  >([])
+
   const {
     mutateAsync: mutatePromoValidation,
     isError: isPromoError,
@@ -175,28 +188,71 @@ const SubscriptionCard = ({
       }),
   })
 
-  const subscriptionPrice = baseDiscountAmount
-    ? price - baseDiscountAmount
-    : price
+  useEffect(() => {
+    const subscriptionPrice = baseDiscountAmount
+      ? price - baseDiscountAmount
+      : price
 
-  const fullPrice = showMonthlyPrice
-    ? subscriptionPrice / duration.id
-    : subscriptionPrice
+    const fullPrice = showMonthlyPrice
+      ? subscriptionPrice / duration.id
+      : subscriptionPrice
 
-  const isInteger = Number.isInteger(fullPrice)
-  let integer: string, fractional: string
+    setCardPrice(fullPrice)
 
-  if (!isInteger) {
-    const nums = fullPrice.toFixed(2).split(".")
-    integer = nums[0]
-    fractional = nums[1]
-  }
+    const validate = async () => {
+      if (SPECIAL_PROMO) {
+        const {
+          data: { discountAmount, discountKind, discounts },
+        } = await mutatePromoValidation({
+          promocode: SPECIAL_PROMO,
+          subscriptionId: id,
+        })
+
+        setDiscountAmount(discountAmount)
+        setDiscountKind(discountKind)
+        setDiscounts(discounts)
+
+        const matchedDiscount = discounts.find((el) => el.subscriptionId === id)
+
+        const preferedDiscount = matchedDiscount
+          ? matchedDiscount.discountAmount
+          : discountAmount
+
+        if (discountKind.id === "MONEY") {
+          setCardPrice(fullPrice - preferedDiscount)
+        } else {
+          setCardPrice(fullPrice - fullPrice * preferedDiscount)
+        }
+      }
+    }
+    validate()
+  }, [])
 
   useEffect(() => {
-    if (SPECIAL_PROMO) {
-      mutatePromoValidation({ promocode: SPECIAL_PROMO, subscriptionId: id })
+    const subscriptionPrice = baseDiscountAmount
+      ? price - baseDiscountAmount
+      : price
+    let fullPrice
+
+    if (discountKind && discountAmount && discounts) {
+      const matchedDiscount = discounts.find((el) => el.subscriptionId === id)
+
+      const preferedDiscount = matchedDiscount
+        ? matchedDiscount.discountAmount
+        : discountAmount
+
+      if (discountKind.id === "MONEY") {
+        fullPrice = subscriptionPrice - preferedDiscount
+      } else {
+        fullPrice = subscriptionPrice - subscriptionPrice * preferedDiscount
+      }
+      setCardPrice(showMonthlyPrice ? fullPrice / duration.id : fullPrice)
+    } else {
+      setCardPrice(
+        showMonthlyPrice ? subscriptionPrice / duration.id : subscriptionPrice
+      )
     }
-  }, [])
+  }, [showMonthlyPrice])
 
   return (
     <div key={id} className={styles.subscription}>
@@ -207,19 +263,39 @@ const SubscriptionCard = ({
       <div className={styles.price}>
         <span className={styles.price_left}>
           $
-          {isInteger ? (
-            fullPrice
+          {Number.isInteger(cardPrice) ? (
+            cardPrice
           ) : (
             <>
-              {integer}
-              <span className={styles.price_fractional}>.{fractional}</span>
+              {cardPrice.toFixed(2).split(".")[0]}
+              <span className={styles.price_fractional}>
+                .{cardPrice.toFixed(2).split(".")[1]}
+              </span>
             </>
           )}
         </span>
+        {duration.id === 1 && discountKind && discountAmount && discounts && (
+          <div className={styles.price_discount}>
+            <span className={styles.price_discount_percent}>
+              -
+              {showMonthlyPrice
+                ? Math.round(100 - (cardPrice * 100) / (price / duration.id))
+                : Math.round(100 - (cardPrice * 100) / price)}
+              %
+            </span>
+            <span className={styles.price_discount_amount}>${price}</span>
+          </div>
+        )}
         {baseDiscountAmount && (
           <div className={styles.price_discount}>
             <span className={styles.price_discount_percent}>
-              -{baseDiscount}%
+              -
+              {discountKind && discountAmount && discounts
+                ? showMonthlyPrice
+                  ? Math.round(100 - (cardPrice * 100) / (price / duration.id))
+                  : Math.round(100 - (cardPrice * 100) / price)
+                : baseDiscount}
+              %
             </span>
             <span className={styles.price_discount_amount}>
               ${showMonthlyPrice ? price / duration.id : price}
@@ -311,9 +387,14 @@ const SubscriptionCard = ({
         )}
       </ul>
       <BuySubscriptionDialog
+        key={discountAmount}
         selectedSubscription={subscription}
         order={order}
         resolution={resolution}
+        specialPromo={SPECIAL_PROMO}
+        discountAmount={discountAmount}
+        discountKind={discountKind}
+        discounts={discounts}
       >
         <button className={styles.button}>Купить подписку</button>
       </BuySubscriptionDialog>

@@ -36,11 +36,29 @@ const BuySubscriptionDialog = ({
   selectedSubscription: { baseDiscountAmount, price, id, duration, benefits },
   order,
   resolution,
+  specialPromo,
+  discountAmount,
+  discountKind,
+  discounts,
 }: {
   children: React.ReactNode
   selectedSubscription: Subscription
   order: number
   resolution: Resolution
+  specialPromo: string
+  discountAmount: number | undefined
+  discountKind:
+    | {
+        id: "MONEY" | "PERCENT"
+        label: "Money" | "%"
+      }
+    | undefined
+  discounts:
+    | Array<{
+        subscriptionId: number
+        discountAmount: number
+      }>
+    | undefined
 }) => {
   const router = useRouter()
   const referral = router.query.ref || ""
@@ -62,7 +80,39 @@ const BuySubscriptionDialog = ({
   )
 
   useEffect(() => {
-    setTotalPrice(baseDiscountAmount ? price - baseDiscountAmount : price)
+    const subscriptionPrice = baseDiscountAmount
+      ? price - baseDiscountAmount
+      : price
+    setTotalPrice(subscriptionPrice)
+
+    console.log("CARD: #", id)
+    console.log("specialPromo: ", specialPromo)
+    console.log("discountKind: ", discountKind)
+    console.log("discountAmount: ", discountAmount)
+    console.log("discounts: ", discounts)
+
+    if (specialPromo) {
+      setPromoForSubmit(specialPromo)
+      if (discountKind && discountAmount && discounts) {
+        console.log(discountKind)
+        console.log(discountAmount)
+        console.log(discounts)
+        const matchedDiscount = discounts.find((el) => el.subscriptionId === id)
+
+        const preferedDiscount = matchedDiscount
+          ? matchedDiscount.discountAmount
+          : discountAmount
+
+        let fullPrice
+
+        if (discountKind.id === "MONEY") {
+          fullPrice = subscriptionPrice - preferedDiscount
+        } else {
+          fullPrice = subscriptionPrice - subscriptionPrice * preferedDiscount
+        }
+        setTotalPrice(fullPrice)
+      }
+    }
   }, [])
 
   const { data: methods } = useQuery({
