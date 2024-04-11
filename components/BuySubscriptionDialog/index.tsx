@@ -36,16 +36,19 @@ const BuySubscriptionDialog = ({
   selectedSubscription: { baseDiscountAmount, price, id, duration, benefits },
   order,
   resolution,
-  specialPromo,
+  promoForSubmit,
+  setPromoForSubmit,
   discountAmount,
   discountKind,
   discounts,
+  forceUpdate,
 }: {
   children: React.ReactNode
   selectedSubscription: Subscription
   order: number
   resolution: Resolution
-  specialPromo: string
+  promoForSubmit: string
+  setPromoForSubmit: React.Dispatch<React.SetStateAction<string>>
   discountAmount: number | undefined
   discountKind:
     | {
@@ -59,17 +62,18 @@ const BuySubscriptionDialog = ({
         discountAmount: number
       }>
     | undefined
+  forceUpdate: React.DispatchWithoutAction
 }) => {
   const router = useRouter()
   const referral = router.query.ref || ""
 
+  const [promoWasUpdated, setPromoWasUpdated] = useState(false)
   const [totalPrice, setTotalPrice] = useState(0)
   const [paymentType, setPaymentType] = useState<"crypto" | "card">("crypto")
   const [activeToken, setActiveToken] = useState<string | undefined>(undefined)
   const [activeNetwork, setActiveNetwork] = useState<string | undefined>(
     undefined
   )
-  const [promoForSubmit, setPromoForSubmit] = useState<string | null>(null)
   const [paymentURL, setPaymentURL] = useState("")
   const [paymentID, setPaymentID] = useState<number | null>(null)
   // input values
@@ -85,18 +89,8 @@ const BuySubscriptionDialog = ({
       : price
     setTotalPrice(subscriptionPrice)
 
-    console.log("CARD: #", id)
-    console.log("specialPromo: ", specialPromo)
-    console.log("discountKind: ", discountKind)
-    console.log("discountAmount: ", discountAmount)
-    console.log("discounts: ", discounts)
-
-    if (specialPromo) {
-      setPromoForSubmit(specialPromo)
+    if (promoForSubmit) {
       if (discountKind && discountAmount && discounts) {
-        console.log(discountKind)
-        console.log(discountAmount)
-        console.log(discounts)
         const matchedDiscount = discounts.find((el) => el.subscriptionId === id)
 
         const preferedDiscount = matchedDiscount
@@ -257,6 +251,7 @@ const BuySubscriptionDialog = ({
         : discountAmount
 
       setPromoForSubmit(promocode)
+      setPromoWasUpdated(true)
 
       if (discountKind.id === "MONEY") {
         setTotalPrice(tempPrice - preferedDiscount)
@@ -267,7 +262,8 @@ const BuySubscriptionDialog = ({
   }
 
   const onPromoRemoveClick = () => {
-    setPromoForSubmit(null)
+    setPromoForSubmit("")
+    setPromoWasUpdated(true)
     setTotalPrice(baseDiscountAmount ? price - baseDiscountAmount : price)
   }
 
@@ -280,9 +276,27 @@ const BuySubscriptionDialog = ({
         <Dialog.Overlay className={styles.overlay} />
         <Dialog.Content
           className={styles.content}
-          onEscapeKeyDown={() => reset()}
-          onInteractOutside={() => reset()}
-          onPointerDownOutside={() => reset()}
+          onEscapeKeyDown={() => {
+            reset()
+            if (promoWasUpdated) {
+              forceUpdate()
+              setPromoWasUpdated(false)
+            }
+          }}
+          onInteractOutside={() => {
+            reset()
+            if (promoWasUpdated) {
+              forceUpdate()
+              setPromoWasUpdated(false)
+            }
+          }}
+          onPointerDownOutside={() => {
+            reset()
+            if (promoWasUpdated) {
+              forceUpdate()
+              setPromoWasUpdated(false)
+            }
+          }}
         >
           {isSuccess ? (
             <PaymentStatus

@@ -199,6 +199,41 @@
   }
 }
 
+.loading {
+  width: 262px;
+  height: 50px;
+  margin-bottom: 44px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+  @media (max-width: 1919px) {
+    width: 220px;
+    height: 86px;
+  }
+
+  @media (max-width: 1376px) {
+    width: 276px;
+    height: 50px;
+  }
+
+  @media (max-width: 767px) {
+    width: 285px;
+  }
+
+  @media (max-width: 375px) {
+    margin-bottom: 32px;
+    width: 246px;
+    height: 44px;
+  }
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
+  }
+}
+
 .price {
   display: flex;
   align-items: center;
