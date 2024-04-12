@@ -14,6 +14,7 @@ import Artem from "@/public/images/png/testimonials/artem.png"
 import Ujin from "@/public/images/png/testimonials/ujin.jpg"
 import FeD9 from "@/public/images/png/testimonials/FeD9.png"
 import HappyHolder from "@/public/images/png/testimonials/HappyHolder.png"
+import MaxKroz from "@/public/images/png/testimonials/MaxKroz.png"
 
 export const testimonialsData: Array<{
   avatar: StaticImageData | string
@@ -23,6 +24,21 @@ export const testimonialsData: Array<{
   link: string
   isNew?: boolean
 }> = [
+  {
+    avatar: MaxKroz,
+    name: "Max Kroz",
+    text: `В Prime я 9 месяцев - сразу покупал подписку на год. Спустя первый месяц я сразу взял допом подписку ещё на +1 год = 2 года сразу.
+    Что мне нравится в Prime:
+    1. Всегда в чате помогут и дадут совет;👍
+    2. Есть календарь, который всегда стабильно обновляется;
+    3. В чат приносят информацию отовсюду + порой проскакивает информация, которой нет ещё нигде, что даёт нам стать возможность ранними пользователями в проектах и купить определённый токен раньше других;👍
+    4. Есть чат по нодам. Лайк Богдану - очень активный
+    5. Есть чат по NFT;
+    6. Стабильная сводка и выжимка основной информации, которая быстро позволяет ориентироваться и сфокусировать время только на основых проектах, который сейчас важны)`,
+    date: "11.03.24",
+    link: "https://t.me/reviews_prime/278",
+    isNew: true
+  },
   {
     avatar: HappyHolder,
     name: "Happy Holder",
