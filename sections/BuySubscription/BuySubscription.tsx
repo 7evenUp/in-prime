@@ -32,7 +32,7 @@ const BuySubscription = ({
   }
   resolution: Resolution
 }) => {
-  const [showMonthlyPrice, setShowMonthlyPrice] = useState(false)
+  const [showMonthlyPrice, setShowMonthlyPrice] = useState(true)
   const [promoForSubmit, setPromoForSubmit] = useState(SPECIAL_PROMO)
   const [x, forceUpdate] = useReducer((v) => v + 1, 0)
 
