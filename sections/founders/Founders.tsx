@@ -20,10 +20,10 @@ const Founders = () => {
             <div>
               <h3 className={styles.founder_name}>Павел Сычев</h3>
               <p className={styles.founder_position}>
-                Основатель экосистемы{" "}
                 <a href="https://crypton.xyz" target="_blank">
                   Crypton
-                </a>
+                </a>{" "}
+                Co-Founder (CEO)
               </p>
             </div>
           </div>
@@ -74,10 +74,10 @@ const Founders = () => {
             <div className={styles.founder_info}>
               <h3 className={styles.founder_name}>Павел Сычев</h3>
               <p className={styles.founder_position}>
-                Основатель экосистемы{" "}
                 <a href="https://crypton.xyz" target="_blank">
                   Crypton
-                </a>
+                </a>{" "}
+                Co-Founder (CEO)
               </p>
               <div className={styles.founder_channels}>
                 <span className={styles.founder_channels_title}>
@@ -132,10 +132,10 @@ const Founders = () => {
             <div>
               <h3 className={styles.founder_name}>Вадим Тарасов</h3>
               <p className={styles.founder_position}>
-                Сооснователь экосистемы{" "}
                 <a href="https://crypton.xyz" target="_blank">
                   Crypton
-                </a>
+                </a>{" "}
+                Co-Founder (COO)
               </p>
             </div>
           </div>
@@ -169,10 +169,10 @@ const Founders = () => {
             <div className={styles.founder_info}>
               <h3 className={styles.founder_name}>Вадим Тарасов</h3>
               <p className={styles.founder_position}>
-                Сооснователь экосистемы{" "}
                 <a href="https://crypton.xyz" target="_blank">
                   Crypton
-                </a>
+                </a>{" "}
+                Co-Founder (COO)
               </p>
               <div className={styles.founder_channels}>
                 <span className={styles.founder_channels_title}>
