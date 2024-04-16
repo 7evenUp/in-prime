@@ -100,10 +100,22 @@ const BuySubscriptionDialog = ({
         let fullPrice
 
         if (discountKind.id === "MONEY") {
-          fullPrice = subscriptionPrice - preferedDiscount
+          if (baseDiscountAmount && baseDiscountAmount > preferedDiscount) {
+            fullPrice = price - baseDiscountAmount
+          } else {
+            fullPrice = price - preferedDiscount
+          }
         } else {
-          fullPrice = subscriptionPrice - subscriptionPrice * preferedDiscount
+          if (
+            baseDiscountAmount &&
+            baseDiscountAmount > price * preferedDiscount
+          ) {
+            fullPrice = price - baseDiscountAmount
+          } else {
+            fullPrice = price - price * preferedDiscount
+          }
         }
+
         setTotalPrice(fullPrice)
       }
     }
@@ -234,8 +246,6 @@ const BuySubscriptionDialog = ({
   const applyPromocode = async () => {
     if (isPromoPending || promocode.length === 0) return
 
-    const tempPrice = baseDiscountAmount ? price - baseDiscountAmount : price
-
     try {
       const {
         data: { discountAmount, discountKind, discounts },
@@ -254,9 +264,20 @@ const BuySubscriptionDialog = ({
       setPromoWasUpdated(true)
 
       if (discountKind.id === "MONEY") {
-        setTotalPrice(tempPrice - preferedDiscount)
+        if (baseDiscountAmount && baseDiscountAmount > preferedDiscount) {
+          setTotalPrice(price - baseDiscountAmount)
+        } else {
+          setTotalPrice(price - preferedDiscount)
+        }
       } else {
-        setTotalPrice(tempPrice - tempPrice * preferedDiscount)
+        if (
+          baseDiscountAmount &&
+          baseDiscountAmount > price * preferedDiscount
+        ) {
+          setTotalPrice(price - baseDiscountAmount)
+        } else {
+          setTotalPrice(price - price * preferedDiscount)
+        }
       }
     } catch {}
   }

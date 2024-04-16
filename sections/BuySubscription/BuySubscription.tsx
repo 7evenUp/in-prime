@@ -239,9 +239,20 @@ const SubscriptionCard = ({
             : discountAmount
 
           if (discountKind.id === "MONEY") {
-            setCardPrice(fullPrice - preferedDiscount)
+            if (baseDiscountAmount && baseDiscountAmount > preferedDiscount) {
+              setCardPrice(price - baseDiscountAmount)
+            } else {
+              setCardPrice(price - preferedDiscount)
+            }
           } else {
-            setCardPrice(fullPrice - fullPrice * preferedDiscount)
+            if (
+              baseDiscountAmount &&
+              baseDiscountAmount > price * preferedDiscount
+            ) {
+              setCardPrice(price - baseDiscountAmount)
+            } else {
+              setCardPrice(price - price * preferedDiscount)
+            }
           }
         } catch {
           console.log("Error while validating promocode: ", promoForSubmit)
@@ -265,10 +276,22 @@ const SubscriptionCard = ({
         : discountAmount
 
       if (discountKind.id === "MONEY") {
-        fullPrice = subscriptionPrice - preferedDiscount
+        if (baseDiscountAmount && baseDiscountAmount > preferedDiscount) {
+          fullPrice = price - baseDiscountAmount
+        } else {
+          fullPrice = price - preferedDiscount
+        }
       } else {
-        fullPrice = subscriptionPrice - subscriptionPrice * preferedDiscount
+        if (
+          baseDiscountAmount &&
+          baseDiscountAmount > price * preferedDiscount
+        ) {
+          fullPrice = price - baseDiscountAmount
+        } else {
+          fullPrice = price - price * preferedDiscount
+        }
       }
+
       setCardPrice(showMonthlyPrice ? fullPrice / duration.id : fullPrice)
     } else {
       setCardPrice(
