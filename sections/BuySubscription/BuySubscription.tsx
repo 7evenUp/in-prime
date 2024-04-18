@@ -32,9 +32,10 @@ const BuySubscription = ({
   }
   resolution: Resolution
 }) => {
-  const [showMonthlyPrice, setShowMonthlyPrice] = useState(true)
-  const [promoForSubmit, setPromoForSubmit] = useState(SPECIAL_PROMO)
+  const [showMonthlyPrice, setShowMonthlyPrice] = useState(false)
+  const [promoForSubmit, setPromoForSubmit] = useState("")
   const [x, forceUpdate] = useReducer((v) => v + 1, 0)
+  const [isPromoReferral, setIsPromoReferral] = useState(false)
 
   const {
     data: subscriptions,
@@ -52,6 +53,18 @@ const BuySubscription = ({
       )
     },
   })
+
+  useEffect(() => {
+    const url = new URL(location.href)
+    const refCode = url.searchParams.get("ref")
+    if (SPECIAL_PROMO) {
+      setPromoForSubmit(SPECIAL_PROMO)
+      return
+    }
+    if (refCode) {
+      setPromoForSubmit(refCode as string)
+    }
+  }, [])
 
   if (isSubscriptionsError || isLoading) {
     return <OldBuySubscription tariffs={tariffs} resolution={resolution} />
@@ -113,6 +126,8 @@ const BuySubscription = ({
                 setPromoForSubmit={setPromoForSubmit}
                 x={x}
                 forceUpdate={forceUpdate}
+                isPromoReferral={isPromoReferral}
+                setIsPromoReferral={setIsPromoReferral}
               />
             ))}
           </div>
@@ -157,6 +172,8 @@ const SubscriptionCard = ({
   setPromoForSubmit,
   x,
   forceUpdate,
+  isPromoReferral,
+  setIsPromoReferral,
 }: {
   subscription: Subscription
   order: number
@@ -166,6 +183,8 @@ const SubscriptionCard = ({
   setPromoForSubmit: React.Dispatch<React.SetStateAction<string>>
   x: any
   forceUpdate: React.DispatchWithoutAction
+  isPromoReferral: boolean
+  setIsPromoReferral: React.Dispatch<React.SetStateAction<boolean>>
 }) => {
   const { baseDiscountAmount, baseDiscount, price, id, duration, benefits } =
     subscription
@@ -220,11 +239,14 @@ const SubscriptionCard = ({
       if (promoForSubmit) {
         try {
           const {
-            data: { discountAmount, discountKind, discounts },
+            data: { discountAmount, discountKind, discounts, isReferralCode },
           } = await mutatePromoValidation({
             promocode: promoForSubmit,
             subscriptionId: id,
           })
+
+          setIsPromoReferral(isReferralCode)
+          let priceWithPromoApplied
 
           setDiscountAmount(discountAmount)
           setDiscountKind(discountKind)
@@ -240,20 +262,25 @@ const SubscriptionCard = ({
 
           if (discountKind.id === "MONEY") {
             if (baseDiscountAmount && baseDiscountAmount > preferedDiscount) {
-              setCardPrice(price - baseDiscountAmount)
+              priceWithPromoApplied = price - baseDiscountAmount
             } else {
-              setCardPrice(price - preferedDiscount)
+              priceWithPromoApplied = price - preferedDiscount
             }
           } else {
             if (
               baseDiscountAmount &&
               baseDiscountAmount > price * preferedDiscount
             ) {
-              setCardPrice(price - baseDiscountAmount)
+              priceWithPromoApplied = price - baseDiscountAmount
             } else {
-              setCardPrice(price - price * preferedDiscount)
+              priceWithPromoApplied = price - price * preferedDiscount
             }
           }
+          setCardPrice(
+            showMonthlyPrice
+              ? priceWithPromoApplied / duration.id
+              : priceWithPromoApplied
+          )
         } catch {
           console.log("Error while validating promocode: ", promoForSubmit)
         }
@@ -454,6 +481,8 @@ const SubscriptionCard = ({
         discountKind={discountKind}
         discounts={discounts}
         forceUpdate={forceUpdate}
+        isPromoReferral={isPromoReferral}
+        setIsPromoReferral={setIsPromoReferral}
       >
         <button className={styles.button}>Купить подписку</button>
       </BuySubscriptionDialog>

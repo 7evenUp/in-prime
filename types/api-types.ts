@@ -29,6 +29,7 @@ export interface Promocode {
     subscriptionId: number
     discountAmount: number
   }>
+  isReferralCode: boolean
 }
 
 export interface PaymentsMethod {

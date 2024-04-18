@@ -42,6 +42,8 @@ const BuySubscriptionDialog = ({
   discountKind,
   discounts,
   forceUpdate,
+  isPromoReferral,
+  setIsPromoReferral,
 }: {
   children: React.ReactNode
   selectedSubscription: Subscription
@@ -63,6 +65,8 @@ const BuySubscriptionDialog = ({
       }>
     | undefined
   forceUpdate: React.DispatchWithoutAction
+  isPromoReferral: boolean
+  setIsPromoReferral: React.Dispatch<React.SetStateAction<boolean>>
 }) => {
   const router = useRouter()
   const referral = router.query.ref || ""
@@ -199,9 +203,16 @@ const BuySubscriptionDialog = ({
     }
 
     if (promoForSubmit) {
-      payload = {
-        ...payload,
-        promoCode: promoForSubmit,
+      if (isPromoReferral) {
+        payload = {
+          ...payload,
+          referral_code: promoForSubmit,
+        }
+      } else {
+        payload = {
+          ...payload,
+          promoCode: promoForSubmit,
+        }
       }
     }
 
@@ -248,11 +259,13 @@ const BuySubscriptionDialog = ({
 
     try {
       const {
-        data: { discountAmount, discountKind, discounts },
+        data: { discountAmount, discountKind, discounts, isReferralCode },
       } = await mutatePromoValidation({
         promocode,
         subscriptionId: id,
       })
+
+      setIsPromoReferral(isReferralCode)
 
       const matchedDiscount = discounts.find((el) => el.subscriptionId === id)
 
