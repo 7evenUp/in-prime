@@ -26,6 +26,7 @@ import Roadmap from "@/sections/Roadmap/Roadmap"
 import Earn from "@/sections/Earn/Earn"
 import Founders from "@/sections/founders/Founders"
 import BuySubscription from "@/sections/BuySubscription/BuySubscription"
+import BuySubscriptionPromo from "@/sections/BuySubscription/BuySubscriptionPromo"
 import OtherProducts from "@/sections/OtherProducts/OtherProducts"
 import Guarantee from "@/sections/Guarantee/Guarantee"
 import LoyaltySystem from "@/sections/LoyaltySystem/LoyaltySystem"
@@ -221,7 +222,9 @@ const Home = (props) => {
 
           {/* <LoyaltySystem resolution={resolution} /> */}
 
-          <BuySubscription tariffs={tariffs} resolution={resolution} />
+          {/* <BuySubscription tariffs={tariffs} resolution={resolution} /> */}
+
+          <BuySubscriptionPromo tariffs={tariffs} resolution={resolution} />
 
           <Testimonials resolution={resolution} />
           <Histories />

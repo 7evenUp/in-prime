@@ -160,23 +160,23 @@
   }
 }
 
-.last_chance {
-  position: absolute;
-  rotate: 39deg;
-  right: -40px;
-  top: 25px;
-  height: 30px;
-  width: 170px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #ff4a7a;
-  color: #181818;
-  font-family: "Resist Sans Medium", sans-serif;
-  font-weight: 500;
-  font-size: 12px;
-  text-transform: uppercase;
-}
+// .last_chance {
+//   position: absolute;
+//   rotate: 39deg;
+//   right: -40px;
+//   top: 25px;
+//   height: 30px;
+//   width: 170px;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   background: #ff4a7a;
+//   color: #181818;
+//   font-family: "Resist Sans Medium", sans-serif;
+//   font-weight: 500;
+//   font-size: 12px;
+//   text-transform: uppercase;
+// }
 
 .duration {
   font-family: "Resist Sans Medium", sans-serif;
@@ -403,25 +403,19 @@
   font-family: "Resist Sans", sans-serif;
   color: white;
   font-size: 18px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
   margin-top: 36px;
 
   @media (max-width: 1367px) {
-    flex-direction: column;
-    align-items: start;
+    margin-top: 72px;
   }
 
   @media (max-width: 767px) {
     font-size: 16px;
+    margin-top: 36px;
   }
 
   &_link {
-    font-family: "Resist Sans Medium", sans-serif;
-    font-weight: 500;
     color: #ffcd9f;
-    font-size: 16px;
     text-decoration: underline;
     text-underline-offset: 4px;
     transition: color 0.1s ease-in;

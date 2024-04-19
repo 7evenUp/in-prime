@@ -8,6 +8,7 @@ export interface Subscription {
     translations: {
       ru: {
         name: string
+        description: string | null
       }
     }
   }>
