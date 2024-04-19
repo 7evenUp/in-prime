@@ -68,17 +68,25 @@ const Menu = (props) => {
       number: "07",
       name: "Отзывы",
       position: {
-        lgg: 8400,
-        lg: 7559,
+        lgg: 8863,
+        lg: 7969,
       },
+      // position: {
+      //   lgg: 8400,
+      //   lg: 7559,
+      // },
     },
     {
       number: "08",
       name: "FAQ",
       position: {
-        lgg: 10670,
-        lg: 9472,
+        lgg: 11133,
+        lg: 9882,
       },
+      // position: {
+      //   lgg: 10670,
+      //   lg: 9472,
+      // },
     },
   ]
   return (
