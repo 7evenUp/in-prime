@@ -318,6 +318,21 @@ const SubscriptionCard = ({
     }
   }, [showMonthlyPrice])
 
+  const scrollToOpportunities = () => {
+    const positions = {
+      opportunities: {
+        lgg: 1812,
+        lg: 1450,
+        md: 1750,
+        sm: 1296,
+      },
+    }
+    window.scrollTo({
+      top: positions.opportunities[resolution],
+      behavior: "smooth",
+    })
+  }
+
   return (
     <div
       className={clsx(
@@ -409,9 +424,7 @@ const SubscriptionCard = ({
           <li className={styles.bonus}>
             <p className={styles.bonus_text}>
               Все{" "}
-              <a href="https://google.com" target="_blank">
-                возможности Prime
-              </a>
+              <button onClick={scrollToOpportunities}>возможности Prime</button>
             </p>
           </li>
         )}
@@ -555,7 +568,9 @@ const SubscriptionCard = ({
                   sideOffset={5}
                   side="bottom"
                 >
-                  Описание ля ля ля ля ля
+                  После получения подписки на 3 месяца вы сможете выбрать один
+                  из подарков: пополнения вашего Steam баланса на $33 или
+                  подписку на Telegram Premium длительностью в 12 месяцев
                 </Popover.Content>
               </Popover.Portal>
             </Popover.Root>
@@ -584,7 +599,22 @@ const SubscriptionCard = ({
                   sideOffset={5}
                   side="bottom"
                 >
-                  Описание ля ля ля ляля ля 1234321
+                  После получения подписки на 6 месяцев вам нужно будет выбрать
+                  один из холодных кошельков для безопасного хранения вашей
+                  криптовалюты:{" "}
+                  <a
+                    href="https://bip39.ru/tproduct/645763038-446759349861-safepal-x1"
+                    target="_blank"
+                  >
+                    Safepal X1
+                  </a>{" "}
+                  или{" "}
+                  <a
+                    href="https://bip39.ru/tproduct/508877051-674104332851-onekey-mini"
+                    target="_blank"
+                  >
+                    OneKey Mini
+                  </a>{" "}
                 </Popover.Content>
               </Popover.Portal>
             </Popover.Root>
@@ -613,7 +643,23 @@ const SubscriptionCard = ({
                   sideOffset={5}
                   side="bottom"
                 >
-                  Очередное описание ням ням ням жду описание
+                  После того, как вы станете обладателем подписки на 12 месяцев,
+                  вы сможете выбрать 1 из двух холодных кошельков для
+                  безопасного хранения вашей криптовалюты:{" "}
+                  <a
+                    href="https://bip39.ru/tproduct/508877051-826889378251-ledger-nano-s-transparent"
+                    target="_blank"
+                  >
+                    Ledger Nano S
+                  </a>{" "}
+                  или{" "}
+                  <a
+                    href="https://bip39.ru/tproduct/645763038-910709986411-tangem-wallet-x-shiba-3-karti"
+                    target="_blank"
+                  >
+                    Tangem Wallet
+                  </a>{" "}
+                  на 3 карты
                 </Popover.Content>
               </Popover.Portal>
             </Popover.Root>
