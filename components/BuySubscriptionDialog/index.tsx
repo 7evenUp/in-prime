@@ -33,7 +33,14 @@ const ID_URL = process.env.NEXT_PUBLIC_ID_URL + "/api/v1/"
 
 const BuySubscriptionDialog = ({
   children,
-  selectedSubscription: { baseDiscountAmount, price, id, duration, benefits },
+  selectedSubscription: {
+    baseDiscountAmount,
+    price,
+    id,
+    duration,
+    benefits,
+    individualPrice,
+  },
   order,
   resolution,
   promoForSubmit,
@@ -87,10 +94,14 @@ const BuySubscriptionDialog = ({
     false
   )
 
+  const getSubscriptionPrice = () => {
+    return individualPrice === undefined ? price : individualPrice
+  }
+
   useEffect(() => {
     const subscriptionPrice = baseDiscountAmount
-      ? price - baseDiscountAmount
-      : price
+      ? getSubscriptionPrice() - baseDiscountAmount
+      : getSubscriptionPrice()
     setTotalPrice(subscriptionPrice)
 
     if (promoForSubmit) {
@@ -105,18 +116,19 @@ const BuySubscriptionDialog = ({
 
         if (discountKind.id === "MONEY") {
           if (baseDiscountAmount && baseDiscountAmount > preferedDiscount) {
-            fullPrice = price - baseDiscountAmount
+            fullPrice = getSubscriptionPrice() - baseDiscountAmount
           } else {
-            fullPrice = price - preferedDiscount
+            fullPrice = getSubscriptionPrice() - preferedDiscount
           }
         } else {
           if (
             baseDiscountAmount &&
-            baseDiscountAmount > price * preferedDiscount
+            baseDiscountAmount > getSubscriptionPrice() * preferedDiscount
           ) {
-            fullPrice = price - baseDiscountAmount
+            fullPrice = getSubscriptionPrice() - baseDiscountAmount
           } else {
-            fullPrice = price - price * preferedDiscount
+            fullPrice =
+              getSubscriptionPrice() - getSubscriptionPrice() * preferedDiscount
           }
         }
 
@@ -252,7 +264,11 @@ const BuySubscriptionDialog = ({
 
     if (promoForSubmit) return
 
-    setTotalPrice(baseDiscountAmount ? price - baseDiscountAmount : price)
+    setTotalPrice(
+      baseDiscountAmount
+        ? getSubscriptionPrice() - baseDiscountAmount
+        : getSubscriptionPrice()
+    )
   }
 
   const applyPromocode = async () => {
@@ -279,18 +295,20 @@ const BuySubscriptionDialog = ({
 
       if (discountKind.id === "MONEY") {
         if (baseDiscountAmount && baseDiscountAmount > preferedDiscount) {
-          setTotalPrice(price - baseDiscountAmount)
+          setTotalPrice(getSubscriptionPrice() - baseDiscountAmount)
         } else {
-          setTotalPrice(price - preferedDiscount)
+          setTotalPrice(getSubscriptionPrice() - preferedDiscount)
         }
       } else {
         if (
           baseDiscountAmount &&
-          baseDiscountAmount > price * preferedDiscount
+          baseDiscountAmount > getSubscriptionPrice() * preferedDiscount
         ) {
-          setTotalPrice(price - baseDiscountAmount)
+          setTotalPrice(getSubscriptionPrice() - baseDiscountAmount)
         } else {
-          setTotalPrice(price - price * preferedDiscount)
+          setTotalPrice(
+            getSubscriptionPrice() - getSubscriptionPrice() * preferedDiscount
+          )
         }
       }
     } catch {}
@@ -299,7 +317,11 @@ const BuySubscriptionDialog = ({
   const onPromoRemoveClick = () => {
     setPromoForSubmit("")
     setPromoWasUpdated(true)
-    setTotalPrice(baseDiscountAmount ? price - baseDiscountAmount : price)
+    setTotalPrice(
+      baseDiscountAmount
+        ? getSubscriptionPrice() - baseDiscountAmount
+        : getSubscriptionPrice()
+    )
   }
 
   return (
@@ -805,7 +827,9 @@ const BuySubscriptionDialog = ({
                     Итого: ${totalPrice.toFixed(2)}
                   </span>
                   {promoForSubmit && (
-                    <span className={styles.total_full}>вместо ${price}</span>
+                    <span className={styles.total_full}>
+                      вместо ${getSubscriptionPrice()}
+                    </span>
                   )}
                 </div>
               </div>

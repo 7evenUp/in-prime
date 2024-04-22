@@ -51,7 +51,8 @@ const BuySubscriptionPromo = ({
     queryKey: ["subscriptions"],
     queryFn: async () => {
       const response = await axios.get<Subscription[]>(
-        ID_URL + "subscriptions/get-active/"
+        ID_URL + "subscriptions/get-active/",
+        { withCredentials: true }
       )
 
       return response.data
@@ -177,8 +178,15 @@ const SubscriptionCard = ({
   isPromoReferral: boolean
   setIsPromoReferral: React.Dispatch<React.SetStateAction<boolean>>
 }) => {
-  const { baseDiscountAmount, baseDiscount, price, id, duration, benefits } =
-    subscription
+  const {
+    baseDiscountAmount,
+    baseDiscount,
+    price,
+    id,
+    duration,
+    benefits,
+    individualPrice,
+  } = subscription
 
   const [cardPrice, setCardPrice] = useState(0)
   const [discountAmount, setDiscountAmount] = useState(0)
@@ -211,10 +219,14 @@ const SubscriptionCard = ({
       }),
   })
 
+  const getSubscriptionPrice = () => {
+    return individualPrice === undefined ? price : individualPrice
+  }
+
   useEffect(() => {
     const subscriptionPrice = baseDiscountAmount
-      ? price - baseDiscountAmount
-      : price
+      ? getSubscriptionPrice() - baseDiscountAmount
+      : getSubscriptionPrice()
 
     const fullPrice = showMonthlyPrice
       ? subscriptionPrice / duration.id
@@ -253,18 +265,22 @@ const SubscriptionCard = ({
 
           if (discountKind.id === "MONEY") {
             if (baseDiscountAmount && baseDiscountAmount > preferedDiscount) {
-              priceWithPromoApplied = price - baseDiscountAmount
+              priceWithPromoApplied =
+                getSubscriptionPrice() - baseDiscountAmount
             } else {
-              priceWithPromoApplied = price - preferedDiscount
+              priceWithPromoApplied = getSubscriptionPrice() - preferedDiscount
             }
           } else {
             if (
               baseDiscountAmount &&
-              baseDiscountAmount > price * preferedDiscount
+              baseDiscountAmount > getSubscriptionPrice() * preferedDiscount
             ) {
-              priceWithPromoApplied = price - baseDiscountAmount
+              priceWithPromoApplied =
+                getSubscriptionPrice() - baseDiscountAmount
             } else {
-              priceWithPromoApplied = price - price * preferedDiscount
+              priceWithPromoApplied =
+                getSubscriptionPrice() -
+                getSubscriptionPrice() * preferedDiscount
             }
           }
           setCardPrice(
@@ -282,8 +298,8 @@ const SubscriptionCard = ({
 
   useEffect(() => {
     const subscriptionPrice = baseDiscountAmount
-      ? price - baseDiscountAmount
-      : price
+      ? getSubscriptionPrice() - baseDiscountAmount
+      : getSubscriptionPrice()
     let fullPrice
 
     if (discountKind && discountAmount && discounts) {
@@ -295,18 +311,19 @@ const SubscriptionCard = ({
 
       if (discountKind.id === "MONEY") {
         if (baseDiscountAmount && baseDiscountAmount > preferedDiscount) {
-          fullPrice = price - baseDiscountAmount
+          fullPrice = getSubscriptionPrice() - baseDiscountAmount
         } else {
-          fullPrice = price - preferedDiscount
+          fullPrice = getSubscriptionPrice() - preferedDiscount
         }
       } else {
         if (
           baseDiscountAmount &&
-          baseDiscountAmount > price * preferedDiscount
+          baseDiscountAmount > getSubscriptionPrice() * preferedDiscount
         ) {
-          fullPrice = price - baseDiscountAmount
+          fullPrice = getSubscriptionPrice() - baseDiscountAmount
         } else {
-          fullPrice = price - price * preferedDiscount
+          fullPrice =
+            getSubscriptionPrice() - getSubscriptionPrice() * preferedDiscount
         }
       }
 
@@ -391,12 +408,18 @@ const SubscriptionCard = ({
                   -
                   {showMonthlyPrice
                     ? Math.round(
-                        100 - (cardPrice * 100) / (price / duration.id)
+                        100 -
+                          (cardPrice * 100) /
+                            (getSubscriptionPrice() / duration.id)
                       )
-                    : Math.round(100 - (cardPrice * 100) / price)}
+                    : Math.round(
+                        100 - (cardPrice * 100) / getSubscriptionPrice()
+                      )}
                   %
                 </span>
-                <span className={styles.price_discount_amount}>${price}</span>
+                <span className={styles.price_discount_amount}>
+                  ${getSubscriptionPrice()}
+                </span>
               </div>
             )}
           {baseDiscountAmount && (
@@ -406,14 +429,21 @@ const SubscriptionCard = ({
                 {discountKind && discountAmount && discounts
                   ? showMonthlyPrice
                     ? Math.round(
-                        100 - (cardPrice * 100) / (price / duration.id)
+                        100 -
+                          (cardPrice * 100) /
+                            (getSubscriptionPrice() / duration.id)
                       )
-                    : Math.round(100 - (cardPrice * 100) / price)
+                    : Math.round(
+                        100 - (cardPrice * 100) / getSubscriptionPrice()
+                      )
                   : baseDiscount}
                 %
               </span>
               <span className={styles.price_discount_amount}>
-                ${showMonthlyPrice ? price / duration.id : price}
+                $
+                {showMonthlyPrice
+                  ? getSubscriptionPrice() / duration.id
+                  : getSubscriptionPrice()}
               </span>
             </div>
           )}
