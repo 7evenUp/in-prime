@@ -159,6 +159,9 @@
         @media (max-width: 767px) {
           top: 9px;
           width: 268px;
+
+          -webkit-mask: linear-gradient(0deg, transparent, white 100%);
+          mask: linear-gradient(0deg, transparent, white 100%);
         }
       }
 
