@@ -73,7 +73,7 @@ const BuySubscriptionDialog = ({
 
   const [promoWasUpdated, setPromoWasUpdated] = useState(false)
   const [totalPrice, setTotalPrice] = useState(0)
-  const [paymentType, setPaymentType] = useState<"crypto" | "card">("crypto")
+  const [paymentType, setPaymentType] = useState<"crypto" | "card">("card")
   const [activeToken, setActiveToken] = useState<string | undefined>(undefined)
   const [activeNetwork, setActiveNetwork] = useState<string | undefined>(
     undefined
@@ -221,7 +221,7 @@ const BuySubscriptionDialog = ({
         payload = {
           ...payload,
           paymentType: "card",
-          currency: "RUB"
+          currency: "RUB",
         }
       } else {
         payload = {

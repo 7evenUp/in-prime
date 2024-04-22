@@ -20,6 +20,7 @@ export interface Subscription {
   kind: 1 | 2 // 1 - prime | 2 - calendar
   name: string
   price: number
+  individualPrice?: number
 }
 
 export interface Promocode {

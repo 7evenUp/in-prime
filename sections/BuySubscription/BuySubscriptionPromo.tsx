@@ -54,9 +54,9 @@ const BuySubscriptionPromo = ({
         ID_URL + "subscriptions/get-active/"
       )
 
-      return response.data.filter(
-        (el) => el.isActive && el.kind === PRIME_SUBSCRIPTION_KIND_ID
-      )
+      return response.data
+        .filter((el) => el.isActive && el.kind === PRIME_SUBSCRIPTION_KIND_ID)
+        .sort((a, b) => a.duration.id - b.duration.id)
     },
   })
 
@@ -210,12 +210,6 @@ const SubscriptionCard = ({
         subscription: subscriptionId,
       }),
   })
-
-  // const getSubscriptionPrice = (subID: number) => {
-  //   const { individualPrice, price } = subscriptions[subID]
-
-  //   return individualPrice === undefined ? price : individualPrice
-  // }
 
   useEffect(() => {
     const subscriptionPrice = baseDiscountAmount
@@ -585,6 +579,22 @@ const SubscriptionCard = ({
                 </Popover.Content>
               </Popover.Portal>
             </Popover.Root>
+
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              style={{ alignSelf: "center" }}
+            >
+              <circle cx="12" cy="12" r="11.5" stroke="#FFCD9F" />
+              <path
+                d="M11.3933 18V12.6188H6V11.3812H11.3663V6H12.6067V11.3812H18V12.6188H12.6337V18H11.3933Z"
+                fill="#FFCD9F"
+              />
+            </svg>
+
             <li className={styles.bonus}>
               <p className={styles.bonus_text}>10 бонусных дней подписки</p>
             </li>
@@ -600,7 +610,6 @@ const SubscriptionCard = ({
                 <li className={styles.bonus}>
                   <p className={styles.bonus_text}>
                     <span>
-                      Холодный кошелёк{" "}
                       <span className={styles.purple}>Safepal X1</span> или{" "}
                       <span className={styles.purple}>OneKey Mini</span>
                     </span>
@@ -633,6 +642,22 @@ const SubscriptionCard = ({
                 </Popover.Content>
               </Popover.Portal>
             </Popover.Root>
+
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              style={{ alignSelf: "center" }}
+            >
+              <circle cx="12" cy="12" r="11.5" stroke="#BB44CC" />
+              <path
+                d="M11.3933 18V12.6188H6V11.3812H11.3663V6H12.6067V11.3812H18V12.6188H12.6337V18H11.3933Z"
+                fill="#BB44CC"
+              />
+            </svg>
+
             <li className={styles.bonus}>
               <p className={styles.bonus_text}>14 бонусных дней подписки</p>
             </li>
@@ -683,6 +708,22 @@ const SubscriptionCard = ({
                 </Popover.Content>
               </Popover.Portal>
             </Popover.Root>
+
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              style={{ alignSelf: "center" }}
+            >
+              <circle cx="12" cy="12" r="11.5" stroke="#FF4A7A" />
+              <path
+                d="M11.3933 18V12.6188H6V11.3812H11.3663V6H12.6067V11.3812H18V12.6188H12.6337V18H11.3933Z"
+                fill="#FF4A7A"
+              />
+            </svg>
+
             <li className={styles.bonus}>
               <p className={styles.bonus_text}>28 бонусных дней подписки</p>
             </li>
