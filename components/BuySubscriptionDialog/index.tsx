@@ -718,12 +718,7 @@ const BuySubscriptionDialog = ({
                     Итого: ${totalPrice.toFixed(2)}
                   </span>
                   {promoForSubmit && (
-                    <span className={styles.total_full}>
-                      вместо $
-                      {baseDiscountAmount
-                        ? (price - baseDiscountAmount).toFixed(2)
-                        : price.toFixed(2)}
-                    </span>
+                    <span className={styles.total_full}>вместо ${price}</span>
                   )}
                 </div>
               </div>
