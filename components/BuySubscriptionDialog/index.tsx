@@ -648,6 +648,92 @@ const BuySubscriptionDialog = ({
                               </li>
                             )
                           )}
+                          {order === 0 && (
+                            <>
+                              <li className={styles.bonus}>
+                                <p className={styles.bonus_text}>
+                                  10 бонусных дней подписки
+                                </p>
+                              </li>
+                              <li className={styles.bonus}>
+                                <p className={styles.bonus_text}>
+                                  Носки Crypton 2024
+                                </p>
+                              </li>
+                            </>
+                          )}
+                          {order === 1 && (
+                            <>
+                              <li className={styles.bonus}>
+                                <p className={styles.bonus_text}>
+                                  Всё, что входит в 1 месяц
+                                </p>
+                              </li>
+                              <li className={styles.bonus}>
+                                <p className={styles.bonus_text}>
+                                  Steam-баланс 33$ или Telegram Premium 12 мес
+                                </p>
+                              </li>
+                              <li className={styles.bonus}>
+                                <p className={styles.bonus_text}>
+                                  10 бонусных дней подписки
+                                </p>
+                              </li>
+                              <li className={styles.bonus}>
+                                <p className={styles.bonus_text}>
+                                  Кружка и носки Crypton 2024
+                                </p>
+                              </li>
+                            </>
+                          )}
+                          {order === 2 && (
+                            <>
+                              <li className={styles.bonus}>
+                                <p className={styles.bonus_text}>
+                                  Всё, что входит в 3 месяца
+                                </p>
+                              </li>
+                              <li className={styles.bonus}>
+                                <p className={styles.bonus_text}>
+                                  Холодный кошелёк Safepal X1 или OneKey Mini
+                                </p>
+                              </li>
+                              <li className={styles.bonus}>
+                                <p className={styles.bonus_text}>
+                                  14 бонусных дней подписки
+                                </p>
+                              </li>
+                              <li className={styles.bonus}>
+                                <p className={styles.bonus_text}>
+                                  Футболка Crypton 2024
+                                </p>
+                              </li>
+                            </>
+                          )}
+                          {order === 3 && (
+                            <>
+                              <li className={styles.bonus}>
+                                <p className={styles.bonus_text}>
+                                  Всё, что входит в 6 месяцев
+                                </p>
+                              </li>
+                              <li className={styles.bonus}>
+                                <p className={styles.bonus_text}>
+                                  Ledger Nano S или Tangem Wallet Shiba Edition
+                                </p>
+                              </li>
+                              <li className={styles.bonus}>
+                                <p className={styles.bonus_text}>
+                                  28 бонусных дней подписки
+                                </p>
+                              </li>
+                              <li className={styles.bonus}>
+                                <p className={styles.bonus_text}>
+                                  Худи Crypton 2024
+                                </p>
+                              </li>
+                            </>
+                          )}
                         </ul>
                       </div>
                     ))}

@@ -282,6 +282,7 @@
   display: flex;
   flex-direction: column;
   background: #232323;
+  overflow: hidden;
 
   @media (max-width: 445px) {
     padding: 16px;

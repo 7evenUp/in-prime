@@ -433,9 +433,14 @@ const SubscriptionCard = ({
             <p className={styles.bonus_text}>Все, что входит в 1 месяц</p>
           </li>
         )}
-        {(order === 2 || order === 3) && (
+        {order === 2 && (
           <li className={styles.bonus}>
             <p className={styles.bonus_text}>Все, что входит в 3 месяца</p>
+          </li>
+        )}
+        {order === 3 && (
+          <li className={styles.bonus}>
+            <p className={styles.bonus_text}>Все, что входит в 6 месяцев</p>
           </li>
         )}
         {benefits.map((benefit) =>
