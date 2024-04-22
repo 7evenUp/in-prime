@@ -1,38 +1,62 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react"
 
-import Categories from "@/components/categories";
-import MobileMenu from "@/components/mobile-menu";
+import Categories from "@/components/categories"
+import MobileMenu from "@/components/mobile-menu"
 
-import { Resolution } from "@/types/resolution";
+import { Resolution } from "@/types/resolution"
 
-import styles from "./Earn.module.scss";
+import styles from "./Earn.module.scss"
 
 interface EarnProps {
-  resolution: Resolution;
-  referral: string | string[];
-  currentY: number;
-  setCurrentY: React.Dispatch<React.SetStateAction<number>>;
+  resolution: Resolution
+  referral: string | string[]
+  currentY: number
+  setCurrentY: React.Dispatch<React.SetStateAction<number>>
 }
 
-const positions = {
-  lgg: 8130,
-  lg: 7150,
-  md: 7740,
-  sm: 6250,
-};
-
 const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
-  const [mobileMenu, changeMobileMenu] = useState(false);
-  const [scrollY, setScrollY] = React.useState(0);
+  const [mobileMenu, changeMobileMenu] = useState(false)
+  const [scrollY, setScrollY] = React.useState(0)
 
   const scrollHandler = React.useCallback((event) => {
-    setScrollY(window.scrollY);
-  }, []);
+    setScrollY(window.scrollY)
+  }, [])
+
+  const positions = {
+    guarantee: {
+      lgg: 3150,
+      lg: 2660,
+      md: 3476,
+      sm: 2676,
+    },
+    subscription: {
+      lgg: 7597,
+      lg: 6737,
+      md: 8047,
+      sm: 6404,
+    },
+  }
+
+  const scrollToSubscriptions = () => {
+    window.scrollTo({
+      top: positions.subscription[resolution],
+      behavior: "smooth",
+    })
+    setCurrentY(positions.subscription[resolution])
+  }
+
+  const scrollToGuarantee = () => {
+    window.scrollTo({
+      top: positions.guarantee[resolution],
+      behavior: "smooth",
+    })
+    setCurrentY(positions.guarantee[resolution])
+  }
 
   useEffect(() => {
-    window.addEventListener("scroll", scrollHandler, { passive: true });
-    return () => window.removeEventListener("scroll", scrollHandler);
-  }, []);
+    window.addEventListener("scroll", scrollHandler, { passive: true })
+    return () => window.removeEventListener("scroll", scrollHandler)
+  }, [])
 
   return (
     <section className="app__container__earn">
@@ -56,17 +80,14 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
       <header className="app__container__earn__header">
         <div className="app__container__earn__header__logo" />
         <div className="menu-sub-block">
-          <a
-            href={`https://t.me/CryptonLobbyBot?start=${referral}`}
-            target={"_blank"}
+          <div
+            className="app__container__earn__header__subscribe"
+            onClick={scrollToSubscriptions}
           >
-            <div className="app__container__earn__header__subscribe">
-              <div className="app__container__earn__header__subscribe__text">
-                Оформить подписку
-              </div>
-              <div className="app__container__earn__header__subscribe__logo" />
+            <div className="app__container__earn__header__subscribe__text">
+              Оформить подписку
             </div>
-          </a>
+          </div>
           {["md", "sm"].includes(resolution) && (
             <div style={{ width: "25px", zIndex: 101 }}>
               <div
@@ -85,37 +106,20 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
       </h1>
 
       <div className="app__container__earn__description">
-        Prime – приватное комьюнити с авторским контентом по заработку в
+        Prime – приватное сообщество с авторским контентом по заработку в
         криптовалюте. Наша команда отбирает лучшие события, подготавливает
-        детальные инструкции и помогает получить первую прибыль.
+        детальные инструкции и помогает вам получать прибыль.
       </div>
       <div className={styles.footer}>
-        <p>
-          PRIME - ПРОДУКТ ЭКОСИСТЕМЫ{" "}
-          <a
-            href="https://crypton.xyz"
-            target="_blank"
-            className={styles.footer_link}
-          >
-            CRYPTON
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="square"
-            >
-              <path d="M7 7h10v10" />
-              <path d="M7 17 17 7" />
-            </svg>
-          </a>
-        </p>
+        <button className={styles.button1} onClick={scrollToGuarantee}>
+          Гарантируем окупаемость
+        </button>
+        <button className={styles.button2} onClick={scrollToSubscriptions}>
+          Вступить в сообщество
+        </button>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Earn;
+export default Earn

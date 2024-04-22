@@ -98,14 +98,6 @@
         height: 8px;
       }
     }
-
-    &_disabled {
-      opacity: 0.3;
-
-      &:hover {
-        opacity: 0.3;
-      }
-    }
   }
 
   &_prev {
@@ -198,6 +190,37 @@
 
   @media (max-width: 767px) {
     font-size: 24px;
+  }
+}
+
+.new {
+  font-family: "Resist Sans Medium", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: black;
+  background: linear-gradient(
+    129.5deg,
+    #ffcd9f 2.02%,
+    #ff4a7a 56.6%,
+    #bb44cc 104.76%
+  );
+  border-radius: 8px;
+  width: 62px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+  margin-left: 6px;
+  margin-left: auto;
+
+  @media (max-width: 767px) {
+    font-size: 12px;
+    border-radius: 4px;
+    width: 48px;
+    height: 26px;
   }
 }
 

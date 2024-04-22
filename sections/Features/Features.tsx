@@ -2,24 +2,27 @@ import React from "react"
 import Image, { StaticImageData } from "next/image"
 import * as Tabs from "@radix-ui/react-tabs"
 import { Swiper, SwiperSlide } from "swiper/react"
+import clsx from "clsx"
 
 import { useSwiperReactive } from "@/hooks/useSwiperReactive"
 
 import {
+  PrimeKitIcon,
+  PrimeKitIconGradient,
+  CryptonBonusesIcon,
+  CryptonBonusesIconGradient,
   CalendarIcon,
   CalendarIconGradient,
   ChatIcon,
   ChatIconGradient,
   ContentIcon,
   ContentIconGradient,
-  GuaranteeIcon,
-  GuaranteeIconGradient,
   HelperIcon,
   HelperIconGradient,
   MeetupsIcon,
   MeetupsIconGradient,
   InvestingIcon,
-  InvestingIconGradient
+  InvestingIconGradient,
 } from "./Icons"
 
 import styles from "./Features.module.scss"
@@ -33,38 +36,44 @@ const swiperWidth = {
   lg: 621,
   md: "100%",
   sm: "100%",
-} 
+}
 
 const Features = ({ resolution }: { resolution: Resolution }) => {
   return (
     <section className={styles.container}>
-      <h2 className={styles.title}>Что входит в подписку</h2>
+      <h2 className={styles.title}>Новый уровень возможностей</h2>
       <FeaturesTabs resolution={resolution} />
     </section>
   )
 }
 
 export const makeDescrLink = (inputString: string) => {
-  const regex = /<a\b[^>]*>(.*?)<\/a>/;
+  const regex = /<a\b[^>]*>(.*?)<\/a>/
 
   // Проверяем, содержит ли входная строка ссылку
-  const match = inputString.match(regex);
+  const match = inputString.match(regex)
 
   if (match) {
     // находим href и текст
-    const findText = match[0].match(/<a\s+(?:[^>]*?\s+)?href="([^"]*)"[^>]*>(.*?)<\/a>/i);
+    const findText = match[0].match(
+      /<a\s+(?:[^>]*?\s+)?href="([^"]*)"[^>]*>(.*?)<\/a>/i
+    )
 
     return (
       <p className={styles.description}>
         {inputString.split(match[0])[0]}
-        <a className={styles.descriptionLink} href={findText[1]} target="_blank">{findText[2]}</a>
+        <a
+          className={styles.descriptionLink}
+          href={findText[1]}
+          target="_blank"
+        >
+          {findText[2]}
+        </a>
         {inputString.split(match[0])[1]}
-        </p>
+      </p>
     )
   } else {
-    return (
-      <p className={styles.description}>{inputString}</p>
-    )
+    return <p className={styles.description}>{inputString}</p>
   }
 }
 
@@ -74,10 +83,19 @@ const FeaturesTabs = ({ resolution }: { resolution: Resolution }) => {
   return (
     <Tabs.Root
       className={styles.TabsRoot}
-      defaultValue="tab1"
+      defaultValue="cryptonBonuses"
       orientation="vertical"
     >
       <Tabs.List className={styles.TabsList} aria-label="Prime Features">
+        <Tabs.Trigger className={styles.TabsTrigger} value="cryptonBonuses">
+          <div className={styles.trigger_container}>
+            <div className={styles.icon_wrapper}>
+              <CryptonBonusesIcon />
+              <CryptonBonusesIconGradient />
+            </div>
+            <span>Бонусы экосистемы Crypton</span>
+          </div>
+        </Tabs.Trigger>
         <Tabs.Trigger className={styles.TabsTrigger} value="tab1">
           <div className={styles.trigger_container}>
             <div className={styles.icon_wrapper}>
@@ -123,13 +141,13 @@ const FeaturesTabs = ({ resolution }: { resolution: Resolution }) => {
             <span>Личный помощник</span>
           </div>
         </Tabs.Trigger>
-        <Tabs.Trigger className={styles.TabsTrigger} value="tab6">
+        <Tabs.Trigger className={styles.TabsTrigger} value="primeKit">
           <div className={styles.trigger_container}>
             <div className={styles.icon_wrapper}>
-              <GuaranteeIcon />
-              <GuaranteeIconGradient />
+              <PrimeKitIcon />
+              <PrimeKitIconGradient />
             </div>
-            <span>Гарантия прибыли</span>
+            <span>Стартовый Prime-набор</span>
           </div>
         </Tabs.Trigger>
         <Tabs.Trigger className={styles.TabsTrigger} value="tab7">
@@ -142,6 +160,9 @@ const FeaturesTabs = ({ resolution }: { resolution: Resolution }) => {
           </div>
         </Tabs.Trigger>
       </Tabs.List>
+      <Tabs.Content className={styles.TabsContent} value="cryptonBonuses">
+        <Slider data={featuresData.cryptonBonuses} resolution={resolution} />
+      </Tabs.Content>
       <Tabs.Content className={styles.TabsContent} value="tab1">
         <Slider data={featuresData.calendar} resolution={resolution} />
       </Tabs.Content>
@@ -157,8 +178,8 @@ const FeaturesTabs = ({ resolution }: { resolution: Resolution }) => {
       <Tabs.Content className={styles.TabsContent} value="tab5">
         <Slider data={featuresData.helper} resolution={resolution} />
       </Tabs.Content>
-      <Tabs.Content className={styles.TabsContent} value="tab6">
-        <Slider data={featuresData.guarantee} resolution={resolution} />
+      <Tabs.Content className={styles.TabsContent} value="primeKit">
+        <Slider data={featuresData.primeKit} resolution={resolution} />
       </Tabs.Content>
       <Tabs.Content className={styles.TabsContent} value="tab7">
         <Slider data={featuresData.investing} resolution={resolution} />
@@ -212,14 +233,14 @@ const Navigation = () => {
   return (
     <>
       <button
-        className={`${styles.swipe_btn} ${styles.swipe_btn__prev}`}
+        className={clsx(styles.swipe_btn, styles.swipe_btn__prev)}
         style={{ display: swiper.activeIndex === 0 ? "none" : "block" }}
         onClick={() => swiper.slidePrev()}
       >
         <ArrowLeft />
       </button>
       <button
-        className={`${styles.swipe_btn} ${styles.swipe_btn__next}`}
+        className={clsx(styles.swipe_btn, styles.swipe_btn__next)}
         style={{
           display:
             swiper.activeIndex === swiper.slides.length - 1 ? "none" : "block",

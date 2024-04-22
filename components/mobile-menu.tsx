@@ -1,76 +1,105 @@
-import React from "react";
+import React from "react"
 
-import Crypton from "../public/images/jsx/footer/crypton";
-import Discord from "../public/images/jsx/footer/discord";
-import Vk from "../public/images/jsx/footer/vk";
-import Instagram from "../public/images/jsx/footer/instagram";
-import Telegram from "../public/images/jsx/footer/telegram";
-import Youtube from "../public/images/jsx/footer/youtube";
+import Crypton from "../public/images/jsx/footer/crypton"
+import Discord from "../public/images/jsx/footer/discord"
+import Vk from "../public/images/jsx/footer/vk"
+import Instagram from "../public/images/jsx/footer/instagram"
+import Telegram from "../public/images/jsx/footer/telegram"
+import Youtube from "../public/images/jsx/footer/youtube"
 
 const MobileMenu = (props) => {
-  const resolution = props.resolution;
-  const currentY = props.currentY;
-  const setCurrentY = props.setCurrentY;
+  const resolution = props.resolution
+  const currentY = props.currentY
+  const setCurrentY = props.setCurrentY
 
   async function toggleMenu(position) {
-    await props.changeMobileMenu(!props.open);
+    await props.changeMobileMenu(!props.open)
     window.scrollTo({
       top: position,
       behavior: "smooth",
-    });
-    setCurrentY(position);
+    })
+    setCurrentY(position)
   }
 
   const categories = [
+    // Преимущества
     {
       position: {
-        md: 1776,
-        sm: 1296,
-      },
-    },
-    {
-      position: {
-        md: 930,
+        md: 940,
         sm: 740,
       },
     },
+    // Возможности
     {
       position: {
-        md: 4730,
-        sm: 3730,
+        md: 1750,
+        sm: 1296,
       },
     },
+    // Примеры заработка
     {
       position: {
-        md: 5630,
-        sm: 4290,
+        md: 5070,
+        sm: 3784,
       },
     },
+    // Команда
     {
       position: {
-        md: 7080,
-        sm: 5850,
+        md: 6861,
+        sm: 5037,
       },
     },
+    // Подписка
     {
       position: {
-        md: 8580,
-        sm: 7700,
+        md: 8047,
+        sm: 6404,
       },
     },
+    // Отзывы
     {
       position: {
-        md: 9550,
-        sm: 8950,
+        md: 10085,
+        sm: 9946,
       },
     },
+    // {
+    //   // Отзывы
+    //   position: {
+    //     md: 9350,
+    //     sm: 8576,
+    //   },
+    // },
     {
+      // Партнёры
       position: {
-        md: 11100,
-        sm: 10150,
+        md: 11741,
+        sm: 11266,
       },
     },
-  ];
+    // {
+    //   // Партнёры
+    //   position: {
+    //     md: 11005,
+    //     sm: 9896,
+    //   },
+    // },
+    {
+      // FAQ
+      position: {
+        md: 12139,
+        sm: 11591,
+      },
+    },
+    // {
+    //   // FAQ
+    //   position: {
+    //     md: 11403,
+    //     sm: 10221,
+    //   },
+    // },
+  ]
 
   return (
     <div
@@ -100,13 +129,13 @@ const MobileMenu = (props) => {
             className="mobile-menu__container__cat-place__item"
             onClick={() => toggleMenu(categories[0].position[resolution])}
           >
-            Возможности
+            Преимущества
           </div>
           <div
             className="mobile-menu__container__cat-place__item"
             onClick={() => toggleMenu(categories[1].position[resolution])}
           >
-            Преимущества
+            Возможности
           </div>
           <div
             className="mobile-menu__container__cat-place__item"
@@ -124,19 +153,19 @@ const MobileMenu = (props) => {
             className="mobile-menu__container__cat-place__item"
             onClick={() => toggleMenu(categories[4].position[resolution])}
           >
-            Партнеры
+            Подписка
           </div>
           <div
             className="mobile-menu__container__cat-place__item"
             onClick={() => toggleMenu(categories[5].position[resolution])}
           >
-            Подписка
+            Отзывы
           </div>
           <div
             className="mobile-menu__container__cat-place__item"
             onClick={() => toggleMenu(categories[6].position[resolution])}
           >
-            Отзывы
+            Партнеры
           </div>
           <div
             className="mobile-menu__container__cat-place__item"
@@ -181,21 +210,24 @@ const MobileMenu = (props) => {
           </div>
         </div>
         <div className="mobile-menu__container__subscribe-block">
-          <a
-            href={`https://t.me/CryptonLobbyBot?start=${props.referral}`}
-            target={"_blank"}
+          <button
+            style={{
+              background: "transparent",
+              outline: "none",
+              border: "none",
+              cursor: "pointer",
+            }}
+            className="mobile-menu__container__subscribe-block__subscribe"
+            onClick={() => toggleMenu(categories[4].position[resolution])}
           >
-            <div className="mobile-menu__container__subscribe-block__subscribe">
-              <div className="mobile-menu__container__subscribe-block__subscribe__text">
-                Оформить подписку
-              </div>
-              <div className="mobile-menu__container__subscribe-block__subscribe__logo"></div>
+            <div className="mobile-menu__container__subscribe-block__subscribe__text">
+              Оформить подписку
             </div>
-          </a>
+          </button>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default MobileMenu;
+export default MobileMenu

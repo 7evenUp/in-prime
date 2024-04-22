@@ -277,6 +277,8 @@
     &__bottom &_price_wrapper {
       border-bottom-left-radius: 14px;
       border-bottom-right-radius: 14px;
+      padding-bottom: 14px;
+      padding-top: 6px;
 
       &::before {
         top: 0;

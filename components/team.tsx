@@ -707,8 +707,8 @@ const Team = (props) => {
           top: 212,
         },
         description: {
-          name: "Герман",
-          role: "Продукт-менеджер Crypton",
+          name: "Егор",
+          role: "NFT-эксперт/-коллер",
         },
         img: "5",
         change_other: {
@@ -1546,8 +1546,8 @@ const Team = (props) => {
           top: 212,
         },
         description: {
-          name: "Герман",
-          role: "Продукт-менеджер Crypton",
+          name: "Егор",
+          role: "NFT-эксперт/-коллер",
         },
         img: "5",
         change_other: {
@@ -2385,8 +2385,8 @@ const Team = (props) => {
           top: 212,
         },
         description: {
-          name: "Герман",
-          role: "Продукт-менеджер Crypton",
+          name: "Егор",
+          role: "NFT-эксперт/-коллер",
         },
         img: "5",
         change_other: {
@@ -3225,8 +3225,8 @@ const Team = (props) => {
           top: 403,
         },
         description: {
-          name: "Герман",
-          role: "Продукт-менеджер Crypton",
+          name: "Егор",
+          role: "NFT-эксперт/-коллер",
         },
         img: "5",
         change_other: {

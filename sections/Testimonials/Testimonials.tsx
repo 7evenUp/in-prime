@@ -1,7 +1,6 @@
 import React, { useRef, useState } from "react"
 import { Swiper, SwiperSlide } from "swiper/react"
 import Image from "next/image"
-import clsx from "clsx"
 
 import { testimonialsData } from "@/data/testimonials"
 
@@ -9,7 +8,9 @@ import { useSwiperReactive } from "@/hooks/useSwiperReactive"
 
 import styles from "./Testimonials.module.scss"
 
-const Testimonials = () => {
+import { Resolution } from "@/types/resolution"
+
+const Testimonials = ({ resolution }: { resolution: Resolution }) => {
   const swiperRef = useRef(null)
   const [activeIndex, setActiveIndex] = useState(0)
 
@@ -19,21 +20,32 @@ const Testimonials = () => {
         <h2 className={styles.title}>Отзывы</h2>
         <div className={styles.navigation}>
           <button
-            className={clsx(
-              styles.arrow_btn,
-              activeIndex === 0 && styles.arrow_btn_disabled
-            )}
-            onClick={() => swiperRef.current.swiper.slidePrev()}
+            className={styles.arrow_btn}
+            onClick={() => {
+              if (activeIndex === 0) {
+                if (resolution === "md" || resolution == "sm") {
+                  swiperRef.current.swiper.slideTo(testimonialsData.length - 1)
+                } else {
+                  swiperRef.current.swiper.slideTo(
+                    testimonialsData.length - 1 - 2
+                  )
+                }
+              } else {
+                swiperRef.current.swiper.slidePrev()
+              }
+            }}
           >
             <Arrow className={styles.arrow_prev} />
           </button>
           <button
-            className={clsx(
-              styles.arrow_btn,
-              activeIndex === testimonialsData.length - 1 &&
-                styles.arrow_btn_disabled
-            )}
-            onClick={() => swiperRef.current.swiper.slideNext()}
+            className={styles.arrow_btn}
+            onClick={() => {
+              if (activeIndex === testimonialsData.length - 1) {
+                swiperRef.current.swiper.slideTo(0)
+              } else {
+                swiperRef.current.swiper.slideNext()
+              }
+            }}
           >
             <Arrow className={styles.arrow_next} />
           </button>
@@ -47,6 +59,7 @@ const Testimonials = () => {
         onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
         className={styles.swiper}
         wrapperClass={styles.swiper_wrapper}
+        rewind={true}
       >
         {testimonialsData.map((testimonial, i) => (
           <SwiperSlide className={styles.slide} key={i}>
@@ -67,6 +80,7 @@ const TestimonialsItem = ({
   name,
   text,
   cardIndex,
+  isNew
 }: {
   avatar: any
   name: string
@@ -74,6 +88,7 @@ const TestimonialsItem = ({
   date: string
   link: string
   cardIndex: number
+  isNew?: boolean
 }) => {
   const swiper = useSwiperReactive()
   // const formatedText = text.length > 225 ? text.slice(0, 225) + "..." : text
@@ -93,21 +108,21 @@ const TestimonialsItem = ({
       <div className={styles.testimonial_header}>
         {avatar === null ? (
           <div className={styles.avatar}>{`${name[0]}${name[1]}`}</div>
-        ) : typeof avatar === 'string' ? (
+        ) : typeof avatar === "string" ? (
           <div className={styles.avatar}>{`${name[0]}`}</div>
         ) : (
-          (
-            <Image
-              src={avatar}
-              alt="avatar"
-              width={48}
-              height={48}
-              style={{ borderRadius: "50%" }}
-            />
-          )
-        )
-        }
+          <Image
+            src={avatar}
+            alt="avatar"
+            width={48}
+            height={48}
+            style={{ borderRadius: "50%" }}
+          />
+        )}
         <span className={styles.name}>{name}</span>
+        {isNew && (
+          <div className={styles.new}>NEW</div>
+        )}
       </div>
       <p className={styles.testimonial_text}>{text}</p>
       <div className={styles.testimonial_footer}>

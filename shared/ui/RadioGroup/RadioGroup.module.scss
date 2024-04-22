@@ -1,0 +1,49 @@
+.RadioGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.RadioItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: #232323;
+  cursor: pointer;
+
+  &[data-state="checked"] {
+    border: 1px solid white;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.RadioItem[data-state="unchecked"] ~ .RadioLabel {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.RadioButton {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.RadioLabel {
+  font-family: "Resist Sans", sans-serif;
+  font-size: 18px;
+  margin-top: -4px;
+}
+
+.Indicator {
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 9999px;
+}

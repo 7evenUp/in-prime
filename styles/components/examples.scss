@@ -153,10 +153,15 @@
         width: 398px;
         height: 225px;
         object-fit: cover;
+        -webkit-mask: linear-gradient(0deg, transparent, white 50%);
+        mask: linear-gradient(0deg, transparent, white 50%);
 
         @media (max-width: 767px) {
           top: 9px;
           width: 268px;
+
+          -webkit-mask: linear-gradient(0deg, transparent, white 100%);
+          mask: linear-gradient(0deg, transparent, white 100%);
         }
       }
 

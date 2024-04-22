@@ -14,22 +14,44 @@ import styles from "./Partners.module.scss"
 
 const Partners = () => {
   return (
-    <div className="app__container__partners" id="partners">
-      <h2 className="app__container__partners__title" style={{ margin: 0 }}>
-        Нам доверяют
-      </h2>
+    <div className={styles.container} id="partners">
+      <h2 className={styles.heading}>Нам доверяют</h2>
       <div className={styles.partners}>
         <div className={styles.row}>
-          <Image src={BinanceImg} alt="Binance" className={styles.binance} />
-          <Image src={ImpossibleImg} alt="Impossible Finance" className={styles.if} />
-          <Image src={AuraImg} alt="Aura Network" className={styles.aura} />
-          <Image src={NearImg} alt="Near" className={styles.near} />
-        </div>
-        <div className={styles.row}>
-          <Image src={TrustImg} alt="Trust Wallet" className={styles.trust} />
-          <Image src={TaikoImg} alt="Taiko" className={styles.taiko} />
-          <Image src={DequestImg} alt="DeQuest" className={styles.dequest} />
-          <Image src={CyberImg} alt="Cyber Connect" className={styles.cyber} />
+          <Image src={BinanceImg} alt="Binance" />
+          <Image src={ImpossibleImg} alt="Impossible Finance" />
+          <Image src={AuraImg} alt="Aura Network" />
+          <Image src={NearImg} alt="Near" />
+          <Image src={TrustImg} alt="Trust Wallet" />
+          <Image src={TaikoImg} alt="Taiko" />
+          <Image src={DequestImg} alt="DeQuest" />
+          <Image src={CyberImg} alt="Cyber Connect" />
+          {/* Дублирование для корректной анимации */}
+          <Image src={BinanceImg} alt="Binance" aria-hidden="true" />
+          <Image
+            src={ImpossibleImg}
+            alt="Impossible Finance"
+            aria-hidden="true"
+          />
+          <Image src={AuraImg} alt="Aura Network" aria-hidden="true" />
+          <Image src={NearImg} alt="Near" aria-hidden="true" />
+          <Image src={TrustImg} alt="Trust Wallet" aria-hidden="true" />
+          <Image src={TaikoImg} alt="Taiko" aria-hidden="true" />
+          <Image src={DequestImg} alt="DeQuest" aria-hidden="true" />
+          <Image src={CyberImg} alt="Cyber Connect" aria-hidden="true" />
+          {/* Дублирование для корректной анимации */}
+          <Image src={BinanceImg} alt="Binance" aria-hidden="true" />
+          <Image
+            src={ImpossibleImg}
+            alt="Impossible Finance"
+            aria-hidden="true"
+          />
+          <Image src={AuraImg} alt="Aura Network" aria-hidden="true" />
+          <Image src={NearImg} alt="Near" aria-hidden="true" />
+          <Image src={TrustImg} alt="Trust Wallet" aria-hidden="true" />
+          <Image src={TaikoImg} alt="Taiko" aria-hidden="true" />
+          <Image src={DequestImg} alt="DeQuest" aria-hidden="true" />
+          <Image src={CyberImg} alt="Cyber Connect" aria-hidden="true" />
         </div>
       </div>
     </div>

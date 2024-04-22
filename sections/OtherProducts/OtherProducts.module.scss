@@ -1,0 +1,162 @@
+.section {
+  box-sizing: border-box;
+  width: 1298px;
+  margin-top: 160px;
+  margin-bottom: 120px;
+
+  @media (max-width: 1919px) {
+    width: 1143px;
+    margin-top: 112px;
+    margin-bottom: 100px;
+  }
+
+  @media (max-width: 1367px) {
+    width: 672px;
+    margin-top: 100px;
+    margin-bottom: 90px;
+  }
+
+  @media (max-width: 767px) {
+    width: 331px;
+    margin-top: 70px;
+    margin-bottom: 70px;
+  }
+
+  @media (max-width: 420px) {
+    width: 280px;
+  }
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+  }
+}
+
+.info {
+  color: white;
+  width: 560px;
+
+  @media (max-width: 1919px) {
+    width: 462px;
+  }
+
+  @media (max-width: 1367px) {
+    width: 357px;
+  }
+
+  @media (max-width: 420px) {
+    width: 280px;
+  }
+
+  &_title {
+    font-family: "Benzin-Bold";
+    font-size: 36px;
+    line-height: 120%;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 54px;
+
+    @media (max-width: 1919px) {
+      font-size: 32px;
+    }
+
+    @media (max-width: 767px) {
+      font-size: 22px;
+      margin-bottom: 36px;
+    }
+  }
+
+  p {
+    font-family: "Resist Sans Light";
+    font-size: 20px;
+    line-height: 140%;
+
+    @media (max-width: 1919px) {
+      font-size: 16px;
+    }
+
+    @media (max-width: 767px) {
+      font-size: 14px;
+    }
+
+    &:last-child {
+      margin-top: 36px;
+
+      @media (max-width: 767px) {
+        margin-top: 24px;
+      }
+    }
+  }
+}
+
+.products {
+  display: grid;
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  margin-top: 60px;
+
+  @media (max-width: 1367px) {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    grid-template-rows: repeat(3, minmax(0, 1fr));
+    place-items: center;
+    margin-top: 36px;
+  }
+
+  @media (max-width: 767px) {
+    place-items: start;
+    margin-top: 48px;
+  }
+}
+
+.product {
+  color: white;
+  display: flex;
+  gap: 16px;
+  text-decoration: none;
+  width: 270px;
+  transition: color 0.15s ease-in-out;
+
+  svg {
+    flex-shrink: 0;
+  }
+
+  &:hover {
+    color: #bb44cc;
+  }
+
+  &_info {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    &_title {
+      margin: 0;
+      font-family: "Resist Sans Medium", sans-serif;
+      font-weight: 500;
+      font-size: 18px;
+      width: fit-content;
+      position: relative;
+    }
+
+    p {
+      font-family: "Resist Sans Light";
+      font-size: 14px;
+      line-height: 140%;
+
+      @media (max-width: 1367px) {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.arrow {
+  position: absolute;
+  right: -16px;
+  top: 2px;
+}

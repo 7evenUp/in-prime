@@ -1,3 +1,8 @@
+import cryptonBonuses1 from "@/public/images/png/features/cryptonBonuses1.png"
+import cryptonBonuses2 from "@/public/images/png/features/cryptonBonuses2.png"
+import cryptonBonuses3 from "@/public/images/png/features/cryptonBonuses3.png"
+import cryptonBonuses4 from "@/public/images/png/features/cryptonBonuses4.png"
+
 import calendar1 from "@/public/images/png/features/calendar-1.png"
 import calendar2 from "@/public/images/png/features/calendar-2.png"
 import calendar3 from "@/public/images/png/features/calendar-3.png"
@@ -18,13 +23,36 @@ import meetups3 from "@/public/images/png/features/meetups-3.png"
 import helper1 from "@/public/images/png/features/helper-1.png"
 import helper2 from "@/public/images/png/features/helper-2.png"
 
-import guarantee1 from "@/public/images/png/features/guarantee-1.png"
-import guarantee2 from "@/public/images/png/features/guarantee-2.png"
-
 import investing1 from "@/public/images/png/features/investing-1.png"
 import investing2 from "@/public/images/png/features/investing-2.png"
 
+import primeKit1 from "@/public/images/png/features/primeKit1.png"
+import primeKit2 from "@/public/images/png/features/primeKit2.png"
+import primeKit3 from "@/public/images/png/features/primeKit3.png"
+
 export const data = {
+  cryptonBonuses: [
+    {
+      imgSrc: cryptonBonuses1,
+      description:
+        "Приобретая подписку, вы можете получать бонусы и преимущества разных продуктов экосистемы Crypton.",
+    },
+    {
+      imgSrc: cryptonBonuses2,
+      description:
+        "Участникам Prime доступны бесплатные услуги гаранта на Crypton OTC.",
+    },
+    {
+      imgSrc: cryptonBonuses3,
+      description:
+        "Ранний доступ к разрабатываемым продуктам. Наши участники первыми опробовали Tools и Research, а вскоре получат доступ и к Календарю.",
+    },
+    {
+      imgSrc: cryptonBonuses4,
+      description:
+        "Возможность уже сейчас получать Crypton Points, которые позже можно будет потратить в специальном магазине бонусов.",
+    },
+  ],
   calendar: [
     {
       imgSrc: calendar1,
@@ -110,38 +138,32 @@ export const data = {
         "Надо созвониться и решить вопрос голосом или через демонстрацию экрана? Не вопрос!",
     },
   ],
-  guarantee: [
-    {
-      imgSrc: guarantee1,
-      description:
-        "Выполняйте активности с пометкой “Гарант” и будьте уверены, что цена подписки окупится!",
-    },
-    {
-      imgSrc: guarantee2,
-      description:
-      "Если подписка не окупилась, отправьте список выполненных гарант. событий с доказательствами. При подтверждении, мы начислим недостающую сумму на ваш баланс.",
-    },
-  ],
   investing: [
     {
       imgSrc: investing1,
-      description:
-      `Мы берем 10% от цены каждой купленной подписки Prime и инвестируем их в различные крипто-активы. Взамен, мы выдаем вам NFT "SHARES", которые являются подтверждением владения доли в фонде пропорционально номиналу.`
+      description: `5% от цены каждой купленной подписки Prime мы инвестируем в различные криптоактивы. Взамен, мы выдаем вам NFT "SHARES", которые являются подтверждением владения доли в фонде пропорционально номиналу.`,
     },
     {
       imgSrc: investing2,
-      description: 'Наша цель — увеличить стоимость фонда в 10 раз, то есть до $1 миллиона, после чего распределить эту прибыль между вами, владельцами SHARES. Отследить текущее состояние фонда <a href="https://bit.ly/3R27F0e">можно здесь</a>.'
+      description:
+        'Наша цель — увеличить стоимость фонда в 10 раз, то есть до $1 миллиона, после чего распределить эту прибыль между вами, владельцами SHARES. Отследить текущее состояние фонда <a href="https://bit.ly/3R27F0e">можно здесь</a>.',
     },
-  ]
-  // investfund: [
-  //   {
-  //     imgSrc: guarantee1,
-  //     description:
-  //       `Мы берем 10% от цены каждой купленной подписки Prime и инвестируем их в различные крипто-активы. Взамен, мы выдаем вам NFT "SHARES", которые являются подтверждением владения доли в фонде пропорционально номиналу.`,
-  //   },
-  //   {
-  //     imgSrc: guarantee2,
-  //     description: 'Наша цель — увеличить стоимость фонда в 10 раз, то есть до $1 миллиона, после чего распределить эту прибыль между вами, владельцами SHARES. Отследить текущее состояние фонда можно здесь - bit.ly/3R27F0e.'
-  //   },
-  // ],
+  ],
+  primeKit: [
+    {
+      imgSrc: primeKit1,
+      description:
+        "План действий для заработка, включающий в себя обучающий курс по базовым и продвинутым темам, и пошаговые действия по отработке активностей с видео-гайдами.",
+    },
+    {
+      imgSrc: primeKit2,
+      description:
+        "Координата по актуальным и прибыльным событиям с простыми видео-инструкциями.",
+    },
+    {
+      imgSrc: primeKit3,
+      description:
+        "Постоянная поддержка от личного Наставника, команды Prime, а также более опытных участников нашего комьюнити.",
+    },
+  ],
 }

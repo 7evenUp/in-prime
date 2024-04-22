@@ -1,98 +1,203 @@
-import TeamArrow from '@/public/images/jsx/ceo/arrow'
-import Telegram from '@/public/images/jsx/ceo/telegram'
-import YouTube from '@/public/images/jsx/ceo/you-tube'
-import React from 'react'
+import TeamArrow from "@/public/images/jsx/ceo/arrow"
+import Telegram from "@/public/images/jsx/ceo/telegram"
+import YouTube from "@/public/images/jsx/ceo/you-tube"
 
-const Founders =() => {
+import styles from "./Founders.module.scss"
+
+const Founders = () => {
   return (
-    <div className="app__container__about-ceo" id="founder">
-        <div className="app__container__about-ceo__right-light" />
-        <div className="app__container__about-ceo__title">Команда</div>
-        <div className="app__container__about-ceo__founders">
-        <div className="app__container__about-ceo__ceo">
-            <div className="app__container__about-ceo__ceo__photo pavel" />
-            <div className="app__container__about-ceo__ceo__description">
-            <div className="app__container__about-ceo__ceo__description__name">
-                Павел Сычев
+    <section className={styles.section} id="founder">
+      <div className={styles.gradient} />
+      <h2 className={styles.title}>Команда</h2>
+      <div className={styles.founders}>
+        <div className={styles.founder}>
+          <div className={styles.founder_top_mobile}>
+            <img
+              src="/images/png/ceo/pasha.png"
+              alt="Павел Сычев"
+              className={styles.founder_image}
+            />
+            <div>
+              <h3 className={styles.founder_name}>Павел Сычев</h3>
+              <p className={styles.founder_position}>
+                <a href="https://crypton.xyz" target="_blank">
+                  Crypton
+                </a>{" "}
+                Co-Founder (CEO)
+              </p>
             </div>
-            <div className="app__container__about-ceo__ceo__description__job">
-                Основатель экосистемы{" "}
-                <a href="https://crypton.xyz">Crypton </a>
-            </div>
-            <div className="app__container__about-ceo__ceo__description__channels">
-                <div className="app__container__about-ceo__ceo__description__channels__title">
+          </div>
+          <div className={styles.founder_bottom_mobile}>
+            <div className={styles.founder_channels}>
+              <span className={styles.founder_channels_title}>
                 Автор каналов:
-                </div>
-
-                <a
-                href="https://www.youtube.com/c/EnjoyMaloy"
-                target={"_blank"}
-                >
-                <div className="app__container__about-ceo__ceo__description__channels__link">
+              </span>
+              <div className={styles.founder_channels_list}>
+                <a href="https://www.youtube.com/c/EnjoyMaloy" target="_blank">
+                  <div className="app__container__about-ceo__ceo__description__channels__link">
                     <YouTube />
-                    <div className="app__container__about-ceo__ceo__description__channels__link__text">
-                    EnjoyMaloy
-                    </div>
+                    <span className="app__container__about-ceo__ceo__description__channels__link__text">
+                      EnjoyMaloy
+                    </span>
                     <TeamArrow />
-                </div>
+                  </div>
                 </a>
 
-                <a href="https://t.me/tradeparty1337" target={"_blank"}>
-                <div className="app__container__about-ceo__ceo__description__channels__link">
+                <a href="https://t.me/tradeparty1337" target="_blank">
+                  <div className="app__container__about-ceo__ceo__description__channels__link">
                     <Telegram />
-                    <div className="app__container__about-ceo__ceo__description__channels__link__text">
-                    TradeParty
-                    </div>
+                    <span className="app__container__about-ceo__ceo__description__channels__link__text">
+                      TradeParty
+                    </span>
                     <TeamArrow />
-                </div>
+                  </div>
                 </a>
+              </div>
             </div>
-            <div className="app__container__about-ceo__ceo__description__experience">
-                Имеет более 5 лет опыта в криптоиндустрии. Инфлюенсер 2022
-                года{" "}
-                <a
+            <p className={styles.founder_experience}>
+              Имеет более 5 лет опыта в криптоиндустрии. Инфлюенсер 2022 года{" "}
+              <a
                 href="https://twitter.com/binance/status/1545462193155604481"
-                target={"_blank"}
-                >
+                target="_blank"
+              >
                 по версии Binance
+              </a>
+              .
+            </p>
+          </div>
+          <div className={styles.founder_default}>
+            <img
+              src="/images/png/ceo/pasha.png"
+              alt="Павел Сычев"
+              className={styles.founder_image}
+            />
+            <div className={styles.founder_info}>
+              <h3 className={styles.founder_name}>Павел Сычев</h3>
+              <p className={styles.founder_position}>
+                <a href="https://crypton.xyz" target="_blank">
+                  Crypton
+                </a>{" "}
+                Co-Founder (CEO)
+              </p>
+              <div className={styles.founder_channels}>
+                <span className={styles.founder_channels_title}>
+                  Автор каналов:
+                </span>
+                <div className={styles.founder_channels_list}>
+                  <a
+                    href="https://www.youtube.com/c/EnjoyMaloy"
+                    target="_blank"
+                  >
+                    <div className="app__container__about-ceo__ceo__description__channels__link">
+                      <YouTube />
+                      <span className="app__container__about-ceo__ceo__description__channels__link__text">
+                        EnjoyMaloy
+                      </span>
+                      <TeamArrow />
+                    </div>
+                  </a>
+
+                  <a href="https://t.me/tradeparty1337" target="_blank">
+                    <div className="app__container__about-ceo__ceo__description__channels__link">
+                      <Telegram />
+                      <span className="app__container__about-ceo__ceo__description__channels__link__text">
+                        TradeParty
+                      </span>
+                      <TeamArrow />
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <p className={styles.founder_experience}>
+                Имеет более 5 лет опыта в криптоиндустрии. Инфлюенсер 2022 года{" "}
+                <a
+                  href="https://twitter.com/binance/status/1545462193155604481"
+                  target="_blank"
+                >
+                  по версии Binance
                 </a>
                 .
+              </p>
             </div>
-            </div>
+          </div>
         </div>
 
-        <div className="app__container__about-ceo__ceo">
-            <div className="app__container__about-ceo__ceo__photo vadim" />
-            <div className="app__container__about-ceo__ceo__description">
-            <div className="app__container__about-ceo__ceo__description__name">
-                Вадим Тарасов
+        <div className={styles.founder}>
+          <div className={styles.founder_top_mobile}>
+            <img
+              src="/images/png/ceo/vadim.png"
+              alt="Вадим Тарасов"
+              className={styles.founder_image}
+            />
+            <div>
+              <h3 className={styles.founder_name}>Вадим Тарасов</h3>
+              <p className={styles.founder_position}>
+                <a href="https://crypton.xyz" target="_blank">
+                  Crypton
+                </a>{" "}
+                Co-Founder (COO)
+              </p>
             </div>
-            <div className="app__container__about-ceo__ceo__description__job">
-                Сооснователь экосистемы{" "}
-                <a href="https://crypton.xyz">Crypton </a>
-            </div>
-            <div className="app__container__about-ceo__ceo__description__channels">
-                <div className="app__container__about-ceo__ceo__description__channels__title">
-                Один из авторов канала
-                </div>
-
-                <a href="https://t.me/about_traders" target={"_blank"}>
-                <div className="app__container__about-ceo__ceo__description__channels__link">
+          </div>
+          <div className={styles.founder_bottom_mobile}>
+            <div className={styles.founder_channels}>
+              <span className={styles.founder_channels_title}>
+                Один из авторов канала:
+              </span>
+              <div className={styles.founder_channels_list}>
+                <a href="https://t.me/about_traders" target="_blank">
+                  <div className="app__container__about-ceo__ceo__description__channels__link">
                     <Telegram />
                     <div className="app__container__about-ceo__ceo__description__channels__link__text">
-                    Уголок трейдера
+                      Уголок трейдера
                     </div>
                     <TeamArrow />
-                </div>
+                  </div>
                 </a>
+              </div>
             </div>
-            <div className="app__container__about-ceo__ceo__description__experience">
+            <p className={styles.founder_experience}>
+              В криптоиндустрии с 2017 года.
+            </p>
+          </div>
+          <div className={styles.founder_default}>
+            <img
+              src="/images/png/ceo/vadim.png"
+              alt="Вадим Тарасов"
+              className={styles.founder_image}
+            />
+            <div className={styles.founder_info}>
+              <h3 className={styles.founder_name}>Вадим Тарасов</h3>
+              <p className={styles.founder_position}>
+                <a href="https://crypton.xyz" target="_blank">
+                  Crypton
+                </a>{" "}
+                Co-Founder (COO)
+              </p>
+              <div className={styles.founder_channels}>
+                <span className={styles.founder_channels_title}>
+                  Один из авторов канала:
+                </span>
+                <div className={styles.founder_channels_list}>
+                  <a href="https://t.me/about_traders" target="_blank">
+                    <div className="app__container__about-ceo__ceo__description__channels__link">
+                      <Telegram />
+                      <div className="app__container__about-ceo__ceo__description__channels__link__text">
+                        Уголок трейдера
+                      </div>
+                      <TeamArrow />
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <p className={styles.founder_experience}>
                 В криптоиндустрии с 2017 года.
+              </p>
             </div>
-            </div>
+          </div>
         </div>
-        </div>
-    </div>
+      </div>
+    </section>
   )
 }
 

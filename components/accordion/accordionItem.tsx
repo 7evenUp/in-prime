@@ -1,28 +1,41 @@
+import clsx from "clsx"
+
 import ArrowUp from "@/public/images/jsx/icons/arrow-up"
 
-export default function AccordionItem(props) {
-  let isShowing = props.state
-  
+const AccordionItem = ({
+  isShowing,
+  item,
+  onClick,
+  mode,
+}: {
+  isShowing: boolean
+  item: { question: string; answer: React.JSX.Element }
+  onClick: () => void
+  mode: string
+}) => {
   return (
-    <>
+    <div>
       <div
         className="accordion"
-        onClick={props.toggle}
-        key={props.item.question}
+        onClick={onClick}
+        key={item.question}
         aria-expanded={isShowing}
       >
-        <div className="accordion__title">{props.item.question}</div>
+        <h3 className="accordion__title">{item.question}</h3>
         <ArrowUp
-          className={`accordion__toggle ${props.mode}`}
+          className={clsx("accordion__toggle", mode)}
           aria-expanded={isShowing}
         />
       </div>
       <div
-        className={`accordion__content ${props.mode}`}
+        className={clsx("accordion__content", mode)}
         aria-expanded={!isShowing}
       >
-        {props.item.answer}
+        {item.answer}
       </div>
-    </>
+      <div className="accordion__divider" />
+    </div>
   )
 }
+
+export default AccordionItem

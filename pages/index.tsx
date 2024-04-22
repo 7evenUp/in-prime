@@ -1,78 +1,66 @@
-import React, { useState, useEffect } from "react";
-import { useRouter } from "next/router";
-import Image from "next/image";
+import React, { useState, useEffect } from "react"
+import { useRouter } from "next/router"
+import { Swiper, SwiperSlide } from "swiper/react"
 
-import Footer from "@/components/footer";
+import Footer from "@/components/footer"
 // import Features from "@/components/features"
-import Examples from "@/components/examples";
-import Accordion from "@/components/accordion/accordion";
-import Menu from "@/components/menu";
-import OtherProducts from "@/components/other-products";
-import Team from "@/components/team";
-import Ribbon from "@/components/ribbon";
-
-import SubscribeArrow from "@/public/images/jsx/subscribe/arrow";
-import Telegram from "@/public/images/jsx/ceo/telegram";
-import YouTube from "@/public/images/jsx/ceo/you-tube";
-import TeamArrow from "@/public/images/jsx/ceo/arrow";
-import More from "@/public/images/jsx/subscribe/more";
-
-import Testimonials from "@/sections/Testimonials/Testimonials";
-import Histories from "@/sections/Histories/Histories";
-import Benefits from "@/sections/Benefits/Benefits";
-import Features from "@/sections/Features/Features";
-import Partners from "@/sections/Partners/Partners";
-import Roadmap from "@/sections/Roadmap/Roadmap";
-import Earn from "@/sections/Earn/Earn";
-
-import { Resolution } from "@/types/resolution";
-import RibbonSale from "@/components/ribbon-sale";
+import Examples from "@/components/examples"
+import Accordion from "@/components/accordion/accordion"
+import Menu from "@/components/menu"
+import Team from "@/components/team"
+import Ribbon from "@/components/ribbon"
+import RibbonSale from "@/components/ribbon-sale"
 // import Countdown from "@/components/countdown";
-import FeaturesMobile from "@/sections/Features/FeaturesMobile";
-import { Swiper, SwiperSlide } from "swiper/react";
-import Founders from "@/sections/founders/Founders";
-import FoundersMobile from "@/sections/founders/FoundersMobile";
-import PartnersMobile from "@/sections/Partners/PartnersMobile";
-import BuySubscr from "@/public/images/jsx/subscribe/buy-subscr";
-import BuySubscrLg from "@/public/images/jsx/subscribe/buy-subscr-lg";
-import BuySubscrMd from "@/public/images/jsx/subscribe/buy-subscr-md";
-import BuySubscrSm from "@/public/images/jsx/subscribe/buy-subscr-sm";
-import Getgems from "@/public/images/jsx/loyalty/getgems";
-import Mythical from "@/public/images/jsx/loyalty/mythical";
-import Legendary from "@/public/images/jsx/loyalty/legendary";
-import Crypton from "@/public/images/jsx/footer/crypton";
-import Points500 from "@/public/images/jsx/loyalty/points500";
-import Points50 from "@/public/images/jsx/loyalty/points50";
-import Points150 from "@/public/images/jsx/loyalty/points150";
-import Points50Md from "@/public/images/jsx/loyalty/points50-md";
-import Points150Md from "@/public/images/jsx/loyalty/points150-md";
-import Points500Md from "@/public/images/jsx/loyalty/points500-md";
-import Points50Sm from "@/public/images/jsx/loyalty/points50-sm";
-import Points150Sm from "@/public/images/jsx/loyalty/points150-sm";
+
+import YouTube from "@/public/images/jsx/ceo/you-tube"
+import TeamArrow from "@/public/images/jsx/ceo/arrow"
+import More from "@/public/images/jsx/subscribe/more"
+
+import Testimonials from "@/sections/Testimonials/Testimonials"
+import Histories from "@/sections/Histories/Histories"
+import Benefits from "@/sections/Benefits/Benefits"
+import Features from "@/sections/Features/Features"
+import FeaturesMd from "@/sections/Features/FeaturesMd"
+import Partners from "@/sections/Partners/Partners"
+import Roadmap from "@/sections/Roadmap/Roadmap"
+import Earn from "@/sections/Earn/Earn"
+import Founders from "@/sections/founders/Founders"
+import BuySubscription from "@/sections/BuySubscription/BuySubscription"
+import BuySubscriptionPromo from "@/sections/BuySubscription/BuySubscriptionPromo"
+import OtherProducts from "@/sections/OtherProducts/OtherProducts"
+import Guarantee from "@/sections/Guarantee/Guarantee"
+import LoyaltySystem from "@/sections/LoyaltySystem/LoyaltySystem"
+
+import BuySubscr from "@/public/images/jsx/subscribe/buy-subscr"
+import BuySubscrLg from "@/public/images/jsx/subscribe/buy-subscr-lg"
+import BuySubscrMd from "@/public/images/jsx/subscribe/buy-subscr-md"
+import BuySubscrSm from "@/public/images/jsx/subscribe/buy-subscr-sm"
+
+import { Resolution } from "@/types/resolution"
 
 const useWindowSize = () => {
-  const [currentWidth, setCurrentWidth] = useState(0);
+  const [currentWidth, setCurrentWidth] = useState(0)
 
   const handleResize = () => {
-    setCurrentWidth(window.innerWidth);
-  };
+    setCurrentWidth(window.innerWidth)
+  }
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      window.addEventListener("resize", handleResize);
+      window.addEventListener("resize", handleResize)
 
-      handleResize();
+      handleResize()
 
-      return () => window.removeEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize)
     }
-  }, []);
+  }, [])
 
-  return currentWidth;
-};
+  return currentWidth
+}
 
 const renderer = ({ days, hours, minutes, seconds, completed }) => {
   if (completed) {
-    return <div />;
+    return <div />
   } else {
     return (
       <span>
@@ -96,38 +84,37 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
           {seconds}
         </div>
       </span>
-    );
+    )
   }
-};
+}
 
 const Home = (props) => {
-  const router = useRouter();
-  const referral = router.query.ref || "agent";
+  const router = useRouter()
+  const referral = router.query.ref || "agent"
 
-  const [currentY, setCurrentY] = useState(0);
-  const [openFaq, setOpenFaq] = useState(-1);
+  const [currentY, setCurrentY] = useState(0)
 
-  const [timerProgress, setTimerProgress] = useState(0);
+  const [timerProgress, setTimerProgress] = useState(0)
 
-  const currentWidth = useWindowSize();
+  const currentWidth = useWindowSize()
 
-  let resolution: Resolution = "lgg";
+  let resolution: Resolution = "lgg"
 
   switch (true) {
     case currentWidth >= 1920:
-      resolution = "lgg";
-      break;
+      resolution = "lgg"
+      break
     case currentWidth < 1920 && currentWidth >= 1368:
-      resolution = "lg";
-      break;
+      resolution = "lg"
+      break
     case currentWidth < 1368 && currentWidth >= 768:
-      resolution = "md";
-      break;
+      resolution = "md"
+      break
     case currentWidth < 768:
-      resolution = "sm";
-      break;
+      resolution = "sm"
+      break
     default:
-      break;
+      break
   }
 
   // const tariffs = {
@@ -141,36 +128,11 @@ const Home = (props) => {
     lg: <BuySubscrLg />,
     md: <BuySubscrMd />,
     sm: <BuySubscrSm />,
-  };
-  const points50 = {
-    lgg: <Points50 />,
-    lg: <Points50 />,
-    md: <Points50Md />,
-    sm: <Points50Sm />,
-  };
-  const points150 = {
-    lgg: <Points150 />,
-    lg: <Points150 />,
-    md: <Points150Md />,
-    sm: <Points150Sm />,
-  };
-  const points500 = {
-    lgg: <Points500 />,
-    lg: <Points500 />,
-    md: <Points500Md />,
-    sm: <Points500Md />,
-  };
-
-  const moreInfo = {
-    lgg: 11825,
-    lg: 10451,
-    md: 11520,
-    sm: 10450,
-  };
+  }
 
   const wheelHandler = (event) => {
-    setCurrentY(window.scrollY);
-  };
+    setCurrentY(window.scrollY)
+  }
 
   useEffect(() => {
     setTimerProgress(
@@ -180,24 +142,15 @@ const Home = (props) => {
               100
           : 0
       )
-    );
-  }, []);
+    )
+  }, [])
   useEffect(() => {
-    window.addEventListener("wheel", wheelHandler);
+    window.addEventListener("wheel", wheelHandler)
 
     return () => {
-      window.removeEventListener("wheel", wheelHandler);
-    };
-  }, []);
-
-  const toggleFaq = (index: number) => {
-    window.scrollTo({
-      top: moreInfo[resolution],
-      behavior: "smooth",
-    });
-    setOpenFaq(index);
-    setCurrentY(moreInfo[resolution]);
-  };
+      window.removeEventListener("wheel", wheelHandler)
+    }
+  }, [])
 
   return (
     <>
@@ -218,13 +171,12 @@ const Home = (props) => {
           />
 
           <Benefits />
-          {resolution === "sm" ? (
-            <FeaturesMobile resolution={resolution} />
+
+          {resolution === "sm" || resolution === "md" ? (
+            <FeaturesMd resolution={resolution} />
           ) : (
             <Features resolution={resolution} />
           )}
-          {/* <Features resolution={resolution} /> */}
-          <Roadmap resolution={resolution} />
 
           {/* <div className="app__container__video-block" id="video">
             <div className="app__container__video-block__video">
@@ -249,26 +201,7 @@ const Home = (props) => {
             </div>
           </div> */}
 
-          <div className="app__container__guarantee" id="guarantee">
-            <div className="app__container__guarantee__block">
-              <div className="app__container__guarantee__block__title" />
-              <div className="app__container__guarantee__block__description">
-                Если по какой-то причине подписка за месяц не окупилась, то мы
-                продлим её ещё на месяц бесплатно!
-              </div>
-              <div
-                className="app__container__guarantee__block__button"
-                onClick={() => toggleFaq(2)}
-              >
-                <div className="app__container__guarantee__block__button__text">
-                  Подробнее
-                </div>
-                <div className="app__container__guarantee__block__button__arrow">
-                  <More />
-                </div>
-              </div>
-            </div>
-          </div>
+          <Guarantee />
 
           <Ribbon currentWidth={currentWidth} />
 
@@ -281,184 +214,32 @@ const Home = (props) => {
             <Examples resolution={resolution} />
           </div>
 
-          {resolution === "sm" ? <FoundersMobile /> : <Founders />}
+          <Roadmap resolution={resolution} />
+
+          <Founders />
 
           <Team resolution={resolution} />
 
-          {resolution === "sm" ? <PartnersMobile /> : <Partners />}
+          {/* <LoyaltySystem resolution={resolution} /> */}
 
-          <div className="app__container__loyalty">
-            <div className="app__container__loyalty__content">
-              <div className="app__container__loyalty__content__header">
-                Система лояльности
-              </div>
-              <div className="app__container__loyalty__content__info">
-                <div className="app__container__loyalty__content__info__cashback">
-                  <div className="app__container__loyalty__content__info__cashback__main">
-                    <div className="app__container__loyalty__content__info__cashback__main__text">
-                      За покупку любой подписки экосистемы Crypton вы получите <b>кешбек</b> в виде Crypton Points
-                    </div>
-                    <div className="app__container__loyalty__content__info__cashback__main__points">
-                      <div className="app__container__loyalty__content__info__cashback__main__points__block _1">
-                        <Crypton/>
-                        <div>
-                          {points50[resolution]}
-                        </div>
-                      </div>
-                      <div className="app__container__loyalty__content__info__cashback__main__points__block _2">
-                        <Crypton/>
-                        <div>
-                          {points150[resolution]}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="app__container__loyalty__content__info__cashback__discount">
-                    <div>Базовый кэшбек —</div>
-                    <b>5%</b>
-                  </div>
-                </div>
-                <div className="app__container__loyalty__content__info__cards">
-                  <div className="app__container__loyalty__content__info__cards__discount">
-                    <div className="app__container__loyalty__content__info__cards__discount__subtitle">
-                      При наличии NFT <br/> Nutcrackers кешбек
-                    </div>
-                    <div className="app__container__loyalty__content__info__cards__discount__title">
-                      до 20%
-                    </div>
-                    <div className="app__container__loyalty__content__info__cards__discount__button">
-                      <a
-                          href={`https://getgems.io/nutcrackers`}
-                          target={"_blank"}
-                      >
-                        <Getgems/>
-                      </a>
-                    </div>
-                    <div className="app__container__loyalty__content__info__cards__discount__nutcrackers"/>
-                  </div>
-                  <div className="app__container__loyalty__content__info__cards__rarity">
-                    <div className="app__container__loyalty__content__info__cards__rarity__title">
-                      Чем <b>выше редкость</b> <br/> Щелкунчика, тем <b>больше</b> <br/> Crypton Points вы получите
-                    </div>
-                    <div className="app__container__loyalty__content__info__cards__rarity__nutcrackers">
-                      <div className="app__container__loyalty__content__info__cards__rarity__nutcrackers__block">
-                        <div className="app__container__loyalty__content__info__cards__rarity__nutcrackers__block__nutcracker _1"/>
-                        <div className="app__container__loyalty__content__info__cards__rarity__nutcrackers__block__text _1">
-                          <Legendary />
-                        </div>
-                      </div>
+          {/* <BuySubscription tariffs={tariffs} resolution={resolution} /> */}
 
-                      <div className="app__container__loyalty__content__info__cards__rarity__nutcrackers__block">
-                        <div className="app__container__loyalty__content__info__cards__rarity__nutcrackers__block__text _2">
-                          <Mythical />
-                        </div>
-                        <div className="app__container__loyalty__content__info__cards__rarity__nutcrackers__block__nutcracker _2"/>
-                      </div>
-                    </div>
-                    <div className="app__container__loyalty__content__info__cards__rarity__points">
-                      <Crypton />
-                      <div>
-                        {points500[resolution]}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <BuySubscriptionPromo tariffs={tariffs} resolution={resolution} />
 
-          <div className="app__container__subscribe" id="subscribe">
-            <div className="app__container__subscribe__noise"/>
-            <div className="app__container__subscribe__back">
-              <div className="app__container__subscribe__back__left-gradient"/>
-              <div className="app__container__subscribe__back__right-gradient"/>
-            </div>
-            <div className="app__container__subscribe__content">
-              <div className="app__container__subscribe__content__header">
-                <div className="app__container__subscribe__content__title" />
-              </div>
-              <div className="app__container__subscribe__content__cost bottom">
-                <div className="app__container__subscribe__content__cost__block">
-                  <div className="app__container__subscribe__content__cost__block__header">
-                    <div className="app__container__subscribe__content__cost__block__header__gradient _5" />
-                    <div className="app__container__subscribe__content__cost__block__header__title">
-                      1 месяц
-                    </div>
-                  </div>
-                  <div className="app__container__subscribe__content__cost__block__body">
-                    <div className="app__container__subscribe__content__cost__block__body__price _74" />
-                    <div className="app__container__subscribe__content__cost__block__body__discount _45" />
-                  </div>
-                </div>
-                <div className="app__container__subscribe__content__cost__block">
-                  <div className="app__container__subscribe__content__cost__block__header">
-                    <div className="app__container__subscribe__content__cost__block__header__gradient _6" />
-                    <div className="app__container__subscribe__content__cost__block__header__title">
-                      3 месяца
-                    </div>
-                  </div>
-                  <div className="app__container__subscribe__content__cost__block__body">
-                    <div className="app__container__subscribe__content__cost__block__body__price _214" />
-                    <div className="app__container__subscribe__content__cost__block__body__discount _225" />
-                  </div>
-                </div>
-                <div className="app__container__subscribe__content__cost__block">
-                  <div className="app__container__subscribe__content__cost__block__header">
-                    <div className="app__container__subscribe__content__cost__block__header__gradient _7" />
-                    <div className="app__container__subscribe__content__cost__block__header__title">
-                      6 месяцев
-                    </div>
-                  </div>
-                  <div className="app__container__subscribe__content__cost__block__body">
-                    <div className="app__container__subscribe__content__cost__block__body__price _405" />
-                    <div className="app__container__subscribe__content__cost__block__body__discount _446" />
-                  </div>
-                </div>
-                <div className="app__container__subscribe__content__cost__block">
-                  <div className="app__container__subscribe__content__cost__block__header">
-                    <div className="app__container__subscribe__content__cost__block__header__gradient _8" />
-                    <div className="app__container__subscribe__content__cost__block__header__title">
-                      12 месяцев
-                    </div>
-                  </div>
-                  <div className="app__container__subscribe__content__cost__block__body">
-                    <div className="app__container__subscribe__content__cost__block__body__price _765" />
-                    <div className="app__container__subscribe__content__cost__block__body__discount _880" />
-                  </div>
-                </div>
-              </div>
-              <div className="app__container__subscribe__content__link__mark">
-                При оплате картой конвертация в рубли осуществляется по курсу ЦБ
-                РФ
-              </div>
-              <div className="app__container__subscribe__content__link">
-                <a
-                  href={`https://t.me/CryptonLobbyBot?start=${referral}`}
-                  target={"_blank"}
-                >
-                  <div className="app__container__subscribe__content__link__button">
-                    {tariffs[resolution]}
-                    <SubscribeArrow />
-                  </div>
-                </a>
-                {/*<div className="app__container__subscribe__content__link__description">*/}
-                {/*  С оформлением тарифа вам поможет наш бот в Telegram*/}
-                {/*</div>*/}
-              </div>
-            </div>
-          </div>
-
-          <Testimonials />
+          <Testimonials resolution={resolution} />
           <Histories />
+
+          <Partners />
 
           <div className="app__container__faq" id="faq">
             <div className="app__container__faq__title">
               Часто задаваемые вопросы
             </div>
-            <Accordion mode={"faq"} openFaq={openFaq} setOpenFaq={setOpenFaq} />
+            <Accordion mode={"faq"} />
           </div>
 
           <OtherProducts />
+
           <Footer
             resolution={resolution}
             currentY={currentY}
@@ -470,7 +251,7 @@ const Home = (props) => {
       <div className="back color dark" />
       <div className="back noise" />
     </>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home
