@@ -15,18 +15,23 @@
 .button {
   font-family: "Resist Sans", sans-serif;
   font-size: 18px;
-  color: white;
+  color: #181818;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 285px;
   height: 60px;
   border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  background: transparent;
+  border: none;
+  background: linear-gradient(
+    129.5deg,
+    #ffcd9f 2.02%,
+    #ff4a7a 56.6%,
+    #bb44cc 104.76%
+  );
   outline: none;
-  transition: all 0.15s ease-in-out;
   cursor: pointer;
+  box-shadow: 0px 2px 10px 1px rgba(0, 0, 0, 0.3);
 
   @media (max-width: 767px) {
     width: 335px;

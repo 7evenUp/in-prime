@@ -95,41 +95,6 @@
   }
 }
 
-.text_first {
-  font-family: "Resist Sans", sans-serif;
-  font-size: 20px;
-  color: white;
-  line-height: 160%;
-  margin-bottom: 16px;
-
-  @media (max-width: 1919px) {
-    font-size: 18px;
-  }
-
-  @media (max-width: 1367px) {
-    font-size: 16px;
-  }
-
-  @media (max-width: 767px) {
-    font-size: 14px;
-    width: 335px;
-  }
-
-  @media (max-width: 375px) {
-    width: 290px;
-  }
-
-  a {
-    color: white;
-    text-underline-offset: 3px;
-    transition: all 0.15s ease-in-out;
-
-    &:hover {
-      color: #bb44cc;
-    }
-  }
-}
-
 .content {
   box-sizing: border-box;
   width: 100%;

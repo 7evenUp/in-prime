@@ -422,7 +422,7 @@ const SubscriptionCard = ({
       <ul className={clsx(styles.bonuses, styles.bonuses_extra)}>
         {order === 0 && (
           <li className={styles.bonus}>
-            <p className={styles.bonus_text}>
+            <p className={styles.bonus_text1}>
               Все{" "}
               <button onClick={scrollToOpportunities}>возможности Prime</button>
             </p>
