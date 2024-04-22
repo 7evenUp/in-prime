@@ -671,17 +671,17 @@ const BuySubscriptionDialog = ({
                               </li>
                               <li className={styles.bonus}>
                                 <p className={styles.bonus_text}>
-                                  Steam-баланс 33$ или Telegram Premium 12 мес
+                                  Steam-баланс 33$ или...
                                 </p>
                               </li>
                               <li className={styles.bonus}>
                                 <p className={styles.bonus_text}>
-                                  10 бонусных дней подписки
+                                  10 бонусных дней...
                                 </p>
                               </li>
                               <li className={styles.bonus}>
                                 <p className={styles.bonus_text}>
-                                  Кружка и носки Crypton 2024
+                                  Кружка и носки Crypton...
                                 </p>
                               </li>
                             </>
@@ -695,12 +695,12 @@ const BuySubscriptionDialog = ({
                               </li>
                               <li className={styles.bonus}>
                                 <p className={styles.bonus_text}>
-                                  Холодный кошелёк Safepal X1 или OneKey Mini
+                                  Холодный кошелёк...
                                 </p>
                               </li>
                               <li className={styles.bonus}>
                                 <p className={styles.bonus_text}>
-                                  14 бонусных дней подписки
+                                  14 бонусных дней...
                                 </p>
                               </li>
                               <li className={styles.bonus}>
@@ -719,12 +719,12 @@ const BuySubscriptionDialog = ({
                               </li>
                               <li className={styles.bonus}>
                                 <p className={styles.bonus_text}>
-                                  Ledger Nano S или Tangem Wallet Shiba Edition
+                                  Ledger Nano S или...
                                 </p>
                               </li>
                               <li className={styles.bonus}>
                                 <p className={styles.bonus_text}>
-                                  28 бонусных дней подписки
+                                  28 бонусных дней...
                                 </p>
                               </li>
                               <li className={styles.bonus}>
