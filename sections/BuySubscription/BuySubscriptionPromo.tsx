@@ -211,6 +211,12 @@ const SubscriptionCard = ({
       }),
   })
 
+  // const getSubscriptionPrice = (subID: number) => {
+  //   const { individualPrice, price } = subscriptions[subID]
+
+  //   return individualPrice === undefined ? price : individualPrice
+  // }
+
   useEffect(() => {
     const subscriptionPrice = baseDiscountAmount
       ? price - baseDiscountAmount
@@ -593,7 +599,11 @@ const SubscriptionCard = ({
               <Popover.Trigger className={styles.PopoverTriggerDescription}>
                 <li className={styles.bonus}>
                   <p className={styles.bonus_text}>
-                    Холодный кошелёк Safepal X1 или OneKey Mini
+                    <span>
+                      Холодный кошелёк{" "}
+                      <span className={styles.purple}>Safepal X1</span> или{" "}
+                      <span className={styles.purple}>OneKey Mini</span>
+                    </span>
                     <NavArrowIcon />
                   </p>
                 </li>
@@ -637,7 +647,12 @@ const SubscriptionCard = ({
               <Popover.Trigger className={styles.PopoverTriggerDescription}>
                 <li className={styles.bonus}>
                   <p className={styles.bonus_text}>
-                    Ledger Nano S или Tangem Wallet Shiba Edition
+                    <span>
+                      <span className={styles.red}>Ledger Nano S</span> или{" "}
+                      <span className={styles.red}>
+                        Tangem Wallet Shiba Edition
+                      </span>
+                    </span>
                     <NavArrowIcon />
                   </p>
                 </li>

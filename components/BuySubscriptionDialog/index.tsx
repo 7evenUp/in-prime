@@ -221,6 +221,7 @@ const BuySubscriptionDialog = ({
         payload = {
           ...payload,
           paymentType: "card",
+          currency: "RUB"
         }
       } else {
         payload = {

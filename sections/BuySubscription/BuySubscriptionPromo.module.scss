@@ -694,6 +694,14 @@
 
   &:hover {
     color: #bb44cc;
+
+    .red {
+      color: #bb44cc;
+    }
+
+    .purple {
+      color: #bb44cc;
+    }
   }
 
   &[data-state="open"] {
@@ -821,4 +829,12 @@
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+.red {
+  color: #ff4a7a;
+}
+
+.purple {
+  color: #bb44cc;
 }
