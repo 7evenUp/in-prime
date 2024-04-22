@@ -12,7 +12,7 @@
   }
 }
 
-.button {
+.button1 {
   font-family: "Resist Sans", sans-serif;
   font-size: 18px;
   color: #181818;
@@ -32,6 +32,44 @@
   outline: none;
   cursor: pointer;
   box-shadow: 0px 2px 10px 1px rgba(0, 0, 0, 0.3);
+
+  @media (max-width: 767px) {
+    width: 335px;
+    height: 54px;
+    font-size: 14px;
+  }
+
+  @media (max-width: 375px) {
+    width: 290px;
+  }
+
+  &:hover {
+    background: white;
+    color: #181818;
+  }
+
+  &:active {
+    opacity: 0.7;
+  }
+
+  &:focus-visible {
+    border: 1px solid white;
+  }
+}
+.button2 {
+  font-family: "Resist Sans", sans-serif;
+  font-size: 18px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 285px;
+  height: 60px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: transparent;
+  outline: none;
+  cursor: pointer;
 
   @media (max-width: 767px) {
     width: 335px;

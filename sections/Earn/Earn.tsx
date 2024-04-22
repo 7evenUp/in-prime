@@ -111,10 +111,10 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
         детальные инструкции и помогает вам получать прибыль.
       </div>
       <div className={styles.footer}>
-        <button className={styles.button} onClick={scrollToGuarantee}>
+        <button className={styles.button1} onClick={scrollToGuarantee}>
           Гарантируем окупаемость
         </button>
-        <button className={styles.button} onClick={scrollToSubscriptions}>
+        <button className={styles.button2} onClick={scrollToSubscriptions}>
           Вступить в сообщество
         </button>
       </div>
