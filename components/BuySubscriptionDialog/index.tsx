@@ -80,7 +80,7 @@ const BuySubscriptionDialog = ({
 
   const [promoWasUpdated, setPromoWasUpdated] = useState(false)
   const [totalPrice, setTotalPrice] = useState(0)
-  const [paymentType, setPaymentType] = useState<"crypto" | "card">("card")
+  const [paymentType, setPaymentType] = useState<"crypto" | "card">("crypto")
   const [activeToken, setActiveToken] = useState<string | undefined>(undefined)
   const [activeNetwork, setActiveNetwork] = useState<string | undefined>(
     undefined
@@ -468,11 +468,11 @@ const BuySubscriptionDialog = ({
                         setPaymentType(value as "crypto" | "card")
                       }
                     >
-                      <RadioGroupItem value="card">
-                        Банковская карта
-                      </RadioGroupItem>
                       <RadioGroupItem value="crypto">
                         Криптовалюта
+                      </RadioGroupItem>
+                      <RadioGroupItem value="card">
+                        Банковская карта
                       </RadioGroupItem>
                     </RadioGroup>
                   </div>
