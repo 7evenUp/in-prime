@@ -374,10 +374,10 @@ const SubscriptionCard = ({
         <div className={styles.remains}>
           <span>ОСТАЛОСЬ:</span>
           <div>
-            {order === 0 && "399"}
-            {order === 1 && "299"}
-            {order === 2 && "199"}
-            {order === 3 && "99"}
+            {order === 0 && "393"}
+            {order === 1 && "291"}
+            {order === 2 && "195"}
+            {order === 3 && "93"}
             <BonusesIcon />
           </div>
         </div>
