@@ -592,7 +592,12 @@ const SubscriptionCard = ({
               <Popover.Trigger className={styles.PopoverTriggerDescription}>
                 <li className={styles.bonus}>
                   <p className={styles.bonus_text}>
-                    Steam-баланс 33$ или Telegram Premium 12 мес
+                    <span>
+                      <span className={styles.beige}>Steam-баланс 33$</span> или{" "}
+                      <span className={styles.beige}>
+                        Telegram Premium 12 мес
+                      </span>
+                    </span>
                     <NavArrowIcon />
                   </p>
                 </li>
@@ -616,7 +621,7 @@ const SubscriptionCard = ({
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              style={{ alignSelf: "center" }}
+              className={styles.plus_icon}
             >
               <circle cx="12" cy="12" r="11.5" stroke="#FFCD9F" />
               <path
@@ -679,7 +684,7 @@ const SubscriptionCard = ({
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              style={{ alignSelf: "center" }}
+              className={styles.plus_icon}
             >
               <circle cx="12" cy="12" r="11.5" stroke="#BB44CC" />
               <path
@@ -745,7 +750,7 @@ const SubscriptionCard = ({
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              style={{ alignSelf: "center" }}
+              className={styles.plus_icon}
             >
               <circle cx="12" cy="12" r="11.5" stroke="#FF4A7A" />
               <path

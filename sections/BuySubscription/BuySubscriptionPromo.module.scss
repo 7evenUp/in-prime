@@ -222,12 +222,12 @@
     .duration,
     .bonuses_icon,
     .remains {
-      background: #DC5DEE;
+      background: #dc5dee;
     }
 
     .bonuses_heading,
     .bonuses_icon__inverted {
-      color: #DC5DEE;
+      color: #dc5dee;
     }
 
     .button {
@@ -695,11 +695,9 @@
   &:hover {
     color: #bb44cc;
 
-    .red {
-      color: #bb44cc;
-    }
-
-    .purple {
+    .red,
+    .purple,
+    .beige {
       color: #bb44cc;
     }
   }
@@ -836,5 +834,19 @@
 }
 
 .purple {
-  color: #DC5DEE;
+  color: #dc5dee;
+}
+
+.beige {
+  color: #ffcd9f;
+}
+
+.plus_icon {
+  align-self: center;
+  margin-right: 22px;
+
+  @media (max-width: 767px) {
+    width: 20px;
+    height: 20px;
+  }
 }
