@@ -64,12 +64,17 @@ const BuySubscriptionPromo = ({
   useEffect(() => {
     const url = new URL(location.href)
     const refCode = url.searchParams.get("ref")
+
+    if (refCode) {
+      localStorage.setItem("referral", refCode)
+    }
+
     if (SPECIAL_PROMO) {
       setPromoForSubmit(SPECIAL_PROMO)
       return
     }
     if (refCode) {
-      setPromoForSubmit(refCode as string)
+      setPromoForSubmit(refCode)
     }
   }, [])
 
