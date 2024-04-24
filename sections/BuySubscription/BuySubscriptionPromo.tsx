@@ -379,10 +379,10 @@ const SubscriptionCard = ({
         <div className={styles.remains}>
           <span>ОСТАЛОСЬ:</span>
           <div>
-            {order === 0 && "390"}
-            {order === 1 && "290"}
-            {order === 2 && "190"}
-            {order === 3 && "91"}
+            {order === 0 && "380"}
+            {order === 1 && "286"}
+            {order === 2 && "188"}
+            {order === 3 && "89"}
             <BonusesIcon />
           </div>
         </div>
@@ -554,6 +554,36 @@ const SubscriptionCard = ({
             </li>
           )
         )}
+        {order === 1 && (
+          <>
+            <li className={styles.bonus}>
+              <p className={styles.bonus_text}>10 бонусных дней подписки</p>
+            </li>
+            <li className={styles.bonus}>
+              <p className={styles.bonus_text}>Кружка и носки Crypton 2024</p>
+            </li>
+          </>
+        )}
+        {order === 2 && (
+          <>
+            <li className={styles.bonus}>
+              <p className={styles.bonus_text}>14 бонусных дней подписки</p>
+            </li>
+            <li className={styles.bonus}>
+              <p className={styles.bonus_text}>Футболка Crypton 2024</p>
+            </li>
+          </>
+        )}
+        {order === 3 && (
+          <>
+            <li className={styles.bonus}>
+              <p className={styles.bonus_text}>28 бонусных дней подписки</p>
+            </li>
+            <li className={styles.bonus}>
+              <p className={styles.bonus_text}>Худи Crypton 2024</p>
+            </li>
+          </>
+        )}
       </ul>
       <div className={styles.bonuses_heading}>
         <div className={styles.bonuses_icon}>
@@ -583,7 +613,7 @@ const SubscriptionCard = ({
       <ul className={styles.bonuses}>
         {order === 0 && (
           <>
-            <li className={styles.bonus}>
+            <li className={styles.bonus} style={{ color: "#4ddfd0" }}>
               <p className={styles.bonus_text}>10 бонусных дней подписки</p>
             </li>
             <li className={styles.bonus}>
@@ -620,7 +650,7 @@ const SubscriptionCard = ({
               </Popover.Portal>
             </Popover.Root>
 
-            <svg
+            {/* <svg
               width="24"
               height="24"
               viewBox="0 0 24 24"
@@ -633,14 +663,14 @@ const SubscriptionCard = ({
                 d="M11.3933 18V12.6188H6V11.3812H11.3663V6H12.6067V11.3812H18V12.6188H12.6337V18H11.3933Z"
                 fill="#FFCD9F"
               />
-            </svg>
+            </svg> */}
 
-            <li className={styles.bonus}>
+            {/* <li className={styles.bonus}>
               <p className={styles.bonus_text}>10 бонусных дней подписки</p>
             </li>
             <li className={styles.bonus}>
               <p className={styles.bonus_text}>Кружка и носки Crypton 2024</p>
-            </li>
+            </li> */}
           </>
         )}
         {order === 2 && (
@@ -683,7 +713,7 @@ const SubscriptionCard = ({
               </Popover.Portal>
             </Popover.Root>
 
-            <svg
+            {/* <svg
               width="24"
               height="24"
               viewBox="0 0 24 24"
@@ -696,14 +726,14 @@ const SubscriptionCard = ({
                 d="M11.3933 18V12.6188H6V11.3812H11.3663V6H12.6067V11.3812H18V12.6188H12.6337V18H11.3933Z"
                 fill="#BB44CC"
               />
-            </svg>
+            </svg> */}
 
-            <li className={styles.bonus}>
+            {/* <li className={styles.bonus}>
               <p className={styles.bonus_text}>14 бонусных дней подписки</p>
             </li>
             <li className={styles.bonus}>
               <p className={styles.bonus_text}>Футболка Crypton 2024</p>
-            </li>
+            </li> */}
           </>
         )}
         {order === 3 && (
@@ -749,7 +779,7 @@ const SubscriptionCard = ({
               </Popover.Portal>
             </Popover.Root>
 
-            <svg
+            {/* <svg
               width="24"
               height="24"
               viewBox="0 0 24 24"
@@ -762,14 +792,14 @@ const SubscriptionCard = ({
                 d="M11.3933 18V12.6188H6V11.3812H11.3663V6H12.6067V11.3812H18V12.6188H12.6337V18H11.3933Z"
                 fill="#FF4A7A"
               />
-            </svg>
+            </svg> */}
 
-            <li className={styles.bonus}>
+            {/* <li className={styles.bonus}>
               <p className={styles.bonus_text}>28 бонусных дней подписки</p>
             </li>
             <li className={styles.bonus}>
               <p className={styles.bonus_text}>Худи Crypton 2024</p>
-            </li>
+            </li> */}
           </>
         )}
       </ul>
