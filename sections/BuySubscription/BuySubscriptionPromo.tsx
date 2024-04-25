@@ -292,9 +292,7 @@ const SubscriptionCard = ({
   } = subscription
 
   const [cardPrice, setCardPrice] = useState(0)
-
-  console.log("card #", id, ": ", isValidForPromo)
-
+  
   const getSubscriptionPrice = () => {
     return individualPrice === undefined ? price : individualPrice
   }
