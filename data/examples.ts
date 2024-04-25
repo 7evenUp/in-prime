@@ -231,7 +231,7 @@ export const examples = {
       img: BlockGamesMarch24,
     },
     {
-      title: "BlockGames",
+      title: "Early Retired Cats Club",
       earn: "$1 760",
       spend: "$15",
       category: "NFT-колл",

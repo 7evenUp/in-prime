@@ -48,7 +48,6 @@ const BuySubscriptionDialog = ({
   discountAmount,
   discountKind,
   discounts,
-  forceUpdate,
   isPromoReferral,
   setIsPromoReferral,
 }: {
@@ -71,7 +70,6 @@ const BuySubscriptionDialog = ({
         discountAmount: number
       }>
     | undefined
-  forceUpdate: React.DispatchWithoutAction
   isPromoReferral: boolean
   setIsPromoReferral: React.Dispatch<React.SetStateAction<boolean>>
 }) => {
@@ -79,6 +77,7 @@ const BuySubscriptionDialog = ({
   const referral = router.query.ref || ""
 
   const [promoWasUpdated, setPromoWasUpdated] = useState(false)
+  const [localPromoForSubmit, setLocalPromoForSubmit] = useState(promoForSubmit)
   const [totalPrice, setTotalPrice] = useState(0)
   const [paymentType, setPaymentType] = useState<"crypto" | "card">("crypto")
   const [activeToken, setActiveToken] = useState<string | undefined>(undefined)
@@ -104,7 +103,7 @@ const BuySubscriptionDialog = ({
       : getSubscriptionPrice()
     setTotalPrice(subscriptionPrice)
 
-    if (promoForSubmit) {
+    if (localPromoForSubmit) {
       if (discountKind && discountAmount && discounts) {
         const matchedDiscount = discounts.find((el) => el.subscriptionId === id)
 
@@ -221,16 +220,16 @@ const BuySubscriptionDialog = ({
       }
     }
 
-    if (promoForSubmit) {
+    if (localPromoForSubmit) {
       if (isPromoReferral) {
         payload = {
           ...payload,
-          referral_code: promoForSubmit,
+          referral_code: localPromoForSubmit,
         }
       } else {
         payload = {
           ...payload,
-          promoCode: promoForSubmit,
+          promoCode: localPromoForSubmit,
         }
       }
     }
@@ -269,7 +268,7 @@ const BuySubscriptionDialog = ({
 
     setPromocode(evt.currentTarget.value)
 
-    if (promoForSubmit) return
+    if (localPromoForSubmit) return
 
     setTotalPrice(
       baseDiscountAmount
@@ -297,7 +296,7 @@ const BuySubscriptionDialog = ({
         ? matchedDiscount.discountAmount
         : discountAmount
 
-      setPromoForSubmit(promocode)
+      setLocalPromoForSubmit(promocode)
       setPromoWasUpdated(true)
 
       if (discountKind.id === "MONEY") {
@@ -322,7 +321,7 @@ const BuySubscriptionDialog = ({
   }
 
   const onPromoRemoveClick = () => {
-    setPromoForSubmit("")
+    setLocalPromoForSubmit("")
     setPromoWasUpdated(true)
     setTotalPrice(
       baseDiscountAmount
@@ -343,21 +342,21 @@ const BuySubscriptionDialog = ({
           onEscapeKeyDown={() => {
             reset()
             if (promoWasUpdated) {
-              forceUpdate()
+              setPromoForSubmit(localPromoForSubmit)
               setPromoWasUpdated(false)
             }
           }}
           onInteractOutside={() => {
             reset()
             if (promoWasUpdated) {
-              forceUpdate()
+              setPromoForSubmit(localPromoForSubmit)
               setPromoWasUpdated(false)
             }
           }}
           onPointerDownOutside={() => {
             reset()
             if (promoWasUpdated) {
-              forceUpdate()
+              setPromoForSubmit(localPromoForSubmit)
               setPromoWasUpdated(false)
             }
           }}
@@ -769,11 +768,11 @@ const BuySubscriptionDialog = ({
                     ))}
                   </div>
                   <div className={styles.promocode}>
-                    {promoForSubmit && (
+                    {localPromoForSubmit && (
                       <div className={styles.promocode_submit}>
                         <div className={styles.promocode_submit_text}>
                           <span className={styles.promocode_submit_text_1}>
-                            {promoForSubmit}
+                            {localPromoForSubmit}
                           </span>
                           <span className={styles.promocode_submit_text_2}>
                             активирован
@@ -833,7 +832,7 @@ const BuySubscriptionDialog = ({
                   <span className={styles.total}>
                     Итого: ${totalPrice.toFixed(2)}
                   </span>
-                  {promoForSubmit && (
+                  {localPromoForSubmit && (
                     <span className={styles.total_full}>
                       вместо ${getSubscriptionPrice()}
                     </span>

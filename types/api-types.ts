@@ -32,6 +32,8 @@ export interface Promocode {
     discountAmount: number
   }>
   isReferralCode: boolean
+  validForSubscriptions: number[]
+  invalidForSubscriptions: number[]
 }
 
 export interface PaymentsMethod {
