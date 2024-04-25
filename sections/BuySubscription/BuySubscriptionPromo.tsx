@@ -292,7 +292,7 @@ const SubscriptionCard = ({
   } = subscription
 
   const [cardPrice, setCardPrice] = useState(0)
-  
+
   const getSubscriptionPrice = () => {
     return individualPrice === undefined ? price : individualPrice
   }
@@ -414,10 +414,10 @@ const SubscriptionCard = ({
         <div className={styles.remains}>
           <span>ОСТАЛОСЬ:</span>
           <div>
-            {order === 0 && "380"}
-            {order === 1 && "286"}
-            {order === 2 && "188"}
-            {order === 3 && "89"}
+            {order === 0 && 399 - 38}
+            {order === 1 && 299 - 21}
+            {order === 2 && 199 - 13}
+            {order === 3 && 99 - 10}
             <BonusesIcon />
           </div>
         </div>
