@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useState } from "react"
+import React, { useEffect, useState } from "react"
 import { useRouter } from "next/router"
 import { useMutation, useQuery } from "@tanstack/react-query"
 import axios from "axios"
@@ -32,10 +32,22 @@ const BuySubscription = ({
   }
   resolution: Resolution
 }) => {
-  const [showMonthlyPrice, setShowMonthlyPrice] = useState(false)
+  const [showMonthlyPrice, setShowMonthlyPrice] = useState(true)
   const [promoForSubmit, setPromoForSubmit] = useState("")
-  const [x, forceUpdate] = useReducer((v) => v + 1, 0)
   const [isPromoReferral, setIsPromoReferral] = useState(false)
+  const [discountAmount, setDiscountAmount] = useState(0)
+  const [discountKind, setDiscountKind] = useState<{
+    id: "MONEY" | "PERCENT"
+    label: "Money" | "%"
+  }>()
+  const [discounts, setDiscounts] = useState<
+    Array<{
+      subscriptionId: number
+      discountAmount: number
+    }>
+  >([])
+  const [validFor, setValidFor] = useState([])
+  const [invalidFor, setInvalidFor] = useState([])
 
   const {
     data: subscriptions,
@@ -54,17 +66,77 @@ const BuySubscription = ({
     },
   })
 
+  const {
+    mutateAsync: mutatePromoValidation,
+    isPending,
+    reset,
+  } = useMutation({
+    mutationFn: ({
+      promocode,
+      subscriptionId,
+    }: {
+      promocode: string
+      subscriptionId: number
+    }) =>
+      axios.post<Promocode>(ID_URL + "promo-codes/validate/", {
+        promocode,
+        subscription: subscriptionId,
+      }),
+  })
+
   useEffect(() => {
     const url = new URL(location.href)
     const refCode = url.searchParams.get("ref")
+
+    if (refCode) {
+      localStorage.setItem("referral", refCode)
+    }
+
     if (SPECIAL_PROMO) {
       setPromoForSubmit(SPECIAL_PROMO)
       return
     }
     if (refCode) {
-      setPromoForSubmit(refCode as string)
+      setPromoForSubmit(refCode)
     }
   }, [])
+
+  useEffect(() => {
+    reset()
+    setDiscountAmount(0)
+    setDiscountKind(undefined)
+    setDiscounts([])
+
+    const validate = async () => {
+      if (promoForSubmit) {
+        try {
+          const {
+            data: {
+              discountAmount,
+              discountKind,
+              discounts,
+              isReferralCode,
+              invalidForSubscriptions,
+              validForSubscriptions,
+            },
+          } = await mutatePromoValidation({
+            promocode: promoForSubmit,
+            subscriptionId: 1,
+          })
+
+          setIsPromoReferral(isReferralCode)
+          setDiscountAmount(discountAmount)
+          setDiscountKind(discountKind)
+          setDiscounts(discounts)
+          setValidFor(validForSubscriptions)
+          setInvalidFor(invalidForSubscriptions)
+        } catch {
+          console.log("Error while validating promocode: ", promoForSubmit)
+        }
+      }
+    }
+    validate()
+  }, [promoForSubmit])
 
   if (isSubscriptionsError || isLoading) {
     return <OldBuySubscription tariffs={tariffs} resolution={resolution} />
@@ -124,10 +196,25 @@ const BuySubscription = ({
                 showMonthlyPrice={showMonthlyPrice}
                 promoForSubmit={promoForSubmit}
                 setPromoForSubmit={setPromoForSubmit}
-                x={x}
-                forceUpdate={forceUpdate}
                 isPromoReferral={isPromoReferral}
                 setIsPromoReferral={setIsPromoReferral}
+                discounts={discounts}
+                discountAmount={discountAmount}
+                discountKind={discountKind}
+                isPromoPending={isPending}
+                isValidForPromo={
+                  validFor.length === 0 && invalidFor.length === 0
+                    ? true
+                    : invalidFor.length === 0 && validFor.includes(el.id)
+                    ? true
+                    : validFor.length === 0 && !invalidFor.includes(el.id)
+                    ? true
+                    : validFor.length !== 0 &&
+                      invalidFor.length !== 0 &&
+                      validFor.includes(el.id)
+                    ? true
+                    : false
+                }
               />
             ))}
           </div>
@@ -157,10 +244,13 @@ const SubscriptionCard = ({
   showMonthlyPrice,
   promoForSubmit,
   setPromoForSubmit,
-  x,
-  forceUpdate,
   isPromoReferral,
   setIsPromoReferral,
+  discountAmount,
+  discountKind,
+  discounts,
+  isPromoPending,
+  isValidForPromo,
 }: {
   subscription: Subscription
   order: number
@@ -168,121 +258,47 @@ const SubscriptionCard = ({
   showMonthlyPrice: boolean
   promoForSubmit: string
   setPromoForSubmit: React.Dispatch<React.SetStateAction<string>>
-  x: any
-  forceUpdate: React.DispatchWithoutAction
   isPromoReferral: boolean
   setIsPromoReferral: React.Dispatch<React.SetStateAction<boolean>>
+  discountAmount: number | undefined
+  discountKind:
+    | {
+        id: "MONEY" | "PERCENT"
+        label: "Money" | "%"
+      }
+    | undefined
+  discounts:
+    | Array<{
+        subscriptionId: number
+        discountAmount: number
+      }>
+    | undefined
+  isPromoPending: boolean
+  isValidForPromo: boolean
 }) => {
-  const { baseDiscountAmount, baseDiscount, price, id, duration, benefits } =
-    subscription
+  const {
+    baseDiscountAmount,
+    baseDiscount,
+    price,
+    id,
+    duration,
+    benefits,
+    individualPrice,
+  } = subscription
 
   const [cardPrice, setCardPrice] = useState(0)
-  const [discountAmount, setDiscountAmount] = useState(0)
-  const [discountKind, setDiscountKind] = useState<{
-    id: "MONEY" | "PERCENT"
-    label: "Money" | "%"
-  }>()
-  const [discounts, setDiscounts] = useState<
-    Array<{
-      subscriptionId: number
-      discountAmount: number
-    }>
-  >([])
 
-  const {
-    mutateAsync: mutatePromoValidation,
-    isPending,
-    reset,
-  } = useMutation({
-    mutationFn: ({
-      promocode,
-      subscriptionId,
-    }: {
-      promocode: string
-      subscriptionId: number
-    }) =>
-      axios.post<Promocode>(ID_URL + "promo-codes/validate/", {
-        promocode,
-        subscription: subscriptionId,
-      }),
-  })
+  const getSubscriptionPrice = () => {
+    return individualPrice === undefined ? price : individualPrice
+  }
 
   useEffect(() => {
     const subscriptionPrice = baseDiscountAmount
-      ? price - baseDiscountAmount
-      : price
-
-    const fullPrice = showMonthlyPrice
-      ? subscriptionPrice / duration.id
-      : subscriptionPrice
-
-    setCardPrice(fullPrice)
-    reset()
-    setDiscountAmount(0)
-    setDiscountKind(undefined)
-    setDiscounts([])
-
-    const validate = async () => {
-      if (promoForSubmit) {
-        try {
-          const {
-            data: { discountAmount, discountKind, discounts, isReferralCode },
-          } = await mutatePromoValidation({
-            promocode: promoForSubmit,
-            subscriptionId: id,
-          })
-
-          setIsPromoReferral(isReferralCode)
-          let priceWithPromoApplied
-
-          setDiscountAmount(discountAmount)
-          setDiscountKind(discountKind)
-          setDiscounts(discounts)
-
-          const matchedDiscount = discounts.find(
-            (el) => el.subscriptionId === id
-          )
-
-          const preferedDiscount = matchedDiscount
-            ? matchedDiscount.discountAmount
-            : discountAmount
-
-          if (discountKind.id === "MONEY") {
-            if (baseDiscountAmount && baseDiscountAmount > preferedDiscount) {
-              priceWithPromoApplied = price - baseDiscountAmount
-            } else {
-              priceWithPromoApplied = price - preferedDiscount
-            }
-          } else {
-            if (
-              baseDiscountAmount &&
-              baseDiscountAmount > price * preferedDiscount
-            ) {
-              priceWithPromoApplied = price - baseDiscountAmount
-            } else {
-              priceWithPromoApplied = price - price * preferedDiscount
-            }
-          }
-          setCardPrice(
-            showMonthlyPrice
-              ? priceWithPromoApplied / duration.id
-              : priceWithPromoApplied
-          )
-        } catch {
-          console.log("Error while validating promocode: ", promoForSubmit)
-        }
-      }
-    }
-    validate()
-  }, [x])
-
-  useEffect(() => {
-    const subscriptionPrice = baseDiscountAmount
-      ? price - baseDiscountAmount
-      : price
+      ? getSubscriptionPrice() - baseDiscountAmount
+      : getSubscriptionPrice()
     let fullPrice
 
-    if (discountKind && discountAmount && discounts) {
+    if (isValidForPromo && discountKind && discountAmount && discounts) {
       const matchedDiscount = discounts.find((el) => el.subscriptionId === id)
 
       const preferedDiscount = matchedDiscount
@@ -291,18 +307,58 @@ const SubscriptionCard = ({
 
       if (discountKind.id === "MONEY") {
         if (baseDiscountAmount && baseDiscountAmount > preferedDiscount) {
-          fullPrice = price - baseDiscountAmount
+          fullPrice = getSubscriptionPrice() - baseDiscountAmount
         } else {
-          fullPrice = price - preferedDiscount
+          fullPrice = getSubscriptionPrice() - preferedDiscount
         }
       } else {
         if (
           baseDiscountAmount &&
-          baseDiscountAmount > price * preferedDiscount
+          baseDiscountAmount > getSubscriptionPrice() * preferedDiscount
         ) {
-          fullPrice = price - baseDiscountAmount
+          fullPrice = getSubscriptionPrice() - baseDiscountAmount
         } else {
-          fullPrice = price - price * preferedDiscount
+          fullPrice =
+            getSubscriptionPrice() - getSubscriptionPrice() * preferedDiscount
+        }
+      }
+
+      setCardPrice(showMonthlyPrice ? fullPrice / duration.id : fullPrice)
+    } else {
+      setCardPrice(
+        showMonthlyPrice ? subscriptionPrice / duration.id : subscriptionPrice
+      )
+    }
+  }, [discountKind, discountAmount, discounts])
+
+  useEffect(() => {
+    const subscriptionPrice = baseDiscountAmount
+      ? getSubscriptionPrice() - baseDiscountAmount
+      : getSubscriptionPrice()
+    let fullPrice
+
+    if (isValidForPromo && discountKind && discountAmount && discounts) {
+      const matchedDiscount = discounts.find((el) => el.subscriptionId === id)
+
+      const preferedDiscount = matchedDiscount
+        ? matchedDiscount.discountAmount
+        : discountAmount
+
+      if (discountKind.id === "MONEY") {
+        if (baseDiscountAmount && baseDiscountAmount > preferedDiscount) {
+          fullPrice = getSubscriptionPrice() - baseDiscountAmount
+        } else {
+          fullPrice = getSubscriptionPrice() - preferedDiscount
+        }
+      } else {
+        if (
+          baseDiscountAmount &&
+          baseDiscountAmount > getSubscriptionPrice() * preferedDiscount
+        ) {
+          fullPrice = getSubscriptionPrice() - baseDiscountAmount
+        } else {
+          fullPrice =
+            getSubscriptionPrice() - getSubscriptionPrice() * preferedDiscount
         }
       }
 
@@ -314,10 +370,25 @@ const SubscriptionCard = ({
     }
   }, [showMonthlyPrice])
 
+  const scrollToOpportunities = () => {
+    const positions = {
+      opportunities: {
+        lgg: 1812,
+        lg: 1450,
+        md: 1750,
+        sm: 1296,
+      },
+    }
+    window.scrollTo({
+      top: positions.opportunities[resolution],
+      behavior: "smooth",
+    })
+  }
+
   return (
     <div className={styles.subscription}>
       <span className={styles.duration}>{duration.id} МЕС</span>
-      {isPending ? (
+      {isPromoPending ? (
         <div className={styles.loading} />
       ) : (
         <div className={styles.price}>
@@ -371,6 +442,25 @@ const SubscriptionCard = ({
           )}
         </div>
       )}
+      {order !== 0 && (
+        <ul className={clsx(styles.bonuses, styles.bonuses_extra)}>
+          {order === 1 && (
+            <li className={styles.bonus}>
+              <p className={styles.bonus_text}>Все, что входит в 1 месяц</p>
+            </li>
+          )}
+          {order === 2 && (
+            <li className={styles.bonus}>
+              <p className={styles.bonus_text}>Все, что входит в 3 месяца</p>
+            </li>
+          )}
+          {order === 3 && (
+            <li className={styles.bonus}>
+              <p className={styles.bonus_text}>Все, что входит в 6 месяцев</p>
+            </li>
+          )}
+        </ul>
+      )}
       <div className={styles.bonuses_heading}>
         <div className={styles.bonuses_icon}>
           <svg
@@ -397,6 +487,14 @@ const SubscriptionCard = ({
         <span className={styles.bonuses_heading_text}>БОНУСЫ</span>
       </div>
       <ul className={styles.bonuses}>
+        {order === 0 && (
+          <li className={styles.bonus}>
+            <p className={styles.bonus_text1}>
+              Все{" "}
+              <button onClick={scrollToOpportunities}>возможности Prime</button>
+            </p>
+          </li>
+        )}
         {benefits.map((benefit) =>
           benefit.file ? (
             resolution === "sm" ? (
@@ -479,7 +577,7 @@ const SubscriptionCard = ({
         selectedSubscription={subscription}
         order={order}
         resolution={resolution}
-        promoForSubmit={promoForSubmit}
+        promoForSubmit={isValidForPromo ? promoForSubmit : ""}
         setPromoForSubmit={setPromoForSubmit}
         discountAmount={discountAmount}
         discountKind={discountKind}

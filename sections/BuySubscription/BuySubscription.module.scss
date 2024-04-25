@@ -358,14 +358,38 @@
   margin-left: 4px;
   font-family: "Resist Sans", sans-serif;
   font-size: 16px;
-  line-height: 105%;
+  line-height: 130%;
+  margin: 0;
 
   &_text {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1;
-    padding: 3px 0px;
+    display: flex;
+    align-items: center;
+  }
+
+  &_text1 {
+    button {
+      cursor: pointer;
+      padding: 0;
+      outline: none;
+      border: none;
+      color: white;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      transition: all 0.15s ease-in-out;
+      background: transparent;
+      font-size: 16px;
+      font-family: "Resist Sans", sans-serif;
+
+      &:hover {
+        color: rgba(255, 255, 255, 0.7);
+      }
+    }
+  }
+
+  svg {
+    flex-shrink: 0;
+    transition: rotate 0.15s ease-in-out;
+    margin-left: 6px;
   }
 }
 
@@ -481,6 +505,32 @@
   }
 }
 
+.PopoverTriggerDescription {
+  cursor: pointer;
+  color: white;
+  background: transparent;
+  border: none;
+  text-align: left;
+  padding: 0;
+  width: fit-content;
+
+  &:hover {
+    color: #bb44cc;
+
+    .red,
+    .purple,
+    .beige {
+      color: #bb44cc;
+    }
+  }
+
+  &[data-state="open"] {
+    svg {
+      rotate: 180deg;
+    }
+  }
+}
+
 .PopoverContent {
   border-radius: 6px;
   background-color: white;
@@ -502,6 +552,47 @@
   animation-name: slideUpAndFade;
 }
 .PopoverContent[data-side="left"] {
+  animation-name: slideRightAndFade;
+}
+
+.PopoverContentDescription {
+  box-sizing: border-box;
+  font-family: "Resist Sans", sans-serif;
+  font-size: 14px;
+  line-height: 140%;
+  width: 250px;
+  color: white;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: #232323;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  z-index: 99999;
+  animation-duration: 400ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+
+  a {
+    color: white;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    cursor: pointer;
+
+    &:hover {
+      color: rgba(255, 255, 255, 0.7);
+    }
+  }
+}
+.PopoverContentDescription[data-side="top"] {
+  animation-name: slideDownAndFade;
+}
+.PopoverContentDescription[data-side="right"] {
+  animation-name: slideLeftAndFade;
+}
+.PopoverContentDescription[data-side="bottom"] {
+  animation-name: slideUpAndFade;
+}
+.PopoverContentDescription[data-side="left"] {
   animation-name: slideRightAndFade;
 }
 
