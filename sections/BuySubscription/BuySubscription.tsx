@@ -484,7 +484,6 @@ const SubscriptionCard = ({
         discountAmount={discountAmount}
         discountKind={discountKind}
         discounts={discounts}
-        forceUpdate={forceUpdate}
         isPromoReferral={isPromoReferral}
         setIsPromoReferral={setIsPromoReferral}
       >
