@@ -134,16 +134,19 @@ const Home = (props) => {
     setCurrentY(window.scrollY)
   }
 
+  const startDate = 1713733200000
+  const endDate = 1714338000000
+
   useEffect(() => {
     setTimerProgress(
       Math.round(
-        Date.now() >= 1700830800000
-          ? ((Date.now() - 1700830800000) / (1701377940000 - 1700830800000)) *
-              100
+        Date.now() >= startDate
+          ? ((Date.now() - startDate) / (endDate - startDate)) * 100
           : 0
       )
     )
   }, [])
+
   useEffect(() => {
     window.addEventListener("wheel", wheelHandler)
 

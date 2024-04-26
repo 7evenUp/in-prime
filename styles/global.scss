@@ -2733,19 +2733,19 @@ p {
           }
 
           &__mark {
-            margin-top: 24px;
+            margin-top: 50px;
             //margin-left: 34px;
             width: auto;
             font-family: "Resist Sans";
             font-style: normal;
             font-weight: 400;
-            font-size: 14px;
+            font-size: 20px;
             line-height: 27px;
             color: rgba(255, 255, 255, 0.8);
 
             @media (max-width: 767px) {
-              margin-top: 14px;
-              font-size: 14px;
+              margin-top: 32px;
+              font-size: 18px;
             }
           }
 
@@ -2802,8 +2802,9 @@ p {
               height: 64px;
             }
           }
+
           &__progress {
-            margin-top: 144px;
+            margin-top: 10px;
             height: 18px;
             width: 100%;
             border-left: 1px solid #fff;
@@ -2833,9 +2834,6 @@ p {
                 margin-top: -4.5px;
               }
             }
-            @media (max-width: 767px) {
-              margin-top: 10px;
-            }
           }
           &__countdown {
             display: flex;
@@ -2858,7 +2856,7 @@ p {
               display: flex;
               justify-content: space-around;
               &__block {
-                margin-left: 13px;
+                // margin-left: 13px;
                 display: flex;
                 &__text {
                   width: 80px;

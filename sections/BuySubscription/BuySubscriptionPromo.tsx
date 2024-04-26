@@ -8,6 +8,8 @@ import * as Popover from "@radix-ui/react-popover"
 import * as Switch from "@radix-ui/react-switch"
 import clsx from "clsx"
 
+import Countdown from "@/components/countdown"
+
 import SubscriptionImage1 from "@/public/images/png/buy-subscription/subscription1.png"
 import SubscriptionImage2 from "@/public/images/png/buy-subscription/subscription2.png"
 import SubscriptionImage3 from "@/public/images/png/buy-subscription/subscription3.png"
@@ -55,6 +57,8 @@ const BuySubscriptionPromo = ({
   const [validFor, setValidFor] = useState([])
   const [invalidFor, setInvalidFor] = useState([])
 
+  const [timerProgress, setTimerProgress] = useState(0)
+
   const {
     data: subscriptions,
     isError: isSubscriptionsError,
@@ -90,6 +94,17 @@ const BuySubscriptionPromo = ({
         subscription: subscriptionId,
       }),
   })
+
+  useEffect(() => {
+    setTimerProgress(
+      Math.round(
+        Date.now() >= 1713733200000
+          ? ((Date.now() - 1713733200000) / (1714338000000 - 1713733200000)) *
+              100
+          : 0
+      )
+    )
+  }, [])
 
   useEffect(() => {
     const url = new URL(location.href)
@@ -235,6 +250,44 @@ const BuySubscriptionPromo = ({
             специалисту в Телеграм
           </a>
         </p>
+
+        <div className="app__container__subscribe__content___timer__header">
+          <div className="app__container__subscribe__content__link__mark">
+            До конца акции осталось:
+          </div>
+          <div className="app__container__subscribe__content__timer__progress">
+            <div
+              className="app__container__subscribe__content__timer__progress__bar"
+              style={{ width: `${timerProgress + "%"}` }}
+            >
+              <div className="app__container__subscribe__content__timer__progress__bar__circle">
+                {" "}
+              </div>
+            </div>
+          </div>
+          <div className="app__container__subscribe__content__timer__countdown">
+            <Countdown
+              className="app__container__subscribe__content__timer__countdown__counter"
+              date={1714338000000}
+            />
+          </div>
+          <div className="app__container__subscribe__content__timer__countdown__names">
+            <div className="app__container__subscribe__content__timer__countdown__names__block">
+              <div className="app__container__subscribe__content__timer__countdown__names__block__text">
+                дней
+              </div>
+              <div className="app__container__subscribe__content__timer__countdown__names__block__text">
+                часов
+              </div>
+              <div className="app__container__subscribe__content__timer__countdown__names__block__text">
+                минут
+              </div>
+              <div className="app__container__subscribe__content__timer__countdown__names__block__text">
+                секунд
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )
@@ -513,82 +566,84 @@ const SubscriptionCard = ({
             <p className={styles.bonus_text}>Все, что входит в 6 месяцев</p>
           </li>
         )}
-        {benefits.map((benefit) =>
-          benefit.file ? (
-            resolution === "sm" ? (
-              <Popover.Root key={benefit.id}>
-                <Popover.Trigger className={styles.PopoverTrigger}>
-                  <li className={styles.bonus}>
-                    <p className={styles.bonus_text}>
-                      {benefit.translations.ru.name}
-                    </p>
-                  </li>
-                </Popover.Trigger>
-                <Popover.Portal>
-                  <Popover.Content
-                    className={styles.PopoverContent}
-                    sideOffset={5}
-                  >
-                    <img
-                      className={styles.PopoverImage}
-                      src={benefit.file}
-                      alt={benefit.translations.ru.name}
-                    />
-                  </Popover.Content>
-                </Popover.Portal>
-              </Popover.Root>
-            ) : (
-              <HoverCard.Root key={benefit.id} openDelay={150}>
-                <HoverCard.Trigger className={styles.HoverCardTrigger}>
-                  <li className={styles.bonus}>
-                    <p className={styles.bonus_text}>
-                      {benefit.translations.ru.name}
-                    </p>
-                  </li>
-                </HoverCard.Trigger>
-                <HoverCard.Portal>
-                  <HoverCard.Content
-                    className={styles.HoverCardContent}
-                    sideOffset={5}
-                    side="right"
-                  >
-                    <img
-                      className={styles.HoverCardImage}
-                      src={benefit.file}
-                      alt={benefit.translations.ru.name}
-                    />
-                  </HoverCard.Content>
-                </HoverCard.Portal>
-              </HoverCard.Root>
-            )
-          ) : benefit.translations.ru.description !== null ? (
-            <Popover.Root key={benefit.id}>
-              <Popover.Trigger className={styles.PopoverTriggerDescription}>
-                <li className={styles.bonus}>
+        {order === 0 && resolution === "sm"
+          ? null
+          : benefits.map((benefit) =>
+              benefit.file ? (
+                resolution === "sm" ? (
+                  <Popover.Root key={benefit.id}>
+                    <Popover.Trigger className={styles.PopoverTrigger}>
+                      <li className={styles.bonus}>
+                        <p className={styles.bonus_text}>
+                          {benefit.translations.ru.name}
+                        </p>
+                      </li>
+                    </Popover.Trigger>
+                    <Popover.Portal>
+                      <Popover.Content
+                        className={styles.PopoverContent}
+                        sideOffset={5}
+                      >
+                        <img
+                          className={styles.PopoverImage}
+                          src={benefit.file}
+                          alt={benefit.translations.ru.name}
+                        />
+                      </Popover.Content>
+                    </Popover.Portal>
+                  </Popover.Root>
+                ) : (
+                  <HoverCard.Root key={benefit.id} openDelay={150}>
+                    <HoverCard.Trigger className={styles.HoverCardTrigger}>
+                      <li className={styles.bonus}>
+                        <p className={styles.bonus_text}>
+                          {benefit.translations.ru.name}
+                        </p>
+                      </li>
+                    </HoverCard.Trigger>
+                    <HoverCard.Portal>
+                      <HoverCard.Content
+                        className={styles.HoverCardContent}
+                        sideOffset={5}
+                        side="right"
+                      >
+                        <img
+                          className={styles.HoverCardImage}
+                          src={benefit.file}
+                          alt={benefit.translations.ru.name}
+                        />
+                      </HoverCard.Content>
+                    </HoverCard.Portal>
+                  </HoverCard.Root>
+                )
+              ) : benefit.translations.ru.description !== null ? (
+                <Popover.Root key={benefit.id}>
+                  <Popover.Trigger className={styles.PopoverTriggerDescription}>
+                    <li className={styles.bonus}>
+                      <p className={styles.bonus_text}>
+                        {benefit.translations.ru.name}
+                        <NavArrowIcon />
+                      </p>
+                    </li>
+                  </Popover.Trigger>
+                  <Popover.Portal>
+                    <Popover.Content
+                      className={styles.PopoverContentDescription}
+                      sideOffset={5}
+                      side="bottom"
+                    >
+                      {benefit.translations.ru.description}
+                    </Popover.Content>
+                  </Popover.Portal>
+                </Popover.Root>
+              ) : (
+                <li key={benefit.id} className={styles.bonus}>
                   <p className={styles.bonus_text}>
                     {benefit.translations.ru.name}
-                    <NavArrowIcon />
                   </p>
                 </li>
-              </Popover.Trigger>
-              <Popover.Portal>
-                <Popover.Content
-                  className={styles.PopoverContentDescription}
-                  sideOffset={5}
-                  side="bottom"
-                >
-                  {benefit.translations.ru.description}
-                </Popover.Content>
-              </Popover.Portal>
-            </Popover.Root>
-          ) : (
-            <li key={benefit.id} className={styles.bonus}>
-              <p className={styles.bonus_text}>
-                {benefit.translations.ru.name}
-              </p>
-            </li>
-          )
-        )}
+              )
+            )}
         {order === 1 && (
           <>
             <li className={styles.bonus}>
