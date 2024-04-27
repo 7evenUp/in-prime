@@ -40,7 +40,7 @@ const BuySubscriptionPromo = ({
   }
   resolution: Resolution
 }) => {
-  const [showMonthlyPrice, setShowMonthlyPrice] = useState(true)
+  const [showMonthlyPrice, setShowMonthlyPrice] = useState(false)
   const [promoForSubmit, setPromoForSubmit] = useState("")
   const [isPromoReferral, setIsPromoReferral] = useState(false)
   const [discountAmount, setDiscountAmount] = useState(0)
