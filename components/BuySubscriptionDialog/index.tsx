@@ -614,7 +614,7 @@ const BuySubscriptionDialog = ({
                           </div>
                         )}
                         <ul className={styles.bonuses}>
-                          {/* {order === 1 && (
+                          {order === 1 && (
                             <li className={styles.bonus}>
                               <p className={styles.bonus_text}>
                                 Всё, что входит в 1 месяц
@@ -634,7 +634,7 @@ const BuySubscriptionDialog = ({
                                 Всё, что входит в 6 месяцев
                               </p>
                             </li>
-                          )} */}
+                          )}
                           {benefits.map((benefit) =>
                             benefit.file ? (
                               resolution === "sm" ? (
@@ -698,7 +698,7 @@ const BuySubscriptionDialog = ({
                               </li>
                             )
                           )}
-                          {order === 0 && (
+                          {/* {order === 0 && (
                             <>
                               <li className={styles.bonus}>
                                 <p className={styles.bonus_text}>
@@ -783,7 +783,7 @@ const BuySubscriptionDialog = ({
                                 </p>
                               </li>
                             </>
-                          )}
+                          )} */}
                         </ul>
                       </div>
                     ))}
