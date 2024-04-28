@@ -614,6 +614,27 @@ const BuySubscriptionDialog = ({
                           </div>
                         )}
                         <ul className={styles.bonuses}>
+                          {order === 1 && (
+                            <li className={styles.bonus}>
+                              <p className={styles.bonus_text}>
+                                Всё, что входит в 1 месяц
+                              </p>
+                            </li>
+                          )}
+                          {order === 2 && (
+                            <li className={styles.bonus}>
+                              <p className={styles.bonus_text}>
+                                Всё, что входит в 3 месяца
+                              </p>
+                            </li>
+                          )}
+                          {order === 3 && (
+                            <li className={styles.bonus}>
+                              <p className={styles.bonus_text}>
+                                Всё, что входит в 6 месяцев
+                              </p>
+                            </li>
+                          )}
                           {benefits.map((benefit) =>
                             benefit.file ? (
                               resolution === "sm" ? (
@@ -676,92 +697,6 @@ const BuySubscriptionDialog = ({
                                 </p>
                               </li>
                             )
-                          )}
-                          {order === 0 && (
-                            <>
-                              <li className={styles.bonus}>
-                                <p className={styles.bonus_text}>
-                                  10 бонусных дней подписки
-                                </p>
-                              </li>
-                              <li className={styles.bonus}>
-                                <p className={styles.bonus_text}>
-                                  Носки Crypton 2024
-                                </p>
-                              </li>
-                            </>
-                          )}
-                          {order === 1 && (
-                            <>
-                              <li className={styles.bonus}>
-                                <p className={styles.bonus_text}>
-                                  Всё, что входит в 1 месяц
-                                </p>
-                              </li>
-                              <li className={styles.bonus}>
-                                <p className={styles.bonus_text}>
-                                  Steam-баланс 33$ или...
-                                </p>
-                              </li>
-                              <li className={styles.bonus}>
-                                <p className={styles.bonus_text}>
-                                  10 бонусных дней...
-                                </p>
-                              </li>
-                              <li className={styles.bonus}>
-                                <p className={styles.bonus_text}>
-                                  Кружка и носки Crypton...
-                                </p>
-                              </li>
-                            </>
-                          )}
-                          {order === 2 && (
-                            <>
-                              <li className={styles.bonus}>
-                                <p className={styles.bonus_text}>
-                                  Всё, что входит в 3 месяца
-                                </p>
-                              </li>
-                              <li className={styles.bonus}>
-                                <p className={styles.bonus_text}>
-                                  Холодный кошелёк...
-                                </p>
-                              </li>
-                              <li className={styles.bonus}>
-                                <p className={styles.bonus_text}>
-                                  14 бонусных дней...
-                                </p>
-                              </li>
-                              <li className={styles.bonus}>
-                                <p className={styles.bonus_text}>
-                                  Футболка Crypton 2024
-                                </p>
-                              </li>
-                            </>
-                          )}
-                          {order === 3 && (
-                            <>
-                              <li className={styles.bonus}>
-                                <p className={styles.bonus_text}>
-                                  Всё, что входит в 6 месяцев
-                                </p>
-                              </li>
-                              <li className={styles.bonus}>
-                                <p className={styles.bonus_text}>
-                                  Ledger Nano S или...
-                                </p>
-                              </li>
-                              <li className={styles.bonus}>
-                                <p className={styles.bonus_text}>
-                                  28 бонусных дней...
-                                </p>
-                              </li>
-                              <li className={styles.bonus}>
-                                <p className={styles.bonus_text}>
-                                  Худи Crypton 2024
-                                </p>
-                              </li>
-                            </>
                           )}
                         </ul>
                       </div>
