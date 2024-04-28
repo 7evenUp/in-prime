@@ -223,7 +223,7 @@ const Home = (props) => {
 
           <Team resolution={resolution} />
 
-          <LoyaltySystem resolution={resolution} />
+          {/* <LoyaltySystem resolution={resolution} /> */}
 
           <BuySubscription tariffs={tariffs} resolution={resolution} />
 
