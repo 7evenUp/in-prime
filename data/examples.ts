@@ -155,8 +155,113 @@ import ERCCMarch24 from "@/public/images/png/examples/march/ercc_march24.png"
 import SprotoGremlinsMarch24 from "@/public/images/png/examples/march/sproto_gremlins_march24.png"
 import BybitMarch24 from "@/public/images/png/examples/march/bybit_march24.png"
 
+import CastileApril24 from "@/public/images/png/examples/april/castile_april24.png"
+import MMMCApril24 from "@/public/images/png/examples/april/MMMC_april24.png"
+import GMNetworkApril24 from "@/public/images/png/examples/april/GMNetwork_april24.png"
+import WormholeApril24 from "@/public/images/png/examples/april/Wormhole_april24.png"
+import PalioApril24 from "@/public/images/png/examples/april/Palio_april24.png"
+import SAWorldApril24 from "@/public/images/png/examples/april/SAWorld_april24.png"
+import ElixirGamesApril24 from "@/public/images/png/examples/april/ElixirGames_april24.png"
+import StakelandApril24 from "@/public/images/png/examples/april/Stakeland_april24.png"
+import EthenaApril24 from "@/public/images/png/examples/april/Ethena_april24.png"
+
 export const examples = {
-  март: [
+  апрель: [
+    {
+      title: "Castile",
+      earn: "$7 800",
+      spend: "$900",
+      category: "NFT",
+      condition:
+        "Активничать на Discord-сервере проекта, участвовать в раффлах.",
+      resources: "Ферма аккаунтов, время на выполнение активности.",
+      reportUrl: "crypton.xyz",
+      img: CastileApril24,
+    },
+    {
+      title: "MMMC",
+      earn: "$1 450",
+      spend: "$15",
+      category: "NFT",
+      condition: "Проявлять активность в Twitter проекта, участие в раффлах.",
+      resources: "Ферма аккаунтов, время на выполнение активности.",
+      reportUrl: "crypton.xyz",
+      img: MMMCApril24,
+    },
+    {
+      title: "GM Network",
+      earn: "$1 350",
+      spend: "$0",
+      category: "NFT-колл",
+      condition: "Участие в раффле, заполнить формы, выполнить соц. задания.",
+      resources: "Ферма аккаунтов, время на выполнение активности.",
+      reportUrl: "crypton.xyz",
+      img: GMNetworkApril24,
+    },
+    {
+      title: "Wormhole",
+      earn: "$1 200",
+      spend: "$75",
+      category: "Ретродропы",
+      condition: "Взаимодействовать с экосистемой проекта.",
+      resources:
+        "Время на отработку активности, ферма аккаунтов, средства на комиссии.",
+      reportUrl: "crypton.xyz",
+      img: WormholeApril24,
+    },
+    {
+      title: "Palio",
+      earn: "$1 000",
+      spend: "$300",
+      category: "NFT",
+      condition: "Получить вайтлист и отчеканить NFT.",
+      resources: "Время на выполнение активности, $300 для минта NFT.",
+      reportUrl: "crypton.xyz",
+      img: PalioApril24,
+    },
+    {
+      title: "SA World",
+      earn: "$425",
+      spend: "$15",
+      category: "NFT",
+      condition: "Выполнять ежедневные задания в расширении в браузере.",
+      resources: "Время на выполнение активности.",
+      reportUrl: "crypton.xyz",
+      img: SAWorldApril24,
+    },
+    {
+      title: "Elixir Games",
+      earn: "$400",
+      spend: "$0",
+      category: "NFT/Аирдроп",
+      condition: "Участвовать в раффле и выполнить задания на Galxe.",
+      resources: "Время на выполнение активности.",
+      reportUrl: "crypton.xyz",
+      img: ElixirGamesApril24,
+    },
+    {
+      title: "Stakeland",
+      earn: "$50",
+      spend: "$0",
+      category: "Аирдропы",
+      condition: "Выполнить социальные задание на платформе.",
+      resources: "Время на активность, ферма аккаунтов.",
+      reportUrl: "crypton.xyz",
+      img: StakelandApril24,
+    },
+    {
+      title: "Ethena",
+      earn: "50%-60%",
+      spend: "$100",
+      category: "Ретродропы",
+      condition: "Отправить токены в пул ликвидности и фармить поинты.",
+      resources:
+        "$100 на комиссию, свободная ликвидность для фарминга поинтов.",
+      reportUrl: "crypton.xyz",
+      img: EthenaApril24,
+    },
+  ],
+  "март-январь": [
     {
       title: "Memeland",
       earn: "$100",
@@ -266,8 +371,7 @@ export const examples = {
       reportUrl: "crypton.xyz",
       img: BybitMarch24,
     },
-  ],
-  февраль: [
+
     {
       title: "Milady",
       earn: "$2 720",
@@ -423,8 +527,7 @@ export const examples = {
       reportUrl: "crypton.xyz",
       img: ByBit,
     },
-  ],
-  январь: [
+
     {
       title: "Altlayer",
       earn: "$50 000",
