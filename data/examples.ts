@@ -164,6 +164,8 @@ import SAWorldApril24 from "@/public/images/png/examples/april/SAWorld_april24.p
 import ElixirGamesApril24 from "@/public/images/png/examples/april/ElixirGames_april24.png"
 import StakelandApril24 from "@/public/images/png/examples/april/Stakeland_april24.png"
 import EthenaApril24 from "@/public/images/png/examples/april/Ethena_april24.png"
+import NibiruApril24 from "@/public/images/png/examples/april/Nibiru_april24.png"
+import OmniApril24 from "@/public/images/png/examples/april/Omni_april24.png"
 
 export const examples = {
   апрель: [
@@ -177,6 +179,18 @@ export const examples = {
       resources: "Ферма аккаунтов, время на выполнение активности.",
       reportUrl: "crypton.xyz",
       img: CastileApril24,
+    },
+    {
+      title: "Nibiru",
+      earn: "$1 700",
+      spend: "$15",
+      category: "Ноды",
+      condition:
+        "Участвовать в нескольких тестнетах на протяжении 10 месяцев. Было 4 тестнета, 2 из них это поддерживание ноды. Последние тестнеты это активность на самой площадке Nibiru.",
+      resources:
+        "~15$ - на содержание сервера. Если считать все тестнеты и участие в них, затраты составляют: ~$150 за 10 месяцев работы ноды",
+      reportUrl: "crypton.xyz",
+      img: NibiruApril24,
     },
     {
       title: "MMMC",
@@ -218,6 +232,17 @@ export const examples = {
       resources: "Время на выполнение активности, $300 для минта NFT.",
       reportUrl: "crypton.xyz",
       img: PalioApril24,
+    },
+    {
+      title: "Omni",
+      earn: "$920",
+      spend: "$0",
+      category: "Тестнеты",
+      condition:
+        "Нужно было собирать OAT'ы через Galxe и собирать роли в дискорде.",
+      resources: "Пару часов времени в течении 9 месяцев.",
+      reportUrl: "crypton.xyz",
+      img: OmniApril24,
     },
     {
       title: "SA World",
