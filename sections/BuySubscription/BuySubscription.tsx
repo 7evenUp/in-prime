@@ -61,7 +61,7 @@ const BuySubscription = ({
       )
 
       return response.data.filter(
-        (el) => el.isActive && el.kind === PRIME_SUBSCRIPTION_KIND_ID
+        (el) => el.isActive && el.kindId === PRIME_SUBSCRIPTION_KIND_ID
       )
     },
   })

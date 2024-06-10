@@ -23,25 +23,13 @@ const Histories = () => {
         <div className={styles.navigation}>
           <button
             className={styles.arrow_btn}
-            onClick={() => {
-              if (activeIndex === 0) {
-                swiperRef.current.swiper.slideTo(historiesData.length - 1)
-              } else {
-                swiperRef.current.swiper.slidePrev()
-              }
-            }}
+            onClick={() => swiperRef.current.swiper.slidePrev()}
           >
             <Arrow className={styles.arrow_prev} />
           </button>
           <button
             className={styles.arrow_btn}
-            onClick={() => {
-              if (activeIndex === historiesData.length - 1) {
-                swiperRef.current.swiper.slideTo(0)
-              } else {
-                swiperRef.current.swiper.slideNext()
-              }
-            }}
+            onClick={() => swiperRef.current.swiper.slideNext()}
           >
             <Arrow className={styles.arrow_next} />
           </button>
@@ -54,6 +42,7 @@ const Histories = () => {
         onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
         className={styles.swiper}
         wrapperClass={styles.swiper_wrapper}
+        loop={true}
       >
         {historiesData.map((history, i) => (
           <SwiperSlide key={i} className={styles.slide}>
@@ -95,7 +84,7 @@ const HistoryCard = ({
   return (
     <div
       className={styles.card_wrapper}
-      style={{ opacity: cardIndex === swiper.activeIndex ? 1 : 0 }}
+      style={{ opacity: cardIndex === swiper.realIndex ? 1 : 0 }}
     >
       <div className={styles.card}>
         <div className={styles.card_header}>
