@@ -17,6 +17,7 @@ import HappyHolder from "@/public/images/png/testimonials/HappyHolder.png"
 import MaxKroz from "@/public/images/png/testimonials/MaxKroz.png"
 import Consigliere from "@/public/images/png/testimonials/consigliere.jpg"
 import KlemeTin from "@/public/images/png/testimonials/kleme-tin.jpg"
+import Gregor from "@/public/images/png/testimonials/Gredor.png"
 
 export const testimonialsData: Array<{
   avatar: StaticImageData | string
@@ -26,6 +27,27 @@ export const testimonialsData: Array<{
   link: string
   isNew?: boolean
 }> = [
+  {
+    avatar: Gregor,
+    name: "Gregor",
+    text: `Нахожусь в прайме уже год. Начну с плюсов:
+
+- Прайм подойдет как для новичков, так и для опытных криптанов.
+- Благодаря активному комьюнити и команде прайма у тебя всегда будет актуальная информация обо всех (не тир100) проектах. Также ребята в чате всегда помогут и ответят на почти любой твой вопрос.
+- Прайм один из первых освещает будущие тир1 проекты.
+- В прайме курируются все основные направления криптовалют: аирдропы, ретродропы, тестнеты, ноды, НФТ, промоакции.
+- Иногда среди участников прайма проводят интерактивы с призами: турниры по покеру/компьютерным играм, квесты-головоломки.
+- Часто проводятся АМА-сессии на разные темы.
+
+Конкретные минусы выделить сложно. В плане организации всё практически безупречно (имхо).
+
+Я бы хотел видеть в прайме больше софтов для автоматизации фарма дропов.
+
+Ну и в общем всё. Долго думал, что ещё добавить, но всё, что приходило в голову, уже в разработке/исполнении в прайме.`,
+    date: "27.05.24",
+    link: "https://t.me/reviews_prime/354",
+    isNew: true,
+  },
   {
     avatar: KlemeTin,
     name: "KLeme Tin",
@@ -45,7 +67,6 @@ export const testimonialsData: Array<{
 Всем добра! :)`,
     date: "16.04.24",
     link: "https://t.me/reviews_prime/320",
-    isNew: true,
   },
   {
     avatar: Consigliere,
@@ -61,7 +82,6 @@ export const testimonialsData: Array<{
     В общем и целом, я всем доволен и буду продлевать подписку ;)`,
     date: "14.04.24",
     link: "https://t.me/reviews_prime/317",
-    isNew: true,
   },
   {
     avatar: MaxKroz,
@@ -76,7 +96,6 @@ export const testimonialsData: Array<{
     6. Стабильная сводка и выжимка основной информации, которая быстро позволяет ориентироваться и сфокусировать время только на основых проектах, который сейчас важны)`,
     date: "11.03.24",
     link: "https://t.me/reviews_prime/278",
-    isNew: true,
   },
   {
     avatar: HappyHolder,

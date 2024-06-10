@@ -153,7 +153,6 @@ import PolyhedraOKXMarch24 from "@/public/images/png/examples/march/polyhedra_ok
 import BlockGamesMarch24 from "@/public/images/png/examples/march/block_games_march24.png"
 import ERCCMarch24 from "@/public/images/png/examples/march/ercc_march24.png"
 import SprotoGremlinsMarch24 from "@/public/images/png/examples/march/sproto_gremlins_march24.png"
-import BybitMarch24 from "@/public/images/png/examples/march/bybit_march24.png"
 
 import CastileApril24 from "@/public/images/png/examples/april/castile_april24.png"
 import MMMCApril24 from "@/public/images/png/examples/april/MMMC_april24.png"
@@ -162,13 +161,146 @@ import WormholeApril24 from "@/public/images/png/examples/april/Wormhole_april24
 import PalioApril24 from "@/public/images/png/examples/april/Palio_april24.png"
 import SAWorldApril24 from "@/public/images/png/examples/april/SAWorld_april24.png"
 import ElixirGamesApril24 from "@/public/images/png/examples/april/ElixirGames_april24.png"
-import StakelandApril24 from "@/public/images/png/examples/april/Stakeland_april24.png"
 import EthenaApril24 from "@/public/images/png/examples/april/Ethena_april24.png"
 import NibiruApril24 from "@/public/images/png/examples/april/Nibiru_april24.png"
 import OmniApril24 from "@/public/images/png/examples/april/Omni_april24.png"
 
+import TaikoMay24 from "@/public/images/png/examples/may/taiko_may24.png"
+import CryptonXStormTradeMay24 from "@/public/images/png/examples/may/cryptonXstormTrade_may24.jpeg"
+import FrucksMay24 from "@/public/images/png/examples/may/frucks_may24.png"
+import AddicktedMay24 from "@/public/images/png/examples/may/addickted_may24.png"
+import PotKMay24 from "@/public/images/png/examples/may/PotK_may24.png"
+import ParallelMay24 from "@/public/images/png/examples/may/parallel_may24.png"
+import AntiSocialFrogsMay24 from "@/public/images/png/examples/may/AntiSocialFrogs_may24.png"
+import NutcrackersMay24 from "@/public/images/png/examples/may/Nutcrackers_may24.png"
+import NyanHeroesMay24 from "@/public/images/png/examples/may/NyanHeroes_may24.png"
+
+import BybitDefault from "@/public/images/png/examples/common/bybit-default.png"
+import StakelandDefault from "@/public/images/png/examples/common/stakeland.png"
+
 export const examples = {
-  апрель: [
+  май: [
+    {
+      title: "Taiko",
+      earn: "$2 500+",
+      spend: "$400",
+      category: "Тестнет, Ноды",
+      condition:
+        "Поставить ноду, участвовать в Galxe-кампаниях, получать роли в дискорде и тд.",
+      resources:
+        "~$300-$500 на поддержание сервера, время на выполнение активностей.",
+      reportUrl: "crypton.xyz",
+      img: TaikoMay24,
+    },
+    {
+      title: "Crypton x StormTrade",
+      earn: "до $2 200",
+      spend: "$30",
+      category: "Торговый конкурс, Ретродропы",
+      condition:
+        "Торговать в парах к USDT и TON в течение недели с 6 по 12 мая. Шанс на победу был 18%.",
+      resources:
+        "$1 000 возвратной ликвидности, время на выполнение активности.",
+      reportUrl: "crypton.xyz",
+      img: CryptonXStormTradeMay24,
+    },
+    {
+      title: "Frucks",
+      earn: "$1 500",
+      spend: "$90",
+      category: "NFT",
+      condition:
+        "Активность в Twitter, активность на сайте проекта, участие в раффлах.",
+      resources: "ферма аккаунтов, время на выполнение активности.",
+      reportUrl: "crypton.xyz",
+      img: FrucksMay24,
+    },
+    {
+      title: "Bybit-акции",
+      earn: "$900",
+      spend: "$15",
+      category: "Аирдропы",
+      condition: "Участвовать в промоакциях биржи Bybit.",
+      resources:
+        "$15 на комиссию, время для участия, свободная ликвидность для стейкинга.",
+      reportUrl: "crypton.xyz",
+      img: BybitDefault,
+    },
+    {
+      title: "Addickted",
+      earn: "$450",
+      spend: "$0",
+      category: "Аирдропы",
+      condition:
+        "Выполнять задания в телеграм-боте, играть в телеграм-приложении.",
+      resources: "Время на выполнение активности.",
+      reportUrl: "crypton.xyz",
+      img: AddicktedMay24,
+    },
+    {
+      title: "PotK",
+      earn: "$300",
+      spend: "$0",
+      category: "NFT",
+      condition:
+        "Активность в Twitter, активность в игре на телефоне, участие в раффлах.",
+      resources: "Время на отработку активности, ферма аккаунтов.",
+      reportUrl: "crypton.xyz",
+      img: PotKMay24,
+    },
+    {
+      title: "Parallel",
+      earn: "$250",
+      spend: "$70",
+      category: "Game-Fi",
+      condition: "Играть в игру, получать токены за победы.",
+      resources: "~$70 на покупку нужных NFT, ежедневная игра.",
+      reportUrl: "crypton.xyz",
+      img: ParallelMay24,
+    },
+    {
+      title: "Anti Social Frogs",
+      earn: "$200",
+      spend: "$110",
+      category: "NFT",
+      condition: "Активность в Twitter, участие в раффлах.",
+      resources: "Ферма аккаунтов, время на выполнение активности.",
+      reportUrl: "crypton.xyz",
+      img: AntiSocialFrogsMay24,
+    },
+    {
+      title: "Nutcrackers",
+      earn: "$125",
+      spend: "$75",
+      category: "NFT",
+      condition: "Холдить щелкунчика, выиграть в раффле.",
+      resources: "владение NFT Щелкунчик.",
+      reportUrl: "crypton.xyz",
+      img: NutcrackersMay24,
+    },
+    {
+      title: "Nyan Heroes",
+      earn: "$100",
+      spend: "$0",
+      category: "NFT",
+      condition:
+        "Выполнять соц. задания и играть в игру. Пользователи, которые играли в игру, смогли заработать ~$100-$300.",
+      resources: "время на выполнение активности.",
+      reportUrl: "crypton.xyz",
+      img: NyanHeroesMay24,
+    },
+    {
+      title: "Stakeland",
+      earn: "$25",
+      spend: "$0",
+      category: "Аирдропы",
+      condition: "Выполнить социальные задания на платформе.",
+      resources: "время на активность, ферма аккаунтов.",
+      reportUrl: "crypton.xyz",
+      img: StakelandDefault,
+    },
+  ],
+  "апрель-январь": [
     {
       title: "Castile",
       earn: "$7 800",
@@ -272,7 +404,7 @@ export const examples = {
       condition: "Выполнить социальные задание на платформе.",
       resources: "Время на активность, ферма аккаунтов.",
       reportUrl: "crypton.xyz",
-      img: StakelandApril24,
+      img: StakelandDefault,
     },
     {
       title: "Ethena",
@@ -285,8 +417,6 @@ export const examples = {
       reportUrl: "crypton.xyz",
       img: EthenaApril24,
     },
-  ],
-  "март-январь": [
     {
       title: "Memeland",
       earn: "$100",
@@ -394,7 +524,7 @@ export const examples = {
       resources:
         "Аккаунт биржи ByBit, 101+ $USDT и время на выполнение активности.",
       reportUrl: "crypton.xyz",
-      img: BybitMarch24,
+      img: BybitDefault,
     },
 
     {
