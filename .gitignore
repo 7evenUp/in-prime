@@ -120,6 +120,8 @@ dist
 .vscode-test
 .DS_Store
 
+.idea
+
 # yarn v2
 .yarn/cache
 .yarn/unplugged
