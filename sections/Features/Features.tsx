@@ -96,15 +96,6 @@ const FeaturesTabs = ({ resolution }: { resolution: Resolution }) => {
             <span>Календарь по заработку</span>
           </div>
         </Tabs.Trigger>
-        <Tabs.Trigger className={styles.TabsTrigger} value="cryptonBonuses">
-          <div className={styles.trigger_container}>
-            <div className={styles.icon_wrapper}>
-              <CryptonBonusesIcon />
-              <CryptonBonusesIconGradient />
-            </div>
-            <span>Бонусы экосистемы Crypton</span>
-          </div>
-        </Tabs.Trigger>
         <Tabs.Trigger className={styles.TabsTrigger} value="tab2">
           <div className={styles.trigger_container}>
             <div className={styles.icon_wrapper}>
@@ -157,6 +148,15 @@ const FeaturesTabs = ({ resolution }: { resolution: Resolution }) => {
               <InvestingIconGradient />
             </div>
             <span>Инвестируем за вас</span>
+          </div>
+        </Tabs.Trigger>
+        <Tabs.Trigger className={styles.TabsTrigger} value="cryptonBonuses">
+          <div className={styles.trigger_container}>
+            <div className={styles.icon_wrapper}>
+              <CryptonBonusesIcon />
+              <CryptonBonusesIconGradient />
+            </div>
+            <span>Бонусы экосистемы Crypton</span>
           </div>
         </Tabs.Trigger>
       </Tabs.List>
