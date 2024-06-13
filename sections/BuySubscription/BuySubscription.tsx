@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { useRouter } from "next/router"
+import Image from "next/image"
 import { useMutation, useQuery } from "@tanstack/react-query"
 import axios from "axios"
 import * as HoverCard from "@radix-ui/react-hover-card"
@@ -8,6 +9,10 @@ import * as Switch from "@radix-ui/react-switch"
 import clsx from "clsx"
 
 import SubscribeArrow from "@/public/images/jsx/subscribe/arrow"
+
+import SubscriptionImage2 from "@/public/images/png/buy-subscription/subscription_main_2.png"
+import SubscriptionImage3 from "@/public/images/png/buy-subscription/subscription_main_3.png"
+import SubscriptionImage4 from "@/public/images/png/buy-subscription/subscription_main_4.png"
 
 import BuySubscriptionDialog from "@/components/BuySubscriptionDialog"
 
@@ -391,20 +396,33 @@ const SubscriptionCard = ({
       {isPromoPending ? (
         <div className={styles.loading} />
       ) : (
-        <div className={styles.price}>
-          <span className={styles.price_left}>
-            $
-            {Number.isInteger(cardPrice) ? (
-              cardPrice
-            ) : (
-              <>
-                {cardPrice.toFixed(2).split(".")[0]}
-                <span className={styles.price_fractional}>
-                  .{cardPrice.toFixed(2).split(".")[1]}
-                </span>
-              </>
+        <div className={clsx(styles.price, order === 0 && styles.price_0)}>
+          <div className={styles.price_wrapper}>
+            <span className={styles.price_left}>
+              $
+              {Number.isInteger(cardPrice) ? (
+                cardPrice
+              ) : (
+                <>
+                  {cardPrice.toFixed(2).split(".")[0]}
+                  <span className={styles.price_fractional}>
+                    .{cardPrice.toFixed(2).split(".")[1]}
+                  </span>
+                </>
+              )}
+            </span>
+            {showMonthlyPrice && (
+              <span
+                className={clsx(
+                  Number.isInteger(cardPrice)
+                    ? styles.price_month
+                    : styles.price_month_fractional
+                )}
+              >
+                / мес
+              </span>
             )}
-          </span>
+          </div>
           {duration.id === 1 &&
             discountKind &&
             discountAmount !== 0 &&
@@ -442,25 +460,17 @@ const SubscriptionCard = ({
           )}
         </div>
       )}
-      {order !== 0 && (
-        <ul className={clsx(styles.bonuses, styles.bonuses_extra)}>
-          {order === 1 && (
-            <li className={styles.bonus}>
-              <p className={styles.bonus_text}>Все, что входит в 1 месяц</p>
-            </li>
-          )}
-          {order === 2 && (
-            <li className={styles.bonus}>
-              <p className={styles.bonus_text}>Все, что входит в 3 месяца</p>
-            </li>
-          )}
-          {order === 3 && (
-            <li className={styles.bonus}>
-              <p className={styles.bonus_text}>Все, что входит в 6 месяцев</p>
-            </li>
-          )}
-        </ul>
-      )}
+      <p className={styles.text_before_bonuses}>
+        {order === 0 && (
+          <>
+            Все{" "}
+            <button onClick={scrollToOpportunities}>возможности Prime</button>
+          </>
+        )}
+        {order === 1 && "Все, что входит в 1 месяц"}
+        {order === 2 && "Все, что входит в 3 месяца"}
+        {order === 3 && "Все, что входит в 6 месяцев"}
+      </p>
       <div className={styles.bonuses_heading}>
         <div className={styles.bonuses_icon}>
           <svg
@@ -484,94 +494,110 @@ const SubscriptionCard = ({
             />
           </svg>
         </div>
-        <span className={styles.bonuses_heading_text}>БОНУСЫ</span>
+        <span className={styles.bonuses_heading_text}>ЭКСТРА БОНУСЫ</span>
       </div>
       <ul className={styles.bonuses}>
-        {order === 0 && (
-          <li className={styles.bonus}>
-            <p className={styles.bonus_text1}>
-              Все{" "}
-              <button onClick={scrollToOpportunities}>возможности Prime</button>
-            </p>
-          </li>
-        )}
-        {benefits.map((benefit) =>
-          benefit.file ? (
-            resolution === "sm" ? (
+        {order !== 0 &&
+          benefits.map((benefit) =>
+            benefit.file ? (
+              resolution === "sm" ? (
+                <Popover.Root key={benefit.id}>
+                  <Popover.Trigger className={styles.PopoverTrigger}>
+                    <li className={styles.bonus}>
+                      <p className={styles.bonus_text}>
+                        {benefit.translations.ru.name}
+                      </p>
+                    </li>
+                  </Popover.Trigger>
+                  <Popover.Portal>
+                    <Popover.Content
+                      className={styles.PopoverContent}
+                      sideOffset={5}
+                    >
+                      <img
+                        className={styles.PopoverImage}
+                        src={benefit.file}
+                        alt={benefit.translations.ru.name}
+                      />
+                    </Popover.Content>
+                  </Popover.Portal>
+                </Popover.Root>
+              ) : (
+                <HoverCard.Root key={benefit.id} openDelay={150}>
+                  <HoverCard.Trigger className={styles.HoverCardTrigger}>
+                    <li className={styles.bonus}>
+                      <p className={styles.bonus_text}>
+                        {benefit.translations.ru.name}
+                      </p>
+                    </li>
+                  </HoverCard.Trigger>
+                  <HoverCard.Portal>
+                    <HoverCard.Content
+                      className={styles.HoverCardContent}
+                      sideOffset={5}
+                      side="right"
+                    >
+                      <img
+                        className={styles.HoverCardImage}
+                        src={benefit.file}
+                        alt={benefit.translations.ru.name}
+                      />
+                    </HoverCard.Content>
+                  </HoverCard.Portal>
+                </HoverCard.Root>
+              )
+            ) : benefit.translations.ru.description !== null ? (
               <Popover.Root key={benefit.id}>
-                <Popover.Trigger className={styles.PopoverTrigger}>
+                <Popover.Trigger className={styles.PopoverTriggerDescription}>
                   <li className={styles.bonus}>
                     <p className={styles.bonus_text}>
                       {benefit.translations.ru.name}
+                      <NavArrowIcon />
                     </p>
                   </li>
                 </Popover.Trigger>
                 <Popover.Portal>
                   <Popover.Content
-                    className={styles.PopoverContent}
+                    className={styles.PopoverContentDescription}
                     sideOffset={5}
+                    side="bottom"
                   >
-                    <img
-                      className={styles.PopoverImage}
-                      src={benefit.file}
-                      alt={benefit.translations.ru.name}
-                    />
+                    {benefit.translations.ru.description}
                   </Popover.Content>
                 </Popover.Portal>
               </Popover.Root>
             ) : (
-              <HoverCard.Root key={benefit.id} openDelay={150}>
-                <HoverCard.Trigger className={styles.HoverCardTrigger}>
-                  <li className={styles.bonus}>
-                    <p className={styles.bonus_text}>
-                      {benefit.translations.ru.name}
-                    </p>
-                  </li>
-                </HoverCard.Trigger>
-                <HoverCard.Portal>
-                  <HoverCard.Content
-                    className={styles.HoverCardContent}
-                    sideOffset={5}
-                    side="right"
-                  >
-                    <img
-                      className={styles.HoverCardImage}
-                      src={benefit.file}
-                      alt={benefit.translations.ru.name}
-                    />
-                  </HoverCard.Content>
-                </HoverCard.Portal>
-              </HoverCard.Root>
+              <li key={benefit.id} className={styles.bonus}>
+                <p className={styles.bonus_text}>
+                  {benefit.translations.ru.name}
+                </p>
+              </li>
             )
-          ) : benefit.translations.ru.description !== null ? (
-            <Popover.Root key={benefit.id}>
-              <Popover.Trigger className={styles.PopoverTriggerDescription}>
-                <li className={styles.bonus}>
-                  <p className={styles.bonus_text}>
-                    {benefit.translations.ru.name}
-                    <NavArrowIcon />
-                  </p>
-                </li>
-              </Popover.Trigger>
-              <Popover.Portal>
-                <Popover.Content
-                  className={styles.PopoverContentDescription}
-                  sideOffset={5}
-                  side="bottom"
-                >
-                  {benefit.translations.ru.description}
-                </Popover.Content>
-              </Popover.Portal>
-            </Popover.Root>
-          ) : (
-            <li key={benefit.id} className={styles.bonus}>
-              <p className={styles.bonus_text}>
-                {benefit.translations.ru.name}
-              </p>
-            </li>
-          )
-        )}
+          )}
       </ul>
+
+      {order === 1 && (
+        <Image
+          src={SubscriptionImage2}
+          alt="Кружка и носки Crypton 2024"
+          className={styles.subscription_2_image}
+        />
+      )}
+      {order === 2 && (
+        <Image
+          src={SubscriptionImage3}
+          alt="Футболка Crypton 2024"
+          className={styles.subscription_3_image}
+        />
+      )}
+      {order === 3 && (
+        <Image
+          src={SubscriptionImage4}
+          alt="Худи Crypton 2024"
+          className={styles.subscription_4_image}
+        />
+      )}
+
       <BuySubscriptionDialog
         key={discountAmount}
         selectedSubscription={subscription}
