@@ -83,19 +83,10 @@ const FeaturesTabs = ({ resolution }: { resolution: Resolution }) => {
   return (
     <Tabs.Root
       className={styles.TabsRoot}
-      defaultValue="cryptonBonuses"
+      defaultValue="tab1"
       orientation="vertical"
     >
       <Tabs.List className={styles.TabsList} aria-label="Prime Features">
-        <Tabs.Trigger className={styles.TabsTrigger} value="cryptonBonuses">
-          <div className={styles.trigger_container}>
-            <div className={styles.icon_wrapper}>
-              <CryptonBonusesIcon />
-              <CryptonBonusesIconGradient />
-            </div>
-            <span>Бонусы экосистемы Crypton</span>
-          </div>
-        </Tabs.Trigger>
         <Tabs.Trigger className={styles.TabsTrigger} value="tab1">
           <div className={styles.trigger_container}>
             <div className={styles.icon_wrapper}>
@@ -103,6 +94,15 @@ const FeaturesTabs = ({ resolution }: { resolution: Resolution }) => {
               <CalendarIconGradient />
             </div>
             <span>Календарь по заработку</span>
+          </div>
+        </Tabs.Trigger>
+        <Tabs.Trigger className={styles.TabsTrigger} value="cryptonBonuses">
+          <div className={styles.trigger_container}>
+            <div className={styles.icon_wrapper}>
+              <CryptonBonusesIcon />
+              <CryptonBonusesIconGradient />
+            </div>
+            <span>Бонусы экосистемы Crypton</span>
           </div>
         </Tabs.Trigger>
         <Tabs.Trigger className={styles.TabsTrigger} value="tab2">
