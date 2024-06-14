@@ -185,6 +185,10 @@
     @media (max-width: 1919px) {
       height: 180px;
     }
+
+    @media (max-width: 767px) {
+      display: none;
+    }
   }
   &_3_image {
     width: auto;
@@ -198,6 +202,10 @@
     @media (max-width: 1919px) {
       height: 180px;
     }
+
+    @media (max-width: 767px) {
+      display: none;
+    }
   }
   &_4_image {
     width: auto;
@@ -209,6 +217,10 @@
 
     @media (max-width: 1919px) {
       height: 180px;
+    }
+
+    @media (max-width: 767px) {
+      display: none;
     }
   }
 }
@@ -296,7 +308,7 @@
 
   &_0 {
     @media (max-width: 767px) {
-      height: 70px;
+      height: 100px;
     }
   }
 
