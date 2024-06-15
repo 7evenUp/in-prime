@@ -493,7 +493,7 @@ const BuySubscriptionDialog = ({
                     {paymentType === "card" ? (
                       <p className={styles.payment_card}>
                         При оплате картой конвертация <br /> осуществляется по
-                        курсу ЦБ
+                        курсу ЦБ РФ
                       </p>
                     ) : (
                       <div className={styles.payment_crypto}>
