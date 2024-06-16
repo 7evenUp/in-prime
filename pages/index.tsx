@@ -7,9 +7,9 @@ import Footer from "@/components/footer"
 import Examples from "@/components/examples"
 import Accordion from "@/components/accordion/accordion"
 import Menu from "@/components/menu"
-import Team from "@/components/team"
+import Team from "@/components/Team"
 import Ribbon from "@/components/ribbon"
-import RibbonSale from "@/components/ribbon-sale"
+// import RibbonSale from "@/components/ribbon-sale"
 // import Countdown from "@/components/countdown";
 
 import YouTube from "@/public/images/jsx/ceo/you-tube"

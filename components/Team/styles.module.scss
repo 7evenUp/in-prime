@@ -1,0 +1,105 @@
+.CollapsibleRoot {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 1300px;
+
+  @media (max-width: 1919px) and (min-width: 1368px) {
+    width: 1130px;
+  }
+
+  @media (max-width: 1367px) and (min-width: 768px) {
+    width: 672px;
+  }
+
+  @media (max-width: 767px) {
+    width: 335px;
+  }
+}
+
+.CollapsibleTrigger {
+  box-sizing: border-box;
+  font-family: "Resist Sans", sans-serif;
+  font-size: 28px;
+  line-height: 160%;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0;
+  cursor: pointer;
+  width: fit-content;
+  padding: 28px 36px;
+  border-radius: 18px;
+  transition: background-color 0.1s ease-in-out;
+  border: 1px solid #ffcd9f;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+
+  &:active {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  @media (max-width: 1367px) {
+    font-size: 24px;
+    padding: 24px 34px;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 18px;
+    padding: 18px 24px;
+    border-radius: 8px;
+  }
+}
+
+.highlight {
+  color: #ffcd9f;
+}
+
+.icon {
+  width: 22px;
+  height: 22px;
+  transition: all 0.15s ease-in-out;
+
+  @media (max-width: 767px) {
+    width: 18px;
+    height: 18px;
+  }
+
+  &__active {
+    rotate: 180deg;
+  }
+}
+
+.CollapsibleContent {
+  overflow: hidden;
+}
+.CollapsibleContent[data-state="open"] {
+  animation: slideDown 300ms ease-out;
+}
+.CollapsibleContent[data-state="closed"] {
+  animation: slideUp 300ms ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-collapsible-content-height);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    height: var(--radix-collapsible-content-height);
+  }
+  to {
+    height: 0;
+  }
+}

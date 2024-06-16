@@ -1,8 +1,15 @@
 import React, { useState } from "react"
+import * as Collapsible from "@radix-ui/react-collapsible"
+import clsx from "clsx"
+
+import styles from "./styles.module.scss"
 
 const Team = (props) => {
   const [selected, setSelected] = useState(-1)
   const [hovered, setHovered] = useState(-1)
+
+  const [open, setOpen] = useState(false)
+
   const scales = {
     lgg: 1,
     lg: 0.867,
@@ -3401,133 +3408,165 @@ const Team = (props) => {
 
   return (
     <div className="team">
-      <div className="team__container">
-        {team[props.resolution].map((elem, index) => {
-          if (index == selected)
-            return (
-              <div
-                key={index}
-                className="team__container__employee"
-                style={{
-                  width: elem.size.selected * currentScale + "px",
-                  height: elem.size.selected * currentScale + "px",
-                  top: elem.selected_cord.top * currentScale + "px",
-                  left: elem.selected_cord.left * currentScale + "px",
-                  transition: "1s",
-                }}
-                onClick={() => toggleMember(index)}
-              >
-                <img
-                  src={`/images/png/team/${elem.img}.png`}
-                  alt=""
-                  style={{
-                    width: elem.size.selected * currentScale + "px",
-                    top: elem.selected_cord.top * currentScale + "px",
-                    left: elem.selected_cord.left * currentScale + "px",
-                    transition: "1s",
-                  }}
-                />
-                <div
-                  className="team__container__employee__title"
-                  style={{
-                    top: aboutDisp[props.resolution].title + "px",
-                    left:
-                      elem.size.selected * currentScale +
-                      aboutDisp[props.resolution].left +
-                      "px",
-                  }}
-                >
-                  {elem.description.name}
-                </div>
-                <div
-                  className="team__container__employee__description"
-                  style={{
-                    top: aboutDisp[props.resolution].description + "px",
-                    left:
-                      elem.size.selected * currentScale +
-                      aboutDisp[props.resolution].left +
-                      "px",
-                  }}
-                >
-                  {elem.description.role}
-                </div>
-              </div>
-            )
-          else
-            return (
-              <div
-                key={index}
-                className="team__container__employee"
-                style={{
-                  width:
-                    selected >= 0 &&
-                    team[props.resolution][
-                      selected
-                    ].change_other.hasOwnProperty(elem.img) &&
-                    team[props.resolution][selected].change_other[
-                      elem.img
-                    ].hasOwnProperty("size")
-                      ? team[props.resolution][selected].change_other[elem.img]
-                          .size * currentScale
-                      : elem.size.default * currentScale,
-                  height:
-                    selected >= 0 &&
-                    team[props.resolution][
-                      selected
-                    ].change_other.hasOwnProperty(elem.img) &&
-                    team[props.resolution][selected].change_other[
-                      elem.img
-                    ].hasOwnProperty("size")
-                      ? team[props.resolution][selected].change_other[elem.img]
-                          .size * currentScale
-                      : elem.size.default * currentScale,
-                  top:
-                    selected >= 0 &&
-                    team[props.resolution][
-                      selected
-                    ].change_other.hasOwnProperty(elem.img)
-                      ? team[props.resolution][selected].change_other[elem.img]
-                          .cord.top * currentScale
-                      : elem.default_cord.top * currentScale + "px",
-                  left:
-                    selected >= 0 &&
-                    team[props.resolution][
-                      selected
-                    ].change_other.hasOwnProperty(elem.img)
-                      ? team[props.resolution][selected].change_other[elem.img]
-                          .cord.left * currentScale
-                      : elem.default_cord.left * currentScale + "px",
-                  scale: hovered == index ? "1.1" : "",
-                  transition: "1s",
-                }}
-                onClick={() => toggleMember(index)}
-                onMouseEnter={() => setHovered(index)}
-                onMouseLeave={() => setHovered(-1)}
-              >
-                <img
-                  src={`/images/png/team/${elem.img}.png`}
-                  alt=""
-                  style={{
-                    transition: "0.5s",
-                    width:
-                      selected >= 0 &&
-                      team[props.resolution][
-                        selected
-                      ].change_other.hasOwnProperty(elem.img) &&
-                      team[props.resolution][selected].change_other[
-                        elem.img
-                      ].hasOwnProperty("size")
-                        ? team[props.resolution][selected].change_other[
+      <Collapsible.Root
+        className={styles.CollapsibleRoot}
+        open={open}
+        onOpenChange={setOpen}
+      >
+        <Collapsible.Trigger className={styles.CollapsibleTrigger}>
+          <span>
+            И ещё <span className={styles.highlight}>15 опытных криптанов</span>
+          </span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            viewBox="0 0 22 22"
+            fill="currentColor"
+            stroke="currentColor"
+            strokeWidth="1"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className={clsx(styles.icon, open && styles.icon__active)}
+          >
+            <path d="M3.20921 8.90711L10.5187 16.0324C10.6471 16.1575 10.8193 16.2275 10.9986 16.2275C11.1779 16.2275 11.3501 16.1575 11.4785 16.0324L18.7907 8.90711C18.8506 8.84881 18.8982 8.77911 18.9307 8.70213C18.9632 8.62514 18.9799 8.54242 18.9799 8.45886C18.9799 8.37529 18.9632 8.29258 18.9307 8.21559C18.8982 8.1386 18.8506 8.0689 18.7907 8.01061C18.6679 7.89068 18.5031 7.82353 18.3315 7.82353C18.1598 7.82353 17.995 7.89068 17.8722 8.01061L10.9986 14.711L4.12633 8.01061C4.00361 7.89109 3.83907 7.82421 3.66777 7.82421C3.49646 7.82421 3.33193 7.89109 3.20921 8.01061C3.14933 8.0689 3.10175 8.1386 3.06925 8.21559C3.03676 8.29258 3.02002 8.37529 3.02002 8.45886C3.02002 8.54242 3.03676 8.62514 3.06925 8.70213C3.10175 8.77912 3.14933 8.84881 3.20921 8.90711Z" />
+          </svg>
+        </Collapsible.Trigger>
+
+        <Collapsible.Content className={styles.CollapsibleContent}>
+          <div className="team__container">
+            {team[props.resolution].map((elem, index) => {
+              if (index == selected)
+                return (
+                  <div
+                    key={index}
+                    className="team__container__employee"
+                    style={{
+                      width: elem.size.selected * currentScale + "px",
+                      height: elem.size.selected * currentScale + "px",
+                      top: elem.selected_cord.top * currentScale + "px",
+                      left: elem.selected_cord.left * currentScale + "px",
+                      transition: "1s",
+                    }}
+                    onClick={() => toggleMember(index)}
+                  >
+                    <img
+                      src={`/images/png/team/${elem.img}.png`}
+                      alt=""
+                      style={{
+                        width: elem.size.selected * currentScale + "px",
+                        top: elem.selected_cord.top * currentScale + "px",
+                        left: elem.selected_cord.left * currentScale + "px",
+                        transition: "1s",
+                      }}
+                    />
+                    <div
+                      className="team__container__employee__title"
+                      style={{
+                        top: aboutDisp[props.resolution].title + "px",
+                        left:
+                          elem.size.selected * currentScale +
+                          aboutDisp[props.resolution].left +
+                          "px",
+                      }}
+                    >
+                      {elem.description.name}
+                    </div>
+                    <div
+                      className="team__container__employee__description"
+                      style={{
+                        top: aboutDisp[props.resolution].description + "px",
+                        left:
+                          elem.size.selected * currentScale +
+                          aboutDisp[props.resolution].left +
+                          "px",
+                      }}
+                    >
+                      {elem.description.role}
+                    </div>
+                  </div>
+                )
+              else
+                return (
+                  <div
+                    key={index}
+                    className="team__container__employee"
+                    style={{
+                      width:
+                        selected >= 0 &&
+                        team[props.resolution][
+                          selected
+                        ].change_other.hasOwnProperty(elem.img) &&
+                        team[props.resolution][selected].change_other[
+                          elem.img
+                        ].hasOwnProperty("size")
+                          ? team[props.resolution][selected].change_other[
+                              elem.img
+                            ].size * currentScale
+                          : elem.size.default * currentScale,
+                      height:
+                        selected >= 0 &&
+                        team[props.resolution][
+                          selected
+                        ].change_other.hasOwnProperty(elem.img) &&
+                        team[props.resolution][selected].change_other[
+                          elem.img
+                        ].hasOwnProperty("size")
+                          ? team[props.resolution][selected].change_other[
+                              elem.img
+                            ].size * currentScale
+                          : elem.size.default * currentScale,
+                      top:
+                        selected >= 0 &&
+                        team[props.resolution][
+                          selected
+                        ].change_other.hasOwnProperty(elem.img)
+                          ? team[props.resolution][selected].change_other[
+                              elem.img
+                            ].cord.top * currentScale
+                          : elem.default_cord.top * currentScale + "px",
+                      left:
+                        selected >= 0 &&
+                        team[props.resolution][
+                          selected
+                        ].change_other.hasOwnProperty(elem.img)
+                          ? team[props.resolution][selected].change_other[
+                              elem.img
+                            ].cord.left * currentScale
+                          : elem.default_cord.left * currentScale + "px",
+                      scale: hovered == index ? "1.1" : "",
+                      transition: "1s",
+                    }}
+                    onClick={() => toggleMember(index)}
+                    onMouseEnter={() => setHovered(index)}
+                    onMouseLeave={() => setHovered(-1)}
+                  >
+                    <img
+                      src={`/images/png/team/${elem.img}.png`}
+                      alt=""
+                      style={{
+                        transition: "0.5s",
+                        width:
+                          selected >= 0 &&
+                          team[props.resolution][
+                            selected
+                          ].change_other.hasOwnProperty(elem.img) &&
+                          team[props.resolution][selected].change_other[
                             elem.img
-                          ].size * currentScale
-                        : elem.size.default * currentScale,
-                    scale: hovered == index ? "1.1" : "",
-                  }}
-                />
-              </div>
-            )
-        })}
-      </div>
+                          ].hasOwnProperty("size")
+                            ? team[props.resolution][selected].change_other[
+                                elem.img
+                              ].size * currentScale
+                            : elem.size.default * currentScale,
+                        scale: hovered == index ? "1.1" : "",
+                      }}
+                    />
+                  </div>
+                )
+            })}
+          </div>
+        </Collapsible.Content>
+      </Collapsible.Root>
     </div>
   )
 }
