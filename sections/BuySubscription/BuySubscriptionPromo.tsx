@@ -72,7 +72,7 @@ const BuySubscriptionPromo = ({
       )
 
       return response.data
-        .filter((el) => el.isActive && el.kind === PRIME_SUBSCRIPTION_KIND_ID)
+        .filter((el) => el.isActive && el.kindId === PRIME_SUBSCRIPTION_KIND_ID)
         .sort((a, b) => a.duration.id - b.duration.id)
     },
   })

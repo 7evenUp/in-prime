@@ -17,7 +17,7 @@ export interface Subscription {
     label: string
   }
   isActive: boolean
-  kind: 1 | 2 // 1 - prime | 2 - calendar
+  kindId: 1 | 2 // 1 - prime | 2 - calendar
   name: string
   price: number
   individualPrice?: number
