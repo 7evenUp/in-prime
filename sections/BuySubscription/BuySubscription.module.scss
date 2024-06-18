@@ -96,7 +96,11 @@
   padding: 24px;
   backdrop-filter: blur(2px);
 
-  @media (max-width: 375px) {
+  @media (max-width: 767px) {
+    padding-bottom: 18px;
+  }
+
+  @media (max-width: 420px) {
     padding: 16px;
   }
 
@@ -257,6 +261,10 @@
 
   @media (max-width: 1919px) {
     font-size: 16px;
+  }
+
+  @media (max-width: 767px) {
+    margin-bottom: 32px;
   }
 
   @media (max-width: 375px) {
@@ -438,6 +446,10 @@
   list-style: none;
   gap: 8px;
 
+  @media (max-width: 767px) {
+    padding-left: 0px;
+  }
+
   &_heading {
     display: flex;
     align-items: center;
@@ -471,6 +483,10 @@
     content: "+";
     position: absolute;
     left: -14px;
+
+    @media (max-width: 767px) {
+      display: none;
+    }
   }
 
   &_text {
