@@ -1,4 +1,4 @@
-import React from "react"
+import { useEffect, useState } from "react"
 
 import Crypton from "../public/images/jsx/footer/crypton"
 import Discord from "../public/images/jsx/footer/discord"
@@ -8,8 +8,14 @@ import Telegram from "../public/images/jsx/footer/telegram"
 import Youtube from "../public/images/jsx/footer/youtube"
 
 const MobileMenu = (props) => {
-  const resolution = props.resolution
-  const currentY = props.currentY
+  const [docEnv, setDocEnv] = useState(false)
+
+  useEffect(() => {
+    if (typeof document !== "undefined") {
+      setDocEnv(true)
+    }
+  }, [])
+
   const setCurrentY = props.setCurrentY
 
   async function toggleMenu(position) {
@@ -24,38 +30,38 @@ const MobileMenu = (props) => {
   const categories = [
     // Преимущества
     {
-      position: {
-        md: 940,
-        sm: 740,
-      },
+      position: docEnv
+        ? document.getElementById("benefits").offsetTop -
+          document.getElementById("header").clientHeight
+        : 0,
     },
     // Возможности
     {
-      position: {
-        md: 1750,
-        sm: 1296,
-      },
+      position: docEnv
+        ? document.getElementById("features").offsetTop -
+          document.getElementById("header").clientHeight
+        : 0,
     },
     // Примеры заработка
     {
-      position: {
-        md: 5070,
-        sm: 3784,
-      },
+      position: docEnv
+        ? document.getElementById("examples").offsetTop -
+          document.getElementById("header").clientHeight
+        : 0,
     },
     // Команда
     {
-      position: {
-        md: 6861,
-        sm: 5037,
-      },
+      position: docEnv
+        ? document.getElementById("founder").offsetTop -
+          document.getElementById("header").clientHeight
+        : 0,
     },
     // Подписка
     {
-      position: {
-        md: 8047,
-        sm: 6404,
-      },
+      position: docEnv
+        ? document.getElementById("subscribe").offsetTop -
+          document.getElementById("header").clientHeight
+        : 0,
     },
     // Отзывы
     // {
@@ -66,38 +72,24 @@ const MobileMenu = (props) => {
     // },
     {
       // Отзывы
-      position: {
-        md: 9350,
-        sm: 8576,
-      },
+      position: docEnv
+        ? document.getElementById("testimonials").offsetTop -
+          document.getElementById("header").clientHeight
+        : 0,
     },
-    // {
-    //   // Партнёры
-    //   position: {
-    //     md: 11741,
-    //     sm: 11266,
-    //   },
-    // },
     {
       // Партнёры
-      position: {
-        md: 11005,
-        sm: 9896,
-      },
+      position: docEnv
+        ? document.getElementById("partners").offsetTop -
+          document.getElementById("header").clientHeight
+        : 0,
     },
-    // {
-    //   // FAQ
-    //   position: {
-    //     md: 12139,
-    //     sm: 11591,
-    //   },
-    // },
     {
       // FAQ
-      position: {
-        md: 11403,
-        sm: 10221,
-      },
+      position: docEnv
+        ? document.getElementById("faq").offsetTop -
+          document.getElementById("header").clientHeight
+        : 0,
     },
   ]
 
@@ -127,49 +119,49 @@ const MobileMenu = (props) => {
         <div className="mobile-menu__container__cat-place">
           <div
             className="mobile-menu__container__cat-place__item"
-            onClick={() => toggleMenu(categories[0].position[resolution])}
+            onClick={() => toggleMenu(categories[0].position)}
           >
             Преимущества
           </div>
           <div
             className="mobile-menu__container__cat-place__item"
-            onClick={() => toggleMenu(categories[1].position[resolution])}
+            onClick={() => toggleMenu(categories[1].position)}
           >
             Возможности
           </div>
           <div
             className="mobile-menu__container__cat-place__item"
-            onClick={() => toggleMenu(categories[2].position[resolution])}
+            onClick={() => toggleMenu(categories[2].position)}
           >
             Примеры заработка
           </div>
           <div
             className="mobile-menu__container__cat-place__item"
-            onClick={() => toggleMenu(categories[3].position[resolution])}
+            onClick={() => toggleMenu(categories[3].position)}
           >
             Команда
           </div>
           <div
             className="mobile-menu__container__cat-place__item"
-            onClick={() => toggleMenu(categories[4].position[resolution])}
+            onClick={() => toggleMenu(categories[4].position)}
           >
             Подписка
           </div>
           <div
             className="mobile-menu__container__cat-place__item"
-            onClick={() => toggleMenu(categories[5].position[resolution])}
+            onClick={() => toggleMenu(categories[5].position)}
           >
             Отзывы
           </div>
           <div
             className="mobile-menu__container__cat-place__item"
-            onClick={() => toggleMenu(categories[6].position[resolution])}
+            onClick={() => toggleMenu(categories[6].position)}
           >
             Партнеры
           </div>
           <div
             className="mobile-menu__container__cat-place__item"
-            onClick={() => toggleMenu(categories[7].position[resolution])}
+            onClick={() => toggleMenu(categories[7].position)}
           >
             FAQ
           </div>
@@ -218,7 +210,7 @@ const MobileMenu = (props) => {
               cursor: "pointer",
             }}
             className="mobile-menu__container__subscribe-block__subscribe"
-            onClick={() => toggleMenu(categories[4].position[resolution])}
+            onClick={() => toggleMenu(categories[4].position)}
           >
             <div className="mobile-menu__container__subscribe-block__subscribe__text">
               Оформить подписку

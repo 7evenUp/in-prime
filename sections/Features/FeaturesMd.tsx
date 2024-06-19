@@ -40,7 +40,7 @@ const swiperWidth = {
 
 const FeaturesMd = ({ resolution }: { resolution: Resolution }) => {
   return (
-    <section className={styles.container}>
+    <section className={styles.container} id="features">
       <h2 className={styles.title}>Новый уровень возможностей</h2>
       <FeaturesTabs resolution={resolution} />
     </section>

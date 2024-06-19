@@ -15,6 +15,14 @@ interface EarnProps {
 }
 
 const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
+  const [docEnv, setDocEnv] = useState(false)
+
+  useEffect(() => {
+    if (typeof document !== "undefined") {
+      setDocEnv(true)
+    }
+  }, [])
+
   const [mobileMenu, changeMobileMenu] = useState(false)
   const [scrollY, setScrollY] = React.useState(0)
 
@@ -23,34 +31,30 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
   }, [])
 
   const positions = {
-    guarantee: {
-      lgg: 3150,
-      lg: 2660,
-      md: 3476,
-      sm: 2676,
-    },
-    subscription: {
-      lgg: 7597,
-      lg: 6737,
-      md: 8047,
-      sm: 6404,
-    },
+    guarantee: docEnv
+      ? document.getElementById("guarantee").offsetTop -
+        document.getElementById("header").clientHeight
+      : 0,
+    subscription: docEnv
+      ? document.getElementById("subscribe").offsetTop -
+        document.getElementById("header").clientHeight
+      : 0,
   }
 
   const scrollToSubscriptions = () => {
     window.scrollTo({
-      top: positions.subscription[resolution],
+      top: positions.subscription,
       behavior: "smooth",
     })
-    setCurrentY(positions.subscription[resolution])
+    setCurrentY(positions.subscription)
   }
 
   const scrollToGuarantee = () => {
     window.scrollTo({
-      top: positions.guarantee[resolution],
+      top: positions.guarantee,
       behavior: "smooth",
     })
-    setCurrentY(positions.guarantee[resolution])
+    setCurrentY(positions.guarantee)
   }
 
   useEffect(() => {
@@ -74,6 +78,7 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
 
       <div
         className="app__container__earn__header-bg"
+        id="header"
         style={{ background: scrollY ? "#131313" : "transparent" }}
       />
 
