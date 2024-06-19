@@ -194,37 +194,57 @@
       display: none;
     }
   }
-  &_3_image {
-    width: auto;
-    height: 200px;
-    object-fit: cover;
-    margin-top: auto;
-    align-self: center;
-    display: block;
-    margin-bottom: 40px;
-
-    @media (max-width: 1919px) {
-      height: 180px;
+  &_3 {
+    &_remains {
+      color: #bb44cc;
+      font-size: 16px;
+      font-family: "Resist Sans", sans-serif;
+      font-weight: 400;
+      margin-bottom: 24px;
     }
 
-    @media (max-width: 767px) {
-      display: none;
+    &_image {
+      width: auto;
+      height: 200px;
+      object-fit: cover;
+      margin-top: auto;
+      align-self: center;
+      display: block;
+      margin-bottom: 40px;
+
+      @media (max-width: 1919px) {
+        height: 180px;
+      }
+
+      @media (max-width: 767px) {
+        display: none;
+      }
     }
   }
-  &_4_image {
-    width: auto;
-    height: 200px;
-    object-fit: cover;
-    margin-top: auto;
-    align-self: center;
-    display: block;
-
-    @media (max-width: 1919px) {
-      height: 180px;
+  &_4 {
+    &_remains {
+      color: #ff4a7a;
+      font-size: 16px;
+      font-family: "Resist Sans", sans-serif;
+      font-weight: 400;
+      margin-bottom: 16px;
     }
 
-    @media (max-width: 767px) {
-      display: none;
+    &_image {
+      width: auto;
+      height: 200px;
+      object-fit: cover;
+      margin-top: auto;
+      align-self: center;
+      display: block;
+
+      @media (max-width: 1919px) {
+        height: 180px;
+      }
+
+      @media (max-width: 767px) {
+        display: none;
+      }
     }
   }
 }
@@ -439,7 +459,7 @@
 
 .bonuses {
   margin: 0;
-  margin-bottom: 48px;
+  margin-bottom: 36px;
   padding-left: 14px;
   display: flex;
   flex-direction: column;
@@ -448,6 +468,10 @@
 
   @media (max-width: 767px) {
     padding-left: 0px;
+  }
+
+  &__small {
+    margin-bottom: 12px;
   }
 
   &_heading {

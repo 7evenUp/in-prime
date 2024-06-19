@@ -496,7 +496,12 @@ const SubscriptionCard = ({
         </div>
         <span className={styles.bonuses_heading_text}>ЭКСТРА БОНУСЫ</span>
       </div>
-      <ul className={styles.bonuses}>
+      <ul
+        className={clsx(
+          styles.bonuses,
+          (order === 2 || order === 3) && styles.bonuses__small
+        )}
+      >
         {order !== 0 &&
           benefits.map((benefit) =>
             benefit.file ? (
@@ -584,18 +589,28 @@ const SubscriptionCard = ({
         />
       )}
       {order === 2 && (
-        <Image
-          src={SubscriptionImage3}
-          alt="Футболка Crypton 2024"
-          className={styles.subscription_3_image}
-        />
+        <>
+          <span className={styles.subscription_3_remains}>
+            ОСТАЛОСЬ: 80 ПОДАРКОВ
+          </span>
+          <Image
+            src={SubscriptionImage3}
+            alt="Футболка Crypton 2024"
+            className={styles.subscription_3_image}
+          />
+        </>
       )}
       {order === 3 && (
-        <Image
-          src={SubscriptionImage4}
-          alt="Худи Crypton 2024"
-          className={styles.subscription_4_image}
-        />
+        <>
+          <span className={styles.subscription_4_remains}>
+            ОСТАЛОСЬ: 120 ПОДАРКОВ
+          </span>
+          <Image
+            src={SubscriptionImage4}
+            alt="Худи Crypton 2024"
+            className={styles.subscription_4_image}
+          />
+        </>
       )}
 
       <BuySubscriptionDialog
