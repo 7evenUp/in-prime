@@ -86,6 +86,427 @@
   animation: slideUp 300ms ease-out;
 }
 
+.member {
+  position: absolute;
+  cursor: pointer;
+
+  transition: scale 0.15s ease-in;
+
+  &:hover {
+    scale: 1.15;
+  }
+
+  @media (max-width: 1919px) {
+    &:hover {
+      scale: 1.1;
+    }
+  }
+}
+
+.handsome {
+  width: 150px;
+  height: 150px;
+  left: 14px;
+  top: 56px;
+
+  @media (max-width: 1919px) {
+    width: 130px;
+    height: 130px;
+  }
+
+  @media (max-width: 1367px) {
+    width: 78px;
+    height: 78px;
+    left: 10px;
+    top: 25px;
+  }
+
+  @media (max-width: 767px) {
+    left: 247px;
+    top: 6px;
+  }
+}
+
+.bogdan-node {
+  width: 120px;
+  height: 120px;
+  left: 444px;
+  top: 37px;
+
+  @media (max-width: 1919px) {
+    left: 350px;
+  }
+
+  @media (max-width: 1367px) {
+    width: 64px;
+    height: 64px;
+    left: 210px;
+    top: 18px;
+  }
+
+  @media (max-width: 767px) {
+    width: 62px;
+    height: 62px;
+    left: 270px;
+    top: 215px;
+  }
+}
+
+.zahar {
+  width: 120px;
+  height: 120px;
+  right: 458px;
+  top: 43px;
+
+  @media (max-width: 1919px) {
+    width: 105px;
+    height: 105px;
+    left: 628px;
+    top: 31px;
+  }
+
+  @media (max-width: 1367px) {
+    width: 64px;
+    height: 64px;
+    left: 377px;
+    top: 18px;
+  }
+
+  @media (max-width: 767px) {
+    width: 62px;
+    height: 62px;
+    left: 258px;
+    top: 360px;
+  }
+}
+
+.vladimir {
+  width: 150px;
+  height: 150px;
+  right: 176px;
+  top: 10px;
+
+  @media (max-width: 1919px) {
+    width: 130px;
+    height: 130px;
+    left: 829px;
+    top: 10px;
+  }
+
+  @media (max-width: 1367px) {
+    width: 78px;
+    height: 78px;
+    left: 497px;
+    top: 10px;
+  }
+
+  @media (max-width: 767px) {
+    left: 250px;
+    top: 504px;
+  }
+}
+
+.sanya {
+  width: 182px;
+  height: 182px;
+  left: 250px;
+  top: 220px;
+
+  @media (max-width: 1919px) {
+    width: 158px;
+    height: 158px;
+    left: 182px;
+    top: 162px;
+  }
+
+  @media (max-width: 1367px) {
+    width: 95px;
+    height: 95px;
+    left: 109px;
+    top: 97px;
+  }
+
+  @media (max-width: 767px) {
+    width: 94px;
+    height: 94px;
+    left: 168px;
+    top: 113px;
+  }
+}
+
+.herman {
+  width: 120px;
+  height: 120px;
+  top: 230px;
+  right: 321px;
+
+  @media (max-width: 1919px) {
+    width: 105px;
+    height: 105px;
+    left: 740px;
+    top: 193px;
+  }
+
+  @media (max-width: 1367px) {
+    width: 64px;
+    height: 64px;
+    left: 444px;
+    top: 115px;
+  }
+
+  @media (max-width: 767px) {
+    width: 62px;
+    height: 62px;
+    left: 174px;
+    top: 440px;
+  }
+}
+
+.nikita-prime {
+  width: 120px;
+  height: 120px;
+  right: 10px;
+  top: 178px;
+
+  @media (max-width: 1919px) {
+    width: 105px;
+    height: 105px;
+    left: 1010px;
+    top: 120px;
+  }
+
+  @media (max-width: 1367px) {
+    width: 64px;
+    height: 64px;
+    left: 600px;
+    top: 72px;
+  }
+
+  @media (max-width: 767px) {
+    width: 62px;
+    height: 62px;
+    left: 203px;
+    top: 620px;
+  }
+}
+
+.kirill {
+  width: 120px;
+  height: 120px;
+  left: 42px;
+  bottom: 267px;
+
+  @media (max-width: 1919px) {
+    width: 105px;
+    height: 105px;
+    left: 23px;
+    top: 270px;
+  }
+
+  @media (max-width: 1367px) {
+    width: 64px;
+    height: 64px;
+    left: 24px;
+    top: 162px;
+  }
+
+  @media (max-width: 767px) {
+    width: 62px;
+    height: 62px;
+    left: 114px;
+    top: 20px;
+  }
+}
+
+.ivan {
+  width: 222px;
+  height: 222px;
+  left: 531px;
+  bottom: 230px;
+
+  @media (max-width: 1919px) {
+    left: 407px;
+    top: 187px;
+  }
+
+  @media (max-width: 1367px) {
+    width: 140px;
+    height: 140px;
+    left: 244px;
+    top: 112px;
+  }
+
+  @media (max-width: 767px) {
+    width: 120px;
+    height: 120px;
+    left: 114px;
+    top: 254px;
+  }
+}
+
+.aleksei {
+  width: 150px;
+  height: 150px;
+  right: 116px;
+  bottom: 192px;
+
+  @media (max-width: 1919px) {
+    width: 130px;
+    height: 130px;
+    left: 877px;
+    top: 306px;
+  }
+
+  @media (max-width: 1367px) {
+    width: 78px;
+    height: 78px;
+    left: 526px;
+    top: 183px;
+  }
+
+  @media (max-width: 767px) {
+    width: 78px;
+    height: 78px;
+    left: 75px;
+    top: 520px;
+  }
+}
+
+.nikita-support {
+  width: 120px;
+  height: 120px;
+  bottom: 34px;
+  left: 14px;
+
+  @media (max-width: 1919px) {
+    width: 105px;
+    height: 105px;
+    top: 464px;
+  }
+
+  @media (max-width: 1367px) {
+    width: 64px;
+    height: 64px;
+    left: 14px;
+    top: 278px;
+  }
+
+  @media (max-width: 767px) {
+    width: 62px;
+    height: 62px;
+    left: 10px;
+    top: 10px;
+  }
+}
+
+.daniil {
+  width: 150px;
+  height: 150px;
+  left: 251px;
+  bottom: 78px;
+
+  @media (max-width: 1919px) {
+    width: 130px;
+    height: 130px;
+    left: 205px;
+    top: 422px;
+  }
+
+  @media (max-width: 1367px) {
+    width: 78px;
+    height: 78px;
+    left: 123px;
+    top: 253px;
+  }
+
+  @media (max-width: 767px) {
+    left: 31px;
+    top: 129px;
+  }
+}
+
+.iren {
+  width: 120px;
+  height: 120px;
+  left: 539px;
+  bottom: 10px;
+
+  @media (max-width: 1919px) {
+    width: 105px;
+    height: 105px;
+    left: 427px;
+    top: 496px;
+  }
+
+  @media (max-width: 1367px) {
+    width: 64px;
+    height: 64px;
+    left: 256px;
+    top: 297px;
+  }
+
+  @media (max-width: 767px) {
+    width: 62px;
+    height: 62px;
+    left: 10px;
+    top: 274px;
+  }
+}
+
+.eduard {
+  width: 150px;
+  height: 150px;
+  right: 360px;
+  bottom: 80px;
+
+  @media (max-width: 1919px) {
+    width: 130px;
+    height: 130px;
+    left: 672px;
+    top: 421px;
+  }
+
+  @media (max-width: 1367px) {
+    width: 78px;
+    height: 78px;
+    left: 403px;
+    top: 252px;
+  }
+
+  @media (max-width: 767px) {
+    left: 24px;
+    top: 401px;
+  }
+}
+
+.bogdan-analytic {
+  width: 120px;
+  height: 120px;
+  right: 41px;
+  bottom: 10px;
+
+  @media (max-width: 1919px) {
+    width: 105px;
+    height: 105px;
+    left: 989px;
+    top: 492px;
+  }
+
+  @media (max-width: 1367px) {
+    width: 64px;
+    height: 64px;
+    left: 593px;
+    top: 295px;
+  }
+
+  @media (max-width: 767px) {
+    width: 62px;
+    height: 62px;
+    left: 10px;
+    top: 598px;
+  }
+}
+
 @keyframes slideDown {
   from {
     height: 0;

@@ -1,0 +1,162 @@
+.overlay {
+  position: fixed;
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  inset: 0;
+  animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.content {
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  background-color: #121212;
+  color: white;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  position: fixed;
+  z-index: 1001;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  min-height: 300px;
+  padding: 30px;
+  animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  @media (max-width: 767px) {
+    padding: 16px;
+    width: 90vw;
+    min-height: 220px;
+    max-height: 85vh;
+  }
+
+  @media (max-width: 520px) {
+    justify-content: center;
+  }
+}
+.content:focus {
+  outline: none;
+}
+
+.content_sm {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+
+  @media (max-width: 767px) {
+    gap: 16px;
+  }
+}
+
+.avatar {
+  width: 240px;
+  height: 240px;
+
+  @media (max-width: 767px) {
+    width: 120px;
+    height: 120px;
+  }
+
+  @media (max-width: 520px) {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  font-family: "Resist Sans", sans-serif;
+  font-weight: 600;
+  font-size: 32px;
+
+  @media (max-width: 767px) {
+    font-size: 24px;
+  }
+}
+
+.position {
+  font-family: "Resist Sans", sans-serif;
+  font-size: 18px;
+  opacity: 0.5;
+  margin-top: 12px;
+  margin-bottom: 20px;
+
+  @media (max-width: 767px) {
+    font-size: 16px;
+    margin-top: 6px;
+    margin-bottom: 14px;
+  }
+
+  @media (max-width: 520px) {
+    margin-bottom: 0;
+  }
+}
+
+.description {
+  font-family: "Resist Sans", sans-serif;
+  font-size: 14px;
+  line-height: 130%;
+
+  @media (max-width: 520px) {
+    display: none;
+  }
+
+  a {
+    color: white;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+.description_sm {
+  font-family: "Resist Sans", sans-serif;
+  font-size: 14px;
+  line-height: 130%;
+  display: none;
+
+  @media (max-width: 520px) {
+    display: block;
+    margin-top: 12px;
+  }
+
+  a {
+    color: white;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+@keyframes overlayShow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes contentShow {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
