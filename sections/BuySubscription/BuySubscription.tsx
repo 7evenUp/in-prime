@@ -591,7 +591,7 @@ const SubscriptionCard = ({
       {order === 2 && (
         <>
           <span className={styles.subscription_3_remains}>
-            ОСТАЛОСЬ: 80 ПОДАРКОВ
+            ОСТАЛОСЬ: 59 ПОДАРКОВ
           </span>
           <Image
             src={SubscriptionImage3}
@@ -603,7 +603,7 @@ const SubscriptionCard = ({
       {order === 3 && (
         <>
           <span className={styles.subscription_4_remains}>
-            ОСТАЛОСЬ: 120 ПОДАРКОВ
+            ОСТАЛОСЬ: 39 ПОДАРКОВ
           </span>
           <Image
             src={SubscriptionImage4}

@@ -142,7 +142,7 @@ const Founders = () => {
           <div className={styles.founder_bottom_mobile}>
             <div className={styles.founder_channels}>
               <span className={styles.founder_channels_title}>
-                Один из авторов канала:
+                Автор канала:
               </span>
               <div className={styles.founder_channels_list}>
                 <a href="https://t.me/about_traders" target="_blank">
@@ -176,7 +176,7 @@ const Founders = () => {
               </p>
               <div className={styles.founder_channels}>
                 <span className={styles.founder_channels_title}>
-                  Один из авторов канала:
+                  Автор канала:
                 </span>
                 <div className={styles.founder_channels_list}>
                   <a href="https://t.me/about_traders" target="_blank">
