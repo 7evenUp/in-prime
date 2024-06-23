@@ -294,7 +294,7 @@ const SubscriptionCard = ({
   const [cardPrice, setCardPrice] = useState(0)
 
   const getSubscriptionPrice = () => {
-    return individualPrice === undefined ? price : individualPrice
+    return individualPrice ? individualPrice : price
   }
 
   useEffect(() => {

@@ -35,6 +35,7 @@ import { Resolution } from "@/types/resolution"
 import styles from "./styles.module.scss"
 
 const ID_URL = process.env.NEXT_PUBLIC_ID_URL + "/api/v1/"
+const DEFAULT_CRYPTON_PROMO = "CRYPTON"
 
 const BuySubscriptionDialog = ({
   children,
@@ -81,6 +82,7 @@ const BuySubscriptionDialog = ({
   const router = useRouter()
   const referral = router.query.ref || ""
 
+  const [isCryptonReferralSet, setIsCryptonReferralSet] = useState(false)
   const [promoWasUpdated, setPromoWasUpdated] = useState(false)
   const [localPromoForSubmit, setLocalPromoForSubmit] = useState(promoForSubmit)
   const [totalPrice, setTotalPrice] = useState(0)
@@ -99,7 +101,7 @@ const BuySubscriptionDialog = ({
   )
 
   const getSubscriptionPrice = () => {
-    return individualPrice === undefined ? price : individualPrice
+    return individualPrice ? individualPrice : price
   }
 
   useEffect(() => {
@@ -225,6 +227,13 @@ const BuySubscriptionDialog = ({
       }
     }
 
+    if (isCryptonReferralSet) {
+      payload = {
+        ...payload,
+        referral_code: DEFAULT_CRYPTON_PROMO,
+      }
+    }
+
     if (localPromoForSubmit) {
       if (isPromoReferral) {
         payload = {
@@ -293,6 +302,10 @@ const BuySubscriptionDialog = ({
         subscriptionId: id,
       })
 
+      if (isReferralCode) {
+        setIsCryptonReferralSet(false)
+      }
+
       setIsPromoReferral(isReferralCode)
 
       const matchedDiscount = discounts.find((el) => el.subscriptionId === id)
@@ -327,12 +340,57 @@ const BuySubscriptionDialog = ({
 
   const onPromoRemoveClick = () => {
     setLocalPromoForSubmit("")
+    setIsCryptonReferralSet(false)
     setPromoWasUpdated(true)
     setTotalPrice(
       baseDiscountAmount
         ? getSubscriptionPrice() - baseDiscountAmount
         : getSubscriptionPrice()
     )
+  }
+
+  const applyCryptonPromo = async () => {
+    if (isPromoPending) return
+
+    try {
+      const {
+        data: { discountAmount, discountKind, discounts, isReferralCode },
+      } = await mutatePromoValidation({
+        promocode: DEFAULT_CRYPTON_PROMO,
+        subscriptionId: id,
+      })
+
+      setIsCryptonReferralSet(true)
+      setIsPromoReferral(isReferralCode)
+
+      const matchedDiscount = discounts.find((el) => el.subscriptionId === id)
+
+      const preferedDiscount = matchedDiscount
+        ? matchedDiscount.discountAmount
+        : discountAmount
+
+      setLocalPromoForSubmit(DEFAULT_CRYPTON_PROMO)
+      setPromoWasUpdated(true)
+
+      if (discountKind.id === "MONEY") {
+        if (baseDiscountAmount && baseDiscountAmount > preferedDiscount) {
+          setTotalPrice(getSubscriptionPrice() - baseDiscountAmount)
+        } else {
+          setTotalPrice(getSubscriptionPrice() - preferedDiscount)
+        }
+      } else {
+        if (
+          baseDiscountAmount &&
+          baseDiscountAmount > getSubscriptionPrice() * preferedDiscount
+        ) {
+          setTotalPrice(getSubscriptionPrice() - baseDiscountAmount)
+        } else {
+          setTotalPrice(
+            getSubscriptionPrice() - getSubscriptionPrice() * preferedDiscount
+          )
+        }
+      }
+    } catch {}
   }
 
   return (
@@ -718,7 +776,7 @@ const BuySubscriptionDialog = ({
                       ))}
                     </div>
                     <div className={styles.promocode}>
-                      {localPromoForSubmit && (
+                      {localPromoForSubmit ? (
                         <div className={styles.promocode_submit}>
                           <div className={styles.promocode_submit_text}>
                             <span className={styles.promocode_submit_text_2}>
@@ -739,6 +797,21 @@ const BuySubscriptionDialog = ({
                             Удалить
                           </button>
                         </div>
+                      ) : (
+                        !referral && (
+                          <button
+                            className={styles.promocode_submit_button}
+                            style={{
+                              marginBottom: 16,
+                              textAlign: "left",
+                              width: "fit-content",
+                            }}
+                            type="button"
+                            onClick={applyCryptonPromo}
+                          >
+                            Активировать промо CRYPTON
+                          </button>
+                        )
                       )}
                       <div className={styles.promo_wrapper}>
                         <input
