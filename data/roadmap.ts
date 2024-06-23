@@ -12,6 +12,9 @@ import zoraSrc from "@/public/images/svg/roadmap/zora.svg"
 import lineaSrc from "@/public/images/svg/roadmap/linea.svg"
 import altlayer from "@/public/images/svg/roadmap/altlayer.svg"
 
+import lensSrc from "@/public/images/png/roadmap/lens.png"
+import scrollSrc from "@/public/images/png/roadmap/scroll.png"
+
 // Данные имеют тип вида:
 // [
 //   {
@@ -90,35 +93,36 @@ export const data = [
       imgSrc: starknetSrc,
       title: "Starknet",
       isDone: true,
-      earned: '2000+',
+      earned: "2000+",
       description:
         "Отрабатывали проект с марта 2022 года, что и привело нас к заработку в виде $2000 на аккаунт.",
-      isCurrent: true,
     },
     bottom: {
       imgSrc: layerzeroSrc,
       title: "LayerZero",
-      isDone: false,
+      isDone: true,
+      earned: "200+",
       description:
-          "Максимально отрабатываем этот проект по авторской стратегии Даниила, нашего автора и эксперта по ретродропам.",
+        "Один из самых отрабатываемых и популярных проектов, от которого ожидали больше.",
     },
   },
   {
     top: {
+      imgSrc: zkSyncSrc,
+      title: "zkSync",
+      isDone: true,
+      earned: "500+",
+      description:
+        "Наиболее прибыльным критерием дропа оказалось предоставление ликвидности на длительном сроке. Что не все были способны поддерживать.",
+      isCurrent: true,
+    },
+    bottom: {
       imgSrc: partyDAOSrc,
       title: "PartyDAO",
       isDone: false,
       description:
         "В рамках проекта создаем “party”, участвуя в которых вы получаете больше шансов на дроп от проекта за взаимодействие с ним при минимальных затратах на отработку. В них может поучаствовать каждый подписчик Prime.",
     },
-
-    bottom: {
-      imgSrc: zkSyncSrc,
-      title: "zkSync",
-      isDone: false,
-      description:
-          "Дроп неизбежен, особенно для подписчиков Prime, которые отрабатывают проект еще с сентября 2021.",
-      },
   },
   {
     top: {
@@ -127,7 +131,7 @@ export const data = [
       isDone: false,
       isBlured: true,
       description:
-          "Считаем, что у этого проекта будет второй дроп. Подробный разбор с инструкциями сделали в Prime.",
+        "Считаем, что у этого проекта будет второй дроп. Подробный разбор с инструкциями сделали в Prime.",
     },
     bottom: {
       imgSrc: zoraSrc,
@@ -137,7 +141,6 @@ export const data = [
       description:
         "Токен проекта подтвержден, поэтому это только вопрос времени.",
     },
-
   },
   {
     top: {
@@ -146,7 +149,25 @@ export const data = [
       isDone: false,
       isBlured: true,
       description:
-          "Официально токен не подтвержден, но судя по Roadmap, в 3 фазе планируется “децентрализованное управление сообществом”, данный пункт может указывать, что токен всё же будет. Поэтому уже проявляем активность в проекте для получения дропа.",
+        "Официально токен не подтвержден, но судя по Roadmap, в 3 фазе планируется “децентрализованное управление сообществом”, данный пункт может указывать, что токен всё же будет. Поэтому уже проявляем активность в проекте для получения дропа.",
     },
-  }
+    bottom: {
+      imgSrc: lensSrc,
+      title: "Lens",
+      isDone: false,
+      isBlured: true,
+      description:
+        "Довольно старый проект, который уже позволил не раз заработать на получение бесплатных профилях, но все ещё не раздал главный ретродроп.",
+    },
+  },
+  {
+    top: {
+      imgSrc: scrollSrc,
+      title: "Scroll",
+      isDone: false,
+      isBlured: true,
+      description:
+        "Отрабатываем ретродроп с помощью предоставления ликвидности, деплоя смарт-контракта, набивание транзакций и не только. Обо всём говорили в разборах Prime.",
+    },
+  },
 ]
