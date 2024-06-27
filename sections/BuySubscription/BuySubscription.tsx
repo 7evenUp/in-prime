@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react"
 import { useRouter } from "next/router"
-import Image from "next/image"
 import { useMutation, useQuery } from "@tanstack/react-query"
 import axios from "axios"
 import * as HoverCard from "@radix-ui/react-hover-card"
@@ -10,16 +9,13 @@ import clsx from "clsx"
 
 import SubscribeArrow from "@/public/images/jsx/subscribe/arrow"
 
-import SubscriptionImage2 from "@/public/images/png/buy-subscription/subscription_main_2.png"
-import SubscriptionImage3 from "@/public/images/png/buy-subscription/subscription_main_3.png"
-import SubscriptionImage4 from "@/public/images/png/buy-subscription/subscription_main_4.png"
-
 import BuySubscriptionDialog from "@/components/BuySubscriptionDialog"
 
 import { Resolution } from "@/types/resolution"
 import { Promocode, Subscription } from "@/types/api-types"
 
 import styles from "./BuySubscription.module.scss"
+import Image from "next/image"
 
 const PRIME_SUBSCRIPTION_KIND_ID = 1
 const ID_URL = process.env.NEXT_PUBLIC_ID_URL + "/api/v1/"
@@ -497,10 +493,7 @@ const SubscriptionCard = ({
         <span className={styles.bonuses_heading_text}>ЭКСТРА БОНУСЫ</span>
       </div>
       <ul
-        className={clsx(
-          styles.bonuses,
-          (order === 2 || order === 3) && styles.bonuses__small
-        )}
+        className={clsx(styles.bonuses, order === 3 && styles.bonuses__small)}
       >
         {order !== 0 &&
           benefits.map((benefit) =>
@@ -511,6 +504,7 @@ const SubscriptionCard = ({
                     <li className={styles.bonus}>
                       <p className={styles.bonus_text}>
                         {benefit.translations.ru.name}
+                        <NavArrowIcon />
                       </p>
                     </li>
                   </Popover.Trigger>
@@ -524,6 +518,7 @@ const SubscriptionCard = ({
                         src={benefit.file}
                         alt={benefit.translations.ru.name}
                       />
+                      {benefit.translations.ru.description}
                     </Popover.Content>
                   </Popover.Portal>
                 </Popover.Root>
@@ -533,6 +528,7 @@ const SubscriptionCard = ({
                     <li className={styles.bonus}>
                       <p className={styles.bonus_text}>
                         {benefit.translations.ru.name}
+                        <NavArrowIcon />
                       </p>
                     </li>
                   </HoverCard.Trigger>
@@ -540,37 +536,64 @@ const SubscriptionCard = ({
                     <HoverCard.Content
                       className={styles.HoverCardContent}
                       sideOffset={5}
-                      side="right"
                     >
                       <img
                         className={styles.HoverCardImage}
                         src={benefit.file}
                         alt={benefit.translations.ru.name}
                       />
+                      {benefit.translations.ru.description}
                     </HoverCard.Content>
                   </HoverCard.Portal>
                 </HoverCard.Root>
               )
             ) : benefit.translations.ru.description !== null ? (
-              <Popover.Root key={benefit.id}>
-                <Popover.Trigger className={styles.PopoverTriggerDescription}>
-                  <li className={styles.bonus}>
-                    <p className={styles.bonus_text}>
-                      {benefit.translations.ru.name}
-                      <NavArrowIcon />
-                    </p>
-                  </li>
-                </Popover.Trigger>
-                <Popover.Portal>
-                  <Popover.Content
-                    className={styles.PopoverContentDescription}
-                    sideOffset={5}
-                    side="bottom"
-                  >
-                    {benefit.translations.ru.description}
-                  </Popover.Content>
-                </Popover.Portal>
-              </Popover.Root>
+              resolution === "sm" ? (
+                <Popover.Root key={benefit.id}>
+                  <Popover.Trigger className={styles.PopoverTriggerDescription}>
+                    <li className={styles.bonus}>
+                      <p className={styles.bonus_text}>
+                        {benefit.translations.ru.name}
+                        <NavArrowIcon />
+                      </p>
+                    </li>
+                  </Popover.Trigger>
+                  <Popover.Portal>
+                    <Popover.Content
+                      className={styles.PopoverContentDescription}
+                      sideOffset={5}
+                      side="bottom"
+                    >
+                      {benefit.file && (
+                        <Image
+                          src={benefit.file}
+                          alt={benefit.translations.ru.name}
+                        />
+                      )}
+                      {benefit.translations.ru.description}
+                    </Popover.Content>
+                  </Popover.Portal>
+                </Popover.Root>
+              ) : (
+                <HoverCard.Root key={benefit.id} openDelay={150}>
+                  <HoverCard.Trigger className={styles.HoverCardTrigger}>
+                    <li className={styles.bonus}>
+                      <p className={styles.bonus_text}>
+                        {benefit.translations.ru.name}
+                        <NavArrowIcon />
+                      </p>
+                    </li>
+                  </HoverCard.Trigger>
+                  <HoverCard.Portal>
+                    <HoverCard.Content
+                      className={styles.HoverCardContent}
+                      sideOffset={5}
+                    >
+                      {benefit.translations.ru.description}
+                    </HoverCard.Content>
+                  </HoverCard.Portal>
+                </HoverCard.Root>
+              )
             ) : (
               <li key={benefit.id} className={styles.bonus}>
                 <p className={styles.bonus_text}>
@@ -581,36 +604,10 @@ const SubscriptionCard = ({
           )}
       </ul>
 
-      {order === 1 && (
-        <Image
-          src={SubscriptionImage2}
-          alt="Кружка и носки Crypton 2024"
-          className={styles.subscription_2_image}
-        />
-      )}
-      {order === 2 && (
-        <>
-          <span className={styles.subscription_3_remains}>
-            ОСТАЛОСЬ: 59 ПОДАРКОВ
-          </span>
-          <Image
-            src={SubscriptionImage3}
-            alt="Футболка Crypton 2024"
-            className={styles.subscription_3_image}
-          />
-        </>
-      )}
       {order === 3 && (
-        <>
-          <span className={styles.subscription_4_remains}>
-            ОСТАЛОСЬ: 39 ПОДАРКОВ
-          </span>
-          <Image
-            src={SubscriptionImage4}
-            alt="Худи Crypton 2024"
-            className={styles.subscription_4_image}
-          />
-        </>
+        <span className={styles.subscription_4_remains}>
+          ОСТАЛОСЬ: 39 КОШЕЛЬКОВ
+        </span>
       )}
 
       <BuySubscriptionDialog

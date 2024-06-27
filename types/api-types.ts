@@ -3,14 +3,15 @@ export interface Subscription {
   baseDiscount: number | null
   baseDiscountAmount: number | null
   benefits: Array<{
-    file: null | string
     id: number
+    file: null | string
     translations: {
       ru: {
         name: string
         description: string | null
       }
     }
+    remainingCount: number
   }>
   duration: {
     id: number
