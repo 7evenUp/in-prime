@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import Image from "next/image"
 import { useRouter } from "next/router"
 import { useMutation, useQuery } from "@tanstack/react-query"
 import axios from "axios"
@@ -15,7 +16,6 @@ import { Resolution } from "@/types/resolution"
 import { Promocode, Subscription } from "@/types/api-types"
 
 import styles from "./BuySubscription.module.scss"
-import Image from "next/image"
 
 const PRIME_SUBSCRIPTION_KIND_ID = 1
 const ID_URL = process.env.NEXT_PUBLIC_ID_URL + "/api/v1/"
@@ -493,7 +493,10 @@ const SubscriptionCard = ({
         <span className={styles.bonuses_heading_text}>ЭКСТРА БОНУСЫ</span>
       </div>
       <ul
-        className={clsx(styles.bonuses, order === 3 && styles.bonuses__small)}
+        className={clsx(
+          styles.bonuses,
+          (order === 1 || order === 2 || order === 3) && styles.bonuses__small
+        )}
       >
         {order !== 0 &&
           benefits.map((benefit) =>
@@ -604,11 +607,17 @@ const SubscriptionCard = ({
           )}
       </ul>
 
-      {order === 3 && (
-        <span className={styles.subscription_4_remains}>
-          ОСТАЛОСЬ: 39 КОШЕЛЬКОВ
-        </span>
-      )}
+      <div className={styles.subscription_remains}>
+        {benefits.map(
+          (benefit) =>
+            benefit.remainingCount !== null && (
+              <span key={benefit.id}>
+                ОСТАЛОСЬ: {benefit.remainingCount}{" "}
+                {benefit.translations.ru.name}
+              </span>
+            )
+        )}
+      </div>
 
       <BuySubscriptionDialog
         key={discountAmount}

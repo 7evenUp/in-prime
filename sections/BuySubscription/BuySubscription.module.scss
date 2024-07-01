@@ -119,7 +119,8 @@
       background: #ffcd9f;
     }
 
-    .bonuses_heading {
+    .bonuses_heading,
+    .subscription_remains {
       color: #ffcd9f;
     }
   }
@@ -129,7 +130,8 @@
       background: #bb44cc;
     }
 
-    .bonuses_heading {
+    .bonuses_heading,
+    .subscription_remains {
       color: #bb44cc;
     }
   }
@@ -141,7 +143,8 @@
       background: #ff4a7a;
     }
 
-    .bonuses_heading {
+    .bonuses_heading,
+    .subscription_remains {
       color: #ff4a7a;
     }
 
@@ -163,12 +166,14 @@
     }
   }
 
-  &_4_remains {
-    color: #ff4a7a;
+  &_remains {
     font-size: 16px;
     font-family: "Resist Sans", sans-serif;
     font-weight: 400;
     margin-bottom: 42px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
   }
 }
 
@@ -580,9 +585,8 @@
 }
 
 .HoverCardImage {
-  max-width: 100%;
+  max-width: 100px;
   display: block;
-  border-radius: 6px;
 }
 
 .PopoverTrigger {
@@ -715,14 +719,8 @@
 }
 
 .PopoverImage {
-  max-width: 100%;
-  width: 400px;
+  max-width: 100px;
   display: block;
-  border-radius: 6px;
-
-  @media (max-width: 460px) {
-    width: 320px;
-  }
 }
 
 @keyframes slideUpAndFade {

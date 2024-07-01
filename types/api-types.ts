@@ -11,7 +11,7 @@ export interface Subscription {
         description: string | null
       }
     }
-    remainingCount: number
+    remainingCount: number | null
   }>
   duration: {
     id: number
