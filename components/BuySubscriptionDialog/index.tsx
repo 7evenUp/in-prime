@@ -687,81 +687,25 @@ const BuySubscriptionDialog = ({
                             </div>
                           )}
                           <ul className={styles.bonuses}>
-                            {benefits.map((benefit) =>
-                              benefit.file ? (
-                                resolution === "sm" ? (
-                                  <Popover.Root key={benefit.id}>
-                                    <Popover.Trigger
-                                      className={styles.BonusPopoverTrigger}
-                                    >
-                                      <li className={styles.bonus}>
-                                        <p className={styles.bonus_text}>
-                                          {benefit.translations.ru.name}
-                                        </p>
-                                      </li>
-                                    </Popover.Trigger>
-                                    <Popover.Portal>
-                                      <Popover.Content
-                                        className={styles.BonusPopoverContent}
-                                        sideOffset={5}
-                                      >
-                                        <img
-                                          className={styles.BonusPopoverImage}
-                                          src={benefit.file}
-                                          alt={benefit.translations.ru.name}
-                                        />
-                                      </Popover.Content>
-                                    </Popover.Portal>
-                                  </Popover.Root>
-                                ) : (
-                                  <HoverCard.Root
-                                    key={benefit.id}
-                                    openDelay={150}
-                                  >
-                                    <HoverCard.Trigger
-                                      className={styles.BonusHoverCardTrigger}
-                                    >
-                                      <li className={styles.bonus}>
-                                        <p className={styles.bonus_text}>
-                                          {benefit.translations.ru.name}
-                                        </p>
-                                      </li>
-                                    </HoverCard.Trigger>
-                                    <HoverCard.Portal>
-                                      <HoverCard.Content
-                                        className={styles.BonusHoverCardContent}
-                                        sideOffset={5}
-                                        side="right"
-                                      >
-                                        <img
-                                          className={styles.BonusHoverCardImage}
-                                          src={benefit.file}
-                                          alt={benefit.translations.ru.name}
-                                        />
-                                      </HoverCard.Content>
-                                    </HoverCard.Portal>
-                                  </HoverCard.Root>
-                                )
-                              ) : (
-                                <li key={benefit.id} className={styles.bonus}>
-                                  <p className={styles.bonus_text}>
-                                    {benefit.translations.ru.name}
-                                  </p>
-                                </li>
-                              )
-                            )}
+                            {benefits.map((benefit) => (
+                              <li key={benefit.id} className={styles.bonus}>
+                                <p className={styles.bonus_text}>
+                                  {benefit.translations.ru.name}
+                                </p>
+                              </li>
+                            ))}
                           </ul>
                           {order === 1 && (
                             <Image
                               src={SubscriptionImage2}
-                              alt="Кружка и носки"
+                              alt="Proxyline"
                               className={styles.bonuses_image_1}
                             />
                           )}
                           {order === 2 && (
                             <Image
                               src={SubscriptionImage3}
-                              alt="Футболка 'Out of box'"
+                              alt="Doplhin"
                               className={styles.bonuses_image_2}
                             />
                           )}
