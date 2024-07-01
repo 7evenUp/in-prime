@@ -66,7 +66,6 @@ const TestimonialsItem = ({
   name,
   text,
   cardIndex,
-  isNew,
 }: {
   avatar: any
   name: string
@@ -74,7 +73,6 @@ const TestimonialsItem = ({
   date: string
   link: string
   cardIndex: number
-  isNew?: boolean
 }) => {
   const swiper = useSwiperReactive()
   // const formatedText = text.length > 225 ? text.slice(0, 225) + "..." : text
@@ -115,7 +113,6 @@ const TestimonialsItem = ({
           />
         )}
         <span className={styles.name}>{name}</span>
-        {isNew && <div className={styles.new}>NEW</div>}
       </div>
       <p className={styles.testimonial_text}>{text}</p>
       <div className={styles.testimonial_footer}>
