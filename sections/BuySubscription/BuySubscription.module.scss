@@ -556,7 +556,7 @@
   font-family: "Resist Sans", sans-serif;
   font-size: 14px;
   line-height: 140%;
-  width: 320px;
+  width: 380px;
   color: white;
   padding: 12px;
   border-radius: 16px;
@@ -570,6 +570,10 @@
   display: flex;
   align-items: center;
   gap: 12px;
+
+  @media (max-width: 767px) {
+    width: 320px;
+  }
 }
 .HoverCardContent[data-side="top"] {
   animation-name: slideDownAndFade;
@@ -585,7 +589,7 @@
 }
 
 .HoverCardImage {
-  max-width: 100px;
+  max-width: 90px;
   display: block;
 }
 
@@ -719,7 +723,7 @@
 }
 
 .PopoverImage {
-  max-width: 100px;
+  max-width: 90px;
   display: block;
 }
 
