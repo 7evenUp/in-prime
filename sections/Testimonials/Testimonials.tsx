@@ -10,6 +10,9 @@ import styles from "./Testimonials.module.scss"
 
 import { Resolution } from "@/types/resolution"
 
+const NEEDED_CARDS_FOR_FULL_VISION = 5
+const NEEDED_CARDS_FOR_HALF_VISION = 3
+
 const Testimonials = ({ resolution }: { resolution: Resolution }) => {
   const swiperRef = useRef(null)
   const [activeIndex, setActiveIndex] = useState(0)
@@ -21,31 +24,13 @@ const Testimonials = ({ resolution }: { resolution: Resolution }) => {
         <div className={styles.navigation}>
           <button
             className={styles.arrow_btn}
-            onClick={() => {
-              if (activeIndex === 0) {
-                if (resolution === "md" || resolution == "sm") {
-                  swiperRef.current.swiper.slideTo(testimonialsData.length - 1)
-                } else {
-                  swiperRef.current.swiper.slideTo(
-                    testimonialsData.length - 1 - 2
-                  )
-                }
-              } else {
-                swiperRef.current.swiper.slidePrev()
-              }
-            }}
+            onClick={() => swiperRef.current.swiper.slidePrev()}
           >
             <Arrow className={styles.arrow_prev} />
           </button>
           <button
             className={styles.arrow_btn}
-            onClick={() => {
-              if (activeIndex === testimonialsData.length - 1) {
-                swiperRef.current.swiper.slideTo(0)
-              } else {
-                swiperRef.current.swiper.slideNext()
-              }
-            }}
+            onClick={() => swiperRef.current.swiper.slideNext()}
           >
             <Arrow className={styles.arrow_next} />
           </button>
@@ -59,7 +44,8 @@ const Testimonials = ({ resolution }: { resolution: Resolution }) => {
         onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
         className={styles.swiper}
         wrapperClass={styles.swiper_wrapper}
-        rewind={true}
+        loop={true}
+        loopAdditionalSlides={4}
       >
         {testimonialsData.map((testimonial, i) => (
           <SwiperSlide className={styles.slide} key={i}>
@@ -80,7 +66,7 @@ const TestimonialsItem = ({
   name,
   text,
   cardIndex,
-  isNew
+  isNew,
 }: {
   avatar: any
   name: string
@@ -98,11 +84,20 @@ const TestimonialsItem = ({
       className={styles.testimonial}
       style={{
         opacity:
-          cardIndex < swiper.activeIndex
+          cardIndex < swiper.realIndex
+            ? testimonialsData.length - swiper.realIndex + cardIndex <
+              NEEDED_CARDS_FOR_HALF_VISION
+              ? 1
+              : testimonialsData.length - swiper.realIndex + cardIndex <
+                NEEDED_CARDS_FOR_FULL_VISION
+              ? 0.5
+              : 0
+            : cardIndex - swiper.realIndex < 0 ||
+              cardIndex - swiper.realIndex > NEEDED_CARDS_FOR_FULL_VISION
             ? 0
-            : cardIndex > swiper.activeIndex + 2
-            ? 0.5
-            : 1,
+            : cardIndex - swiper.realIndex < NEEDED_CARDS_FOR_HALF_VISION
+            ? 1
+            : 0.5,
       }}
     >
       <div className={styles.testimonial_header}>
@@ -120,9 +115,7 @@ const TestimonialsItem = ({
           />
         )}
         <span className={styles.name}>{name}</span>
-        {isNew && (
-          <div className={styles.new}>NEW</div>
-        )}
+        {isNew && <div className={styles.new}>NEW</div>}
       </div>
       <p className={styles.testimonial_text}>{text}</p>
       <div className={styles.testimonial_footer}>

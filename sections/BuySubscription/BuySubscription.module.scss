@@ -96,7 +96,11 @@
   padding: 24px;
   backdrop-filter: blur(2px);
 
-  @media (max-width: 375px) {
+  @media (max-width: 767px) {
+    padding-bottom: 18px;
+  }
+
+  @media (max-width: 420px) {
     padding: 16px;
   }
 
@@ -115,7 +119,8 @@
       background: #ffcd9f;
     }
 
-    .bonuses_heading {
+    .bonuses_heading,
+    .subscription_remains {
       color: #ffcd9f;
     }
   }
@@ -125,7 +130,8 @@
       background: #bb44cc;
     }
 
-    .bonuses_heading {
+    .bonuses_heading,
+    .subscription_remains {
       color: #bb44cc;
     }
   }
@@ -137,7 +143,8 @@
       background: #ff4a7a;
     }
 
-    .bonuses_heading {
+    .bonuses_heading,
+    .subscription_remains {
       color: #ff4a7a;
     }
 
@@ -157,6 +164,16 @@
         color: #181818;
       }
     }
+  }
+
+  &_remains {
+    font-size: 16px;
+    font-family: "Resist Sans", sans-serif;
+    font-weight: 400;
+    margin-bottom: 42px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
   }
 }
 
@@ -192,6 +209,10 @@
 
   @media (max-width: 1919px) {
     font-size: 16px;
+  }
+
+  @media (max-width: 767px) {
+    margin-bottom: 32px;
   }
 
   @media (max-width: 375px) {
@@ -236,21 +257,21 @@
 
 .price {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 44px;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 16px;
+  height: 130px;
 
-  @media (max-width: 1919px) and (min-width: 1368px) {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
+  &_0 {
+    @media (max-width: 767px) {
+      height: 100px;
+    }
   }
 
-  @media (max-width: 375px) {
-    margin-bottom: 32px;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 64px;
+  &_wrapper {
+    display: flex;
+    align-items: flex-end;
+    gap: 58px;
   }
 
   &_left {
@@ -275,16 +296,31 @@
     }
   }
 
+  &_month {
+    font-family: "Resist Sans Light";
+    font-size: 20px;
+    margin-bottom: 5px;
+    margin-left: -50px;
+
+    @media (max-width: 375px) {
+      font-size: 16px;
+    }
+
+    &_fractional {
+      font-family: "Resist Sans Light";
+      font-size: 20px;
+      margin-bottom: 5px;
+
+      @media (max-width: 375px) {
+        font-size: 16px;
+      }
+    }
+  }
+
   &_discount {
     display: flex;
-    flex-direction: column;
     gap: 6px;
     margin-top: 4px;
-
-    @media (max-width: 1919px) and (min-width: 1368px) {
-      flex-direction: row;
-      margin-top: 0;
-    }
 
     @media (max-width: 375px) {
       margin-top: 6px;
@@ -324,13 +360,47 @@
   }
 }
 
+.text_before_bonuses {
+  font-family: "Resist Sans", sans-serif;
+  font-size: 16px;
+  line-height: 130%;
+  margin-bottom: 24px;
+
+  button {
+    cursor: pointer;
+    padding: 0;
+    outline: none;
+    border: none;
+    color: white;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    transition: all 0.15s ease-in-out;
+    background: transparent;
+    font-size: 16px;
+    font-family: "Resist Sans", sans-serif;
+
+    &:hover {
+      color: rgba(255, 255, 255, 0.7);
+    }
+  }
+}
+
 .bonuses {
   margin: 0;
-  margin-bottom: 48px;
-  padding-left: 22px;
+  margin-bottom: 36px;
+  padding-left: 14px;
   display: flex;
   flex-direction: column;
+  list-style: none;
   gap: 8px;
+
+  @media (max-width: 767px) {
+    padding-left: 0px;
+  }
+
+  &__small {
+    margin-bottom: 12px;
+  }
 
   &_heading {
     display: flex;
@@ -361,9 +431,14 @@
   line-height: 130%;
   margin: 0;
 
-  &_text {
-    display: flex;
-    align-items: center;
+  &::before {
+    content: "+";
+    position: absolute;
+    left: -14px;
+
+    @media (max-width: 767px) {
+      display: none;
+    }
   }
 
   &_text1 {
@@ -453,24 +528,48 @@
 .HoverCardTrigger {
   cursor: pointer;
   color: white;
-  text-decoration: underline;
+  background: transparent;
+  border: none;
+  text-align: left;
+  padding: 0;
+  width: fit-content;
 
   &:hover {
-    color: rgba(255, 255, 255, 0.7);
+    color: #bb44cc;
+
+    .red,
+    .purple,
+    .beige {
+      color: #bb44cc;
+    }
+  }
+
+  &[data-state="open"] {
+    svg {
+      rotate: 180deg;
+    }
   }
 }
 
 .HoverCardContent {
-  border-radius: 6px;
-  width: 300px;
-  background-color: white;
+  box-sizing: border-box;
+  font-family: "Resist Sans", sans-serif;
+  font-size: 14px;
+  line-height: 140%;
+  width: 320px;
+  color: white;
+  padding: 12px;
+  border-radius: 16px;
+  background-color: #121212;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   position: relative;
   z-index: 99999;
-  box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
-    hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
   animation-duration: 400ms;
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, opacity;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 .HoverCardContent[data-side="top"] {
   animation-name: slideDownAndFade;
@@ -486,22 +585,33 @@
 }
 
 .HoverCardImage {
-  max-width: 100%;
+  max-width: 100px;
   display: block;
-  border-radius: 6px;
 }
 
 .PopoverTrigger {
   cursor: pointer;
   color: white;
-  text-decoration: underline;
   background: transparent;
   border: none;
   text-align: left;
   padding: 0;
+  width: fit-content;
 
   &:hover {
-    color: rgba(255, 255, 255, 0.7);
+    color: #bb44cc;
+
+    .red,
+    .purple,
+    .beige {
+      color: #bb44cc;
+    }
+  }
+
+  &[data-state="open"] {
+    svg {
+      rotate: 180deg;
+    }
   }
 }
 
@@ -532,15 +642,24 @@
 }
 
 .PopoverContent {
-  border-radius: 6px;
-  background-color: white;
+  box-sizing: border-box;
+  font-family: "Resist Sans", sans-serif;
+  font-size: 14px;
+  line-height: 140%;
+  width: 320px;
+  color: white;
+  padding: 12px;
+  border-radius: 16px;
+  background-color: #121212;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   position: relative;
   z-index: 99999;
-  box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
-    hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
   animation-duration: 400ms;
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, opacity;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 .PopoverContent[data-side="top"] {
   animation-name: slideDownAndFade;
@@ -564,13 +683,16 @@
   color: white;
   padding: 16px;
   border-radius: 8px;
-  background-color: #232323;
+  background-color: #121212;
   border: 1px solid rgba(255, 255, 255, 0.2);
   position: relative;
   z-index: 99999;
   animation-duration: 400ms;
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, opacity;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 
   a {
     color: white;
@@ -597,14 +719,8 @@
 }
 
 .PopoverImage {
-  max-width: 100%;
-  width: 400px;
+  max-width: 100px;
   display: block;
-  border-radius: 6px;
-
-  @media (max-width: 460px) {
-    width: 320px;
-  }
 }
 
 @keyframes slideUpAndFade {

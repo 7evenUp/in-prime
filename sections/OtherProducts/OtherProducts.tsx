@@ -19,7 +19,7 @@ const OtherProducts = () => {
         </div>
         <div className={styles.products}>
           <a
-            href="https://t.me/Crypton_Calendar_bot"
+            href="https://calendar.crypton.xyz/events"
             target={"_blank"}
             className={styles.product}
           >

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import Link from "next/link"
 
 import Crypton from "../public/images/jsx/footer/crypton"
@@ -11,6 +11,14 @@ import Youtube from "../public/images/jsx/footer/youtube"
 const currentYear = new Date().getFullYear()
 
 const Footer = (props) => {
+  const [docEnv, setDocEnv] = useState(false)
+
+  useEffect(() => {
+    if (typeof document !== "undefined") {
+      setDocEnv(true)
+    }
+  }, [])
+
   const resolution = props.resolution
   const currentY = props.currentY
   const setCurrentY = props.setCurrentY
@@ -23,54 +31,30 @@ const Footer = (props) => {
     setCurrentY(position)
   }
   const categories = {
-    advantages: {
-      lgg: 984,
-      lg: 780,
-      md: 940,
-      sm: 740,
-    },
-    opportunities: {
-      lgg: 1812,
-      lg: 1450,
-      md: 1750,
-      sm: 1296,
-    },
-    examples: {
-      lgg: 4366,
-      lg: 3765,
-      md: 5070,
-      sm: 3784,
-    },
-    team: {
-      lgg: 6267,
-      lg: 5505,
-      md: 6861,
-      sm: 5037,
-    },
-    // partners: {
-    //   lgg: 10562,
-    //   lg: 9430,
-    //   md: 11741,
-    //   sm: 11266,
-    // },
-    partners: {
-      lgg: 10099,
-      lg: 9020,
-      md: 11005,
-      sm: 9896,
-    },
-    // faq: {
-    //   lgg: 11133,
-    //   lg: 9882,
-    //   md: 12139,
-    //   sm: 11591,
-    // },
-    faq: {
-      lgg: 10670,
-      lg: 9472,
-      md: 11403,
-      sm: 10221,
-    },
+    advantages: docEnv
+      ? document.getElementById("benefits").offsetTop -
+        document.getElementById("header").clientHeight
+      : 0,
+    opportunities: docEnv
+      ? document.getElementById("features").offsetTop -
+        document.getElementById("header").clientHeight
+      : 0,
+    examples: docEnv
+      ? document.getElementById("examples").offsetTop -
+        document.getElementById("header").clientHeight
+      : 0,
+    team: docEnv
+      ? document.getElementById("founder").offsetTop -
+        document.getElementById("header").clientHeight
+      : 0,
+    partners: docEnv
+      ? document.getElementById("partners").offsetTop -
+        document.getElementById("header").clientHeight
+      : 0,
+    faq: docEnv
+      ? document.getElementById("faq").offsetTop -
+        document.getElementById("header").clientHeight
+      : 0,
   }
 
   return (
@@ -130,21 +114,19 @@ const Footer = (props) => {
               <div className="footer__rectangle__right__column">
                 <div
                   className="footer__rectangle__right__column__route"
-                  onClick={() => toggleMenu(categories.advantages[resolution])}
+                  onClick={() => toggleMenu(categories.advantages)}
                 >
                   Преимущества
                 </div>
                 <div
                   className="footer__rectangle__right__column__route"
-                  onClick={() =>
-                    toggleMenu(categories.opportunities[resolution])
-                  }
+                  onClick={() => toggleMenu(categories.opportunities)}
                 >
                   Возможности
                 </div>
                 <div
                   className="footer__rectangle__right__column__route"
-                  onClick={() => toggleMenu(categories.examples[resolution])}
+                  onClick={() => toggleMenu(categories.examples)}
                 >
                   Примеры заработка
                 </div>
@@ -153,19 +135,19 @@ const Footer = (props) => {
               <div className="footer__rectangle__right__column">
                 <div
                   className="footer__rectangle__right__column__route"
-                  onClick={() => toggleMenu(categories.team[resolution])}
+                  onClick={() => toggleMenu(categories.team)}
                 >
                   Команда
                 </div>
                 <div
                   className="footer__rectangle__right__column__route"
-                  onClick={() => toggleMenu(categories.partners[resolution])}
+                  onClick={() => toggleMenu(categories.partners)}
                 >
                   Партнёры
                 </div>
                 <div
                   className="footer__rectangle__right__column__route"
-                  onClick={() => toggleMenu(categories.faq[resolution])}
+                  onClick={() => toggleMenu(categories.faq)}
                 >
                   FAQ
                 </div>
@@ -203,23 +185,19 @@ const Footer = (props) => {
                 <div className="footer__rectangle__right__column">
                   <div
                     className="footer__rectangle__right__column__route"
-                    onClick={() =>
-                      toggleMenu(categories.advantages[resolution])
-                    }
+                    onClick={() => toggleMenu(categories.advantages)}
                   >
                     Преимущества
                   </div>
                   <div
                     className="footer__rectangle__right__column__route"
-                    onClick={() =>
-                      toggleMenu(categories.opportunities[resolution])
-                    }
+                    onClick={() => toggleMenu(categories.opportunities)}
                   >
                     Возможности
                   </div>
                   <div
                     className="footer__rectangle__right__column__route"
-                    onClick={() => toggleMenu(categories.examples[resolution])}
+                    onClick={() => toggleMenu(categories.examples)}
                   >
                     Примеры заработка
                   </div>
@@ -228,19 +206,19 @@ const Footer = (props) => {
                 <div className="footer__rectangle__right__column">
                   <div
                     className="footer__rectangle__right__column__route"
-                    onClick={() => toggleMenu(categories.team[resolution])}
+                    onClick={() => toggleMenu(categories.team)}
                   >
                     Команда
                   </div>
                   <div
                     className="footer__rectangle__right__column__route"
-                    onClick={() => toggleMenu(categories.partners[resolution])}
+                    onClick={() => toggleMenu(categories.partners)}
                   >
                     Партнёры
                   </div>
                   <div
                     className="footer__rectangle__right__column__route"
-                    onClick={() => toggleMenu(categories.faq[resolution])}
+                    onClick={() => toggleMenu(categories.faq)}
                   >
                     FAQ
                   </div>
@@ -319,23 +297,19 @@ const Footer = (props) => {
                 <div className="footer__rectangle__right__column">
                   <div
                     className="footer__rectangle__right__column__route"
-                    onClick={() =>
-                      toggleMenu(categories.advantages[resolution])
-                    }
+                    onClick={() => toggleMenu(categories.advantages)}
                   >
                     Преимущества
                   </div>
                   <div
                     className="footer__rectangle__right__column__route"
-                    onClick={() =>
-                      toggleMenu(categories.opportunities[resolution])
-                    }
+                    onClick={() => toggleMenu(categories.opportunities)}
                   >
                     Возможности
                   </div>
                   <div
                     className="footer__rectangle__right__column__route"
-                    onClick={() => toggleMenu(categories.examples[resolution])}
+                    onClick={() => toggleMenu(categories.examples)}
                   >
                     Примеры заработка
                   </div>
@@ -344,19 +318,19 @@ const Footer = (props) => {
                 <div className="footer__rectangle__right__column">
                   <div
                     className="footer__rectangle__right__column__route"
-                    onClick={() => toggleMenu(categories.team[resolution])}
+                    onClick={() => toggleMenu(categories.team)}
                   >
                     Команда
                   </div>
                   <div
                     className="footer__rectangle__right__column__route"
-                    onClick={() => toggleMenu(categories.partners[resolution])}
+                    onClick={() => toggleMenu(categories.partners)}
                   >
                     Партнёры
                   </div>
                   <div
                     className="footer__rectangle__right__column__route"
-                    onClick={() => toggleMenu(categories.faq[resolution])}
+                    onClick={() => toggleMenu(categories.faq)}
                   >
                     FAQ
                   </div>

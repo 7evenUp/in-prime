@@ -2,6 +2,9 @@ import React from "react"
 import Image from "next/image"
 import * as Collapsible from "@radix-ui/react-collapsible"
 import clsx from "clsx"
+import { Swiper, SwiperSlide } from "swiper/react"
+
+import { useSwiperReactive } from "@/hooks/useSwiperReactive"
 
 import guarantee1 from "@/public/images/png/features/guarantee-1.png"
 import guarantee2 from "@/public/images/png/features/guarantee-2.png"
@@ -10,6 +13,9 @@ import styles from "./Guarantee.module.scss"
 
 const Guarantee = () => {
   const [open, setOpen] = React.useState(false)
+  const [activeIndex, setActiveIndex] = React.useState(0)
+
+  const swiperRef = React.useRef(null)
 
   return (
     <section className={styles.section} id="guarantee">
@@ -19,29 +25,6 @@ const Guarantee = () => {
           Мы выделяем криптособытия с гарантированным заработком, чтобы вы точно
           получили прибыль и окупили подписку.
         </p>
-        <div className={styles.content}>
-          <div className={styles.content_item}>
-            <Image
-              src={guarantee1}
-              alt="Выполняйте активности с пометкой “Гарант” и будьте уверены, что цена подписки окупится!"
-            />
-            <p>
-              Выполняйте активности с пометкой “Гарант” и будьте уверены, что
-              цена подписки окупится!
-            </p>
-          </div>
-          <div className={styles.content_item}>
-            <Image
-              src={guarantee2}
-              alt="Если у тебя не получилось окупить подписку, то предоставь отчёт выполненных активностей наставнику и мы продлим Prime ещё на один месяц абсолютно бесплатно!"
-            />
-            <p>
-              Если у вас не получилось окупить подписку, то предоставьте отчет
-              выполненных активностей наставнику и мы продлим Prime ещё на один
-              месяц абсолютно бесплатно!
-            </p>
-          </div>
-        </div>
         <Collapsible.Root
           className={styles.CollapsibleRoot}
           open={open}
@@ -66,25 +49,63 @@ const Guarantee = () => {
           </Collapsible.Trigger>
 
           <Collapsible.Content className={styles.CollapsibleContent}>
-            <p className={styles.text}>
-              В рамках нашего сообщества вы найдете “гарантированные события”,
-              заработок на которых практически обеспечен. Найти их не составит
-              труда, поскольку они удобно размещены в отдельном разделе
-              веб-календаря.
-            </p>
-            <p className={styles.text}>
-              Если ответственно выполнять данные активности, придерживаясь
-              ключевых правил и возможностей абуза, то вы окупите подписку. В
-              случае, если вы выполнили все гарант. активности, но подписку так
-              и не удалось окупить, то обязательно напишите{" "}
-              <a href="https://t.me/crypton_support" target="_blank">
-                Наставнику
-              </a>
-              , предоставив все необходимые доказательства участия. Мы продлим
-              подписку бесплатно, начислив недостающую сумму для продления, если
-              вы не окупились по нашей вине.
-            </p>
-            <p className={styles.text}>
+            <Swiper
+              // @ts-ignore
+              ref={swiperRef}
+              slidesPerView={1}
+              onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+              className={styles.swiper}
+              wrapperClass={styles.swiper_wrapper}
+            >
+              <div className={styles.navigation}>
+                <button
+                  className={clsx(
+                    styles.arrow_btn,
+                    activeIndex === 0 && styles.arrow_btn__disabled
+                  )}
+                  onClick={() => swiperRef.current.swiper.slidePrev()}
+                >
+                  <Arrow className={styles.arrow_prev} />
+                </button>
+                <button
+                  className={clsx(
+                    styles.arrow_btn,
+                    activeIndex === 1 && styles.arrow_btn__disabled
+                  )}
+                  onClick={() => swiperRef.current.swiper.slideNext()}
+                >
+                  <Arrow className={styles.arrow_next} />
+                </button>
+              </div>
+              <SwiperSlide className={styles.slide}>
+                <div className={styles.swiper_item}>
+                  <Image
+                    src={guarantee1}
+                    alt="Выполняйте активности с пометкой “Гарант” и будьте уверены, что цена подписки окупится!"
+                  />
+                  <p>
+                    Выполняйте активности с пометкой “Гарант” и будьте уверены,
+                    что цена подписки окупится!
+                  </p>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide className={styles.slide}>
+                <div className={styles.swiper_item}>
+                  <Image
+                    src={guarantee2}
+                    alt="Мы оформим вам компенсацию бесплатно, если у вас не получится окупить Prime-подписку!"
+                  />
+                  <p>
+                    Мы оформим вам компенсацию бесплатно, если у вас не
+                    получится окупить Prime-подписку!
+                  </p>
+                </div>
+              </SwiperSlide>
+            </Swiper>
+            {/* <div className={styles.content}>
+              
+            </div> */}
+            <p className={styles.text_small}>
               Перед покупкой ознакомьтесь с{" "}
               <a
                 href="https://crypton-prime.notion.site/fb0eb6869a6d4117a9203ee49c6446dc"
@@ -93,10 +114,13 @@ const Guarantee = () => {
                 условиями гарантии
               </a>
               , а любые вопросы задавайте{" "}
-              <a href="https://t.me/crypton_support" target="_blank">
-                Наставнику
+              <a
+                href="https://t.me/crypton_support"
+                target="_blank"
+                className={styles.support}
+              >
+                Наставнику.
               </a>
-              .
             </p>
           </Collapsible.Content>
         </Collapsible.Root>
@@ -106,3 +130,21 @@ const Guarantee = () => {
 }
 
 export default Guarantee
+
+const Arrow = ({ className }: { className: string }) => (
+  <svg
+    className={className}
+    width="41"
+    height="14"
+    viewBox="0 0 41 14"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M33.7172 1L39.374 6.65685L33.7172 12.3137"
+      stroke="white"
+      strokeWidth="2"
+    />
+    <path d="M38.4 6.7168H0" stroke="white" strokeWidth="2" />
+  </svg>
+)

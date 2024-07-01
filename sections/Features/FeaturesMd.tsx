@@ -25,7 +25,7 @@ import {
   InvestingIconGradient,
 } from "./Icons"
 
-import styles from "./Features.module.scss"
+import styles from "./FeaturesMd.module.scss"
 
 import { data as featuresData } from "@/data/features"
 
@@ -40,7 +40,7 @@ const swiperWidth = {
 
 const FeaturesMd = ({ resolution }: { resolution: Resolution }) => {
   return (
-    <section className={styles.container}>
+    <section className={styles.container} id="features">
       <h2 className={styles.title}>Новый уровень возможностей</h2>
       <FeaturesTabs resolution={resolution} />
     </section>
@@ -83,114 +83,106 @@ const FeaturesTabs = ({ resolution }: { resolution: Resolution }) => {
   return (
     <Tabs.Root
       className={styles.TabsRoot}
-      defaultValue="cryptonBonuses"
+      defaultValue="tab1"
       orientation="vertical"
     >
       <Tabs.List className={styles.TabsList} aria-label="Prime Features">
-        <Tabs.Trigger className={styles.TabsTrigger} value="cryptonBonuses">
-          <div className={styles.trigger_container}>
-            <div className={styles.icon_wrapper}>
-              <CryptonBonusesIcon />
-              <CryptonBonusesIconGradient />
-            </div>
-            <span>Бонусы экосистемы Crypton</span>
-          </div>
-        </Tabs.Trigger>
-        <Tabs.Content className={styles.TabsContent} value="cryptonBonuses">
-          <Slider data={featuresData.cryptonBonuses} resolution={resolution} />
-        </Tabs.Content>
-
         <Tabs.Trigger className={styles.TabsTrigger} value="tab1">
           <div className={styles.trigger_container}>
             <div className={styles.icon_wrapper}>
               <CalendarIcon />
               <CalendarIconGradient />
             </div>
-            <span>Календарь по заработку</span>
           </div>
         </Tabs.Trigger>
-        <Tabs.Content className={styles.TabsContent} value="tab1">
-          <Slider data={featuresData.calendar} resolution={resolution} />
-        </Tabs.Content>
-
         <Tabs.Trigger className={styles.TabsTrigger} value="tab2">
           <div className={styles.trigger_container}>
             <div className={styles.icon_wrapper}>
               <ContentIcon />
               <ContentIconGradient />
             </div>
-            <span>Экспертный контент</span>
           </div>
         </Tabs.Trigger>
-        <Tabs.Content className={styles.TabsContent} value="tab2">
-          <Slider data={featuresData.content} resolution={resolution} />
-        </Tabs.Content>
-
         <Tabs.Trigger className={styles.TabsTrigger} value="tab3">
           <div className={styles.trigger_container}>
             <div className={styles.icon_wrapper}>
               <ChatIcon />
               <ChatIconGradient />
             </div>
-            <span>Чат и дружное комьюнити</span>
           </div>
         </Tabs.Trigger>
-        <Tabs.Content className={styles.TabsContent} value="tab3">
-          <Slider data={featuresData.chat} resolution={resolution} />
-        </Tabs.Content>
-
         <Tabs.Trigger className={styles.TabsTrigger} value="tab4">
           <div className={styles.trigger_container}>
             <div className={styles.icon_wrapper}>
               <MeetupsIcon />
               <MeetupsIconGradient />
             </div>
-            <span>Онлайн встречи и практика</span>
           </div>
         </Tabs.Trigger>
-        <Tabs.Content className={styles.TabsContent} value="tab4">
-          <Slider data={featuresData.meetups} resolution={resolution} />
-        </Tabs.Content>
-
         <Tabs.Trigger className={styles.TabsTrigger} value="tab5">
           <div className={styles.trigger_container}>
             <div className={styles.icon_wrapper}>
               <HelperIcon />
               <HelperIconGradient />
             </div>
-            <span>Личный помощник</span>
           </div>
         </Tabs.Trigger>
-        <Tabs.Content className={styles.TabsContent} value="tab5">
-          <Slider data={featuresData.helper} resolution={resolution} />
-        </Tabs.Content>
-
         <Tabs.Trigger className={styles.TabsTrigger} value="primeKit">
           <div className={styles.trigger_container}>
             <div className={styles.icon_wrapper}>
               <PrimeKitIcon />
               <PrimeKitIconGradient />
             </div>
-            <span>Стартовый Prime-набор</span>
           </div>
         </Tabs.Trigger>
-        <Tabs.Content className={styles.TabsContent} value="primeKit">
-          <Slider data={featuresData.primeKit} resolution={resolution} />
-        </Tabs.Content>
-
         <Tabs.Trigger className={styles.TabsTrigger} value="tab7">
           <div className={styles.trigger_container}>
             <div className={styles.icon_wrapper}>
               <InvestingIcon />
               <InvestingIconGradient />
             </div>
-            <span>Инвестируем за вас</span>
           </div>
         </Tabs.Trigger>
-        <Tabs.Content className={styles.TabsContent} value="tab7">
-          <Slider data={featuresData.investing} resolution={resolution} />
-        </Tabs.Content>
+        <Tabs.Trigger className={styles.TabsTrigger} value="cryptonBonuses">
+          <div className={styles.trigger_container}>
+            <div className={styles.icon_wrapper}>
+              <CryptonBonusesIcon />
+              <CryptonBonusesIconGradient />
+            </div>
+          </div>
+        </Tabs.Trigger>
       </Tabs.List>
+      <Tabs.Content className={styles.TabsContent} value="tab1">
+        <Slider data={featuresData.calendar} resolution={resolution} />
+      </Tabs.Content>
+
+      <Tabs.Content className={styles.TabsContent} value="tab2">
+        <Slider data={featuresData.content} resolution={resolution} />
+      </Tabs.Content>
+
+      <Tabs.Content className={styles.TabsContent} value="tab3">
+        <Slider data={featuresData.chat} resolution={resolution} />
+      </Tabs.Content>
+
+      <Tabs.Content className={styles.TabsContent} value="tab4">
+        <Slider data={featuresData.meetups} resolution={resolution} />
+      </Tabs.Content>
+
+      <Tabs.Content className={styles.TabsContent} value="tab5">
+        <Slider data={featuresData.helper} resolution={resolution} />
+      </Tabs.Content>
+
+      <Tabs.Content className={styles.TabsContent} value="primeKit">
+        <Slider data={featuresData.primeKit} resolution={resolution} />
+      </Tabs.Content>
+
+      <Tabs.Content className={styles.TabsContent} value="tab7">
+        <Slider data={featuresData.investing} resolution={resolution} />
+      </Tabs.Content>
+
+      <Tabs.Content className={styles.TabsContent} value="cryptonBonuses">
+        <Slider data={featuresData.cryptonBonuses} resolution={resolution} />
+      </Tabs.Content>
     </Tabs.Root>
   )
 }

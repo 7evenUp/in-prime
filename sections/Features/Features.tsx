@@ -40,7 +40,7 @@ const swiperWidth = {
 
 const Features = ({ resolution }: { resolution: Resolution }) => {
   return (
-    <section className={styles.container}>
+    <section className={styles.container} id="features">
       <h2 className={styles.title}>Новый уровень возможностей</h2>
       <FeaturesTabs resolution={resolution} />
     </section>
@@ -83,19 +83,10 @@ const FeaturesTabs = ({ resolution }: { resolution: Resolution }) => {
   return (
     <Tabs.Root
       className={styles.TabsRoot}
-      defaultValue="cryptonBonuses"
+      defaultValue="tab1"
       orientation="vertical"
     >
       <Tabs.List className={styles.TabsList} aria-label="Prime Features">
-        <Tabs.Trigger className={styles.TabsTrigger} value="cryptonBonuses">
-          <div className={styles.trigger_container}>
-            <div className={styles.icon_wrapper}>
-              <CryptonBonusesIcon />
-              <CryptonBonusesIconGradient />
-            </div>
-            <span>Бонусы экосистемы Crypton</span>
-          </div>
-        </Tabs.Trigger>
         <Tabs.Trigger className={styles.TabsTrigger} value="tab1">
           <div className={styles.trigger_container}>
             <div className={styles.icon_wrapper}>
@@ -157,6 +148,15 @@ const FeaturesTabs = ({ resolution }: { resolution: Resolution }) => {
               <InvestingIconGradient />
             </div>
             <span>Инвестируем за вас</span>
+          </div>
+        </Tabs.Trigger>
+        <Tabs.Trigger className={styles.TabsTrigger} value="cryptonBonuses">
+          <div className={styles.trigger_container}>
+            <div className={styles.icon_wrapper}>
+              <CryptonBonusesIcon />
+              <CryptonBonusesIconGradient />
+            </div>
+            <span>Бонусы экосистемы Crypton</span>
           </div>
         </Tabs.Trigger>
       </Tabs.List>
