@@ -20,6 +20,7 @@ import styles from "./BuySubscription.module.scss"
 const PRIME_SUBSCRIPTION_KIND_ID = 1
 const ID_URL = process.env.NEXT_PUBLIC_ID_URL + "/api/v1/"
 const SPECIAL_PROMO = process.env.NEXT_PUBLIC_PROMO
+const DEFAULT_CRYPTON_PROMO = "CRYPTON"
 
 const BuySubscription = ({
   tariffs,
@@ -99,7 +100,11 @@ const BuySubscription = ({
     }
     if (refCode) {
       setPromoForSubmit(refCode)
+      return
     }
+
+    setPromoForSubmit(DEFAULT_CRYPTON_PROMO)
+    localStorage.setItem("referral", DEFAULT_CRYPTON_PROMO)
   }, [])
 
   useEffect(() => {
