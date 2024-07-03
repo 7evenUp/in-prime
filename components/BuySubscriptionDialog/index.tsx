@@ -432,6 +432,9 @@ const BuySubscriptionDialog = ({
             />
           ) : (
             <>
+              <Dialog.DialogClose className={styles.close}>
+                <div className={styles.close_icon} />
+              </Dialog.DialogClose>
               <form className={styles.form} onSubmit={onSubmit}>
                 <div className={styles.top}>
                   <div className={styles.top_left}>
