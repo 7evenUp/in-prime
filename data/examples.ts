@@ -168,18 +168,186 @@ import OmniApril24 from "@/public/images/png/examples/april/Omni_april24.png"
 import TaikoMay24 from "@/public/images/png/examples/may/taiko_may24.png"
 import CryptonXStormTradeMay24 from "@/public/images/png/examples/may/cryptonXstormTrade_may24.jpeg"
 import FrucksMay24 from "@/public/images/png/examples/may/frucks_may24.png"
-import AddicktedMay24 from "@/public/images/png/examples/may/addickted_may24.png"
 import PotKMay24 from "@/public/images/png/examples/may/PotK_may24.png"
 import ParallelMay24 from "@/public/images/png/examples/may/parallel_may24.png"
 import AntiSocialFrogsMay24 from "@/public/images/png/examples/may/AntiSocialFrogs_may24.png"
 import NutcrackersMay24 from "@/public/images/png/examples/may/Nutcrackers_may24.png"
 import NyanHeroesMay24 from "@/public/images/png/examples/may/NyanHeroes_may24.png"
 
+import LayerZeroJune24 from "@/public/images/png/examples/june/layerzero_june24.png"
+import ZkSyncJune24 from "@/public/images/png/examples/june/ZkSync_june24.png"
+import OKXJune24 from "@/public/images/png/examples/june/OKX_june24.png"
+import CityVerseJune24 from "@/public/images/png/examples/june/CityVerse_june24.png"
+import ZetaMarketsJune24 from "@/public/images/png/examples/june/ZetaMarkets_june24.png"
+import BigBallsBirdsJune24 from "@/public/images/png/examples/june/BigBallsBirds_june24.png"
+import ParallelJune24 from "@/public/images/png/examples/june/Parallel_june24.png"
+import ListaDAOJune24 from "@/public/images/png/examples/june/ListaDAO_june24.png"
+import ZielChainJune24 from "@/public/images/png/examples/june/ZielChain_june24.png"
+import TrustWalletJune24 from "@/public/images/png/examples/june/TrustWallet_june24.png"
+import AIArenaJune24 from "@/public/images/png/examples/june/AIArena_june24.png"
+
 import BybitDefault from "@/public/images/png/examples/common/bybit-default.png"
 import StakelandDefault from "@/public/images/png/examples/common/stakeland.png"
+import AddicktedDefault from "@/public/images/png/examples/common/addickted.png"
 
 export const examples = {
-  май: [
+  июнь: [
+    {
+      title: "LayerZero",
+      earn: "до $40 000",
+      spend: "от $50",
+      category: "Ретродропы",
+      condition:
+        "Проявлять активность в проектах использующих протокол LayerZero.",
+      resources: "время на выполнение активности, затраты ка комиссии.",
+      reportUrl: "crypton.xyz",
+      img: LayerZeroJune24,
+    },
+    {
+      title: "ZkSync",
+      earn: "до $20 000",
+      spend: "от $50",
+      category: "Ретродропы",
+      condition: "Проявлять активность в сети, предоставлять ликвидность.",
+      resources: "время на выполнение активности, затраты ка комиссии.",
+      reportUrl: "crypton.xyz",
+      img: ZkSyncJune24,
+    },
+    {
+      title: "Bybit-акции",
+      earn: "$1 300",
+      spend: "$15",
+      category: "Аирдропы",
+      condition: "Участвовать в промоакциях биржи Bybit.",
+      resources:
+        "$15 на комиссию, время для участия, свободная ликвидность для стейкинга.",
+      reportUrl: "crypton.xyz",
+      img: BybitDefault,
+    },
+    {
+      title: "OKX-акции",
+      earn: "$500",
+      spend: "$10",
+      category: "Аирдропы",
+      condition: "Участвовать в промоакциях биржи OKX.",
+      resources: "время для участия, свободная ликвидность для стейкинга.",
+      reportUrl: "crypton.xyz",
+      img: OKXJune24,
+    },
+    {
+      title: "CityVerse Tycoon",
+      earn: "$387",
+      spend: "$95",
+      category: "NFT",
+      condition: "Играть в игру, проявлять активность в дискорде, получить WL.",
+      resources: "5 минут в день, $10 на комиссию, $85 для минта NFT.",
+      reportUrl: "crypton.xyz",
+      img: CityVerseJune24,
+    },
+    {
+      title: "Zeta Markets",
+      earn: "$300",
+      spend: "$100",
+      category: "Ретродропы",
+      condition:
+        "Торговать и фармить поинты. Заработать можно было x3-x4 от затрат на комиссии.",
+      resources: "время на выполнение активности, затраты ка комиссии.",
+      reportUrl: "crypton.xyz",
+      img: ZetaMarketsJune24,
+    },
+    {
+      title: "Addickted",
+      earn: "$240",
+      spend: "$0",
+      category: "NFT",
+      condition: "Холд токенов на момент снепшота для получения NFT.",
+      resources: "время на выполнения активности.",
+      reportUrl: "crypton.xyz",
+      img: AddicktedDefault,
+    },
+    {
+      title: "Big Balls Birds",
+      earn: "$230",
+      spend: "$50",
+      category: "Аирдропы",
+      condition: "Получение WL в телеграм-чате, участие в конкурсах.",
+      resources: "время на выполнения активности.",
+      reportUrl: "crypton.xyz",
+      img: BigBallsBirdsJune24,
+    },
+    {
+      title: "Parallel",
+      earn: "$220",
+      spend: "$70",
+      category: "Game-Fi",
+      condition: "Играть в игру, получать токены за победы.",
+      resources: "~$70 на покупку нужных NFT, ежедневная игра.",
+      reportUrl: "crypton.xyz",
+      img: ParallelJune24,
+    },
+    {
+      title: "Lista Dao",
+      earn: "от $170",
+      spend: "от $2",
+      category: "Ретродропы",
+      condition:
+        "Можно было получить $170 за выполнение простого задания на Galxe. Также можно было предоставить ликвидность и получить x3 от вложений.",
+      resources: "время на выполнение активности, свободная ликвидность.",
+      reportUrl: "crypton.xyz",
+      img: ListaDAOJune24,
+    },
+    {
+      title: "ZIELCHAIN",
+      earn: "$55",
+      spend: "$0",
+      category: "NFT",
+      condition: "Фармить WL в дискорде.",
+      resources: "15 минут в день.",
+      reportUrl: "crypton.xyz",
+      img: ZielChainJune24,
+    },
+    {
+      title: "Trust Wallet x Merlin Chain",
+      earn: "$53",
+      spend: "до $15",
+      category: "Аирдропы",
+      condition: "Выполнять квесты на QuestN.",
+      resources: "время на отработку активности, $150 возвратной ликвидности.",
+      reportUrl: "crypton.xyz",
+      img: TrustWalletJune24,
+    },
+    {
+      title: "Ai Arena",
+      earn: "от $50",
+      spend: "$0",
+      category: "Аирдропы",
+      condition: "Фармить поинты за квесты, играть в игру.",
+      resources: "время на выполнение активности.",
+      reportUrl: "crypton.xyz",
+      img: AIArenaJune24,
+    },
+    {
+      title: "Stakeland x Yolo Games",
+      earn: "$35",
+      spend: "$20",
+      category: "Аирдропы",
+      condition: "Выполнить социальные задания на платформе.",
+      resources: "время на активность, ферма аккаунтов.",
+      reportUrl: "crypton.xyz",
+      img: StakelandDefault,
+    },
+    {
+      title: "Stakeland x BorpaToken",
+      earn: "$30",
+      spend: "$0",
+      category: "Аирдропы",
+      condition: "Выполнить социальные задания на платформе.",
+      resources: "время на активность, ферма аккаунтов.",
+      reportUrl: "crypton.xyz",
+      img: StakelandDefault,
+    },
+  ],
+  "май-январь": [
     {
       title: "Taiko",
       earn: "$2 500+",
@@ -235,7 +403,7 @@ export const examples = {
         "Выполнять задания в телеграм-боте, играть в телеграм-приложении.",
       resources: "Время на выполнение активности.",
       reportUrl: "crypton.xyz",
-      img: AddicktedMay24,
+      img: AddicktedDefault,
     },
     {
       title: "PotK",
@@ -299,8 +467,6 @@ export const examples = {
       reportUrl: "crypton.xyz",
       img: StakelandDefault,
     },
-  ],
-  "апрель-январь": [
     {
       title: "Castile",
       earn: "$7 800",

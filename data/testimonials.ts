@@ -18,6 +18,8 @@ import MaxKroz from "@/public/images/png/testimonials/MaxKroz.png"
 import Consigliere from "@/public/images/png/testimonials/consigliere.jpg"
 import KlemeTin from "@/public/images/png/testimonials/kleme-tin.jpg"
 import Gregor from "@/public/images/png/testimonials/Gredor.png"
+import Daniel from "@/public/images/png/testimonials/Daniel.jpg"
+import Denis_Akimenko from "@/public/images/png/testimonials/Denis_Akimenko.jpg"
 
 export const testimonialsData: Array<{
   avatar: StaticImageData | string
@@ -27,6 +29,22 @@ export const testimonialsData: Array<{
   link: string
   isNew?: boolean
 }> = [
+  {
+    avatar: Denis_Akimenko,
+    name: "Denis Akimenko",
+    text: `Всем привет! ЗК уже вышел, так что наведу немного суеты) Проходка у меня составила 53/53, в общей сложности получилось 548к ZK или 10,3к ZK в среднем на акк. Так вот хочу сказать спасибо Криптону! Я с вами уже год, вступил весной прошлого года. Знал про дропы, и даже крутил, была небольшая ферма. Но именно Криптон дал мне знания и инструменты, как вести ферму правильно, здесь я узнал все нюансы, про прокси, антидетект браузеры, твиттеры и дискорды, ввод/вывод средств и прочее. И комьюнити! Здесь люди, которые всегда ответят на любые вопросы и помогут. Вы крутые! Спасибо вам!)`,
+    date: "18.06.24",
+    link: "https://t.me/reviews_prime/367",
+    isNew: true,
+  },
+  {
+    avatar: Daniel,
+    name: "Даниил",
+    text: `Привет. Расскажу про свой опыт пользования crypton prime. Первый раз я вступил сюда в 2022 году, оплатил подписку на месяц и начал отрабатывать популярные на то время идеи (sandbox, genopets, arbitrum и другие). На тот момент я совершил ошибку, подумал, что вступление в прайм = моментальная прибыль. Но это не так, это игра в долгую. Через месяц я не продлил подписку и продолжил отрабатывать лишь sandbox, что в свою очередь давало небольшой профит каждый месяц. В 23 году я неожиданно получил дроп от Arbitrum, который по сути отрабатывал всего пару дней. Я снова зашёл в crypton prime и учёл ошибки прошлого.`,
+    date: "08.06.24",
+    link: "https://t.me/reviews_prime/360",
+    isNew: true,
+  },
   {
     avatar: Gregor,
     name: "Gregor",
