@@ -8,10 +8,6 @@ import { useMutation, useQuery } from "@tanstack/react-query"
 import axios from "axios"
 import clsx from "clsx"
 
-import SubscriptionImage2 from "@/public/images/png/buy-subscription/subscription_small_2.png"
-import SubscriptionImage3 from "@/public/images/png/buy-subscription/subscription_small_3.png"
-import SubscriptionImage4 from "@/public/images/png/buy-subscription/subscription_small_4.png"
-
 import {
   Select,
   SelectContent,
@@ -432,6 +428,9 @@ const BuySubscriptionDialog = ({
             />
           ) : (
             <>
+              <Dialog.DialogClose className={styles.close}>
+                <div className={styles.close_icon} />
+              </Dialog.DialogClose>
               <form className={styles.form} onSubmit={onSubmit}>
                 <div className={styles.top}>
                   <div className={styles.top_left}>
@@ -695,27 +694,6 @@ const BuySubscriptionDialog = ({
                               </li>
                             ))}
                           </ul>
-                          {order === 1 && (
-                            <Image
-                              src={SubscriptionImage2}
-                              alt="Proxyline"
-                              className={styles.bonuses_image_1}
-                            />
-                          )}
-                          {order === 2 && (
-                            <Image
-                              src={SubscriptionImage3}
-                              alt="Doplhin"
-                              className={styles.bonuses_image_2}
-                            />
-                          )}
-                          {order === 3 && (
-                            <Image
-                              src={SubscriptionImage4}
-                              alt="Safepal X1"
-                              className={styles.bonuses_image_3}
-                            />
-                          )}
                         </div>
                       ))}
                     </div>
@@ -783,6 +761,16 @@ const BuySubscriptionDialog = ({
                           Такого промокода не существует
                         </span>
                       )}
+                      <span className={styles.support}>
+                        Любые вопросы задавайте{" "}
+                        <a
+                          href="https://t.me/crypton_support"
+                          target="_blank"
+                          className={styles.support_link}
+                        >
+                          Наставнику.
+                        </a>
+                      </span>
                     </div>
                   </div>
                 </div>

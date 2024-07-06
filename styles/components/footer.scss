@@ -176,6 +176,8 @@
 
     @media (max-width: 767px) {
       padding: 50px;
+      padding-left: 100px;
+
       .container {
         display: flex;
         width: 336px;
@@ -277,8 +279,7 @@
               fill: #ff4a7a;
             }
           }
-          &.crypton>a>svg {
-
+          &.crypton > a > svg {
             width: 23px;
             height: 26px;
           }

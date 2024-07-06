@@ -40,14 +40,14 @@ export const data = [
       imgSrc: cantoSrc,
       title: "Canto",
       isDone: true,
-      earned: 3400,
+      earned: "$3400",
       description: "Участвовали в тестнете и получили за это ретродроп.",
     },
     bottom: {
       imgSrc: aptosSrc,
       title: "Aptos",
       isDone: true,
-      earned: 3600,
+      earned: "$3600",
       description:
         "Ставили ноду Aptos по нашему руководству, попали в одну из фаз, заполнили форму и получили токены. Также в рамках активности можно было просто заминтить NFT, за которую команда начислила токены проекта на $1200.",
     },
@@ -57,7 +57,7 @@ export const data = [
       imgSrc: arbitrumSrc,
       title: "Arbitrum",
       isDone: true,
-      earned: 5000,
+      earned: "$5000",
       description:
         "Были уверены в ретродропе от Arbitrum, отрабатывали эту активность по нашим руководствам и получили ретродроп на круглую сумму.",
     },
@@ -65,7 +65,7 @@ export const data = [
       imgSrc: suiSrc,
       title: "Sui",
       isDone: true,
-      earned: 2350,
+      earned: "$2350",
       description:
         "Получили вайтлист к токенсейлу за раннее вступление в Discord проекта и успешно поучаствовали в нем. Также ставили ноду и получили за это токены проекта.",
     },
@@ -75,7 +75,7 @@ export const data = [
       imgSrc: arkhamSrc,
       title: "Arkham",
       isDone: true,
-      earned: 1500,
+      earned: "$1500",
       description:
         "Участвовали в кампании по приглашению пользователей на сайт и получили за это дроп.",
     },
@@ -83,7 +83,7 @@ export const data = [
       imgSrc: altlayer,
       title: "Altlayer",
       isDone: true,
-      earned: 50000,
+      earned: "$50000",
       description:
         "Проект, о котором мы говорили ещё в 2022 году, раздал дроп своим преданным пользователям. За холд пары NFT проекта получили токенов на сумму $50 000.",
     },
@@ -93,7 +93,7 @@ export const data = [
       imgSrc: starknetSrc,
       title: "Starknet",
       isDone: true,
-      earned: "2000+",
+      earned: "$2000+",
       description:
         "Отрабатывали проект с марта 2022 года, что и привело нас к заработку в виде $2000 на аккаунт.",
     },
@@ -101,7 +101,7 @@ export const data = [
       imgSrc: layerzeroSrc,
       title: "LayerZero",
       isDone: true,
-      earned: "200+",
+      earned: "до $40000",
       description:
         "Один из самых отрабатываемых и популярных проектов, от которого ожидали больше.",
     },
@@ -111,7 +111,7 @@ export const data = [
       imgSrc: zkSyncSrc,
       title: "zkSync",
       isDone: true,
-      earned: "500+",
+      earned: "до $20000",
       description:
         "Наиболее прибыльным критерием дропа оказалось предоставление ликвидности на длительном сроке. Что не все были способны поддерживать.",
       isCurrent: true,

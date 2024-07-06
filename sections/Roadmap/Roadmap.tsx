@@ -48,11 +48,13 @@ const Map = ({ resolution }: { resolution: Resolution }) => {
                 className={styles.map_item__top}
                 resolution={resolution}
               />
-              {bottom ? <MapItem
+              {bottom ? (
+                <MapItem
                   {...bottom}
                   className={styles.map_item__bottom}
                   resolution={resolution}
-              /> : null}
+                />
+              ) : null}
             </SwiperSlide>
           ))}
         </Swiper>
@@ -159,7 +161,7 @@ const MapItem = ({
         <span className={styles.map_item_price}>
           {earned ? (
             <>
-              Заработано: <b>${earned}</b>
+              Заработано: <b>{earned}</b>
             </>
           ) : (
             "????"
