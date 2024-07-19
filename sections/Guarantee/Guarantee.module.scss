@@ -57,6 +57,26 @@
   @media (max-width: 375px) {
     width: 290px;
   }
+
+  &_accent {
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      height: 8px;
+      width: 100%;
+      left: 0;
+      bottom: -8px;
+      background: linear-gradient(90deg, #bb44cc, #8bacfa 50%, #4ae0ce);
+
+      @media (max-width: 767px) {
+        height: 4px;
+        bottom: -4px;
+      }
+    }
+  }
 }
 
 .swiper {

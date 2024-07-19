@@ -563,7 +563,7 @@ p {
       }
 
       &__description {
-        width: 992px;
+        width: 720px;
         height: 74px;
         margin-top: 28px;
         font-family: "Resist Sans Light";
@@ -575,7 +575,7 @@ p {
         color: #ffffff;
 
         @media (max-width: 1919px) and (min-width: 1368px) {
-          width: 971px;
+          width: 640px;
           height: 50px;
           font-size: 18px;
           line-height: 26px;

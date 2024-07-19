@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import Image from "next/image"
 import * as Collapsible from "@radix-ui/react-collapsible"
 import clsx from "clsx"
@@ -9,8 +9,14 @@ import { teamData } from "@/data/team"
 
 import styles from "./styles.module.scss"
 
+const FOUNDER_ANCHOR_ID = "founder"
+
 const Team = () => {
   const [open, setOpen] = useState(false)
+
+  useEffect(() => {
+    if (location.hash === `#${FOUNDER_ANCHOR_ID}`) setOpen(true)
+  }, [])
 
   return (
     <div className="team">

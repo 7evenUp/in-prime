@@ -111,9 +111,8 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
       </h1>
 
       <div className="app__container__earn__description">
-        Prime – приватное сообщество с авторским контентом по заработку в
-        криптовалюте. Наша команда отбирает лучшие события, подготавливает
-        детальные инструкции и помогает вам получать прибыль.
+        Получите в Prime понятный план действий и поддержку от наших экспертов
+        для извлечения максимальной прибыли всего за пару кликов.
       </div>
       <div className={styles.footer}>
         <button className={styles.button1} onClick={scrollToGuarantee}>

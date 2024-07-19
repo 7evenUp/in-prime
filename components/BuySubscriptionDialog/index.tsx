@@ -762,7 +762,33 @@ const BuySubscriptionDialog = ({
                         </span>
                       )}
                       <span className={styles.support}>
-                        Любые вопросы задавайте{" "}
+                        Изучите{" "}
+                        <Dialog.Close
+                          style={{
+                            background: "transparent",
+                            border: "none",
+                            padding: 0,
+                            cursor: "pointer",
+                            fontSize: 12,
+                          }}
+                        >
+                          <a
+                            className={styles.support_link}
+                            onClick={() => {
+                              window.scrollTo({
+                                top:
+                                  document.getElementById("testimonials")
+                                    .offsetTop -
+                                  document.getElementById("header")
+                                    .clientHeight,
+                                behavior: "smooth",
+                              })
+                            }}
+                          >
+                            отзывы
+                          </a>
+                        </Dialog.Close>{" "}
+                        или задайте любые вопросы{" "}
                         <a
                           href="https://t.me/crypton_support"
                           target="_blank"

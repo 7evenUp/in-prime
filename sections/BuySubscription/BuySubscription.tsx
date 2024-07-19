@@ -401,7 +401,18 @@ const SubscriptionCard = ({
           <div className={styles.price_wrapper}>
             <span className={styles.price_left}>
               $
-              {Number.isInteger(cardPrice) ? (
+              {order === 0 && promoForSubmit === DEFAULT_CRYPTON_PROMO ? (
+                Number.isInteger(getSubscriptionPrice()) ? (
+                  getSubscriptionPrice()
+                ) : (
+                  <>
+                    {getSubscriptionPrice().toFixed(2).split(".")[0]}
+                    <span className={styles.price_fractional}>
+                      .{getSubscriptionPrice().toFixed(2).split(".")[1]}
+                    </span>
+                  </>
+                )
+              ) : Number.isInteger(cardPrice) ? (
                 cardPrice
               ) : (
                 <>
@@ -424,7 +435,8 @@ const SubscriptionCard = ({
               </span>
             )}
           </div>
-          {duration.id === 1 &&
+          {promoForSubmit !== DEFAULT_CRYPTON_PROMO &&
+            duration.id === 1 &&
             discountKind &&
             discountAmount !== 0 &&
             discounts && (
