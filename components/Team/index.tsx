@@ -57,6 +57,7 @@ const Team = () => {
               </Dialog>
             ))}
           </div>
+          <span className={styles.remark}>Не забудьте кликнуть на аватары:)</span>
         </Collapsible.Content>
       </Collapsible.Root>
     </div>

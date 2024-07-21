@@ -20,7 +20,7 @@ const Testimonials = ({ resolution }: { resolution: Resolution }) => {
   return (
     <section className={styles.container} id="testimonials">
       <div className={styles.header}>
-        <h2 className={styles.title}>Отзывы</h2>
+        <h2 className={styles.title}>О НАС ОТЗЫВАЮТСЯ</h2>
         <div className={styles.navigation}>
           <button
             className={styles.arrow_btn}

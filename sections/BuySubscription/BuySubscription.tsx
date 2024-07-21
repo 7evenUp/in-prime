@@ -393,6 +393,7 @@ const SubscriptionCard = ({
 
   return (
     <div className={styles.subscription}>
+      {order === 3 && <div className={styles.profitable}>выгодно</div>}
       <span className={styles.duration}>{duration.id} МЕС</span>
       {isPromoPending ? (
         <div className={styles.loading} />

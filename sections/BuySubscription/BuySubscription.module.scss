@@ -177,23 +177,23 @@
   }
 }
 
-// .last_chance {
-//   position: absolute;
-//   rotate: 39deg;
-//   right: -40px;
-//   top: 25px;
-//   height: 30px;
-//   width: 170px;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   background: #ff4a7a;
-//   color: #181818;
-//   font-family: "Resist Sans Medium", sans-serif;
-//   font-weight: 500;
-//   font-size: 12px;
-//   text-transform: uppercase;
-// }
+.profitable {
+  position: absolute;
+  rotate: 39deg;
+  right: -40px;
+  top: 25px;
+  height: 30px;
+  width: 170px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffcd9f;
+  color: #181818;
+  font-family: "Resist Sans Medium", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  text-transform: uppercase;
+}
 
 .duration {
   font-family: "Resist Sans Medium", sans-serif;
