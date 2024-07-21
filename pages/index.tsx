@@ -225,9 +225,9 @@ const Home = (props) => {
 
           {/* <LoyaltySystem resolution={resolution} /> */}
 
-          <BuySubscription tariffs={tariffs} resolution={resolution} />
+          {/* <BuySubscription tariffs={tariffs} resolution={resolution} /> */}
 
-          {/* <BuySubscriptionPromo tariffs={tariffs} resolution={resolution} /> */}
+          <BuySubscriptionPromo tariffs={tariffs} resolution={resolution} />
 
           <Testimonials resolution={resolution} />
           <Histories />
