@@ -137,6 +137,8 @@
   &__toggle {
     transition: all 0.35s ease;
 
+    flex-shrink: 0;
+
     width: 32px;
     height: 32px;
 
