@@ -205,13 +205,6 @@ const BuySubscriptionDialog = ({
       subscriptionId: id,
     }
 
-    if (localStorage.getItem("referral")) {
-      payload = {
-        ...payload,
-        referral_code: localStorage.getItem("referral"),
-      }
-    }
-
     if (referral) {
       payload = {
         ...payload,
@@ -909,12 +902,6 @@ const PaymentStatus = ({
     },
     refetchInterval: 5000,
   })
-
-  useEffect(() => {
-    if (status === "COMPLETED") {
-      localStorage.removeItem("referral")
-    }
-  }, [status])
 
   if (isLoading || status === "PENDING") {
     return (

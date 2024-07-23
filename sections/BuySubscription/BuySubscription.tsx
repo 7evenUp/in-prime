@@ -90,10 +90,6 @@ const BuySubscription = ({
     const url = new URL(location.href)
     const refCode = url.searchParams.get("ref")
 
-    if (refCode) {
-      localStorage.setItem("referral", refCode)
-    }
-
     if (SPECIAL_PROMO) {
       setPromoForSubmit(SPECIAL_PROMO)
       return
@@ -104,7 +100,6 @@ const BuySubscription = ({
     }
 
     setPromoForSubmit(DEFAULT_CRYPTON_PROMO)
-    localStorage.setItem("referral", DEFAULT_CRYPTON_PROMO)
   }, [])
 
   useEffect(() => {
