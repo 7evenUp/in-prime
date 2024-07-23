@@ -312,21 +312,9 @@ const SubscriptionCard = ({
         : discountAmount
 
       if (discountKind.id === "MONEY") {
-        if (baseDiscountAmount && baseDiscountAmount > preferedDiscount) {
-          fullPrice = getSubscriptionPrice() - baseDiscountAmount
-        } else {
-          fullPrice = getSubscriptionPrice() - preferedDiscount
-        }
+        fullPrice = subscriptionPrice - preferedDiscount
       } else {
-        if (
-          baseDiscountAmount &&
-          baseDiscountAmount > getSubscriptionPrice() * preferedDiscount
-        ) {
-          fullPrice = getSubscriptionPrice() - baseDiscountAmount
-        } else {
-          fullPrice =
-            getSubscriptionPrice() - getSubscriptionPrice() * preferedDiscount
-        }
+        fullPrice = subscriptionPrice - subscriptionPrice * preferedDiscount
       }
 
       setCardPrice(showMonthlyPrice ? fullPrice / duration.id : fullPrice)
@@ -351,21 +339,9 @@ const SubscriptionCard = ({
         : discountAmount
 
       if (discountKind.id === "MONEY") {
-        if (baseDiscountAmount && baseDiscountAmount > preferedDiscount) {
-          fullPrice = getSubscriptionPrice() - baseDiscountAmount
-        } else {
-          fullPrice = getSubscriptionPrice() - preferedDiscount
-        }
+        fullPrice = subscriptionPrice - preferedDiscount
       } else {
-        if (
-          baseDiscountAmount &&
-          baseDiscountAmount > getSubscriptionPrice() * preferedDiscount
-        ) {
-          fullPrice = getSubscriptionPrice() - baseDiscountAmount
-        } else {
-          fullPrice =
-            getSubscriptionPrice() - getSubscriptionPrice() * preferedDiscount
-        }
+        fullPrice = subscriptionPrice - subscriptionPrice * preferedDiscount
       }
 
       setCardPrice(showMonthlyPrice ? fullPrice / duration.id : fullPrice)
