@@ -239,16 +239,24 @@ const BuySubscriptionPromo = ({
           </div>
         )}
 
-        <p className={styles.support}>
-          Остались вопросы? Задай их нашему{" "}
-          <a
-            href="https://t.me/crypton_support"
-            target="_blank"
-            className={styles.support_link}
-          >
-            специалисту в Телеграм
-          </a>
-        </p>
+        <div className={styles.support_wrapper}>
+          <p className={styles.support}>
+            Остались вопросы? Задай их нашему{" "}
+            <a
+              href="https://t.me/crypton_support"
+              target="_blank"
+              className={styles.support_link}
+            >
+              специалисту в Телеграм
+            </a>
+          </p>
+          <div className={styles.first_100_card}>
+            <p className={styles.first_100_card_top}>
+              Первые <span>99 пользователей</span>, купивших подписку во время
+              акции, получат кэшбэк $10 на баланс
+            </p>
+          </div>
+        </div>
 
         <div className="app__container__subscribe__content___timer__header">
           <div className="app__container__subscribe__content__link__mark">
@@ -288,13 +296,8 @@ const BuySubscriptionPromo = ({
           </div>
         </div>
 
-        <div className={styles.first_100}>
-          <div className={styles.first_100_card}>
-            <p className={styles.first_100_card_top}>
-              Первые <span>99 пользователей</span>, купивших подписку во время
-              акции, получат кэшбэк $10 на баланс
-            </p>
-          </div>
+        {/* <div className={styles.first_100}>
+          
           <div className={styles.first_100_card}>
             <div className={styles.first_100_remains}>
               <span>Осталось:</span>
@@ -302,7 +305,7 @@ const BuySubscriptionPromo = ({
               <span>{CASHBACK_REMAINS}</span>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   )
@@ -366,9 +369,7 @@ const SubscriptionCard = ({
   }
 
   useEffect(() => {
-    const subscriptionPrice = baseDiscountAmount
-      ? getSubscriptionPrice() - baseDiscountAmount
-      : getSubscriptionPrice()
+    const price = getSubscriptionPrice()
     let fullPrice
 
     if (isValidForPromo && discountKind && discountAmount && discounts) {
@@ -379,23 +380,35 @@ const SubscriptionCard = ({
         : discountAmount
 
       if (discountKind.id === "MONEY") {
-        fullPrice = subscriptionPrice - preferedDiscount
+        if (baseDiscount) {
+          fullPrice = price - price * (baseDiscount / 100) - preferedDiscount
+        } else {
+          fullPrice = price - preferedDiscount
+        }
       } else {
-        fullPrice = subscriptionPrice - subscriptionPrice * preferedDiscount
+        if (baseDiscount) {
+          fullPrice = price - price * (baseDiscount / 100 + preferedDiscount)
+        } else {
+          fullPrice = price - price * preferedDiscount
+        }
       }
 
       setCardPrice(showMonthlyPrice ? fullPrice / duration.id : fullPrice)
     } else {
-      setCardPrice(
-        showMonthlyPrice ? subscriptionPrice / duration.id : subscriptionPrice
-      )
+      if (baseDiscount) {
+        setCardPrice(
+          showMonthlyPrice
+            ? (price - price * (baseDiscount / 100)) / duration.id
+            : price - price * (baseDiscount / 100)
+        )
+      } else {
+        setCardPrice(showMonthlyPrice ? price / duration.id : price)
+      }
     }
   }, [discountKind, discountAmount, discounts])
 
   useEffect(() => {
-    const subscriptionPrice = baseDiscountAmount
-      ? getSubscriptionPrice() - baseDiscountAmount
-      : getSubscriptionPrice()
+    const price = getSubscriptionPrice()
     let fullPrice
 
     if (isValidForPromo && discountKind && discountAmount && discounts) {
@@ -406,16 +419,30 @@ const SubscriptionCard = ({
         : discountAmount
 
       if (discountKind.id === "MONEY") {
-        fullPrice = subscriptionPrice - preferedDiscount
+        if (baseDiscount) {
+          fullPrice = price - price * (baseDiscount / 100) - preferedDiscount
+        } else {
+          fullPrice = price - preferedDiscount
+        }
       } else {
-        fullPrice = subscriptionPrice - subscriptionPrice * preferedDiscount
+        if (baseDiscount) {
+          fullPrice = price - price * (baseDiscount / 100 + preferedDiscount)
+        } else {
+          fullPrice = price - price * preferedDiscount
+        }
       }
 
       setCardPrice(showMonthlyPrice ? fullPrice / duration.id : fullPrice)
     } else {
-      setCardPrice(
-        showMonthlyPrice ? subscriptionPrice / duration.id : subscriptionPrice
-      )
+      if (baseDiscount) {
+        setCardPrice(
+          showMonthlyPrice
+            ? (price - price * (baseDiscount / 100)) / duration.id
+            : price - price * (baseDiscount / 100)
+        )
+      } else {
+        setCardPrice(showMonthlyPrice ? price / duration.id : price)
+      }
     }
   }, [showMonthlyPrice])
 

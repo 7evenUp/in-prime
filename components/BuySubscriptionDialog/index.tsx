@@ -36,7 +36,7 @@ const DEFAULT_CRYPTON_PROMO = "CRYPTON"
 const BuySubscriptionDialog = ({
   children,
   selectedSubscription: {
-    baseDiscountAmount,
+    baseDiscount,
     price,
     id,
     duration,
@@ -101,10 +101,13 @@ const BuySubscriptionDialog = ({
   }
 
   useEffect(() => {
-    const subscriptionPrice = baseDiscountAmount
-      ? getSubscriptionPrice() - baseDiscountAmount
-      : getSubscriptionPrice()
-    setTotalPrice(subscriptionPrice)
+    const price = getSubscriptionPrice()
+
+    if (baseDiscount) {
+      setTotalPrice(price - price * (baseDiscount / 100))
+    } else {
+      setTotalPrice(price)
+    }
 
     if (localPromoForSubmit) {
       if (discountKind && discountAmount && discounts) {
@@ -117,9 +120,17 @@ const BuySubscriptionDialog = ({
         let fullPrice
 
         if (discountKind.id === "MONEY") {
-          fullPrice = subscriptionPrice - preferedDiscount
+          if (baseDiscount) {
+            fullPrice = price - price * (baseDiscount / 100) - preferedDiscount
+          } else {
+            fullPrice = price - preferedDiscount
+          }
         } else {
-          fullPrice = subscriptionPrice - subscriptionPrice * preferedDiscount
+          if (baseDiscount) {
+            fullPrice = price - price * (baseDiscount / 100 + preferedDiscount)
+          } else {
+            fullPrice = price - price * preferedDiscount
+          }
         }
 
         setTotalPrice(fullPrice)
@@ -269,15 +280,19 @@ const BuySubscriptionDialog = ({
 
     if (localPromoForSubmit) return
 
-    setTotalPrice(
-      baseDiscountAmount
-        ? getSubscriptionPrice() - baseDiscountAmount
-        : getSubscriptionPrice()
-    )
+    if (baseDiscount) {
+      setTotalPrice(
+        getSubscriptionPrice() - getSubscriptionPrice() * (baseDiscount / 100)
+      )
+    } else {
+      setTotalPrice(getSubscriptionPrice())
+    }
   }
 
   const applyPromocode = async () => {
     if (isPromoPending || promocode.length === 0) return
+
+    const price = getSubscriptionPrice()
 
     try {
       const {
@@ -293,10 +308,6 @@ const BuySubscriptionDialog = ({
 
       setIsPromoReferral(isReferralCode)
 
-      const subscriptionPrice = baseDiscountAmount
-        ? getSubscriptionPrice() - baseDiscountAmount
-        : getSubscriptionPrice()
-
       const matchedDiscount = discounts.find((el) => el.subscriptionId === id)
 
       const preferedDiscount = matchedDiscount
@@ -307,9 +318,17 @@ const BuySubscriptionDialog = ({
       setPromoWasUpdated(true)
 
       if (discountKind.id === "MONEY") {
-        setTotalPrice(subscriptionPrice - preferedDiscount)
+        if (baseDiscount) {
+          setTotalPrice(price - price * (baseDiscount / 100) - preferedDiscount)
+        } else {
+          setTotalPrice(price - preferedDiscount)
+        }
       } else {
-        setTotalPrice(subscriptionPrice - subscriptionPrice * preferedDiscount)
+        if (baseDiscount) {
+          setTotalPrice(price - price * (baseDiscount / 100 + preferedDiscount))
+        } else {
+          setTotalPrice(price - price * preferedDiscount)
+        }
       }
     } catch {}
   }
@@ -318,11 +337,13 @@ const BuySubscriptionDialog = ({
     setLocalPromoForSubmit("")
     setIsCryptonReferralSet(false)
     setPromoWasUpdated(true)
-    setTotalPrice(
-      baseDiscountAmount
-        ? getSubscriptionPrice() - baseDiscountAmount
-        : getSubscriptionPrice()
-    )
+    if (baseDiscount) {
+      setTotalPrice(
+        getSubscriptionPrice() - getSubscriptionPrice() * (baseDiscount / 100)
+      )
+    } else {
+      setTotalPrice(getSubscriptionPrice())
+    }
   }
 
   const applyCryptonPromo = async () => {
@@ -339,10 +360,6 @@ const BuySubscriptionDialog = ({
       setIsCryptonReferralSet(true)
       setIsPromoReferral(isReferralCode)
 
-      const subscriptionPrice = baseDiscountAmount
-        ? getSubscriptionPrice() - baseDiscountAmount
-        : getSubscriptionPrice()
-
       const matchedDiscount = discounts.find((el) => el.subscriptionId === id)
 
       const preferedDiscount = matchedDiscount
@@ -353,9 +370,17 @@ const BuySubscriptionDialog = ({
       setPromoWasUpdated(true)
 
       if (discountKind.id === "MONEY") {
-        setTotalPrice(subscriptionPrice - preferedDiscount)
+        if (baseDiscount) {
+          setTotalPrice(price - price * (baseDiscount / 100) - preferedDiscount)
+        } else {
+          setTotalPrice(price - preferedDiscount)
+        }
       } else {
-        setTotalPrice(subscriptionPrice - subscriptionPrice * preferedDiscount)
+        if (baseDiscount) {
+          setTotalPrice(price - price * (baseDiscount / 100 + preferedDiscount))
+        } else {
+          setTotalPrice(price - price * preferedDiscount)
+        }
       }
     } catch {}
   }
