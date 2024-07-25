@@ -507,6 +507,23 @@
   }
 }
 
+.remark {
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 48px;
+  display: block;
+  font-family: "Resist Sans", sans-serif;
+  font-size: 18px;
+
+  @media (max-width: 1367px) {
+    font-size: 16px;
+    margin-top: 32px;
+  }
+
+  @media (max-width: 375px) {
+    padding-left: 16px;
+  }
+}
+
 @keyframes slideDown {
   from {
     height: 0;

@@ -90,10 +90,6 @@ const BuySubscription = ({
     const url = new URL(location.href)
     const refCode = url.searchParams.get("ref")
 
-    if (refCode) {
-      localStorage.setItem("referral", refCode)
-    }
-
     if (SPECIAL_PROMO) {
       setPromoForSubmit(SPECIAL_PROMO)
       return
@@ -104,7 +100,6 @@ const BuySubscription = ({
     }
 
     setPromoForSubmit(DEFAULT_CRYPTON_PROMO)
-    localStorage.setItem("referral", DEFAULT_CRYPTON_PROMO)
   }, [])
 
   useEffect(() => {
@@ -312,21 +307,9 @@ const SubscriptionCard = ({
         : discountAmount
 
       if (discountKind.id === "MONEY") {
-        if (baseDiscountAmount && baseDiscountAmount > preferedDiscount) {
-          fullPrice = getSubscriptionPrice() - baseDiscountAmount
-        } else {
-          fullPrice = getSubscriptionPrice() - preferedDiscount
-        }
+        fullPrice = subscriptionPrice - preferedDiscount
       } else {
-        if (
-          baseDiscountAmount &&
-          baseDiscountAmount > getSubscriptionPrice() * preferedDiscount
-        ) {
-          fullPrice = getSubscriptionPrice() - baseDiscountAmount
-        } else {
-          fullPrice =
-            getSubscriptionPrice() - getSubscriptionPrice() * preferedDiscount
-        }
+        fullPrice = subscriptionPrice - subscriptionPrice * preferedDiscount
       }
 
       setCardPrice(showMonthlyPrice ? fullPrice / duration.id : fullPrice)
@@ -351,21 +334,9 @@ const SubscriptionCard = ({
         : discountAmount
 
       if (discountKind.id === "MONEY") {
-        if (baseDiscountAmount && baseDiscountAmount > preferedDiscount) {
-          fullPrice = getSubscriptionPrice() - baseDiscountAmount
-        } else {
-          fullPrice = getSubscriptionPrice() - preferedDiscount
-        }
+        fullPrice = subscriptionPrice - preferedDiscount
       } else {
-        if (
-          baseDiscountAmount &&
-          baseDiscountAmount > getSubscriptionPrice() * preferedDiscount
-        ) {
-          fullPrice = getSubscriptionPrice() - baseDiscountAmount
-        } else {
-          fullPrice =
-            getSubscriptionPrice() - getSubscriptionPrice() * preferedDiscount
-        }
+        fullPrice = subscriptionPrice - subscriptionPrice * preferedDiscount
       }
 
       setCardPrice(showMonthlyPrice ? fullPrice / duration.id : fullPrice)
@@ -393,6 +364,7 @@ const SubscriptionCard = ({
 
   return (
     <div className={styles.subscription}>
+      {order === 3 && <div className={styles.profitable}>выгодно</div>}
       <span className={styles.duration}>{duration.id} МЕС</span>
       {isPromoPending ? (
         <div className={styles.loading} />
@@ -401,7 +373,18 @@ const SubscriptionCard = ({
           <div className={styles.price_wrapper}>
             <span className={styles.price_left}>
               $
-              {Number.isInteger(cardPrice) ? (
+              {order === 0 && promoForSubmit === DEFAULT_CRYPTON_PROMO ? (
+                Number.isInteger(getSubscriptionPrice()) ? (
+                  getSubscriptionPrice()
+                ) : (
+                  <>
+                    {getSubscriptionPrice().toFixed(2).split(".")[0]}
+                    <span className={styles.price_fractional}>
+                      .{getSubscriptionPrice().toFixed(2).split(".")[1]}
+                    </span>
+                  </>
+                )
+              ) : Number.isInteger(cardPrice) ? (
                 cardPrice
               ) : (
                 <>
@@ -424,7 +407,8 @@ const SubscriptionCard = ({
               </span>
             )}
           </div>
-          {duration.id === 1 &&
+          {promoForSubmit !== DEFAULT_CRYPTON_PROMO &&
+            duration.id === 1 &&
             discountKind &&
             discountAmount !== 0 &&
             discounts && (

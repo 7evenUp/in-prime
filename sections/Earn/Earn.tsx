@@ -106,14 +106,15 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
 
       <Categories />
 
-      <h1 className="app__container__earn__title">
-        Зарабатывайте <br /> на криптовалюте
+      <h1 className={styles.title}>
+        Зарабатывайте на крипте
+        <br />
+        <span>проще</span>
       </h1>
 
-      <div className="app__container__earn__description">
-        Prime – приватное сообщество с авторским контентом по заработку в
-        криптовалюте. Наша команда отбирает лучшие события, подготавливает
-        детальные инструкции и помогает вам получать прибыль.
+      <div className={styles.description}>
+        Получите в Prime понятный план действий и поддержку от наших экспертов
+        для извлечения максимальной прибыли всего за пару кликов.
       </div>
       <div className={styles.footer}>
         <button className={styles.button1} onClick={scrollToGuarantee}>

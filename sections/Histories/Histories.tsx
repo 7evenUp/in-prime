@@ -19,7 +19,7 @@ const Histories = () => {
   return (
     <section className={styles.container} id="histories">
       <div className={styles.header}>
-        <h2 className={styles.title}>Истории успеха</h2>
+        <h2 className={styles.title}>ИХ ЖИЗНЬ ИЗМЕНИЛАСЬ</h2>
         <div className={styles.navigation}>
           <button
             className={styles.arrow_btn}

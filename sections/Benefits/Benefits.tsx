@@ -3,8 +3,9 @@ import React from "react"
 const Benefits = () => {
   return (
     <>
-      <div className="app__container__benefits-gradient" />
       <section className="app__container__benefits" id="benefits">
+        <div className="app__container__benefits-gradient" />
+
         <div className="app__container__benefits__title-logo">
           <h2 className="app__container__benefits__title-logo__title">
             Используйте наши преимущества на максимум

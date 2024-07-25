@@ -599,6 +599,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 
   @media (max-width: 940px) {
     flex-direction: column-reverse;
@@ -1166,4 +1167,14 @@
   @media (max-width: 460px) {
     width: 320px;
   }
+}
+
+.error_message {
+  position: absolute;
+  font-family: "Resist Sans", sans-serif;
+  font-size: 14px;
+  color: #ff4a7a;
+  bottom: -8px;
+  transform: translateY(100%);
+  max-width: 300px;
 }

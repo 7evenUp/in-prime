@@ -20,7 +20,10 @@ const Guarantee = () => {
   return (
     <section className={styles.section} id="guarantee">
       <div className={styles.container}>
-        <h2 className={styles.title}>Гарантируем, что вы окупите подписку</h2>
+        <h2 className={styles.title}>
+          <span className={styles.title_accent}>Гарантируем</span>, что вы
+          окупите подписку
+        </h2>
         <p className={styles.text}>
           Мы выделяем криптособытия с гарантированным заработком, чтобы вы точно
           получили прибыль и окупили подписку.

@@ -117,21 +117,9 @@ const BuySubscriptionDialog = ({
         let fullPrice
 
         if (discountKind.id === "MONEY") {
-          if (baseDiscountAmount && baseDiscountAmount > preferedDiscount) {
-            fullPrice = getSubscriptionPrice() - baseDiscountAmount
-          } else {
-            fullPrice = getSubscriptionPrice() - preferedDiscount
-          }
+          fullPrice = subscriptionPrice - preferedDiscount
         } else {
-          if (
-            baseDiscountAmount &&
-            baseDiscountAmount > getSubscriptionPrice() * preferedDiscount
-          ) {
-            fullPrice = getSubscriptionPrice() - baseDiscountAmount
-          } else {
-            fullPrice =
-              getSubscriptionPrice() - getSubscriptionPrice() * preferedDiscount
-          }
+          fullPrice = subscriptionPrice - subscriptionPrice * preferedDiscount
         }
 
         setTotalPrice(fullPrice)
@@ -152,6 +140,7 @@ const BuySubscriptionDialog = ({
   const {
     mutateAsync: mutatePromoValidation,
     isError: isPromoError,
+    error: promoError,
     isSuccess: isPromoSuccess,
     isPending: isPromoPending,
     reset: resetPromo,
@@ -169,7 +158,14 @@ const BuySubscriptionDialog = ({
       }),
   })
 
-  const { mutateAsync, isSuccess, reset, isPending } = useMutation({
+  const {
+    mutateAsync,
+    isSuccess,
+    reset,
+    isPending,
+    isError: isBuyError,
+    error: buyError,
+  } = useMutation({
     mutationFn: (args: PaymentRequestArgs) =>
       axios.post<
         PaymentRequestArgs & { paymentId: number; paymentUrl: string }
@@ -207,13 +203,6 @@ const BuySubscriptionDialog = ({
       failUrl: "https://id.crypton.xyz/payment-error",
       email,
       subscriptionId: id,
-    }
-
-    if (localStorage.getItem("referral")) {
-      payload = {
-        ...payload,
-        referral_code: localStorage.getItem("referral"),
-      }
     }
 
     if (referral) {
@@ -304,6 +293,10 @@ const BuySubscriptionDialog = ({
 
       setIsPromoReferral(isReferralCode)
 
+      const subscriptionPrice = baseDiscountAmount
+        ? getSubscriptionPrice() - baseDiscountAmount
+        : getSubscriptionPrice()
+
       const matchedDiscount = discounts.find((el) => el.subscriptionId === id)
 
       const preferedDiscount = matchedDiscount
@@ -314,22 +307,9 @@ const BuySubscriptionDialog = ({
       setPromoWasUpdated(true)
 
       if (discountKind.id === "MONEY") {
-        if (baseDiscountAmount && baseDiscountAmount > preferedDiscount) {
-          setTotalPrice(getSubscriptionPrice() - baseDiscountAmount)
-        } else {
-          setTotalPrice(getSubscriptionPrice() - preferedDiscount)
-        }
+        setTotalPrice(subscriptionPrice - preferedDiscount)
       } else {
-        if (
-          baseDiscountAmount &&
-          baseDiscountAmount > getSubscriptionPrice() * preferedDiscount
-        ) {
-          setTotalPrice(getSubscriptionPrice() - baseDiscountAmount)
-        } else {
-          setTotalPrice(
-            getSubscriptionPrice() - getSubscriptionPrice() * preferedDiscount
-          )
-        }
+        setTotalPrice(subscriptionPrice - subscriptionPrice * preferedDiscount)
       }
     } catch {}
   }
@@ -359,6 +339,10 @@ const BuySubscriptionDialog = ({
       setIsCryptonReferralSet(true)
       setIsPromoReferral(isReferralCode)
 
+      const subscriptionPrice = baseDiscountAmount
+        ? getSubscriptionPrice() - baseDiscountAmount
+        : getSubscriptionPrice()
+
       const matchedDiscount = discounts.find((el) => el.subscriptionId === id)
 
       const preferedDiscount = matchedDiscount
@@ -369,22 +353,9 @@ const BuySubscriptionDialog = ({
       setPromoWasUpdated(true)
 
       if (discountKind.id === "MONEY") {
-        if (baseDiscountAmount && baseDiscountAmount > preferedDiscount) {
-          setTotalPrice(getSubscriptionPrice() - baseDiscountAmount)
-        } else {
-          setTotalPrice(getSubscriptionPrice() - preferedDiscount)
-        }
+        setTotalPrice(subscriptionPrice - preferedDiscount)
       } else {
-        if (
-          baseDiscountAmount &&
-          baseDiscountAmount > getSubscriptionPrice() * preferedDiscount
-        ) {
-          setTotalPrice(getSubscriptionPrice() - baseDiscountAmount)
-        } else {
-          setTotalPrice(
-            getSubscriptionPrice() - getSubscriptionPrice() * preferedDiscount
-          )
-        }
+        setTotalPrice(subscriptionPrice - subscriptionPrice * preferedDiscount)
       }
     } catch {}
   }
@@ -758,11 +729,62 @@ const BuySubscriptionDialog = ({
                       </div>
                       {isPromoError && (
                         <span style={{ color: "#ff4a7a", fontSize: 12 }}>
-                          Такого промокода не существует
+                          {
+                            /* @ts-expect-error No-Error-Types */
+                            promoError?.response.status === 400
+                              ? /* @ts-expect-error No-Error-Types */
+                                promoError?.response.data.code ===
+                                "discount_not_found"
+                                ? "Такого промокода не существует"
+                                : /* @ts-expect-error No-Error-Types */
+                                promoError?.response.data.code ===
+                                  "discount_for_non_subscribed_only"
+                                ? "Промокод доступен только для аккаунтов без активной подписки"
+                                : /* @ts-expect-error No-Error-Types */
+                                promoError?.response.data.code ===
+                                  "discount_for_new_users_only"
+                                ? "Промокод доступен только новым пользователям"
+                                : /* @ts-expect-error No-Error-Types */
+                                promoError?.response.data.code ===
+                                  "discount_code_already_used"
+                                ? "Промокод уже был использован"
+                                : /* @ts-expect-error No-Error-Types */
+                                promoError?.response.data.code ===
+                                  "discount_code_validation_error"
+                                ? "Не можем провалидировать промокод"
+                                : "Произошла непредвиденная ошибка"
+                              : "Произошла непредвиденная ошибка"
+                          }
                         </span>
                       )}
                       <span className={styles.support}>
-                        Любые вопросы задавайте{" "}
+                        Изучите{" "}
+                        <Dialog.Close
+                          style={{
+                            background: "transparent",
+                            border: "none",
+                            padding: 0,
+                            cursor: "pointer",
+                            fontSize: 12,
+                          }}
+                        >
+                          <a
+                            className={styles.support_link}
+                            onClick={() => {
+                              window.scrollTo({
+                                top:
+                                  document.getElementById("testimonials")
+                                    .offsetTop -
+                                  document.getElementById("header")
+                                    .clientHeight,
+                                behavior: "smooth",
+                              })
+                            }}
+                          >
+                            отзывы
+                          </a>
+                        </Dialog.Close>{" "}
+                        или задайте любые вопросы{" "}
                         <a
                           href="https://t.me/crypton_support"
                           target="_blank"
@@ -789,6 +811,37 @@ const BuySubscriptionDialog = ({
                     </button>
                     {isPending && <LoaderSmall />}
                   </div>
+
+                  {isBuyError && (
+                    <span className={styles.error_message}>
+                      {
+                        /* @ts-expect-error No-Error-Types */
+                        buyError?.response.status === 400
+                          ? /* @ts-expect-error No-Error-Types */
+                            buyError?.response.data.code ===
+                            "discount_not_found"
+                            ? "Такого промокода не существует"
+                            : /* @ts-expect-error No-Error-Types */
+                            buyError?.response.data.code ===
+                              "discount_for_non_subscribed_only"
+                            ? "Используемый промокод доступен только для пользователей без активной подписки"
+                            : /* @ts-expect-error No-Error-Types */
+                            buyError?.response.data.code ===
+                              "discount_for_new_users_only"
+                            ? "Промокод доступен только новым пользователям"
+                            : /* @ts-expect-error No-Error-Types */
+                            buyError?.response.data.code ===
+                              "discount_code_already_used"
+                            ? "Промокод уже был использован"
+                            : /* @ts-expect-error No-Error-Types */
+                            buyError?.response.data.code ===
+                              "discount_code_validation_error"
+                            ? "Не можем провалидировать промокод"
+                            : "Произошла непредвиденная ошибка"
+                          : "Произошла непредвиденная ошибка"
+                      }
+                    </span>
+                  )}
 
                   <div className={styles.total_container}>
                     <span className={styles.total}>
@@ -849,12 +902,6 @@ const PaymentStatus = ({
     },
     refetchInterval: 5000,
   })
-
-  useEffect(() => {
-    if (status === "COMPLETED") {
-      localStorage.removeItem("referral")
-    }
-  }, [status])
 
   if (isLoading || status === "PENDING") {
     return (

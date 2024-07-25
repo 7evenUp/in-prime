@@ -210,9 +210,9 @@ const Home = (props) => {
 
           <div className="app__container__examples" id="examples">
             <div className="app__container__examples__title">
-              Реальные
+              НАШИ ПОДПИСЧИКИ
               <br />
-              примеры заработка
+              УЖЕ ЗАРАБОТАЛИ
             </div>
             <Examples resolution={resolution} />
           </div>
@@ -225,9 +225,9 @@ const Home = (props) => {
 
           {/* <LoyaltySystem resolution={resolution} /> */}
 
-          <BuySubscription tariffs={tariffs} resolution={resolution} />
+          {/* <BuySubscription tariffs={tariffs} resolution={resolution} /> */}
 
-          {/* <BuySubscriptionPromo tariffs={tariffs} resolution={resolution} /> */}
+          <BuySubscriptionPromo tariffs={tariffs} resolution={resolution} />
 
           <Testimonials resolution={resolution} />
           <Histories />

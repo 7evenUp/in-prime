@@ -1,19 +1,13 @@
 import React, { useEffect, useState } from "react"
-import { useRouter } from "next/router"
 import Image from "next/image"
+import { useRouter } from "next/router"
 import { useMutation, useQuery } from "@tanstack/react-query"
 import axios from "axios"
 import * as HoverCard from "@radix-ui/react-hover-card"
 import * as Popover from "@radix-ui/react-popover"
 import * as Switch from "@radix-ui/react-switch"
 import clsx from "clsx"
-
 import Countdown from "@/components/countdown"
-
-import SubscriptionImage1 from "@/public/images/png/buy-subscription/subscription1.png"
-import SubscriptionImage2 from "@/public/images/png/buy-subscription/subscription2.png"
-import SubscriptionImage3 from "@/public/images/png/buy-subscription/subscription3.png"
-import SubscriptionImage4 from "@/public/images/png/buy-subscription/subscription4.png"
 
 import SubscribeArrow from "@/public/images/jsx/subscribe/arrow"
 
@@ -27,6 +21,12 @@ import styles from "./BuySubscriptionPromo.module.scss"
 const PRIME_SUBSCRIPTION_KIND_ID = 1
 const ID_URL = process.env.NEXT_PUBLIC_ID_URL + "/api/v1/"
 const SPECIAL_PROMO = process.env.NEXT_PUBLIC_PROMO
+const DEFAULT_CRYPTON_PROMO = "CRYPTON"
+
+// Переменные на период акции 25.07-03.08
+const START_DATE = 1721907000000 // 25.07.2024 14:30:00
+const END_DATE = 1722718800000 // 03.08.2024 00:00:00
+const CASHBACK_REMAINS = 99
 
 const BuySubscriptionPromo = ({
   tariffs,
@@ -40,7 +40,7 @@ const BuySubscriptionPromo = ({
   }
   resolution: Resolution
 }) => {
-  const [showMonthlyPrice, setShowMonthlyPrice] = useState(false)
+  const [showMonthlyPrice, setShowMonthlyPrice] = useState(true)
   const [promoForSubmit, setPromoForSubmit] = useState("")
   const [isPromoReferral, setIsPromoReferral] = useState(false)
   const [discountAmount, setDiscountAmount] = useState(0)
@@ -67,13 +67,12 @@ const BuySubscriptionPromo = ({
     queryKey: ["subscriptions"],
     queryFn: async () => {
       const response = await axios.get<Subscription[]>(
-        ID_URL + "subscriptions/get-active/",
-        { withCredentials: true }
+        ID_URL + "subscriptions/get-active/"
       )
 
-      return response.data
-        .filter((el) => el.isActive && el.kindId === PRIME_SUBSCRIPTION_KIND_ID)
-        .sort((a, b) => a.duration.id - b.duration.id)
+      return response.data.filter(
+        (el) => el.isActive && el.kindId === PRIME_SUBSCRIPTION_KIND_ID
+      )
     },
   })
 
@@ -98,9 +97,8 @@ const BuySubscriptionPromo = ({
   useEffect(() => {
     setTimerProgress(
       Math.round(
-        Date.now() >= 1713733200000
-          ? ((Date.now() - 1713733200000) / (1714338000000 - 1713733200000)) *
-              100
+        Date.now() >= START_DATE
+          ? ((Date.now() - START_DATE) / (END_DATE - START_DATE)) * 100
           : 0
       )
     )
@@ -110,17 +108,16 @@ const BuySubscriptionPromo = ({
     const url = new URL(location.href)
     const refCode = url.searchParams.get("ref")
 
-    if (refCode) {
-      localStorage.setItem("referral", refCode)
-    }
-
     if (SPECIAL_PROMO) {
       setPromoForSubmit(SPECIAL_PROMO)
       return
     }
     if (refCode) {
       setPromoForSubmit(refCode)
+      return
     }
+
+    setPromoForSubmit(DEFAULT_CRYPTON_PROMO)
   }, [])
 
   useEffect(() => {
@@ -172,7 +169,9 @@ const BuySubscriptionPromo = ({
         <div className="app__container__subscribe__back__right-gradient" />
       </div>
       <div className="app__container__subscribe__content">
-        <h1 className={styles.heading}>Ограниченное предложение</h1>
+        <div className="app__container__subscribe__content__header">
+          <div className="app__container__subscribe__content__title" />
+        </div>
 
         <div className={styles.switch}>
           <span className={styles.show_price}>Показать цену:</span>
@@ -268,7 +267,7 @@ const BuySubscriptionPromo = ({
           <div className="app__container__subscribe__content__timer__countdown">
             <Countdown
               className="app__container__subscribe__content__timer__countdown__counter"
-              date={1714338000000}
+              date={END_DATE}
             />
           </div>
           <div className="app__container__subscribe__content__timer__countdown__names">
@@ -285,6 +284,22 @@ const BuySubscriptionPromo = ({
               <div className="app__container__subscribe__content__timer__countdown__names__block__text">
                 секунд
               </div>
+            </div>
+          </div>
+        </div>
+
+        <div className={styles.first_100}>
+          <div className={styles.first_100_card}>
+            <p className={styles.first_100_card_top}>
+              Первые <span>99 пользователей</span>, купивших подписку во время
+              акции, получат кэшбэк $10 на баланс
+            </p>
+          </div>
+          <div className={styles.first_100_card}>
+            <div className={styles.first_100_remains}>
+              <span>Осталось:</span>
+              <div className={styles.first_100_separator} />
+              <span>{CASHBACK_REMAINS}</span>
             </div>
           </div>
         </div>
@@ -347,7 +362,7 @@ const SubscriptionCard = ({
   const [cardPrice, setCardPrice] = useState(0)
 
   const getSubscriptionPrice = () => {
-    return individualPrice === undefined ? price : individualPrice
+    return individualPrice ? individualPrice : price
   }
 
   useEffect(() => {
@@ -364,21 +379,9 @@ const SubscriptionCard = ({
         : discountAmount
 
       if (discountKind.id === "MONEY") {
-        if (baseDiscountAmount && baseDiscountAmount > preferedDiscount) {
-          fullPrice = getSubscriptionPrice() - baseDiscountAmount
-        } else {
-          fullPrice = getSubscriptionPrice() - preferedDiscount
-        }
+        fullPrice = subscriptionPrice - preferedDiscount
       } else {
-        if (
-          baseDiscountAmount &&
-          baseDiscountAmount > getSubscriptionPrice() * preferedDiscount
-        ) {
-          fullPrice = getSubscriptionPrice() - baseDiscountAmount
-        } else {
-          fullPrice =
-            getSubscriptionPrice() - getSubscriptionPrice() * preferedDiscount
-        }
+        fullPrice = subscriptionPrice - subscriptionPrice * preferedDiscount
       }
 
       setCardPrice(showMonthlyPrice ? fullPrice / duration.id : fullPrice)
@@ -403,21 +406,9 @@ const SubscriptionCard = ({
         : discountAmount
 
       if (discountKind.id === "MONEY") {
-        if (baseDiscountAmount && baseDiscountAmount > preferedDiscount) {
-          fullPrice = getSubscriptionPrice() - baseDiscountAmount
-        } else {
-          fullPrice = getSubscriptionPrice() - preferedDiscount
-        }
+        fullPrice = subscriptionPrice - preferedDiscount
       } else {
-        if (
-          baseDiscountAmount &&
-          baseDiscountAmount > getSubscriptionPrice() * preferedDiscount
-        ) {
-          fullPrice = getSubscriptionPrice() - baseDiscountAmount
-        } else {
-          fullPrice =
-            getSubscriptionPrice() - getSubscriptionPrice() * preferedDiscount
-        }
+        fullPrice = subscriptionPrice - subscriptionPrice * preferedDiscount
       }
 
       setCardPrice(showMonthlyPrice ? fullPrice / duration.id : fullPrice)
@@ -444,55 +435,52 @@ const SubscriptionCard = ({
   }
 
   return (
-    <div
-      className={clsx(
-        styles.subscription,
-        order === 2 && styles.subscription_3
-      )}
-    >
-      {order === 2 && (
-        <>
-          <p className={styles.most_popular}>
-            Самый популярный тариф <sup>*</sup>
-          </p>
-          <p className={styles.most_popular_description}>
-            <sup>*</sup>
-            во время прошлой акции подарки из этого тарифа закончились в первые
-            несколько дней
-          </p>
-        </>
-      )}
-      <div className={styles.subscription_header}>
-        <span className={styles.duration}>{duration.id} МЕС</span>
-        <div className={styles.remains}>
-          <span>ОСТАЛОСЬ:</span>
-          <div>
-            {order === 0 && Math.round(120)}
-            {order === 1 && Math.round(70)}
-            {order === 2 && Math.round(40)}
-            {order === 3 && Math.round(15)}
-            <BonusesIcon />
-          </div>
-        </div>
-      </div>
+    <div className={styles.subscription}>
+      {order === 3 && <div className={styles.profitable}>выгодно</div>}
+      <span className={styles.duration}>{duration.id} МЕС</span>
       {isPromoPending ? (
         <div className={styles.loading} />
       ) : (
-        <div className={styles.price}>
-          <span className={styles.price_left}>
-            $
-            {Number.isInteger(cardPrice) ? (
-              cardPrice
-            ) : (
-              <>
-                {cardPrice.toFixed(2).split(".")[0]}
-                <span className={styles.price_fractional}>
-                  .{cardPrice.toFixed(2).split(".")[1]}
-                </span>
-              </>
+        <div className={clsx(styles.price, order === 0 && styles.price_0)}>
+          <div className={styles.price_wrapper}>
+            <span className={styles.price_left}>
+              $
+              {order === 0 && promoForSubmit === DEFAULT_CRYPTON_PROMO ? (
+                Number.isInteger(getSubscriptionPrice()) ? (
+                  getSubscriptionPrice()
+                ) : (
+                  <>
+                    {getSubscriptionPrice().toFixed(2).split(".")[0]}
+                    <span className={styles.price_fractional}>
+                      .{getSubscriptionPrice().toFixed(2).split(".")[1]}
+                    </span>
+                  </>
+                )
+              ) : Number.isInteger(cardPrice) ? (
+                cardPrice
+              ) : (
+                <>
+                  {cardPrice.toFixed(2).split(".")[0]}
+                  <span className={styles.price_fractional}>
+                    .{cardPrice.toFixed(2).split(".")[1]}
+                  </span>
+                </>
+              )}
+            </span>
+            {showMonthlyPrice && (
+              <span
+                className={clsx(
+                  Number.isInteger(cardPrice)
+                    ? styles.price_month
+                    : styles.price_month_fractional
+                )}
+              >
+                / мес
+              </span>
             )}
-          </span>
-          {duration.id === 1 &&
+          </div>
+          {promoForSubmit !== DEFAULT_CRYPTON_PROMO &&
+            duration.id === 1 &&
             discountKind &&
             discountAmount !== 0 &&
             discounts && (
@@ -501,18 +489,12 @@ const SubscriptionCard = ({
                   -
                   {showMonthlyPrice
                     ? Math.round(
-                        100 -
-                          (cardPrice * 100) /
-                            (getSubscriptionPrice() / duration.id)
+                        100 - (cardPrice * 100) / (price / duration.id)
                       )
-                    : Math.round(
-                        100 - (cardPrice * 100) / getSubscriptionPrice()
-                      )}
+                    : Math.round(100 - (cardPrice * 100) / price)}
                   %
                 </span>
-                <span className={styles.price_discount_amount}>
-                  ${getSubscriptionPrice()}
-                </span>
+                <span className={styles.price_discount_amount}>${price}</span>
               </div>
             )}
           {baseDiscountAmount && (
@@ -522,159 +504,30 @@ const SubscriptionCard = ({
                 {discountKind && discountAmount && discounts
                   ? showMonthlyPrice
                     ? Math.round(
-                        100 -
-                          (cardPrice * 100) /
-                            (getSubscriptionPrice() / duration.id)
+                        100 - (cardPrice * 100) / (price / duration.id)
                       )
-                    : Math.round(
-                        100 - (cardPrice * 100) / getSubscriptionPrice()
-                      )
+                    : Math.round(100 - (cardPrice * 100) / price)
                   : baseDiscount}
                 %
               </span>
               <span className={styles.price_discount_amount}>
-                $
-                {showMonthlyPrice
-                  ? getSubscriptionPrice() / duration.id
-                  : getSubscriptionPrice()}
+                ${showMonthlyPrice ? price / duration.id : price}
               </span>
             </div>
           )}
         </div>
       )}
-      <ul className={clsx(styles.bonuses, styles.bonuses_extra)}>
+      <p className={styles.text_before_bonuses}>
         {order === 0 && (
-          <li className={styles.bonus}>
-            <p className={styles.bonus_text1}>
-              Все{" "}
-              <button onClick={scrollToOpportunities}>возможности Prime</button>
-            </p>
-          </li>
-        )}
-        {order === 1 && (
-          <li className={styles.bonus}>
-            <p className={styles.bonus_text}>Все, что входит в 1 месяц</p>
-          </li>
-        )}
-        {order === 2 && (
-          <li className={styles.bonus}>
-            <p className={styles.bonus_text}>Все, что входит в 3 месяца</p>
-          </li>
-        )}
-        {order === 3 && (
-          <li className={styles.bonus}>
-            <p className={styles.bonus_text}>Все, что входит в 6 месяцев</p>
-          </li>
-        )}
-        {order === 0 && resolution === "sm"
-          ? null
-          : benefits.map((benefit) =>
-              benefit.file ? (
-                resolution === "sm" ? (
-                  <Popover.Root key={benefit.id}>
-                    <Popover.Trigger className={styles.PopoverTrigger}>
-                      <li className={styles.bonus}>
-                        <p className={styles.bonus_text}>
-                          {benefit.translations.ru.name}
-                        </p>
-                      </li>
-                    </Popover.Trigger>
-                    <Popover.Portal>
-                      <Popover.Content
-                        className={styles.PopoverContent}
-                        sideOffset={5}
-                      >
-                        <img
-                          className={styles.PopoverImage}
-                          src={benefit.file}
-                          alt={benefit.translations.ru.name}
-                        />
-                      </Popover.Content>
-                    </Popover.Portal>
-                  </Popover.Root>
-                ) : (
-                  <HoverCard.Root key={benefit.id} openDelay={150}>
-                    <HoverCard.Trigger className={styles.HoverCardTrigger}>
-                      <li className={styles.bonus}>
-                        <p className={styles.bonus_text}>
-                          {benefit.translations.ru.name}
-                        </p>
-                      </li>
-                    </HoverCard.Trigger>
-                    <HoverCard.Portal>
-                      <HoverCard.Content
-                        className={styles.HoverCardContent}
-                        sideOffset={5}
-                        side="right"
-                      >
-                        <img
-                          className={styles.HoverCardImage}
-                          src={benefit.file}
-                          alt={benefit.translations.ru.name}
-                        />
-                      </HoverCard.Content>
-                    </HoverCard.Portal>
-                  </HoverCard.Root>
-                )
-              ) : benefit.translations.ru.description !== null ? (
-                <Popover.Root key={benefit.id}>
-                  <Popover.Trigger className={styles.PopoverTriggerDescription}>
-                    <li className={styles.bonus}>
-                      <p className={styles.bonus_text}>
-                        {benefit.translations.ru.name}
-                        <NavArrowIcon />
-                      </p>
-                    </li>
-                  </Popover.Trigger>
-                  <Popover.Portal>
-                    <Popover.Content
-                      className={styles.PopoverContentDescription}
-                      sideOffset={5}
-                      side="bottom"
-                    >
-                      {benefit.translations.ru.description}
-                    </Popover.Content>
-                  </Popover.Portal>
-                </Popover.Root>
-              ) : (
-                <li key={benefit.id} className={styles.bonus}>
-                  <p className={styles.bonus_text}>
-                    {benefit.translations.ru.name}
-                  </p>
-                </li>
-              )
-            )}
-        {order === 1 && (
           <>
-            <li className={styles.bonus}>
-              <p className={styles.bonus_text}>10 бонусных дней подписки</p>
-            </li>
-            <li className={styles.bonus}>
-              <p className={styles.bonus_text}>Кружка и носки Crypton 2024</p>
-            </li>
+            Все{" "}
+            <button onClick={scrollToOpportunities}>возможности Prime</button>
           </>
         )}
-        {order === 2 && (
-          <>
-            <li className={styles.bonus}>
-              <p className={styles.bonus_text}>14 бонусных дней подписки</p>
-            </li>
-            <li className={styles.bonus}>
-              <p className={styles.bonus_text}>Футболка Crypton 2024</p>
-            </li>
-          </>
-        )}
-        {order === 3 && (
-          <>
-            <li className={styles.bonus}>
-              <p className={styles.bonus_text}>28 бонусных дней подписки</p>
-            </li>
-            <li className={styles.bonus}>
-              <p className={styles.bonus_text}>Худи Crypton 2024</p>
-            </li>
-          </>
-        )}
-      </ul>
+        {order === 1 && "Все, что входит в 1 месяц"}
+        {order === 2 && "Все, что входит в 3 месяца"}
+        {order === 3 && "Все, что входит в 6 месяцев"}
+      </p>
       <div className={styles.bonuses_heading}>
         <div className={styles.bonuses_icon}>
           <svg
@@ -698,229 +551,135 @@ const SubscriptionCard = ({
             />
           </svg>
         </div>
-        <span className={styles.bonuses_heading_text}>Только до 28 апреля</span>
+        <span className={styles.bonuses_heading_text}>ЭКСТРА БОНУСЫ</span>
       </div>
-      <ul className={styles.bonuses}>
-        {order === 0 && (
-          <>
-            <li className={styles.bonus} style={{ color: "#4ddfd0" }}>
-              <p className={styles.bonus_text}>10 бонусных дней подписки</p>
-            </li>
-            <li className={styles.bonus}>
-              <p className={styles.bonus_text}>Носки Crypton 2024</p>
-            </li>
-          </>
+      <ul
+        className={clsx(
+          styles.bonuses,
+          (order === 1 || order === 2 || order === 3) && styles.bonuses__small
         )}
-        {order === 1 && (
-          <>
-            <Popover.Root>
-              <Popover.Trigger className={styles.PopoverTriggerDescription}>
-                <li className={styles.bonus}>
-                  <p className={styles.bonus_text}>
-                    <span>
-                      <span className={styles.beige}>Steam-баланс 33$</span> или{" "}
-                      <span className={styles.beige}>
-                        Telegram Premium 12 мес
-                      </span>
-                    </span>
-                    <NavArrowIcon />
-                  </p>
-                </li>
-              </Popover.Trigger>
-              <Popover.Portal>
-                <Popover.Content
-                  className={styles.PopoverContentDescription}
-                  sideOffset={5}
-                  side="bottom"
-                >
-                  После получения подписки на 3 месяца вы сможете выбрать один
-                  из подарков: пополнения вашего Steam баланса на $33 или
-                  подписку на Telegram Premium длительностью в 12 месяцев
-                </Popover.Content>
-              </Popover.Portal>
-            </Popover.Root>
-
-            {/* <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className={styles.plus_icon}
-            >
-              <circle cx="12" cy="12" r="11.5" stroke="#FFCD9F" />
-              <path
-                d="M11.3933 18V12.6188H6V11.3812H11.3663V6H12.6067V11.3812H18V12.6188H12.6337V18H11.3933Z"
-                fill="#FFCD9F"
-              />
-            </svg> */}
-
-            {/* <li className={styles.bonus}>
-              <p className={styles.bonus_text}>10 бонусных дней подписки</p>
-            </li>
-            <li className={styles.bonus}>
-              <p className={styles.bonus_text}>Кружка и носки Crypton 2024</p>
-            </li> */}
-          </>
-        )}
-        {order === 2 && (
-          <>
-            <Popover.Root>
-              <Popover.Trigger className={styles.PopoverTriggerDescription}>
-                <li className={styles.bonus}>
-                  <p className={styles.bonus_text}>
-                    <span>
-                      <span className={styles.purple}>Safepal X1</span> или{" "}
-                      <span className={styles.purple}>OneKey Mini</span>
-                    </span>
-                    <NavArrowIcon />
-                  </p>
-                </li>
-              </Popover.Trigger>
-              <Popover.Portal>
-                <Popover.Content
-                  className={styles.PopoverContentDescription}
-                  sideOffset={5}
-                  side="bottom"
-                >
-                  После получения подписки на 6 месяцев вам нужно будет выбрать
-                  один из холодных кошельков для безопасного хранения вашей
-                  криптовалюты:{" "}
-                  <a
-                    href="https://bip39.ru/tproduct/645763038-446759349861-safepal-x1"
-                    target="_blank"
-                  >
-                    Safepal X1
-                  </a>{" "}
-                  или{" "}
-                  <a
-                    href="https://bip39.ru/tproduct/508877051-674104332851-onekey-mini"
-                    target="_blank"
-                  >
-                    OneKey Mini
-                  </a>{" "}
-                </Popover.Content>
-              </Popover.Portal>
-            </Popover.Root>
-
-            {/* <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className={styles.plus_icon}
-            >
-              <circle cx="12" cy="12" r="11.5" stroke="#BB44CC" />
-              <path
-                d="M11.3933 18V12.6188H6V11.3812H11.3663V6H12.6067V11.3812H18V12.6188H12.6337V18H11.3933Z"
-                fill="#BB44CC"
-              />
-            </svg> */}
-
-            {/* <li className={styles.bonus}>
-              <p className={styles.bonus_text}>14 бонусных дней подписки</p>
-            </li>
-            <li className={styles.bonus}>
-              <p className={styles.bonus_text}>Футболка Crypton 2024</p>
-            </li> */}
-          </>
-        )}
-        {order === 3 && (
-          <>
-            <Popover.Root>
-              <Popover.Trigger className={styles.PopoverTriggerDescription}>
-                <li className={styles.bonus}>
-                  <p className={styles.bonus_text}>
-                    <span>
-                      <span className={styles.red}>Ledger Nano S</span> или{" "}
-                      <span className={styles.red}>
-                        Tangem Wallet Shiba Edition
-                      </span>
-                    </span>
-                    <NavArrowIcon />
-                  </p>
-                </li>
-              </Popover.Trigger>
-              <Popover.Portal>
-                <Popover.Content
-                  className={styles.PopoverContentDescription}
-                  sideOffset={5}
-                  side="bottom"
-                >
-                  После того, как вы станете обладателем подписки на 12 месяцев,
-                  вы сможете выбрать 1 из двух холодных кошельков для
-                  безопасного хранения вашей криптовалюты:{" "}
-                  <a
-                    href="https://bip39.ru/tproduct/508877051-826889378251-ledger-nano-s-transparent"
-                    target="_blank"
-                  >
-                    Ledger Nano S
-                  </a>{" "}
-                  или{" "}
-                  <a
-                    href="https://bip39.ru/tproduct/645763038-910709986411-tangem-wallet-x-shiba-3-karti"
-                    target="_blank"
-                  >
-                    Tangem Wallet
-                  </a>{" "}
-                  на 3 карты
-                </Popover.Content>
-              </Popover.Portal>
-            </Popover.Root>
-
-            {/* <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className={styles.plus_icon}
-            >
-              <circle cx="12" cy="12" r="11.5" stroke="#FF4A7A" />
-              <path
-                d="M11.3933 18V12.6188H6V11.3812H11.3663V6H12.6067V11.3812H18V12.6188H12.6337V18H11.3933Z"
-                fill="#FF4A7A"
-              />
-            </svg> */}
-
-            {/* <li className={styles.bonus}>
-              <p className={styles.bonus_text}>28 бонусных дней подписки</p>
-            </li>
-            <li className={styles.bonus}>
-              <p className={styles.bonus_text}>Худи Crypton 2024</p>
-            </li> */}
-          </>
-        )}
+      >
+        {order !== 0 &&
+          benefits.map((benefit) =>
+            benefit.file ? (
+              resolution === "sm" ? (
+                <Popover.Root key={benefit.id}>
+                  <Popover.Trigger className={styles.PopoverTrigger}>
+                    <li className={styles.bonus}>
+                      <p className={styles.bonus_text}>
+                        {benefit.translations.ru.name}
+                        <NavArrowIcon />
+                      </p>
+                    </li>
+                  </Popover.Trigger>
+                  <Popover.Portal>
+                    <Popover.Content
+                      className={styles.PopoverContent}
+                      sideOffset={5}
+                    >
+                      <img
+                        className={styles.PopoverImage}
+                        src={benefit.file}
+                        alt={benefit.translations.ru.name}
+                      />
+                      {benefit.translations.ru.description}
+                    </Popover.Content>
+                  </Popover.Portal>
+                </Popover.Root>
+              ) : (
+                <HoverCard.Root key={benefit.id} openDelay={150}>
+                  <HoverCard.Trigger className={styles.HoverCardTrigger}>
+                    <li className={styles.bonus}>
+                      <p className={styles.bonus_text}>
+                        {benefit.translations.ru.name}
+                        <NavArrowIcon />
+                      </p>
+                    </li>
+                  </HoverCard.Trigger>
+                  <HoverCard.Portal>
+                    <HoverCard.Content
+                      className={styles.HoverCardContent}
+                      sideOffset={5}
+                    >
+                      <img
+                        className={styles.HoverCardImage}
+                        src={benefit.file}
+                        alt={benefit.translations.ru.name}
+                      />
+                      {benefit.translations.ru.description}
+                    </HoverCard.Content>
+                  </HoverCard.Portal>
+                </HoverCard.Root>
+              )
+            ) : benefit.translations.ru.description !== null ? (
+              resolution === "sm" ? (
+                <Popover.Root key={benefit.id}>
+                  <Popover.Trigger className={styles.PopoverTriggerDescription}>
+                    <li className={styles.bonus}>
+                      <p className={styles.bonus_text}>
+                        {benefit.translations.ru.name}
+                        <NavArrowIcon />
+                      </p>
+                    </li>
+                  </Popover.Trigger>
+                  <Popover.Portal>
+                    <Popover.Content
+                      className={styles.PopoverContentDescription}
+                      sideOffset={5}
+                      side="bottom"
+                    >
+                      {benefit.file && (
+                        <Image
+                          src={benefit.file}
+                          alt={benefit.translations.ru.name}
+                        />
+                      )}
+                      {benefit.translations.ru.description}
+                    </Popover.Content>
+                  </Popover.Portal>
+                </Popover.Root>
+              ) : (
+                <HoverCard.Root key={benefit.id} openDelay={150}>
+                  <HoverCard.Trigger className={styles.HoverCardTrigger}>
+                    <li className={styles.bonus}>
+                      <p className={styles.bonus_text}>
+                        {benefit.translations.ru.name}
+                        <NavArrowIcon />
+                      </p>
+                    </li>
+                  </HoverCard.Trigger>
+                  <HoverCard.Portal>
+                    <HoverCard.Content
+                      className={styles.HoverCardContent}
+                      sideOffset={5}
+                    >
+                      {benefit.translations.ru.description}
+                    </HoverCard.Content>
+                  </HoverCard.Portal>
+                </HoverCard.Root>
+              )
+            ) : (
+              <li key={benefit.id} className={styles.bonus}>
+                <p className={styles.bonus_text}>
+                  {benefit.translations.ru.name}
+                </p>
+              </li>
+            )
+          )}
       </ul>
-      {order === 0 && (
-        <Image
-          src={SubscriptionImage1}
-          alt="Носки Crypton 2024"
-          className={styles.subscription_1_image}
-        />
-      )}
-      {order === 1 && (
-        <Image
-          src={SubscriptionImage2}
-          alt="Кружка и носки Crypton 2024"
-          className={styles.subscription_2_image}
-        />
-      )}
-      {order === 2 && (
-        <Image
-          src={SubscriptionImage3}
-          alt="Футболка Crypton 2024"
-          className={styles.subscription_3_image}
-        />
-      )}
-      {order === 3 && (
-        <Image
-          src={SubscriptionImage4}
-          alt="Худи Crypton 2024"
-          className={styles.subscription_4_image}
-        />
-      )}
+
+      <div className={styles.subscription_remains}>
+        {benefits.map(
+          (benefit) =>
+            benefit.remainingCount !== null && (
+              <span key={benefit.id}>
+                ОСТАЛОСЬ: {benefit.remainingCount}{" "}
+                {benefit.translations.ru.name}
+              </span>
+            )
+        )}
+      </div>
+
       <BuySubscriptionDialog
         key={discountAmount}
         selectedSubscription={subscription}
@@ -1038,31 +797,6 @@ const OldBuySubscription = ({
     </div>
   )
 }
-
-const BonusesIcon = () => (
-  <div className={styles.bonuses_icon__inverted}>
-    <svg
-      width="12"
-      height="12"
-      viewBox="0 0 12 12"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M10.6834 6.57031H6.3916V11.9998H10.6834V6.57031Z"
-        fill="currentColor"
-      />
-      <path
-        d="M5.60823 6.57031H1.31641V11.9998H5.60823V6.57031Z"
-        fill="currentColor"
-      />
-      <path
-        d="M9.34618 2.21325C9.46227 2.00055 9.52834 1.75683 9.52834 1.49791C9.52836 0.671953 8.85638 0 8.03045 0C7.41955 0 6.79447 0.315656 6.31557 0.866039C6.19705 1.00223 6.09149 1.1486 6.0002 1.30104C5.90891 1.1486 5.80334 1.00223 5.68482 0.866039C5.20592 0.315656 4.58087 0 3.96995 0C3.14401 0 2.47203 0.671977 2.47203 1.49791C2.47203 1.7568 2.53808 2.00055 2.65419 2.21325H0.614258V5.78791H5.60888V2.21325H6.39149V5.78791H11.3861V2.21325H9.34618ZM3.96995 2.21325C3.57554 2.21325 3.25463 1.89234 3.25463 1.49791C3.25463 1.10348 3.57554 0.782602 3.96995 0.782602C4.68008 0.782602 5.35524 1.509 5.55172 2.21323L3.96995 2.21325ZM8.03045 2.21325H6.44867C6.64515 1.509 7.32031 0.782625 8.03045 0.782625C8.42485 0.782625 8.74576 1.10353 8.74576 1.49794C8.74574 1.89237 8.42485 2.21325 8.03045 2.21325Z"
-        fill="currentColor"
-      />
-    </svg>
-  </div>
-)
 
 const NavArrowIcon = () => (
   <svg
