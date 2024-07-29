@@ -506,8 +506,7 @@ const SubscriptionCard = ({
               </span>
             )}
           </div>
-          {promoForSubmit !== DEFAULT_CRYPTON_PROMO &&
-            duration.id === 1 &&
+          {duration.id === 1 &&
             discountKind &&
             discountAmount !== 0 &&
             discounts && (
