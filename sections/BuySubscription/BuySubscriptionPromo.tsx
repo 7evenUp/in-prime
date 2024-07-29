@@ -472,18 +472,7 @@ const SubscriptionCard = ({
           <div className={styles.price_wrapper}>
             <span className={styles.price_left}>
               $
-              {order === 0 && promoForSubmit === DEFAULT_CRYPTON_PROMO ? (
-                Number.isInteger(getSubscriptionPrice()) ? (
-                  getSubscriptionPrice()
-                ) : (
-                  <>
-                    {getSubscriptionPrice().toFixed(2).split(".")[0]}
-                    <span className={styles.price_fractional}>
-                      .{getSubscriptionPrice().toFixed(2).split(".")[1]}
-                    </span>
-                  </>
-                )
-              ) : Number.isInteger(cardPrice) ? (
+              {Number.isInteger(cardPrice) ? (
                 cardPrice
               ) : (
                 <>
