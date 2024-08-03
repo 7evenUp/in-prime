@@ -294,9 +294,7 @@ const SubscriptionCard = ({
   }
 
   useEffect(() => {
-    const subscriptionPrice = baseDiscountAmount
-      ? getSubscriptionPrice() - baseDiscountAmount
-      : getSubscriptionPrice()
+    const price = getSubscriptionPrice()
     let fullPrice
 
     if (isValidForPromo && discountKind && discountAmount && discounts) {
@@ -307,23 +305,35 @@ const SubscriptionCard = ({
         : discountAmount
 
       if (discountKind.id === "MONEY") {
-        fullPrice = subscriptionPrice - preferedDiscount
+        if (baseDiscount) {
+          fullPrice = price - price * (baseDiscount / 100) - preferedDiscount
+        } else {
+          fullPrice = price - preferedDiscount
+        }
       } else {
-        fullPrice = subscriptionPrice - subscriptionPrice * preferedDiscount
+        if (baseDiscount) {
+          fullPrice = price - price * (baseDiscount / 100 + preferedDiscount)
+        } else {
+          fullPrice = price - price * preferedDiscount
+        }
       }
 
       setCardPrice(showMonthlyPrice ? fullPrice / duration.id : fullPrice)
     } else {
-      setCardPrice(
-        showMonthlyPrice ? subscriptionPrice / duration.id : subscriptionPrice
-      )
+      if (baseDiscount) {
+        setCardPrice(
+          showMonthlyPrice
+            ? (price - price * (baseDiscount / 100)) / duration.id
+            : price - price * (baseDiscount / 100)
+        )
+      } else {
+        setCardPrice(showMonthlyPrice ? price / duration.id : price)
+      }
     }
   }, [discountKind, discountAmount, discounts])
 
   useEffect(() => {
-    const subscriptionPrice = baseDiscountAmount
-      ? getSubscriptionPrice() - baseDiscountAmount
-      : getSubscriptionPrice()
+    const price = getSubscriptionPrice()
     let fullPrice
 
     if (isValidForPromo && discountKind && discountAmount && discounts) {
@@ -334,16 +344,30 @@ const SubscriptionCard = ({
         : discountAmount
 
       if (discountKind.id === "MONEY") {
-        fullPrice = subscriptionPrice - preferedDiscount
+        if (baseDiscount) {
+          fullPrice = price - price * (baseDiscount / 100) - preferedDiscount
+        } else {
+          fullPrice = price - preferedDiscount
+        }
       } else {
-        fullPrice = subscriptionPrice - subscriptionPrice * preferedDiscount
+        if (baseDiscount) {
+          fullPrice = price - price * (baseDiscount / 100 + preferedDiscount)
+        } else {
+          fullPrice = price - price * preferedDiscount
+        }
       }
 
       setCardPrice(showMonthlyPrice ? fullPrice / duration.id : fullPrice)
     } else {
-      setCardPrice(
-        showMonthlyPrice ? subscriptionPrice / duration.id : subscriptionPrice
-      )
+      if (baseDiscount) {
+        setCardPrice(
+          showMonthlyPrice
+            ? (price - price * (baseDiscount / 100)) / duration.id
+            : price - price * (baseDiscount / 100)
+        )
+      } else {
+        setCardPrice(showMonthlyPrice ? price / duration.id : price)
+      }
     }
   }, [showMonthlyPrice])
 
