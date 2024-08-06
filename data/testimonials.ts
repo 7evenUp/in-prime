@@ -20,6 +20,9 @@ import KlemeTin from "@/public/images/png/testimonials/kleme-tin.jpg"
 import Gregor from "@/public/images/png/testimonials/Gredor.png"
 import Daniel from "@/public/images/png/testimonials/Daniel.jpg"
 import Denis_Akimenko from "@/public/images/png/testimonials/Denis_Akimenko.jpg"
+import Ring from "@/public/images/png/testimonials/ring.png"
+import Pestov300 from "@/public/images/png/testimonials/pestov300.png"
+
 
 export const testimonialsData: Array<{
   avatar: StaticImageData | string
@@ -29,6 +32,22 @@ export const testimonialsData: Array<{
   link: string
   isNew?: boolean
 }> = [
+  {
+    avatar: Pestov300,
+    name: "pestov300",
+    text: `Я тут почти год уже, для меня прайм это помощник в мире криптовалюты, поскольку я не занимаюсь этим фулл-тайм, поэтому много времени на ресерч у меня нет, и очень удобно получать повестку о свежих, классных проектах. Из инструментов использую основной, про-чат, аналитику рынка, актуальное, календарь, новости, и также чат щелкунчиков, в основном криптон нравится из-за коммунити, которое готово помочь 24/7`,
+    date: "12.07.24",
+    link: "https://t.me/reviews_prime/382",
+    isNew: true,
+  },
+  {
+    avatar: Ring,
+    name: "Ring",
+    text: `Приобретал подписку в ноябре прошлого года. Замораживал, т к не было времени отрабатывать активности. В конце июня разморозил. Покупал преимущественно для получения поддержки по установке нод, а так же получения независимого экспертного мнения по различным проектам. Довольно удобно сделан календарь. Так же для тех, у кого нет времени самостоятельно изучать проекты можно получить готовый разбор и оценку приоритетности проекта. Имеются отдельные чаты по нодам, нфт и теханализу, что довольно удобно. Не со всем, что там пишут я согласен, но вцелом информация полезная.`,
+    date: "01.07.24",
+    link: "https://t.me/reviews_prime/374",
+    isNew: true,
+  },
   {
     avatar: Denis_Akimenko,
     name: "Denis Akimenko",
