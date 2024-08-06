@@ -186,12 +186,149 @@ import ZielChainJune24 from "@/public/images/png/examples/june/ZielChain_june24.
 import TrustWalletJune24 from "@/public/images/png/examples/june/TrustWallet_june24.png"
 import AIArenaJune24 from "@/public/images/png/examples/june/AIArena_june24.png"
 
+import AeonsAug6 from "@/public/images/png/examples/july/Aeons_aug6.png"
+import Ancient8Aug6 from "@/public/images/png/examples/july/Ancient8_aug6.png"
+import BigBallsBirdsAug6 from "@/public/images/png/examples/july/BigBallsBirds_aug6.png"
+import BoldinalsAug6 from "@/public/images/png/examples/july/Boldinals_aug6.png"
+import KuCoinAug6 from "@/public/images/png/examples/july/KuCoin_aug6.png"
+import LavaNetworkAug6 from "@/public/images/png/examples/july/LavaNetwork_aug6.png"
+import Layer3Aug6 from "@/public/images/png/examples/july/Layer3_aug6.png"
+import MocaverseAug6 from "@/public/images/png/examples/july/Mocaverse_aug6.png"
+import MutatoadsAug6 from "@/public/images/png/examples/july/Mutatoads_aug6.png"
+import ParallelAug6 from "@/public/images/png/examples/july/Parallel_aug6.png"
+import BybitAug6 from "@/public/images/png/examples/july/Bybit_aug6.png"
+
+
 import BybitDefault from "@/public/images/png/examples/common/bybit-default.png"
 import StakelandDefault from "@/public/images/png/examples/common/stakeland.png"
 import AddicktedDefault from "@/public/images/png/examples/common/addickted.png"
 
 export const examples = {
-  июнь: [
+  июль: [
+    {
+      title: "Boldinals",
+      earn: "$14 700",
+      spend: "$600",
+      category: "NFT",
+      condition:
+        "Активничать в соц. сетях для получения WL или же купить WL на ОТС за $2 000.",
+      resources: "время на выполнение активности, $600 для минта NFT.",
+      reportUrl: "crypton.xyz",
+      img: BoldinalsAug6,
+    },
+    {
+      title: "Aeons",
+      earn: "$630",
+      spend: "$130",
+      category: "NFT",
+      condition:
+        "Активность в соц. сетях, создание артов.",
+      resources: "время на выполнение активности.",
+      reportUrl: "crypton.xyz",
+      img: AeonsAug6,
+    },
+    {
+      title: "KuCoin-акции",
+      earn: "$550",
+      spend: "$10",
+      category: "Аирдропы",
+      condition:
+        "Участвовать в промоакциях биржи OKX.",
+      resources: "время для участия, свободная ликвидность для стейкинга.",
+      reportUrl: "crypton.xyz",
+      img: KuCoinAug6,
+    },
+    {
+      title: "Layer3",
+      earn: "$500",
+      spend: "от $50",
+      category: "Ретродропы",
+      condition:
+        "Выполнять квесты на платформе, собирать кубы.",
+      resources: "время на выполнение активности, затраты на комиссию.",
+      reportUrl: "crypton.xyz",
+      img: Layer3Aug6,
+    },
+    {
+      title: "Lava Network",
+      earn: "от $480",
+      spend: "$190",
+      category: "Ноды",
+      condition:
+        "Установить и поддерживать ноду, RPC.",
+      resources: "время на выполнение активности, затраты на аренду сервера.",
+      reportUrl: "crypton.xyz",
+      img: LavaNetworkAug6,
+    },
+    {
+      title: "Ancient8",
+      earn: "от $200",
+      spend: "от $20",
+      category: "Ретродропы",
+      condition:
+        "Выполнять квесты, взаимодействовать с сетью и её экосистемой.",
+      resources: "время на выполнение активности, затраты на комиссии.",
+      reportUrl: "crypton.xyz",
+      img: Ancient8Aug6,
+    },
+    {
+      title: "Mocaverse",
+      earn: "от $200",
+      spend: "от $0",
+      category: "Аирдропы",
+      condition:
+        "Выполнять квесты на платформе.",
+      resources: "время на выполнение активности.",
+      reportUrl: "crypton.xyz",
+      img: MocaverseAug6,
+    },
+    {
+      title: "Parallel",
+      earn: "$180",
+      spend: "$70",
+      category: "Game-Fi",
+      condition:
+        "Играть в игру, получать токены за победы.",
+      resources: "~$70 на покупку нужных NFT, ежедневная игра.",
+      reportUrl: "crypton.xyz",
+      img: ParallelAug6,
+    },
+    {
+      title: "Bybit-акции",
+      earn: "$150",
+      spend: "$10",
+      category: "Аирдропы",
+      condition:
+        "Участвовать в промоакциях биржи Bybit.",
+      resources: "$10 на комиссию, время для участия, свободная ликвидность для стейкинга.",
+      reportUrl: "crypton.xyz",
+      img: BybitAug6,
+    },
+    {
+      title: "Mutatoads",
+      earn: "$85",
+      spend: "$0",
+      category: "NFT",
+      condition:
+        "Проявлять активность в Telegram и Twitter.",
+      resources: "15 минут в день.",
+      reportUrl: "crypton.xyz",
+      img: MutatoadsAug6,
+    },
+    {
+      title: "Big Balls Birds",
+      earn: "$15",
+      spend: "$0",
+      category: "Аирдропы",
+      condition:
+        "Выполнять соц. задания, приглашать рефералов.",
+      resources: "время на выполнение активности.",
+      reportUrl: "crypton.xyz",
+      img: BigBallsBirdsAug6,
+    },
+  ],
+  "июнь-январь": [
+
     {
       title: "LayerZero",
       earn: "до $40 000",
@@ -199,7 +336,7 @@ export const examples = {
       category: "Ретродропы",
       condition:
         "Проявлять активность в проектах использующих протокол LayerZero.",
-      resources: "время на выполнение активности, затраты ка комиссии.",
+      resources: "время на выполнение активности, затраты на комиссии.",
       reportUrl: "crypton.xyz",
       img: LayerZeroJune24,
     },
@@ -209,7 +346,7 @@ export const examples = {
       spend: "от $50",
       category: "Ретродропы",
       condition: "Проявлять активность в сети, предоставлять ликвидность.",
-      resources: "время на выполнение активности, затраты ка комиссии.",
+      resources: "время на выполнение активности, затраты на комиссии.",
       reportUrl: "crypton.xyz",
       img: ZkSyncJune24,
     },
@@ -346,8 +483,7 @@ export const examples = {
       reportUrl: "crypton.xyz",
       img: StakelandDefault,
     },
-  ],
-  "май-январь": [
+
     {
       title: "Taiko",
       earn: "$2 500+",
