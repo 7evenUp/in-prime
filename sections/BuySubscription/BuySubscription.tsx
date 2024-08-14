@@ -98,8 +98,6 @@ const BuySubscription = ({
       setPromoForSubmit(refCode)
       return
     }
-
-    setPromoForSubmit(DEFAULT_CRYPTON_PROMO)
   }, [])
 
   useEffect(() => {
