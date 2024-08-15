@@ -503,6 +503,13 @@
   margin-top: 24px;
   margin-bottom: 40px;
 
+  &_discount {
+    margin-bottom: 20px;
+    font-family: "Resist Sans Light";
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
   &_submit {
     display: flex;
     align-items: center;
