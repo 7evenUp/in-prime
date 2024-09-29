@@ -1,37 +1,45 @@
-import { StaticImageData } from "next/image"
+import { StaticImageData } from "next/image";
 
-import Jason from "@/public/images/png/testimonials/jason.png"
-import Dmitrii from "@/public/images/png/testimonials/dmitrii.png"
-import Fiji from "@/public/images/png/testimonials/fiji.png"
-import Ivan from "@/public/images/png/testimonials/ivan.png"
-import Aleksandr from "@/public/images/png/testimonials/aleksandr.png"
-import Lex from "@/public/images/png/testimonials/lex.png"
-import Mixail from "@/public/images/png/testimonials/mixail.png"
-import Nesterov from "@/public/images/png/testimonials/dmitrii_nesterov.png"
-import Markus from "@/public/images/png/testimonials/markus.png"
-import Yurii from "@/public/images/png/testimonials/yurii.png"
-import Artem from "@/public/images/png/testimonials/artem.png"
-import Ujin from "@/public/images/png/testimonials/ujin.jpg"
-import FeD9 from "@/public/images/png/testimonials/FeD9.png"
-import HappyHolder from "@/public/images/png/testimonials/HappyHolder.png"
-import MaxKroz from "@/public/images/png/testimonials/MaxKroz.png"
-import Consigliere from "@/public/images/png/testimonials/consigliere.jpg"
-import KlemeTin from "@/public/images/png/testimonials/kleme-tin.jpg"
-import Gregor from "@/public/images/png/testimonials/Gredor.png"
-import Daniel from "@/public/images/png/testimonials/Daniel.jpg"
-import Denis_Akimenko from "@/public/images/png/testimonials/Denis_Akimenko.jpg"
-import Ring from "@/public/images/png/testimonials/ring.png"
-import Pestov300 from "@/public/images/png/testimonials/pestov300.png"
-
+import Jason from "@/public/images/png/testimonials/jason.png";
+import Dmitrii from "@/public/images/png/testimonials/dmitrii.png";
+import Fiji from "@/public/images/png/testimonials/fiji.png";
+import Ivan from "@/public/images/png/testimonials/ivan.png";
+import Aleksandr from "@/public/images/png/testimonials/aleksandr.png";
+import Lex from "@/public/images/png/testimonials/lex.png";
+import Mixail from "@/public/images/png/testimonials/mixail.png";
+import Nesterov from "@/public/images/png/testimonials/dmitrii_nesterov.png";
+import Markus from "@/public/images/png/testimonials/markus.png";
+import Yurii from "@/public/images/png/testimonials/yurii.png";
+import Artem from "@/public/images/png/testimonials/artem.png";
+import Ujin from "@/public/images/png/testimonials/ujin.jpg";
+import FeD9 from "@/public/images/png/testimonials/FeD9.png";
+import HappyHolder from "@/public/images/png/testimonials/HappyHolder.png";
+import MaxKroz from "@/public/images/png/testimonials/MaxKroz.png";
+import Consigliere from "@/public/images/png/testimonials/consigliere.jpg";
+import KlemeTin from "@/public/images/png/testimonials/kleme-tin.jpg";
+import Gregor from "@/public/images/png/testimonials/Gredor.png";
+import Daniel from "@/public/images/png/testimonials/Daniel.jpg";
+import Denis_Akimenko from "@/public/images/png/testimonials/Denis_Akimenko.jpg";
+import Ring from "@/public/images/png/testimonials/ring.png";
+import Pestov300 from "@/public/images/png/testimonials/pestov300.png";
+import Yura from "@/public/images/png/testimonials/Yura.jpg";
 
 export const testimonialsData: Array<{
-  avatar: StaticImageData | string
-  name: string
-  text: string
-  date: string
-  link: string
-  isNew?: boolean
+  avatar: StaticImageData | string;
+  name: string;
+  text: string;
+  date: string;
+  link: string;
+  isNew?: boolean;
 }> = [
+  {
+    avatar: Yura,
+    name: "Yura",
+    text: `Нахожусь в прайме чуть больше двух недель, из плюсов: 🐳Доступная цена подписки (есть поинты всякие, кешбеки, подарки). Календарь - удобно смотреть активности, есть геймификация. Красивый дизайн всего, приянно выглядит контент, не видел такой заботы об оформлени в других сообществ. Всякие бонусы - баллы, поинты, беспл отс эксроу и тд. Есть нфт, чаты по нодам. Очень много проектов в календаре, скучно не будет, также каждый проект расписан с шагами действий. Есть наставник - можно вопросы задавать. За проектами следят, все обновляется, что удобно, дедлайны тоже обозначают`,
+    date: "15.08.24",
+    link: "https://t.me/reviews_prime/401",
+    isNew: true,
+  },
   {
     avatar: Pestov300,
     name: "pestov300",
@@ -267,4 +275,4 @@ export const testimonialsData: Array<{
     date: "26.03.23",
     link: "https://t.me/reviews_prime/103",
   },
-]
+];
