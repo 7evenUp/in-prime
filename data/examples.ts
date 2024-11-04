@@ -213,11 +213,157 @@ import QBlockchainSep28 from "@/public/images/png/examples/september/QBlockchain
 import StoshiSep28 from "@/public/images/png/examples/september/Stoshi_sep28.png";
 import XAISep28 from "@/public/images/png/examples/september/XAI_sep28.png";
 
+import ArchwayNov4 from "@/public/images/png/examples/october/Archway_nov4.png";
+import DeepBookNov4 from "@/public/images/png/examples/october/DeepBook_nov4.png";
+import EigenLayer2Nov4 from "@/public/images/png/examples/october/EigenLayer2_nov4.png";
+import EigenLayerNov4 from "@/public/images/png/examples/october/EigenLayer_nov4.png";
+import GrassNov4 from "@/public/images/png/examples/october/Grass_nov4.png";
+import KZGFuneralNov4 from "@/public/images/png/examples/october/KZGFuneral_nov4.png";
+import Optimism5Nov4 from "@/public/images/png/examples/october/Optimism5_nov4.png";
+import ParallelNov4 from "@/public/images/png/examples/october/Parallel_nov4.png";
+import ScrollNov4 from "@/public/images/png/examples/october/Scroll_nov4.png";
+import SequoaiNov4 from "@/public/images/png/examples/october/Sequoai_nov4.png";
+import SovereigntyNov4 from "@/public/images/png/examples/october/Sovereignty_nov4.png";
+import TaikoNov4 from "@/public/images/png/examples/october/Taiko_nov4.png";
+import YNov4 from "@/public/images/png/examples/october/y_nov4.png";
+
 import BybitDefault from "@/public/images/png/examples/common/bybit-default.png";
 import StakelandDefault from "@/public/images/png/examples/common/stakeland.png";
 import AddicktedDefault from "@/public/images/png/examples/common/addickted.png";
 
 export const examples = {
+  октябрь: [
+    {
+      title: "EigenLayer",
+      earn: "$400",
+      spend: "$30",
+      category: "Ретродропы",
+      condition: "Застейкать любое количество $ETH в любом пуле.",
+      resources: "0.01 $ETH, деньги на комиссию.",
+      reportUrl: "crypton.xyz",
+      img: EigenLayerNov4,
+    },
+    {
+      title: "EigenLayer",
+      earn: "$4900",
+      spend: "$30",
+      category: "Ноды",
+      condition: "Иметь 25 тысяч $ETH в тестовой сети, которые можно было вернуть, и запустить AVS-валидатора.",
+      resources: "25 тысяч $ETH в тестовой сети, деньги на содержание сервера.",
+      reportUrl: "crypton.xyz",
+      img: EigenLayer2Nov4,
+    },
+    {
+      title: "KZGFuneral",
+      earn: "до $30",
+      spend: "$0",
+      category: "Ретродропы",
+      condition: "Участвовать в KZG-церемонии Ethereum в 2023 году и получить POAP.",
+      resources: "время на участие в церемонии.",
+      reportUrl: "crypton.xyz",
+      img: KZGFuneralNov4,
+    },
+    {
+      title: "Taiko Trailblazers",
+      earn: "$2900",
+      spend: "$350",
+      category: "Ретродропы",
+      condition: "Участвовать в кампании Trailblazers от Taiko и зарабатывать поинты.",
+      resources: "Время для участия в кампании, ~$10 на один кошелек для транзакций.",
+      reportUrl: "crypton.xyz",
+      img: TaikoNov4,
+    },
+    {
+      title: "Scroll",
+      earn: "$130",
+      spend: "$30",
+      category: "Ретродропы",
+      condition: "Совершать транзакции в сети, держать ликвидность в протоколах.",
+      resources: "деньги на комиссию, ~$1000 возвратной ликвидности.",
+      reportUrl: "crypton.xyz",
+      img: ScrollNov4,
+    },
+    {
+      title: "DeepBook",
+      earn: "До $2000",
+      spend: "$5",
+      category: "Ретродропы",
+      condition: "Застейкать любое количество монет $SUI в 2023 году.",
+      resources: "время на выполнение активности, 2 монеты $SUI для стейкинга.",
+      reportUrl: "crypton.xyz",
+      img: DeepBookNov4,
+    },
+    {
+      title: "Optimism Airdrop 5",
+      earn: "$500",
+      spend: "$30",
+      category: "Ретродропы",
+      condition: "Совершать активность в блокчейнах экосистемы Superchain (Zora, Base, Mode и т.д.).",
+      resources: "время на выполнение активности.",
+      reportUrl: "crypton.xyz",
+      img: Optimism5Nov4,
+    },
+    {
+      title: "Grass",
+      earn: "$150",
+      spend: "$0",
+      category: "Ретродропы",
+      condition: "Запустить и держать активным браузерное расширение.",
+      resources: "время на выполнение активности.",
+      reportUrl: "crypton.xyz",
+      img: GrassNov4,
+    },
+    {
+      title: "Sequoai",
+      earn: "$320",
+      spend: "$80",
+      category: "Мемкоины",
+      condition: "Купить мемкоин $SEQUOAI по колу из чата.",
+      resources: "время на выполнение активности, свободные 0.5 $SOL.",
+      reportUrl: "crypton.xyz",
+      img: SequoaiNov4,
+    },
+    {
+      title: "💹",
+      earn: "$60",
+      spend: "$20",
+      category: "Мемкоины",
+      condition: "Купить мемкоин $💹 по колу из чата.",
+      resources: "время на выполнение активности, свободные 0.1 $SOL.",
+      reportUrl: "crypton.xyz",
+      img: YNov4,
+    },
+    {
+      title: "First Steps Into Sovereignty",
+      earn: "$200",
+      spend: "$25",
+      category: "NFT",
+      condition: "Сминтить любое количество NFT по цене $0.25 за штуку.",
+      resources: "время на выполнение активности, свободные 0.01 $ETH.",
+      reportUrl: "crypton.xyz",
+      img: SovereigntyNov4,
+    },
+    {
+      title: "Archway",
+      earn: "$350",
+      spend: "$50",
+      category: "Ноды",
+      condition: "Держать ноду в тестнете в 2022 году.",
+      resources: "время на выполнение активности.",
+      reportUrl: "crypton.xyz",
+      img: ArchwayNov4,
+    },
+    {
+      title: "Parallel",
+      earn: "$130",
+      spend: "$0",
+      category: "GameFi",
+      condition: "Играть в игру Parallel TCG и зарабатывать токены $PRIME.",
+      resources: "время на выполнение активности.",
+      reportUrl: "crypton.xyz",
+      img: ParallelNov4,
+    },
+  ],
   сентябрь: [
     {
       title: "Digital Resistance",
@@ -291,7 +437,7 @@ export const examples = {
       img: XAISep28,
     },
   ],
-  август: [
+  "август-январь": [
     {
       title: "Stoshi",
       earn: "$1250",
@@ -363,8 +509,6 @@ export const examples = {
       reportUrl: "crypton.xyz",
       img: DogsSep28,
     },
-  ],
-  "июль-январь": [
     {
       title: "Boldinals",
       earn: "$14 700",
