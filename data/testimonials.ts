@@ -23,6 +23,7 @@ import Denis_Akimenko from "@/public/images/png/testimonials/Denis_Akimenko.jpg"
 import Ring from "@/public/images/png/testimonials/ring.png";
 import Pestov300 from "@/public/images/png/testimonials/pestov300.png";
 import Yura from "@/public/images/png/testimonials/Yura.jpg";
+import Eleven from "@/public/images/png/testimonials/11.png";
 
 export const testimonialsData: Array<{
   avatar: StaticImageData | string;
@@ -32,6 +33,14 @@ export const testimonialsData: Array<{
   link: string;
   isNew?: boolean;
 }> = [
+  {
+    avatar: Eleven,
+    name: "11:11",
+    text: `Я пришел в Прайм в начала этого года, в феврале или марте, если мне не изменяет память. На самом деле "ламповости" в последнее время даже добавилось, очень многие пассажиры вышли из прайма и теперь в чате остались только те, чьё мнение и рассуждения приятно послушать. Дискомфорта никакого не чувствуется, всё комьюнити в целом в меру с юморком, новичков никто не буллит, да и сильно токсичных ребят особо не замечал.`,
+    date: "03.10.24",
+    link: "https://t.me/reviews_prime/413",
+    isNew: true,
+  },
   {
     avatar: Yura,
     name: "Yura",
