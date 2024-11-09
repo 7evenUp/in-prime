@@ -37,6 +37,7 @@ import BuySubscrMd from "@/public/images/jsx/subscribe/buy-subscr-md"
 import BuySubscrSm from "@/public/images/jsx/subscribe/buy-subscr-sm"
 
 import { Resolution } from "@/types/resolution"
+import Advantages from "@/sections/Advantages/Advantages"
 
 const useWindowSize = () => {
   const [currentWidth, setCurrentWidth] = useState(0)
@@ -158,13 +159,13 @@ const Home = (props) => {
   return (
     <>
       <div className="app">
-        {["lgg", "lg"].includes(resolution) && (
+        {/* {["lgg", "lg"].includes(resolution) && (
           <Menu
             resolution={resolution}
             currentY={currentY}
             setCurrentY={setCurrentY}
           />
-        )}
+        )} */}
         <div className="app__container">
           <Earn
             currentY={currentY}
@@ -173,7 +174,7 @@ const Home = (props) => {
             resolution={resolution}
           />
 
-          <Benefits />
+          <Advantages />
 
           {resolution === "sm" || resolution === "md" ? (
             <FeaturesMd resolution={resolution} />

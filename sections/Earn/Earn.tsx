@@ -62,10 +62,69 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
     return () => window.removeEventListener("scroll", scrollHandler)
   }, [])
 
+  function toggleMenu(position) {
+    window.scrollTo({
+      top: position,
+      behavior: "smooth",
+    })
+    setCurrentY(position)
+  }
+
+  const categories = [
+    {
+      number: "03",
+      name: "Возможности",
+      position: docEnv
+        ? document.getElementById("examples").offsetTop -
+          document.getElementById("header").clientHeight
+        : 0,
+    },
+    {
+      number: "04",
+      name: "Кейсы",
+      position: docEnv
+        ? document.getElementById("examples").offsetTop -
+          document.getElementById("header").clientHeight
+        : 0,
+    },
+    {
+      number: "05",
+      name: "Роадмап",
+      position: docEnv
+        ? document.getElementById("founder").offsetTop -
+          document.getElementById("header").clientHeight
+        : 0,
+    },
+    {
+      number: "06",
+      name: "О нас",
+      position: docEnv
+        ? document.getElementById("subscribe").offsetTop -
+          document.getElementById("header").clientHeight
+        : 0,
+    },
+    {
+      number: "07",
+      name: "Отзывы",
+      position: docEnv
+        ? document.getElementById("testimonials").offsetTop -
+          document.getElementById("header").clientHeight
+        : 0,
+    },
+    {
+      number: "08",
+      name: "Истории успеха",
+      position: docEnv
+        ? document.getElementById("faq").offsetTop -
+          document.getElementById("header").clientHeight
+        : 0,
+    },
+  ]
+
   return (
     <section className="app__container__earn">
-      <div className="app__container__earn__left-gradient" />
-      <div className="app__container__earn__right-gradient" />
+      {/* <div className="app__container__earn__left-gradient" />
+      <div className="app__container__earn__right-gradient" /> */}
 
       <MobileMenu
         open={mobileMenu}
@@ -84,6 +143,19 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
 
       <header className="app__container__earn__header">
         <div className="app__container__earn__header__logo" />
+        <div className="app__container__earn__header__menu">
+          {categories.map((elem, index) => {
+            return (
+              <div
+                className="app__container__earn__header__menu__item"
+                onClick={() => toggleMenu(elem.position)}
+                key={index}
+              >
+                <div className="name">{elem.name}</div>
+              </div>
+            )
+          })}
+        </div>
         <div className="menu-sub-block">
           <div
             className="app__container__earn__header__subscribe"
@@ -104,45 +176,40 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
         </div>
       </header>
 
-      <Categories />
+      {/* <Categories /> */}
 
       <h1 className={styles.title}>
-        Зарабатывайте на крипте
+        Зарабатывайте
         <br />
-        <span>проще</span>
+        <span> на крипте проще</span>
       </h1>
 
       <div className={styles.description}>
-        Получите в Prime понятный план действий и поддержку от наших экспертов
-        для извлечения максимальной прибыли всего за пару кликов.
+        Получите в Prime <span>понятный план действий</span> и{" "}
+        <span>поддержку</span> от наших экспертов для извлечения максимальной{" "}
+        <br />
+        прибыли всего за пару кликов.
       </div>
       <div className={styles.footer}>
         <button className={styles.button1} onClick={scrollToGuarantee}>
           Гарантируем окупаемость
         </button>
         <button className={styles.button2} onClick={scrollToSubscriptions}>
-          <svg
-            width="21"
-            height="20"
-            viewBox="0 0 21 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M18.6953 10.9512H11.1846V20.0003H18.6953V10.9512Z"
-              fill="currentColor"
-            />
-            <path
-              d="M9.81539 10.9512H2.30469V20.0003H9.81539V10.9512Z"
-              fill="currentColor"
-            />
-            <path
-              d="M16.3551 3.68875C16.5582 3.33426 16.6739 2.92805 16.6739 2.49652C16.6739 1.11992 15.4979 0 14.0525 0C12.9835 0 11.8896 0.526094 11.0515 1.4434C10.8441 1.67039 10.6594 1.91434 10.4996 2.1684C10.3399 1.91434 10.1551 1.67039 9.9477 1.4434C9.10963 0.526094 8.01579 0 6.94667 0C5.50128 0 4.32532 1.11996 4.32532 2.49652C4.32532 2.92801 4.4409 3.33426 4.6441 3.68875H1.07422V9.64652H9.81481V3.68875H11.1844V9.64652H19.925V3.68875H16.3551ZM6.94667 3.68875C6.25646 3.68875 5.69488 3.15391 5.69488 2.49652C5.69488 1.83914 6.25646 1.30434 6.94667 1.30434C8.1894 1.30434 9.37094 2.515 9.71478 3.68871L6.94667 3.68875ZM14.0525 3.68875H11.2844C11.6283 2.515 12.8098 1.30437 14.0525 1.30437C14.7428 1.30437 15.3043 1.83922 15.3043 2.49656C15.3043 3.15395 14.7428 3.68875 14.0525 3.68875Z"
-              fill="currentColor"
-            />
-          </svg>
           Забрать подарок
         </button>
+      </div>
+
+      <div className={styles.prime_bottom}>
+        <span>CRYPTON PRIME</span>
+        <div className={styles.prime_arrow} />
+      </div>
+
+      <div className={styles.gradient} />
+
+      <div className={styles.lines}>
+        {[...Array(12)].map((_, index) => (
+          <div key={index} className={styles.line} />
+        ))}
       </div>
     </section>
   )

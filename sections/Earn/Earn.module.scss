@@ -1,13 +1,16 @@
 .title {
-  margin-top: 80px;
-  margin-bottom: 30px;
-  font-family: "Benzin-Bold";
-  font-size: 48px;
-  line-height: 66px;
+  margin-top: 250px;
+  margin-bottom: 38px;
+  font-family: "Unbounded", sans-serif;
+  font-weight: 500;
+  font-size: 80px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #fff;
+
+  line-height: normal;
   text-align: center;
   letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: #ffffff;
 
   @media (max-width: 1367px) {
     font-size: 32px;
@@ -23,38 +26,18 @@
   @media (max-width: 420px) {
     font-size: 16px;
   }
-
-  span {
-    font-size: 64px;
-    line-height: 88px;
-
-    @media (max-width: 1367px) {
-      font-size: 48px;
-      line-height: 66px;
-    }
-
-    @media (max-width: 767px) {
-      font-size: 28px;
-      line-height: 34px;
-    }
-
-    @media (max-width: 420px) {
-      font-size: 22px;
-      line-height: 28px;
-    }
-  }
 }
 
 .description {
-  width: 720px;
-  height: 74px;
-  font-family: "Resist Sans Light";
-  font-style: normal;
-  font-weight: 400;
+  width: 559px;
+  height: 81px;
+
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
   font-size: 20px;
-  line-height: 29px;
+  line-height: 136%;
   text-align: center;
-  color: #ffffff;
+  color: #fff;
 
   @media (max-width: 1919px) and (min-width: 1368px) {
     width: 640px;
@@ -82,15 +65,19 @@
     padding-inline: 12px;
     box-sizing: border-box;
   }
+
+  span {
+    color: #ffe29d;
+  }
 }
 
 .footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 36px;
-  margin-top: 36px;
-  margin-bottom: 50px;
+  gap: 16px;
+  margin-top: 50px;
+  z-index: 2;
 
   @media (max-width: 767px) {
     flex-direction: column;
@@ -99,26 +86,26 @@
 }
 
 .button1 {
-  font-family: "Resist Sans", sans-serif;
-  font-weight: 600;
-  font-size: 18px;
+  width: 267px;
+  height: 56px;
+  border-radius: 16px;
+  border: none;
+
+  background: #fff;
+  box-shadow: 0px 2px 10px 1px rgba(0, 0, 0, 0.3);
+
+  outline: none;
+  cursor: pointer;
+
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  text-align: center;
   color: #181818;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 285px;
-  height: 60px;
-  border-radius: 8px;
-  border: none;
-  background: linear-gradient(
-    129.5deg,
-    #ffcd9f 2.02%,
-    #ff4a7a 56.6%,
-    #bb44cc 104.76%
-  );
-  outline: none;
-  cursor: pointer;
-  box-shadow: 0px 2px 10px 1px rgba(0, 0, 0, 0.3);
 
   @media (max-width: 767px) {
     width: 335px;
@@ -144,18 +131,24 @@
   }
 }
 .button2 {
-  font-family: "Resist Sans", sans-serif;
-  font-size: 18px;
-  color: white;
+  width: 233px;
+  height: 56px;
+  border: none;
+  border-radius: 16px;
+
+  backdrop-filter: blur(40px);
+  background: rgba(207, 207, 207, 0.2);
+
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  text-align: center;
+  color: #fff;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  width: 285px;
-  height: 60px;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  background: transparent;
+
   outline: none;
   cursor: pointer;
 
@@ -181,4 +174,61 @@
   &:focus-visible {
     border: 1px solid white;
   }
+}
+
+.prime_bottom {
+  position: absolute;
+  bottom: 45px;
+  left: 50%;
+  translate: -50% 0;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 136%;
+  letter-spacing: 0.52em;
+  text-align: center;
+  color: #181818;
+}
+
+.prime_arrow {
+  width: 35px;
+  height: 48px;
+  background-image: url("/images/svg/earn/bottom-arrow.svg");
+  background-repeat: no-repeat;
+}
+
+.gradient {
+  position: absolute;
+  bottom: 0;
+  width: 1920px;
+  height: 488px;
+  background-image: url("/images/svg/earn/circle-gradient.svg");
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+.lines {
+  position: absolute;
+  top: 0;
+  left: 162px;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  gap: 148px;
+}
+
+.line {
+  height: 100%;
+  background-image: url("/images/svg/earn/vert-line.svg");
+  background-repeat: no-repeat;
+  z-index: 0;
+  width: 2px;
 }

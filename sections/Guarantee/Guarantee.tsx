@@ -21,8 +21,9 @@ const Guarantee = () => {
     <section className={styles.section} id="guarantee">
       <div className={styles.container}>
         <h2 className={styles.title}>
-          <span className={styles.title_accent}>Гарантируем</span>, что вы
-          окупите подписку
+          Гарантируем
+          <div className={styles.title_accent}>окупаемость</div>
+          подписки
         </h2>
         <p className={styles.text}>
           Мы выделяем криптособытия с гарантированным заработком, чтобы вы точно
