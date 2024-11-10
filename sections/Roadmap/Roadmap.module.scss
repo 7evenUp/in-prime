@@ -25,14 +25,15 @@
 }
 
 .title {
-  font-family: "Benzin-Bold";
+  font-family: "Unbounded", sans-serif;
+  font-weight: 700;
   font-size: 36px;
-  line-height: 160%;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: #ffffff;
+  line-height: 100%;
+  text-align: center;
+  color: #fff;
+
   margin: 0;
-  margin-top: 140px;
+  margin-top: 156px;
 
   @media (max-width: 1919px) {
     font-size: 32px;
@@ -53,10 +54,15 @@
 }
 
 .subtitle {
-  font-family: "Resist Sans", sans-serif;
-  font-size: 28px;
-  margin-top: 16px;
-  margin-bottom: 120px;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  text-align: center;
+  color: #fff;
+  line-height: normal;
+
+  margin-top: 28px;
+  margin-bottom: 26px;
 
   @media (max-width: 1919px) {
     font-size: 22px;
@@ -126,7 +132,7 @@
   z-index: 2;
 
   &_item {
-    width: 340px;
+    width: 320px;
     height: 110px;
     box-sizing: border-box;
     position: relative;
@@ -184,12 +190,13 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 4px;
-      border-radius: 14px;
+      padding: 10px;
+      border-radius: 18px;
       box-sizing: border-box;
-      // border: 1px solid rgba(255, 255, 255, 0.5);
-      background: rgba(210, 210, 210, 0.1);
+      background: #222;
       transition: all 0.15s ease-in;
+
+      position: relative;
 
       @media (max-width: 767px) {
         padding: 6px;
@@ -203,15 +210,44 @@
 
       &__descOpen {
         backdrop-filter: blur(4px);
+        transform: translateY(-60%);
+
+        &__reversed {
+          transform: translateY(0%);
+        }
+      }
+
+      &_arrow {
+        position: absolute;
+        left: 50%;
+        translate: -50% 0;
+        top: 98%;
+
+        &_reversed {
+          transform: rotate(180deg);
+          bottom: 98%;
+          top: unset;
+        }
+        > svg > path {
+          fill: #222;
+        }
+
+        &_current > svg > path {
+          fill: #434343;
+        }
+      }
+
+      &__current {
+        background: #434343 !important;
       }
     }
 
     &__done &_content {
-      background: rgba(235, 74, 161, 0.3);
+      background: #222;
     }
 
     &__done &_price_wrapper {
-      background: rgba(235, 74, 161, 0.3);
+      background: #222;
 
       &::before {
         background-image: radial-gradient(
@@ -223,8 +259,7 @@
     }
 
     &__top &_content {
-      margin-top: 36px;
-      border-top-right-radius: 0;
+      margin-top: 70px;
 
       @media (max-width: 767px) {
         margin-top: 30px;
@@ -255,8 +290,9 @@
     }
 
     &__bottom {
-      margin-left: 100px;
-      margin-top: 185px;
+      margin-left: 215px;
+      margin-top: 158px;
+      // margin-top: 185px;
 
       @media (max-width: 420px) {
         margin-left: 30px;
@@ -272,7 +308,7 @@
     }
 
     &__bottom &_content {
-      border-bottom-right-radius: 0;
+      // border-bottom-right-radius: 0;
     }
     &__bottom &_price_wrapper {
       border-bottom-left-radius: 14px;
@@ -288,8 +324,8 @@
     }
 
     &_img_wrapper {
-      width: 66px;
-      height: 66px;
+      width: 48px;
+      height: 48px;
       border-radius: 14px;
       background-color: #121212;
       display: flex;
@@ -297,8 +333,8 @@
       align-items: center;
 
       img {
-        width: 48px;
-        height: 48px;
+        width: 32px;
+        height: 32px;
       }
 
       @media (max-width: 767px) {
@@ -321,6 +357,23 @@
       @media (max-width: 767px) {
         font-size: 16px;
         margin-left: 10px;
+      }
+    }
+
+    &_earned {
+      font-family: "Inter", sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 160%;
+      color: #121212;
+      border-radius: 12px;
+      padding: 6px 10px;
+      margin-left: auto;
+
+      background-color: #fff;
+
+      &.current {
+        background: #ffe8b3;
       }
     }
 
@@ -366,7 +419,7 @@
   position: absolute;
   bottom: 3px;
   left: 50%;
-  translate: 0 100%;
+  translate: -50% 100%;
   z-index: -1;
 }
 
@@ -381,9 +434,9 @@
 .line_bottom__done {
   display: none;
   position: absolute;
-  top: 3px;
+  top: 29px;
   left: 50%;
-  translate: 0 -100%;
+  translate: -50% -100%;
   z-index: -1;
 }
 

@@ -38,6 +38,7 @@ import BuySubscrSm from "@/public/images/jsx/subscribe/buy-subscr-sm"
 
 import { Resolution } from "@/types/resolution"
 import Advantages from "@/sections/Advantages/Advantages"
+import Birthday from "@/sections/Birthday/Birthday"
 
 const useWindowSize = () => {
   const [currentWidth, setCurrentWidth] = useState(0)
@@ -92,6 +93,8 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
 const Home = (props) => {
   const router = useRouter()
   const referral = router.query.ref || "agent"
+
+  const [teamOpened, setTeamOpened] = useState(false)
 
   const [currentY, setCurrentY] = useState(0)
 
@@ -211,18 +214,22 @@ const Home = (props) => {
 
           <div className="app__container__examples" id="examples">
             <div className="app__container__examples__title">
-              НАШИ ПОДПИСЧИКИ
-              <br />
-              УЖЕ ЗАРАБОТАЛИ
+              Наши подписчики уже <br /> заработали
             </div>
             <Examples resolution={resolution} />
           </div>
 
           <Roadmap resolution={resolution} />
 
-          <Founders />
+          <Founders teamOpened={teamOpened} setTeamOpened={setTeamOpened} />
 
-          <Team />
+          <Team teamOpened={teamOpened} setTeamOpened={setTeamOpened} />
+
+          <Partners />
+
+          <Testimonials resolution={resolution} />
+
+          <Birthday />
 
           {/* <LoyaltySystem resolution={resolution} /> */}
 
@@ -230,10 +237,7 @@ const Home = (props) => {
 
           {/* <BuySubscriptionPromo tariffs={tariffs} resolution={resolution} /> */}
 
-          <Testimonials resolution={resolution} />
           <Histories />
-
-          <Partners />
 
           <div className="app__container__faq" id="faq">
             <div className="app__container__faq__title">

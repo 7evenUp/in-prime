@@ -86,8 +86,10 @@ const Examples = ({ resolution }: { resolution: Resolution }) => {
         <div className="examples-content__header__months">
           {Object.keys(examples).map((month, monthIndex) => (
             <div
-              className="examples-content__header__months__month"
-              style={{ opacity: monthIndex === currentMonth ? 1 : 0.5 }}
+              className={`examples-content__header__months__month ${
+                monthIndex === currentMonth ? "active" : ""
+              }`}
+              // style={{ opacity: monthIndex === currentMonth ? 1 : 0.5 }}
               onClick={() => toggleMonth(monthIndex)}
               key={monthIndex}
             >
@@ -106,7 +108,7 @@ const Examples = ({ resolution }: { resolution: Resolution }) => {
       </div>
 
       <Swiper
-      // @ts-ignore
+        // @ts-ignore
         ref={swiperRef}
         onSlideChange={(swiper) => changeBlock(swiper.activeIndex)}
         initialSlide={currentBlock}
@@ -129,9 +131,9 @@ const Examples = ({ resolution }: { resolution: Resolution }) => {
             },
             projectIndex
           ) => {
-            if (currentGradient >= LINEAR_GRADIENTS.length) {
-              currentGradient = 0
-            }
+            // if (currentGradient >= LINEAR_GRADIENTS.length) {
+            //   currentGradient = 0
+            // }
 
             const swiper_slide = (
               <SwiperSlide
@@ -140,7 +142,7 @@ const Examples = ({ resolution }: { resolution: Resolution }) => {
                 style={{
                   opacity:
                     projectIndex < currentBlock
-                      ? 0
+                      ? 0.5
                       : projectIndex > currentBlock + 2
                       ? 0.5
                       : 1,
@@ -148,7 +150,7 @@ const Examples = ({ resolution }: { resolution: Resolution }) => {
               >
                 <div
                   className="examples-content__blocks__block__gradient"
-                  style={{ background: LINEAR_GRADIENTS[currentGradient] }}
+                  // style={{ background: LINEAR_GRADIENTS[currentGradient] }}
                 />
                 <Image
                   src={img}
@@ -170,10 +172,10 @@ const Examples = ({ resolution }: { resolution: Resolution }) => {
                     </div>
 
                     <div className="examples-content__blocks__block__content__in-out__col out">
-                      <div className="examples-content__blocks__block__content__in-out__col__title">
-                        Вложения: 
+                      <div className="examples-content__blocks__block__content__in-out__col__title white">
+                        Вложения:
                       </div>
-                      <div className="examples-content__blocks__block__content__in-out__col__sum">
+                      <div className="examples-content__blocks__block__content__in-out__col__sum white">
                         {spend}
                       </div>
                     </div>
@@ -201,19 +203,16 @@ const Examples = ({ resolution }: { resolution: Resolution }) => {
                     <div className="examples-content__blocks__block__content__extended-info__condition-description">
                       {condition}
                     </div>
-                    {
-                      resources ? (
-                        <>
-                          <div className="examples-content__blocks__block__content__extended-info__resources-title">
-                            Ресурсы:
-                          </div>
-                          <div className="examples-content__blocks__block__content__extended-info__resources-description">
-                            {resources}
-                          </div>
-                        </>
-                      ) : null
-                    }
-                    
+                    {resources ? (
+                      <>
+                        <div className="examples-content__blocks__block__content__extended-info__resources-title">
+                          Ресурсы:
+                        </div>
+                        <div className="examples-content__blocks__block__content__extended-info__resources-description">
+                          {resources}
+                        </div>
+                      </>
+                    ) : null}
 
                     {reportUrl != "crypton.xyz" && (
                       <a href={reportUrl} target="_blank">
@@ -229,7 +228,7 @@ const Examples = ({ resolution }: { resolution: Resolution }) => {
                 </div>
               </SwiperSlide>
             )
-            currentGradient++
+            // currentGradient++
             return swiper_slide
           }
         )}
@@ -267,7 +266,9 @@ const PaginationToggle = ({
       >
         <ToggleLeft opacity={currentBlock === 0 ? 0.5 : 1} />
       </div>
-
+      <div className="examples-content__header__toggle__count">
+        <span>{currentBlock + 1}</span>/<span>{projectsLength}</span>
+      </div>
       <div
         className="examples-content__header__toggle__arrow"
         onClick={() => toggleBlock("up")}

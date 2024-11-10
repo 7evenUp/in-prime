@@ -916,10 +916,10 @@ p {
       left: 70%;
       width: 250%;
       height: 96px;
-      background: linear-gradient(108.46deg, #ff4a7a 14.61%, #bb44cc 38.38%);
       z-index: 100;
-      margin-top: 92px;
-      margin-bottom: 140px;
+      margin-top: 110px;
+      margin-bottom: 100px;
+      background: radial-gradient(circle at 50% 56%, #e067f1 0%, #a82bba 100%);
 
       @media (max-width: 1919px) and (min-width: 1368px) {
         height: 88px;
@@ -1125,14 +1125,15 @@ p {
       }
 
       &__title {
-        margin-bottom: 70px;
-        width: 895px;
-        font-family: "Benzin-Bold";
+        font-family: "Unbounded", sans-serif;
+        font-weight: 700;
         font-size: 54px;
-        line-height: 160%;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-        color: #ffffff;
+        text-align: center;
+        color: #fff;
+        line-height: normal;
+
+        margin-bottom: 65px;
+        width: 1300px;
 
         @media (max-width: 1919px) and (min-width: 1368px) {
           font-size: 44px;
@@ -1160,8 +1161,8 @@ p {
               align-items: center;
 
               &__icon {
-                width: 30px;
-                height: 22px;
+                width: 24px;
+                height: 24px;
                 background-repeat: no-repeat;
                 align-items: center;
                 fill: #ff4a7a;
@@ -1183,14 +1184,12 @@ p {
               }
 
               &__text {
-                margin-left: 22px;
-                height: 33px;
-                font-family: "Resist Sans";
-                font-style: normal;
-                font-weight: 400;
-                font-size: 22px;
-                line-height: 27px;
-                color: #ffffff;
+                margin-left: 10px;
+
+                font-family: "Inter", sans-serif;
+                font-weight: 300;
+                font-size: 16px;
+                color: #fff;
 
                 @media (max-width: 1919px) and (min-width: 1368px) {
                   font-size: 18px;
@@ -1214,9 +1213,9 @@ p {
                 }
 
                 &__arrow {
-                  margin-left: 10px;
-                  width: 12px;
-                  height: 12px;
+                  margin-left: 6px;
+                  width: 8px;
+                  height: 8px;
                   stroke: #fff;
                   align-self: flex-start;
 

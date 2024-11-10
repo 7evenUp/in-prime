@@ -2,7 +2,7 @@
   width: 1300px;
   display: flex;
   flex-direction: column;
-  margin-top: 140px;
+  margin-top: 0px;
   padding: 0px 310px 0px 310px;
 
   @media (max-width: 1919px) and (min-width: 1368px) {
@@ -62,11 +62,14 @@
 }
 
 .title {
-  font-family: "Benzin-Bold";
+  font-family: "Unbounded", sans-serif;
+  font-weight: 700;
   font-size: 54px;
+  text-transform: capitalize;
+  color: #fff;
   letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: #ffffff;
+  text-align: center;
+
   margin: 0;
 
   @media (max-width: 1919px) and (min-width: 1368px) {
@@ -86,7 +89,7 @@
   display: flex;
   color: white;
   margin-top: 70px;
-  gap: 70px;
+  gap: 19px;
 
   @media (max-width: 1919px) {
     gap: 50px;
@@ -107,7 +110,15 @@
 .founder {
   &_default {
     display: flex;
-    gap: 40px;
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+
+    width: 420px;
+    height: 620px;
+    background: #222;
+    border-radius: 24px;
+    padding-top: 30px;
 
     @media (max-width: 767px) {
       display: none;
@@ -133,8 +144,8 @@
   }
 
   &_image {
-    width: 220px;
-    height: 220px;
+    width: 240px;
+    height: 240px;
 
     @media (max-width: 1367px) {
       width: 190px;
@@ -147,15 +158,51 @@
     }
   }
 
+  &_team {
+    cursor: pointer;
+    &_title {
+      width: 240px;
+      height: 240px;
+      border-radius: 100%;
+      background: radial-gradient(
+        58.75% 58.75% at 50% 50%,
+        #aefff7 0%,
+        #62ffef 100%
+      );
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #141414;
+
+      &_number {
+        margin: 0;
+        font-family: "Unbounded", sans-serif;
+        font-weight: 500;
+        font-size: 60px;
+        line-height: 121%;
+        text-align: center;
+      }
+
+      &_text {
+        margin: 0;
+        text-align: center;
+        font-family: "Inter", sans-serif;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 126%;
+      }
+    }
+  }
+
   &_name {
-    font-family: "Resist Sans Medium";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 32px;
-    color: #ffffff;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 25px;
+    text-align: center;
+    color: #fff;
     margin: 0;
-    margin-bottom: 24px;
-    margin-top: 24px;
 
     @media (max-width: 767px) {
       font-size: 20px;
@@ -164,13 +211,13 @@
   }
 
   &_position {
-    margin-top: 8px;
-    font-family: "Resist Sans";
-    font-style: normal;
-    font-weight: 400;
+    margin-top: 30px;
+    font-family: "Inter", sans-serif;
+    font-weight: 300;
     font-size: 18px;
-    color: #ffffff;
-    margin-bottom: 26px;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 45px;
 
     > a {
       color: white;
@@ -185,14 +232,38 @@
       width: 165px;
       line-height: 120%;
     }
+
+    &.team {
+      width: 240px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    &_arrow {
+      width: 27px;
+      height: 60px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 140px;
+      transition: transform 0.3s ease;
+
+      &_active {
+        transform: rotate(-180deg);
+      }
+    }
   }
 
   &_channels {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     &_title {
-      font-family: "Resist Sans";
-      font-style: normal;
-      font-weight: 400;
-      font-size: 18px;
+      font-family: "Inter", sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      color: #fff;
+      text-align: center;
       margin: 0;
 
       @media (max-width: 767px) {
@@ -202,20 +273,20 @@
 
     &_list {
       display: flex;
-      gap: 24px;
+      gap: 35px;
       margin-top: 14px;
     }
   }
 
   &_experience {
-    margin-top: 30px;
-    width: 390px;
-    font-family: "Resist Sans";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 130%;
-    color: #ffffff;
+    margin-top: 33px;
+    width: 320px;
+    font-family: "Inter", sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 175%;
+    text-align: center;
+    color: #fff;
 
     a {
       color: white;

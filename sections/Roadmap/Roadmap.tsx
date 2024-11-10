@@ -6,20 +6,21 @@ import clsx from "clsx"
 // Данные для отрисовки
 import { data as roadmapData } from "@/data/roadmap"
 
-import { VerticalDoneLines, VerticalLines } from "./Lines"
+import { Dot, DotCurrent } from "./Dots"
 
 import styles from "./Roadmap.module.scss"
 
 import { Resolution } from "@/types/resolution"
+import { VerticalDoneLines, VerticalLines } from "./Lines"
 
 const Roadmap = ({ resolution }: { resolution: Resolution }) => {
   return (
     <section className={styles.container} id="roadmap">
-      <h2 className={styles.title}>НАШ ПЛАН ПО ЗАРАБОТКУ $150 000+</h2>
+      <h2 className={styles.title}>Наш план по заработку $150 000+</h2>
 
       <span className={styles.subtitle}>
-        События в Prime, на которых уже заработали или ожидаем заработок в
-        будущем.
+        событий в Prime, на которых уже заработали или ожидаем <br /> заработок
+        в будущем
       </span>
 
       <Map resolution={resolution} />
@@ -53,6 +54,7 @@ const Map = ({ resolution }: { resolution: Resolution }) => {
                   {...bottom}
                   className={styles.map_item__bottom}
                   resolution={resolution}
+                  isBottom
                 />
               ) : null}
             </SwiperSlide>
@@ -73,6 +75,7 @@ const MapItem = ({
   isCurrent,
   className,
   resolution,
+  isBottom,
 }: {
   imgSrc: any
   title: string
@@ -83,6 +86,7 @@ const MapItem = ({
   isCurrent?: boolean
   className?: string
   resolution: Resolution
+  isBottom?: boolean
 }) => {
   const [showDescription, setShowDescription] = useState(false)
 
@@ -99,12 +103,14 @@ const MapItem = ({
         resolution === "sm" && setShowDescription(!showDescription)
       }
     >
-      {isDone ? <VerticalDoneLines /> : <VerticalLines />}
-
+      {/* {isDone ? <VerticalDoneLines /> : <VerticalLines />} */}
+      {isCurrent ? <DotCurrent /> : <Dot />}
       <div
         className={clsx(
           styles.map_item_content,
-          showDescription && styles.map_item_content__descOpen
+          showDescription && styles.map_item_content__descOpen,
+          isBottom && styles.map_item_content__descOpen__reversed,
+          isCurrent && styles.map_item_content__current
         )}
       >
         <div className={styles.map_item_content_row}>
@@ -120,26 +126,15 @@ const MapItem = ({
           >
             {title}
           </span>
-          <button
+
+          <div
             className={clsx(
-              styles.map_item_arrow,
-              showDescription && styles.map_item_arrow_rotated
+              styles.map_item_earned,
+              isCurrent && styles.current
             )}
-            onClick={() => setShowDescription(!showDescription)}
           >
-            <svg
-              width="22"
-              height="22"
-              viewBox="0 0 22 22"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M3.20921 8.90711L10.5187 16.0324C10.6471 16.1575 10.8193 16.2275 10.9986 16.2275C11.1779 16.2275 11.3501 16.1575 11.4785 16.0324L18.7907 8.90711C18.8506 8.84881 18.8982 8.77911 18.9307 8.70213C18.9632 8.62514 18.9799 8.54242 18.9799 8.45886C18.9799 8.37529 18.9632 8.29258 18.9307 8.21559C18.8982 8.1386 18.8506 8.0689 18.7907 8.01061C18.6679 7.89068 18.5031 7.82353 18.3315 7.82353C18.1598 7.82353 17.995 7.89068 17.8722 8.01061L10.9986 14.711L4.12633 8.01061C4.00361 7.89109 3.83907 7.82421 3.66777 7.82421C3.49646 7.82421 3.33193 7.89109 3.20921 8.01061C3.14933 8.0689 3.10175 8.1386 3.06925 8.21559C3.03676 8.29258 3.02002 8.37529 3.02002 8.45886C3.02002 8.54242 3.03676 8.62514 3.06925 8.70213C3.10175 8.77912 3.14933 8.84881 3.20921 8.90711Z"
-                fill="white"
-              />
-            </svg>
-          </button>
+            {earned ? <b>{earned}</b> : "????"}
+          </div>
         </div>
         <div
           className={clsx(
@@ -150,9 +145,29 @@ const MapItem = ({
         >
           <p style={{ minHeight: 0 }}>{description}</p>
         </div>
+        <div
+          className={clsx(
+            styles.map_item_content_arrow,
+            isBottom && styles.map_item_content_arrow_reversed,
+            isCurrent && styles.map_item_content_arrow_current
+          )}
+        >
+          <svg
+            width="22"
+            height="12"
+            viewBox="0 0 22 12"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M11 12L0.607694 -5.0249e-08L21.3923 1.7668e-06L11 12Z"
+              fill="none"
+            />
+          </svg>
+        </div>
       </div>
 
-      <div
+      {/* <div
         className={clsx(
           styles.map_item_price_wrapper,
           showDescription && styles.map_item_price_wrapper__descOpen
@@ -167,9 +182,9 @@ const MapItem = ({
             "????"
           )}
         </span>
-      </div>
+      </div> */}
 
-      {isCurrent && <span className={styles.we_are_here}>Мы здесь</span>}
+      {/* {isCurrent && <span className={styles.we_are_here}>Мы здесь</span>} */}
     </div>
   )
 }

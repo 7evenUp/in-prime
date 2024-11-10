@@ -1,8 +1,7 @@
 .container {
   width: 100vw;
   padding: 100px 0;
-  background-color: rgba(96, 96, 96, 0.2);
-  margin-top: 140px;
+  background: #222;
 
   @media (max-width: 1919px) {
     padding: 64px 0;
@@ -19,12 +18,13 @@
 }
 
 .heading {
-  font-family: "Benzin-Bold";
+  font-family: "Unbounded", sans-serif;
+  font-weight: 500;
   font-size: 36px;
   line-height: 160%;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: #ffffff;
+  text-align: center;
+  color: #fff;
+
   width: 1300px;
   margin: 0;
   margin-inline: auto;
