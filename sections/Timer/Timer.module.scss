@@ -1,0 +1,258 @@
+.timer {
+  padding-bottom: 120px;
+  &__title {
+    margin-top: 100px;
+    margin-bottom: 395px;
+
+    font-family: "Unbounded", sans-serif;
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 100%;
+    text-align: center;
+    color: #fff;
+  }
+
+  &__gifts {
+    margin-bottom: 120px;
+  }
+
+  &__time {
+    width: 1284px;
+    height: 460px;
+    backdrop-filter: blur(24px);
+    background: rgba(34, 34, 34, 0.8);
+    border-radius: 36px;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 125px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__text {
+      font-family: "Unbounded", sans-serif;
+      font-weight: 400;
+      font-size: 32px;
+      text-align: center;
+      color: #fff;
+      line-height: 100%;
+
+      margin-top: 100px;
+      margin-bottom: 65px;
+    }
+
+    &__progress {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+
+      font-family: "Unbounded", sans-serif;
+      font-weight: 400;
+      font-size: 128px;
+      text-align: center;
+      color: #fff;
+
+      &__date {
+        font-family: "Unbounded", sans-serif;
+        font-weight: 400;
+        font-size: 128px;
+        text-align: center;
+        color: #fff;
+        width: 215px;
+      }
+
+      &__sub {
+        display: flex;
+        gap: 87px;
+        margin-top: 50px;
+        align-items: center;
+
+        font-family: "Unbounded", sans-serif;
+        font-weight: 300;
+        font-size: 32px;
+        text-align: center;
+        line-height: 100%;
+        color: #fff;
+
+        > span {
+          width: 215px;
+        }
+      }
+    }
+  }
+
+  &__last {
+    width: 1300px;
+
+    &__title {
+      font-family: "Unbounded", sans-serif;
+      font-weight: 500;
+      font-size: 32px;
+      text-align: center;
+      color: #fff;
+      margin: 0;
+      margin-bottom: 56px;
+    }
+
+    &__list {
+      display: flex;
+      gap: 30px;
+    }
+  }
+}
+
+.gift {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: start;
+
+  width: 180px;
+
+  &__image {
+    width: 180px;
+    height: 180px;
+    backdrop-filter: blur(24px);
+    background: #434343;
+    border-radius: 18px;
+  }
+
+  &__hero {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    &__img {
+      width: 32px;
+      height: 32px;
+      background: #d9d9d9;
+      border-radius: 100%;
+    }
+
+    &__name {
+      font-family: "Inter", sans-serif;
+      font-weight: 500;
+      font-size: 14px;
+      text-align: center;
+      color: #fff;
+    }
+  }
+
+  &__time {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    text-align: center;
+    color: #fff;
+    opacity: 0.5;
+  }
+}
+
+.CollapsibleRoot {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  @media (max-width: 767px) {
+    margin-top: 40px;
+  }
+  @media (max-width: 375px) {
+    width: 290px;
+  }
+}
+
+.CollapsibleTrigger {
+  font-family: "Unbounded", sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  color: #222;
+
+  background: none;
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0;
+  cursor: pointer;
+
+  width: 344px;
+  height: 62px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 14px;
+  padding: 16px 24px;
+  background: radial-gradient(
+    57.52% 59.26% at 53.22% 57.14%,
+    rgb(255, 239, 203) 0%,
+    rgb(255, 225, 157) 100%
+  );
+  transition: background-color 0.1s ease-in-out;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  &:active {
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+
+  @media (max-width: 1367px) {
+    font-size: 28px;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 16px;
+    gap: 12px;
+  }
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+  transition: all 0.15s ease-in-out;
+  margin-top: 2px;
+
+  @media (max-width: 767px) {
+    width: 16px;
+    height: 16px;
+  }
+
+  &__active {
+    rotate: 180deg;
+  }
+}
+
+.CollapsibleContent {
+  overflow: hidden;
+}
+.CollapsibleContent[data-state="open"] {
+  animation: slideDown 300ms ease-out;
+}
+.CollapsibleContent[data-state="closed"] {
+  animation: slideUp 300ms ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-collapsible-content-height);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    height: var(--radix-collapsible-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+.text_small {
+  color: #fff;
+}

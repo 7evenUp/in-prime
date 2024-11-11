@@ -1981,6 +1981,7 @@ p {
 
         &__header {
           display: flex;
+          justify-content: center;
           // @media (max-width: 1367px) and (min-width: 768px) {
           //   display: block;
           // }
@@ -2034,31 +2035,26 @@ p {
         }
 
         &__title {
-          margin-top: 65px;
-          margin-bottom: 37px;
-          display: flex;
-          width: 933px;
-          height: 48px;
-          background-image: url("/images/svg/subscribe/title.svg");
-          background-repeat: no-repeat;
-          background-size: contain;
+          margin-top: 110px;
+          margin-bottom: 90px;
+
+          font-family: "Unbounded", sans-serif;
+          font-weight: 700;
+          font-size: 54px;
+          text-align: center;
+          color: #fff;
 
           @media (max-width: 1919px) and (min-width: 1368px) {
-            width: 760px;
             margin-top: 75px;
             margin-bottom: 29px;
           }
 
           @media (max-width: 1367px) and (min-width: 768px) {
-            width: 557px;
             margin-top: 55px;
             margin-bottom: 15px;
           }
 
           @media (max-width: 767px) {
-            background-image: url("/images/svg/subscribe/title-sm.svg");
-            width: 225px;
-            height: 64px;
             margin-top: 50px;
             margin-bottom: 30px;
           }

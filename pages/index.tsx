@@ -1,24 +1,14 @@
 import React, { useState, useEffect } from "react"
 import { useRouter } from "next/router"
-import { Swiper, SwiperSlide } from "swiper/react"
 
 import Footer from "@/components/footer"
-// import Features from "@/components/features"
 import Examples from "@/components/examples"
 import Accordion from "@/components/accordion/accordion"
-import Menu from "@/components/menu"
 import Team from "@/components/Team"
 import Ribbon from "@/components/ribbon"
-// import RibbonSale from "@/components/ribbon-sale"
-// import Countdown from "@/components/countdown";
-
-import YouTube from "@/public/images/jsx/ceo/you-tube"
-import TeamArrow from "@/public/images/jsx/ceo/arrow"
-import More from "@/public/images/jsx/subscribe/more"
 
 import Testimonials from "@/sections/Testimonials/Testimonials"
 import Histories from "@/sections/Histories/Histories"
-import Benefits from "@/sections/Benefits/Benefits"
 import Features from "@/sections/Features/Features"
 import FeaturesMd from "@/sections/Features/FeaturesMd"
 import Partners from "@/sections/Partners/Partners"
@@ -26,10 +16,11 @@ import Roadmap from "@/sections/Roadmap/Roadmap"
 import Earn from "@/sections/Earn/Earn"
 import Founders from "@/sections/founders/Founders"
 import BuySubscription from "@/sections/BuySubscription/BuySubscription"
-import BuySubscriptionPromo from "@/sections/BuySubscription/BuySubscriptionPromo"
 import OtherProducts from "@/sections/OtherProducts/OtherProducts"
 import Guarantee from "@/sections/Guarantee/Guarantee"
-import LoyaltySystem from "@/sections/LoyaltySystem/LoyaltySystem"
+import Advantages from "@/sections/Advantages/Advantages"
+import Birthday from "@/sections/Birthday/Birthday"
+import Timer from "@/sections/Timer/Timer"
 
 import BuySubscr from "@/public/images/jsx/subscribe/buy-subscr"
 import BuySubscrLg from "@/public/images/jsx/subscribe/buy-subscr-lg"
@@ -37,8 +28,7 @@ import BuySubscrMd from "@/public/images/jsx/subscribe/buy-subscr-md"
 import BuySubscrSm from "@/public/images/jsx/subscribe/buy-subscr-sm"
 
 import { Resolution } from "@/types/resolution"
-import Advantages from "@/sections/Advantages/Advantages"
-import Birthday from "@/sections/Birthday/Birthday"
+import BuySubscriptionPromo from "@/sections/BuySubscription/BuySubscriptionPromo"
 
 const useWindowSize = () => {
   const [currentWidth, setCurrentWidth] = useState(0)
@@ -60,36 +50,6 @@ const useWindowSize = () => {
   return currentWidth
 }
 
-const renderer = ({ days, hours, minutes, seconds, completed }) => {
-  if (completed) {
-    return <div />
-  } else {
-    return (
-      <span>
-        <div className="date">
-          {days / 10 >= 1 ? "" : "0"}
-          {days}
-        </div>
-        <div className="sep">:</div>
-        <div className="date">
-          {hours / 10 >= 1 ? "" : "0"}
-          {hours}
-        </div>
-        <div className="sep">:</div>
-        <div className="date">
-          {minutes / 10 >= 1 ? "" : "0"}
-          {minutes}
-        </div>
-        <div className="sep">:</div>
-        <div className="date">
-          {seconds / 10 >= 1 ? "" : "0"}
-          {seconds}
-        </div>
-      </span>
-    )
-  }
-}
-
 const Home = (props) => {
   const router = useRouter()
   const referral = router.query.ref || "agent"
@@ -97,8 +57,6 @@ const Home = (props) => {
   const [teamOpened, setTeamOpened] = useState(false)
 
   const [currentY, setCurrentY] = useState(0)
-
-  const [timerProgress, setTimerProgress] = useState(0)
 
   const currentWidth = useWindowSize()
 
@@ -137,19 +95,6 @@ const Home = (props) => {
   const wheelHandler = (event) => {
     setCurrentY(window.scrollY)
   }
-
-  const startDate = 1713733200000
-  const endDate = 1714338000000
-
-  useEffect(() => {
-    setTimerProgress(
-      Math.round(
-        Date.now() >= startDate
-          ? ((Date.now() - startDate) / (endDate - startDate)) * 100
-          : 0
-      )
-    )
-  }, [])
 
   useEffect(() => {
     window.addEventListener("wheel", wheelHandler)
@@ -231,11 +176,13 @@ const Home = (props) => {
 
           <Birthday />
 
+          <Timer />
+
           {/* <LoyaltySystem resolution={resolution} /> */}
 
-          <BuySubscription tariffs={tariffs} resolution={resolution} />
+          {/* <BuySubscription tariffs={tariffs} resolution={resolution} /> */}
 
-          {/* <BuySubscriptionPromo tariffs={tariffs} resolution={resolution} /> */}
+          <BuySubscriptionPromo tariffs={tariffs} resolution={resolution} />
 
           <Histories />
 

@@ -59,22 +59,129 @@ const BuySubscriptionPromo = ({
 
   const [timerProgress, setTimerProgress] = useState(0)
 
-  const {
-    data: subscriptions,
-    isError: isSubscriptionsError,
-    isLoading,
-  } = useQuery({
-    queryKey: ["subscriptions"],
-    queryFn: async () => {
-      const response = await axios.get<Subscription[]>(
-        ID_URL + "subscriptions/get-active/"
-      )
+  // const {
+  //   data: subscriptions,
+  //   isError: isSubscriptionsError,
+  //   isLoading,
+  // } = useQuery({
+  //   queryKey: ["subscriptions"],
+  //   queryFn: async () => {
+  //     const response = await axios.get<Subscription[]>(
+  //       ID_URL + "subscriptions/get-active/"
+  //     )
 
-      return response.data.filter(
-        (el) => el.isActive && el.kindId === PRIME_SUBSCRIPTION_KIND_ID
-      )
+  //     return response.data.filter(
+  //       (el) => el.isActive && el.kindId === PRIME_SUBSCRIPTION_KIND_ID
+  //     )
+  //   },
+  // })
+
+  const subscriptions: Subscription[] = [
+    {
+      id: 1,
+      baseDiscount: null,
+      baseDiscountAmount: null,
+      benefits: [
+        {
+          id: 1,
+          file: null,
+          translations: {
+            ru: {
+              name: "1",
+              description: null,
+            },
+          },
+          remainingCount: null,
+        },
+      ],
+      duration: {
+        id: 1,
+        label: "10",
+      },
+      isActive: true,
+      kindId: 1, // 1 - prime | 2 - calendar
+      name: "1",
+      price: 99,
     },
-  })
+    {
+      id: 2,
+      baseDiscount: 5,
+      baseDiscountAmount: 99,
+      benefits: [
+        {
+          id: 1,
+          file: null,
+          translations: {
+            ru: {
+              name: "1",
+              description: null,
+            },
+          },
+          remainingCount: null,
+        },
+      ],
+      duration: {
+        id: 1,
+        label: "10",
+      },
+      isActive: true,
+      kindId: 1, // 1 - prime | 2 - calendar
+      name: "3",
+      price: 99,
+    },
+    {
+      id: 3,
+      baseDiscount: 10,
+      baseDiscountAmount: 99,
+      benefits: [
+        {
+          id: 1,
+          file: null,
+          translations: {
+            ru: {
+              name: "1",
+              description: null,
+            },
+          },
+          remainingCount: null,
+        },
+      ],
+      duration: {
+        id: 1,
+        label: "10",
+      },
+      isActive: true,
+      kindId: 1, // 1 - prime | 2 - calendar
+      name: "3",
+      price: 99,
+    },
+    {
+      id: 4,
+      baseDiscount: 15,
+      baseDiscountAmount: 99,
+      benefits: [
+        {
+          id: 1,
+          file: null,
+          translations: {
+            ru: {
+              name: "1",
+              description: null,
+            },
+          },
+          remainingCount: null,
+        },
+      ],
+      duration: {
+        id: 1,
+        label: "10",
+      },
+      isActive: true,
+      kindId: 1, // 1 - prime | 2 - calendar
+      name: "3",
+      price: 99,
+    },
+  ]
 
   const {
     mutateAsync: mutatePromoValidation,
@@ -157,9 +264,9 @@ const BuySubscriptionPromo = ({
     validate()
   }, [promoForSubmit])
 
-  if (isSubscriptionsError || isLoading) {
-    return <OldBuySubscription tariffs={tariffs} resolution={resolution} />
-  }
+  // if (isSubscriptionsError || isLoading) {
+  //   return <OldBuySubscription tariffs={tariffs} resolution={resolution} />
+  // }
 
   return (
     <div className="app__container__subscribe" id="subscribe">
@@ -170,7 +277,9 @@ const BuySubscriptionPromo = ({
       </div>
       <div className="app__container__subscribe__content">
         <div className="app__container__subscribe__content__header">
-          <div className="app__container__subscribe__content__title" />
+          <h1 className="app__container__subscribe__content__title">
+            Оформите подписку
+          </h1>
         </div>
 
         <div className={styles.switch}>
@@ -239,7 +348,7 @@ const BuySubscriptionPromo = ({
           </div>
         )}
 
-        <div className={styles.support_wrapper}>
+        {/* <div className={styles.support_wrapper}>
           <p className={styles.support}>
             Остались вопросы? Задай их нашему{" "}
             <a
@@ -256,9 +365,9 @@ const BuySubscriptionPromo = ({
               акции, получат кэшбэк $10 на баланс
             </p>
           </div>
-        </div>
+        </div> */}
 
-        <div className="app__container__subscribe__content___timer__header">
+        {/* <div className="app__container__subscribe__content___timer__header">
           <div className="app__container__subscribe__content__link__mark">
             До конца акции осталось:
           </div>
@@ -294,7 +403,7 @@ const BuySubscriptionPromo = ({
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* <div className={styles.first_100}>
           
@@ -463,7 +572,7 @@ const SubscriptionCard = ({
 
   return (
     <div className={styles.subscription}>
-      {order === 3 && <div className={styles.profitable}>выгодно</div>}
+      {/* {order === 3 && <div className={styles.profitable}>выгодно</div>} */}
       <span className={styles.duration}>{duration.id} МЕС</span>
       {isPromoPending ? (
         <div className={styles.loading} />
@@ -532,7 +641,12 @@ const SubscriptionCard = ({
           )}
         </div>
       )}
-      <p className={styles.text_before_bonuses}>
+      <p
+        className={clsx(
+          styles.text_before_bonuses,
+          order !== 0 && styles.text_before_bonuses_transparent
+        )}
+      >
         {order === 0 && (
           <>
             Все{" "}
@@ -543,7 +657,7 @@ const SubscriptionCard = ({
         {order === 2 && "Все, что входит в 3 месяца"}
         {order === 3 && "Все, что входит в 6 месяцев"}
       </p>
-      <div className={styles.bonuses_heading}>
+      {/* <div className={styles.bonuses_heading}>
         <div className={styles.bonuses_icon}>
           <svg
             width="12"
@@ -567,8 +681,8 @@ const SubscriptionCard = ({
           </svg>
         </div>
         <span className={styles.bonuses_heading_text}>ЭКСТРА БОНУСЫ</span>
-      </div>
-      <ul
+      </div> */}
+      {/* <ul
         className={clsx(
           styles.bonuses,
           (order === 1 || order === 2 || order === 3) && styles.bonuses__small
@@ -681,7 +795,7 @@ const SubscriptionCard = ({
               </li>
             )
           )}
-      </ul>
+      </ul> */}
 
       <div className={styles.subscription_remains}>
         {benefits.map(
