@@ -5,7 +5,9 @@ import styles from "./Birthday.module.scss"
 const Birthday = () => {
   return (
     <div className={styles.birthday}>
-      <h1 className={styles.birthday__title}>Crypton Birthday</h1>
+      <h1 className={styles.birthday__title}>
+        Crypton <br /> Birthday
+      </h1>
 
       <h2 className={styles.birthday__subtitle}>
         Купи подписку Prime и получи возможность выиграть топовый подарок!

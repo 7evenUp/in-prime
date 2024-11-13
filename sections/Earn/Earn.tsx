@@ -187,7 +187,6 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
       <div className={styles.description}>
         Получите в Prime <span>понятный план действий</span> и{" "}
         <span>поддержку</span> от наших экспертов для извлечения максимальной{" "}
-        <br />
         прибыли всего за пару кликов.
       </div>
       <div className={styles.footer}>
@@ -207,7 +206,7 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
       <div className={styles.gradient} />
 
       <div className={styles.lines}>
-        {[...Array(12)].map((_, index) => (
+        {[...Array(resolution === "lgg" ? 12 : 9)].map((_, index) => (
           <div key={index} className={styles.line} />
         ))}
       </div>

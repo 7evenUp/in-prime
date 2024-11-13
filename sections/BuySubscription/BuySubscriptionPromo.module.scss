@@ -194,6 +194,45 @@
     flex-direction: column;
     gap: 4px;
   }
+
+  &_box {
+    width: 185px;
+    height: 215px;
+    background-image: url("/images/png/buy-subscription/box_closed.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-left: auto;
+    margin-right: auto;
+
+    margin-top: 50px;
+    position: relative;
+
+    &_count {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, 30%);
+      width: 59px;
+      height: 59px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      background: radial-gradient(
+        57.52% 59.26% at 53.22% 57.14%,
+        rgb(255, 239, 203) 0%,
+        rgb(255, 225, 157) 100%
+      );
+      border-radius: 100%;
+
+      font-family: "Unbounded", sans-serif;
+      font-weight: 500;
+      font-size: 24px;
+      text-align: center;
+      color: #000;
+    }
+  }
 }
 
 .profitable {
@@ -404,7 +443,11 @@
   line-height: 130%;
   text-align: center;
 
-  margin-bottom: 24px;
+  // margin-bottom: 24px;
+
+  &_wrapper {
+    height: 42px;
+  }
 
   button {
     cursor: pointer;
@@ -552,8 +595,9 @@
 .support_wrapper {
   display: flex;
   flex-direction: row-reverse;
-  justify-content: space-between;
-  margin-top: 36px;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 97px;
 
   @media (max-width: 1367px) {
     margin-top: 72px;
@@ -567,23 +611,68 @@
 }
 
 .support {
-  font-family: "Resist Sans", sans-serif;
-  color: white;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
   font-size: 18px;
+  text-align: center;
+  color: #fff;
 
   @media (max-width: 767px) {
     font-size: 16px;
   }
 
   &_link {
-    color: #ffcd9f;
+    color: #7cfff2;
     text-decoration: underline;
     text-underline-offset: 4px;
     transition: color 0.1s ease-in;
+  }
+}
 
-    &:hover {
-      color: #ffcd9fcc;
+.openings {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__count {
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+
+    &__left {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      font-weight: 500;
+      font-size: 24px;
+      color: #fff;
     }
+
+    &__used {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      font-weight: 500;
+      font-size: 20px;
+      color: #fff;
+      opacity: 0.5;
+    }
+  }
+
+  &__inventory {
+    border-radius: 16px;
+    width: 303px;
+    height: 64px;
+    background: #434343;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
   }
 }
 

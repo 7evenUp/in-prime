@@ -1,9 +1,11 @@
 import React from "react"
+import clsx from "clsx"
+
 import * as Collapsible from "@radix-ui/react-collapsible"
 
-import styles from "./Timer.module.scss"
-import clsx from "clsx"
 import Countdown from "@/components/countdown"
+
+import styles from "./TimerPromo.module.scss"
 
 const renderer = ({ days, hours, minutes, seconds, completed }) => {
   if (completed) {
@@ -37,12 +39,13 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
 
 const endDate = 1731621600000
 
-const Timer = () => {
+const TimerPromo = () => {
   const [open, setOpen] = React.useState(false)
 
   return (
     <div className={styles.timer}>
       <h1 className={styles.timer__title}>Какие подарки внутри бокса?</h1>
+      <div className={styles.timer__image} />
       <div className={styles.timer__gifts}>
         <Collapsible.Root
           className={styles.CollapsibleRoot}
@@ -67,7 +70,11 @@ const Timer = () => {
           </Collapsible.Trigger>
 
           <Collapsible.Content className={styles.CollapsibleContent}>
-            <p className={styles.text_small}>Подарки</p>
+            <div className={styles.CollapsibleContent__list}>
+              {[...Array(10)].map((_, index) => (
+                <FullGift key={index} />
+              ))}
+            </div>
           </Collapsible.Content>
         </Collapsible.Root>
       </div>
@@ -94,6 +101,19 @@ const Timer = () => {
           ))}
         </div>
       </div>
+
+      <div className={styles.timer__bg} />
+    </div>
+  )
+}
+
+const FullGift = () => {
+  return (
+    <div className={styles.fullGift}>
+      <div className={styles.fullGift__image}>
+        {/* <img src="/images/png/last-gift.png" alt="Подарок" /> */}
+      </div>
+      <span className={styles.fullGift__text}>Hoodie “Now or Never”</span>
     </div>
   )
 }
@@ -114,4 +134,4 @@ const LastGift = () => {
   )
 }
 
-export default Timer
+export default TimerPromo

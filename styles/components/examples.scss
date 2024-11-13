@@ -50,6 +50,10 @@
           color: #ffe8b3;
         }
 
+        @media (max-width: 1919px) and (min-width: 1368px) {
+          font-size: 18px;
+        }
+
         @media (max-width: 1367px) and (min-width: 768px) {
           font-size: 18px;
           margin-right: 44px;
@@ -74,6 +78,10 @@
       height: 26px;
       display: flex;
       justify-content: space-between;
+
+      @media (max-width: 1919px) and (min-width: 1368px) {
+        width: 122px;
+      }
 
       @media (max-width: 1367px) {
         margin-top: 28px;

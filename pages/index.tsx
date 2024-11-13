@@ -20,7 +20,6 @@ import OtherProducts from "@/sections/OtherProducts/OtherProducts"
 import Guarantee from "@/sections/Guarantee/Guarantee"
 import Advantages from "@/sections/Advantages/Advantages"
 import Birthday from "@/sections/Birthday/Birthday"
-import Timer from "@/sections/Timer/Timer"
 
 import BuySubscr from "@/public/images/jsx/subscribe/buy-subscr"
 import BuySubscrLg from "@/public/images/jsx/subscribe/buy-subscr-lg"
@@ -29,6 +28,7 @@ import BuySubscrSm from "@/public/images/jsx/subscribe/buy-subscr-sm"
 
 import { Resolution } from "@/types/resolution"
 import BuySubscriptionPromo from "@/sections/BuySubscription/BuySubscriptionPromo"
+import TimerPromo from "@/sections/TimerPromo/TimerPromo"
 
 const useWindowSize = () => {
   const [currentWidth, setCurrentWidth] = useState(0)
@@ -176,7 +176,7 @@ const Home = (props) => {
 
           <Birthday />
 
-          <Timer />
+          <TimerPromo />
 
           {/* <LoyaltySystem resolution={resolution} /> */}
 

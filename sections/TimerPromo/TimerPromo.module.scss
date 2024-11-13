@@ -1,8 +1,15 @@
 .timer {
   padding-bottom: 120px;
+
+  @media (max-width: 1919px) and (min-width: 1368px) {
+    padding-bottom: 80px;
+  }
+
+  position: relative;
+
   &__title {
     margin-top: 100px;
-    margin-bottom: 395px;
+    margin-bottom: 52px;
 
     font-family: "Unbounded", sans-serif;
     font-weight: 500;
@@ -10,10 +17,20 @@
     line-height: 100%;
     text-align: center;
     color: #fff;
+
+    @media (max-width: 1919px) and (min-width: 1368px) {
+      margin-top: 95px;
+      margin-bottom: 70px;
+
+      font-size: 42px;
+    }
   }
 
   &__gifts {
     margin-bottom: 120px;
+    @media (max-width: 1919px) and (min-width: 1368px) {
+      margin-bottom: 90px;
+    }
   }
 
   &__time {
@@ -23,13 +40,25 @@
     background: rgba(34, 34, 34, 0.8);
     border-radius: 36px;
 
+    z-index: -2;
+    position: relative;
+
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 125px;
 
+    @media (max-width: 1919px) and (min-width: 1368px) {
+      margin-bottom: 85px;
+    }
+
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @media (max-width: 1919px) and (min-width: 1368px) {
+      width: 1144px;
+      height: 421px;
+    }
 
     &__text {
       font-family: "Unbounded", sans-serif;
@@ -54,6 +83,11 @@
       text-align: center;
       color: #fff;
 
+      @media (max-width: 1919px) and (min-width: 1368px) {
+        font-size: 106px;
+        gap: 32px;
+      }
+
       &__date {
         font-family: "Unbounded", sans-serif;
         font-weight: 400;
@@ -61,6 +95,11 @@
         text-align: center;
         color: #fff;
         width: 215px;
+
+        @media (max-width: 1919px) and (min-width: 1368px) {
+          width: 159px;
+          font-size: 106px;
+        }
       }
 
       &__sub {
@@ -76,8 +115,17 @@
         line-height: 100%;
         color: #fff;
 
+        @media (max-width: 1919px) and (min-width: 1368px) {
+          gap: 82px;
+          font-size: 28px;
+          margin-top: 32px;
+        }
+
         > span {
           width: 215px;
+          @media (max-width: 1919px) and (min-width: 1368px) {
+            width: 159px;
+          }
         }
       }
     }
@@ -85,6 +133,10 @@
 
   &__last {
     width: 1300px;
+
+    @media (max-width: 1919px) and (min-width: 1368px) {
+      width: 1144px;
+    }
 
     &__title {
       font-family: "Unbounded", sans-serif;
@@ -99,6 +151,71 @@
     &__list {
       display: flex;
       gap: 30px;
+    }
+  }
+
+  &__image {
+    width: 416px;
+    height: 316px;
+
+    margin-bottom: 52px;
+
+    background-image: url("/images/png/buy-subscription/box_opened.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    @media (max-width: 1919px) and (min-width: 1368px) {
+      width: 390px;
+      height: 296px;
+      margin-bottom: 70px;
+    }
+  }
+
+  &__bg {
+    background-image: url("/images/svg/subscribe/timer_bg.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    position: absolute;
+    left: 50%;
+    top: 170px;
+    transform: translate(-50%, 0%);
+
+    filter: blur(40px);
+
+    width: 2256px;
+    height: 1019px;
+
+    z-index: -1;
+  }
+}
+
+.fullGift {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: start;
+
+  &__image {
+    width: 100%;
+    aspect-ratio: 1/1;
+    backdrop-filter: blur(24px);
+    background: #434343;
+    border-radius: 20px;
+  }
+
+  &__text {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: #fff;
+
+    @media (max-width: 1919px) and (min-width: 1368px) {
+      font-size: 16px;
     }
   }
 }
@@ -227,6 +344,17 @@
 
 .CollapsibleContent {
   overflow: hidden;
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 30px 20px;
+    margin-top: 60px;
+
+    @media (max-width: 1919px) and (min-width: 1368px) {
+      margin-top: 50px;
+    }
+  }
 }
 .CollapsibleContent[data-state="open"] {
   animation: slideDown 300ms ease-out;

@@ -8,6 +8,7 @@ import ToggleRight from "../public/images/jsx/icons/toggle-right"
 import { examples } from "@/data/examples"
 
 import { Resolution } from "@/types/resolution"
+import clsx from "clsx"
 
 const LINEAR_GRADIENTS = [
   "linear-gradient(90deg, #BB44CC 0%, #8AAEFB 52.08%, #4AE0CE 100%)",
@@ -86,10 +87,10 @@ const Examples = ({ resolution }: { resolution: Resolution }) => {
         <div className="examples-content__header__months">
           {Object.keys(examples).map((month, monthIndex) => (
             <div
-              className={`examples-content__header__months__month ${
-                monthIndex === currentMonth ? "active" : ""
-              }`}
-              // style={{ opacity: monthIndex === currentMonth ? 1 : 0.5 }}
+              className={clsx(
+                "examples-content__header__months__month",
+                monthIndex === currentMonth && "active"
+              )}
               onClick={() => toggleMonth(monthIndex)}
               key={monthIndex}
             >
@@ -103,6 +104,7 @@ const Examples = ({ resolution }: { resolution: Resolution }) => {
             currentBlock={currentBlock}
             currentMonth={currentMonth}
             toggleBlock={toggleBlock}
+            resolution={resolution}
           />
         )}
       </div>
@@ -239,6 +241,7 @@ const Examples = ({ resolution }: { resolution: Resolution }) => {
           currentBlock={currentBlock}
           currentMonth={currentMonth}
           toggleBlock={toggleBlock}
+          resolution={resolution}
         />
       )}
     </div>
@@ -251,9 +254,11 @@ const PaginationToggle = ({
   toggleBlock,
   currentBlock,
   currentMonth,
+  resolution,
 }: {
   currentMonth: number
   currentBlock: number
+  resolution: Resolution
   toggleBlock: (action: "up" | "down") => void
 }) => {
   const projectsLength = Object.entries(examples)[currentMonth][1].length
@@ -266,9 +271,11 @@ const PaginationToggle = ({
       >
         <ToggleLeft opacity={currentBlock === 0 ? 0.5 : 1} />
       </div>
-      <div className="examples-content__header__toggle__count">
-        <span>{currentBlock + 1}</span>/<span>{projectsLength}</span>
-      </div>
+      {resolution === "lgg" && (
+        <div className="examples-content__header__toggle__count">
+          <span>{currentBlock + 1}</span>/<span>{projectsLength}</span>
+        </div>
+      )}
       <div
         className="examples-content__header__toggle__arrow"
         onClick={() => toggleBlock("up")}

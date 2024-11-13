@@ -12,6 +12,11 @@
   text-align: center;
   letter-spacing: 0.04em;
 
+  @media (max-width: 1919px) and (min-width: 1368px) {
+    font-size: 68px;
+    margin-bottom: 22px;
+  }
+
   @media (max-width: 1367px) {
     font-size: 32px;
     line-height: 40px;
@@ -40,10 +45,10 @@
   color: #fff;
 
   @media (max-width: 1919px) and (min-width: 1368px) {
-    width: 640px;
-    height: 50px;
+    width: 704px;
+    height: 48px;
     font-size: 18px;
-    line-height: 26px;
+    line-height: 136%;
   }
 
   @media (max-width: 1367px) and (min-width: 768px) {
@@ -79,6 +84,10 @@
   margin-top: 50px;
   z-index: 2;
 
+  @media (max-width: 1919px) and (min-width: 1368px) {
+    margin-top: 45px;
+  }
+
   @media (max-width: 767px) {
     flex-direction: column;
     gap: 12px;
@@ -106,6 +115,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 1919px) and (min-width: 1368px) {
+    height: 48px;
+  }
 
   @media (max-width: 767px) {
     width: 335px;
@@ -152,6 +165,10 @@
   outline: none;
   cursor: pointer;
 
+  @media (max-width: 1919px) and (min-width: 1368px) {
+    height: 48px;
+  }
+
   @media (max-width: 767px) {
     width: 335px;
     height: 54px;
@@ -195,6 +212,10 @@
   letter-spacing: 0.52em;
   text-align: center;
   color: #181818;
+
+  @media (max-width: 1919px) and (min-width: 1368px) {
+    bottom: 30px;
+  }
 }
 
 .prime_arrow {
@@ -209,20 +230,34 @@
   bottom: 0;
   width: 1920px;
   height: 488px;
-  background-image: url("/images/svg/earn/circle-gradient.svg");
+  background-image: url("/images/svg/earn/circle-gradient-lgg.svg");
   background-repeat: no-repeat;
   z-index: 1;
+
+  @media (max-width: 1919px) and (min-width: 1368px) {
+    background-position: center;
+    background-size: contain;
+    width: 1568px;
+    height: 402px;
+  }
 }
 
 .lines {
   position: absolute;
   top: 0;
-  left: 162px;
-  width: 100%;
+  margin-left: 20px;
+  left: 50%;
+  translate: -50% 0;
+
+  // width: 100%;
   height: 100%;
 
   display: flex;
   gap: 148px;
+
+  @media (max-width: 1919px) and (min-width: 1368px) {
+    margin-left: 0;
+  }
 }
 
 .line {

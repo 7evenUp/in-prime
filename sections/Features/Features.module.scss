@@ -1,16 +1,26 @@
 .container {
   width: 1300px;
-  // margin-top: 90px;
-  // margin-bottom: 130px;
   padding: 120px 310px 120px 310px;
-  position: relative;
   display: flex;
   flex-direction: column;
   gap: 78px;
 
-  background-image: url("/images/png/features/bg-gradient.png");
-  background-repeat: no-repeat;
-  background-size: contain;
+  &_bg {
+    background-image: url("/images/png/features/bg-gradient.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    left: 0;
+    width: 1920px;
+    height: 1153px;
+    margin-top: -120px;
+    z-index: -1;
+
+    @media (max-width: 1919px) and (min-width: 1368px) {
+      margin-top: -50px;
+      height: 959px;
+    }
+  }
 
   @media (max-width: 1919px) and (min-width: 1368px) {
     width: 1143px;
@@ -47,7 +57,7 @@
 }
 
 .title {
-  width: 1400px;
+  width: 100%;
   font-family: "Unbounded", sans-serif;
   font-weight: 700;
   font-size: 54px;
@@ -59,7 +69,6 @@
   margin-bottom: 0;
 
   @media (max-width: 1919px) and (min-width: 1368px) {
-    width: 875px;
     font-size: 44px;
     line-height: 100%;
   }

@@ -348,7 +348,7 @@ const BuySubscriptionPromo = ({
           </div>
         )}
 
-        {/* <div className={styles.support_wrapper}>
+        <div className={styles.support_wrapper}>
           <p className={styles.support}>
             Остались вопросы? Задай их нашему{" "}
             <a
@@ -359,62 +359,21 @@ const BuySubscriptionPromo = ({
               специалисту в Телеграм
             </a>
           </p>
-          <div className={styles.first_100_card}>
-            <p className={styles.first_100_card_top}>
-              Первые <span>99 пользователей</span>, купивших подписку во время
-              акции, получат кэшбэк $10 на баланс
-            </p>
-          </div>
-        </div> */}
+        </div>
 
-        {/* <div className="app__container__subscribe__content___timer__header">
-          <div className="app__container__subscribe__content__link__mark">
-            До конца акции осталось:
+        <div className={styles.openings}>
+          <div className={styles.openings__count}>
+            <span className={styles.openings__count__left}>
+              Осталось открытий: 2
+            </span>
+            <span className={styles.openings__count__used}>
+              Использовано попыток: 4
+            </span>
           </div>
-          <div className="app__container__subscribe__content__timer__progress">
-            <div
-              className="app__container__subscribe__content__timer__progress__bar"
-              style={{ width: `${timerProgress + "%"}` }}
-            >
-              <div className="app__container__subscribe__content__timer__progress__bar__circle">
-                {" "}
-              </div>
-            </div>
-          </div>
-          <div className="app__container__subscribe__content__timer__countdown">
-            <Countdown
-              className="app__container__subscribe__content__timer__countdown__counter"
-              date={END_DATE}
-            />
-          </div>
-          <div className="app__container__subscribe__content__timer__countdown__names">
-            <div className="app__container__subscribe__content__timer__countdown__names__block">
-              <div className="app__container__subscribe__content__timer__countdown__names__block__text">
-                дней
-              </div>
-              <div className="app__container__subscribe__content__timer__countdown__names__block__text">
-                часов
-              </div>
-              <div className="app__container__subscribe__content__timer__countdown__names__block__text">
-                минут
-              </div>
-              <div className="app__container__subscribe__content__timer__countdown__names__block__text">
-                секунд
-              </div>
-            </div>
-          </div>
-        </div> */}
-
-        {/* <div className={styles.first_100}>
-          
-          <div className={styles.first_100_card}>
-            <div className={styles.first_100_remains}>
-              <span>Осталось:</span>
-              <div className={styles.first_100_separator} />
-              <span>{CASHBACK_REMAINS}</span>
-            </div>
-          </div>
-        </div> */}
+          <a href="button" className={styles.openings__inventory}>
+            Перейти в свой инвентарь
+          </a>
+        </div>
       </div>
     </div>
   )
@@ -641,22 +600,36 @@ const SubscriptionCard = ({
           )}
         </div>
       )}
-      <p
-        className={clsx(
-          styles.text_before_bonuses,
-          order !== 0 && styles.text_before_bonuses_transparent
+      <div className={styles.text_before_bonuses_wrapper}>
+        <p
+          className={clsx(
+            styles.text_before_bonuses,
+            order !== 0 && styles.text_before_bonuses_transparent
+          )}
+        >
+          {order === 0 && (
+            <>
+              Все{" "}
+              <button onClick={scrollToOpportunities}>возможности Prime</button>
+            </>
+          )}
+          {order === 1 && "Все, что входит в 1 месяц"}
+          {order === 2 && "Все, что входит в 3 месяца"}
+          {order === 3 && "Все, что входит в 6 месяцев"}
+        </p>
+
+        {order === 3 && (
+          <p className={clsx(styles.text_before_bonuses)}>
+            + приоритетная поддержка
+          </p>
         )}
-      >
-        {order === 0 && (
-          <>
-            Все{" "}
-            <button onClick={scrollToOpportunities}>возможности Prime</button>
-          </>
-        )}
-        {order === 1 && "Все, что входит в 1 месяц"}
-        {order === 2 && "Все, что входит в 3 месяца"}
-        {order === 3 && "Все, что входит в 6 месяцев"}
-      </p>
+        <p className={clsx(styles.text_before_bonuses)}>
+          {order === 0 && "+ 1 открытие бокса"}
+          {order === 1 && "+ 3 открытия бокса"}
+          {order === 2 && "+ 6 открытий боксов"}
+          {order === 3 && "+ 12 открытий боксов"}
+        </p>
+      </div>
       {/* <div className={styles.bonuses_heading}>
         <div className={styles.bonuses_icon}>
           <svg
@@ -797,7 +770,16 @@ const SubscriptionCard = ({
           )}
       </ul> */}
 
-      <div className={styles.subscription_remains}>
+      <div className={styles.subscription_box}>
+        <div className={styles.subscription_box_count}>
+          {order === 0 && "1"}
+          {order === 1 && "3"}
+          {order === 2 && "6"}
+          {order === 3 && "12"}
+        </div>
+      </div>
+
+      {/* <div className={styles.subscription_remains}>
         {benefits.map(
           (benefit) =>
             benefit.remainingCount !== null && (
@@ -807,7 +789,7 @@ const SubscriptionCard = ({
               </span>
             )
         )}
-      </div>
+      </div> */}
 
       <BuySubscriptionDialog
         key={discountAmount}

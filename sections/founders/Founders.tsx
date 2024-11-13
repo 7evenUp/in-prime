@@ -134,10 +134,7 @@ const Founders: FC<FoundersProps> = ({ teamOpened, setTeamOpened }) => {
             <div>
               <h3 className={styles.founder_name}>Вадим Тарасов</h3>
               <p className={styles.founder_position}>
-                <a href="https://crypton.xyz" target="_blank">
-                  Crypton
-                </a>{" "}
-                Co-Founder (COO)
+                Сооснователь экосистемы Crypton
               </p>
             </div>
           </div>
@@ -171,10 +168,7 @@ const Founders: FC<FoundersProps> = ({ teamOpened, setTeamOpened }) => {
             <div className={styles.founder_info}>
               <h3 className={styles.founder_name}>Вадим Тарасов</h3>
               <p className={styles.founder_position}>
-                <a href="https://crypton.xyz" target="_blank">
-                  Crypton
-                </a>{" "}
-                Co-Founder (COO)
+                Сооснователь экосистемы Crypton
               </p>
               <div className={styles.founder_channels}>
                 <span className={styles.founder_channels_title}>

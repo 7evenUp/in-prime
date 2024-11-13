@@ -191,6 +191,7 @@ p {
       @media (max-width: 1919px) and (min-width: 1368px) {
         min-width: 1368px;
         position: relative;
+        height: 980px;
       }
 
       @media (max-width: 1367px) and (min-width: 768px) {
@@ -444,23 +445,21 @@ p {
           height: 40px;
           background-image: url("/images/svg/logo/logo.svg");
           background-repeat: no-repeat;
+          background-size: contain;
 
           @media (max-width: 1919px) and (min-width: 1368px) {
-            width: 94px;
+            width: 32px;
             height: 36px;
-            background-image: url("/images/svg/logo/logo-sm.svg");
           }
 
           @media (max-width: 1367px) and (min-width: 768px) {
             width: 94px;
             height: 36px;
-            background-image: url("/images/svg/logo/logo-sm.svg");
           }
 
           @media (max-width: 767px) {
             width: 88px;
             height: 32px;
-            background-image: url("/images/svg/logo/logo-sm.svg");
           }
         }
 
@@ -476,11 +475,13 @@ p {
         }
 
         &__subscribe {
-          width: 203px;
-          height: 28px;
+          width: 233px;
+          height: 56px;
           display: flex;
           justify-content: center;
-          padding: 14px 18px 14px 20px;
+          align-items: center;
+          box-sizing: border-box;
+
           background: radial-gradient(
             57.52% 59.26% at 53.22% 57.14%,
             rgb(255, 239, 203) 0%,
@@ -493,8 +494,10 @@ p {
             background: #ffffff;
           }
 
-          @media (max-width: 1367px) and (min-width: 768px) {
-            margin-right: 20px;
+          @media (max-width: 1919px) and (min-width: 1368px) {
+            border-radius: 12px;
+            width: 205px;
+            height: 47px;
           }
 
           @media (max-width: 767px) {
@@ -512,7 +515,7 @@ p {
             letter-spacing: 0.017em;
 
             @media (max-width: 1919px) and (min-width: 768px) {
-              // font-size: 16px;
+              font-size: 16px;
             }
           }
           &__logo {
@@ -923,8 +926,8 @@ p {
 
       @media (max-width: 1919px) and (min-width: 1368px) {
         height: 88px;
-        margin-top: 82px;
-        margin-bottom: 120px;
+        margin-top: 100px;
+        margin-bottom: 100px;
       }
 
       @media (max-width: 1367px) and (min-width: 768px) {
@@ -1136,8 +1139,8 @@ p {
         width: 1300px;
 
         @media (max-width: 1919px) and (min-width: 1368px) {
-          font-size: 44px;
-          margin-bottom: 54px;
+          font-size: 49px;
+          margin-bottom: 85px;
         }
 
         @media (max-width: 1367px) and (min-width: 768px) {
@@ -1192,10 +1195,10 @@ p {
                 color: #fff;
 
                 @media (max-width: 1919px) and (min-width: 1368px) {
-                  font-size: 18px;
+                  font-size: 16px;
                   line-height: 33px;
                   height: 33px;
-                  margin-left: 16px;
+                  margin-left: 5px;
                 }
 
                 @media (max-width: 1367px) and (min-width: 768px) {
@@ -2045,8 +2048,9 @@ p {
           color: #fff;
 
           @media (max-width: 1919px) and (min-width: 1368px) {
-            margin-top: 75px;
-            margin-bottom: 29px;
+            margin-top: 110px;
+            margin-bottom: 70px;
+            font-size: 48px;
           }
 
           @media (max-width: 1367px) and (min-width: 768px) {
