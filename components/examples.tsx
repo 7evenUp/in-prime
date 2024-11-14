@@ -17,9 +17,9 @@ const LINEAR_GRADIENTS = [
 ]
 
 const spaces = {
-  lgg: 50,
-  lg: 50,
-  md: 52,
+  lgg: 22,
+  lg: 22,
+  md: 22,
   sm: 20,
 }
 
@@ -236,14 +236,14 @@ const Examples = ({ resolution }: { resolution: Resolution }) => {
         )}
       </Swiper>
 
-      {["md", "sm"].includes(resolution) && (
+      {/* {["md", "sm"].includes(resolution) && (
         <PaginationToggle
           currentBlock={currentBlock}
           currentMonth={currentMonth}
           toggleBlock={toggleBlock}
           resolution={resolution}
         />
-      )}
+      )} */}
     </div>
   )
 }

@@ -207,8 +207,8 @@
   z-index: 11;
   cursor: pointer;
   &.open {
-    width: 26px;
-    height: 20px;
+    width: 24px;
+    height: 18px;
     background-image: url("/images/svg/mobile-menu/open-button.svg");
   }
 
@@ -218,5 +218,19 @@
     background-image: url("/images/svg/mobile-menu/close-button.svg");
     display: flex;
     align-self: flex-end;
+  }
+
+  &-wrapper {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #434343;
+    border-radius: 100%;
+
+    z-index: 101;
   }
 }

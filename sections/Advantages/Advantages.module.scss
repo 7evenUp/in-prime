@@ -11,6 +11,10 @@
   @media (max-width: 1919px) and (min-width: 1368px) {
     height: 566px;
   }
+
+  @media (max-width: 1367px) and (min-width: 768px) {
+    height: 483px;
+  }
 }
 
 .title {
@@ -30,6 +34,13 @@
 
     font-size: 36px;
   }
+
+  @media (max-width: 1367px) and (min-width: 768px) {
+    margin-top: 90px;
+    margin-bottom: 78px;
+
+    font-size: 30px;
+  }
 }
 
 .content {
@@ -37,6 +48,12 @@
   gap: 660px;
 
   position: relative;
+
+  @media (max-width: 1367px) and (min-width: 768px) {
+    gap: 230px;
+    justify-content: start;
+    width: 100%;
+  }
 }
 
 .image {
@@ -50,6 +67,13 @@
 
   background-image: url("/images/svg/advantages/prime-lines.svg");
   background-repeat: no-repeat;
+
+  @media (max-width: 1367px) and (min-width: 768px) {
+    background-image: url("/images/svg/advantages/prime-lines-md.svg");
+
+    width: 583px;
+    height: 204px;
+  }
 }
 
 .list {
@@ -68,11 +92,25 @@
     font-weight: 300;
   }
 
+  @media (max-width: 1367px) and (min-width: 768px) {
+    width: 230px;
+  }
+
+  @media (max-width: 1367px) and (min-width: 768px) {
+    font-size: 14px;
+    margin-left: 47px;
+    margin-top: 5px;
+  }
+
   &__reverse {
     text-align: right;
 
     @media (max-width: 1919px) and (min-width: 1368px) {
       width: 200px;
+    }
+
+    @media (max-width: 1367px) and (min-width: 768px) {
+      width: 170px;
     }
   }
 }
@@ -83,6 +121,17 @@
   line-height: normal;
 
   margin-bottom: 70px;
+
+  @media (max-width: 1367px) and (min-width: 768px) {
+    padding-left: 20px;
+    margin-bottom: 50px;
+  }
+
+  &:nth-last-child(1) {
+    @media (max-width: 1367px) and (min-width: 768px) {
+      width: 93px;
+    }
+  }
 }
 
 .item::before {
@@ -96,6 +145,12 @@
 
   border: 1px solid #ffe29d;
   border-radius: 50%;
+
+  @media (max-width: 1367px) and (min-width: 768px) {
+    width: 8px;
+    height: 8px;
+    box-sizing: border-box;
+  }
 }
 
 .item_reverse {
@@ -104,6 +159,18 @@
   line-height: normal;
 
   margin-bottom: 70px;
+
+  @media (max-width: 1367px) and (min-width: 768px) {
+    padding-right: 20px;
+    margin-bottom: 50px;
+  }
+
+  &:nth-last-child(1) {
+    @media (max-width: 1367px) and (min-width: 768px) {
+      width: 93px;
+      margin-left: auto;
+    }
+  }
 }
 
 .item_reverse::after {
@@ -117,4 +184,10 @@
 
   border: 1px solid #ffe29d;
   border-radius: 50%;
+
+  @media (max-width: 1367px) and (min-width: 768px) {
+    width: 8px;
+    height: 8px;
+    box-sizing: border-box;
+  }
 }

@@ -1,5 +1,6 @@
-import clsx from "clsx"
+"use client"
 import React, { useEffect, useState } from "react"
+import clsx from "clsx"
 
 interface CountdownProps {
   className: string

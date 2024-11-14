@@ -90,9 +90,10 @@ const FeaturesTabs = ({ resolution }: { resolution: Resolution }) => {
         <Tabs.Trigger className={styles.TabsTrigger} value="tab1">
           <div className={styles.trigger_container}>
             <div className={styles.icon_wrapper}>
-              <CalendarIcon />
-              <CalendarIconGradient />
+              <CryptonBonusesIcon />
+              <CryptonBonusesIconGradient />
             </div>
+            <span>Бонусы экосистемы Crypton</span>
           </div>
         </Tabs.Trigger>
         <Tabs.Trigger className={styles.TabsTrigger} value="tab2">

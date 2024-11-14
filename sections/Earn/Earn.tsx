@@ -121,6 +121,28 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
     },
   ]
 
+  const [lineCount, setLineCount] = useState(9)
+
+  useEffect(() => {
+    switch (resolution) {
+      case "lgg":
+        setLineCount(12)
+        break
+      case "lg":
+        setLineCount(9)
+        break
+      case "md":
+        setLineCount(5)
+        break
+      case "sm":
+        setLineCount(4)
+        break
+      default:
+        setLineCount(4)
+        break
+    }
+  }, [resolution, setLineCount])
+
   return (
     <section className="app__container__earn">
       {/* <div className="app__container__earn__left-gradient" />
@@ -166,7 +188,7 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
             </div>
           </div>
           {["md", "sm"].includes(resolution) && (
-            <div style={{ width: "25px", zIndex: 101 }}>
+            <div className="mobile-menu-button-wrapper">
               <div
                 className={`mobile-menu-button open`}
                 onClick={() => changeMobileMenu(!mobileMenu)}
@@ -206,7 +228,7 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
       <div className={styles.gradient} />
 
       <div className={styles.lines}>
-        {[...Array(resolution === "lgg" ? 12 : 9)].map((_, index) => (
+        {[...Array(lineCount)].map((_, index) => (
           <div key={index} className={styles.line} />
         ))}
       </div>

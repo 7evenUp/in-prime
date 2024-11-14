@@ -124,11 +124,11 @@ const Home = (props) => {
 
           <Advantages />
 
-          {resolution === "sm" || resolution === "md" ? (
+          {/* {resolution === "sm" || resolution === "md" ? (
             <FeaturesMd resolution={resolution} />
-          ) : (
-            <Features resolution={resolution} />
-          )}
+          ) : ( */}
+          <Features resolution={resolution} />
+          {/* )} */}
 
           {/* <div className="app__container__video-block" id="video">
             <div className="app__container__video-block__video">
