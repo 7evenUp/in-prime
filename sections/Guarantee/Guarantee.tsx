@@ -20,14 +20,17 @@ const Guarantee = () => {
   return (
     <section className={styles.section} id="guarantee">
       <div className={styles.container}>
-        <h2 className={styles.title}>
-          <span className={styles.title_accent}>Гарантируем</span>, что вы
-          окупите подписку
-        </h2>
-        <p className={styles.text}>
-          Мы выделяем криптособытия с гарантированным заработком, чтобы вы точно
-          получили прибыль и окупили подписку.
-        </p>
+        <div className={styles.info}>
+          <h2 className={styles.title}>
+            Гарантируем
+            <div className={styles.title_accent}>окупаемость</div>
+            подписки
+          </h2>
+          <p className={styles.text}>
+            Мы выделяем криптособытия с гарантированным заработком, чтобы вы
+            точно получили прибыль и окупили подписку.
+          </p>
+        </div>
         <Collapsible.Root
           className={styles.CollapsibleRoot}
           open={open}
@@ -60,26 +63,6 @@ const Guarantee = () => {
               className={styles.swiper}
               wrapperClass={styles.swiper_wrapper}
             >
-              <div className={styles.navigation}>
-                <button
-                  className={clsx(
-                    styles.arrow_btn,
-                    activeIndex === 0 && styles.arrow_btn__disabled
-                  )}
-                  onClick={() => swiperRef.current.swiper.slidePrev()}
-                >
-                  <Arrow className={styles.arrow_prev} />
-                </button>
-                <button
-                  className={clsx(
-                    styles.arrow_btn,
-                    activeIndex === 1 && styles.arrow_btn__disabled
-                  )}
-                  onClick={() => swiperRef.current.swiper.slideNext()}
-                >
-                  <Arrow className={styles.arrow_next} />
-                </button>
-              </div>
               <SwiperSlide className={styles.slide}>
                 <div className={styles.swiper_item}>
                   <Image
@@ -104,10 +87,8 @@ const Guarantee = () => {
                   </p>
                 </div>
               </SwiperSlide>
+              <Pagination amount={2} />
             </Swiper>
-            {/* <div className={styles.content}>
-              
-            </div> */}
             <p className={styles.text_small}>
               Перед покупкой ознакомьтесь с{" "}
               <a
@@ -134,20 +115,21 @@ const Guarantee = () => {
 
 export default Guarantee
 
-const Arrow = ({ className }: { className: string }) => (
-  <svg
-    className={className}
-    width="41"
-    height="14"
-    viewBox="0 0 41 14"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M33.7172 1L39.374 6.65685L33.7172 12.3137"
-      stroke="white"
-      strokeWidth="2"
-    />
-    <path d="M38.4 6.7168H0" stroke="white" strokeWidth="2" />
-  </svg>
-)
+const Pagination = ({ amount }: { amount: number }) => {
+  const swiper = useSwiperReactive()
+
+  return (
+    <div className={styles.pagination}>
+      {new Array(amount).fill(null).map((_, i) => (
+        <button
+          key={i}
+          className={styles.pagination_button}
+          onClick={() => swiper.slideTo(i)}
+          style={{
+            background: swiper.activeIndex === i ? "white" : "transparent",
+          }}
+        />
+      ))}
+    </div>
+  )
+}

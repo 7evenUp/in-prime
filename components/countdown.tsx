@@ -1,11 +1,18 @@
+"use client"
 import React, { useEffect, useState } from "react"
+import clsx from "clsx"
 
 interface CountdownProps {
   className: string
   date: number
+  classNameNumber?: string
 }
 
-const Countdown: React.FC<CountdownProps> = ({ className, date }) => {
+const Countdown: React.FC<CountdownProps> = ({
+  className,
+  date,
+  classNameNumber,
+}) => {
   const calculateTimeLeft = () => {
     const difference = date - new Date().getTime()
     if (difference <= 0) {
@@ -34,25 +41,25 @@ const Countdown: React.FC<CountdownProps> = ({ className, date }) => {
 
   return (
     <span className={className}>
-      <div className="date" key={1}>
+      <div className={clsx("date", classNameNumber)} key={1}>
         {timeLeft.days / 10 >= 1 ? "" : "0"}
         {timeLeft.days}
       </div>
       <div className="sep">:</div>
-      <div className="date" key={2}>
+      <div className={clsx("date", classNameNumber)} key={2}>
         {timeLeft.hours / 10 >= 1 ? "" : "0"}
         {timeLeft.hours}
       </div>
       <div className="sep">:</div>
-      <div className="date" key={3}>
+      <div className={clsx("date", classNameNumber)} key={3}>
         {timeLeft.minutes / 10 >= 1 ? "" : "0"}
         {timeLeft.minutes}
       </div>
-      <div className="sep">:</div>
+      {/* <div className="sep">:</div>
       <div className="date" key={4} suppressHydrationWarning>
         {timeLeft.seconds / 10 >= 1 ? "" : "0"}
         {timeLeft.seconds}
-      </div>
+      </div> */}
     </span>
   )
 }

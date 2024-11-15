@@ -82,7 +82,9 @@
       display: flex;
       margin-left: 520px;
       width: 400px;
-      justify-content: space-between;
+      justify-content: center;
+      margin-left: auto;
+      margin-right: auto;
 
       @media (max-width: 1919px) and (min-width: 1368px) {
         margin-left: 375px;
@@ -110,7 +112,7 @@
       margin-top: 33px;
       margin-bottom: 30px;
       height: 21px;
-      font-family: "Resist Sans";
+      font-family: "Inter", sans-serif;
       font-style: normal;
       font-weight: 400;
       font-size: 14px;
@@ -237,9 +239,9 @@
       }
 
       &__title {
-        width: 280px;
+        width: 290px;
         height: 24px;
-        font-family: "Resist Sans";
+        font-family: "Inter", sans-serif;
         font-style: normal;
         font-weight: 400;
         font-size: 16px;
@@ -315,7 +317,7 @@
         justify-content: space-between;
 
         &__route {
-          font-family: "Resist Sans";
+          font-family: "Inter", sans-serif;
           font-style: normal;
           font-weight: 400;
           font-size: 14px;

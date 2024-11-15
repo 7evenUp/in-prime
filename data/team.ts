@@ -2,10 +2,8 @@ import HandsomeAvatar from "@/public/images/png/team/handsome.png"
 import BogdanNodeAvatar from "@/public/images/png/team/bogdan-node.png"
 import ZaharAvatar from "@/public/images/png/team/zahar.png"
 import VladimirAvatar from "@/public/images/png/team/vladimir.png"
-import SanyaAvatar from "@/public/images/png/team/sanya.png"
 import NikitaPrimeAvatar from "@/public/images/png/team/nikita-prime.png"
 import KirillAvatar from "@/public/images/png/team/kirill.png"
-import IvanPrimeAvatar from "@/public/images/png/team/ivan-prime.png"
 import AlekseiAvatar from "@/public/images/png/team/aleksei.png"
 import NikitaSupportAvatar from "@/public/images/png/team/nikita-support.png"
 import DaniilAvatar from "@/public/images/png/team/daniil.png"
@@ -13,6 +11,8 @@ import IrenAvatar from "@/public/images/png/team/iren.png"
 import EduardAvatar from "@/public/images/png/team/eduard.png"
 import BogdanAnalyticAvatar from "@/public/images/png/team/bogdan-analytic.png"
 import HermanAvatar from "@/public/images/png/team/herman.png"
+import MaximAvatrar from "@/public/images/png/team/maxim-prime.png"
+import YanAvatar from "@/public/images/png/team/yan-feedback.png"
 
 export const teamData = [
   {
@@ -49,11 +49,11 @@ export const teamData = [
   },
   {
     id: "sanya",
-    name: "Саня",
-    position: "Ведущий и диктор",
+    name: "Ян",
+    position: "Обратная связь",
     description:
-      "Полтора года в крипте. Зависим от тестнетов и ретродропов, любит больше только комиссии в ETH-сети. Прямо сейчас помогает зарабатывать всем желающим на крипте на <a href='https://www.youtube.com/@Cryptonxyz/videos' target='_blank'>нашем YouTube канале</a>.",
-    imgSrc: SanyaAvatar,
+      "В сфере крипты с 2022 года, разбирается во всех криптоактивностях, но, в частности, кайфует от GameFi-проектов. Его задача - превращать отзывы в ценные идеи, которые помогут совершенствовать Prime. Всегда на связи!",
+    imgSrc: YanAvatar,
   },
   {
     id: "herman",
@@ -81,11 +81,11 @@ export const teamData = [
   },
   {
     id: "ivan",
-    name: "Иван",
+    name: "Максим",
     position: "Руководитель Prime",
     description:
-      "В команде с первых дней существования Prime, за это время успел залутать как мелкие дропы, так и более крупные — Arbitrum и XAI. Вместе с командой позаботиться о том, чтобы вы получали только самые актуальные инструменты для заработка!",
-    imgSrc: IvanPrimeAvatar,
+      "Майнил биткоин с 2015 года, ранний инвестор, плейбой, филантроп, мастер по сбору фидбека",
+    imgSrc: MaximAvatrar,
   },
   {
     id: "aleksei",

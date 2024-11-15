@@ -41,6 +41,7 @@ const swiperWidth = {
 const Features = ({ resolution }: { resolution: Resolution }) => {
   return (
     <section className={styles.container} id="features">
+      <div className={styles.container_bg} />
       <h2 className={styles.title}>Новый уровень возможностей</h2>
       <FeaturesTabs resolution={resolution} />
     </section>
@@ -87,13 +88,22 @@ const FeaturesTabs = ({ resolution }: { resolution: Resolution }) => {
       orientation="vertical"
     >
       <Tabs.List className={styles.TabsList} aria-label="Prime Features">
-        <Tabs.Trigger className={styles.TabsTrigger} value="tab1">
+        {/* <Tabs.Trigger className={styles.TabsTrigger} value="tab1">
           <div className={styles.trigger_container}>
             <div className={styles.icon_wrapper}>
               <CalendarIcon />
               <CalendarIconGradient />
             </div>
             <span>Календарь по заработку</span>
+          </div>
+        </Tabs.Trigger> */}
+        <Tabs.Trigger className={styles.TabsTrigger} value="tab1">
+          <div className={styles.trigger_container}>
+            <div className={styles.icon_wrapper}>
+              <CryptonBonusesIcon />
+              <CryptonBonusesIconGradient />
+            </div>
+            <span>Бонусы экосистемы Crypton</span>
           </div>
         </Tabs.Trigger>
         <Tabs.Trigger className={styles.TabsTrigger} value="tab2">
@@ -141,7 +151,7 @@ const FeaturesTabs = ({ resolution }: { resolution: Resolution }) => {
             <span>Стартовый Prime-набор</span>
           </div>
         </Tabs.Trigger>
-        <Tabs.Trigger className={styles.TabsTrigger} value="tab7">
+        <Tabs.Trigger className={styles.TabsTrigger} value="tab6">
           <div className={styles.trigger_container}>
             <div className={styles.icon_wrapper}>
               <InvestingIcon />
@@ -150,21 +160,13 @@ const FeaturesTabs = ({ resolution }: { resolution: Resolution }) => {
             <span>Инвестируем за вас</span>
           </div>
         </Tabs.Trigger>
-        <Tabs.Trigger className={styles.TabsTrigger} value="cryptonBonuses">
-          <div className={styles.trigger_container}>
-            <div className={styles.icon_wrapper}>
-              <CryptonBonusesIcon />
-              <CryptonBonusesIconGradient />
-            </div>
-            <span>Бонусы экосистемы Crypton</span>
-          </div>
-        </Tabs.Trigger>
       </Tabs.List>
-      <Tabs.Content className={styles.TabsContent} value="cryptonBonuses">
-        <Slider data={featuresData.cryptonBonuses} resolution={resolution} />
-      </Tabs.Content>
-      <Tabs.Content className={styles.TabsContent} value="tab1">
+
+      {/* <Tabs.Content className={styles.TabsContent} value="tab1">
         <Slider data={featuresData.calendar} resolution={resolution} />
+      </Tabs.Content> */}
+      <Tabs.Content className={styles.TabsContent} value="tab1">
+        <Slider data={featuresData.cryptonBonuses} resolution={resolution} />
       </Tabs.Content>
       <Tabs.Content className={styles.TabsContent} value="tab2">
         <Slider data={featuresData.content} resolution={resolution} />
@@ -181,7 +183,7 @@ const FeaturesTabs = ({ resolution }: { resolution: Resolution }) => {
       <Tabs.Content className={styles.TabsContent} value="primeKit">
         <Slider data={featuresData.primeKit} resolution={resolution} />
       </Tabs.Content>
-      <Tabs.Content className={styles.TabsContent} value="tab7">
+      <Tabs.Content className={styles.TabsContent} value="tab6">
         <Slider data={featuresData.investing} resolution={resolution} />
       </Tabs.Content>
     </Tabs.Root>

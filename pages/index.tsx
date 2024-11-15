@@ -1,24 +1,14 @@
 import React, { useState, useEffect } from "react"
 import { useRouter } from "next/router"
-import { Swiper, SwiperSlide } from "swiper/react"
 
 import Footer from "@/components/footer"
-// import Features from "@/components/features"
 import Examples from "@/components/examples"
 import Accordion from "@/components/accordion/accordion"
-import Menu from "@/components/menu"
 import Team from "@/components/Team"
 import Ribbon from "@/components/ribbon"
-// import RibbonSale from "@/components/ribbon-sale"
-// import Countdown from "@/components/countdown";
-
-import YouTube from "@/public/images/jsx/ceo/you-tube"
-import TeamArrow from "@/public/images/jsx/ceo/arrow"
-import More from "@/public/images/jsx/subscribe/more"
 
 import Testimonials from "@/sections/Testimonials/Testimonials"
 import Histories from "@/sections/Histories/Histories"
-import Benefits from "@/sections/Benefits/Benefits"
 import Features from "@/sections/Features/Features"
 import FeaturesMd from "@/sections/Features/FeaturesMd"
 import Partners from "@/sections/Partners/Partners"
@@ -26,10 +16,10 @@ import Roadmap from "@/sections/Roadmap/Roadmap"
 import Earn from "@/sections/Earn/Earn"
 import Founders from "@/sections/founders/Founders"
 import BuySubscription from "@/sections/BuySubscription/BuySubscription"
-import BuySubscriptionPromo from "@/sections/BuySubscription/BuySubscriptionPromo"
 import OtherProducts from "@/sections/OtherProducts/OtherProducts"
 import Guarantee from "@/sections/Guarantee/Guarantee"
-import LoyaltySystem from "@/sections/LoyaltySystem/LoyaltySystem"
+import Advantages from "@/sections/Advantages/Advantages"
+import Birthday from "@/sections/Birthday/Birthday"
 
 import BuySubscr from "@/public/images/jsx/subscribe/buy-subscr"
 import BuySubscrLg from "@/public/images/jsx/subscribe/buy-subscr-lg"
@@ -37,6 +27,8 @@ import BuySubscrMd from "@/public/images/jsx/subscribe/buy-subscr-md"
 import BuySubscrSm from "@/public/images/jsx/subscribe/buy-subscr-sm"
 
 import { Resolution } from "@/types/resolution"
+import BuySubscriptionPromo from "@/sections/BuySubscription/BuySubscriptionPromo"
+import TimerPromo from "@/sections/TimerPromo/TimerPromo"
 
 const useWindowSize = () => {
   const [currentWidth, setCurrentWidth] = useState(0)
@@ -58,43 +50,13 @@ const useWindowSize = () => {
   return currentWidth
 }
 
-const renderer = ({ days, hours, minutes, seconds, completed }) => {
-  if (completed) {
-    return <div />
-  } else {
-    return (
-      <span>
-        <div className="date">
-          {days / 10 >= 1 ? "" : "0"}
-          {days}
-        </div>
-        <div className="sep">:</div>
-        <div className="date">
-          {hours / 10 >= 1 ? "" : "0"}
-          {hours}
-        </div>
-        <div className="sep">:</div>
-        <div className="date">
-          {minutes / 10 >= 1 ? "" : "0"}
-          {minutes}
-        </div>
-        <div className="sep">:</div>
-        <div className="date">
-          {seconds / 10 >= 1 ? "" : "0"}
-          {seconds}
-        </div>
-      </span>
-    )
-  }
-}
-
 const Home = (props) => {
   const router = useRouter()
   const referral = router.query.ref || "agent"
 
-  const [currentY, setCurrentY] = useState(0)
+  const [teamOpened, setTeamOpened] = useState(false)
 
-  const [timerProgress, setTimerProgress] = useState(0)
+  const [currentY, setCurrentY] = useState(0)
 
   const currentWidth = useWindowSize()
 
@@ -134,19 +96,6 @@ const Home = (props) => {
     setCurrentY(window.scrollY)
   }
 
-  const startDate = 1713733200000
-  const endDate = 1714338000000
-
-  useEffect(() => {
-    setTimerProgress(
-      Math.round(
-        Date.now() >= startDate
-          ? ((Date.now() - startDate) / (endDate - startDate)) * 100
-          : 0
-      )
-    )
-  }, [])
-
   useEffect(() => {
     window.addEventListener("wheel", wheelHandler)
 
@@ -158,13 +107,13 @@ const Home = (props) => {
   return (
     <>
       <div className="app">
-        {["lgg", "lg"].includes(resolution) && (
+        {/* {["lgg", "lg"].includes(resolution) && (
           <Menu
             resolution={resolution}
             currentY={currentY}
             setCurrentY={setCurrentY}
           />
-        )}
+        )} */}
         <div className="app__container">
           <Earn
             currentY={currentY}
@@ -173,13 +122,13 @@ const Home = (props) => {
             resolution={resolution}
           />
 
-          <Benefits />
+          <Advantages />
 
-          {resolution === "sm" || resolution === "md" ? (
+          {/* {resolution === "sm" || resolution === "md" ? (
             <FeaturesMd resolution={resolution} />
-          ) : (
-            <Features resolution={resolution} />
-          )}
+          ) : ( */}
+          <Features resolution={resolution} />
+          {/* )} */}
 
           {/* <div className="app__container__video-block" id="video">
             <div className="app__container__video-block__video">
@@ -210,29 +159,32 @@ const Home = (props) => {
 
           <div className="app__container__examples" id="examples">
             <div className="app__container__examples__title">
-              НАШИ ПОДПИСЧИКИ
-              <br />
-              УЖЕ ЗАРАБОТАЛИ
+              Наши подписчики уже <br /> заработали
             </div>
             <Examples resolution={resolution} />
           </div>
 
           <Roadmap resolution={resolution} />
 
-          <Founders />
+          <Founders teamOpened={teamOpened} setTeamOpened={setTeamOpened} />
 
-          <Team />
+          <Team teamOpened={teamOpened} setTeamOpened={setTeamOpened} />
+
+          <Partners />
+
+          <Testimonials resolution={resolution} />
+
+          <Birthday />
+
+          <TimerPromo />
 
           {/* <LoyaltySystem resolution={resolution} /> */}
 
-          <BuySubscription tariffs={tariffs} resolution={resolution} />
+          {/* <BuySubscription tariffs={tariffs} resolution={resolution} /> */}
 
-          {/* <BuySubscriptionPromo tariffs={tariffs} resolution={resolution} /> */}
+          <BuySubscriptionPromo tariffs={tariffs} resolution={resolution} />
 
-          <Testimonials resolution={resolution} />
           <Histories />
-
-          <Partners />
 
           <div className="app__container__faq" id="faq">
             <div className="app__container__faq__title">

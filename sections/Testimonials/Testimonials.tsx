@@ -20,21 +20,22 @@ const Testimonials = ({ resolution }: { resolution: Resolution }) => {
   return (
     <section className={styles.container} id="testimonials">
       <div className={styles.header}>
-        <h2 className={styles.title}>О НАС ОТЗЫВАЮТСЯ</h2>
-        <div className={styles.navigation}>
-          <button
-            className={styles.arrow_btn}
-            onClick={() => swiperRef.current.swiper.slidePrev()}
-          >
-            <Arrow className={styles.arrow_prev} />
-          </button>
-          <button
-            className={styles.arrow_btn}
-            onClick={() => swiperRef.current.swiper.slideNext()}
-          >
-            <Arrow className={styles.arrow_next} />
-          </button>
-        </div>
+        <h2 className={styles.title}>О нас отзываются</h2>
+      </div>
+
+      <div className={styles.navigation}>
+        <button
+          className={styles.arrow_btn}
+          onClick={() => swiperRef.current.swiper.slidePrev()}
+        >
+          <Arrow className={styles.arrow_prev} />
+        </button>
+        <button
+          className={styles.arrow_btn}
+          onClick={() => swiperRef.current.swiper.slideNext()}
+        >
+          <Arrow className={styles.arrow_next} />
+        </button>
       </div>
 
       <Swiper
@@ -89,7 +90,7 @@ const TestimonialsItem = ({
               : testimonialsData.length - swiper.realIndex + cardIndex <
                 NEEDED_CARDS_FOR_FULL_VISION
               ? 0.5
-              : 0
+              : 0.5
             : cardIndex - swiper.realIndex < 0 ||
               cardIndex - swiper.realIndex > NEEDED_CARDS_FOR_FULL_VISION
             ? 0

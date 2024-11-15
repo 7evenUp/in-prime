@@ -178,6 +178,7 @@ p {
     // }
 
     &__earn {
+      background: #181818;
       min-width: 1920px;
       width: 100%;
       align-items: center;
@@ -185,18 +186,22 @@ p {
       display: flex;
       flex-direction: column;
       position: relative;
+      height: 1090px;
 
       @media (max-width: 1919px) and (min-width: 1368px) {
         min-width: 1368px;
         position: relative;
+        height: 980px;
       }
 
       @media (max-width: 1367px) and (min-width: 768px) {
         min-width: 768px;
+        height: 1024px;
       }
 
       @media (max-width: 767px) {
         min-width: 350px;
+        height: 812px;
       }
 
       @media (max-width: 420px) {
@@ -383,10 +388,10 @@ p {
       }
 
       &__header {
+        position: absolute;
         transition: 0.3s ease;
-        position: fixed;
         width: 1300px;
-        margin-top: 30px;
+        margin-top: 20px;
         display: flex;
         justify-content: space-between;
         z-index: 1000;
@@ -400,25 +405,27 @@ p {
         @media (max-width: 1367px) and (min-width: 768px) {
           width: 672px;
           height: 36px;
+          position: fixed;
         }
 
         @media (max-width: 767px) {
           margin-top: 24px;
           width: 335px;
           height: 36px;
+          position: fixed;
         }
 
         @media (max-width: 420px) {
           width: 100%;
           box-sizing: border-box;
-          padding-inline: 12px;
+          padding-inline: 20px;
         }
 
         &-bg {
           width: 100%;
           height: 100px;
           transition: 0.3s ease;
-          position: fixed;
+
           z-index: 999;
           @media (max-width: 1919px) and (min-width: 1368px) {
             height: 100px;
@@ -426,10 +433,12 @@ p {
 
           @media (max-width: 1367px) and (min-width: 768px) {
             height: 96px;
+            position: fixed;
           }
 
           @media (max-width: 767px) {
             height: 80px;
+            position: fixed;
           }
         }
         .menu-sub-block {
@@ -438,50 +447,72 @@ p {
         }
 
         &__logo {
-          width: 113px;
+          width: 36px;
           height: 40px;
-          background-image: url("/images/svg/logo/logo-lgg.svg");
+          background-image: url("/images/svg/logo/logo.svg");
           background-repeat: no-repeat;
+          background-size: contain;
 
           @media (max-width: 1919px) and (min-width: 1368px) {
-            width: 94px;
+            width: 32px;
             height: 36px;
-            background-image: url("/images/svg/logo/logo-sm.svg");
           }
 
           @media (max-width: 1367px) and (min-width: 768px) {
-            width: 94px;
+            width: 32px;
             height: 36px;
-            background-image: url("/images/svg/logo/logo-sm.svg");
           }
 
           @media (max-width: 767px) {
             width: 88px;
             height: 32px;
-            background-image: url("/images/svg/logo/logo-sm.svg");
+          }
+        }
+
+        &__menu {
+          display: flex;
+          align-items: center;
+          gap: 42px;
+
+          color: #fff;
+          font-family: "Inter", sans-serif;
+          font-weight: 400;
+          font-size: 16px;
+
+          @media (max-width: 1367px) {
+            display: none;
           }
         }
 
         &__subscribe {
-          width: 203px;
-          height: 28px;
+          width: 233px;
+          height: 56px;
           display: flex;
           justify-content: center;
-          padding: 12px 18px 12px 20px;
-          background: linear-gradient(
-            129.5deg,
-            #ffcd9f 2.02%,
-            #ff4a7a 56.6%,
-            #bb44cc 104.76%
+          align-items: center;
+          box-sizing: border-box;
+
+          background: radial-gradient(
+            57.52% 59.26% at 53.22% 57.14%,
+            rgb(255, 239, 203) 0%,
+            rgb(255, 225, 157) 100%
           );
-          border-radius: 8px;
+          border-radius: 16px;
           cursor: pointer;
 
           &:hover {
             background: #ffffff;
           }
 
+          @media (max-width: 1919px) and (min-width: 1368px) {
+            border-radius: 12px;
+            width: 205px;
+            height: 47px;
+          }
+
           @media (max-width: 1367px) and (min-width: 768px) {
+            width: 205px;
+            height: 48px;
             margin-right: 20px;
           }
 
@@ -490,9 +521,9 @@ p {
           }
 
           &__text {
-            font-family: "Resist Sans Medium";
+            font-family: "Inter", sans-serif;
             font-style: normal;
-            font-weight: 400;
+            font-weight: 600;
             font-size: 18px;
             line-height: 28px;
             text-align: center;
@@ -500,7 +531,11 @@ p {
             letter-spacing: 0.017em;
 
             @media (max-width: 1919px) and (min-width: 768px) {
-              // font-size: 16px;
+              font-size: 16px;
+            }
+
+            @media (max-width: 1367px) and (min-width: 768px) {
+              font-size: 16px;
             }
           }
           &__logo {
@@ -904,21 +939,21 @@ p {
       left: 70%;
       width: 250%;
       height: 96px;
-      background: linear-gradient(108.46deg, #ff4a7a 14.61%, #bb44cc 38.38%);
       z-index: 100;
-      margin-top: 92px;
-      margin-bottom: 140px;
+      margin-top: 110px;
+      margin-bottom: 100px;
+      background: radial-gradient(circle at 50% 56%, #e067f1 0%, #a82bba 100%);
 
       @media (max-width: 1919px) and (min-width: 1368px) {
         height: 88px;
-        margin-top: 82px;
-        margin-bottom: 120px;
+        margin-top: 100px;
+        margin-bottom: 100px;
       }
 
       @media (max-width: 1367px) and (min-width: 768px) {
         height: 65px;
-        margin-top: 80px;
-        margin-bottom: 100px;
+        margin-top: 74px;
+        margin-bottom: 85px;
       }
 
       @media (max-width: 767px) {
@@ -1113,23 +1148,25 @@ p {
       }
 
       &__title {
-        margin-bottom: 70px;
-        width: 895px;
-        font-family: "Benzin-Bold";
+        font-family: "Unbounded", sans-serif;
+        font-weight: 700;
         font-size: 54px;
-        line-height: 160%;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-        color: #ffffff;
+        text-align: center;
+        color: #fff;
+        line-height: normal;
+
+        margin-bottom: 65px;
+        width: 1300px;
 
         @media (max-width: 1919px) and (min-width: 1368px) {
-          font-size: 44px;
-          margin-bottom: 54px;
+          font-size: 49px;
+          margin-bottom: 85px;
         }
 
         @media (max-width: 1367px) and (min-width: 768px) {
-          font-size: 40px;
-          margin-bottom: 48px;
+          font-size: 42px;
+          margin-bottom: 65px;
+          width: 667px;
         }
 
         @media (max-width: 767px) {
@@ -1148,8 +1185,8 @@ p {
               align-items: center;
 
               &__icon {
-                width: 30px;
-                height: 22px;
+                width: 24px;
+                height: 24px;
                 background-repeat: no-repeat;
                 align-items: center;
                 fill: #ff4a7a;
@@ -1171,27 +1208,25 @@ p {
               }
 
               &__text {
-                margin-left: 22px;
-                height: 33px;
-                font-family: "Resist Sans";
-                font-style: normal;
-                font-weight: 400;
-                font-size: 22px;
-                line-height: 27px;
-                color: #ffffff;
+                margin-left: 10px;
+
+                font-family: "Inter", sans-serif;
+                font-weight: 300;
+                font-size: 16px;
+                color: #fff;
 
                 @media (max-width: 1919px) and (min-width: 1368px) {
-                  font-size: 18px;
+                  font-size: 16px;
                   line-height: 33px;
                   height: 33px;
-                  margin-left: 16px;
+                  margin-left: 5px;
                 }
 
                 @media (max-width: 1367px) and (min-width: 768px) {
                   font-size: 16px;
-                  line-height: 33px;
-                  height: 33px;
-                  margin-left: 15px;
+                  line-height: normal;
+                  height: auto;
+                  margin-left: 9px;
                 }
 
                 @media (max-width: 767px) {
@@ -1202,9 +1237,9 @@ p {
                 }
 
                 &__arrow {
-                  margin-left: 10px;
-                  width: 12px;
-                  height: 12px;
+                  margin-left: 6px;
+                  width: 8px;
+                  height: 8px;
                   stroke: #fff;
                   align-self: flex-start;
 
@@ -1970,6 +2005,7 @@ p {
 
         &__header {
           display: flex;
+          justify-content: center;
           // @media (max-width: 1367px) and (min-width: 768px) {
           //   display: block;
           // }
@@ -2023,31 +2059,28 @@ p {
         }
 
         &__title {
-          margin-top: 65px;
-          margin-bottom: 37px;
-          display: flex;
-          width: 933px;
-          height: 48px;
-          background-image: url("/images/svg/subscribe/title.svg");
-          background-repeat: no-repeat;
-          background-size: contain;
+          margin-top: 110px;
+          margin-bottom: 90px;
+
+          font-family: "Unbounded", sans-serif;
+          font-weight: 700;
+          font-size: 54px;
+          text-align: center;
+          color: #fff;
 
           @media (max-width: 1919px) and (min-width: 1368px) {
-            width: 760px;
-            margin-top: 75px;
-            margin-bottom: 29px;
+            margin-top: 110px;
+            margin-bottom: 70px;
+            font-size: 48px;
           }
 
           @media (max-width: 1367px) and (min-width: 768px) {
-            width: 557px;
-            margin-top: 55px;
-            margin-bottom: 15px;
+            margin-top: 89px;
+            margin-bottom: 60px;
+            font-size: 42px;
           }
 
           @media (max-width: 767px) {
-            background-image: url("/images/svg/subscribe/title-sm.svg");
-            width: 225px;
-            height: 64px;
             margin-top: 50px;
             margin-bottom: 30px;
           }
@@ -2896,9 +2929,11 @@ p {
     }
 
     &__faq {
-      width: 1040px;
+      width: 1310px;
       padding: 0 570px 0 310px;
       margin-top: 140px;
+      margin-left: auto;
+      margin-right: auto;
 
       @media (max-width: 1919px) and (min-width: 1368px) {
         padding: 0 216px 0 112px;
@@ -2922,13 +2957,12 @@ p {
       }
 
       &__title {
-        width: 860px;
-        height: 172px;
-        font-family: "Benzin-Bold";
+        font-family: "Unbounded", sans-serif;
         font-size: 54px;
         line-height: 160%;
         letter-spacing: 0.04em;
-        text-transform: uppercase;
+        width: 100%;
+        text-align: center;
         color: #ffffff;
         margin-bottom: 70px;
 

@@ -39,3 +39,16 @@
   font-family: "Benzin-Bold";
   src: local("Benzin-Bold"), url("/fonts/benzin-bold.ttf");
 }
+
+@font-face {
+  font-family: "Unbounded";
+  src: url("/fonts/Unbounded-VariableFont_wght.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter-VariableFont_opsz,wght.ttf") format("truetype");
+}

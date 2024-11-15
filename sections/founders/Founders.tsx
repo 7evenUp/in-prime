@@ -3,8 +3,16 @@ import Telegram from "@/public/images/jsx/ceo/telegram"
 import YouTube from "@/public/images/jsx/ceo/you-tube"
 
 import styles from "./Founders.module.scss"
+import { FC } from "react"
+import clsx from "clsx"
+import ArrowTeam from "@/public/images/jsx/ceo/arrow-team"
 
-const Founders = () => {
+interface FoundersProps {
+  teamOpened: boolean
+  setTeamOpened: (opened: boolean) => void
+}
+
+const Founders: FC<FoundersProps> = ({ teamOpened, setTeamOpened }) => {
   return (
     <section className={styles.section} id="founder">
       <div className={styles.gradient} />
@@ -20,10 +28,7 @@ const Founders = () => {
             <div>
               <h3 className={styles.founder_name}>Павел Сычев</h3>
               <p className={styles.founder_position}>
-                <a href="https://crypton.xyz" target="_blank">
-                  Crypton
-                </a>{" "}
-                Co-Founder (CEO)
+                Сооснователь экосистемы Crypton
               </p>
             </div>
           </div>
@@ -74,10 +79,7 @@ const Founders = () => {
             <div className={styles.founder_info}>
               <h3 className={styles.founder_name}>Павел Сычев</h3>
               <p className={styles.founder_position}>
-                <a href="https://crypton.xyz" target="_blank">
-                  Crypton
-                </a>{" "}
-                Co-Founder (CEO)
+                Сооснователь экосистемы Crypton
               </p>
               <div className={styles.founder_channels}>
                 <span className={styles.founder_channels_title}>
@@ -132,10 +134,7 @@ const Founders = () => {
             <div>
               <h3 className={styles.founder_name}>Вадим Тарасов</h3>
               <p className={styles.founder_position}>
-                <a href="https://crypton.xyz" target="_blank">
-                  Crypton
-                </a>{" "}
-                Co-Founder (COO)
+                Сооснователь экосистемы Crypton
               </p>
             </div>
           </div>
@@ -169,10 +168,7 @@ const Founders = () => {
             <div className={styles.founder_info}>
               <h3 className={styles.founder_name}>Вадим Тарасов</h3>
               <p className={styles.founder_position}>
-                <a href="https://crypton.xyz" target="_blank">
-                  Crypton
-                </a>{" "}
-                Co-Founder (COO)
+                Сооснователь экосистемы Crypton
               </p>
               <div className={styles.founder_channels}>
                 <span className={styles.founder_channels_title}>
@@ -193,6 +189,67 @@ const Founders = () => {
               <p className={styles.founder_experience}>
                 В криптоиндустрии с 2017 года.
               </p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          className={styles.founder}
+          onClick={() => setTeamOpened(!teamOpened)}
+        >
+          <div className={styles.founder_top_mobile}>
+            <div className={styles.founder_team_title}>
+              <h1>+15</h1>
+              <h2>опытных криптанов</h2>
+            </div>
+            <div>
+              <h3 className={styles.founder_name}>Вадим Тарасов</h3>
+              <p className={styles.founder_position}>
+                <a href="https://crypton.xyz" target="_blank">
+                  Crypton
+                </a>{" "}
+                Co-Founder (COO)
+              </p>
+            </div>
+          </div>
+          <div className={styles.founder_bottom_mobile}>
+            <div className={styles.founder_channels}>
+              <span className={styles.founder_channels_title}>
+                Автор канала:
+              </span>
+              <div className={styles.founder_channels_list}>
+                <a href="https://t.me/about_traders" target="_blank">
+                  <div className="app__container__about-ceo__ceo__description__channels__link">
+                    <Telegram />
+                    <div className="app__container__about-ceo__ceo__description__channels__link__text">
+                      Уголок трейдера
+                    </div>
+                    <TeamArrow />
+                  </div>
+                </a>
+              </div>
+            </div>
+            <p className={styles.founder_experience}>
+              В криптоиндустрии с 2017 года.
+            </p>
+          </div>
+          <div className={clsx(styles.founder_default, styles.founder_team)}>
+            <div className={styles.founder_team_title}>
+              <h1 className={styles.founder_team_title_number}>+15</h1>
+              <h2 className={styles.founder_team_title_text}>
+                опытных <br /> криптанов
+              </h2>
+            </div>
+            <div className={styles.founder_info}>
+              <p className={clsx(styles.founder_position, styles.team)}>
+                (ТЫК сюда, чтобы посмотреть всех членов команды)
+              </p>
+              <ArrowTeam
+                className={clsx(
+                  styles.founder_position_arrow,
+                  teamOpened && styles.founder_position_arrow_active
+                )}
+              />
             </div>
           </div>
         </div>
