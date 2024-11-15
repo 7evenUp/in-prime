@@ -201,6 +201,7 @@ p {
 
       @media (max-width: 767px) {
         min-width: 350px;
+        height: 812px;
       }
 
       @media (max-width: 420px) {
@@ -417,7 +418,7 @@ p {
         @media (max-width: 420px) {
           width: 100%;
           box-sizing: border-box;
-          padding-inline: 12px;
+          padding-inline: 20px;
         }
 
         &-bg {
@@ -2074,8 +2075,9 @@ p {
           }
 
           @media (max-width: 1367px) and (min-width: 768px) {
-            margin-top: 55px;
-            margin-bottom: 15px;
+            margin-top: 89px;
+            margin-bottom: 60px;
+            font-size: 42px;
           }
 
           @media (max-width: 767px) {
@@ -2927,9 +2929,11 @@ p {
     }
 
     &__faq {
-      width: 1040px;
+      width: 1310px;
       padding: 0 570px 0 310px;
       margin-top: 140px;
+      margin-left: auto;
+      margin-right: auto;
 
       @media (max-width: 1919px) and (min-width: 1368px) {
         padding: 0 216px 0 112px;
@@ -2953,13 +2957,12 @@ p {
       }
 
       &__title {
-        width: 860px;
-        height: 172px;
-        font-family: "Benzin-Bold";
+        font-family: "Unbounded", sans-serif;
         font-size: 54px;
         line-height: 160%;
         letter-spacing: 0.04em;
-        text-transform: uppercase;
+        width: 100%;
+        text-align: center;
         color: #ffffff;
         margin-bottom: 70px;
 

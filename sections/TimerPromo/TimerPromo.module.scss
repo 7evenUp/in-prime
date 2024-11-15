@@ -4,6 +4,9 @@
   @media (max-width: 1919px) and (min-width: 1368px) {
     padding-bottom: 80px;
   }
+  @media (max-width: 1367px) and (min-width: 768px) {
+    padding-bottom: 75px;
+  }
 
   position: relative;
 
@@ -23,6 +26,11 @@
       margin-bottom: 70px;
 
       font-size: 42px;
+    }
+
+    @media (max-width: 1367px) and (min-width: 768px) {
+      font-size: 32px;
+      margin-top: 0;
     }
   }
 
@@ -47,17 +55,20 @@
     margin-right: auto;
     margin-bottom: 125px;
 
-    @media (max-width: 1919px) and (min-width: 1368px) {
-      margin-bottom: 85px;
-    }
-
     display: flex;
     flex-direction: column;
     align-items: center;
 
     @media (max-width: 1919px) and (min-width: 1368px) {
+      margin-bottom: 85px;
       width: 1144px;
       height: 421px;
+    }
+
+    @media (max-width: 1367px) and (min-width: 768px) {
+      width: 672px;
+      height: 359px;
+      margin-bottom: 77px;
     }
 
     &__text {
@@ -70,6 +81,12 @@
 
       margin-top: 100px;
       margin-bottom: 65px;
+
+      @media (max-width: 1367px) and (min-width: 768px) {
+        font-size: 28px;
+        margin-top: 78px;
+        margin-bottom: 70px;
+      }
     }
 
     &__progress {
@@ -88,6 +105,11 @@
         gap: 32px;
       }
 
+      @media (max-width: 1367px) and (min-width: 768px) {
+        font-size: 86px;
+        gap: 18px;
+      }
+
       &__date {
         font-family: "Unbounded", sans-serif;
         font-weight: 400;
@@ -99,6 +121,11 @@
         @media (max-width: 1919px) and (min-width: 1368px) {
           width: 159px;
           font-size: 106px;
+        }
+
+        @media (max-width: 1367px) and (min-width: 768px) {
+          font-size: 86px;
+          width: 156px;
         }
       }
 
@@ -121,10 +148,19 @@
           margin-top: 32px;
         }
 
+        @media (max-width: 1367px) and (min-width: 768px) {
+          gap: 62px;
+          margin-top: 20px;
+          font-size: 20px;
+        }
+
         > span {
           width: 215px;
           @media (max-width: 1919px) and (min-width: 1368px) {
             width: 159px;
+          }
+          @media (max-width: 1367px) and (min-width: 768px) {
+            width: 156px;
           }
         }
       }
@@ -146,11 +182,24 @@
       color: #fff;
       margin: 0;
       margin-bottom: 56px;
+
+      @media (max-width: 1367px) and (min-width: 768px) {
+        font-size: 28px;
+        margin-bottom: 45px;
+      }
     }
 
     &__list {
       display: flex;
       gap: 30px;
+
+      @media (max-width: 1367px) and (min-width: 768px) {
+        justify-content: flex-start;
+        margin-left: auto;
+        margin-right: auto;
+        width: 672px;
+        gap: 18px;
+      }
     }
   }
 
@@ -171,6 +220,12 @@
       width: 390px;
       height: 296px;
       margin-bottom: 70px;
+    }
+
+    @media (max-width: 1367px) and (min-width: 768px) {
+      width: 336px;
+      height: 256px;
+      margin-bottom: 50px;
     }
   }
 
@@ -216,6 +271,10 @@
 
     @media (max-width: 1919px) and (min-width: 1368px) {
       font-size: 16px;
+    }
+
+    @media (max-width: 1367px) and (min-width: 768px) {
+      font-size: 14px;
     }
   }
 }
@@ -317,7 +376,9 @@
   }
 
   @media (max-width: 1367px) {
-    font-size: 28px;
+    font-size: 20px;
+    width: 297px;
+    height: 57px;
   }
 
   @media (max-width: 767px) {
@@ -353,6 +414,15 @@
 
     @media (max-width: 1919px) and (min-width: 1368px) {
       margin-top: 50px;
+    }
+
+    @media (max-width: 1367px) and (min-width: 768px) {
+      margin-top: 40px;
+      grid-template-columns: 1fr 1fr 1fr;
+      width: 675px;
+      margin-left: auto;
+      margin-right: auto;
+      gap: 32px 18px;
     }
   }
 }

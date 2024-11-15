@@ -26,6 +26,10 @@
     margin-bottom: 12px;
   }
 
+  @media (max-width: 1367px) and (min-width: 768px) {
+    padding-bottom: 34px;
+  }
+
   &_container {
     display: flex;
     align-items: center;
@@ -103,6 +107,10 @@
   height: 680px;
   box-sizing: border-box;
 
+  @media (max-width: 1367px) and (min-width: 768px) {
+    padding: 16px;
+  }
+
   @media (max-width: 767px) {
     padding-bottom: 18px;
   }
@@ -129,7 +137,7 @@
     .bonuses_heading,
     .subscription_remains,
     .price_discount_percent {
-      color: #ffcd9f;
+      // color: #ffcd9f;
     }
   }
   &:nth-child(3) {
@@ -141,7 +149,7 @@
     .bonuses_heading,
     .subscription_remains,
     .price_discount_percent {
-      color: #bb44cc;
+      // color: #bb44cc;
     }
   }
   &:nth-child(4) {
@@ -156,7 +164,7 @@
     .bonuses_heading,
     .subscription_remains,
     .price_discount_percent {
-      color: #ff4a7a;
+      // color: #ff4a7a;
     }
 
     .button {
@@ -581,6 +589,11 @@
     height: 60px;
   }
 
+  @media (max-width: 1367px) and (min-width: 768px) {
+    height: 48px;
+    font-size: 16px;
+  }
+
   @media (max-width: 375px) {
     height: 48px;
     padding-bottom: 4px;
@@ -600,9 +613,8 @@
   margin-bottom: 97px;
 
   @media (max-width: 1367px) {
-    margin-top: 72px;
-    flex-direction: column-reverse;
-    gap: 16px;
+    margin-top: 26px;
+    margin-bottom: 57px;
   }
 
   @media (max-width: 767px) {
@@ -616,6 +628,10 @@
   font-size: 18px;
   text-align: center;
   color: #fff;
+
+  @media (max-width: 1367px) {
+    font-size: 14px;
+  }
 
   @media (max-width: 767px) {
     font-size: 16px;
@@ -645,6 +661,10 @@
       font-weight: 500;
       font-size: 24px;
       color: #fff;
+
+      @media (max-width: 1367px) and (min-width: 768px) {
+        font-size: 16px;
+      }
     }
 
     &__used {
@@ -654,6 +674,10 @@
       font-size: 20px;
       color: #fff;
       opacity: 0.5;
+
+      @media (max-width: 1367px) and (min-width: 768px) {
+        font-size: 14px;
+      }
     }
   }
 
@@ -673,6 +697,12 @@
     text-align: center;
     color: #fff;
     text-decoration: none;
+
+    @media (max-width: 1367px) and (min-width: 768px) {
+      width: 251px;
+      height: 54px;
+      font-size: 16px;
+    }
   }
 }
 

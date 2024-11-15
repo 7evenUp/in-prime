@@ -46,9 +46,11 @@
   }
 
   @media (max-width: 1367px) and (min-width: 768px) {
-    top: 5750px;
-    width: 257px;
-    height: 330px;
+    background-size: cover;
+    top: 5000px;
+    width: 327px;
+    height: 691px;
+    right: -100px;
   }
 
   @media (max-width: 767px) {
@@ -95,7 +97,7 @@
   @media (max-width: 1367px) {
     flex-direction: column;
     margin-top: 50px;
-    gap: 64px;
+    gap: 11px;
   }
 
   @media (max-width: 767px) {

@@ -61,9 +61,9 @@
 
   &__title {
     margin: 0;
-    font-family: "Resist Sans";
+    font-family: "Inter", sans-serif;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 300;
     font-size: 22px;
     line-height: 160%;
     display: flex;
@@ -95,7 +95,6 @@
       margin-bottom: 36px;
       text-transform: none;
       padding-right: 65px;
-      font-family: "Resist Sans";
 
       @media (max-width: 1919px) and (min-width: 1368px) {
         font-size: 16px;

@@ -23,8 +23,10 @@
 
     @media (max-width: 1367px) and (min-width: 768px) {
       background-image: url("/images/png/features/bg-gradient-md.png");
+      background-size: cover;
+      background-position: center;
       height: 1655px;
-      width: 1500px;
+      width: 1367px;
       margin-top: -80px;
     }
   }

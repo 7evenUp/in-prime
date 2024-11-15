@@ -11,6 +11,7 @@ import { historiesData } from "@/data/histories"
 import Modal from "./Modal/Modal"
 
 import styles from "./Histories.module.scss"
+import clsx from "clsx"
 
 const Histories = () => {
   const swiperRef = useRef(null)
@@ -19,22 +20,23 @@ const Histories = () => {
   return (
     <section className={styles.container} id="histories">
       <div className={styles.header}>
-        <h2 className={styles.title}>ИХ ЖИЗНЬ ИЗМЕНИЛАСЬ</h2>
-        <div className={styles.navigation}>
-          <button
-            className={styles.arrow_btn}
-            onClick={() => swiperRef.current.swiper.slidePrev()}
-          >
-            <Arrow className={styles.arrow_prev} />
-          </button>
-          <button
-            className={styles.arrow_btn}
-            onClick={() => swiperRef.current.swiper.slideNext()}
-          >
-            <Arrow className={styles.arrow_next} />
-          </button>
-        </div>
+        <h2 className={styles.title}>Их жизнь изменилась</h2>
       </div>
+      <div className={styles.navigation}>
+        <button
+          className={styles.arrow_btn}
+          onClick={() => swiperRef.current.swiper.slidePrev()}
+        >
+          <Arrow className={styles.arrow_prev} />
+        </button>
+        <button
+          className={styles.arrow_btn}
+          onClick={() => swiperRef.current.swiper.slideNext()}
+        >
+          <Arrow className={styles.arrow_next} />
+        </button>
+      </div>
+
       <Swiper
         // @ts-ignore
         ref={swiperRef}
@@ -104,7 +106,11 @@ const HistoryCard = ({
           <Modal title={historyTitle} textHtml={historyDataHTML}>
             <button className={styles.card_button}>Читать историю</button>
           </Modal>
-          <a href={telegramLink} target="_blank" className={styles.card_button}>
+          <a
+            href={telegramLink}
+            target="_blank"
+            className={clsx(styles.card_button, styles.card_button_tg)}
+          >
             <Image
               src={TelegramIcon}
               alt="Telegram icon"
