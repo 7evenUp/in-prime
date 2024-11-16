@@ -770,7 +770,12 @@ const SubscriptionCard = ({
           )}
       </ul> */}
 
-      <div className={styles.subscription_box}>
+      <div
+        className={clsx(
+          styles.subscription_box,
+          order === 0 && styles.subscription_box_first
+        )}
+      >
         <div className={styles.subscription_box_count}>
           {order === 0 && "1"}
           {order === 1 && "3"}

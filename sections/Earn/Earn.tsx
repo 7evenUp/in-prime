@@ -148,6 +148,8 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
       {/* <div className="app__container__earn__left-gradient" />
       <div className="app__container__earn__right-gradient" /> */}
 
+      <div className="app__container__earn__promo" />
+
       <MobileMenu
         open={mobileMenu}
         changeMobileMenu={() => changeMobileMenu(!mobileMenu)}
@@ -160,7 +162,9 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
       <div
         className="app__container__earn__header-bg"
         id="header"
-        style={{ background: scrollY ? "#131313" : "transparent" }}
+        style={{
+          background: scrollY ? "rgba(34, 34, 34, 0.8)" : "transparent",
+        }}
       />
 
       <header className="app__container__earn__header">

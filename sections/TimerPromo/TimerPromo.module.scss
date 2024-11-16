@@ -8,6 +8,10 @@
     padding-bottom: 75px;
   }
 
+  @media (max-width: 767px) {
+    padding-bottom: 58px;
+  }
+
   position: relative;
 
   &__title {
@@ -31,6 +35,15 @@
     @media (max-width: 1367px) and (min-width: 768px) {
       font-size: 32px;
       margin-top: 0;
+    }
+
+    @media (max-width: 767px) {
+      margin-top: 0;
+      font-size: 24px;
+      width: 332px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 42px;
     }
   }
 
@@ -71,6 +84,13 @@
       margin-bottom: 77px;
     }
 
+    @media (max-width: 767px) {
+      border-radius: 18px;
+      width: 334px;
+      height: 227px;
+      margin-bottom: 38px;
+    }
+
     &__text {
       font-family: "Unbounded", sans-serif;
       font-weight: 400;
@@ -86,6 +106,14 @@
         font-size: 28px;
         margin-top: 78px;
         margin-bottom: 70px;
+      }
+
+      @media (max-width: 767px) {
+        font-size: 20px;
+        margin-top: 32px;
+        margin-bottom: 30px;
+        width: 250px;
+        line-height: normal;
       }
     }
 
@@ -110,6 +138,11 @@
         gap: 18px;
       }
 
+      @media (max-width: 767px) {
+        font-size: 48px;
+        gap: 5px;
+      }
+
       &__date {
         font-family: "Unbounded", sans-serif;
         font-weight: 400;
@@ -126,6 +159,11 @@
         @media (max-width: 1367px) and (min-width: 768px) {
           font-size: 86px;
           width: 156px;
+        }
+
+        @media (max-width: 767px) {
+          font-size: 48px;
+          width: 87px;
         }
       }
 
@@ -154,6 +192,12 @@
           font-size: 20px;
         }
 
+        @media (max-width: 767px) {
+          font-size: 14px;
+          gap: 26px;
+          margin-top: 20px;
+        }
+
         > span {
           width: 215px;
           @media (max-width: 1919px) and (min-width: 1368px) {
@@ -161,6 +205,9 @@
           }
           @media (max-width: 1367px) and (min-width: 768px) {
             width: 156px;
+          }
+          @media (max-width: 767px) {
+            width: 87px;
           }
         }
       }
@@ -187,6 +234,11 @@
         font-size: 28px;
         margin-bottom: 45px;
       }
+
+      @media (max-width: 767px) {
+        font-size: 18px;
+        margin-bottom: 30px;
+      }
     }
 
     &__list {
@@ -199,6 +251,14 @@
         margin-right: auto;
         width: 672px;
         gap: 18px;
+      }
+
+      @media (max-width: 767px) {
+        justify-content: flex-start;
+        margin-left: auto;
+        margin-right: auto;
+        width: 334px;
+        gap: 16px;
       }
     }
   }
@@ -227,6 +287,12 @@
       height: 256px;
       margin-bottom: 50px;
     }
+
+    @media (max-width: 767px) {
+      width: 258px;
+      height: 196px;
+      margin-bottom: 44px;
+    }
   }
 
   &__bg {
@@ -246,6 +312,10 @@
     height: 1019px;
 
     z-index: -1;
+
+    @media (max-width: 767px) {
+      display: none;
+    }
   }
 }
 
@@ -274,6 +344,10 @@
     }
 
     @media (max-width: 1367px) and (min-width: 768px) {
+      font-size: 14px;
+    }
+
+    @media (max-width: 767px) {
       font-size: 14px;
     }
   }
@@ -330,13 +404,6 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-
-  @media (max-width: 767px) {
-    margin-top: 40px;
-  }
-  @media (max-width: 375px) {
-    width: 290px;
-  }
 }
 
 .CollapsibleTrigger {
@@ -384,6 +451,8 @@
   @media (max-width: 767px) {
     font-size: 16px;
     gap: 12px;
+    width: 253px;
+    height: 52px;
   }
 }
 
@@ -423,6 +492,15 @@
       margin-left: auto;
       margin-right: auto;
       gap: 32px 18px;
+    }
+
+    @media (max-width: 767px) {
+      margin-top: 27px;
+      grid-template-columns: 1fr 1fr;
+      width: 334px;
+      margin-left: auto;
+      margin-right: auto;
+      gap: 27px 14px;
     }
   }
 }
