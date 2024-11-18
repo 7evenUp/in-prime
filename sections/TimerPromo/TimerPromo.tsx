@@ -1,12 +1,15 @@
 "use client"
-import React from "react"
+import React, { useEffect, useState } from "react"
 import clsx from "clsx"
+import { useAutoAnimate } from "@formkit/auto-animate/react"
 
 import * as Collapsible from "@radix-ui/react-collapsible"
 
 import Countdown from "@/components/countdown"
 
 import styles from "./TimerPromo.module.scss"
+import axios from "axios"
+import { useQuery } from "@tanstack/react-query"
 
 const renderer = ({ days, hours, minutes, seconds, completed }) => {
   if (completed) {
@@ -40,8 +43,49 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
 
 const endDate = 1731621600000
 
+const ID_URL = process.env.NEXT_PUBLIC_ID_URL + "/api/v1/"
+
+interface Item {
+  id: string
+  number: number
+}
+
 const TimerPromo = () => {
   const [open, setOpen] = React.useState(false)
+
+  const {
+    data: subscriptions,
+    isError: isSubscriptionsError,
+    isLoading,
+  } = useQuery({
+    queryKey: ["subscriptions"],
+    queryFn: async () => {
+      const response = await axios.get<any[]>(
+        ID_URL + "crypton-events/last-opened-containers/"
+      )
+
+      return response.data
+    },
+    refetchInterval: 60000,
+  })
+
+  const [items, setItems] = useState<Item[]>([])
+
+  const [parent] = useAutoAnimate()
+  useEffect(() => {
+    const addRandomItem = () => {
+      const newItem: Item = {
+        id: Math.random().toString(36).substr(2, 9),
+        number: Math.floor(Math.random() * 100),
+      }
+
+      setItems((prevItems) => [newItem, ...prevItems].slice(0, 30))
+    }
+
+    const intervalId = setInterval(addRandomItem, 10000)
+
+    return () => clearInterval(intervalId)
+  }, [])
 
   return (
     <div className={styles.timer}>
@@ -96,9 +140,9 @@ const TimerPromo = () => {
 
       <div className={styles.timer__last}>
         <h2 className={styles.timer__last__title}>Последние подарки</h2>
-        <div className={styles.timer__last__list}>
-          {[...Array(10)].map((_, index) => (
-            <LastGift key={index} />
+        <div className={styles.timer__last__list} ref={parent}>
+          {items.map((item) => (
+            <LastGift name={item.id} key={item.id} />
           ))}
         </div>
       </div>
@@ -119,7 +163,7 @@ const FullGift = () => {
   )
 }
 
-const LastGift = () => {
+const LastGift = ({ name }: { name: string }) => {
   return (
     <div className={styles.gift}>
       <div className={styles.gift__image}>
@@ -128,7 +172,7 @@ const LastGift = () => {
       <div className={styles.gift__hero}>
         {/* <img>mambaBlackz</img> */}
         <div className={styles.gift__hero__img} />
-        <span className={styles.gift__hero__name}>mambaBlackz</span>
+        <span className={styles.gift__hero__name}>{name}</span>
       </div>
       <div className={styles.gift__time}>12 мин назад</div>
     </div>

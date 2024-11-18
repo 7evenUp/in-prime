@@ -31,6 +31,7 @@ import BuySubscriptionPromo from "@/sections/BuySubscription/BuySubscriptionProm
 import TimerPromo from "@/sections/TimerPromo/TimerPromo"
 import AdvantagesSm from "@/sections/Advantages/AdvantagesSm"
 import FeaturesSm from "@/sections/Features/FeaturesSm"
+import LoginIdPopup from "@/components/LoginIdPopup/LoginIdPopup"
 
 const useWindowSize = () => {
   const [currentWidth, setCurrentWidth] = useState(0)
@@ -105,6 +106,9 @@ const Home = (props) => {
       window.removeEventListener("wheel", wheelHandler)
     }
   }, [])
+
+  const [isLoginIDModal, setLoginIDModal] = useState(false)
+  const [isShouldRetryAuth, setShouldRetryAuth] = useState(false)
 
   return (
     <>
@@ -207,6 +211,8 @@ const Home = (props) => {
 
       <div className="back color dark" />
       <div className="back noise" />
+
+      <LoginIdPopup />
     </>
   )
 }

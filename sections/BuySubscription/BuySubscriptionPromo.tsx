@@ -17,6 +17,9 @@ import { Resolution } from "@/types/resolution"
 import { Promocode, Subscription } from "@/types/api-types"
 
 import styles from "./BuySubscriptionPromo.module.scss"
+import Scroller from "@/components/Scroller"
+import { useAppDispatch, useAppSelector } from "@/redux/hooks"
+import { setLoginIDModal } from "@/redux/reducers/modalReducer"
 
 const PRIME_SUBSCRIPTION_KIND_ID = 1
 const ID_URL = process.env.NEXT_PUBLIC_ID_URL + "/api/v1/"
@@ -40,6 +43,12 @@ const BuySubscriptionPromo = ({
   }
   resolution: Resolution
 }) => {
+  const { isAuth } = useAppSelector((state) => state.auth)
+  const dispatch = useAppDispatch()
+  const onOpenAuthModal = () => {
+    dispatch(setLoginIDModal(true))
+  }
+
   const [showMonthlyPrice, setShowMonthlyPrice] = useState(true)
   const [promoForSubmit, setPromoForSubmit] = useState("")
   const [isPromoReferral, setIsPromoReferral] = useState(false)
@@ -57,7 +66,7 @@ const BuySubscriptionPromo = ({
   const [validFor, setValidFor] = useState([])
   const [invalidFor, setInvalidFor] = useState([])
 
-  const [timerProgress, setTimerProgress] = useState(0)
+  // const [timerProgress, setTimerProgress] = useState(0)
 
   // const {
   //   data: subscriptions,
@@ -201,15 +210,15 @@ const BuySubscriptionPromo = ({
       }),
   })
 
-  useEffect(() => {
-    setTimerProgress(
-      Math.round(
-        Date.now() >= START_DATE
-          ? ((Date.now() - START_DATE) / (END_DATE - START_DATE)) * 100
-          : 0
-      )
-    )
-  }, [])
+  // useEffect(() => {
+  //   setTimerProgress(
+  //     Math.round(
+  //       Date.now() >= START_DATE
+  //         ? ((Date.now() - START_DATE) / (END_DATE - START_DATE)) * 100
+  //         : 0
+  //     )
+  //   )
+  // }, [])
 
   useEffect(() => {
     const url = new URL(location.href)
@@ -269,113 +278,125 @@ const BuySubscriptionPromo = ({
   // }
 
   return (
-    <div className="app__container__subscribe" id="subscribe">
-      <div className="app__container__subscribe__noise" />
-      <div className="app__container__subscribe__back">
-        <div className="app__container__subscribe__back__left-gradient" />
-        <div className="app__container__subscribe__back__right-gradient" />
+    <>
+      <div className="app__container__subscribe" id="subscribe">
+        <div className="app__container__subscribe__noise" />
+        <div className="app__container__subscribe__back">
+          <div className="app__container__subscribe__back__left-gradient" />
+          <div className="app__container__subscribe__back__right-gradient" />
+        </div>
+        <div className="app__container__subscribe__content">
+          <div className="app__container__subscribe__content__header">
+            <h1 className="app__container__subscribe__content__title">
+              Оформите подписку
+            </h1>
+          </div>
+
+          <div className={styles.switch}>
+            <span className={styles.show_price}>Показать цену:</span>
+            <div className={styles.switch_container}>
+              <span
+                className={clsx(
+                  styles.switch_text,
+                  showMonthlyPrice && styles.switch_text__active
+                )}
+                onClick={() => setShowMonthlyPrice(true)}
+              >
+                в месяц
+              </span>
+              <Switch.Root
+                className={styles.SwitchRoot}
+                checked={showMonthlyPrice}
+                onCheckedChange={setShowMonthlyPrice}
+              >
+                <Switch.Thumb className={styles.SwitchThumb} />
+              </Switch.Root>
+              <span
+                className={clsx(
+                  styles.switch_text,
+                  !showMonthlyPrice && styles.switch_text__active
+                )}
+                onClick={() => setShowMonthlyPrice(false)}
+              >
+                за весь период
+              </span>
+            </div>
+          </div>
+
+          {subscriptions && (
+            <div className={styles.subscriptions}>
+              {subscriptions.map((el, i) => (
+                <SubscriptionCard
+                  key={el.id}
+                  subscription={el}
+                  order={i}
+                  resolution={resolution}
+                  showMonthlyPrice={showMonthlyPrice}
+                  promoForSubmit={promoForSubmit}
+                  setPromoForSubmit={setPromoForSubmit}
+                  isPromoReferral={isPromoReferral}
+                  setIsPromoReferral={setIsPromoReferral}
+                  discounts={discounts}
+                  discountAmount={discountAmount}
+                  discountKind={discountKind}
+                  isPromoPending={isPending}
+                  isValidForPromo={
+                    validFor.length === 0 && invalidFor.length === 0
+                      ? true
+                      : invalidFor.length === 0 && validFor.includes(el.id)
+                      ? true
+                      : validFor.length === 0 && !invalidFor.includes(el.id)
+                      ? true
+                      : validFor.length !== 0 &&
+                        invalidFor.length !== 0 &&
+                        validFor.includes(el.id)
+                      ? true
+                      : false
+                  }
+                />
+              ))}
+            </div>
+          )}
+
+          <div className={styles.support_wrapper}>
+            <p className={styles.support}>
+              Остались вопросы? Задай их нашему{" "}
+              <a
+                href="https://t.me/crypton_support"
+                target="_blank"
+                className={styles.support_link}
+              >
+                специалисту в Телеграм
+              </a>
+            </p>
+          </div>
+
+          <div className={styles.openings}>
+            <div className={styles.openings__count}>
+              <span className={styles.openings__count__left}>
+                Осталось открытий: 2
+              </span>
+              <span className={styles.openings__count__used}>
+                Использовано попыток: 4
+              </span>
+            </div>
+            {isAuth ? (
+              <a href="button" className={styles.openings__inventory}>
+                Перейти в свой инвентарь
+              </a>
+            ) : (
+              <button
+                className={styles.openings__inventory}
+                onClick={onOpenAuthModal}
+              >
+                Вход
+              </button>
+            )}
+          </div>
+        </div>
       </div>
-      <div className="app__container__subscribe__content">
-        <div className="app__container__subscribe__content__header">
-          <h1 className="app__container__subscribe__content__title">
-            Оформите подписку
-          </h1>
-        </div>
-
-        <div className={styles.switch}>
-          <span className={styles.show_price}>Показать цену:</span>
-          <div className={styles.switch_container}>
-            <span
-              className={clsx(
-                styles.switch_text,
-                showMonthlyPrice && styles.switch_text__active
-              )}
-              onClick={() => setShowMonthlyPrice(true)}
-            >
-              в месяц
-            </span>
-            <Switch.Root
-              className={styles.SwitchRoot}
-              checked={showMonthlyPrice}
-              onCheckedChange={setShowMonthlyPrice}
-            >
-              <Switch.Thumb className={styles.SwitchThumb} />
-            </Switch.Root>
-            <span
-              className={clsx(
-                styles.switch_text,
-                !showMonthlyPrice && styles.switch_text__active
-              )}
-              onClick={() => setShowMonthlyPrice(false)}
-            >
-              за весь период
-            </span>
-          </div>
-        </div>
-
-        {subscriptions && (
-          <div className={styles.subscriptions}>
-            {subscriptions.map((el, i) => (
-              <SubscriptionCard
-                key={el.id}
-                subscription={el}
-                order={i}
-                resolution={resolution}
-                showMonthlyPrice={showMonthlyPrice}
-                promoForSubmit={promoForSubmit}
-                setPromoForSubmit={setPromoForSubmit}
-                isPromoReferral={isPromoReferral}
-                setIsPromoReferral={setIsPromoReferral}
-                discounts={discounts}
-                discountAmount={discountAmount}
-                discountKind={discountKind}
-                isPromoPending={isPending}
-                isValidForPromo={
-                  validFor.length === 0 && invalidFor.length === 0
-                    ? true
-                    : invalidFor.length === 0 && validFor.includes(el.id)
-                    ? true
-                    : validFor.length === 0 && !invalidFor.includes(el.id)
-                    ? true
-                    : validFor.length !== 0 &&
-                      invalidFor.length !== 0 &&
-                      validFor.includes(el.id)
-                    ? true
-                    : false
-                }
-              />
-            ))}
-          </div>
-        )}
-
-        <div className={styles.support_wrapper}>
-          <p className={styles.support}>
-            Остались вопросы? Задай их нашему{" "}
-            <a
-              href="https://t.me/crypton_support"
-              target="_blank"
-              className={styles.support_link}
-            >
-              специалисту в Телеграм
-            </a>
-          </p>
-        </div>
-
-        <div className={styles.openings}>
-          <div className={styles.openings__count}>
-            <span className={styles.openings__count__left}>
-              Осталось открытий: 2
-            </span>
-            <span className={styles.openings__count__used}>
-              Использовано попыток: 4
-            </span>
-          </div>
-          <a href="button" className={styles.openings__inventory}>
-            Перейти в свой инвентарь
-          </a>
-        </div>
-      </div>
-    </div>
+      <Scroller />
+    </>
   )
 }
 

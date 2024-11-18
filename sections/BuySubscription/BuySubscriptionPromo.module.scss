@@ -720,6 +720,9 @@
     color: #fff;
     text-decoration: none;
 
+    border: none;
+    cursor: pointer;
+
     @media (max-width: 1367px) and (min-width: 768px) {
       width: 251px;
       height: 54px;

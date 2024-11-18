@@ -1,0 +1,312 @@
+:root {
+  --idBlue: rgb(92, 177, 255);
+  --idRed: rgb(241, 72, 72);
+  --idGreen: rgb(32, 205, 105);
+
+  // &[data-theme="light"] {
+  --idTextColor: rgb(11, 11, 11);
+  --idBorderColor: rgb(51, 51, 51);
+  --idGrayColor: rgb(130, 130, 130);
+  --idGrayBorderColor: rgb(51, 51, 51);
+  --idBGColor: rgb(248, 248, 248);
+  --idHoverColor: rgb(242, 242, 242);
+  --idHoverGrayColor: rgb(98, 97, 97);
+  // }
+
+  &[data-theme="dark"] {
+    --idTextColor: rgb(242, 242, 242);
+    --idBorderColor: rgb(248, 248, 248);
+    --idGrayColor: rgb(209, 205, 201);
+    --idGrayBorderColor: rgb(130, 130, 130);
+    --idBGColor: rgb(51, 51, 51);
+    --idHoverColor: rgb(98, 97, 97);
+    --idHoverGrayColor: rgb(98, 97, 97);
+  }
+}
+
+.react-modal {
+  &.id-modal {
+    font-family: "Montserrat", sans-serif;
+    z-index: 20;
+  }
+
+  .ReactModal__Overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // transform: translateY(50%);
+  }
+
+  .react-modal__login-id-popup {
+    width: 370px;
+    height: max-content;
+    min-height: 340px;
+
+    position: relative;
+
+    @media screen and (max-width: 480px) {
+      width: 370px;
+    }
+
+    @media screen and (max-width: 380px) {
+      width: 92%;
+    }
+  }
+
+  .login-id-popup {
+    background-color: var(--idBGColor);
+    border: 1px solid var(--idGrayBorderColor);
+    border-radius: 0.75rem;
+    height: 100%;
+    padding: 2rem 2.25rem;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &__inner {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    &__title {
+      font-weight: 500;
+      font-size: 1.125rem;
+      line-height: 1.75rem;
+
+      color: var(--idTextColor);
+      margin-bottom: 3.25rem;
+    }
+
+    &__buttons-container {
+      display: flex;
+      align-items: center;
+
+      @media screen and (max-width: 380px) {
+        flex-direction: column;
+        align-items: start;
+      }
+    }
+
+    &__button {
+      display: flex;
+      align-items: center;
+      border: 1px solid var(--idBorderColor);
+      padding: 0 1rem;
+      height: 42px;
+      color: var(--idTextColor);
+      cursor: pointer;
+
+      border-radius: 999px;
+
+      &:hover {
+        background-color: var(--idHoverColor);
+      }
+
+      svg {
+        margin-right: 0.626rem;
+      }
+
+      &:first-child {
+        margin-right: 0.75rem;
+
+        @media screen and (max-width: 380px) {
+          margin-right: 0;
+          margin-bottom: 0.75rem;
+        }
+      }
+    }
+
+    &__email-form {
+      &-back {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1.5rem;
+        color: var(--idBorderColor);
+
+        border: none;
+        background: none;
+        cursor: pointer;
+        &:hover {
+          color: var(--idGrayColor);
+
+          svg {
+            path {
+              fill: var(--idGrayColor);
+            }
+          }
+        }
+
+        svg {
+          width: 14px;
+          height: 14px;
+          margin-right: 0.5rem;
+
+          span {
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+          }
+        }
+      }
+    }
+
+    &__login-btn {
+      color: var(--idTextColor);
+      border: 1px solid var(--idBorderColor);
+      border-radius: 0.375rem;
+      padding: 0.5rem 0.75rem;
+      width: 100%;
+      margin-top: 8px;
+      cursor: pointer;
+
+      svg {
+        margin-right: 8px;
+        animation: spin 1s linear infinite;
+        align-items: center;
+      }
+
+      &:hover {
+        background-color: var(--idBorderColor);
+
+        color: var(--idBGColor);
+      }
+    }
+
+    &__mail-input {
+      &-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+      }
+
+      &-group {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+
+        a:hover {
+          text-decoration: underline;
+        }
+
+        label {
+          color: var(--idTextColor);
+          font-size: 0.875rem;
+          line-height: 1.25rem;
+          margin-bottom: 4px;
+
+          &.withError {
+            color: var(--idRed);
+          }
+        }
+
+        input {
+          color: var(--idTextColor);
+          border: 1px solid var(--idBorderColor);
+          outline: none;
+          background: none;
+          border-radius: 0.375rem;
+          padding: 0.5rem 0.75rem;
+          outline: 2px solid transparent;
+          outline-offset: 2px;
+
+          &.withError {
+            border-color: var(--idRed);
+          }
+        }
+
+        &.focused {
+          label {
+            color: var(--idBlue);
+          }
+
+          input {
+            border-color: var(--idBlue);
+          }
+        }
+
+        &.nickname {
+          margin-top: 12px;
+        }
+      }
+
+      &-error {
+        font-weight: 500;
+        font-size: 0.75rem;
+        line-height: 1rem;
+        color: var(--idRed);
+      }
+
+      &-success {
+        font-weight: 500;
+        font-size: 0.75rem;
+        line-height: 1rem;
+        color: var(--idGreen);
+        letter-spacing: 0.025em;
+        margin-top: 0.75rem;
+        display: block;
+
+        a {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    &__privacy {
+      font-size: 0.75rem;
+      line-height: 1rem;
+      text-underline-offset: 2px;
+      margin-bottom: 12px;
+      color: var(--idTextColor);
+      margin-top: 8px;
+
+      a {
+        color: var(--idBlue);
+      }
+    }
+
+    & .loading-message {
+      display: flex;
+      color: var(--idTextColor);
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+
+      svg {
+        margin-right: 8px;
+        animation: spin 1s linear infinite;
+        align-items: center;
+      }
+    }
+
+    @media screen and (max-width: 640px) {
+      padding: 1.25rem;
+    }
+
+    &__create-acc-message {
+      font-size: 0.75rem;
+      line-height: 1rem;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+  }
+}
+
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}

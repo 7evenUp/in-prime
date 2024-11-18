@@ -1,0 +1,42 @@
+.container {
+  position: relative;
+  width: 136px;
+  height: 136px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+
+  &.red {
+    background-color: #f87171; /* red-400 */
+  }
+
+  &.yellow {
+    background-color: #fbbf24; /* yellow-400 */
+  }
+
+  &.blue {
+    background-color: #60a5fa; /* blue-400 */
+  }
+
+  &.green {
+    background-color: #34d399; /* green-400 */
+  }
+
+  &.winRed {
+    background-color: #f87171; /* red-400 */
+  }
+
+  &.winYellow {
+    background-color: #fbbf24; /* yellow-400 */
+  }
+
+  &.winBlue {
+    background-color: #60a5fa; /* blue-400 */
+  }
+
+  &.winGreen {
+    background-color: #34d399; /* green-400 */
+  }
+}
