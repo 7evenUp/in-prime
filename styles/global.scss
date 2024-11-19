@@ -1923,6 +1923,35 @@ p {
         width: 280px;
       }
 
+      &__wrapper {
+        position: relative;
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+      }
+
+      &__promoback {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        background-image: url("/images/png/subscribe/promo-bg-lgg.png");
+        background-repeat: no-repeat;
+        width: 100%;
+        background-size: cover;
+        height: 100%;
+
+        @media (max-width: 1919px) and (min-width: 1368px) {
+          background-image: url("/images/png/subscribe/promo-bg-lg.png");
+        }
+
+        @media (max-width: 1367px) and (min-width: 768px) {
+          background-image: url("/images/png/subscribe/promo-bg-md.png");
+        }
+
+        @media (max-width: 767px) {
+          background-image: url("/images/png/subscribe/promo-bg-sm.png");
+        }
+      }
+
       &__back {
         position: absolute;
         width: 100%;

@@ -44,10 +44,9 @@ const BuySubscriptionPromo = ({
   resolution: Resolution
 }) => {
   const { isAuth } = useAppSelector((state) => state.auth)
-  const dispatch = useAppDispatch()
-  const onOpenAuthModal = () => {
-    dispatch(setLoginIDModal(true))
-  }
+  const promoBoxAvailableOpensNumber = useAppSelector(
+    (state) => state.auth.boxesLeft
+  )
 
   const [showMonthlyPrice, setShowMonthlyPrice] = useState(true)
   const [promoForSubmit, setPromoForSubmit] = useState("")
@@ -68,129 +67,129 @@ const BuySubscriptionPromo = ({
 
   // const [timerProgress, setTimerProgress] = useState(0)
 
-  // const {
-  //   data: subscriptions,
-  //   isError: isSubscriptionsError,
-  //   isLoading,
-  // } = useQuery({
-  //   queryKey: ["subscriptions"],
-  //   queryFn: async () => {
-  //     const response = await axios.get<Subscription[]>(
-  //       ID_URL + "subscriptions/get-active/"
-  //     )
+  const {
+    data: subscriptions,
+    isError: isSubscriptionsError,
+    isLoading,
+  } = useQuery({
+    queryKey: ["subscriptions"],
+    queryFn: async () => {
+      const response = await axios.get<Subscription[]>(
+        ID_URL + "subscriptions/get-active/"
+      )
 
-  //     return response.data.filter(
-  //       (el) => el.isActive && el.kindId === PRIME_SUBSCRIPTION_KIND_ID
-  //     )
+      return response.data.filter(
+        (el) => el.isActive && el.kindId === PRIME_SUBSCRIPTION_KIND_ID
+      )
+    },
+  })
+
+  // const subscriptions: Subscription[] = [
+  //   {
+  //     id: 1,
+  //     baseDiscount: null,
+  //     baseDiscountAmount: null,
+  //     benefits: [
+  //       {
+  //         id: 1,
+  //         file: null,
+  //         translations: {
+  //           ru: {
+  //             name: "1",
+  //             description: null,
+  //           },
+  //         },
+  //         remainingCount: null,
+  //       },
+  //     ],
+  //     duration: {
+  //       id: 1,
+  //       label: "10",
+  //     },
+  //     isActive: true,
+  //     kindId: 1, // 1 - prime | 2 - calendar
+  //     name: "1",
+  //     price: 99,
   //   },
-  // })
-
-  const subscriptions: Subscription[] = [
-    {
-      id: 1,
-      baseDiscount: null,
-      baseDiscountAmount: null,
-      benefits: [
-        {
-          id: 1,
-          file: null,
-          translations: {
-            ru: {
-              name: "1",
-              description: null,
-            },
-          },
-          remainingCount: null,
-        },
-      ],
-      duration: {
-        id: 1,
-        label: "10",
-      },
-      isActive: true,
-      kindId: 1, // 1 - prime | 2 - calendar
-      name: "1",
-      price: 99,
-    },
-    {
-      id: 2,
-      baseDiscount: 5,
-      baseDiscountAmount: 99,
-      benefits: [
-        {
-          id: 1,
-          file: null,
-          translations: {
-            ru: {
-              name: "1",
-              description: null,
-            },
-          },
-          remainingCount: null,
-        },
-      ],
-      duration: {
-        id: 1,
-        label: "10",
-      },
-      isActive: true,
-      kindId: 1, // 1 - prime | 2 - calendar
-      name: "3",
-      price: 99,
-    },
-    {
-      id: 3,
-      baseDiscount: 10,
-      baseDiscountAmount: 99,
-      benefits: [
-        {
-          id: 1,
-          file: null,
-          translations: {
-            ru: {
-              name: "1",
-              description: null,
-            },
-          },
-          remainingCount: null,
-        },
-      ],
-      duration: {
-        id: 1,
-        label: "10",
-      },
-      isActive: true,
-      kindId: 1, // 1 - prime | 2 - calendar
-      name: "3",
-      price: 99,
-    },
-    {
-      id: 4,
-      baseDiscount: 15,
-      baseDiscountAmount: 99,
-      benefits: [
-        {
-          id: 1,
-          file: null,
-          translations: {
-            ru: {
-              name: "1",
-              description: null,
-            },
-          },
-          remainingCount: null,
-        },
-      ],
-      duration: {
-        id: 1,
-        label: "10",
-      },
-      isActive: true,
-      kindId: 1, // 1 - prime | 2 - calendar
-      name: "3",
-      price: 99,
-    },
-  ]
+  //   {
+  //     id: 2,
+  //     baseDiscount: 5,
+  //     baseDiscountAmount: 99,
+  //     benefits: [
+  //       {
+  //         id: 1,
+  //         file: null,
+  //         translations: {
+  //           ru: {
+  //             name: "1",
+  //             description: null,
+  //           },
+  //         },
+  //         remainingCount: null,
+  //       },
+  //     ],
+  //     duration: {
+  //       id: 1,
+  //       label: "10",
+  //     },
+  //     isActive: true,
+  //     kindId: 1, // 1 - prime | 2 - calendar
+  //     name: "3",
+  //     price: 99,
+  //   },
+  //   {
+  //     id: 3,
+  //     baseDiscount: 10,
+  //     baseDiscountAmount: 99,
+  //     benefits: [
+  //       {
+  //         id: 1,
+  //         file: null,
+  //         translations: {
+  //           ru: {
+  //             name: "1",
+  //             description: null,
+  //           },
+  //         },
+  //         remainingCount: null,
+  //       },
+  //     ],
+  //     duration: {
+  //       id: 1,
+  //       label: "10",
+  //     },
+  //     isActive: true,
+  //     kindId: 1, // 1 - prime | 2 - calendar
+  //     name: "3",
+  //     price: 99,
+  //   },
+  //   {
+  //     id: 4,
+  //     baseDiscount: 15,
+  //     baseDiscountAmount: 99,
+  //     benefits: [
+  //       {
+  //         id: 1,
+  //         file: null,
+  //         translations: {
+  //           ru: {
+  //             name: "1",
+  //             description: null,
+  //           },
+  //         },
+  //         remainingCount: null,
+  //       },
+  //     ],
+  //     duration: {
+  //       id: 1,
+  //       label: "10",
+  //     },
+  //     isActive: true,
+  //     kindId: 1, // 1 - prime | 2 - calendar
+  //     name: "3",
+  //     price: 99,
+  //   },
+  // ]
 
   const {
     mutateAsync: mutatePromoValidation,
@@ -278,13 +277,15 @@ const BuySubscriptionPromo = ({
   // }
 
   return (
-    <>
+    <div className="app__container__subscribe__wrapper">
+      <div className="app__container__subscribe__promoback" />
+
       <div className="app__container__subscribe" id="subscribe">
         <div className="app__container__subscribe__noise" />
-        <div className="app__container__subscribe__back">
-          <div className="app__container__subscribe__back__left-gradient" />
-          <div className="app__container__subscribe__back__right-gradient" />
-        </div>
+        {/* <div className="app__container__subscribe__back"> */}
+        {/* <div className="app__container__subscribe__back__left-gradient" />
+          <div className="app__container__subscribe__back__right-gradient" /> */}
+        {/* </div> */}
         <div className="app__container__subscribe__content">
           <div className="app__container__subscribe__content__header">
             <h1 className="app__container__subscribe__content__title">
@@ -370,33 +371,26 @@ const BuySubscriptionPromo = ({
               </a>
             </p>
           </div>
+          {isAuth && (
+            <div className={styles.openings}>
+              <div className={styles.openings__count}>
+                <span className={styles.openings__count__left}>
+                  Осталось открытий: {promoBoxAvailableOpensNumber}
+                </span>
+                <span className={styles.openings__count__used}>
+                  Использовано попыток: {promoBoxAvailableOpensNumber}
+                </span>
+              </div>
 
-          <div className={styles.openings}>
-            <div className={styles.openings__count}>
-              <span className={styles.openings__count__left}>
-                Осталось открытий: 2
-              </span>
-              <span className={styles.openings__count__used}>
-                Использовано попыток: 4
-              </span>
-            </div>
-            {isAuth ? (
-              <a href="button" className={styles.openings__inventory}>
+              <a href={ID_URL} className={styles.openings__inventory}>
                 Перейти в свой инвентарь
               </a>
-            ) : (
-              <button
-                className={styles.openings__inventory}
-                onClick={onOpenAuthModal}
-              >
-                Вход
-              </button>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </div>
       <Scroller />
-    </>
+    </div>
   )
 }
 

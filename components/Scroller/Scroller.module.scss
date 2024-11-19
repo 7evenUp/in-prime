@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-
+  margin-bottom: 60px;
   width: 100%;
 
   .header {
@@ -62,7 +62,7 @@
     justify-content: center;
     gap: 40px;
     height: 320px;
-    background-color: rgba(74, 74, 74, 0.16);
+    // background-color: rgba(74, 74, 74, 0.16);
     border-radius: 16px;
 
     .prizes {
@@ -101,6 +101,8 @@
       text-align: center;
       color: #222;
       cursor: pointer;
+      border: none;
+      z-index: 1;
 
       font-weight: bold;
       width: 278px;

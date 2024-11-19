@@ -14,6 +14,10 @@ import { prizes } from "./prizes"
 
 import getRandomInteger from "./getRandomInteger"
 import clsx from "clsx"
+import { RootState } from "@/redux/store"
+import { useSelector } from "react-redux"
+import { useAppDispatch } from "@/redux/hooks"
+import { setLoginIDModal } from "@/redux/reducers/modalReducer"
 const ClickWheelSound = "./click_wheel.mp3"
 // const audio = new Audio(ClickWheelSound)
 
@@ -24,12 +28,19 @@ const ANIMATION_DURATION_IN_SEC = 8
 const AMOUNT_OF_GENERATED_PRIZES = 50
 
 const Scroller = () => {
+  const dispatch = useAppDispatch()
+  const { isAuth } = useSelector((state: RootState) => state.auth)
+
+  const onAuthClick = () => {
+    dispatch(setLoginIDModal(true))
+  }
+
   const itemPassedRef = useRef(0)
 
   const [audio, setAudio] = useState<HTMLAudioElement | null>(null)
 
   useEffect(() => {
-    const ClickWheelSound = "/audio/click_wheel.mp3" // Путь к аудиофайлу в папке public
+    const ClickWheelSound = "./audio/click_wheel.mp3" // Путь к аудиофайлу в папке public
     const newAudio = new Audio(ClickWheelSound)
 
     setAudio(newAudio)
@@ -116,9 +127,15 @@ const Scroller = () => {
           <RoundedTriangle className={`${styles.triangle} ${styles.top}`} />
           <RoundedTriangle className={`${styles.triangle} ${styles.bottom}`} />
         </div>
-        <button className={styles.spinButton} onClick={onOpenClick}>
-          Крутить рулетку
-        </button>
+        {isAuth ? (
+          <button className={styles.spinButton} onClick={onOpenClick}>
+            Крутить рулетку
+          </button>
+        ) : (
+          <button className={styles.spinButton} onClick={onAuthClick}>
+            Вход
+          </button>
+        )}
       </div>
     </div>
   )

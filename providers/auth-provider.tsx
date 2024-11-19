@@ -1,4 +1,8 @@
-import { setAuth, setShouldRetryAuth } from "@/redux/reducers/modalReducer"
+import {
+  setAuth,
+  setBoxesLeft,
+  setShouldRetryAuth,
+} from "@/redux/reducers/modalReducer"
 import { RootState } from "@/redux/store"
 import axios from "axios"
 import { FC, useEffect, useState } from "react"
@@ -8,9 +12,9 @@ type Props = {
   children: any
 }
 
-const AuthService: FC<Props> = (props: Props) => {
-  const ID_URL = process.env.NEXT_PUBLIC_BASE_URL
+const ID_URL = process.env.NEXT_PUBLIC_ID_URL
 
+const AuthService: FC<Props> = (props: Props) => {
   const { isAuth, shouldRetryAuth } = useSelector(
     (state: RootState) => state.auth
   )
@@ -19,16 +23,27 @@ const AuthService: FC<Props> = (props: Props) => {
 
   const auth = async () => {
     await axios
-      .get(`https://id-dev.crypton.xyz/api/v1/users/get-jwt/`, {
+      .get(`${ID_URL}/api/v1/users/get-jwt/`, {
         withCredentials: true,
       })
       .then((res) => {
         localStorage.setItem("token", res.data.token)
         axios
-          .get(`https://id-dev.crypton.xyz/auth/users/authenticate/`)
+          .get(`${ID_URL}/auth/users/authenticate/`, {
+            withCredentials: true,
+          })
           .then((res) => {
-            dispatch(setAuth(true))
-            console.log(res)
+            axios
+              .get(`${ID_URL}/api/v1/users/profile/`, {
+                withCredentials: true,
+              })
+              .then((res) => {
+                dispatch(setAuth(true))
+                dispatch(setBoxesLeft(res.data.promoBoxAvailableOpensNumber))
+              })
+              .catch((err) => {
+                console.log(err)
+              })
             localStorage.setItem("user", res.data.id)
           })
           .catch((err) => {
