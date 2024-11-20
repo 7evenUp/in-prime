@@ -2,13 +2,11 @@
 import Modal from "react-modal"
 import { useEffect, useState } from "react"
 import { Form, Formik } from "formik"
-// import { setLoginIDModal } from "@/reducers/modalReducer.ts"
 import { MAIL_TO_LINK } from "./constants"
 import * as yup from "yup"
 import { useWeb3Modal } from "@web3modal/wagmi/react"
 import { useAccount, useDisconnect, useSignMessage } from "wagmi"
 
-// import { BASE_URL, ID_URL, unionApi } from "@/api/index.ts"
 import { toast } from "sonner"
 import axios from "axios"
 import {
@@ -18,8 +16,6 @@ import {
 import { RootState } from "@/redux/store"
 import { useSelector } from "react-redux"
 import { useAppDispatch } from "@/redux/hooks"
-// import { setShouldRetryAuth } from "@/reducers/userReducer.ts"
-// import { SetFieldValue } from "../CreateEventPopup/types"
 
 export const getShortAddress = (address: string) => `
   ${address.slice(0, 6)}...${address.slice(address.length - 4)}
@@ -31,8 +27,7 @@ interface IInitialValues {
 }
 
 const LoginIdPopup: React.FC = () => {
-  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
-  const ID_URL = process.env.NEXT_PUBLIC_BASE_URL
+  const ID_URL = process.env.NEXT_PUBLIC_ID_URL
 
   const { isLoginIDModal } = useSelector((state: RootState) => state.auth)
 
@@ -110,7 +105,7 @@ const LoginIdPopup: React.FC = () => {
         .post(`${ID_URL}/api/v1/users/register-web-wallet/`, {
           email: emailInputValue,
           profile_username: nicknameInputValue,
-          redirect_url: BASE_URL,
+          redirect_url: ID_URL,
           message: AUTH_MESSAGE,
           address: address,
           signature: signature,
@@ -130,7 +125,7 @@ const LoginIdPopup: React.FC = () => {
         .post(`${ID_URL}/api/v1/users/register-web/`, {
           email: emailInputValue,
           profile_username: nicknameInputValue,
-          redirect_url: BASE_URL,
+          redirect_url: ID_URL,
           referral_code: localStorage.getItem("ref_code") ?? undefined,
         })
         .then(() => {
@@ -149,9 +144,9 @@ const LoginIdPopup: React.FC = () => {
         })
     } else if (isCodeSended) {
       axios
-        .get(
-          `https://id-dev.crypton.xyz/api/v1/users/authenticate/?code=${codeInputValue}`
-        )
+        .get(`${ID_URL}/api/v1/users/authenticate/?code=${codeInputValue}`, {
+          withCredentials: true,
+        })
         .then(() => {
           dispatch(setShouldRetryAuth(true))
           dispatch(setLoginIDModal(false))
@@ -261,12 +256,12 @@ const LoginIdPopup: React.FC = () => {
     if (isSucces && emailInputValue.length) {
       axios
         .post(
-          `https://id-dev.crypton.xyz/api/v1/users/login/${
+          `${ID_URL}/api/v1/users/login/${
             isMobileDevice ? "?use_verification_code=true" : ""
           }`,
           {
             email: emailInputValue,
-            redirect_url: BASE_URL,
+            redirect_url: ID_URL,
           }
         )
         .then(() => {
@@ -287,7 +282,7 @@ const LoginIdPopup: React.FC = () => {
           setLoading(false)
         })
     }
-  }, [isSucces])
+  }, [isSucces, ID_URL])
 
   return (
     <Modal
@@ -334,7 +329,7 @@ const LoginIdPopup: React.FC = () => {
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
                       >
-                        <g clip-path="url(#clip0_920_354)">
+                        <g clipPath="url(#clip0_920_354)">
                           <path
                             d="M18.5807 15.039H18.3114L15.4848 0.196075H10.0991L7.2707 15.039H7.00142L4.17478 0.196075H0L3.42352 16.9089C3.70482 18.2792 4.89687 19.261 6.27932 19.261H9.82977L12.6581 5.09977H12.9274L15.7558 19.261H21.68L24.8034 4.01045H20.6835L18.5824 15.0407L18.5807 15.039Z"
                             fill="#5143F4"
@@ -373,7 +368,7 @@ const LoginIdPopup: React.FC = () => {
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
                       >
-                        <g clip-path="url(#clip0_920_360)">
+                        <g clipPath="url(#clip0_920_360)">
                           <path
                             d="M28 10.3321L16.5806 1.84528C15.0485 0.706204 12.9516 0.706204 11.4175 1.84528L0 10.3321H28Z"
                             fill="#FD5101"
@@ -420,7 +415,7 @@ const LoginIdPopup: React.FC = () => {
                         width="24px"
                         height="24px"
                         viewBox="0 0 24 24"
-                        stroke-width="1.5"
+                        strokeWidth="1.5"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
                         color="#000000"
@@ -428,9 +423,9 @@ const LoginIdPopup: React.FC = () => {
                         <path
                           d="M21 12L3 12M3 12L11.5 3.5M3 12L11.5 20.5"
                           stroke="#000000"
-                          stroke-width="1.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                         ></path>
                       </svg>
                       <span>Другой метод авторизации</span>
@@ -540,9 +535,9 @@ const LoginIdPopup: React.FC = () => {
                           viewBox="0 0 24 24"
                           fill="none"
                           stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                         >
                           <path d="M21 12a9 9 0 1 1-6.219-8.56" />
                         </svg>
@@ -660,9 +655,9 @@ const LoginIdPopup: React.FC = () => {
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   >
                     <path d="M21 12a9 9 0 1 1-6.219-8.56" />
                   </svg>

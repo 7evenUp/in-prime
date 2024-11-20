@@ -6,6 +6,7 @@ import MobileMenu from "@/components/mobile-menu"
 import { Resolution } from "@/types/resolution"
 
 import styles from "./Earn.module.scss"
+import clsx from "clsx"
 
 interface EarnProps {
   resolution: Resolution
@@ -234,6 +235,12 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
       <div className={styles.lines}>
         {[...Array(lineCount)].map((_, index) => (
           <div key={index} className={styles.line} />
+        ))}
+      </div>
+
+      <div className={clsx(styles.lines, styles.lines__stars)}>
+        {[...Array(lineCount)].map((_, index) => (
+          <div key={index} className={styles.star} />
         ))}
       </div>
     </section>

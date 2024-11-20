@@ -1,6 +1,7 @@
 import {
   setAuth,
   setBoxesLeft,
+  setBoxesUsed,
   setShouldRetryAuth,
 } from "@/redux/reducers/modalReducer"
 import { RootState } from "@/redux/store"
@@ -40,6 +41,7 @@ const AuthService: FC<Props> = (props: Props) => {
               .then((res) => {
                 dispatch(setAuth(true))
                 dispatch(setBoxesLeft(res.data.promoBoxAvailableOpensNumber))
+                dispatch(setBoxesUsed(res.data.totalOpenedPromoBox))
               })
               .catch((err) => {
                 console.log(err)

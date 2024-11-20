@@ -106,7 +106,7 @@ const TimerPromo = () => {
   }, [])
 
   return (
-    <div className={styles.timer}>
+    <div className={styles.timer} id="gifts">
       <h1 className={styles.timer__title}>Какие подарки внутри бокса?</h1>
       <div className={styles.timer__image} />
       <div className={styles.timer__gifts}>
@@ -136,7 +136,7 @@ const TimerPromo = () => {
             <div className={styles.CollapsibleContent__list}>
               {isContainersLoading
                 ? [...Array(10)].map((_, index) => <FullGift key={index} />)
-                : containers.containers[0].prizes.map((prize) => (
+                : containers?.containers[0].prizes.map((prize) => (
                     <FullGift
                       key={prize.prize.id}
                       text={prize.prize.title}

@@ -272,9 +272,9 @@ const BuySubscriptionPromo = ({
     validate()
   }, [promoForSubmit])
 
-  // if (isSubscriptionsError || isLoading) {
-  //   return <OldBuySubscription tariffs={tariffs} resolution={resolution} />
-  // }
+  if (isSubscriptionsError || isLoading) {
+    return <OldBuySubscription tariffs={tariffs} resolution={resolution} />
+  }
 
   return (
     <div className="app__container__subscribe__wrapper">
@@ -628,9 +628,9 @@ const SubscriptionCard = ({
               <button onClick={scrollToOpportunities}>возможности Prime</button>
             </>
           )}
-          {order === 1 && "Все, что входит в 1 месяц"}
+          {/* {order === 1 && "Все, что входит в 1 месяц"}
           {order === 2 && "Все, что входит в 3 месяца"}
-          {order === 3 && "Все, что входит в 6 месяцев"}
+          {order === 3 && "Все, что входит в 6 месяцев"} */}
         </p>
 
         {order === 3 && (

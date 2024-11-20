@@ -301,6 +301,10 @@
     gap: 100px;
     margin-left: 0px;
   }
+
+  &__stars {
+    top: 30%;
+  }
 }
 
 .line {
@@ -309,6 +313,82 @@
   background-repeat: no-repeat;
   z-index: 0;
   width: 2px;
+
+  @media (max-width: 767px) {
+    width: 1px;
+
+    &:nth-child(1) {
+      opacity: 0.5;
+    }
+
+    &:nth-child(4) {
+      opacity: 0.3;
+    }
+  }
+}
+
+@mixin slideDown($duration: 1s, $delay: 0s) {
+  animation: slideDown $duration $delay infinite forwards;
+}
+
+@keyframes slideDown {
+  0% {
+    margin-top: 0;
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    margin-top: 35%;
+  }
+}
+
+.star {
+  height: 100%;
+  background-image: url("/images/svg/earn/star-line.svg");
+  background-repeat: no-repeat;
+  z-index: 0;
+  width: 2px;
+  height: 100%;
+  opacity: 0;
+
+  &:nth-child(1) {
+    @include slideDown(6s, 0s);
+  }
+  &:nth-child(2) {
+    @include slideDown(6.25s, 4.25s);
+  }
+  &:nth-child(3) {
+    @include slideDown(5.3s, 3.3s);
+  }
+  &:nth-child(4) {
+    @include slideDown(6s, 8s);
+  }
+  &:nth-child(5) {
+    @include slideDown(6.25s, 9.25s);
+  }
+  &:nth-child(6) {
+    @include slideDown(7.3s, 10.3s);
+  }
+  &:nth-child(7) {
+    @include slideDown(6s, 1s);
+  }
+  &:nth-child(8) {
+    @include slideDown(4.3s, 7.3s);
+  }
+  &:nth-child(9) {
+    @include slideDown(6s, 3s);
+  }
+  &:nth-child(10) {
+    @include slideDown(7s, 9s);
+  }
+  &:nth-child(11) {
+    @include slideDown(7.25s, 5.25s);
+  }
+  &:nth-child(12) {
+    @include slideDown(9.3s, 12.3s);
+  }
 
   @media (max-width: 767px) {
     width: 1px;

@@ -29,7 +29,7 @@ const AMOUNT_OF_GENERATED_PRIZES = 50
 
 const Scroller = () => {
   const dispatch = useAppDispatch()
-  const { isAuth } = useSelector((state: RootState) => state.auth)
+  const { isAuth, boxesLeft } = useSelector((state: RootState) => state.auth)
 
   const onAuthClick = () => {
     dispatch(setLoginIDModal(true))
@@ -127,15 +127,14 @@ const Scroller = () => {
           <RoundedTriangle className={`${styles.triangle} ${styles.top}`} />
           <RoundedTriangle className={`${styles.triangle} ${styles.bottom}`} />
         </div>
-        {isAuth ? (
-          <button className={styles.spinButton} onClick={onOpenClick}>
-            Крутить рулетку
-          </button>
-        ) : (
-          <button className={styles.spinButton} onClick={onAuthClick}>
-            Вход
-          </button>
-        )}
+
+        <button
+          className={styles.spinButton}
+          onClick={isAuth ? onOpenClick : onAuthClick}
+          disabled={boxesLeft === 0}
+        >
+          Крутить рулетку
+        </button>
       </div>
     </div>
   )

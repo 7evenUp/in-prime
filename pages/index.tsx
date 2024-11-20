@@ -176,10 +176,6 @@ const Home = (props) => {
 
           <Team teamOpened={teamOpened} setTeamOpened={setTeamOpened} />
 
-          <Partners />
-
-          <Testimonials resolution={resolution} />
-
           <Birthday />
 
           <TimerPromo />
@@ -190,7 +186,11 @@ const Home = (props) => {
 
           <BuySubscriptionPromo tariffs={tariffs} resolution={resolution} />
 
+          <Testimonials resolution={resolution} />
+
           <Histories />
+
+          <Partners />
 
           <div className="app__container__faq" id="faq">
             <div className="app__container__faq__title">
