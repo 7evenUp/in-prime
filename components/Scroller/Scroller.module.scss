@@ -1,0 +1,135 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 60px;
+  width: 100%;
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    width: 1300px;
+
+    @media (max-width: 1919px) and (min-width: 1368px) {
+      width: 1210px;
+    }
+
+    @media (max-width: 1367px) and (min-width: 768px) {
+      width: 672px;
+    }
+
+    @media (max-width: 767px) {
+      width: 335px;
+    }
+
+    .info {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+
+      .button {
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 10px;
+        background-color: #ffe19d;
+        color: #4b4b4b;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background-color: #f5d383;
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3),
+            0 1px 3px 1px rgba(0, 0, 0, 0.15);
+        }
+
+        &:active {
+          background-color: #ecc76f;
+          box-shadow: none;
+        }
+      }
+    }
+  }
+
+  .roulette {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    height: 320px;
+    // background-color: rgba(74, 74, 74, 0.16);
+    border-radius: 16px;
+
+    .prizes {
+      position: relative;
+      width: 100%;
+      padding: 16px 0;
+      overflow: hidden;
+
+      .motionWrapper {
+        display: flex;
+        gap: 16px;
+        width: fit-content;
+        margin-left: 50%;
+      }
+
+      .triangle {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+
+        &.top {
+          top: 8px;
+        }
+
+        &.bottom {
+          bottom: 8px;
+          transform: translateX(-50%) rotate(180deg);
+        }
+      }
+    }
+
+    .spinButton {
+      font-family: "Inter", sans-serif;
+      font-weight: 600;
+      font-size: 18px;
+      text-align: center;
+      color: #222;
+      cursor: pointer;
+      border: none;
+      z-index: 1;
+
+      font-weight: bold;
+      width: 278px;
+      height: 64px;
+
+      border-radius: 16px;
+      background: radial-gradient(
+        57.52% 59.26% at 53.22% 57.14%,
+        rgb(255, 239, 203) 0%,
+        rgb(255, 225, 157) 100%
+      );
+      // transition: all 0.2s ease;
+
+      &:hover {
+        background: white;
+        color: #181818;
+      }
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      &:active {
+        background-color: #ecc76f;
+        box-shadow: none;
+      }
+    }
+  }
+}

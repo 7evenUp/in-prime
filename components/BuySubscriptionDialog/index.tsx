@@ -638,14 +638,14 @@ const BuySubscriptionDialog = ({
                           >
                             {duration.id} МЕС
                           </span>
-                          {order !== 0 && (
+                          {/* {order !== 0 && (
                             <p className={styles.text_before_bonuses}>
                               {order === 1 && "Все, что входит в 1 месяц"}
                               {order === 2 && "Все, что входит в 3 месяца"}
                               {order === 3 && "Все, что входит в 6 месяцев"}
                             </p>
-                          )}
-                          {order !== 0 && (
+                          )} */}
+                          {/* {order !== 0 && (
                             <div
                               className={clsx(
                                 styles.bonuses_heading,
@@ -680,7 +680,7 @@ const BuySubscriptionDialog = ({
                                 ЭКСТРА БОНУСЫ
                               </span>
                             </div>
-                          )}
+                          )} */}
                           <ul className={styles.bonuses}>
                             {benefits.map((benefit) => (
                               <li key={benefit.id} className={styles.bonus}>
@@ -743,11 +743,12 @@ const BuySubscriptionDialog = ({
                       <div className={styles.promo_wrapper}>
                         <input
                           name="promocode"
-                          placeholder={
-                            resolution === "sm"
-                              ? "Промокод"
-                              : "Промокод или рефкод"
-                          }
+                          // placeholder={
+                          //   resolution === "sm"
+                          //     ? "Промокод"
+                          //     : "Промокод или рефкод"
+                          // }
+                          placeholder="Промокод"
                           className={styles.input}
                           value={promocode}
                           onChange={onPromoInputChange}
@@ -791,7 +792,7 @@ const BuySubscriptionDialog = ({
                           }
                         </span>
                       )}
-                      <span className={styles.support}>
+                      {/* <span className={styles.support}>
                         Изучите{" "}
                         <Dialog.Close
                           style={{
@@ -826,7 +827,7 @@ const BuySubscriptionDialog = ({
                         >
                           Наставнику.
                         </a>
-                      </span>
+                      </span> */}
                     </div>
                   </div>
                 </div>
@@ -900,12 +901,12 @@ const BuySubscriptionDialog = ({
                   </div>
                 </div>
               </form>
-              <p className={styles.crypton}>
+              {/* <p className={styles.crypton}>
                 Работает на базе Crypton ID от{" "}
                 <a href="https://crypton.xyz/" target="_blank">
                   Crypton
                 </a>
-              </p>
+              </p> */}
             </>
           )}
         </Dialog.Content>

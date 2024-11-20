@@ -17,6 +17,9 @@ import { Resolution } from "@/types/resolution"
 import { Promocode, Subscription } from "@/types/api-types"
 
 import styles from "./BuySubscriptionPromo.module.scss"
+import Scroller from "@/components/Scroller"
+import { useAppDispatch, useAppSelector } from "@/redux/hooks"
+import { setLoginIDModal } from "@/redux/reducers/modalReducer"
 
 const PRIME_SUBSCRIPTION_KIND_ID = 1
 const ID_URL = process.env.NEXT_PUBLIC_ID_URL + "/api/v1/"
@@ -40,6 +43,11 @@ const BuySubscriptionPromo = ({
   }
   resolution: Resolution
 }) => {
+  const { isAuth } = useAppSelector((state) => state.auth)
+  const promoBoxAvailableOpensNumber = useAppSelector(
+    (state) => state.auth.boxesLeft
+  )
+
   const [showMonthlyPrice, setShowMonthlyPrice] = useState(true)
   const [promoForSubmit, setPromoForSubmit] = useState("")
   const [isPromoReferral, setIsPromoReferral] = useState(false)
@@ -57,131 +65,131 @@ const BuySubscriptionPromo = ({
   const [validFor, setValidFor] = useState([])
   const [invalidFor, setInvalidFor] = useState([])
 
-  const [timerProgress, setTimerProgress] = useState(0)
+  // const [timerProgress, setTimerProgress] = useState(0)
 
-  // const {
-  //   data: subscriptions,
-  //   isError: isSubscriptionsError,
-  //   isLoading,
-  // } = useQuery({
-  //   queryKey: ["subscriptions"],
-  //   queryFn: async () => {
-  //     const response = await axios.get<Subscription[]>(
-  //       ID_URL + "subscriptions/get-active/"
-  //     )
+  const {
+    data: subscriptions,
+    isError: isSubscriptionsError,
+    isLoading,
+  } = useQuery({
+    queryKey: ["subscriptions"],
+    queryFn: async () => {
+      const response = await axios.get<Subscription[]>(
+        ID_URL + "subscriptions/get-active/"
+      )
 
-  //     return response.data.filter(
-  //       (el) => el.isActive && el.kindId === PRIME_SUBSCRIPTION_KIND_ID
-  //     )
+      return response.data.filter(
+        (el) => el.isActive && el.kindId === PRIME_SUBSCRIPTION_KIND_ID
+      )
+    },
+  })
+
+  // const subscriptions: Subscription[] = [
+  //   {
+  //     id: 1,
+  //     baseDiscount: null,
+  //     baseDiscountAmount: null,
+  //     benefits: [
+  //       {
+  //         id: 1,
+  //         file: null,
+  //         translations: {
+  //           ru: {
+  //             name: "1",
+  //             description: null,
+  //           },
+  //         },
+  //         remainingCount: null,
+  //       },
+  //     ],
+  //     duration: {
+  //       id: 1,
+  //       label: "10",
+  //     },
+  //     isActive: true,
+  //     kindId: 1, // 1 - prime | 2 - calendar
+  //     name: "1",
+  //     price: 99,
   //   },
-  // })
-
-  const subscriptions: Subscription[] = [
-    {
-      id: 1,
-      baseDiscount: null,
-      baseDiscountAmount: null,
-      benefits: [
-        {
-          id: 1,
-          file: null,
-          translations: {
-            ru: {
-              name: "1",
-              description: null,
-            },
-          },
-          remainingCount: null,
-        },
-      ],
-      duration: {
-        id: 1,
-        label: "10",
-      },
-      isActive: true,
-      kindId: 1, // 1 - prime | 2 - calendar
-      name: "1",
-      price: 99,
-    },
-    {
-      id: 2,
-      baseDiscount: 5,
-      baseDiscountAmount: 99,
-      benefits: [
-        {
-          id: 1,
-          file: null,
-          translations: {
-            ru: {
-              name: "1",
-              description: null,
-            },
-          },
-          remainingCount: null,
-        },
-      ],
-      duration: {
-        id: 1,
-        label: "10",
-      },
-      isActive: true,
-      kindId: 1, // 1 - prime | 2 - calendar
-      name: "3",
-      price: 99,
-    },
-    {
-      id: 3,
-      baseDiscount: 10,
-      baseDiscountAmount: 99,
-      benefits: [
-        {
-          id: 1,
-          file: null,
-          translations: {
-            ru: {
-              name: "1",
-              description: null,
-            },
-          },
-          remainingCount: null,
-        },
-      ],
-      duration: {
-        id: 1,
-        label: "10",
-      },
-      isActive: true,
-      kindId: 1, // 1 - prime | 2 - calendar
-      name: "3",
-      price: 99,
-    },
-    {
-      id: 4,
-      baseDiscount: 15,
-      baseDiscountAmount: 99,
-      benefits: [
-        {
-          id: 1,
-          file: null,
-          translations: {
-            ru: {
-              name: "1",
-              description: null,
-            },
-          },
-          remainingCount: null,
-        },
-      ],
-      duration: {
-        id: 1,
-        label: "10",
-      },
-      isActive: true,
-      kindId: 1, // 1 - prime | 2 - calendar
-      name: "3",
-      price: 99,
-    },
-  ]
+  //   {
+  //     id: 2,
+  //     baseDiscount: 5,
+  //     baseDiscountAmount: 99,
+  //     benefits: [
+  //       {
+  //         id: 1,
+  //         file: null,
+  //         translations: {
+  //           ru: {
+  //             name: "1",
+  //             description: null,
+  //           },
+  //         },
+  //         remainingCount: null,
+  //       },
+  //     ],
+  //     duration: {
+  //       id: 1,
+  //       label: "10",
+  //     },
+  //     isActive: true,
+  //     kindId: 1, // 1 - prime | 2 - calendar
+  //     name: "3",
+  //     price: 99,
+  //   },
+  //   {
+  //     id: 3,
+  //     baseDiscount: 10,
+  //     baseDiscountAmount: 99,
+  //     benefits: [
+  //       {
+  //         id: 1,
+  //         file: null,
+  //         translations: {
+  //           ru: {
+  //             name: "1",
+  //             description: null,
+  //           },
+  //         },
+  //         remainingCount: null,
+  //       },
+  //     ],
+  //     duration: {
+  //       id: 1,
+  //       label: "10",
+  //     },
+  //     isActive: true,
+  //     kindId: 1, // 1 - prime | 2 - calendar
+  //     name: "3",
+  //     price: 99,
+  //   },
+  //   {
+  //     id: 4,
+  //     baseDiscount: 15,
+  //     baseDiscountAmount: 99,
+  //     benefits: [
+  //       {
+  //         id: 1,
+  //         file: null,
+  //         translations: {
+  //           ru: {
+  //             name: "1",
+  //             description: null,
+  //           },
+  //         },
+  //         remainingCount: null,
+  //       },
+  //     ],
+  //     duration: {
+  //       id: 1,
+  //       label: "10",
+  //     },
+  //     isActive: true,
+  //     kindId: 1, // 1 - prime | 2 - calendar
+  //     name: "3",
+  //     price: 99,
+  //   },
+  // ]
 
   const {
     mutateAsync: mutatePromoValidation,
@@ -201,15 +209,15 @@ const BuySubscriptionPromo = ({
       }),
   })
 
-  useEffect(() => {
-    setTimerProgress(
-      Math.round(
-        Date.now() >= START_DATE
-          ? ((Date.now() - START_DATE) / (END_DATE - START_DATE)) * 100
-          : 0
-      )
-    )
-  }, [])
+  // useEffect(() => {
+  //   setTimerProgress(
+  //     Math.round(
+  //       Date.now() >= START_DATE
+  //         ? ((Date.now() - START_DATE) / (END_DATE - START_DATE)) * 100
+  //         : 0
+  //     )
+  //   )
+  // }, [])
 
   useEffect(() => {
     const url = new URL(location.href)
@@ -264,117 +272,124 @@ const BuySubscriptionPromo = ({
     validate()
   }, [promoForSubmit])
 
-  // if (isSubscriptionsError || isLoading) {
-  //   return <OldBuySubscription tariffs={tariffs} resolution={resolution} />
-  // }
+  if (isSubscriptionsError || isLoading) {
+    return <OldBuySubscription tariffs={tariffs} resolution={resolution} />
+  }
 
   return (
-    <div className="app__container__subscribe" id="subscribe">
-      <div className="app__container__subscribe__noise" />
-      <div className="app__container__subscribe__back">
-        <div className="app__container__subscribe__back__left-gradient" />
-        <div className="app__container__subscribe__back__right-gradient" />
+    <div className="app__container__subscribe__wrapper">
+      <div className="app__container__subscribe__promoback" />
+
+      <div className="app__container__subscribe" id="subscribe">
+        <div className="app__container__subscribe__noise" />
+        {/* <div className="app__container__subscribe__back"> */}
+        {/* <div className="app__container__subscribe__back__left-gradient" />
+          <div className="app__container__subscribe__back__right-gradient" /> */}
+        {/* </div> */}
+        <div className="app__container__subscribe__content">
+          <div className="app__container__subscribe__content__header">
+            <h1 className="app__container__subscribe__content__title">
+              Оформите подписку
+            </h1>
+          </div>
+
+          <div className={styles.switch}>
+            <span className={styles.show_price}>Показать цену:</span>
+            <div className={styles.switch_container}>
+              <span
+                className={clsx(
+                  styles.switch_text,
+                  showMonthlyPrice && styles.switch_text__active
+                )}
+                onClick={() => setShowMonthlyPrice(true)}
+              >
+                в месяц
+              </span>
+              <Switch.Root
+                className={styles.SwitchRoot}
+                checked={showMonthlyPrice}
+                onCheckedChange={setShowMonthlyPrice}
+              >
+                <Switch.Thumb className={styles.SwitchThumb} />
+              </Switch.Root>
+              <span
+                className={clsx(
+                  styles.switch_text,
+                  !showMonthlyPrice && styles.switch_text__active
+                )}
+                onClick={() => setShowMonthlyPrice(false)}
+              >
+                за весь период
+              </span>
+            </div>
+          </div>
+
+          {subscriptions && (
+            <div className={styles.subscriptions}>
+              {subscriptions.map((el, i) => (
+                <SubscriptionCard
+                  key={el.id}
+                  subscription={el}
+                  order={i}
+                  resolution={resolution}
+                  showMonthlyPrice={showMonthlyPrice}
+                  promoForSubmit={promoForSubmit}
+                  setPromoForSubmit={setPromoForSubmit}
+                  isPromoReferral={isPromoReferral}
+                  setIsPromoReferral={setIsPromoReferral}
+                  discounts={discounts}
+                  discountAmount={discountAmount}
+                  discountKind={discountKind}
+                  isPromoPending={isPending}
+                  isValidForPromo={
+                    validFor.length === 0 && invalidFor.length === 0
+                      ? true
+                      : invalidFor.length === 0 && validFor.includes(el.id)
+                      ? true
+                      : validFor.length === 0 && !invalidFor.includes(el.id)
+                      ? true
+                      : validFor.length !== 0 &&
+                        invalidFor.length !== 0 &&
+                        validFor.includes(el.id)
+                      ? true
+                      : false
+                  }
+                />
+              ))}
+            </div>
+          )}
+
+          <div className={styles.support_wrapper}>
+            <p className={styles.support}>
+              Остались вопросы? Задай их нашему{" "}
+              <a
+                href="https://t.me/crypton_support"
+                target="_blank"
+                className={styles.support_link}
+              >
+                специалисту в Телеграм
+              </a>
+            </p>
+          </div>
+          {isAuth && (
+            <div className={styles.openings}>
+              <div className={styles.openings__count}>
+                <span className={styles.openings__count__left}>
+                  Осталось открытий: {promoBoxAvailableOpensNumber}
+                </span>
+                <span className={styles.openings__count__used}>
+                  Использовано попыток: {promoBoxAvailableOpensNumber}
+                </span>
+              </div>
+
+              <a href={ID_URL} className={styles.openings__inventory}>
+                Перейти в свой инвентарь
+              </a>
+            </div>
+          )}
+        </div>
       </div>
-      <div className="app__container__subscribe__content">
-        <div className="app__container__subscribe__content__header">
-          <h1 className="app__container__subscribe__content__title">
-            Оформите подписку
-          </h1>
-        </div>
-
-        <div className={styles.switch}>
-          <span className={styles.show_price}>Показать цену:</span>
-          <div className={styles.switch_container}>
-            <span
-              className={clsx(
-                styles.switch_text,
-                showMonthlyPrice && styles.switch_text__active
-              )}
-              onClick={() => setShowMonthlyPrice(true)}
-            >
-              в месяц
-            </span>
-            <Switch.Root
-              className={styles.SwitchRoot}
-              checked={showMonthlyPrice}
-              onCheckedChange={setShowMonthlyPrice}
-            >
-              <Switch.Thumb className={styles.SwitchThumb} />
-            </Switch.Root>
-            <span
-              className={clsx(
-                styles.switch_text,
-                !showMonthlyPrice && styles.switch_text__active
-              )}
-              onClick={() => setShowMonthlyPrice(false)}
-            >
-              за весь период
-            </span>
-          </div>
-        </div>
-
-        {subscriptions && (
-          <div className={styles.subscriptions}>
-            {subscriptions.map((el, i) => (
-              <SubscriptionCard
-                key={el.id}
-                subscription={el}
-                order={i}
-                resolution={resolution}
-                showMonthlyPrice={showMonthlyPrice}
-                promoForSubmit={promoForSubmit}
-                setPromoForSubmit={setPromoForSubmit}
-                isPromoReferral={isPromoReferral}
-                setIsPromoReferral={setIsPromoReferral}
-                discounts={discounts}
-                discountAmount={discountAmount}
-                discountKind={discountKind}
-                isPromoPending={isPending}
-                isValidForPromo={
-                  validFor.length === 0 && invalidFor.length === 0
-                    ? true
-                    : invalidFor.length === 0 && validFor.includes(el.id)
-                    ? true
-                    : validFor.length === 0 && !invalidFor.includes(el.id)
-                    ? true
-                    : validFor.length !== 0 &&
-                      invalidFor.length !== 0 &&
-                      validFor.includes(el.id)
-                    ? true
-                    : false
-                }
-              />
-            ))}
-          </div>
-        )}
-
-        <div className={styles.support_wrapper}>
-          <p className={styles.support}>
-            Остались вопросы? Задай их нашему{" "}
-            <a
-              href="https://t.me/crypton_support"
-              target="_blank"
-              className={styles.support_link}
-            >
-              специалисту в Телеграм
-            </a>
-          </p>
-        </div>
-
-        <div className={styles.openings}>
-          <div className={styles.openings__count}>
-            <span className={styles.openings__count__left}>
-              Осталось открытий: 2
-            </span>
-            <span className={styles.openings__count__used}>
-              Использовано попыток: 4
-            </span>
-          </div>
-          <a href="button" className={styles.openings__inventory}>
-            Перейти в свой инвентарь
-          </a>
-        </div>
-      </div>
+      <Scroller />
     </div>
   )
 }
@@ -613,9 +628,9 @@ const SubscriptionCard = ({
               <button onClick={scrollToOpportunities}>возможности Prime</button>
             </>
           )}
-          {order === 1 && "Все, что входит в 1 месяц"}
+          {/* {order === 1 && "Все, что входит в 1 месяц"}
           {order === 2 && "Все, что входит в 3 месяца"}
-          {order === 3 && "Все, что входит в 6 месяцев"}
+          {order === 3 && "Все, что входит в 6 месяцев"} */}
         </p>
 
         {order === 3 && (
@@ -770,7 +785,12 @@ const SubscriptionCard = ({
           )}
       </ul> */}
 
-      <div className={styles.subscription_box}>
+      <div
+        className={clsx(
+          styles.subscription_box,
+          order === 0 && styles.subscription_box_first
+        )}
+      >
         <div className={styles.subscription_box_count}>
           {order === 0 && "1"}
           {order === 1 && "3"}

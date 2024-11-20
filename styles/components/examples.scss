@@ -190,6 +190,7 @@
         @media (max-width: 767px) {
           top: 9px;
           width: 268px;
+          height: 136px;
 
           -webkit-mask: linear-gradient(0deg, transparent, white 100%);
           mask: linear-gradient(0deg, transparent, white 100%);
@@ -208,6 +209,8 @@
 
         @media (max-width: 767px) {
           padding: 0px 24px 24px;
+          height: 404px;
+          box-sizing: border-box;
         }
 
         &__title {
@@ -226,7 +229,7 @@
           @media (max-width: 767px) {
             font-size: 18px;
             width: 212px;
-            margin-top: 42px;
+            margin-top: 134px;
             height: 100px;
           }
         }
@@ -243,6 +246,7 @@
             width: 207px;
             height: 61px;
             margin-top: 24px;
+            gap: 75px;
           }
 
           &__col {
@@ -293,6 +297,10 @@
             &.out {
               opacity: 0.5;
               align-items: end;
+
+              @media (max-width: 767px) {
+                align-items: flex-start;
+              }
             }
           }
         }

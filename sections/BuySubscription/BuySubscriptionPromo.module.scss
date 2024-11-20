@@ -76,7 +76,7 @@
   opacity: 0.5;
 
   @media (max-width: 767px) {
-    display: none;
+    font-size: 12px;
   }
 }
 
@@ -87,6 +87,10 @@
   color: #fff;
   opacity: 0.5;
   cursor: pointer;
+
+  @media (max-width: 767px) {
+    font-size: 12px;
+  }
 
   &__active {
     opacity: 1;
@@ -112,10 +116,7 @@
   }
 
   @media (max-width: 767px) {
-    padding-bottom: 18px;
-  }
-
-  @media (max-width: 420px) {
+    height: 565px;
     padding: 16px;
   }
 
@@ -215,6 +216,14 @@
     margin-top: 50px;
     position: relative;
 
+    @media (max-width: 767px) {
+      margin-top: 27px;
+    }
+
+    &_first {
+      margin-top: 50px;
+    }
+
     &_count {
       position: absolute;
       bottom: 0;
@@ -288,10 +297,7 @@
   }
 
   @media (max-width: 767px) {
-    margin-bottom: 32px;
-  }
-
-  @media (max-width: 375px) {
+    margin-bottom: 40px;
     font-size: 14px;
   }
 }
@@ -338,9 +344,13 @@
   gap: 16px;
   height: 130px;
 
+  @media (max-width: 767px) {
+    height: 90px;
+  }
+
   &_0 {
     @media (max-width: 767px) {
-      height: 100px;
+      height: 65px;
     }
   }
 
@@ -357,8 +367,8 @@
     color: #fff;
     position: relative;
 
-    @media (max-width: 375px) {
-      font-size: 40px;
+    @media (max-width: 767px) {
+      font-size: 36px;
     }
   }
 
@@ -594,9 +604,9 @@
     font-size: 16px;
   }
 
-  @media (max-width: 375px) {
+  @media (max-width: 767px) {
     height: 48px;
-    padding-bottom: 4px;
+    font-size: 16px;
   }
 
   &:hover {
@@ -634,14 +644,17 @@
   }
 
   @media (max-width: 767px) {
-    font-size: 16px;
+    font-size: 14px;
   }
 
   &_link {
     color: #7cfff2;
     text-decoration: underline;
     text-underline-offset: 4px;
-    transition: color 0.1s ease-in;
+
+    &:hover {
+      color: white;
+    }
   }
 }
 
@@ -649,6 +662,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+    gap: 26px;
+  }
 
   &__count {
     display: flex;
@@ -665,6 +683,10 @@
       @media (max-width: 1367px) and (min-width: 768px) {
         font-size: 16px;
       }
+
+      @media (max-width: 767px) {
+        font-size: 16px;
+      }
     }
 
     &__used {
@@ -676,6 +698,9 @@
       opacity: 0.5;
 
       @media (max-width: 1367px) and (min-width: 768px) {
+        font-size: 14px;
+      }
+      @media (max-width: 767px) {
         font-size: 14px;
       }
     }
@@ -698,10 +723,25 @@
     color: #fff;
     text-decoration: none;
 
+    border: none;
+    cursor: pointer;
+
     @media (max-width: 1367px) and (min-width: 768px) {
       width: 251px;
       height: 54px;
       font-size: 16px;
+    }
+
+    @media (max-width: 767px) {
+      font-size: 14px;
+      border-radius: 12px;
+      width: 335px;
+      height: 46px;
+    }
+
+    &:hover {
+      background: white;
+      color: #181818;
     }
   }
 }

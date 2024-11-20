@@ -166,45 +166,9 @@ const MobileMenu = (props) => {
             FAQ
           </div>
         </div>
-        <div className="mobile-menu__container__socials__links">
-          <div className="mobile-menu__container__socials__links__link">
-            <a href="https://crypton.xyz" target={"_blank"}>
-              <Crypton />
-            </a>
-          </div>
-          <div className="mobile-menu__container__socials__links__link">
-            <a href="https://vk.com/off_crypton" target={"_blank"}>
-              <Vk />
-            </a>
-          </div>
-          <div className="mobile-menu__container__socials__links__link">
-            <a href="https://www.instagram.com/crypton_ru/" target={"_blank"}>
-              <Instagram />
-            </a>
-          </div>
-          <div className="mobile-menu__container__socials__links__link">
-            <a href="https://t.me/crypton_off" target={"_blank"}>
-              <Telegram />
-            </a>
-          </div>
-          <div className="mobile-menu__container__socials__links__link">
-            <a
-              href="https://www.youtube.com/c/CryptonAcademy/"
-              target={"_blank"}
-            >
-              <Youtube />
-            </a>
-          </div>
-          <div className="mobile-menu__container__socials__links__link">
-            <a href="https://discord.gg/crypton" target={"_blank"}>
-              <Discord />
-            </a>
-          </div>
-        </div>
         <div className="mobile-menu__container__subscribe-block">
           <button
             style={{
-              background: "transparent",
               outline: "none",
               border: "none",
               cursor: "pointer",
@@ -216,6 +180,46 @@ const MobileMenu = (props) => {
               Оформить подписку
             </div>
           </button>
+        </div>
+        <div className="mobile-menu__bottom__wrapper">
+          <div className="mobile-menu__container__socials__links">
+            <div className="mobile-menu__container__socials__links__link">
+              <a href="https://crypton.xyz" target={"_blank"}>
+                <Crypton />
+              </a>
+            </div>
+            <div className="mobile-menu__container__socials__links__link">
+              <a href="https://vk.com/off_crypton" target={"_blank"}>
+                <Vk />
+              </a>
+            </div>
+            <div className="mobile-menu__container__socials__links__link">
+              <a href="https://www.instagram.com/crypton_ru/" target={"_blank"}>
+                <Instagram />
+              </a>
+            </div>
+            <div className="mobile-menu__container__socials__links__link">
+              <a href="https://t.me/crypton_off" target={"_blank"}>
+                <Telegram />
+              </a>
+            </div>
+            <div className="mobile-menu__container__socials__links__link">
+              <a
+                href="https://www.youtube.com/c/CryptonAcademy/"
+                target={"_blank"}
+              >
+                <Youtube />
+              </a>
+            </div>
+            <div className="mobile-menu__container__socials__links__link">
+              <a href="https://discord.gg/crypton" target={"_blank"}>
+                <Discord />
+              </a>
+            </div>
+          </div>
+          <div className="mobile-menu__bottom__wrapper__copyright">
+            Copyright © Crypton Prime, 2024. Все права защищены
+          </div>
         </div>
       </div>
     </div>

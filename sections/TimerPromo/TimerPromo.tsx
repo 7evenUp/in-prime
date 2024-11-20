@@ -1,12 +1,17 @@
 "use client"
-import React from "react"
+import React, { useEffect, useState } from "react"
 import clsx from "clsx"
+import { useAutoAnimate } from "@formkit/auto-animate/react"
 
 import * as Collapsible from "@radix-ui/react-collapsible"
 
 import Countdown from "@/components/countdown"
 
 import styles from "./TimerPromo.module.scss"
+import axios from "axios"
+import { useQuery } from "@tanstack/react-query"
+import { IContainers } from "@/types/promo-types"
+import DialogPromo from "@/components/DialogPromo/DialogPromo"
 
 const renderer = ({ days, hours, minutes, seconds, completed }) => {
   if (completed) {
@@ -40,11 +45,68 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
 
 const endDate = 1731621600000
 
+const ID_URL = process.env.NEXT_PUBLIC_ID_URL + "/api/v1/"
+const EVENT_URL = process.env.NEXT_PUBLIC_EVENT_URL + "/api/"
+
+interface Item {
+  id: string
+  number: number
+}
+
 const TimerPromo = () => {
   const [open, setOpen] = React.useState(false)
 
+  const {
+    data: containers,
+    isError: isContainersError,
+    isLoading: isContainersLoading,
+  } = useQuery({
+    queryKey: ["containers"],
+    queryFn: async () => {
+      const response = await axios.get<IContainers>(EVENT_URL + "containers")
+
+      return response.data
+    },
+  })
+
+  console.log(containers)
+
+  const {
+    data: openedBoxes,
+    isError: isOpenedBoxesError,
+    isLoading: isOpenedBoxesLoading,
+  } = useQuery({
+    queryKey: ["openedBoxes"],
+    queryFn: async () => {
+      const response = await axios.get<any[]>(
+        ID_URL + "crypton-events/last-opened-containers/"
+      )
+
+      return response.data
+    },
+    refetchInterval: 60000,
+  })
+
+  const [items, setItems] = useState<Item[]>([])
+
+  const [parent] = useAutoAnimate()
+  useEffect(() => {
+    const addRandomItem = () => {
+      const newItem: Item = {
+        id: Math.random().toString(36).substr(2, 9),
+        number: Math.floor(Math.random() * 100),
+      }
+
+      setItems((prevItems) => [newItem, ...prevItems].slice(0, 30))
+    }
+
+    const intervalId = setInterval(addRandomItem, 10000)
+
+    return () => clearInterval(intervalId)
+  }, [])
+
   return (
-    <div className={styles.timer}>
+    <div className={styles.timer} id="gifts">
       <h1 className={styles.timer__title}>Какие подарки внутри бокса?</h1>
       <div className={styles.timer__image} />
       <div className={styles.timer__gifts}>
@@ -72,9 +134,17 @@ const TimerPromo = () => {
 
           <Collapsible.Content className={styles.CollapsibleContent}>
             <div className={styles.CollapsibleContent__list}>
-              {[...Array(10)].map((_, index) => (
-                <FullGift key={index} />
-              ))}
+              {isContainersLoading
+                ? [...Array(10)].map((_, index) => <FullGift key={index} />)
+                : containers?.containers[0].prizes.map((prize) => (
+                    <FullGift
+                      key={prize.prize.id}
+                      text={prize.prize.title}
+                      image={prize.prize.image}
+                      description={prize.prize.description}
+                      remainingQuantity={prize.remainingQuantity}
+                    />
+                  ))}
             </div>
           </Collapsible.Content>
         </Collapsible.Root>
@@ -96,9 +166,9 @@ const TimerPromo = () => {
 
       <div className={styles.timer__last}>
         <h2 className={styles.timer__last__title}>Последние подарки</h2>
-        <div className={styles.timer__last__list}>
-          {[...Array(10)].map((_, index) => (
-            <LastGift key={index} />
+        <div className={styles.timer__last__list} ref={parent}>
+          {items.map((item) => (
+            <LastGift name={item.id} key={item.id} />
           ))}
         </div>
       </div>
@@ -108,18 +178,32 @@ const TimerPromo = () => {
   )
 }
 
-const FullGift = () => {
+const FullGift = ({
+  text,
+  image,
+  description,
+  remainingQuantity,
+}: {
+  text?: string
+  image?: string
+  description?: string
+  remainingQuantity?: number
+}) => {
   return (
-    <div className={styles.fullGift}>
-      <div className={styles.fullGift__image}>
-        {/* <img src="/images/png/last-gift.png" alt="Подарок" /> */}
+    <DialogPromo description={description} name={text} imgSrc={image}>
+      <div className={styles.fullGift}>
+        <div className={styles.fullGift__image}>
+          {image && <img src={image} alt={text} />}
+        </div>
+        <span className={styles.fullGift__text}>{text}</span>
+        <div className={styles.fullGift__line} />
+        <div className={styles.fullGift__count}>{remainingQuantity}</div>
       </div>
-      <span className={styles.fullGift__text}>Hoodie “Now or Never”</span>
-    </div>
+    </DialogPromo>
   )
 }
 
-const LastGift = () => {
+const LastGift = ({ name }: { name: string }) => {
   return (
     <div className={styles.gift}>
       <div className={styles.gift__image}>
@@ -128,7 +212,7 @@ const LastGift = () => {
       <div className={styles.gift__hero}>
         {/* <img>mambaBlackz</img> */}
         <div className={styles.gift__hero__img} />
-        <span className={styles.gift__hero__name}>mambaBlackz</span>
+        <span className={styles.gift__hero__name}>{name}</span>
       </div>
       <div className={styles.gift__time}>12 мин назад</div>
     </div>

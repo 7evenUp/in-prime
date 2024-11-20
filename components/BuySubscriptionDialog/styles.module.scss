@@ -13,13 +13,15 @@
 }
 
 .content {
-  font-family: "Resist Sans", sans-serif;
+  font-family: "Inter", sans-serif;
   overflow: auto;
   box-sizing: border-box;
-  background-color: #232323;
+  backdrop-filter: blur(40px);
+  background: rgba(67, 67, 67, 0.8);
   color: white;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 24px;
+  border: none;
+
   position: fixed;
   z-index: 1001;
   top: 50%;
@@ -89,7 +91,7 @@
 }
 
 .crypton {
-  font-family: "Resist Sans Light";
+  font-family: "Inter";
   font-size: 14px;
   margin-top: 48px;
   text-align: center;
@@ -350,7 +352,7 @@
   }
 
   &_duration {
-    font-family: "Resist Sans Medium", sans-serif;
+    font-family: "Unbounded", sans-serif;
     line-height: 100%;
     color: #181818;
     border-radius: 6px;
@@ -358,7 +360,7 @@
     padding-bottom: 6px;
     padding-inline: 16px;
     font-size: 14px;
-    max-width: fit-content;
+    text-align: center;
     margin-bottom: 32px;
 
     &__active1 {
@@ -418,7 +420,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    font-family: "Resist Sans Medium", sans-serif;
+    font-family: "Inter", sans-serif;
     font-weight: 500;
     font-size: 16px;
     text-transform: uppercase;
@@ -466,7 +468,7 @@
 }
 
 .text_before_bonuses {
-  font-family: "Resist Sans", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 14px;
   line-height: 130%;
   margin-bottom: 20px;
@@ -474,7 +476,7 @@
 
 .bonus {
   position: relative;
-  font-family: "Resist Sans", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 14px;
   line-height: 105%;
   margin: 0;
@@ -505,7 +507,7 @@
 
   &_discount {
     margin-bottom: 20px;
-    font-family: "Resist Sans Light";
+    font-family: "Inter", sans-serif;
     font-size: 16px;
     color: rgba(255, 255, 255, 0.5);
   }
@@ -527,13 +529,13 @@
       gap: 8px;
 
       &_1 {
-        font-family: "Resist Sans";
+        font-family: "Inter", sans-serif;
         font-size: 16px;
         color: white;
       }
 
       &_2 {
-        font-family: "Resist Sans Light";
+        font-family: "Inter", sans-serif;
         font-size: 16px;
         color: rgba(255, 255, 255, 0.5);
       }
@@ -546,7 +548,7 @@
       text-underline-offset: 4px;
       color: rgba(255, 255, 255, 0.5);
       background: transparent;
-      font-family: "Resist Sans Light";
+      font-family: "Inter", sans-serif;
       font-size: 14px;
       padding: 0;
       cursor: pointer;
@@ -580,7 +582,7 @@
   gap: 20px;
 
   &_heading {
-    font-family: "Resist Sans Medium", sans-serif;
+    font-family: "Inter", sans-serif;
     font-weight: 500;
     font-size: 18px;
     margin: 0;
@@ -588,7 +590,7 @@
   }
 
   &_card {
-    font-family: "Resist Sans", sans-serif;
+    font-family: "Inter", sans-serif;
     font-size: 16px;
     color: white;
   }
@@ -650,14 +652,14 @@
 
 .total {
   font-size: 24px;
-  font-family: "Resist Sans Medium", sans-serif;
+  font-family: "Inter", sans-serif;
 
   @media (max-width: 540px) {
     font-size: 22px;
   }
 
   &_per_month {
-    font-family: "Resist Sans Light", sans-serif;
+    font-family: "Inter", sans-serif;
     font-size: 18px;
 
     @media (max-width: 540px) {
@@ -667,13 +669,13 @@
 
   &_full {
     font-size: 18px;
-    font-family: "Resist Sans", sans-serif;
+    font-family: "Inter", sans-serif;
     color: rgba(255, 255, 255, 0.5);
   }
 }
 
 .input {
-  font-family: "Resist Sans Light";
+  font-family: "Inter", sans-serif;
   font-size: 16px;
   box-sizing: border-box;
   color: white;
@@ -681,10 +683,10 @@
   width: fit-content;
   outline: none;
   border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 6px;
+  border-radius: 12px;
   padding: 6px 10px;
   padding-top: 4px;
-  width: 354px;
+  width: 230px;
   height: 42px;
 
   @media (max-width: 940px) {
@@ -697,7 +699,7 @@
 
   &_standard {
     width: 270px;
-    font-family: "Resist Sans Light";
+    font-family: "Inter", sans-serif;
     background-color: transparent;
     outline: none;
     color: white;
@@ -737,23 +739,24 @@
   background: white;
   color: #181818;
   cursor: pointer;
-  font-family: "Resist Sans Medium", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 14px;
-  border-radius: 6px;
+  border-radius: 12px;
   outline: none;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: none;
   height: 42px;
-  width: 136px;
-  position: absolute;
+  width: 137px;
+  margin-left: 7px;
+  // position: absolute;
   z-index: 2;
-  right: 0;
-  top: 0;
+  // right: 0;
+  // top: 0;
   padding-bottom: 2px;
 
   &_repeat {
     margin: 0;
     padding: 0;
-    font-family: "Resist Sans Light", sans-serif;
+    font-family: "Inter", sans-serif;
     font-size: 14px;
     border-radius: 6px;
     background-color: transparent;
@@ -782,9 +785,8 @@
 
   &:disabled {
     cursor: not-allowed;
-    opacity: 50%;
-    color: white;
-    background: transparent;
+    background: #7e7e7e;
+    color: #131313;
   }
 
   &_wrapper {
@@ -805,16 +807,16 @@
     width: 232px;
     height: 50px;
     font-size: 18px;
-    border-radius: 6px;
+    border-radius: 12px;
+
     cursor: pointer;
 
-    background: linear-gradient(
-      129.5deg,
-      #ffcd9f 2.02%,
-      #ff4a7a 56.6%,
-      #bb44cc 104.76%
+    background: radial-gradient(
+      57.52% 59.26% at 53.22% 57.14%,
+      rgb(255, 239, 203) 0%,
+      rgb(255, 225, 157) 100%
     );
-    font-family: "Resist Sans Medium", sans-serif;
+    font-family: "Inter", sans-serif;
     border: none;
     color: #181818;
 
@@ -828,9 +830,7 @@
     }
 
     &:disabled {
-      background: transparent;
-      color: rgba(255, 255, 255, 0.5);
-      border: 1px solid rgba(255, 255, 255, 0.5);
+      opacity: 0.5;
       cursor: not-allowed;
     }
   }
@@ -845,12 +845,12 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  font-family: "Resist Sans Light";
+  font-family: "Inter", sans-serif;
   font-size: 18px;
 
   &_heading {
     text-align: center;
-    font-family: "Benzin-Bold";
+    font-family: "Inter", sans-serif;
     font-size: 36px;
     letter-spacing: 0.04em;
     color: white;
@@ -880,7 +880,7 @@
   }
 
   &_after {
-    font-family: "Resist Sans Light";
+    font-family: "Inter", sans-serif;
     font-size: 18px;
     line-height: 140%;
     width: 470px;
@@ -892,7 +892,7 @@
 
     a {
       color: #ffcd9f;
-      font-family: "Resist Sans Medium", sans-serif;
+      font-family: "Inter", sans-serif;
     }
   }
 }
@@ -970,7 +970,7 @@
 
 .HoverCardContent {
   border-radius: 6px;
-  font-family: "Resist Sans Light";
+  font-family: "Inter", sans-serif;
   font-size: 14px;
   line-height: 120%;
   padding: 12px 15px;
@@ -1014,7 +1014,7 @@
 
 .PopoverContent {
   border-radius: 6px;
-  font-family: "Resist Sans Light";
+  font-family: "Inter", sans-serif;
   width: 256px;
   font-size: 14px;
   line-height: 120%;
@@ -1178,7 +1178,7 @@
 
 .error_message {
   position: absolute;
-  font-family: "Resist Sans", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 14px;
   color: #ff4a7a;
   bottom: -8px;

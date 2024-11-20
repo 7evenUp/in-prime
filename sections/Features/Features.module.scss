@@ -16,9 +16,16 @@
     margin-top: -120px;
     z-index: -1;
 
+    @media (min-width: 1921px) {
+      width: 100vw;
+      background-size: cover;
+    }
+
     @media (max-width: 1919px) and (min-width: 1368px) {
       margin-top: -50px;
       height: 959px;
+      width: 1919px;
+      background-size: cover;
     }
 
     @media (max-width: 1367px) and (min-width: 768px) {
@@ -28,6 +35,17 @@
       height: 1655px;
       width: 1367px;
       margin-top: -80px;
+    }
+
+    @media (max-width: 767px) {
+      width: 767px;
+      background-image: url("/images/png/features/bg-gradient-md.png");
+      background-size: cover;
+      background-position: center;
+      height: 1235px;
+      margin-top: -60px;
+
+      display: none;
     }
   }
 
@@ -47,10 +65,10 @@
 
   @media (max-width: 767px) {
     width: 337px;
-    margin-top: 60px;
+    margin-top: 66px;
     padding: 0px 18px 0px 18px;
     margin-bottom: 54px;
-    gap: 20px;
+    gap: 50px;
   }
 
   @media (max-width: 420px) {
@@ -93,9 +111,10 @@
 
   @media (max-width: 767px) {
     width: 272px;
-    font-size: 18px;
-    line-height: 160%;
+    font-size: 28px;
     margin: 0;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 

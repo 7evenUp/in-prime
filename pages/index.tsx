@@ -29,6 +29,9 @@ import BuySubscrSm from "@/public/images/jsx/subscribe/buy-subscr-sm"
 import { Resolution } from "@/types/resolution"
 import BuySubscriptionPromo from "@/sections/BuySubscription/BuySubscriptionPromo"
 import TimerPromo from "@/sections/TimerPromo/TimerPromo"
+import AdvantagesSm from "@/sections/Advantages/AdvantagesSm"
+import FeaturesSm from "@/sections/Features/FeaturesSm"
+import LoginIdPopup from "@/components/LoginIdPopup/LoginIdPopup"
 
 const useWindowSize = () => {
   const [currentWidth, setCurrentWidth] = useState(0)
@@ -104,6 +107,9 @@ const Home = (props) => {
     }
   }, [])
 
+  const [isLoginIDModal, setLoginIDModal] = useState(false)
+  const [isShouldRetryAuth, setShouldRetryAuth] = useState(false)
+
   return (
     <>
       <div className="app">
@@ -122,13 +128,13 @@ const Home = (props) => {
             resolution={resolution}
           />
 
-          <Advantages />
+          {resolution === "sm" ? <AdvantagesSm /> : <Advantages />}
 
-          {/* {resolution === "sm" || resolution === "md" ? (
-            <FeaturesMd resolution={resolution} />
-          ) : ( */}
-          <Features resolution={resolution} />
-          {/* )} */}
+          {resolution === "sm" ? (
+            <FeaturesSm resolution={resolution} />
+          ) : (
+            <Features resolution={resolution} />
+          )}
 
           {/* <div className="app__container__video-block" id="video">
             <div className="app__container__video-block__video">
@@ -170,10 +176,6 @@ const Home = (props) => {
 
           <Team teamOpened={teamOpened} setTeamOpened={setTeamOpened} />
 
-          <Partners />
-
-          <Testimonials resolution={resolution} />
-
           <Birthday />
 
           <TimerPromo />
@@ -184,7 +186,11 @@ const Home = (props) => {
 
           <BuySubscriptionPromo tariffs={tariffs} resolution={resolution} />
 
+          <Testimonials resolution={resolution} />
+
           <Histories />
+
+          <Partners />
 
           <div className="app__container__faq" id="faq">
             <div className="app__container__faq__title">
@@ -205,6 +211,8 @@ const Home = (props) => {
 
       <div className="back color dark" />
       <div className="back noise" />
+
+      <LoginIdPopup />
     </>
   )
 }
