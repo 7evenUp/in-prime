@@ -46,6 +46,7 @@ const config = createConfig({
 })
 
 createWeb3Modal({
+  // @ts-ignore
   wagmiConfig: config,
   projectId,
   featuredWalletIds: [
