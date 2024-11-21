@@ -3,6 +3,7 @@ import {
   setBoxesLeft,
   setBoxesUsed,
   setShouldRetryAuth,
+  setUserId,
 } from "@/redux/reducers/modalReducer"
 import { RootState } from "@/redux/store"
 import axios from "axios"
@@ -42,6 +43,7 @@ const AuthService: FC<Props> = (props: Props) => {
                 dispatch(setAuth(true))
                 dispatch(setBoxesLeft(res.data.promoBoxAvailableOpensNumber))
                 dispatch(setBoxesUsed(res.data.totalOpenedPromoBox))
+                dispatch(setUserId(res.data.id))
               })
               .catch((err) => {
                 console.log(err)

@@ -12,6 +12,7 @@ import axios from "axios"
 import { useQuery } from "@tanstack/react-query"
 import { IContainers } from "@/types/promo-types"
 import DialogPromo from "@/components/DialogPromo/DialogPromo"
+import { useAppDispatch } from "@/redux/hooks"
 
 const renderer = ({ days, hours, minutes, seconds, completed }) => {
   if (completed) {
@@ -46,7 +47,6 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
 const endDate = 1731621600000
 
 const ID_URL = process.env.NEXT_PUBLIC_ID_URL + "/api/v1/"
-const EVENT_URL = process.env.NEXT_PUBLIC_EVENT_URL + "/api/"
 
 interface Item {
   id: string
@@ -63,13 +63,13 @@ const TimerPromo = () => {
   } = useQuery({
     queryKey: ["containers"],
     queryFn: async () => {
-      const response = await axios.get<IContainers>(EVENT_URL + "containers")
+      const response = await axios.get<IContainers>(
+        ID_URL + "crypton-events/containers/"
+      )
 
       return response.data
     },
   })
-
-  console.log(containers)
 
   const {
     data: openedBoxes,
@@ -188,6 +188,8 @@ const FullGift = ({
   image?: string
   description?: string
   remainingQuantity?: number
+  rarity?: string
+  bgColor?: string
 }) => {
   return (
     <DialogPromo description={description} name={text} imgSrc={image}>
@@ -197,7 +199,9 @@ const FullGift = ({
         </div>
         <span className={styles.fullGift__text}>{text}</span>
         <div className={styles.fullGift__line} />
-        <div className={styles.fullGift__count}>{remainingQuantity}</div>
+        {remainingQuantity && (
+          <div className={styles.fullGift__count}>{remainingQuantity}</div>
+        )}
       </div>
     </DialogPromo>
   )

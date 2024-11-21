@@ -6,6 +6,7 @@ export interface IModalReducer {
   isAuth: boolean
   boxesLeft: number | undefined
   boxesUsed: number | undefined
+  userId: number | undefined
 }
 
 const initialState: IModalReducer = {
@@ -14,6 +15,7 @@ const initialState: IModalReducer = {
   isAuth: false,
   boxesLeft: undefined,
   boxesUsed: undefined,
+  userId: undefined,
 }
 
 export const modalReducer = createSlice({
@@ -35,6 +37,15 @@ export const modalReducer = createSlice({
     setBoxesUsed(state, action: PayloadAction<number>) {
       state.boxesUsed = action.payload
     },
+    setUserId(state, action: PayloadAction<number>) {
+      state.userId = action.payload
+    },
+    incBoxesUsed(state) {
+      state.boxesUsed = state.boxesUsed! + 1
+    },
+    decBoxesLeft(state) {
+      state.boxesLeft = state.boxesLeft! - 1
+    },
   },
 })
 
@@ -44,6 +55,9 @@ export const {
   setAuth,
   setBoxesLeft,
   setBoxesUsed,
+  setUserId,
+  incBoxesUsed,
+  decBoxesLeft,
 } = modalReducer.actions
 
 export default modalReducer.reducer

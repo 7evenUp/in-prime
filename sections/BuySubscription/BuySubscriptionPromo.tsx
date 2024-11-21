@@ -17,9 +17,9 @@ import { Resolution } from "@/types/resolution"
 import { Promocode, Subscription } from "@/types/api-types"
 
 import styles from "./BuySubscriptionPromo.module.scss"
-import Scroller from "@/components/Scroller"
 import { useAppDispatch, useAppSelector } from "@/redux/hooks"
 import { setLoginIDModal } from "@/redux/reducers/modalReducer"
+import Scroller from "@/components/Scroller"
 
 const PRIME_SUBSCRIPTION_KIND_ID = 1
 const ID_URL = process.env.NEXT_PUBLIC_ID_URL + "/api/v1/"
@@ -44,9 +44,7 @@ const BuySubscriptionPromo = ({
   resolution: Resolution
 }) => {
   const { isAuth } = useAppSelector((state) => state.auth)
-  const promoBoxAvailableOpensNumber = useAppSelector(
-    (state) => state.auth.boxesLeft
-  )
+  const { boxesLeft, boxesUsed } = useAppSelector((state) => state.auth)
 
   const [showMonthlyPrice, setShowMonthlyPrice] = useState(true)
   const [promoForSubmit, setPromoForSubmit] = useState("")
@@ -375,10 +373,10 @@ const BuySubscriptionPromo = ({
             <div className={styles.openings}>
               <div className={styles.openings__count}>
                 <span className={styles.openings__count__left}>
-                  Осталось открытий: {promoBoxAvailableOpensNumber}
+                  Осталось открытий: {boxesLeft}
                 </span>
                 <span className={styles.openings__count__used}>
-                  Использовано попыток: {promoBoxAvailableOpensNumber}
+                  Использовано попыток: {boxesUsed}
                 </span>
               </div>
 

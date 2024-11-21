@@ -34,3 +34,7 @@ export interface IPrize {
     orderNumber: number
   }[]
 }
+
+export interface OpenContainerResponse {
+  prize: IPrize
+}

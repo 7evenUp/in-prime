@@ -1,42 +1,141 @@
 .container {
-  position: relative;
-  width: 136px;
-  height: 136px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+}
+
+.flexRow {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    align-items: center;
+    gap: 32px;
+  }
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  height: 320px;
+  background: rgba(128, 128, 128, 0.25);
   border-radius: 16px;
+
+  .darkMode & {
+    background: rgba(75, 75, 75, 0.16);
+  }
+}
+
+.carouselWrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 16px 0;
+
+  .carousel {
+    display: flex;
+    gap: 16px;
+    width: fit-content;
+    margin-left: 50%;
+  }
+}
+
+.triangle {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+
+  &.top {
+    top: 8px;
+  }
+
+  &.bottom {
+    bottom: 8px;
+    transform: translateX(-50%) rotate(180deg);
+  }
+}
+
+.button {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2.5rem;
+  gap: 8px;
+  height: 40px;
+  padding: 0 24px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 10px;
+  background-color: #ffe19d;
+  color: #333;
+  transition: all 0.1s;
+  z-index: 1;
 
-  &.red {
-    background-color: #f87171; /* red-400 */
+  &:hover {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.15);
+    background-color: #f5d383;
   }
 
-  &.yellow {
-    background-color: #fbbf24; /* yellow-400 */
+  &:active {
+    background-color: #ecc76f;
+    box-shadow: none;
+  }
+}
+
+.triangleIcon {
+  width: 28px;
+  height: 24px;
+  fill: #ffe19c;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
   }
 
-  &.blue {
-    background-color: #60a5fa; /* blue-400 */
+  &:active {
+    transform: scale(0.9);
   }
+}
 
-  &.green {
-    background-color: #34d399; /* green-400 */
-  }
+.prizeBox {
+  position: relative;
+  width: 136px;
+  height: 136px;
+  background-color: #e5e5e5; /* Equivalent to bg-gray-2 */
+  border-radius: 12px; /* Equivalent to rounded-xl */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px; /* Equivalent to text-sm */
+  text-align: center;
+  overflow: hidden;
+}
 
-  &.winRed {
-    background-color: #f87171; /* red-400 */
-  }
+.prizeImage {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+}
 
-  &.winYellow {
-    background-color: #fbbf24; /* yellow-400 */
-  }
-
-  &.winBlue {
-    background-color: #60a5fa; /* blue-400 */
-  }
-
-  &.winGreen {
-    background-color: #34d399; /* green-400 */
-  }
+.prizeTitle {
+  font-weight: 600;
 }
