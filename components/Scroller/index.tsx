@@ -43,6 +43,8 @@ const Scroller = () => {
   const [animationStarted, setAnimationStarted] = useState(false)
   const [winOpened, setWinOpened] = useState(false)
 
+  const { boxesLeft } = useAppSelector((state) => state.auth)
+
   const {
     data: containerData,
     isError: isContainersError,
@@ -213,17 +215,14 @@ const Scroller = () => {
           </div>
 
           {isContainersLoading ? (
-            // <Skeleton className="rounded-[10px] h-10 w-44" />
-            <div>skeleton</div>
+            <Skeleton className={styles.skeleton_single} />
           ) : (
-            <button className={styles.button} onClick={onOpenClick}>
+            <button
+              className={styles.button}
+              onClick={onOpenClick}
+              disabled={isOpenLoading || boxesLeft === 0}
+            >
               {isOpenLoading && (
-                // <Loader
-                //   className={clsx(
-                //     "animate-spin w-3.5 h-3.5",
-                //     scale && "3xl:w-[0.911vw] 3xl:h-[0.911vw]"
-                //   )}
-                // />
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -234,7 +233,7 @@ const Scroller = () => {
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  // class="animate-spin w-3.5 h-3.5 3xl:w-[0.911vw] 3xl:h-[0.911vw]"
+                  className={styles.loader}
                 >
                   <path d="M21 12a9 9 0 1 1-6.219-8.56"></path>
                 </svg>
@@ -268,21 +267,21 @@ const RoundedTriangle = ({ className }: { className: string }) => (
 )
 
 const PrizesSkeleton = () => (
-  <div className="flex gap-4 w-fit ml-[50%] -translate-x-1/2">
-    <Skeleton className="w-[136px] h-[136px] rounded-xl" />
-    <Skeleton className="w-[136px] h-[136px] rounded-xl" />
-    <Skeleton className="w-[136px] h-[136px] rounded-xl" />
-    <Skeleton className="w-[136px] h-[136px] rounded-xl" />
-    <Skeleton className="w-[136px] h-[136px] rounded-xl" />
-    <Skeleton className="w-[136px] h-[136px] rounded-xl" />
-    <Skeleton className="w-[136px] h-[136px] rounded-xl" />
-    <Skeleton className="w-[136px] h-[136px] rounded-xl" />
-    <Skeleton className="w-[136px] h-[136px] rounded-xl" />
-    <Skeleton className="w-[136px] h-[136px] rounded-xl" />
-    <Skeleton className="w-[136px] h-[136px] rounded-xl" />
-    <Skeleton className="w-[136px] h-[136px] rounded-xl" />
-    <Skeleton className="w-[136px] h-[136px] rounded-xl" />
-    <Skeleton className="w-[136px] h-[136px] rounded-xl" />
-    <Skeleton className="w-[136px] h-[136px] rounded-xl" />
+  <div className={styles.skeleton_container}>
+    <Skeleton className={styles.skeleton} />
+    <Skeleton className={styles.skeleton} />
+    <Skeleton className={styles.skeleton} />
+    <Skeleton className={styles.skeleton} />
+    <Skeleton className={styles.skeleton} />
+    <Skeleton className={styles.skeleton} />
+    <Skeleton className={styles.skeleton} />
+    <Skeleton className={styles.skeleton} />
+    <Skeleton className={styles.skeleton} />
+    <Skeleton className={styles.skeleton} />
+    <Skeleton className={styles.skeleton} />
+    <Skeleton className={styles.skeleton} />
+    <Skeleton className={styles.skeleton} />
+    <Skeleton className={styles.skeleton} />
+    <Skeleton className={styles.skeleton} />
   </div>
 )

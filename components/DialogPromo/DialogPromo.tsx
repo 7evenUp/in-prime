@@ -3,17 +3,22 @@ import Image, { StaticImageData } from "next/image"
 import * as DialogPrimitive from "@radix-ui/react-dialog"
 
 import styles from "./styles.module.scss"
+import { getColorByRarity } from "@/sections/TimerPromo/getColorByRarity"
 
 const DialogPromo = ({
   children,
   name,
   description,
   imgSrc,
+  rarity,
+  bgColor,
 }: {
   children: React.ReactNode
   name: string
   description: string
   imgSrc: string
+  rarity?: string | null
+  bgColor?: string | null
 }) => (
   <DialogPrimitive.Root>
     <DialogPrimitive.Trigger asChild>{children}</DialogPrimitive.Trigger>
@@ -24,7 +29,10 @@ const DialogPromo = ({
           {imgSrc && (
             <div className={styles.avatar}>
               <img src={imgSrc} alt={name} className={styles.avatar} />
-              <div className={styles.avatar__line} />
+              <div
+                className={styles.avatar__line}
+                style={{ background: getColorByRarity(rarity, bgColor) }}
+              />
             </div>
           )}
 

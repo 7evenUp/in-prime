@@ -228,7 +228,7 @@ p {
           width: 180px;
           height: 120px;
 
-          bottom: 124px;
+          bottom: 104px;
           right: 112px;
         }
 
@@ -526,6 +526,13 @@ p {
 
           @media (max-width: 1367px) {
             display: none;
+          }
+
+          &__item {
+            &:hover {
+              color: rgb(255, 225, 157);
+              cursor: pointer;
+            }
           }
         }
 
@@ -1042,14 +1049,14 @@ p {
         flex-direction: row;
         position: absolute;
         left: 0;
-        animation: ticker 5s infinite linear;
+        animation: ticker 8s infinite linear;
 
         @media (max-width: 1919px) and (min-width: 1368px) {
-          animation: ticker 5s infinite linear;
+          animation: ticker 8s infinite linear;
         }
 
         @media (max-width: 1367px) and (min-width: 768px) {
-          animation: ticker 3s infinite linear;
+          animation: ticker 8s infinite linear;
         }
 
         @media (max-width: 767px) {
@@ -3035,7 +3042,6 @@ p {
         font-family: "Unbounded", sans-serif;
         font-size: 54px;
         line-height: 160%;
-        letter-spacing: 0.04em;
         width: 100%;
         text-align: center;
         color: #ffffff;

@@ -4,6 +4,7 @@ import styles from "./WinDialog.module.scss"
 
 import { OpenContainerResponse } from "@/types/promo-types"
 import { useAppSelector } from "@/redux/hooks"
+import { getColorByRarity } from "@/sections/TimerPromo/getColorByRarity"
 
 const ID_URL = process.env.NEXT_PUBLIC_ID_URL
 
@@ -38,11 +39,20 @@ const WinDialog = ({
                 Поздравляем! Вы получили: {data.prize.title}
               </h1>
               <div className={styles.dialogContentSuccess}>
-                <div>
+                <div className={styles.dialogContentSuccess__img}>
                   <img
                     src={data.prize.image}
                     alt="Prize"
                     className={styles.prizeImage}
+                  />
+                  <div
+                    className={styles.dialogContentSuccess__img__line}
+                    style={{
+                      background: getColorByRarity(
+                        data.prize.rarity,
+                        data.prize.backgorundColor
+                      ),
+                    }}
                   />
                 </div>
                 <div className={styles.prizeDescription}>

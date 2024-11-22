@@ -7,6 +7,7 @@
 
   @media (max-width: 1919px) and (min-width: 1368px) {
     width: 1143px;
+    padding-bottom: 80px;
   }
 
   @media (max-width: 1367px) and (min-width: 768px) {
@@ -508,7 +509,7 @@
 
   &_open {
     padding-top: 12px;
-    padding-bottom: 16px;
+    // padding-bottom: 16px;
     opacity: 1;
     grid-template-rows: 1fr;
   }

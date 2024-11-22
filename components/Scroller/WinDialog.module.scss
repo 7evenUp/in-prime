@@ -15,35 +15,22 @@
   background: #393939;
   color: #fff;
   outline: none;
+  width: 578px;
+  height: 557px;
 
-  @media (min-width: 640px) {
-    width: 500px;
-    height: 240px;
-    border-radius: 12px;
-  }
-
-  @media (min-width: 768px) {
-    width: 600px;
-    height: 280px;
-  }
-
-  @media (min-width: 1024px) {
-    width: 640px;
-    height: 300px;
-  }
-
-  @media (min-width: 1536px) {
-    width: 760px;
-    height: 360px;
-  }
-
-  @media (min-width: 1920px) {
-    width: 578px;
-    height: 557px;
-  }
+  border-radius: 18px;
 
   animation: contentShow 0.3s ease-in-out;
   transform: translate(-50%, -50%);
+
+  @media (max-width: 1367px) and (min-width: 768px) {
+    height: 470px;
+  }
+
+  @media (max-width: 767px) {
+    height: 470px;
+    width: 350px;
+  }
 }
 
 .errorText {
@@ -89,6 +76,22 @@
   gap: 24px;
   padding-left: 30px;
   padding-right: 42px;
+
+  &__img {
+    position: relative;
+
+    &__line {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #fff;
+      top: 0;
+      left: 0;
+      border-radius: 8px 8px 0 0;
+
+      clip: rect(0px, 300px, 10px, 0px);
+    }
+  }
 }
 
 .prizeHeader {
@@ -107,6 +110,15 @@
   width: 430px;
   margin-left: auto;
   margin-right: auto;
+
+  @media (max-width: 1367px) and (min-width: 768px) {
+    font-size: 18px;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 16px;
+    width: auto;
+  }
 }
 
 .prizeImage {
@@ -116,60 +128,25 @@
 
   border-radius: 8px;
 
-  @media (min-width: 375px) {
-    width: 320px;
-    height: 320px;
-  }
-
-  @media (min-width: 640px) {
-    width: 240px;
-    height: 240px;
-  }
-
-  @media (min-width: 768px) {
-    width: 280px;
-    height: 280px;
-  }
-
-  @media (min-width: 1024px) {
-    width: 300px;
-    height: 300px;
-  }
-
-  @media (min-width: 1536px) {
-    width: 360px;
-    height: 360px;
-  }
-
-  @media (min-width: 1920px) {
-    width: 240px;
-    height: 240px;
-  }
-
   width: 240px;
   height: 240px;
+
+  @media (max-width: 1367px) and (min-width: 768px) {
+    width: 180px;
+    height: 180px;
+  }
+
+  @media (max-width: 767px) {
+    width: 120px;
+    height: 120px;
+  }
 }
 
 .prizeDetails {
   display: flex;
   flex-direction: column;
-  padding: 0.75rem;
 
-  @media (min-width: 375px) {
-    padding: 0.75rem 1.5rem;
-  }
-
-  @media (min-width: 640px) {
-    padding: 1rem 1rem 0.5rem;
-  }
-
-  @media (min-width: 1536px) {
-    padding: 1.5rem 1.5rem 1rem;
-  }
-
-  @media (min-width: 1920px) {
-    padding: 2rem 2rem 1.5rem;
-  }
+  padding: 2rem 2rem 1.5rem;
 }
 
 .prizeTextAccent {
@@ -187,6 +164,14 @@
   font-weight: 300;
   font-size: 18px;
   color: #fff;
+
+  @media (max-width: 1367px) and (min-width: 768px) {
+    font-size: 16px;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 12px;
+  }
 
   &__here {
     text-decoration: underline;
@@ -237,19 +222,6 @@
   stroke-linecap: round;
   stroke-linejoin: round;
   filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.5));
-
-  // Адаптивное изменение размеров
-  @media (min-width: 640px) {
-    // Small screens (e.g., tablets)
-    width: 36px;
-    height: 36px;
-  }
-
-  @media (min-width: 1280px) {
-    // Large screens (e.g., desktops)
-    width: 44px;
-    height: 44px;
-  }
 }
 
 .boxesLeft {
@@ -263,6 +235,14 @@
 
   padding-left: 30px;
   padding-right: 42px;
+
+  @media (max-width: 1367px) and (min-width: 768px) {
+    font-size: 18px;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 16px;
+  }
 }
 
 .buttons {
@@ -270,6 +250,10 @@
   gap: 13px;
   padding-left: 30px;
   padding-right: 42px;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+  }
 
   &__close {
     height: 62px;
@@ -298,6 +282,14 @@
       background: #222;
       color: #fff;
     }
+    @media (max-width: 767px) {
+      min-width: 0;
+      font-size: 14px;
+      border-radius: 12px;
+
+      height: 48px;
+      width: 100%;
+    }
   }
 
   &__id {
@@ -321,6 +313,15 @@
     &:hover {
       background: #fff;
       color: #434343;
+    }
+
+    @media (max-width: 767px) {
+      min-width: 0;
+      font-size: 14px;
+      border-radius: 12px;
+
+      height: 48px;
+      width: 100%;
     }
   }
 }

@@ -1,5 +1,5 @@
 .title {
-  margin-top: 250px;
+  margin-top: 185px;
   margin-bottom: 38px;
   font-family: "Unbounded", sans-serif;
   font-weight: 500;
@@ -33,11 +33,11 @@
 }
 
 .description {
-  width: 559px;
+  width: 890px;
   height: 81px;
 
   font-family: "Inter", sans-serif;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 20px;
   line-height: 136%;
   text-align: center;
@@ -135,8 +135,8 @@
   }
 
   &:hover {
-    background: white;
-    color: #181818;
+    background: rgba(207, 207, 207, 0.2);
+    color: white;
   }
 
   &:active {
@@ -210,7 +210,7 @@
   align-items: center;
   gap: 40px;
 
-  font-family: "Inter", sans-serif;
+  font-family: "Unbounded", sans-serif;
   font-weight: 500;
   font-size: 16px;
   line-height: 136%;

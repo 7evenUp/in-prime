@@ -10,9 +10,11 @@ import Countdown from "@/components/countdown"
 import styles from "./TimerPromo.module.scss"
 import axios from "axios"
 import { useQuery } from "@tanstack/react-query"
-import { IContainers } from "@/types/promo-types"
+import { IContainers, ILastOpenedContainer } from "@/types/promo-types"
 import DialogPromo from "@/components/DialogPromo/DialogPromo"
 import { useAppDispatch } from "@/redux/hooks"
+import { getColorByRarity } from "./getColorByRarity"
+import { calculateTimeDifference } from "./calculateTimeDifference"
 
 const renderer = ({ days, hours, minutes, seconds, completed }) => {
   if (completed) {
@@ -78,7 +80,7 @@ const TimerPromo = () => {
   } = useQuery({
     queryKey: ["openedBoxes"],
     queryFn: async () => {
-      const response = await axios.get<any[]>(
+      const response = await axios.get<ILastOpenedContainer[]>(
         ID_URL + "crypton-events/last-opened-containers/"
       )
 
@@ -87,23 +89,7 @@ const TimerPromo = () => {
     refetchInterval: 60000,
   })
 
-  const [items, setItems] = useState<Item[]>([])
-
   const [parent] = useAutoAnimate()
-  useEffect(() => {
-    const addRandomItem = () => {
-      const newItem: Item = {
-        id: Math.random().toString(36).substr(2, 9),
-        number: Math.floor(Math.random() * 100),
-      }
-
-      setItems((prevItems) => [newItem, ...prevItems].slice(0, 30))
-    }
-
-    const intervalId = setInterval(addRandomItem, 10000)
-
-    return () => clearInterval(intervalId)
-  }, [])
 
   return (
     <div className={styles.timer} id="gifts">
@@ -115,7 +101,12 @@ const TimerPromo = () => {
           open={open}
           onOpenChange={setOpen}
         >
-          <Collapsible.Trigger className={styles.CollapsibleTrigger}>
+          <Collapsible.Trigger
+            className={clsx(
+              styles.CollapsibleTrigger,
+              open && styles.CollapsibleTrigger__open
+            )}
+          >
             <svg
               width="18"
               height="16"
@@ -143,6 +134,8 @@ const TimerPromo = () => {
                       image={prize.prize.image}
                       description={prize.prize.description}
                       remainingQuantity={prize.remainingQuantity}
+                      rarity={prize.prize.rarity}
+                      bgColor={prize.prize.backgorundColor}
                     />
                   ))}
             </div>
@@ -167,8 +160,8 @@ const TimerPromo = () => {
       <div className={styles.timer__last}>
         <h2 className={styles.timer__last__title}>Последние подарки</h2>
         <div className={styles.timer__last__list} ref={parent}>
-          {items.map((item) => (
-            <LastGift name={item.id} key={item.id} />
+          {openedBoxes?.map((item) => (
+            <LastGift key={item.openedDatetime} {...item} />
           ))}
         </div>
       </div>
@@ -183,42 +176,68 @@ const FullGift = ({
   image,
   description,
   remainingQuantity,
+  rarity,
+  bgColor,
 }: {
   text?: string
   image?: string
   description?: string
   remainingQuantity?: number
-  rarity?: string
-  bgColor?: string
+  rarity?: string | null
+  bgColor?: string | null
 }) => {
   return (
-    <DialogPromo description={description} name={text} imgSrc={image}>
+    <DialogPromo
+      description={description}
+      name={text}
+      rarity={rarity}
+      bgColor={bgColor}
+      imgSrc={image}
+    >
       <div className={styles.fullGift}>
         <div className={styles.fullGift__image}>
           {image && <img src={image} alt={text} />}
         </div>
         <span className={styles.fullGift__text}>{text}</span>
-        <div className={styles.fullGift__line} />
-        {remainingQuantity && (
-          <div className={styles.fullGift__count}>{remainingQuantity}</div>
+        <div
+          className={styles.fullGift__line}
+          style={{ background: getColorByRarity(rarity, bgColor) }}
+        />
+        {remainingQuantity !== undefined && (
+          <div
+            className={styles.fullGift__count}
+            style={{ background: getColorByRarity(rarity, bgColor) }}
+          >
+            {remainingQuantity}
+          </div>
         )}
       </div>
     </DialogPromo>
   )
 }
 
-const LastGift = ({ name }: { name: string }) => {
+const LastGift = ({
+  openedDatetime,
+  prizeImageUrl,
+  prizeTitle,
+  userProfileAvatar,
+  userProfileName,
+}: ILastOpenedContainer) => {
   return (
     <div className={styles.gift}>
       <div className={styles.gift__image}>
-        {/* <img src="/images/png/last-gift.png" alt="Подарок" /> */}
+        <img src={prizeImageUrl} alt={prizeTitle} />
       </div>
       <div className={styles.gift__hero}>
-        {/* <img>mambaBlackz</img> */}
-        <div className={styles.gift__hero__img} />
-        <span className={styles.gift__hero__name}>{name}</span>
+        <div
+          className={styles.gift__hero__img}
+          style={{ backgroundImage: `url(${userProfileAvatar})` }}
+        />
+        <span className={styles.gift__hero__name}>{userProfileName}</span>
       </div>
-      <div className={styles.gift__time}>12 мин назад</div>
+      <div className={styles.gift__time}>
+        {calculateTimeDifference(openedDatetime)}
+      </div>
     </div>
   )
 }
