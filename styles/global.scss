@@ -1904,7 +1904,7 @@ p {
     &__subscribe {
       min-width: 1920px;
       width: 100%;
-      border-top: 1px solid rgba(255, 255, 255, 0.5);
+      // border-top: 1px solid rgba(255, 255, 255, 0.5);
       // border-bottom: 1px solid rgba(255, 255, 255, 0.5);
       position: relative;
       z-index: 100;
@@ -1922,6 +1922,9 @@ p {
       }
 
       @media (max-width: 767px) {
+        min-width: 0;
+        margin-left: auto;
+        margin-right: auto;
         width: 375px;
         padding-bottom: 40px;
       }
@@ -1934,6 +1937,7 @@ p {
         position: relative;
         width: 100%;
         border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        border-top: 1px solid rgba(255, 255, 255, 0.5);
       }
 
       &__promoback {

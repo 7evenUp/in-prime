@@ -583,6 +583,7 @@ const SubscriptionCard = ({
           {duration.id === 1 &&
             discountKind &&
             discountAmount !== 0 &&
+            order !== 0 &&
             discounts && (
               <div className={styles.price_discount}>
                 <span className={styles.price_discount_percent}>
