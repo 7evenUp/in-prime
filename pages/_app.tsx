@@ -4,6 +4,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { Provider as ReduxProvider } from "react-redux"
 
 import { createWeb3Modal } from "@web3modal/wagmi/react"
+import { Toaster } from "sonner"
 
 import { http, createConfig, WagmiProvider } from "wagmi"
 import { mainnet } from "wagmi/chains"
@@ -88,6 +89,7 @@ const App = ({ Component, pageProps }: AppProps) => (
       <meta name="msapplication-TileColor" content="#da532c" />
       <meta name="theme-color" content="#ffffff"></meta>
     </Head>
+    <Toaster />
     <ReduxProvider store={store}>
       <WagmiProvider config={config}>
         <QueryClientProvider client={queryClient}>

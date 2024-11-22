@@ -107,9 +107,6 @@ const Home = (props) => {
     }
   }, [])
 
-  const [isLoginIDModal, setLoginIDModal] = useState(false)
-  const [isShouldRetryAuth, setShouldRetryAuth] = useState(false)
-
   return (
     <>
       <div className="app">

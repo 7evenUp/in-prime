@@ -1,5 +1,4 @@
-import clsx from "clsx"
-
+import { IPrize, IPrizes } from "@/types/promo-types"
 import styles from "./generateAnimation.module.scss"
 
 const weightedSample = (items: Record<number, number>) => {
@@ -19,8 +18,8 @@ const weightedSample = (items: Record<number, number>) => {
 
 export const generateAnimation = (
   length: number,
-  winItem: { color: string; numberInContainer: number },
-  prizes: Array<{ color: string; numberInContainer: number }>
+  winItem: IPrize,
+  prizes: IPrizes[]
 ) => {
   const samples: Record<number, number> = {}
 
@@ -33,22 +32,27 @@ export const generateAnimation = (
       {Array.from({ length }, (_, index) => index + 1).map((el) => {
         const generatedResult = weightedSample(samples)
         const generatedId =
-          generatedResult === undefined ? 0 : parseInt(generatedResult)
-
-        const classNames = clsx(styles.container, {
-          [styles.red]: prizes[generatedId].color === "red",
-          [styles.yellow]: prizes[generatedId].color === "yellow",
-          [styles.blue]: prizes[generatedId].color === "blue",
-          [styles.green]: prizes[generatedId].color === "green",
-          [styles.winRed]: el === 40 && winItem.color === "red",
-          [styles.winYellow]: el === 40 && winItem.color === "yellow",
-          [styles.winBlue]: el === 40 && winItem.color === "blue",
-          [styles.winGreen]: el === 40 && winItem.color === "green",
-        })
+          generatedResult === undefined ? 0 : parseInt(generatedResult, 10)
 
         return (
-          <div className={classNames} key={el}>
-            {el}
+          <div className={styles.prizeBox} key={el}>
+            {el === 40 ? (
+              <img
+                src={winItem.image}
+                alt={`Win Item ${el}`}
+                className={styles.prizeImage}
+              />
+            ) : prizes[generatedId]?.prize?.image ? (
+              <img
+                src={prizes[generatedId].prize.image}
+                alt={`Prize ${generatedId}`}
+                className={styles.prizeImage}
+              />
+            ) : (
+              <span className={styles.prizeTitle}>
+                {prizes[generatedId]?.prize?.title || "No Title"}
+              </span>
+            )}
           </div>
         )
       })}

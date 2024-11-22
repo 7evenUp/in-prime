@@ -34,3 +34,15 @@ export interface IPrize {
     orderNumber: number
   }[]
 }
+
+export interface OpenContainerResponse {
+  prize: IPrize
+}
+
+export interface ILastOpenedContainer {
+  openedDatetime: string
+  prizeImageUrl: string
+  prizeTitle: string
+  userProfileAvatar: string
+  userProfileName: string
+}

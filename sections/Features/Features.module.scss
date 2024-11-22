@@ -22,8 +22,8 @@
     }
 
     @media (max-width: 1919px) and (min-width: 1368px) {
-      margin-top: -50px;
-      height: 959px;
+      margin-top: -95px;
+      height: 1005px;
       width: 1919px;
       background-size: cover;
     }
@@ -51,7 +51,7 @@
 
   @media (max-width: 1919px) and (min-width: 1368px) {
     width: 1143px;
-    margin-top: 50px;
+    margin-top: 95px;
     margin-bottom: 120px;
     padding: 0px 112px 0px 113px;
   }
@@ -169,6 +169,7 @@
   font-family: inherit;
   font-size: 22px;
   line-height: 160%;
+  font-weight: 400;
   color: white;
 
   user-select: none;
@@ -435,6 +436,7 @@
 
     @media (max-width: 1919px) and (min-width: 1368px) {
       width: 621px;
+      gap: 80px;
     }
 
     @media (max-width: 1367px) and (min-width: 768px) {

@@ -17,12 +17,12 @@ import { Resolution } from "@/types/resolution"
 import { Promocode, Subscription } from "@/types/api-types"
 
 import styles from "./BuySubscriptionPromo.module.scss"
-import Scroller from "@/components/Scroller"
 import { useAppDispatch, useAppSelector } from "@/redux/hooks"
 import { setLoginIDModal } from "@/redux/reducers/modalReducer"
+import Scroller from "@/components/Scroller"
 
 const PRIME_SUBSCRIPTION_KIND_ID = 1
-const ID_URL = process.env.NEXT_PUBLIC_ID_URL + "/api/v1/"
+const ID_URL = process.env.NEXT_PUBLIC_ID_URL
 const SPECIAL_PROMO = process.env.NEXT_PUBLIC_PROMO
 const DEFAULT_CRYPTON_PROMO = "CRYPTON"
 
@@ -44,9 +44,7 @@ const BuySubscriptionPromo = ({
   resolution: Resolution
 }) => {
   const { isAuth } = useAppSelector((state) => state.auth)
-  const promoBoxAvailableOpensNumber = useAppSelector(
-    (state) => state.auth.boxesLeft
-  )
+  const { boxesLeft, boxesUsed } = useAppSelector((state) => state.auth)
 
   const [showMonthlyPrice, setShowMonthlyPrice] = useState(true)
   const [promoForSubmit, setPromoForSubmit] = useState("")
@@ -75,7 +73,7 @@ const BuySubscriptionPromo = ({
     queryKey: ["subscriptions"],
     queryFn: async () => {
       const response = await axios.get<Subscription[]>(
-        ID_URL + "subscriptions/get-active/"
+        ID_URL + "/api/v1/subscriptions/get-active/"
       )
 
       return response.data.filter(
@@ -203,7 +201,7 @@ const BuySubscriptionPromo = ({
       promocode: string
       subscriptionId: number
     }) =>
-      axios.post<Promocode>(ID_URL + "promo-codes/validate/", {
+      axios.post<Promocode>(ID_URL + "/api/v1/promo-codes/validate/", {
         promocode,
         subscription: subscriptionId,
       }),
@@ -375,14 +373,18 @@ const BuySubscriptionPromo = ({
             <div className={styles.openings}>
               <div className={styles.openings__count}>
                 <span className={styles.openings__count__left}>
-                  Осталось открытий: {promoBoxAvailableOpensNumber}
+                  Осталось открытий: {boxesLeft}
                 </span>
                 <span className={styles.openings__count__used}>
-                  Использовано попыток: {promoBoxAvailableOpensNumber}
+                  Использовано попыток: {boxesUsed}
                 </span>
               </div>
 
-              <a href={ID_URL} className={styles.openings__inventory}>
+              <a
+                target="_blank"
+                href={ID_URL}
+                className={styles.openings__inventory}
+              >
                 Перейти в свой инвентарь
               </a>
             </div>

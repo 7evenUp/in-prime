@@ -40,6 +40,10 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
       ? document.getElementById("subscribe").offsetTop -
         document.getElementById("header").clientHeight
       : 0,
+    gift: docEnv
+      ? document.getElementById("gifts").offsetTop -
+        document.getElementById("header").clientHeight
+      : 0,
   }
 
   const scrollToSubscriptions = () => {
@@ -56,6 +60,14 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
       behavior: "smooth",
     })
     setCurrentY(positions.guarantee)
+  }
+
+  const scrollToGift = () => {
+    window.scrollTo({
+      top: positions.gift,
+      behavior: "smooth",
+    })
+    setCurrentY(positions.gift)
   }
 
   useEffect(() => {
@@ -76,7 +88,7 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
       number: "03",
       name: "Возможности",
       position: docEnv
-        ? document.getElementById("examples").offsetTop -
+        ? document.getElementById("features").offsetTop -
           document.getElementById("header").clientHeight
         : 0,
     },
@@ -92,7 +104,7 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
       number: "05",
       name: "Роадмап",
       position: docEnv
-        ? document.getElementById("founder").offsetTop -
+        ? document.getElementById("roadmap").offsetTop -
           document.getElementById("header").clientHeight
         : 0,
     },
@@ -100,7 +112,7 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
       number: "06",
       name: "О нас",
       position: docEnv
-        ? document.getElementById("subscribe").offsetTop -
+        ? document.getElementById("founder").offsetTop -
           document.getElementById("header").clientHeight
         : 0,
     },
@@ -116,7 +128,7 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
       number: "08",
       name: "Истории успеха",
       position: docEnv
-        ? document.getElementById("faq").offsetTop -
+        ? document.getElementById("histories").offsetTop -
           document.getElementById("header").clientHeight
         : 0,
     },
@@ -149,7 +161,7 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
       {/* <div className="app__container__earn__left-gradient" />
       <div className="app__container__earn__right-gradient" /> */}
 
-      <div className="app__container__earn__promo" />
+      <div className="app__container__earn__promo" onClick={scrollToGift} />
 
       <MobileMenu
         open={mobileMenu}

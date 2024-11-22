@@ -1,4 +1,3 @@
-"use client"
 import { useEffect, useRef, useState } from "react"
 import {
   motion,
@@ -6,137 +5,246 @@ import {
   animate,
   useMotionValueEvent,
 } from "motion/react"
-
-import styles from "./Scroller.module.scss"
+import { toast } from "sonner"
 
 import { generateAnimation } from "./generateAnimation"
-import { prizes } from "./prizes"
+import WinDialog from "./WinDialog"
 
-import getRandomInteger from "./getRandomInteger"
+import { useAppDispatch, useAppSelector } from "@/redux/hooks"
+
+import { Sound } from "./sound"
+
+import styles from "./generateAnimation.module.scss"
 import clsx from "clsx"
-import { RootState } from "@/redux/store"
-import { useSelector } from "react-redux"
-import { useAppDispatch } from "@/redux/hooks"
-import { setLoginIDModal } from "@/redux/reducers/modalReducer"
-const ClickWheelSound = "./click_wheel.mp3"
-// const audio = new Audio(ClickWheelSound)
+import Skeleton from "./Skeleton"
+import { useMutation, useQuery } from "@tanstack/react-query"
+import axios from "axios"
+import { IContainers, OpenContainerResponse } from "@/types/promo-types"
+import { decBoxesLeft, incBoxesUsed } from "@/redux/reducers/modalReducer"
 
 const PRIZE_WIDTH = 136
 const GAP_BETWEEN_PRIZES = 16
 const PRIZE_WIDTH_WITH_GAP = PRIZE_WIDTH + GAP_BETWEEN_PRIZES
 const ANIMATION_DURATION_IN_SEC = 8
 const AMOUNT_OF_GENERATED_PRIZES = 50
+const MIDDLE_X_POSITION = 5996
+
+const clickWheelSound = new Sound("./audio/click_wheel.mp3")
+
+const ID_URL = process.env.NEXT_PUBLIC_ID_URL + "/api/v1/"
 
 const Scroller = () => {
-  const dispatch = useAppDispatch()
-  const { isAuth, boxesLeft } = useSelector((state: RootState) => state.auth)
-
-  const onAuthClick = () => {
-    dispatch(setLoginIDModal(true))
-  }
-
   const itemPassedRef = useRef(0)
 
-  const [audio, setAudio] = useState<HTMLAudioElement | null>(null)
-
-  useEffect(() => {
-    const ClickWheelSound = "./audio/click_wheel.mp3" // Путь к аудиофайлу в папке public
-    const newAudio = new Audio(ClickWheelSound)
-
-    setAudio(newAudio)
-  }, [])
+  const dispatch = useAppDispatch()
 
   const [wonPrizes, setWonPrizes] = useState<JSX.Element | null>(null)
+  const [soundLoaded, setSoundLoaded] = useState(false)
   const [animationStarted, setAnimationStarted] = useState(false)
+  const [winOpened, setWinOpened] = useState(false)
+
+  const { boxesLeft } = useAppSelector((state) => state.auth)
+
+  const {
+    data: containerData,
+    isError: isContainersError,
+    isLoading: isContainersLoading,
+  } = useQuery({
+    queryKey: ["containers"],
+    queryFn: async () => {
+      const response = await axios.get<IContainers>(
+        ID_URL + "crypton-events/containers/"
+      )
+
+      return response.data
+    },
+  })
+
+  const { userId } = useAppSelector((state) => state.auth)
+  const {
+    mutateAsync: openContainer,
+    isPending: isOpenLoading,
+    data: winData,
+    reset,
+  } = useMutation({
+    mutationFn: async ({
+      userId,
+      containerId,
+    }: {
+      userId: number
+      containerId: number
+    }) => {
+      const response = await axios.post<OpenContainerResponse>(
+        `${ID_URL}crypton-events/containers/open/`,
+        {},
+        {
+          params: {
+            user_id: userId,
+            containerId: containerId,
+          },
+          withCredentials: true,
+        }
+      )
+      return response.data
+    },
+  })
 
   const x = useMotionValue(0)
+
+  useEffect(() => {
+    Promise.all([clickWheelSound.load()]).then(() => {
+      setSoundLoaded(true)
+    })
+  }, [])
+
+  useMotionValueEvent(x, "change", (currentX) => {
+    const itemPassed = Math.floor(Math.abs(currentX) / PRIZE_WIDTH_WITH_GAP)
+
+    if (itemPassed === itemPassedRef.current) return
+
+    if (soundLoaded && animationStarted) clickWheelSound.play()
+
+    itemPassedRef.current = itemPassed
+  })
 
   useMotionValueEvent(x, "animationComplete", () => {
     setAnimationStarted(false)
   })
 
   useEffect(() => {
+    if (
+      !containerData ||
+      containerData.containers.length === 0 ||
+      containerData.containers[0].prizes.length === 0
+    )
+      return
+
     setWonPrizes(
       generateAnimation(
         AMOUNT_OF_GENERATED_PRIZES,
-        { color: "blue", numberInContainer: 5 },
-        prizes
+        containerData.containers[0].prizes[0].prize,
+        containerData.containers[0].prizes
       )
     )
-  }, [])
 
-  useEffect(() => {
-    if (!animationStarted) return
-
-    const intervalId = setInterval(() => {
-      const itemPassed = Math.floor(Math.abs(x.get()) / PRIZE_WIDTH_WITH_GAP)
-
-      if (itemPassed === itemPassedRef.current) {
-        return
-      } else {
-        audio.currentTime = 0
-        audio.play()
-        itemPassedRef.current = itemPassed
-      }
-    }, 16)
-
-    return () => clearInterval(intervalId)
-  }, [animationStarted])
+    x.set(-MIDDLE_X_POSITION)
+  }, [containerData])
 
   const onOpenClick = async (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     event.preventDefault()
 
-    x.jump(0)
-
-    // Рандомная позиция по координате x, чтобы перекрестие упало на 40-ой элемент
-    const randInt = getRandomInteger(5940, 6050)
-
-    setWonPrizes(
-      generateAnimation(
-        AMOUNT_OF_GENERATED_PRIZES,
-        { color: "red", numberInContainer: 5 },
-        prizes
-      )
+    if (
+      !containerData ||
+      containerData.containers.length === 0 ||
+      containerData.containers[0].prizes.length === 0
     )
+      return
 
-    setAnimationStarted(true)
+    if (soundLoaded) clickWheelSound.play(0)
 
-    animate(x, -randInt, {
-      duration: ANIMATION_DURATION_IN_SEC,
-      ease: [0, 1.01, 0.73, 1],
-    })
+    try {
+      const winResult = await openContainer({
+        containerId: containerData.containers[0].id,
+        userId,
+      })
+
+      x.jump(0)
+
+      setWonPrizes(
+        generateAnimation(
+          AMOUNT_OF_GENERATED_PRIZES,
+          winResult.prize,
+          containerData.containers[0].prizes
+        )
+      )
+
+      dispatch(incBoxesUsed())
+      dispatch(decBoxesLeft())
+
+      setAnimationStarted(true)
+
+      animate(x, -MIDDLE_X_POSITION, {
+        duration: ANIMATION_DURATION_IN_SEC,
+        ease: [0, 1.01, 0.73, 1],
+      })
+
+      setTimeout(() => {
+        setWinOpened(true)
+      }, ANIMATION_DURATION_IN_SEC * 1000 + 200)
+    } catch (error) {
+      // @ts-ignore
+      if (error.status === 400) {
+        // @ts-ignore
+        if (error.data.code === "not_enough_available_open_box_attempts") {
+          toast.error("Недостаточно ключей для лутбокса")
+        } else {
+          toast.error("Не удалось открыть контейнер")
+        }
+      } else {
+        toast.error("Не удалось открыть контейнер")
+      }
+    }
   }
 
   return (
-    <div className={styles.container}>
-      {/* <div className={styles.header}>
-        <h1>Всего открытий боксов: 4</h1>
-        <div className={styles.info}>
-          <h1>Осталось открытий боксов: 2</h1>
-          <button className={styles.button}>получить больше</button>
-        </div>
-      </div> */}
+    <>
+      <div className={styles.container}>
+        {/* <div className={styles.header}>
+          <span>Всего открытий боксов: {totalOpenedPromoBox}</span>
+          <div className={styles.flexRow}>
+            <span>
+              Осталось открытий боксов: {promoBoxAvailableOpensNumber}
+            </span>
+            <button className="w-fit">получить больше</button>
+          </div>
+        </div> */}
 
-      <div className={styles.roulette}>
-        <div className={styles.prizes}>
-          <motion.div style={{ x }} className={styles.motionWrapper}>
-            {wonPrizes}
-          </motion.div>
-          <RoundedTriangle className={`${styles.triangle} ${styles.top}`} />
-          <RoundedTriangle className={`${styles.triangle} ${styles.bottom}`} />
-        </div>
+        <div className={styles.mainContent}>
+          <div className={styles.carouselWrapper}>
+            {isContainersLoading ? (
+              <PrizesSkeleton />
+            ) : (
+              <motion.div style={{ x }} className={styles.carousel}>
+                {wonPrizes}
+              </motion.div>
+            )}
+            <RoundedTriangle className={clsx(styles.triangle, styles.top)} />
+            <RoundedTriangle className={clsx(styles.triangle, styles.bottom)} />
+          </div>
 
-        <button
-          className={styles.spinButton}
-          onClick={isAuth ? onOpenClick : onAuthClick}
-          disabled={boxesLeft === 0}
-        >
-          Крутить рулетку
-        </button>
+          {isContainersLoading ? (
+            <Skeleton className={styles.skeleton_single} />
+          ) : (
+            <button
+              className={styles.button}
+              onClick={onOpenClick}
+              disabled={isOpenLoading || boxesLeft === 0}
+            >
+              {isOpenLoading && (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className={styles.loader}
+                >
+                  <path d="M21 12a9 9 0 1 1-6.219-8.56"></path>
+                </svg>
+              )}
+              Крутить рулетку
+            </button>
+          )}
+        </div>
       </div>
-    </div>
+      <WinDialog open={winOpened} onOpenChange={setWinOpened} data={winData} />
+    </>
   )
 }
 
@@ -149,11 +257,31 @@ const RoundedTriangle = ({ className }: { className: string }) => (
     viewBox="0 0 28 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className={clsx("drop-shadow-[0_0_1px_rgba(0,0,0,0.3)]", className)}
+    className={clsx(styles.triangleIcon, className)}
   >
     <path
       d="M11.4019 22.5C12.5566 24.5 15.4434 24.5 16.5981 22.5L26.9904 4.5C28.1451 2.5 26.7017 0 24.3923 0H3.60769C1.29829 0 -0.145082 2.5 1.00962 4.5L11.4019 22.5Z"
       fill="#FFE19C"
     />
   </svg>
+)
+
+const PrizesSkeleton = () => (
+  <div className={styles.skeleton_container}>
+    <Skeleton className={styles.skeleton} />
+    <Skeleton className={styles.skeleton} />
+    <Skeleton className={styles.skeleton} />
+    <Skeleton className={styles.skeleton} />
+    <Skeleton className={styles.skeleton} />
+    <Skeleton className={styles.skeleton} />
+    <Skeleton className={styles.skeleton} />
+    <Skeleton className={styles.skeleton} />
+    <Skeleton className={styles.skeleton} />
+    <Skeleton className={styles.skeleton} />
+    <Skeleton className={styles.skeleton} />
+    <Skeleton className={styles.skeleton} />
+    <Skeleton className={styles.skeleton} />
+    <Skeleton className={styles.skeleton} />
+    <Skeleton className={styles.skeleton} />
+  </div>
 )
