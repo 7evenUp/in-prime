@@ -1,235 +1,235 @@
-import ByvotesBybit from "@/public/images/png/examples/2023/october/byvotes-bybit.png";
-import Celestia2 from "@/public/images/png/examples/2023/october/celestia-2.png";
-import Celestia from "@/public/images/png/examples/2023/october/celestia.png";
-import Conviction from "@/public/images/png/examples/2023/october/conviction.png";
-import Forge from "@/public/images/png/examples/2023/october/forge.png";
-import Jioverse from "@/public/images/png/examples/2023/october/jioverse.png";
-import OnchainAutumnOKX from "@/public/images/png/examples/2023/october/onchain-autumn-okx.png";
-import WalletWars from "@/public/images/png/examples/2023/october/wallet-wars.png";
+import ByvotesBybit from "@/public/images/png/examples/2023/october/byvotes-bybit.png"
+import Celestia2 from "@/public/images/png/examples/2023/october/celestia-2.png"
+import Celestia from "@/public/images/png/examples/2023/october/celestia.png"
+import Conviction from "@/public/images/png/examples/2023/october/conviction.png"
+import Forge from "@/public/images/png/examples/2023/october/forge.png"
+import Jioverse from "@/public/images/png/examples/2023/october/jioverse.png"
+import OnchainAutumnOKX from "@/public/images/png/examples/2023/october/onchain-autumn-okx.png"
+import WalletWars from "@/public/images/png/examples/2023/october/wallet-wars.png"
 
-import Connext from "@/public/images/png/examples/2023/september/connext.png";
-import Sugartown from "@/public/images/png/examples/2023/september/sugartown.png";
-import ZTX from "@/public/images/png/examples/2023/september/ztx.png";
-import Aurora from "@/public/images/png/examples/2023/september/aurora.png";
-import LilPudgys from "@/public/images/png/examples/2023/september/lil-pudgys.png";
-import TipCoin from "@/public/images/png/examples/2023/september/tip-coin.png";
-import HTX from "@/public/images/png/examples/2023/september/htx.png";
-import Nakamigos from "@/public/images/png/examples/2023/september/nakamigos.png";
+import Connext from "@/public/images/png/examples/2023/september/connext.png"
+import Sugartown from "@/public/images/png/examples/2023/september/sugartown.png"
+import ZTX from "@/public/images/png/examples/2023/september/ztx.png"
+import Aurora from "@/public/images/png/examples/2023/september/aurora.png"
+import LilPudgys from "@/public/images/png/examples/2023/september/lil-pudgys.png"
+import TipCoin from "@/public/images/png/examples/2023/september/tip-coin.png"
+import HTX from "@/public/images/png/examples/2023/september/htx.png"
+import Nakamigos from "@/public/images/png/examples/2023/september/nakamigos.png"
 
-import Kartpary from "@/public/images/png/examples/2023/august/kartparty.png";
-import Marginly from "@/public/images/png/examples/2023/august/marginly.png";
-import Weebox from "@/public/images/png/examples/2023/august/weebox.png";
-import YieldFarming from "@/public/images/png/examples/2023/august/yield-farming.png";
-import OKX4 from "@/public/images/png/examples/2023/august/okx-season-4.png";
-import OKX5 from "@/public/images/png/examples/2023/august/okx-season-5.png";
+import Kartpary from "@/public/images/png/examples/2023/august/kartparty.png"
+import Marginly from "@/public/images/png/examples/2023/august/marginly.png"
+import Weebox from "@/public/images/png/examples/2023/august/weebox.png"
+import YieldFarming from "@/public/images/png/examples/2023/august/yield-farming.png"
+import OKX4 from "@/public/images/png/examples/2023/august/okx-season-4.png"
+import OKX5 from "@/public/images/png/examples/2023/august/okx-season-5.png"
 
-import Arkham from "@/public/images/png/examples/2023/july/arkham.png";
-import Mantle from "@/public/images/png/examples/2023/july/mantle.png";
-import Neon from "@/public/images/png/examples/2023/july/neon.png";
-import Bybit from "@/public/images/png/examples/2023/july/bybit.png";
+import Arkham from "@/public/images/png/examples/2023/july/arkham.png"
+import Mantle from "@/public/images/png/examples/2023/july/mantle.png"
+import Neon from "@/public/images/png/examples/2023/july/neon.png"
+import Bybit from "@/public/images/png/examples/2023/july/bybit.png"
 
-import Grapes from "@/public/images/png/examples/2023/june-january/grapes.png";
-import OpenCampus from "@/public/images/png/examples/2023/june-january/open-campus.png";
-import BybitElda from "@/public/images/png/examples/2023/june-january/bybit-elda.png";
-import Sui from "@/public/images/png/examples/2023/june-january/sui.png";
-import MoboxDragonmo from "@/public/images/png/examples/2023/june-january/mobox-dragonmo.png";
-import ACSBybit from "@/public/images/png/examples/2023/june-january/acs-bybit.png";
-import Deblock from "@/public/images/png/examples/2023/june-january/deblock.png";
-import Sui2 from "@/public/images/png/examples/2023/june-january/sui-2.png";
-import BybitKarate from "@/public/images/png/examples/2023/june-january/bybit-karate.png";
-import SpiralDao from "@/public/images/png/examples/2023/june-january/spiral-dao.png";
-import AEVO from "@/public/images/png/examples/2023/june-january/aevo.png";
-import AIDOGE from "@/public/images/png/examples/2023/june-january/aidoge.png";
-import Arbitrum from "@/public/images/png/examples/2023/june-january/arbitrum.png";
-import Mocaverse from "@/public/images/png/examples/2023/june-january/mocaverse.png";
-import Momoguro from "@/public/images/png/examples/2023/june-january/momoguro.png";
-import Exorde from "@/public/images/png/examples/2023/june-january/exorde.png";
-import AuraNetwork from "@/public/images/png/examples/2023/june-january/aura-network.png";
-import ZigZag from "@/public/images/png/examples/2023/june-january/zig-zag.png";
-import SpaceID from "@/public/images/png/examples/2023/june-january/space-id.png";
-import PlayPopGo from "@/public/images/png/examples/2023/june-january/play-pop-go.png";
-import TheDevs from "@/public/images/png/examples/2023/june-january/the-devs.png";
-import Podfast from "@/public/images/png/examples/2023/june-january/podfast.png";
-import XanaPenpenz from "@/public/images/png/examples/2023/june-january/xana-penpenz.png";
-import Puma from "@/public/images/png/examples/2023/june-january/puma.png";
-import ModernMuse from "@/public/images/png/examples/2023/june-january/modern-muse.png";
-import GhostBoy from "@/public/images/png/examples/2023/june-january/ghost-boy.png";
-import Uniwhale from "@/public/images/png/examples/2023/june-january/uniwhale.png";
-import IfPineProtocol from "@/public/images/png/examples/2023/june-january/impossiblef-pine-protocol.png";
-import DigiDaigaku from "@/public/images/png/examples/2023/june-january/digi-daigaku.png";
-import PlanetCoco from "@/public/images/png/examples/2023/june-january/planet-coco.png";
-import KiyoshiSeed from "@/public/images/png/examples/2023/june-january/kiyoshi-seed.png";
-import NFTCreatera from "@/public/images/png/examples/2023/june-january/nft-createra.png";
-import Link3Airdrop from "@/public/images/png/examples/2023/june-january/link3-airdrop.png";
-import SeniorPass from "@/public/images/png/examples/2023/june-january/senior-pass.png";
+import Grapes from "@/public/images/png/examples/2023/june-january/grapes.png"
+import OpenCampus from "@/public/images/png/examples/2023/june-january/open-campus.png"
+import BybitElda from "@/public/images/png/examples/2023/june-january/bybit-elda.png"
+import Sui from "@/public/images/png/examples/2023/june-january/sui.png"
+import MoboxDragonmo from "@/public/images/png/examples/2023/june-january/mobox-dragonmo.png"
+import ACSBybit from "@/public/images/png/examples/2023/june-january/acs-bybit.png"
+import Deblock from "@/public/images/png/examples/2023/june-january/deblock.png"
+import Sui2 from "@/public/images/png/examples/2023/june-january/sui-2.png"
+import BybitKarate from "@/public/images/png/examples/2023/june-january/bybit-karate.png"
+import SpiralDao from "@/public/images/png/examples/2023/june-january/spiral-dao.png"
+import AEVO from "@/public/images/png/examples/2023/june-january/aevo.png"
+import AIDOGE from "@/public/images/png/examples/2023/june-january/aidoge.png"
+import Arbitrum from "@/public/images/png/examples/2023/june-january/arbitrum.png"
+import Mocaverse from "@/public/images/png/examples/2023/june-january/mocaverse.png"
+import Momoguro from "@/public/images/png/examples/2023/june-january/momoguro.png"
+import Exorde from "@/public/images/png/examples/2023/june-january/exorde.png"
+import AuraNetwork from "@/public/images/png/examples/2023/june-january/aura-network.png"
+import ZigZag from "@/public/images/png/examples/2023/june-january/zig-zag.png"
+import SpaceID from "@/public/images/png/examples/2023/june-january/space-id.png"
+import PlayPopGo from "@/public/images/png/examples/2023/june-january/play-pop-go.png"
+import TheDevs from "@/public/images/png/examples/2023/june-january/the-devs.png"
+import Podfast from "@/public/images/png/examples/2023/june-january/podfast.png"
+import XanaPenpenz from "@/public/images/png/examples/2023/june-january/xana-penpenz.png"
+import Puma from "@/public/images/png/examples/2023/june-january/puma.png"
+import ModernMuse from "@/public/images/png/examples/2023/june-january/modern-muse.png"
+import GhostBoy from "@/public/images/png/examples/2023/june-january/ghost-boy.png"
+import Uniwhale from "@/public/images/png/examples/2023/june-january/uniwhale.png"
+import IfPineProtocol from "@/public/images/png/examples/2023/june-january/impossiblef-pine-protocol.png"
+import DigiDaigaku from "@/public/images/png/examples/2023/june-january/digi-daigaku.png"
+import PlanetCoco from "@/public/images/png/examples/2023/june-january/planet-coco.png"
+import KiyoshiSeed from "@/public/images/png/examples/2023/june-january/kiyoshi-seed.png"
+import NFTCreatera from "@/public/images/png/examples/2023/june-january/nft-createra.png"
+import Link3Airdrop from "@/public/images/png/examples/2023/june-january/link3-airdrop.png"
+import SeniorPass from "@/public/images/png/examples/2023/june-january/senior-pass.png"
 
-import SfpAirdrop from "@/public/images/png/examples/2022/sfp-airdrop.png";
-import NFTAltlayer from "@/public/images/png/examples/2022/nft-altlayer.png";
-import NFTFates from "@/public/images/png/examples/2022/nft-fates.png";
-import NFTShatterpoint from "@/public/images/png/examples/2022/nft-shatterpoint.png";
-import Hashverse from "@/public/images/png/examples/2022/hashverse.png";
-import Kprverse from "@/public/images/png/examples/2022/kprverse.png";
-import TestnetStride from "@/public/images/png/examples/2022/testnet-stride.png";
-import LeechProtocol from "@/public/images/png/examples/2022/leech-protocol.png";
-import Lens from "@/public/images/png/examples/2022/lens.png";
-import Castaways from "@/public/images/png/examples/2022/castaways.png";
-import MightyHero from "@/public/images/png/examples/2022/mighty-hero.png";
-import Aptos from "@/public/images/png/examples/2022/aptos.png";
-import AzraGames from "@/public/images/png/examples/2022/azra-games.png";
-import BNBBoost from "@/public/images/png/examples/2022/bnb-boost.png";
-import Kyve from "@/public/images/png/examples/2022/kyve.png";
-import Fracton from "@/public/images/png/examples/2022/fracton.png";
-import SweatEconomy from "@/public/images/png/examples/2022/sweat-economy.png";
-import Wakuland from "@/public/images/png/examples/2022/wakuland.png";
-import TestnetCanto from "@/public/images/png/examples/2022/testnet-canto.png";
-import NFTEgg from "@/public/images/png/examples/2022/nft-egg.png";
-import Pikaster from "@/public/images/png/examples/2022/pikaster.png";
-import Binance5 from "@/public/images/png/examples/2022/binance-5.png";
-import Befitter from "@/public/images/png/examples/2022/befitter.png";
-import Ledger from "@/public/images/png/examples/2022/ledger.png";
-import Potatoz from "@/public/images/png/examples/2022/potatoz.png";
-import Cube from "@/public/images/png/examples/2022/cube.png";
-import Walken from "@/public/images/png/examples/2022/walken.png";
+import SfpAirdrop from "@/public/images/png/examples/2022/sfp-airdrop.png"
+import NFTAltlayer from "@/public/images/png/examples/2022/nft-altlayer.png"
+import NFTFates from "@/public/images/png/examples/2022/nft-fates.png"
+import NFTShatterpoint from "@/public/images/png/examples/2022/nft-shatterpoint.png"
+import Hashverse from "@/public/images/png/examples/2022/hashverse.png"
+import Kprverse from "@/public/images/png/examples/2022/kprverse.png"
+import TestnetStride from "@/public/images/png/examples/2022/testnet-stride.png"
+import LeechProtocol from "@/public/images/png/examples/2022/leech-protocol.png"
+import Lens from "@/public/images/png/examples/2022/lens.png"
+import Castaways from "@/public/images/png/examples/2022/castaways.png"
+import MightyHero from "@/public/images/png/examples/2022/mighty-hero.png"
+import Aptos from "@/public/images/png/examples/2022/aptos.png"
+import AzraGames from "@/public/images/png/examples/2022/azra-games.png"
+import BNBBoost from "@/public/images/png/examples/2022/bnb-boost.png"
+import Kyve from "@/public/images/png/examples/2022/kyve.png"
+import Fracton from "@/public/images/png/examples/2022/fracton.png"
+import SweatEconomy from "@/public/images/png/examples/2022/sweat-economy.png"
+import Wakuland from "@/public/images/png/examples/2022/wakuland.png"
+import TestnetCanto from "@/public/images/png/examples/2022/testnet-canto.png"
+import NFTEgg from "@/public/images/png/examples/2022/nft-egg.png"
+import Pikaster from "@/public/images/png/examples/2022/pikaster.png"
+import Binance5 from "@/public/images/png/examples/2022/binance-5.png"
+import Befitter from "@/public/images/png/examples/2022/befitter.png"
+import Ledger from "@/public/images/png/examples/2022/ledger.png"
+import Potatoz from "@/public/images/png/examples/2022/potatoz.png"
+import Cube from "@/public/images/png/examples/2022/cube.png"
+import Walken from "@/public/images/png/examples/2022/walken.png"
 
-import L3E7 from "@/public/images/png/examples/2023/november/l3e7.png";
-import Vendetta from "@/public/images/png/examples/2023/november/vendetta.png";
-import Vastega from "@/public/images/png/examples/2023/november/vastega.png";
-import Treki from "@/public/images/png/examples/2023/november/treki.png";
-import Sol from "@/public/images/png/examples/2023/november/sol.png";
-import Sofa from "@/public/images/png/examples/2023/november/sofa.png";
-import Pyth from "@/public/images/png/examples/2023/november/pyth.png";
-import Pirate from "@/public/images/png/examples/2023/november/pirate.png";
-import Lilpudgys from "@/public/images/png/examples/2023/november/lilpudgys.png";
-import Fijis from "@/public/images/png/examples/2023/november/fijis.png";
-import Captain from "@/public/images/png/examples/2023/november/captain.png";
-import Blur from "@/public/images/png/examples/2023/november/blur.png";
-import BackPack from "@/public/images/png/examples/2023/november/backpack.png";
+import L3E7 from "@/public/images/png/examples/2023/november/l3e7.png"
+import Vendetta from "@/public/images/png/examples/2023/november/vendetta.png"
+import Vastega from "@/public/images/png/examples/2023/november/vastega.png"
+import Treki from "@/public/images/png/examples/2023/november/treki.png"
+import Sol from "@/public/images/png/examples/2023/november/sol.png"
+import Sofa from "@/public/images/png/examples/2023/november/sofa.png"
+import Pyth from "@/public/images/png/examples/2023/november/pyth.png"
+import Pirate from "@/public/images/png/examples/2023/november/pirate.png"
+import Lilpudgys from "@/public/images/png/examples/2023/november/lilpudgys.png"
+import Fijis from "@/public/images/png/examples/2023/november/fijis.png"
+import Captain from "@/public/images/png/examples/2023/november/captain.png"
+import Blur from "@/public/images/png/examples/2023/november/blur.png"
+import BackPack from "@/public/images/png/examples/2023/november/backpack.png"
 
-import Points from "@/public/images/png/examples/2023/december/december-points.png";
-import SugartownDecember from "@/public/images/png/examples/2023/december/december-sugartown.png";
-import PudgysDecember from "@/public/images/png/examples/2023/december/december-pudgys.png";
-import YogapetzDecember from "@/public/images/png/examples/2023/december/december-yogapetz.png";
-import BlockgamesDecember from "@/public/images/png/examples/2023/december/december-blockgames.png";
-import Matr1xDecember from "@/public/images/png/examples/2023/december/december-matr1x.png";
-import OverworldDecember from "@/public/images/png/examples/2023/december/december-overworld.png";
-import ChampionDecember from "@/public/images/png/examples/2023/december/december-champions.png";
-import NfpromptDecember from "@/public/images/png/examples/2023/december/december-nfprompt.png";
-import RawpassDecember from "@/public/images/png/examples/2023/december/december-rawpass.png";
-import BomkusDecember from "@/public/images/png/examples/2023/december/december-bomkus.png";
-import HftDecember from "@/public/images/png/examples/2023/december/december-hft.png";
-import ThetaDecember from "@/public/images/png/examples/2023/december/december-theta.png";
-import EgldDecember from "@/public/images/png/examples/2023/december/december-egld.png";
-import CoreDecember from "@/public/images/png/examples/2023/december/december-core.png";
-import KlayDecember from "@/public/images/png/examples/2023/december/december-klay.png";
+import Points from "@/public/images/png/examples/2023/december/december-points.png"
+import SugartownDecember from "@/public/images/png/examples/2023/december/december-sugartown.png"
+import PudgysDecember from "@/public/images/png/examples/2023/december/december-pudgys.png"
+import YogapetzDecember from "@/public/images/png/examples/2023/december/december-yogapetz.png"
+import BlockgamesDecember from "@/public/images/png/examples/2023/december/december-blockgames.png"
+import Matr1xDecember from "@/public/images/png/examples/2023/december/december-matr1x.png"
+import OverworldDecember from "@/public/images/png/examples/2023/december/december-overworld.png"
+import ChampionDecember from "@/public/images/png/examples/2023/december/december-champions.png"
+import NfpromptDecember from "@/public/images/png/examples/2023/december/december-nfprompt.png"
+import RawpassDecember from "@/public/images/png/examples/2023/december/december-rawpass.png"
+import BomkusDecember from "@/public/images/png/examples/2023/december/december-bomkus.png"
+import HftDecember from "@/public/images/png/examples/2023/december/december-hft.png"
+import ThetaDecember from "@/public/images/png/examples/2023/december/december-theta.png"
+import EgldDecember from "@/public/images/png/examples/2023/december/december-egld.png"
+import CoreDecember from "@/public/images/png/examples/2023/december/december-core.png"
+import KlayDecember from "@/public/images/png/examples/2023/december/december-klay.png"
 
-import Altlayer from "@/public/images/png/examples/january/Altlayer.png";
-import Ninjalerts from "@/public/images/png/examples/january/Ninjalerts.png";
-import Dino from "@/public/images/png/examples/january/Age of Dino.png";
-import Xai from "@/public/images/png/examples/january/Xai.png";
-import Pudgys from "@/public/images/png/examples/january/Lil Pudgys.png";
-import Playember from "@/public/images/png/examples/january/Playember.png";
-import Jupiter from "@/public/images/png/examples/january/Jupiter.png";
-import Bobblehead from "@/public/images/png/examples/january/Hal Froggy Bobblehead.png";
-import Shrapnel from "@/public/images/png/examples/january/Shrapnel Operators.png";
-import BlockGames from "@/public/images/png/examples/january/BlockGames.png";
-import Square from "@/public/images/png/examples/january/Magic Square.png";
+import Altlayer from "@/public/images/png/examples/january/Altlayer.png"
+import Ninjalerts from "@/public/images/png/examples/january/Ninjalerts.png"
+import Dino from "@/public/images/png/examples/january/Age of Dino.png"
+import Xai from "@/public/images/png/examples/january/Xai.png"
+import Pudgys from "@/public/images/png/examples/january/Lil Pudgys.png"
+import Playember from "@/public/images/png/examples/january/Playember.png"
+import Jupiter from "@/public/images/png/examples/january/Jupiter.png"
+import Bobblehead from "@/public/images/png/examples/january/Hal Froggy Bobblehead.png"
+import Shrapnel from "@/public/images/png/examples/january/Shrapnel Operators.png"
+import BlockGames from "@/public/images/png/examples/january/BlockGames.png"
+import Square from "@/public/images/png/examples/january/Magic Square.png"
 
-import ByBit from "@/public/images/png/examples/february/Bybit.png";
-import Farcana from "@/public/images/png/examples/february/Farcana.png";
-import Milady from "@/public/images/png/examples/february/Milady.png";
-import Persona from "@/public/images/png/examples/february/Persona.png";
-import Pixels from "@/public/images/png/examples/february/Pixels.png";
-import PudgyPresents from "@/public/images/png/examples/february/PudgyPresents.png";
-import QnA3 from "@/public/images/png/examples/february/QnA3.png";
-import ShrapnelFeb from "@/public/images/png/examples/february/Shrapnel.png";
-import Starknet from "@/public/images/png/examples/february/Starknet.png";
+import ByBit from "@/public/images/png/examples/february/Bybit.png"
+import Farcana from "@/public/images/png/examples/february/Farcana.png"
+import Milady from "@/public/images/png/examples/february/Milady.png"
+import Persona from "@/public/images/png/examples/february/Persona.png"
+import Pixels from "@/public/images/png/examples/february/Pixels.png"
+import PudgyPresents from "@/public/images/png/examples/february/PudgyPresents.png"
+import QnA3 from "@/public/images/png/examples/february/QnA3.png"
+import ShrapnelFeb from "@/public/images/png/examples/february/Shrapnel.png"
+import Starknet from "@/public/images/png/examples/february/Starknet.png"
 
-import MemelandMarch24 from "@/public/images/png/examples/march/memeland_march24.png";
-import AevoMarch24 from "@/public/images/png/examples/march/aevo_march24.png";
-import PolyhedraMarch24 from "@/public/images/png/examples/march/polyhedra_march24.png";
-import OverTripMarch24 from "@/public/images/png/examples/march/overtrip_march24.png";
-import SaWorldMarch24 from "@/public/images/png/examples/march/sa_world_march24.png";
-import PolyhedraOKXMarch24 from "@/public/images/png/examples/march/polyhedra_okx_march24.png";
-import BlockGamesMarch24 from "@/public/images/png/examples/march/block_games_march24.png";
-import ERCCMarch24 from "@/public/images/png/examples/march/ercc_march24.png";
-import SprotoGremlinsMarch24 from "@/public/images/png/examples/march/sproto_gremlins_march24.png";
+import MemelandMarch24 from "@/public/images/png/examples/march/memeland_march24.png"
+import AevoMarch24 from "@/public/images/png/examples/march/aevo_march24.png"
+import PolyhedraMarch24 from "@/public/images/png/examples/march/polyhedra_march24.png"
+import OverTripMarch24 from "@/public/images/png/examples/march/overtrip_march24.png"
+import SaWorldMarch24 from "@/public/images/png/examples/march/sa_world_march24.png"
+import PolyhedraOKXMarch24 from "@/public/images/png/examples/march/polyhedra_okx_march24.png"
+import BlockGamesMarch24 from "@/public/images/png/examples/march/block_games_march24.png"
+import ERCCMarch24 from "@/public/images/png/examples/march/ercc_march24.png"
+import SprotoGremlinsMarch24 from "@/public/images/png/examples/march/sproto_gremlins_march24.png"
 
-import CastileApril24 from "@/public/images/png/examples/april/castile_april24.png";
-import MMMCApril24 from "@/public/images/png/examples/april/MMMC_april24.png";
-import GMNetworkApril24 from "@/public/images/png/examples/april/GMNetwork_april24.png";
-import WormholeApril24 from "@/public/images/png/examples/april/Wormhole_april24.png";
-import PalioApril24 from "@/public/images/png/examples/april/Palio_april24.png";
-import SAWorldApril24 from "@/public/images/png/examples/april/SAWorld_april24.png";
-import ElixirGamesApril24 from "@/public/images/png/examples/april/ElixirGames_april24.png";
-import EthenaApril24 from "@/public/images/png/examples/april/Ethena_april24.png";
-import NibiruApril24 from "@/public/images/png/examples/april/Nibiru_april24.png";
-import OmniApril24 from "@/public/images/png/examples/april/Omni_april24.png";
+import CastileApril24 from "@/public/images/png/examples/april/castile_april24.png"
+import MMMCApril24 from "@/public/images/png/examples/april/MMMC_april24.png"
+import GMNetworkApril24 from "@/public/images/png/examples/april/GMNetwork_april24.png"
+import WormholeApril24 from "@/public/images/png/examples/april/Wormhole_april24.png"
+import PalioApril24 from "@/public/images/png/examples/april/Palio_april24.png"
+import SAWorldApril24 from "@/public/images/png/examples/april/SAWorld_april24.png"
+import ElixirGamesApril24 from "@/public/images/png/examples/april/ElixirGames_april24.png"
+import EthenaApril24 from "@/public/images/png/examples/april/Ethena_april24.png"
+import NibiruApril24 from "@/public/images/png/examples/april/Nibiru_april24.png"
+import OmniApril24 from "@/public/images/png/examples/april/Omni_april24.png"
 
-import TaikoMay24 from "@/public/images/png/examples/may/taiko_may24.png";
-import CryptonXStormTradeMay24 from "@/public/images/png/examples/may/cryptonXstormTrade_may24.jpeg";
-import FrucksMay24 from "@/public/images/png/examples/may/frucks_may24.png";
-import PotKMay24 from "@/public/images/png/examples/may/PotK_may24.png";
-import ParallelMay24 from "@/public/images/png/examples/may/parallel_may24.png";
-import AntiSocialFrogsMay24 from "@/public/images/png/examples/may/AntiSocialFrogs_may24.png";
-import NutcrackersMay24 from "@/public/images/png/examples/may/Nutcrackers_may24.png";
-import NyanHeroesMay24 from "@/public/images/png/examples/may/NyanHeroes_may24.png";
+import TaikoMay24 from "@/public/images/png/examples/may/taiko_may24.png"
+import CryptonXStormTradeMay24 from "@/public/images/png/examples/may/cryptonXstormTrade_may24.jpeg"
+import FrucksMay24 from "@/public/images/png/examples/may/frucks_may24.png"
+import PotKMay24 from "@/public/images/png/examples/may/PotK_may24.png"
+import ParallelMay24 from "@/public/images/png/examples/may/parallel_may24.png"
+import AntiSocialFrogsMay24 from "@/public/images/png/examples/may/AntiSocialFrogs_may24.png"
+import NutcrackersMay24 from "@/public/images/png/examples/may/Nutcrackers_may24.png"
+import NyanHeroesMay24 from "@/public/images/png/examples/may/NyanHeroes_may24.png"
 
-import LayerZeroJune24 from "@/public/images/png/examples/june/layerzero_june24.png";
-import ZkSyncJune24 from "@/public/images/png/examples/june/ZkSync_june24.png";
-import OKXJune24 from "@/public/images/png/examples/june/OKX_june24.png";
-import CityVerseJune24 from "@/public/images/png/examples/june/CityVerse_june24.png";
-import ZetaMarketsJune24 from "@/public/images/png/examples/june/ZetaMarkets_june24.png";
-import BigBallsBirdsJune24 from "@/public/images/png/examples/june/BigBallsBirds_june24.png";
-import ParallelJune24 from "@/public/images/png/examples/june/Parallel_june24.png";
-import ListaDAOJune24 from "@/public/images/png/examples/june/ListaDAO_june24.png";
-import ZielChainJune24 from "@/public/images/png/examples/june/ZielChain_june24.png";
-import TrustWalletJune24 from "@/public/images/png/examples/june/TrustWallet_june24.png";
-import AIArenaJune24 from "@/public/images/png/examples/june/AIArena_june24.png";
+import LayerZeroJune24 from "@/public/images/png/examples/june/layerzero_june24.png"
+import ZkSyncJune24 from "@/public/images/png/examples/june/ZkSync_june24.png"
+import OKXJune24 from "@/public/images/png/examples/june/OKX_june24.png"
+import CityVerseJune24 from "@/public/images/png/examples/june/CityVerse_june24.png"
+import ZetaMarketsJune24 from "@/public/images/png/examples/june/ZetaMarkets_june24.png"
+import BigBallsBirdsJune24 from "@/public/images/png/examples/june/BigBallsBirds_june24.png"
+import ParallelJune24 from "@/public/images/png/examples/june/Parallel_june24.png"
+import ListaDAOJune24 from "@/public/images/png/examples/june/ListaDAO_june24.png"
+import ZielChainJune24 from "@/public/images/png/examples/june/ZielChain_june24.png"
+import TrustWalletJune24 from "@/public/images/png/examples/june/TrustWallet_june24.png"
+import AIArenaJune24 from "@/public/images/png/examples/june/AIArena_june24.png"
 
-import AeonsAug6 from "@/public/images/png/examples/july/Aeons_aug6.png";
-import Ancient8Aug6 from "@/public/images/png/examples/july/Ancient8_aug6.png";
-import BigBallsBirdsAug6 from "@/public/images/png/examples/july/BigBallsBirds_aug6.png";
-import BoldinalsAug6 from "@/public/images/png/examples/july/Boldinals_aug6.png";
-import KuCoinAug6 from "@/public/images/png/examples/july/KuCoin_aug6.png";
-import LavaNetworkAug6 from "@/public/images/png/examples/july/LavaNetwork_aug6.png";
-import Layer3Aug6 from "@/public/images/png/examples/july/Layer3_aug6.png";
-import MocaverseAug6 from "@/public/images/png/examples/july/Mocaverse_aug6.png";
-import MutatoadsAug6 from "@/public/images/png/examples/july/Mutatoads_aug6.png";
-import ParallelAug6 from "@/public/images/png/examples/july/Parallel_aug6.png";
-import BybitAug6 from "@/public/images/png/examples/july/Bybit_aug6.png";
+import AeonsAug6 from "@/public/images/png/examples/july/Aeons_aug6.png"
+import Ancient8Aug6 from "@/public/images/png/examples/july/Ancient8_aug6.png"
+import BigBallsBirdsAug6 from "@/public/images/png/examples/july/BigBallsBirds_aug6.png"
+import BoldinalsAug6 from "@/public/images/png/examples/july/Boldinals_aug6.png"
+import KuCoinAug6 from "@/public/images/png/examples/july/KuCoin_aug6.png"
+import LavaNetworkAug6 from "@/public/images/png/examples/july/LavaNetwork_aug6.png"
+import Layer3Aug6 from "@/public/images/png/examples/july/Layer3_aug6.png"
+import MocaverseAug6 from "@/public/images/png/examples/july/Mocaverse_aug6.png"
+import MutatoadsAug6 from "@/public/images/png/examples/july/Mutatoads_aug6.png"
+import ParallelAug6 from "@/public/images/png/examples/july/Parallel_aug6.png"
+import BybitAug6 from "@/public/images/png/examples/july/Bybit_aug6.png"
 
-import BitgetSep28 from "@/public/images/png/examples/september/Bitget_sep28.png";
-import CryptopediaSep28 from "@/public/images/png/examples/september/Cryptopedia_sep28.png";
-import DarkMachineSep28 from "@/public/images/png/examples/september/DarkMachine_sep28.png";
-import DegitalResistanceSep28 from "@/public/images/png/examples/september/DigitalResistance_sep28.png";
-import DogsSep28 from "@/public/images/png/examples/september/Dogs_sep28.png";
-import HuobiSep28 from "@/public/images/png/examples/september/Huobi_sep28.png";
-import LaunchpoolSep28 from "@/public/images/png/examples/september/Launchpool_sep28.png";
-import LayerZeroSep28 from "@/public/images/png/examples/september/LayerZero_sep28.png";
-import MetaCeneSep28 from "@/public/images/png/examples/september/MetaCene_sep28.png";
-import ParallelSep28 from "@/public/images/png/examples/september/Parallel_sep28.png";
-import PRIMESep28 from "@/public/images/png/examples/september/PRIME_sep28.png";
-import QBlockchainSep28 from "@/public/images/png/examples/september/QBlockchain_sep28.png";
-import StoshiSep28 from "@/public/images/png/examples/september/Stoshi_sep28.png";
-import XAISep28 from "@/public/images/png/examples/september/XAI_sep28.png";
+import BitgetSep28 from "@/public/images/png/examples/september/Bitget_sep28.png"
+import CryptopediaSep28 from "@/public/images/png/examples/september/Cryptopedia_sep28.png"
+import DarkMachineSep28 from "@/public/images/png/examples/september/DarkMachine_sep28.png"
+import DegitalResistanceSep28 from "@/public/images/png/examples/september/DigitalResistance_sep28.png"
+import DogsSep28 from "@/public/images/png/examples/september/Dogs_sep28.png"
+import HuobiSep28 from "@/public/images/png/examples/september/Huobi_sep28.png"
+import LaunchpoolSep28 from "@/public/images/png/examples/september/Launchpool_sep28.png"
+import LayerZeroSep28 from "@/public/images/png/examples/september/LayerZero_sep28.png"
+import MetaCeneSep28 from "@/public/images/png/examples/september/MetaCene_sep28.png"
+import ParallelSep28 from "@/public/images/png/examples/september/Parallel_sep28.png"
+import PRIMESep28 from "@/public/images/png/examples/september/PRIME_sep28.png"
+import QBlockchainSep28 from "@/public/images/png/examples/september/QBlockchain_sep28.png"
+import StoshiSep28 from "@/public/images/png/examples/september/Stoshi_sep28.png"
+import XAISep28 from "@/public/images/png/examples/september/XAI_sep28.png"
 
-import ArchwayNov4 from "@/public/images/png/examples/october/Archway_nov4.png";
-import DeepBookNov4 from "@/public/images/png/examples/october/DeepBook_nov4.png";
-import EigenLayer2Nov4 from "@/public/images/png/examples/october/EigenLayer2_nov4.png";
-import EigenLayerNov4 from "@/public/images/png/examples/october/EigenLayer_nov4.png";
-import GrassNov4 from "@/public/images/png/examples/october/Grass_nov4.png";
-import KZGFuneralNov4 from "@/public/images/png/examples/october/KZGFuneral_nov4.png";
-import Optimism5Nov4 from "@/public/images/png/examples/october/Optimism5_nov4.png";
-import ParallelNov4 from "@/public/images/png/examples/october/Parallel_nov4.png";
-import ScrollNov4 from "@/public/images/png/examples/october/Scroll_nov4.png";
-import SequoaiNov4 from "@/public/images/png/examples/october/Sequoai_nov4.png";
-import SovereigntyNov4 from "@/public/images/png/examples/october/Sovereignty_nov4.png";
-import TaikoNov4 from "@/public/images/png/examples/october/Taiko_nov4.png";
-import YNov4 from "@/public/images/png/examples/october/y_nov4.png";
+import ArchwayNov4 from "@/public/images/png/examples/october/Archway_nov4.png"
+import DeepBookNov4 from "@/public/images/png/examples/october/DeepBook_nov4.png"
+import EigenLayer2Nov4 from "@/public/images/png/examples/october/EigenLayer2_nov4.png"
+import EigenLayerNov4 from "@/public/images/png/examples/october/EigenLayer_nov4.png"
+import GrassNov4 from "@/public/images/png/examples/october/Grass_nov4.png"
+import KZGFuneralNov4 from "@/public/images/png/examples/october/KZGFuneral_nov4.png"
+import Optimism5Nov4 from "@/public/images/png/examples/october/Optimism5_nov4.png"
+import ParallelNov4 from "@/public/images/png/examples/october/Parallel_nov4.png"
+import ScrollNov4 from "@/public/images/png/examples/october/Scroll_nov4.png"
+import SequoaiNov4 from "@/public/images/png/examples/october/Sequoai_nov4.png"
+import SovereigntyNov4 from "@/public/images/png/examples/october/Sovereignty_nov4.png"
+import TaikoNov4 from "@/public/images/png/examples/october/Taiko_nov4.png"
+import YNov4 from "@/public/images/png/examples/october/y_nov4.png"
 
-import BybitDefault from "@/public/images/png/examples/common/bybit-default.png";
-import StakelandDefault from "@/public/images/png/examples/common/stakeland.png";
-import AddicktedDefault from "@/public/images/png/examples/common/addickted.png";
+import BybitDefault from "@/public/images/png/examples/common/bybit-default.png"
+import StakelandDefault from "@/public/images/png/examples/common/stakeland.png"
+import AddicktedDefault from "@/public/images/png/examples/common/addickted.png"
 
 export const examples = {
   октябрь: [
@@ -248,7 +248,8 @@ export const examples = {
       earn: "$4900",
       spend: "$30",
       category: "Ноды",
-      condition: "Иметь 25 тысяч $ETH в тестовой сети, которые можно было вернуть, и запустить AVS-валидатора.",
+      condition:
+        "Иметь 25 тысяч $ETH в тестовой сети, которые можно было вернуть, и запустить AVS-валидатора.",
       resources: "25 тысяч $ETH в тестовой сети, деньги на содержание сервера.",
       reportUrl: "crypton.xyz",
       img: EigenLayer2Nov4,
@@ -258,7 +259,8 @@ export const examples = {
       earn: "до $30",
       spend: "$0",
       category: "Ретродропы",
-      condition: "Участвовать в KZG-церемонии Ethereum в 2023 году и получить POAP.",
+      condition:
+        "Участвовать в KZG-церемонии Ethereum в 2023 году и получить POAP.",
       resources: "время на участие в церемонии.",
       reportUrl: "crypton.xyz",
       img: KZGFuneralNov4,
@@ -268,8 +270,10 @@ export const examples = {
       earn: "$2900",
       spend: "$350",
       category: "Ретродропы",
-      condition: "Участвовать в кампании Trailblazers от Taiko и зарабатывать поинты.",
-      resources: "Время для участия в кампании, ~$10 на один кошелек для транзакций.",
+      condition:
+        "Участвовать в кампании Trailblazers от Taiko и зарабатывать поинты.",
+      resources:
+        "Время для участия в кампании, ~$10 на один кошелек для транзакций.",
       reportUrl: "crypton.xyz",
       img: TaikoNov4,
     },
@@ -278,7 +282,8 @@ export const examples = {
       earn: "$130",
       spend: "$30",
       category: "Ретродропы",
-      condition: "Совершать транзакции в сети, держать ликвидность в протоколах.",
+      condition:
+        "Совершать транзакции в сети, держать ликвидность в протоколах.",
       resources: "деньги на комиссию, ~$1000 возвратной ликвидности.",
       reportUrl: "crypton.xyz",
       img: ScrollNov4,
@@ -298,7 +303,8 @@ export const examples = {
       earn: "$500",
       spend: "$30",
       category: "Ретродропы",
-      condition: "Совершать активность в блокчейнах экосистемы Superchain (Zora, Base, Mode и т.д.).",
+      condition:
+        "Совершать активность в блокчейнах экосистемы Superchain (Zora, Base, Mode и т.д.).",
       resources: "время на выполнение активности.",
       reportUrl: "crypton.xyz",
       img: Optimism5Nov4,
@@ -397,8 +403,8 @@ export const examples = {
     },
     {
       title: "Биржевые Launchpool",
-      earn: "до 5% к банку",
-      spend: "любая сумма",
+      earn: "до $525",
+      spend: "$500",
       category: "Биржевые промоакции",
       condition: "Блокировать стейблкоины в течение 7 дней.",
       resources: "Свободная ликвидность в стейблах.",
@@ -418,8 +424,8 @@ export const examples = {
     },
     {
       title: "Покупка $PRIME",
-      earn: "До +60%",
-      spend: "любая сумма",
+      earn: "До $800",
+      spend: "$500",
       category: "Трейдинг",
       condition: "Купить токен $PRIME после выхода поста в канале.",
       resources: "Свободная ликвидность.",
@@ -428,8 +434,8 @@ export const examples = {
     },
     {
       title: "Покупка $XAI",
-      earn: "До +25%",
-      spend: "любая сумма",
+      earn: "До 625$",
+      spend: "$500",
       category: "Трейдинг",
       condition: "Купить токен $XAI после выхода поста в канале.",
       resources: "Свободная ликвидность.",
@@ -2909,4 +2915,4 @@ export const examples = {
       img: Walken,
     },
   ],
-};
+}
