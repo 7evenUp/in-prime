@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useRef } from "react"
 import Image, { StaticImageData } from "next/image"
 import * as Tabs from "@radix-ui/react-tabs"
 import { Swiper, SwiperSlide } from "swiper/react"
@@ -198,34 +198,39 @@ const Slider = ({
   resolution: Resolution
 }) => {
   return (
-    <Swiper
-      slidesPerView={1}
-      style={{ width: swiperWidth[resolution] }}
-      className={styles.swiper}
-    >
-      {data.map(({ imgSrc, description }) => (
-        <SwiperSlide key={description} className={styles.swiper_slide_wrapper}>
-          {({ isActive }) => (
-            <div
-              className={styles.swiper_slide}
-              style={{ opacity: isActive ? 1 : 0 }}
-            >
-              <Image
-                className={styles.swiper_image}
-                src={imgSrc}
-                alt={`Image of: ${description}`}
-                quality={100}
-              />
-              {/* <p className={styles.description}>{description}</p> */}
-              {makeDescrLink(description)}
-            </div>
-          )}
-        </SwiperSlide>
-      ))}
+    <div className={styles.swiper__container}>
+      <Swiper
+        slidesPerView={1}
+        style={{ width: swiperWidth[resolution] }}
+        className={styles.swiper}
+      >
+        {data.map(({ imgSrc, description }) => (
+          <SwiperSlide
+            key={description}
+            className={styles.swiper_slide_wrapper}
+          >
+            {({ isActive }) => (
+              <div
+                className={styles.swiper_slide}
+                style={{ opacity: isActive ? 1 : 0 }}
+              >
+                <Image
+                  className={styles.swiper_image}
+                  src={imgSrc}
+                  alt={`Image of: ${description}`}
+                  quality={100}
+                />
+                {/* <p className={styles.description}>{description}</p> */}
+                {makeDescrLink(description)}
+              </div>
+            )}
+          </SwiperSlide>
+        ))}
 
-      <Navigation />
-      <Pagination amount={data.length} />
-    </Swiper>
+        <Navigation />
+        <Pagination amount={data.length} />
+      </Swiper>
+    </div>
   )
 }
 

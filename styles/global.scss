@@ -213,10 +213,14 @@ p {
         height: 186px;
         background-image: url("/images/png/earn/birthday-promo-lgg.png");
         background-size: cover;
-        position: fixed;
-        bottom: 58px;
-        right: 310px;
+        // position: fixed;
+        // bottom: 58px;
+        // right: 310px;
+        position: absolute;
+        top: -244px;
+        right: 0px;
         z-index: 10000;
+        margin-left: auto;
 
         box-sizing: border-box;
 
@@ -228,8 +232,11 @@ p {
           width: 180px;
           height: 120px;
 
-          bottom: 104px;
-          right: 112px;
+          // bottom: 104px;
+          // right: 112px;
+
+          top: -224px;
+          right: 0px;
         }
 
         @media (max-width: 1367px) and (min-width: 768px) {
@@ -238,8 +245,11 @@ p {
           width: 180px;
           height: 120px;
 
-          bottom: 50px;
-          right: 48px;
+          // bottom: 50px;
+          // right: 48px;
+
+          top: -170px;
+          right: 0px;
         }
 
         @media (max-width: 767px) {
@@ -248,8 +258,34 @@ p {
           width: 126px;
           height: 84px;
 
-          bottom: 20px;
-          right: 18px;
+          // bottom: 20px;
+          // right: 18px;
+          top: -104px;
+          right: 0px;
+        }
+
+        &__wrapper {
+          position: fixed;
+          width: 1300px;
+          height: 1px;
+          bottom: 0;
+          z-index: 1000;
+          // pointer-events: none;
+          @media (max-width: 1919px) and (min-width: 1368px) {
+            width: 1143px;
+          }
+
+          @media (max-width: 1367px) and (min-width: 768px) {
+            width: 672px;
+          }
+
+          @media (max-width: 767px) {
+            width: 335px;
+          }
+
+          @media (max-width: 420px) {
+            width: 100%;
+          }
         }
       }
 
@@ -1224,6 +1260,7 @@ p {
         @media (max-width: 767px) {
           font-size: 28px;
           margin-bottom: 38px;
+          margin-top: 30px;
           width: 318px;
         }
       }

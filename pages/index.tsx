@@ -78,10 +78,10 @@ const Home = (props) => {
     case currentWidth < 768:
       resolution = "sm"
       break
-    default:
+    default: 
       break
-  }
-
+  } 
+   
   // const tariffs = {
   //   lgg: <SelectLggTariff />,
   //   lg: <SelectLgTariff />,
