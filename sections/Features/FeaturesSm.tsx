@@ -88,18 +88,6 @@ const FeaturesTabs = ({ resolution }: { resolution: Resolution }) => {
       orientation="vertical"
     >
       <Tabs.List className={styles.TabsList} aria-label="Prime Features">
-        <Tabs.Trigger className={styles.TabsTrigger} value="tab1">
-          <div className={styles.trigger_container}>
-            <div className={styles.icon_wrapper}>
-              <CryptonBonusesIcon />
-              <CryptonBonusesIconGradient />
-            </div>
-            <span>Бонусы экосистемы Crypton</span>
-          </div>
-        </Tabs.Trigger>
-        <Tabs.Content className={styles.TabsContent} value="tab1">
-          <Slider data={featuresData.cryptonBonuses} resolution={resolution} />
-        </Tabs.Content>
         <Tabs.Trigger className={styles.TabsTrigger} value="tab2">
           <div className={styles.trigger_container}>
             <div className={styles.icon_wrapper}>
@@ -111,6 +99,18 @@ const FeaturesTabs = ({ resolution }: { resolution: Resolution }) => {
         </Tabs.Trigger>
         <Tabs.Content className={styles.TabsContent} value="tab2">
           <Slider data={featuresData.content} resolution={resolution} />
+        </Tabs.Content>
+        <Tabs.Trigger className={styles.TabsTrigger} value="tab2">
+          <div className={styles.trigger_container}>
+            <div className={styles.icon_wrapper}>
+              <CalendarIcon />
+              <CalendarIconGradient />
+            </div>
+            <span>Календарь по заработку</span>
+          </div>
+        </Tabs.Trigger>
+        <Tabs.Content className={styles.TabsContent} value="tab2">
+          <Slider data={featuresData.calendar} resolution={resolution} />
         </Tabs.Content>
         <Tabs.Trigger className={styles.TabsTrigger} value="tab3">
           <div className={styles.trigger_container}>
@@ -171,6 +171,18 @@ const FeaturesTabs = ({ resolution }: { resolution: Resolution }) => {
         </Tabs.Trigger>
         <Tabs.Content className={styles.TabsContent} value="tab6">
           <Slider data={featuresData.investing} resolution={resolution} />
+        </Tabs.Content>
+        <Tabs.Trigger className={styles.TabsTrigger} value="tab1">
+          <div className={styles.trigger_container}>
+            <div className={styles.icon_wrapper}>
+              <CryptonBonusesIcon />
+              <CryptonBonusesIconGradient />
+            </div>
+            <span>Бонусы экосистемы Crypton</span>
+          </div>
+        </Tabs.Trigger>
+        <Tabs.Content className={styles.TabsContent} value="tab1">
+          <Slider data={featuresData.cryptonBonuses} resolution={resolution} />
         </Tabs.Content>
       </Tabs.List>
     </Tabs.Root>

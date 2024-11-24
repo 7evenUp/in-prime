@@ -5,6 +5,7 @@ import styles from "./WinDialog.module.scss"
 import { OpenContainerResponse } from "@/types/promo-types"
 import { useAppSelector } from "@/redux/hooks"
 import { getColorByRarity } from "@/sections/TimerPromo/getColorByRarity"
+import { toast } from "sonner"
 
 const ID_URL = process.env.NEXT_PUBLIC_ID_URL
 
@@ -18,6 +19,11 @@ const WinDialog = ({
   data: OpenContainerResponse | undefined
 }) => {
   const { boxesLeft } = useAppSelector((state) => state.auth)
+  const safeBoxesLeft =
+    isNaN(boxesLeft) || boxesLeft === null || boxesLeft === undefined
+      ? 0
+      : boxesLeft
+
   return (
     <Dialog.Root open={open} onOpenChange={onOpenChange}>
       <Dialog.Portal>
@@ -68,7 +74,9 @@ const WinDialog = ({
                   </p>
                 </div>
               </div>
-              <p className={styles.boxesLeft}>Осталось открытий: {boxesLeft}</p>
+              <p className={styles.boxesLeft}>
+                Осталось открытий: {safeBoxesLeft}
+              </p>
 
               <div className={styles.buttons}>
                 <button

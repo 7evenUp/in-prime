@@ -89,7 +89,7 @@ const App = ({ Component, pageProps }: AppProps) => (
       <meta name="msapplication-TileColor" content="#da532c" />
       <meta name="theme-color" content="#ffffff"></meta>
     </Head>
-    <Toaster />
+    <Toaster position="top-right" />
     <ReduxProvider store={store}>
       <WagmiProvider config={config}>
         <QueryClientProvider client={queryClient}>

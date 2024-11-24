@@ -29,6 +29,7 @@ import {
 import { Resolution } from "@/types/resolution"
 
 import styles from "./styles.module.scss"
+import { toast } from "sonner"
 
 const ID_URL = process.env.NEXT_PUBLIC_ID_URL + "/api/v1/"
 const DEFAULT_CRYPTON_PROMO = "CRYPTON"
@@ -77,6 +78,8 @@ const BuySubscriptionDialog = ({
 }) => {
   const router = useRouter()
   const referral = router.query.ref || ""
+
+  const closeRef = React.createRef<HTMLButtonElement>()
 
   const [isCryptonReferralSet, setIsCryptonReferralSet] = useState(false)
   const [promoWasUpdated, setPromoWasUpdated] = useState(false)
@@ -417,11 +420,17 @@ const BuySubscriptionDialog = ({
           }}
         >
           {isSuccess ? (
-            <PaymentStatus
-              paymentId={paymentID}
-              paymentUrl={paymentURL}
-              reset={reset}
-            />
+            <>
+              <Dialog.DialogClose className={styles.close} ref={closeRef}>
+                <div className={styles.close_icon} />
+              </Dialog.DialogClose>
+              <PaymentStatus
+                paymentId={paymentID}
+                paymentUrl={paymentURL}
+                reset={reset}
+                closeRef={closeRef}
+              />
+            </>
           ) : (
             <>
               <Dialog.DialogClose className={styles.close}>
@@ -921,10 +930,12 @@ const PaymentStatus = ({
   paymentUrl,
   paymentId,
   reset,
+  closeRef,
 }: {
   paymentUrl: string
   paymentId: number
   reset: () => void
+  closeRef?: React.RefObject<HTMLButtonElement>
 }) => {
   const { data: status, isLoading } = useQuery({
     queryKey: ["payment-status"],
@@ -937,6 +948,20 @@ const PaymentStatus = ({
     },
     refetchInterval: 5000,
   })
+
+  const onClose = () => {
+    closeRef?.current?.click()
+  }
+
+  const onLater = () => {
+    onClose()
+    toast.info(
+      "Все неоткрытые боксы будут храниться у нас в течение 2 недель после окончания акции. После этого они автоматически откроются, а подарки будут добавлены в ваш инвентарь в Crypton ID.",
+      {
+        duration: 10000,
+      }
+    )
+  }
 
   if (isLoading || status === "PENDING") {
     return (
@@ -969,21 +994,28 @@ const PaymentStatus = ({
     return (
       <>
         <div className={styles.status}>
-          <Check />
           <h2
             className={styles.status_heading}
             style={{ marginBottom: 30, lineHeight: 1.3 }}
           >
-            Успешно <br /> Оплачено
+            Готовы получать подарки?
           </h2>
           <p className={styles.status_after}>
-            Авторизуйтесь в{" "}
-            <a href="https://id.crypton.xyz" target="_blank">
-              личном кабинете Crypton ID
-            </a>{" "}
-            с почтой, указанной при оплате, чтобы воспользоваться всеми
-            возможностями Crypton Prime
+            Теперь у вас есть возможность открывать боксы с нашими топовыми
+            призами!
           </p>
+          <div className={styles.buttons}>
+            <button
+              type="button"
+              className={styles.buttons__close}
+              onClick={onClose}
+            >
+              К открытию подарков
+            </button>
+            <div onClick={onLater} className={styles.buttons__id}>
+              Позже
+            </div>
+          </div>
         </div>
       </>
     )

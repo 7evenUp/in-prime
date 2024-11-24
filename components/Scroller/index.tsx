@@ -190,7 +190,7 @@ const Scroller = () => {
 
   return (
     <>
-      <div className={styles.container}>
+      <div className={styles.container} id="scroller">
         {/* <div className={styles.header}>
           <span>Всего открытий боксов: {totalOpenedPromoBox}</span>
           <div className={styles.flexRow}>
