@@ -125,6 +125,17 @@
       opacity: 0.7;
     }
   }
+
+  &_link {
+    text-underline-offset: 3px;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-top: 5px;
+    &:hover {
+      opacity: 0.7;
+      color: white;
+    }
+  }
 }
 
 .description_sm {
