@@ -57,7 +57,7 @@ const DialogPromo = ({
                   подробнее
                 </a>
               )}
-              {nftImageUrl && <span>, </span>}
+              {nftImageUrl && link && <span>, </span>}
               {nftImageUrl && (
                 <a
                   href={nftImageUrl}
