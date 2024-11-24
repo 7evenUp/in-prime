@@ -690,7 +690,7 @@ const BuySubscriptionDialog = ({
                               </span>
                             </div>
                           )} */}
-                          <ul className={styles.bonuses}>
+                          {/* <ul className={styles.bonuses}>
                             {benefits.map((benefit) => (
                               <li key={benefit.id} className={styles.bonus}>
                                 <p className={styles.bonus_text}>
@@ -698,6 +698,50 @@ const BuySubscriptionDialog = ({
                                 </p>
                               </li>
                             ))}
+                          </ul> */}
+                          <ul className={styles.bonuses}>
+                            {order === 0 && (
+                              <>
+                                <li className={styles.bonus}>
+                                  <p className={styles.bonus_text}>
+                                    Все возможности Prime
+                                  </p>
+                                </li>
+                                <li className={styles.bonus}>
+                                  <p className={styles.bonus_text}>
+                                    1 открытие бокса
+                                  </p>
+                                </li>
+                              </>
+                            )}
+                            {order === 1 && (
+                              <li className={styles.bonus}>
+                                <p className={styles.bonus_text}>
+                                  3 открытия бокса
+                                </p>
+                              </li>
+                            )}
+                            {order === 2 && (
+                              <li className={styles.bonus}>
+                                <p className={styles.bonus_text}>
+                                  6 открытий боксов
+                                </p>
+                              </li>
+                            )}
+                            {order === 3 && (
+                              <>
+                                <li className={styles.bonus}>
+                                  <p className={styles.bonus_text}>
+                                    приоритетная поддержка
+                                  </p>
+                                </li>
+                                <li className={styles.bonus}>
+                                  <p className={styles.bonus_text}>
+                                    12 открытий боксов
+                                  </p>
+                                </li>
+                              </>
+                            )}
                           </ul>
                         </div>
                       ))}
