@@ -119,13 +119,13 @@
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
 
-  &:hover {
-    transform: scale(1.1);
-  }
+  // &:hover {
+  //   transform: scale(1.1);
+  // }
 
-  &:active {
-    transform: scale(0.9);
-  }
+  // &:active {
+  //   transform: scale(0.9);
+  // }
 }
 
 .prizeBox {

@@ -73,6 +73,11 @@ const TimerPromo = () => {
     },
   })
 
+  const prizesCount = containers?.containers[0].prizes.reduce(
+    (acc, el) => acc + el.remainingQuantity,
+    0
+  )
+
   const {
     data: openedBoxes,
     isError: isOpenedBoxesError,
@@ -124,6 +129,9 @@ const TimerPromo = () => {
           </Collapsible.Trigger>
 
           <Collapsible.Content className={styles.CollapsibleContent}>
+            <h1 className={styles.CollapsibleContent__title}>
+              Осталось подарков: {prizesCount}
+            </h1>
             <div className={styles.CollapsibleContent__list}>
               {isContainersLoading
                 ? [...Array(10)].map((_, index) => <FullGift key={index} />)

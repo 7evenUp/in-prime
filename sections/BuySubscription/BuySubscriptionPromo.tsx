@@ -45,6 +45,10 @@ const BuySubscriptionPromo = ({
 }) => {
   const { isAuth } = useAppSelector((state) => state.auth)
   const { boxesLeft, boxesUsed } = useAppSelector((state) => state.auth)
+  const safeBoxesLeft =
+    isNaN(boxesLeft) || boxesLeft === null || boxesLeft === undefined
+      ? 0
+      : boxesLeft
 
   const [showMonthlyPrice, setShowMonthlyPrice] = useState(true)
   const [promoForSubmit, setPromoForSubmit] = useState("")
@@ -373,7 +377,7 @@ const BuySubscriptionPromo = ({
             <div className={styles.openings}>
               <div className={styles.openings__count}>
                 <span className={styles.openings__count__left}>
-                  Осталось открытий: {boxesLeft}
+                  Осталось открытий: {safeBoxesLeft}
                 </span>
                 <span className={styles.openings__count__used}>
                   Использовано попыток: {boxesUsed}
@@ -568,17 +572,16 @@ const SubscriptionCard = ({
                 </>
               )}
             </span>
-            {showMonthlyPrice && (
-              <span
-                className={clsx(
-                  Number.isInteger(cardPrice)
-                    ? styles.price_month
-                    : styles.price_month_fractional
-                )}
-              >
-                / мес
-              </span>
-            )}
+
+            <span
+              className={clsx(
+                Number.isInteger(cardPrice)
+                  ? styles.price_month
+                  : styles.price_month_fractional
+              )}
+            >
+              {showMonthlyPrice && <>/ мес</>}
+            </span>
           </div>
           {duration.id === 1 &&
             discountKind &&
