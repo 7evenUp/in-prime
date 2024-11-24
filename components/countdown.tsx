@@ -41,17 +41,29 @@ const Countdown: React.FC<CountdownProps> = ({
 
   return (
     <span className={className}>
-      <div className={clsx("date", classNameNumber)} key={1}>
+      <div
+        className={clsx("date", classNameNumber)}
+        key={1}
+        suppressHydrationWarning
+      >
         {timeLeft.days / 10 >= 1 ? "" : "0"}
         {timeLeft.days}
       </div>
       <div className="sep">:</div>
-      <div className={clsx("date", classNameNumber)} key={2}>
+      <div
+        className={clsx("date", classNameNumber)}
+        key={2}
+        suppressHydrationWarning
+      >
         {timeLeft.hours / 10 >= 1 ? "" : "0"}
         {timeLeft.hours}
       </div>
       <div className="sep">:</div>
-      <div className={clsx("date", classNameNumber)} key={3}>
+      <div
+        className={clsx("date", classNameNumber)}
+        key={3}
+        suppressHydrationWarning
+      >
         {timeLeft.minutes / 10 >= 1 ? "" : "0"}
         {timeLeft.minutes}
       </div>
