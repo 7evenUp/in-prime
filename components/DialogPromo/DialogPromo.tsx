@@ -13,6 +13,7 @@ const DialogPromo = ({
   imgSrc,
   rarity,
   bgColor,
+  link,
   nftImageUrl,
 }: {
   children: React.ReactNode
@@ -21,6 +22,7 @@ const DialogPromo = ({
   imgSrc: string
   rarity?: string | null
   bgColor?: string | null
+  link?: string | null
   nftImageUrl?: string | null
 }) => (
   <DialogPrimitive.Root>
@@ -32,10 +34,10 @@ const DialogPromo = ({
           {imgSrc && (
             <div className={styles.avatar}>
               <img src={imgSrc} alt={name} className={styles.avatar} />
-              <div
+              {/* <div
                 className={styles.avatar__line}
                 style={{ background: getColorByRarity(rarity, bgColor) }}
-              />
+              /> */}
             </div>
           )}
 
@@ -45,15 +47,27 @@ const DialogPromo = ({
               className={styles.description}
               dangerouslySetInnerHTML={{ __html: description }}
             />
-            {nftImageUrl && (
-              <a
-                href={nftImageUrl}
-                target="_blank"
-                className={clsx(styles.description, styles.description_link)}
-              >
-                подробнее
-              </a>
-            )}
+            <div className={styles.description_links}>
+              {link && (
+                <a
+                  href={link}
+                  target="_blank"
+                  className={clsx(styles.description, styles.description_link)}
+                >
+                  подробнее
+                </a>
+              )}
+              {nftImageUrl && <span>, </span>}
+              {nftImageUrl && (
+                <a
+                  href={nftImageUrl}
+                  target="_blank"
+                  className={clsx(styles.description, styles.description_link)}
+                >
+                  GetGems
+                </a>
+              )}
+            </div>
           </div>
         </div>
         <p
