@@ -277,19 +277,22 @@ const LastGift = ({
   prizeTitle,
   userProfileAvatar,
   userProfileName,
+  prizeDescription,
+  prizeRarity,
 }: ILastOpenedContainer) => {
   return (
-    // <DialogPromo
-    //   description={description}
-    //   name={text}
-    //   rarity={rarity}
-    //   bgColor={bgColor}
-    //   imgSrc={image}
-    // >
     <div className={styles.gift}>
-      <div className={styles.gift__image}>
-        <img src={prizeImageUrl} alt={prizeTitle} />
-      </div>
+      <DialogPromo
+        description={prizeDescription}
+        name={prizeTitle}
+        rarity={prizeRarity}
+        imgSrc={prizeImageUrl}
+      >
+        <div className={styles.gift__image}>
+          <img src={prizeImageUrl} alt={prizeTitle} />
+        </div>
+      </DialogPromo>
+
       <div className={styles.gift__hero}>
         <div
           className={styles.gift__hero__img}
@@ -301,7 +304,7 @@ const LastGift = ({
         {calculateTimeDifference(openedDatetime)}
       </div>
     </div>
-    // </DialogPromo>
+    //{" "}
   )
 }
 

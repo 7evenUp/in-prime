@@ -45,4 +45,6 @@ export interface ILastOpenedContainer {
   prizeTitle: string
   userProfileAvatar: string
   userProfileName: string
+  prizeDescription: string
+  prizeRarity: string | null
 }
