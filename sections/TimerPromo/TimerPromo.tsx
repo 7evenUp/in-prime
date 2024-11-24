@@ -156,6 +156,7 @@ const TimerPromo = () => {
                       remainingQuantity={prize.remainingQuantity}
                       rarity={prize.prize.rarity}
                       bgColor={prize.prize.backgorundColor}
+                      link={prize.prize.link}
                       nftImageUrl={prize.prize.nftImageUrl}
                     />
                   ))}
@@ -234,6 +235,7 @@ const FullGift = ({
   remainingQuantity,
   rarity,
   bgColor,
+  link,
   nftImageUrl,
 }: {
   text?: string
@@ -242,6 +244,7 @@ const FullGift = ({
   remainingQuantity?: number
   rarity?: string | null
   bgColor?: string | null
+  link?: string | null
   nftImageUrl?: string | null
 }) => {
   return (
@@ -251,6 +254,7 @@ const FullGift = ({
       rarity={rarity}
       bgColor={bgColor}
       imgSrc={image}
+      link={link}
       nftImageUrl={nftImageUrl}
     >
       <div className={styles.fullGift}>
@@ -258,10 +262,10 @@ const FullGift = ({
           {image && <img src={image} alt={text} />}
         </div>
         <span className={styles.fullGift__text}>{text}</span>
-        <div
+        {/* <div
           className={styles.fullGift__line}
           style={{ background: getColorByRarity(rarity, bgColor) }}
-        />
+        /> */}
         {remainingQuantity !== undefined && (
           <div
             className={styles.fullGift__count}
