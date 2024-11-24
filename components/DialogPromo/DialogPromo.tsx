@@ -4,6 +4,7 @@ import * as DialogPrimitive from "@radix-ui/react-dialog"
 
 import styles from "./styles.module.scss"
 import { getColorByRarity } from "@/sections/TimerPromo/getColorByRarity"
+import clsx from "clsx"
 
 const DialogPromo = ({
   children,
@@ -12,6 +13,7 @@ const DialogPromo = ({
   imgSrc,
   rarity,
   bgColor,
+  nftImageUrl,
 }: {
   children: React.ReactNode
   name: string
@@ -19,6 +21,7 @@ const DialogPromo = ({
   imgSrc: string
   rarity?: string | null
   bgColor?: string | null
+  nftImageUrl?: string | null
 }) => (
   <DialogPrimitive.Root>
     <DialogPrimitive.Trigger asChild>{children}</DialogPrimitive.Trigger>
@@ -42,6 +45,15 @@ const DialogPromo = ({
               className={styles.description}
               dangerouslySetInnerHTML={{ __html: description }}
             />
+            {nftImageUrl && (
+              <a
+                href={nftImageUrl}
+                target="_blank"
+                className={clsx(styles.description, styles.description_link)}
+              >
+                подробнее
+              </a>
+            )}
           </div>
         </div>
         <p

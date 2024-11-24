@@ -33,6 +33,7 @@ export interface IPrize {
     file: string
     orderNumber: number
   }[]
+  nftImageUrl: string | null
 }
 
 export interface OpenContainerResponse {

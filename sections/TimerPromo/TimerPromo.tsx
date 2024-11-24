@@ -156,6 +156,7 @@ const TimerPromo = () => {
                       remainingQuantity={prize.remainingQuantity}
                       rarity={prize.prize.rarity}
                       bgColor={prize.prize.backgorundColor}
+                      nftImageUrl={prize.prize.nftImageUrl}
                     />
                   ))}
             </div>
@@ -233,6 +234,7 @@ const FullGift = ({
   remainingQuantity,
   rarity,
   bgColor,
+  nftImageUrl,
 }: {
   text?: string
   image?: string
@@ -240,6 +242,7 @@ const FullGift = ({
   remainingQuantity?: number
   rarity?: string | null
   bgColor?: string | null
+  nftImageUrl?: string | null
 }) => {
   return (
     <DialogPromo
@@ -248,6 +251,7 @@ const FullGift = ({
       rarity={rarity}
       bgColor={bgColor}
       imgSrc={image}
+      nftImageUrl={nftImageUrl}
     >
       <div className={styles.fullGift}>
         <div className={styles.fullGift__image}>
@@ -304,7 +308,6 @@ const LastGift = ({
         {calculateTimeDifference(openedDatetime)}
       </div>
     </div>
-    //{" "}
   )
 }
 
