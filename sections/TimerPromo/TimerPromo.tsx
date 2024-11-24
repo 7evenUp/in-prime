@@ -287,6 +287,8 @@ const LastGift = ({
   userProfileName,
   prizeDescription,
   prizeRarity,
+  prizeNftImageUrl,
+  prizeLink,
 }: ILastOpenedContainer) => {
   return (
     <div className={styles.gift}>
@@ -295,6 +297,8 @@ const LastGift = ({
         name={prizeTitle}
         rarity={prizeRarity}
         imgSrc={prizeImageUrl}
+        nftImageUrl={prizeNftImageUrl}
+        link={prizeLink}
       >
         <div className={styles.gift__image}>
           <img src={prizeImageUrl} alt={prizeTitle} />

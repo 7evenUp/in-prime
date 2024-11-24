@@ -48,4 +48,6 @@ export interface ILastOpenedContainer {
   userProfileName: string
   prizeDescription: string
   prizeRarity: string | null
+  prizeNftImageUrl: string | null
+  prizeLink: string | null
 }
