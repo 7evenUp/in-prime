@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import clsx from "clsx"
 import { useAutoAnimate } from "@formkit/auto-animate/react"
 
@@ -15,6 +15,7 @@ import DialogPromo from "@/components/DialogPromo/DialogPromo"
 import { useAppDispatch } from "@/redux/hooks"
 import { getColorByRarity } from "./getColorByRarity"
 import { calculateTimeDifference } from "./calculateTimeDifference"
+import { Swiper, SwiperSlide } from "swiper/react"
 
 const renderer = ({ days, hours, minutes, seconds, completed }) => {
   if (completed) {
@@ -46,8 +47,7 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
   }
 }
 
-const endDate = 1731621600000
-
+const endDate = 1732802340000
 const ID_URL = process.env.NEXT_PUBLIC_ID_URL + "/api/v1/"
 
 interface Item {
@@ -94,7 +94,19 @@ const TimerPromo = () => {
     refetchInterval: 60000,
   })
 
-  const [parent] = useAutoAnimate()
+  const swiperRef = useRef(null)
+  const [currentBlock, setCurrentBlock] = useState(0)
+
+  const [renderedItems, setRenderedItems] = useState([])
+  useEffect(() => {
+    if (openedBoxes?.length > renderedItems.length) {
+      const newItems = openedBoxes.slice(
+        0,
+        openedBoxes.length - renderedItems.length
+      )
+      setRenderedItems([...newItems, ...renderedItems])
+    }
+  }, [openedBoxes])
 
   return (
     <div className={styles.timer} id="gifts">
@@ -167,10 +179,45 @@ const TimerPromo = () => {
 
       <div className={styles.timer__last}>
         <h2 className={styles.timer__last__title}>Последние подарки</h2>
-        <div className={styles.timer__last__list} ref={parent}>
-          {openedBoxes?.map((item) => (
-            <LastGift key={item.openedDatetime} {...item} />
-          ))}
+
+        <div className={styles.navigation}>
+          <button
+            className={styles.arrow_btn}
+            onClick={() => swiperRef.current.swiper.slidePrev()}
+            style={{ opacity: currentBlock === 0 ? 0.5 : 1 }}
+          >
+            <Arrow className={styles.arrow_prev} />
+          </button>
+          <button
+            className={styles.arrow_btn}
+            onClick={() => swiperRef.current.swiper.slideNext()}
+            style={{
+              opacity: currentBlock === openedBoxes?.length - 1 ? 0.5 : 1,
+            }}
+          >
+            <Arrow className={styles.arrow_next} />
+          </button>
+        </div>
+        <div className={styles.timer__last__list}>
+          <Swiper
+            // @ts-ignore
+            ref={swiperRef}
+            onSlideChange={(swiper) => setCurrentBlock(swiper.activeIndex)}
+            slidesPerView={1}
+            spaceBetween={30}
+            style={{ width: "180px" }}
+          >
+            {openedBoxes?.map((item, index) => (
+              <SwiperSlide
+                key={item.openedDatetime}
+                className={`${styles.gift_slide} ${
+                  index < openedBoxes.length ? styles.new_gift : ""
+                }`}
+              >
+                <LastGift key={item.openedDatetime} {...item} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </div>
 
@@ -232,6 +279,13 @@ const LastGift = ({
   userProfileName,
 }: ILastOpenedContainer) => {
   return (
+    // <DialogPromo
+    //   description={description}
+    //   name={text}
+    //   rarity={rarity}
+    //   bgColor={bgColor}
+    //   imgSrc={image}
+    // >
     <div className={styles.gift}>
       <div className={styles.gift__image}>
         <img src={prizeImageUrl} alt={prizeTitle} />
@@ -247,7 +301,26 @@ const LastGift = ({
         {calculateTimeDifference(openedDatetime)}
       </div>
     </div>
+    // </DialogPromo>
   )
 }
 
 export default TimerPromo
+
+const Arrow = ({ className }: { className: string }) => (
+  <svg
+    className={className}
+    width="41"
+    height="14"
+    viewBox="0 0 41 14"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M33.7172 1L39.374 6.65685L33.7172 12.3137"
+      stroke="white"
+      strokeWidth="2"
+    />
+    <path d="M38.4 6.7168H0" stroke="white" strokeWidth="2" />
+  </svg>
+)
