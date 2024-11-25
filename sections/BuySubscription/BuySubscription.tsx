@@ -42,6 +42,7 @@ const BuySubscription = ({
     id: "MONEY" | "PERCENT"
     label: "Money" | "%"
   }>()
+
   const [discounts, setDiscounts] = useState<
     Array<{
       subscriptionId: number
@@ -286,6 +287,7 @@ const SubscriptionCard = ({
   } = subscription
 
   const [cardPrice, setCardPrice] = useState(0)
+  const [dialogOpen, setDialogOpen] = useState(false)
 
   const getSubscriptionPrice = () => {
     return individualPrice ? individualPrice : price
@@ -642,6 +644,8 @@ const SubscriptionCard = ({
         discounts={discounts}
         isPromoReferral={isPromoReferral}
         setIsPromoReferral={setIsPromoReferral}
+        dialogOpen={dialogOpen}
+        setDialogOpen={setDialogOpen}
       >
         <button className={styles.button}>Купить подписку</button>
       </BuySubscriptionDialog>

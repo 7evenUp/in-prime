@@ -2,6 +2,7 @@ import cryptonBonuses1 from "@/public/images/png/features/cryptonBonuses1.png"
 import cryptonBonuses2 from "@/public/images/png/features/cryptonBonuses2.png"
 import cryptonBonuses3 from "@/public/images/png/features/cryptonBonuses3.png"
 import cryptonBonuses4 from "@/public/images/png/features/cryptonBonuses4.png"
+import cryptonBonuses5 from "@/public/images/png/features/cryptonBonuses5.png"
 
 import calendar1 from "@/public/images/png/features/calendar-1.png"
 import calendar2 from "@/public/images/png/features/calendar-2.png"
@@ -32,6 +33,11 @@ import primeKit3 from "@/public/images/png/features/primeKit3.png"
 
 export const data = {
   cryptonBonuses: [
+    // {
+    //   imgSrc: cryptonBonuses5,
+    //   description:
+    //     "Календарь лучших и прибыльных активностей крипторынка в одном месте. Доступен в Telegram-боте и веб-интерфейсе.",
+    // },
     {
       imgSrc: cryptonBonuses1,
       description: "Розыгрыш WL и подарков.",

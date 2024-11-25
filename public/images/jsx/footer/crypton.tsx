@@ -1,8 +1,9 @@
 export default function Crypton() {
   return (
     <svg
-      
       viewBox="0 0 23 26"
+      width="23"
+      height="26"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >

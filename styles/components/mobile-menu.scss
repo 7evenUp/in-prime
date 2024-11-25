@@ -11,7 +11,7 @@
   }
 
   path {
-    fill: rgba(255, 255, 255, 0.4);
+    fill: white;
   }
 
   &__background {
@@ -46,13 +46,15 @@
       width: 305px;
       height: 1100px;
       right: 0px;
-      top: 415px;
+      // top: 415px;
       background-image: url("/images/svg/mobile-menu/sm-background.svg");
       background-repeat: no-repeat;
       z-index: -1;
 
       @media (max-width: 767px) {
         display: block;
+        top: 100%;
+        transform: translateY(-25%);
       }
     }
 
@@ -66,9 +68,11 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      margin-top: 49px;
-      height: 262px;
+      margin-top: 79px;
+      height: 393px;
       width: 100%;
+
+      align-items: center;
 
       &__item {
         font-family: "Resist Sans";
@@ -137,7 +141,9 @@
         }
 
         @media (max-width: 767px) {
-          margin-top: 50px;
+          margin-bottom: 32px;
+          margin-left: auto;
+          margin-right: auto;
         }
 
         &__link {
@@ -157,27 +163,45 @@
     }
 
     &__subscribe-block {
-      width: 180px;
+      width: 210px;
+      margin-left: auto;
+      margin-right: auto;
+
+      @media (max-width: 767px) {
+        width: 279px;
+      }
 
       &__subscribe {
-        width: 180px;
-        height: 28px;
+        width: 210px;
+        height: 38px;
         display: flex;
-        margin-top: 50px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 12px;
+
+        margin-top: 70px;
+        background: radial-gradient(
+          57.52% 59.26% at 53.22% 57.14%,
+          rgb(255, 239, 203) 0%,
+          rgb(255, 225, 157) 100%
+        );
 
         @media (max-width: 767px) {
-          width: 200px;
+          padding: 14px 20px;
+          width: 279px;
+          height: 48px;
         }
 
         &__text {
           font-family: "Resist Sans Medium";
           font-style: normal;
           font-weight: 400;
-          font-size: 18px;
-          line-height: 35px;
+          font-size: 16px;
+          line-height: normal;
+
           text-align: center;
-          text-decoration-line: underline;
-          color: #ffcd9f;
+          text-decoration-line: none;
+          color: #181818;
           letter-spacing: 0.017em;
 
           @media (max-width: 1919px) {
@@ -201,14 +225,36 @@
       }
     }
   }
+
+  &__bottom__wrapper {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+
+    &__copyright {
+      height: 57px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Inter", sans-serif;
+      font-weight: 300;
+      font-size: 12px;
+      text-align: center;
+      color: #fff;
+      opacity: 0.5;
+
+      border-top: 1px solid rgba(255, 255, 255, 0.3);
+    }
+  }
 }
 
 .mobile-menu-button {
   z-index: 11;
   cursor: pointer;
   &.open {
-    width: 26px;
-    height: 20px;
+    width: 24px;
+    height: 18px;
     background-image: url("/images/svg/mobile-menu/open-button.svg");
   }
 
@@ -218,5 +264,19 @@
     background-image: url("/images/svg/mobile-menu/close-button.svg");
     display: flex;
     align-self: flex-end;
+  }
+
+  &-wrapper {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #434343;
+    border-radius: 100%;
+
+    z-index: 101;
   }
 }

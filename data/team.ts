@@ -2,10 +2,8 @@ import HandsomeAvatar from "@/public/images/png/team/handsome.png"
 import BogdanNodeAvatar from "@/public/images/png/team/bogdan-node.png"
 import ZaharAvatar from "@/public/images/png/team/zahar.png"
 import VladimirAvatar from "@/public/images/png/team/vladimir.png"
-import SanyaAvatar from "@/public/images/png/team/sanya.png"
 import NikitaPrimeAvatar from "@/public/images/png/team/nikita-prime.png"
 import KirillAvatar from "@/public/images/png/team/kirill.png"
-import IvanPrimeAvatar from "@/public/images/png/team/ivan-prime.png"
 import AlekseiAvatar from "@/public/images/png/team/aleksei.png"
 import NikitaSupportAvatar from "@/public/images/png/team/nikita-support.png"
 import DaniilAvatar from "@/public/images/png/team/daniil.png"
@@ -13,6 +11,10 @@ import IrenAvatar from "@/public/images/png/team/iren.png"
 import EduardAvatar from "@/public/images/png/team/eduard.png"
 import BogdanAnalyticAvatar from "@/public/images/png/team/bogdan-analytic.png"
 import HermanAvatar from "@/public/images/png/team/herman.png"
+import MaximAvatrar from "@/public/images/png/team/maxim-prime.png"
+import YanAvatar from "@/public/images/png/team/yan-feedback.png"
+import SanyaAvatar from "@/public/images/png/team/sanya.png"
+import VladislavAvatar from "@/public/images/png/team/vladislav.png"
 
 export const teamData = [
   {
@@ -33,11 +35,11 @@ export const teamData = [
   },
   {
     id: "zahar",
-    name: "Захар",
-    position: "Куратор инфлюенсеров",
+    name: "Саня",
+    position: "Ведущий и диктор",
     description:
-      "Променял работу в нефтянке на крипту, в последствии заработав за год в 2 раза больше, чем на старой работе. Может рассказать подписчикам о том, чем отличаются насосы СВН от ЦНС, а также Layer1 от Layer2.",
-    imgSrc: ZaharAvatar,
+      "Полтора года в крипте. Зависим от тестнетов и ретродропов, любит больше только комиссии в ETH-сети. Прямо сейчас помогает зарабатывать всем желающим на крипте на <a href='https://www.youtube.com/@Cryptonxyz/videos' target='_blank'>нашем YouTube канале</a>.",
+    imgSrc: SanyaAvatar,
   },
   {
     id: "vladimir",
@@ -49,11 +51,11 @@ export const teamData = [
   },
   {
     id: "sanya",
-    name: "Саня",
-    position: "Ведущий и диктор",
+    name: "Ян",
+    position: "Обратная связь",
     description:
-      "Полтора года в крипте. Зависим от тестнетов и ретродропов, любит больше только комиссии в ETH-сети. Прямо сейчас помогает зарабатывать всем желающим на крипте на <a href='https://www.youtube.com/@Cryptonxyz/videos' target='_blank'>нашем YouTube канале</a>.",
-    imgSrc: SanyaAvatar,
+      "В сфере крипты с 2022 года, разбирается во всех криптоактивностях, но, в частности, кайфует от GameFi-проектов. Его задача - превращать отзывы в ценные идеи, которые помогут совершенствовать Prime. Всегда на связи!",
+    imgSrc: YanAvatar,
   },
   {
     id: "herman",
@@ -81,11 +83,11 @@ export const teamData = [
   },
   {
     id: "ivan",
-    name: "Иван",
+    name: "Максим",
     position: "Руководитель Prime",
     description:
-      "В команде с первых дней существования Prime, за это время успел залутать как мелкие дропы, так и более крупные — Arbitrum и XAI. Вместе с командой позаботиться о том, чтобы вы получали только самые актуальные инструменты для заработка!",
-    imgSrc: IvanPrimeAvatar,
+      "В крипте с 2020 года. Знает всё о  ретродропах, NFT, токенсейлах, тестнетах и нодах. Позаботится о том, чтобы в Prime были самые актуальные события и инструменты для заработка!",
+    imgSrc: MaximAvatrar,
   },
   {
     id: "aleksei",
@@ -129,10 +131,10 @@ export const teamData = [
   },
   {
     id: "bogdan-analytic",
-    name: "Богдан",
-    position: "Аналитик рынка",
+    name: "Владислав",
+    position: "Отдел поддержки",
     description:
-      "В криптовалюте с 2021 года; живет за счет трейдинга и крипты. Залутал NFT от Мураками Сатоси на 1 аккаунт из 1-го, когда участников было больше 10 млн. Сориентирует вас по крипто-рынку и активам, на которые обязательно стоит обратить внимание.",
-    imgSrc: BogdanAnalyticAvatar,
+      "В мире криптовалют сравнительно недавно, но уже успел пройти через периоды бурного роста и непростых испытаний, экспериментируя с разными подходами. Готов предложить помощь в решении технических вопросов и поделиться ценными советами для пользователей.",
+    imgSrc: VladislavAvatar,
   },
 ]

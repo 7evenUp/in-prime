@@ -7,8 +7,9 @@ import AuraImg from "@/public/images/png/partners/Aura.png"
 import NearImg from "@/public/images/png/partners/Near.png"
 import TrustImg from "@/public/images/png/partners/trustwallet.png"
 import TaikoImg from "@/public/images/png/partners/taiko.png"
-import DequestImg from "@/public/images/png/partners/dequest.png"
 import CyberImg from "@/public/images/png/partners/cyberconnect.png"
+import BitgetImg from "@/public/images/png/partners/bitget.png"
+import OKXImg from "@/public/images/png/partners/okx.png"
 
 import styles from "./Partners.module.scss"
 
@@ -24,7 +25,8 @@ const Partners = () => {
           <Image src={NearImg} alt="Near" />
           <Image src={TrustImg} alt="Trust Wallet" />
           <Image src={TaikoImg} alt="Taiko" />
-          <Image src={DequestImg} alt="DeQuest" />
+          <Image src={BitgetImg} alt="Bitget" />
+          <Image src={OKXImg} alt="OKX" />
           <Image src={CyberImg} alt="Cyber Connect" />
           {/* Дублирование для корректной анимации */}
           <Image src={BinanceImg} alt="Binance" aria-hidden="true" />
@@ -37,7 +39,8 @@ const Partners = () => {
           <Image src={NearImg} alt="Near" aria-hidden="true" />
           <Image src={TrustImg} alt="Trust Wallet" aria-hidden="true" />
           <Image src={TaikoImg} alt="Taiko" aria-hidden="true" />
-          <Image src={DequestImg} alt="DeQuest" aria-hidden="true" />
+          <Image src={BitgetImg} alt="Bitget" />
+          <Image src={OKXImg} alt="OKX" />
           <Image src={CyberImg} alt="Cyber Connect" aria-hidden="true" />
           {/* Дублирование для корректной анимации */}
           <Image src={BinanceImg} alt="Binance" aria-hidden="true" />
@@ -50,7 +53,8 @@ const Partners = () => {
           <Image src={NearImg} alt="Near" aria-hidden="true" />
           <Image src={TrustImg} alt="Trust Wallet" aria-hidden="true" />
           <Image src={TaikoImg} alt="Taiko" aria-hidden="true" />
-          <Image src={DequestImg} alt="DeQuest" aria-hidden="true" />
+          <Image src={BitgetImg} alt="Bitget" />
+          <Image src={OKXImg} alt="OKX" />
           <Image src={CyberImg} alt="Cyber Connect" aria-hidden="true" />
         </div>
       </div>

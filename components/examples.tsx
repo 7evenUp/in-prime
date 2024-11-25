@@ -8,6 +8,7 @@ import ToggleRight from "../public/images/jsx/icons/toggle-right"
 import { examples } from "@/data/examples"
 
 import { Resolution } from "@/types/resolution"
+import clsx from "clsx"
 
 const LINEAR_GRADIENTS = [
   "linear-gradient(90deg, #BB44CC 0%, #8AAEFB 52.08%, #4AE0CE 100%)",
@@ -16,9 +17,9 @@ const LINEAR_GRADIENTS = [
 ]
 
 const spaces = {
-  lgg: 50,
-  lg: 50,
-  md: 52,
+  lgg: 22,
+  lg: 22,
+  md: 22,
   sm: 20,
 }
 
@@ -86,8 +87,10 @@ const Examples = ({ resolution }: { resolution: Resolution }) => {
         <div className="examples-content__header__months">
           {Object.keys(examples).map((month, monthIndex) => (
             <div
-              className="examples-content__header__months__month"
-              style={{ opacity: monthIndex === currentMonth ? 1 : 0.5 }}
+              className={clsx(
+                "examples-content__header__months__month",
+                monthIndex === currentMonth && "active"
+              )}
               onClick={() => toggleMonth(monthIndex)}
               key={monthIndex}
             >
@@ -101,12 +104,13 @@ const Examples = ({ resolution }: { resolution: Resolution }) => {
             currentBlock={currentBlock}
             currentMonth={currentMonth}
             toggleBlock={toggleBlock}
+            resolution={resolution}
           />
         )}
       </div>
 
       <Swiper
-      // @ts-ignore
+        // @ts-ignore
         ref={swiperRef}
         onSlideChange={(swiper) => changeBlock(swiper.activeIndex)}
         initialSlide={currentBlock}
@@ -129,9 +133,9 @@ const Examples = ({ resolution }: { resolution: Resolution }) => {
             },
             projectIndex
           ) => {
-            if (currentGradient >= LINEAR_GRADIENTS.length) {
-              currentGradient = 0
-            }
+            // if (currentGradient >= LINEAR_GRADIENTS.length) {
+            //   currentGradient = 0
+            // }
 
             const swiper_slide = (
               <SwiperSlide
@@ -140,7 +144,7 @@ const Examples = ({ resolution }: { resolution: Resolution }) => {
                 style={{
                   opacity:
                     projectIndex < currentBlock
-                      ? 0
+                      ? 0.5
                       : projectIndex > currentBlock + 2
                       ? 0.5
                       : 1,
@@ -148,7 +152,7 @@ const Examples = ({ resolution }: { resolution: Resolution }) => {
               >
                 <div
                   className="examples-content__blocks__block__gradient"
-                  style={{ background: LINEAR_GRADIENTS[currentGradient] }}
+                  // style={{ background: LINEAR_GRADIENTS[currentGradient] }}
                 />
                 <Image
                   src={img}
@@ -170,10 +174,10 @@ const Examples = ({ resolution }: { resolution: Resolution }) => {
                     </div>
 
                     <div className="examples-content__blocks__block__content__in-out__col out">
-                      <div className="examples-content__blocks__block__content__in-out__col__title">
-                        Вложения: 
+                      <div className="examples-content__blocks__block__content__in-out__col__title white">
+                        Вложения:
                       </div>
-                      <div className="examples-content__blocks__block__content__in-out__col__sum">
+                      <div className="examples-content__blocks__block__content__in-out__col__sum white">
                         {spend}
                       </div>
                     </div>
@@ -201,19 +205,16 @@ const Examples = ({ resolution }: { resolution: Resolution }) => {
                     <div className="examples-content__blocks__block__content__extended-info__condition-description">
                       {condition}
                     </div>
-                    {
-                      resources ? (
-                        <>
-                          <div className="examples-content__blocks__block__content__extended-info__resources-title">
-                            Ресурсы:
-                          </div>
-                          <div className="examples-content__blocks__block__content__extended-info__resources-description">
-                            {resources}
-                          </div>
-                        </>
-                      ) : null
-                    }
-                    
+                    {resources ? (
+                      <>
+                        <div className="examples-content__blocks__block__content__extended-info__resources-title">
+                          Ресурсы:
+                        </div>
+                        <div className="examples-content__blocks__block__content__extended-info__resources-description">
+                          {resources}
+                        </div>
+                      </>
+                    ) : null}
 
                     {reportUrl != "crypton.xyz" && (
                       <a href={reportUrl} target="_blank">
@@ -229,19 +230,20 @@ const Examples = ({ resolution }: { resolution: Resolution }) => {
                 </div>
               </SwiperSlide>
             )
-            currentGradient++
+            // currentGradient++
             return swiper_slide
           }
         )}
       </Swiper>
 
-      {["md", "sm"].includes(resolution) && (
+      {/* {["md", "sm"].includes(resolution) && (
         <PaginationToggle
           currentBlock={currentBlock}
           currentMonth={currentMonth}
           toggleBlock={toggleBlock}
+          resolution={resolution}
         />
-      )}
+      )} */}
     </div>
   )
 }
@@ -252,9 +254,11 @@ const PaginationToggle = ({
   toggleBlock,
   currentBlock,
   currentMonth,
+  resolution,
 }: {
   currentMonth: number
   currentBlock: number
+  resolution: Resolution
   toggleBlock: (action: "up" | "down") => void
 }) => {
   const projectsLength = Object.entries(examples)[currentMonth][1].length
@@ -267,7 +271,11 @@ const PaginationToggle = ({
       >
         <ToggleLeft opacity={currentBlock === 0 ? 0.5 : 1} />
       </div>
-
+      {resolution === "lgg" && (
+        <div className="examples-content__header__toggle__count">
+          <span>{currentBlock + 1}</span>/<span>{projectsLength}</span>
+        </div>
+      )}
       <div
         className="examples-content__header__toggle__arrow"
         onClick={() => toggleBlock("up")}

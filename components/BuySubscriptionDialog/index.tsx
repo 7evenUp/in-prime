@@ -29,6 +29,7 @@ import {
 import { Resolution } from "@/types/resolution"
 
 import styles from "./styles.module.scss"
+import { toast } from "sonner"
 
 const ID_URL = process.env.NEXT_PUBLIC_ID_URL + "/api/v1/"
 const DEFAULT_CRYPTON_PROMO = "CRYPTON"
@@ -52,6 +53,8 @@ const BuySubscriptionDialog = ({
   discounts,
   isPromoReferral,
   setIsPromoReferral,
+  dialogOpen,
+  setDialogOpen,
 }: {
   children: React.ReactNode
   selectedSubscription: Subscription
@@ -74,9 +77,13 @@ const BuySubscriptionDialog = ({
     | undefined
   isPromoReferral: boolean
   setIsPromoReferral: React.Dispatch<React.SetStateAction<boolean>>
+  dialogOpen: boolean
+  setDialogOpen: (open: boolean) => void
 }) => {
   const router = useRouter()
   const referral = router.query.ref || ""
+
+  const closeRef = React.createRef<HTMLButtonElement>()
 
   const [isCryptonReferralSet, setIsCryptonReferralSet] = useState(false)
   const [promoWasUpdated, setPromoWasUpdated] = useState(false)
@@ -386,7 +393,7 @@ const BuySubscriptionDialog = ({
   }
 
   return (
-    <Dialog.Root>
+    <Dialog.Root open={dialogOpen} onOpenChange={setDialogOpen}>
       <Dialog.Trigger className={styles.trigger} asChild>
         {children}
       </Dialog.Trigger>
@@ -417,11 +424,17 @@ const BuySubscriptionDialog = ({
           }}
         >
           {isSuccess ? (
-            <PaymentStatus
-              paymentId={paymentID}
-              paymentUrl={paymentURL}
-              reset={reset}
-            />
+            <>
+              <Dialog.DialogClose className={styles.close} ref={closeRef}>
+                <div className={styles.close_icon} />
+              </Dialog.DialogClose>
+              <PaymentStatus
+                paymentId={paymentID}
+                paymentUrl={paymentURL}
+                reset={reset}
+                closeRef={closeRef}
+              />
+            </>
           ) : (
             <>
               <Dialog.DialogClose className={styles.close}>
@@ -638,14 +651,14 @@ const BuySubscriptionDialog = ({
                           >
                             {duration.id} МЕС
                           </span>
-                          {order !== 0 && (
+                          {/* {order !== 0 && (
                             <p className={styles.text_before_bonuses}>
                               {order === 1 && "Все, что входит в 1 месяц"}
                               {order === 2 && "Все, что входит в 3 месяца"}
                               {order === 3 && "Все, что входит в 6 месяцев"}
                             </p>
-                          )}
-                          {order !== 0 && (
+                          )} */}
+                          {/* {order !== 0 && (
                             <div
                               className={clsx(
                                 styles.bonuses_heading,
@@ -680,8 +693,8 @@ const BuySubscriptionDialog = ({
                                 ЭКСТРА БОНУСЫ
                               </span>
                             </div>
-                          )}
-                          <ul className={styles.bonuses}>
+                          )} */}
+                          {/* <ul className={styles.bonuses}>
                             {benefits.map((benefit) => (
                               <li key={benefit.id} className={styles.bonus}>
                                 <p className={styles.bonus_text}>
@@ -689,6 +702,69 @@ const BuySubscriptionDialog = ({
                                 </p>
                               </li>
                             ))}
+                          </ul> */}
+                          <ul className={styles.bonuses}>
+                            {order === 0 && (
+                              <>
+                                <li className={styles.bonus}>
+                                  <p className={styles.bonus_text}>
+                                    Все возможности Prime
+                                  </p>
+                                </li>
+                                <li className={styles.bonus}>
+                                  <p className={styles.bonus_text}>
+                                    1 открытие бокса
+                                  </p>
+                                  <div
+                                    className={clsx(
+                                      styles.subscription_box,
+                                      order === 0 &&
+                                        styles.subscription_box_first
+                                    )}
+                                  ></div>
+                                </li>
+                              </>
+                            )}
+                            {order === 1 && (
+                              <li className={styles.bonus}>
+                                <p className={styles.bonus_text}>
+                                  3 открытия бокса
+                                </p>
+                                <div
+                                  className={clsx(styles.subscription_box)}
+                                ></div>
+                              </li>
+                            )}
+                            {order === 2 && (
+                              <li className={styles.bonus}>
+                                <p className={styles.bonus_text}>
+                                  6 открытий боксов
+                                </p>
+                                <div
+                                  className={clsx(styles.subscription_box)}
+                                ></div>
+                              </li>
+                            )}
+                            {order === 3 && (
+                              <>
+                                <li className={styles.bonus}>
+                                  <p className={styles.bonus_text}>
+                                    приоритетная поддержка
+                                  </p>
+                                </li>
+                                <li className={styles.bonus}>
+                                  <p className={styles.bonus_text}>
+                                    12 открытий боксов
+                                  </p>
+                                  <div
+                                    className={clsx(
+                                      styles.subscription_box,
+                                      styles.subscription_box_first
+                                    )}
+                                  ></div>
+                                </li>
+                              </>
+                            )}
                           </ul>
                         </div>
                       ))}
@@ -743,11 +819,12 @@ const BuySubscriptionDialog = ({
                       <div className={styles.promo_wrapper}>
                         <input
                           name="promocode"
-                          placeholder={
-                            resolution === "sm"
-                              ? "Промокод"
-                              : "Промокод или рефкод"
-                          }
+                          // placeholder={
+                          //   resolution === "sm"
+                          //     ? "Промокод"
+                          //     : "Промокод или рефкод"
+                          // }
+                          placeholder="Промокод"
                           className={styles.input}
                           value={promocode}
                           onChange={onPromoInputChange}
@@ -900,12 +977,12 @@ const BuySubscriptionDialog = ({
                   </div>
                 </div>
               </form>
-              <p className={styles.crypton}>
+              {/* <p className={styles.crypton}>
                 Работает на базе Crypton ID от{" "}
                 <a href="https://crypton.xyz/" target="_blank">
                   Crypton
                 </a>
-              </p>
+              </p> */}
             </>
           )}
         </Dialog.Content>
@@ -920,10 +997,12 @@ const PaymentStatus = ({
   paymentUrl,
   paymentId,
   reset,
+  closeRef,
 }: {
   paymentUrl: string
   paymentId: number
   reset: () => void
+  closeRef?: React.RefObject<HTMLButtonElement>
 }) => {
   const { data: status, isLoading } = useQuery({
     queryKey: ["payment-status"],
@@ -936,6 +1015,20 @@ const PaymentStatus = ({
     },
     refetchInterval: 5000,
   })
+
+  const onClose = () => {
+    closeRef?.current?.click()
+  }
+
+  const onLater = () => {
+    onClose()
+    toast.info(
+      "Все неоткрытые боксы будут храниться у нас в течение 2 недель после окончания акции. После этого они автоматически откроются, а подарки будут добавлены в ваш инвентарь в Crypton ID.",
+      {
+        duration: 10000,
+      }
+    )
+  }
 
   if (isLoading || status === "PENDING") {
     return (
@@ -968,21 +1061,28 @@ const PaymentStatus = ({
     return (
       <>
         <div className={styles.status}>
-          <Check />
           <h2
             className={styles.status_heading}
             style={{ marginBottom: 30, lineHeight: 1.3 }}
           >
-            Успешно <br /> Оплачено
+            Готовы получать подарки?
           </h2>
           <p className={styles.status_after}>
-            Авторизуйтесь в{" "}
-            <a href="https://id.crypton.xyz" target="_blank">
-              личном кабинете Crypton ID
-            </a>{" "}
-            с почтой, указанной при оплате, чтобы воспользоваться всеми
-            возможностями Crypton Prime
+            Теперь у вас есть возможность открывать боксы с нашими топовыми
+            призами!
           </p>
+          <div className={styles.buttons}>
+            <button
+              type="button"
+              className={styles.buttons__close}
+              onClick={onClose}
+            >
+              К открытию подарков
+            </button>
+            <div onClick={onLater} className={styles.buttons__id}>
+              Позже
+            </div>
+          </div>
         </div>
       </>
     )

@@ -35,15 +35,15 @@ import scrollSrc from "@/public/images/png/roadmap/scroll.png"
 // ]
 
 export const data = [
+  // bottom: {
+  //   imgSrc: cantoSrc,
+  //   title: "Canto",
+  //   isDone: true,
+  //   earned: "$3400",
+  //   description: "Участвовали в тестнете и получили за это ретродроп.",
+  // },
   {
     top: {
-      imgSrc: cantoSrc,
-      title: "Canto",
-      isDone: true,
-      earned: "$3400",
-      description: "Участвовали в тестнете и получили за это ретродроп.",
-    },
-    bottom: {
       imgSrc: aptosSrc,
       title: "Aptos",
       isDone: true,
@@ -51,9 +51,7 @@ export const data = [
       description:
         "Ставили ноду Aptos по нашему руководству, попали в одну из фаз, заполнили форму и получили токены. Также в рамках активности можно было просто заминтить NFT, за которую команда начислила токены проекта на $1200.",
     },
-  },
-  {
-    top: {
+    bottom: {
       imgSrc: arbitrumSrc,
       title: "Arbitrum",
       isDone: true,
@@ -61,7 +59,9 @@ export const data = [
       description:
         "Были уверены в ретродропе от Arbitrum, отрабатывали эту активность по нашим руководствам и получили ретродроп на круглую сумму.",
     },
-    bottom: {
+  },
+  {
+    top: {
       imgSrc: suiSrc,
       title: "Sui",
       isDone: true,
@@ -69,9 +69,7 @@ export const data = [
       description:
         "Получили вайтлист к токенсейлу за раннее вступление в Discord проекта и успешно поучаствовали в нем. Также ставили ноду и получили за это токены проекта.",
     },
-  },
-  {
-    top: {
+    bottom: {
       imgSrc: arkhamSrc,
       title: "Arkham",
       isDone: true,
@@ -79,7 +77,9 @@ export const data = [
       description:
         "Участвовали в кампании по приглашению пользователей на сайт и получили за это дроп.",
     },
-    bottom: {
+  },
+  {
+    top: {
       imgSrc: altlayer,
       title: "Altlayer",
       isDone: true,
@@ -87,9 +87,7 @@ export const data = [
       description:
         "Проект, о котором мы говорили ещё в 2022 году, раздал дроп своим преданным пользователям. За холд пары NFT проекта получили токенов на сумму $50 000.",
     },
-  },
-  {
-    top: {
+    bottom: {
       imgSrc: starknetSrc,
       title: "Starknet",
       isDone: true,
@@ -97,7 +95,9 @@ export const data = [
       description:
         "Отрабатывали проект с марта 2022 года, что и привело нас к заработку в виде $2000 на аккаунт.",
     },
-    bottom: {
+  },
+  {
+    top: {
       imgSrc: layerzeroSrc,
       title: "LayerZero",
       isDone: true,
@@ -105,17 +105,26 @@ export const data = [
       description:
         "Один из самых отрабатываемых и популярных проектов, от которого ожидали больше.",
     },
-  },
-  {
-    top: {
+    bottom: {
       imgSrc: zkSyncSrc,
       title: "zkSync",
       isDone: true,
       earned: "до $20000",
       description:
         "Наиболее прибыльным критерием дропа оказалось предоставление ликвидности на длительном сроке. Что не все были способны поддерживать.",
-      isCurrent: true,
     },
+  },
+  {
+    top: {
+      imgSrc: scrollSrc,
+      title: "Scroll",
+      isDone: true,
+      earned: "до $1000",
+      isCurrent: true,
+      description:
+        "Отрабатываем ретродроп с помощью предоставления ликвидности, деплоя смарт-контракта, набивание транзакций и не только. Обо всём говорили в разборах Prime.",
+    },
+
     bottom: {
       imgSrc: partyDAOSrc,
       title: "PartyDAO",
@@ -158,16 +167,6 @@ export const data = [
       isBlured: true,
       description:
         "Довольно старый проект, который уже позволил не раз заработать на получение бесплатных профилях, но все ещё не раздал главный ретродроп.",
-    },
-  },
-  {
-    top: {
-      imgSrc: scrollSrc,
-      title: "Scroll",
-      isDone: false,
-      isBlured: true,
-      description:
-        "Отрабатываем ретродроп с помощью предоставления ликвидности, деплоя смарт-контракта, набивание транзакций и не только. Обо всём говорили в разборах Prime.",
     },
   },
 ]

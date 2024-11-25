@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useRef } from "react"
 import Image, { StaticImageData } from "next/image"
 import * as Tabs from "@radix-ui/react-tabs"
 import { Swiper, SwiperSlide } from "swiper/react"
@@ -41,6 +41,7 @@ const swiperWidth = {
 const Features = ({ resolution }: { resolution: Resolution }) => {
   return (
     <section className={styles.container} id="features">
+      <div className={styles.container_bg} />
       <h2 className={styles.title}>Новый уровень возможностей</h2>
       <FeaturesTabs resolution={resolution} />
     </section>
@@ -90,19 +91,19 @@ const FeaturesTabs = ({ resolution }: { resolution: Resolution }) => {
         <Tabs.Trigger className={styles.TabsTrigger} value="tab1">
           <div className={styles.trigger_container}>
             <div className={styles.icon_wrapper}>
-              <CalendarIcon />
-              <CalendarIconGradient />
+              <ContentIcon />
+              <ContentIconGradient />
             </div>
-            <span>Календарь по заработку</span>
+            <span>Экспертный контент</span>
           </div>
         </Tabs.Trigger>
         <Tabs.Trigger className={styles.TabsTrigger} value="tab2">
           <div className={styles.trigger_container}>
             <div className={styles.icon_wrapper}>
-              <ContentIcon />
-              <ContentIconGradient />
+              <CalendarIcon />
+              <CalendarIconGradient />
             </div>
-            <span>Экспертный контент</span>
+            <span>Календарь по заработку</span>
           </div>
         </Tabs.Trigger>
         <Tabs.Trigger className={styles.TabsTrigger} value="tab3">
@@ -141,7 +142,7 @@ const FeaturesTabs = ({ resolution }: { resolution: Resolution }) => {
             <span>Стартовый Prime-набор</span>
           </div>
         </Tabs.Trigger>
-        <Tabs.Trigger className={styles.TabsTrigger} value="tab7">
+        <Tabs.Trigger className={styles.TabsTrigger} value="tab6">
           <div className={styles.trigger_container}>
             <div className={styles.icon_wrapper}>
               <InvestingIcon />
@@ -150,7 +151,7 @@ const FeaturesTabs = ({ resolution }: { resolution: Resolution }) => {
             <span>Инвестируем за вас</span>
           </div>
         </Tabs.Trigger>
-        <Tabs.Trigger className={styles.TabsTrigger} value="cryptonBonuses">
+        <Tabs.Trigger className={styles.TabsTrigger} value="tab7">
           <div className={styles.trigger_container}>
             <div className={styles.icon_wrapper}>
               <CryptonBonusesIcon />
@@ -160,14 +161,12 @@ const FeaturesTabs = ({ resolution }: { resolution: Resolution }) => {
           </div>
         </Tabs.Trigger>
       </Tabs.List>
-      <Tabs.Content className={styles.TabsContent} value="cryptonBonuses">
-        <Slider data={featuresData.cryptonBonuses} resolution={resolution} />
-      </Tabs.Content>
+
       <Tabs.Content className={styles.TabsContent} value="tab1">
-        <Slider data={featuresData.calendar} resolution={resolution} />
+        <Slider data={featuresData.content} resolution={resolution} />
       </Tabs.Content>
       <Tabs.Content className={styles.TabsContent} value="tab2">
-        <Slider data={featuresData.content} resolution={resolution} />
+        <Slider data={featuresData.calendar} resolution={resolution} />
       </Tabs.Content>
       <Tabs.Content className={styles.TabsContent} value="tab3">
         <Slider data={featuresData.chat} resolution={resolution} />
@@ -181,8 +180,11 @@ const FeaturesTabs = ({ resolution }: { resolution: Resolution }) => {
       <Tabs.Content className={styles.TabsContent} value="primeKit">
         <Slider data={featuresData.primeKit} resolution={resolution} />
       </Tabs.Content>
-      <Tabs.Content className={styles.TabsContent} value="tab7">
+      <Tabs.Content className={styles.TabsContent} value="tab6">
         <Slider data={featuresData.investing} resolution={resolution} />
+      </Tabs.Content>
+      <Tabs.Content className={styles.TabsContent} value="tab7">
+        <Slider data={featuresData.cryptonBonuses} resolution={resolution} />
       </Tabs.Content>
     </Tabs.Root>
   )
@@ -196,34 +198,39 @@ const Slider = ({
   resolution: Resolution
 }) => {
   return (
-    <Swiper
-      slidesPerView={1}
-      style={{ width: swiperWidth[resolution] }}
-      className={styles.swiper}
-    >
-      {data.map(({ imgSrc, description }) => (
-        <SwiperSlide key={description} className={styles.swiper_slide_wrapper}>
-          {({ isActive }) => (
-            <div
-              className={styles.swiper_slide}
-              style={{ opacity: isActive ? 1 : 0 }}
-            >
-              <Image
-                className={styles.swiper_image}
-                src={imgSrc}
-                alt={`Image of: ${description}`}
-                quality={100}
-              />
-              {/* <p className={styles.description}>{description}</p> */}
-              {makeDescrLink(description)}
-            </div>
-          )}
-        </SwiperSlide>
-      ))}
+    <div className={styles.swiper__container}>
+      <Swiper
+        slidesPerView={1}
+        style={{ width: swiperWidth[resolution] }}
+        className={styles.swiper}
+      >
+        {data.map(({ imgSrc, description }) => (
+          <SwiperSlide
+            key={description}
+            className={styles.swiper_slide_wrapper}
+          >
+            {({ isActive }) => (
+              <div
+                className={styles.swiper_slide}
+                style={{ opacity: isActive ? 1 : 0 }}
+              >
+                <Image
+                  className={styles.swiper_image}
+                  src={imgSrc}
+                  alt={`Image of: ${description}`}
+                  quality={100}
+                />
+                {/* <p className={styles.description}>{description}</p> */}
+                {makeDescrLink(description)}
+              </div>
+            )}
+          </SwiperSlide>
+        ))}
 
-      <Navigation />
-      <Pagination amount={data.length} />
-    </Swiper>
+        <Navigation />
+        <Pagination amount={data.length} />
+      </Swiper>
+    </div>
   )
 }
 

@@ -17,9 +17,12 @@ import { Resolution } from "@/types/resolution"
 import { Promocode, Subscription } from "@/types/api-types"
 
 import styles from "./BuySubscriptionPromo.module.scss"
+import { useAppDispatch, useAppSelector } from "@/redux/hooks"
+import { setLoginIDModal } from "@/redux/reducers/modalReducer"
+import Scroller from "@/components/Scroller"
 
 const PRIME_SUBSCRIPTION_KIND_ID = 1
-const ID_URL = process.env.NEXT_PUBLIC_ID_URL + "/api/v1/"
+const ID_URL = process.env.NEXT_PUBLIC_ID_URL
 const SPECIAL_PROMO = process.env.NEXT_PUBLIC_PROMO
 const DEFAULT_CRYPTON_PROMO = "CRYPTON"
 
@@ -40,6 +43,13 @@ const BuySubscriptionPromo = ({
   }
   resolution: Resolution
 }) => {
+  const { isAuth } = useAppSelector((state) => state.auth)
+  const { boxesLeft, boxesUsed } = useAppSelector((state) => state.auth)
+  const safeBoxesLeft =
+    isNaN(boxesLeft) || boxesLeft === null || boxesLeft === undefined
+      ? 0
+      : boxesLeft
+
   const [showMonthlyPrice, setShowMonthlyPrice] = useState(true)
   const [promoForSubmit, setPromoForSubmit] = useState("")
   const [isPromoReferral, setIsPromoReferral] = useState(false)
@@ -57,7 +67,9 @@ const BuySubscriptionPromo = ({
   const [validFor, setValidFor] = useState([])
   const [invalidFor, setInvalidFor] = useState([])
 
-  const [timerProgress, setTimerProgress] = useState(0)
+  const [dialogOpen, setDialogOpen] = useState(false)
+
+  // const [timerProgress, setTimerProgress] = useState(0)
 
   const {
     data: subscriptions,
@@ -67,7 +79,7 @@ const BuySubscriptionPromo = ({
     queryKey: ["subscriptions"],
     queryFn: async () => {
       const response = await axios.get<Subscription[]>(
-        ID_URL + "subscriptions/get-active/"
+        ID_URL + "/api/v1/subscriptions/get-active/"
       )
 
       return response.data.filter(
@@ -75,6 +87,113 @@ const BuySubscriptionPromo = ({
       )
     },
   })
+
+  // const subscriptions: Subscription[] = [
+  //   {
+  //     id: 1,
+  //     baseDiscount: null,
+  //     baseDiscountAmount: null,
+  //     benefits: [
+  //       {
+  //         id: 1,
+  //         file: null,
+  //         translations: {
+  //           ru: {
+  //             name: "1",
+  //             description: null,
+  //           },
+  //         },
+  //         remainingCount: null,
+  //       },
+  //     ],
+  //     duration: {
+  //       id: 1,
+  //       label: "10",
+  //     },
+  //     isActive: true,
+  //     kindId: 1, // 1 - prime | 2 - calendar
+  //     name: "1",
+  //     price: 99,
+  //   },
+  //   {
+  //     id: 2,
+  //     baseDiscount: 5,
+  //     baseDiscountAmount: 99,
+  //     benefits: [
+  //       {
+  //         id: 1,
+  //         file: null,
+  //         translations: {
+  //           ru: {
+  //             name: "1",
+  //             description: null,
+  //           },
+  //         },
+  //         remainingCount: null,
+  //       },
+  //     ],
+  //     duration: {
+  //       id: 1,
+  //       label: "10",
+  //     },
+  //     isActive: true,
+  //     kindId: 1, // 1 - prime | 2 - calendar
+  //     name: "3",
+  //     price: 99,
+  //   },
+  //   {
+  //     id: 3,
+  //     baseDiscount: 10,
+  //     baseDiscountAmount: 99,
+  //     benefits: [
+  //       {
+  //         id: 1,
+  //         file: null,
+  //         translations: {
+  //           ru: {
+  //             name: "1",
+  //             description: null,
+  //           },
+  //         },
+  //         remainingCount: null,
+  //       },
+  //     ],
+  //     duration: {
+  //       id: 1,
+  //       label: "10",
+  //     },
+  //     isActive: true,
+  //     kindId: 1, // 1 - prime | 2 - calendar
+  //     name: "3",
+  //     price: 99,
+  //   },
+  //   {
+  //     id: 4,
+  //     baseDiscount: 15,
+  //     baseDiscountAmount: 99,
+  //     benefits: [
+  //       {
+  //         id: 1,
+  //         file: null,
+  //         translations: {
+  //           ru: {
+  //             name: "1",
+  //             description: null,
+  //           },
+  //         },
+  //         remainingCount: null,
+  //       },
+  //     ],
+  //     duration: {
+  //       id: 1,
+  //       label: "10",
+  //     },
+  //     isActive: true,
+  //     kindId: 1, // 1 - prime | 2 - calendar
+  //     name: "3",
+  //     price: 99,
+  //   },
+  // ]
 
   const {
     mutateAsync: mutatePromoValidation,
@@ -88,21 +207,21 @@ const BuySubscriptionPromo = ({
       promocode: string
       subscriptionId: number
     }) =>
-      axios.post<Promocode>(ID_URL + "promo-codes/validate/", {
+      axios.post<Promocode>(ID_URL + "/api/v1/promo-codes/validate/", {
         promocode,
         subscription: subscriptionId,
       }),
   })
 
-  useEffect(() => {
-    setTimerProgress(
-      Math.round(
-        Date.now() >= START_DATE
-          ? ((Date.now() - START_DATE) / (END_DATE - START_DATE)) * 100
-          : 0
-      )
-    )
-  }, [])
+  // useEffect(() => {
+  //   setTimerProgress(
+  //     Math.round(
+  //       Date.now() >= START_DATE
+  //         ? ((Date.now() - START_DATE) / (END_DATE - START_DATE)) * 100
+  //         : 0
+  //     )
+  //   )
+  // }, [])
 
   useEffect(() => {
     const url = new URL(location.href)
@@ -162,151 +281,141 @@ const BuySubscriptionPromo = ({
   }
 
   return (
-    <div className="app__container__subscribe" id="subscribe">
-      <div className="app__container__subscribe__noise" />
-      <div className="app__container__subscribe__back">
-        <div className="app__container__subscribe__back__left-gradient" />
-        <div className="app__container__subscribe__back__right-gradient" />
-      </div>
-      <div className="app__container__subscribe__content">
-        <div className="app__container__subscribe__content__header">
-          <div className="app__container__subscribe__content__title" />
-        </div>
+    <div className="app__container__subscribe__wrapper">
+      <div className="app__container__subscribe__promoback" />
 
-        <div className={styles.switch}>
-          <span className={styles.show_price}>Показать цену:</span>
-          <div className={styles.switch_container}>
-            <span
-              className={clsx(
-                styles.switch_text,
-                showMonthlyPrice && styles.switch_text__active
-              )}
-              onClick={() => setShowMonthlyPrice(true)}
-            >
-              в месяц
-            </span>
-            <Switch.Root
-              className={styles.SwitchRoot}
-              checked={showMonthlyPrice}
-              onCheckedChange={setShowMonthlyPrice}
-            >
-              <Switch.Thumb className={styles.SwitchThumb} />
-            </Switch.Root>
-            <span
-              className={clsx(
-                styles.switch_text,
-                !showMonthlyPrice && styles.switch_text__active
-              )}
-              onClick={() => setShowMonthlyPrice(false)}
-            >
-              за весь период
-            </span>
+      <div className="app__container__subscribe" id="subscribe">
+        <div className="app__container__subscribe__noise" />
+        {/* <div className="app__container__subscribe__back"> */}
+        {/* <div className="app__container__subscribe__back__left-gradient" />
+          <div className="app__container__subscribe__back__right-gradient" /> */}
+        {/* </div> */}
+        <div className="app__container__subscribe__content">
+          <div className="app__container__subscribe__content__header">
+            <h1 className="app__container__subscribe__content__title">
+              Оформите подписку
+            </h1>
           </div>
-        </div>
 
-        {subscriptions && (
-          <div className={styles.subscriptions}>
-            {subscriptions.map((el, i) => (
-              <SubscriptionCard
-                key={el.id}
-                subscription={el}
-                order={i}
-                resolution={resolution}
-                showMonthlyPrice={showMonthlyPrice}
-                promoForSubmit={promoForSubmit}
-                setPromoForSubmit={setPromoForSubmit}
-                isPromoReferral={isPromoReferral}
-                setIsPromoReferral={setIsPromoReferral}
-                discounts={discounts}
-                discountAmount={discountAmount}
-                discountKind={discountKind}
-                isPromoPending={isPending}
-                isValidForPromo={
-                  validFor.length === 0 && invalidFor.length === 0
-                    ? true
-                    : invalidFor.length === 0 && validFor.includes(el.id)
-                    ? true
-                    : validFor.length === 0 && !invalidFor.includes(el.id)
-                    ? true
-                    : validFor.length !== 0 &&
-                      invalidFor.length !== 0 &&
-                      validFor.includes(el.id)
-                    ? true
-                    : false
-                }
-              />
-            ))}
+          <div className={styles.switch}>
+            <span className={styles.show_price}>Показать цену:</span>
+            <div className={styles.switch_container}>
+              <span
+                className={clsx(
+                  styles.switch_text,
+                  showMonthlyPrice && styles.switch_text__active
+                )}
+                onClick={() => setShowMonthlyPrice(true)}
+              >
+                в месяц
+              </span>
+              <Switch.Root
+                className={styles.SwitchRoot}
+                checked={showMonthlyPrice}
+                onCheckedChange={setShowMonthlyPrice}
+              >
+                <Switch.Thumb className={styles.SwitchThumb} />
+              </Switch.Root>
+              <span
+                className={clsx(
+                  styles.switch_text,
+                  !showMonthlyPrice && styles.switch_text__active
+                )}
+                onClick={() => setShowMonthlyPrice(false)}
+              >
+                за весь период
+              </span>
+            </div>
           </div>
-        )}
 
-        <div className={styles.support_wrapper}>
-          <p className={styles.support}>
-            Остались вопросы? Задай их нашему{" "}
-            <a
-              href="https://t.me/crypton_support"
-              target="_blank"
-              className={styles.support_link}
-            >
-              специалисту в Телеграм
-            </a>
-          </p>
-          <div className={styles.first_100_card}>
-            <p className={styles.first_100_card_top}>
-              Первые <span>99 пользователей</span>, купивших подписку во время
-              акции, получат кэшбэк $10 на баланс
+          {subscriptions && (
+            <div className={styles.subscriptions}>
+              {subscriptions.map((el, i) => (
+                <SubscriptionCard
+                  key={el.id}
+                  subscription={el}
+                  order={i}
+                  resolution={resolution}
+                  showMonthlyPrice={showMonthlyPrice}
+                  promoForSubmit={promoForSubmit}
+                  setPromoForSubmit={setPromoForSubmit}
+                  isPromoReferral={isPromoReferral}
+                  setIsPromoReferral={setIsPromoReferral}
+                  discounts={discounts}
+                  discountAmount={discountAmount}
+                  discountKind={discountKind}
+                  isPromoPending={isPending}
+                  isValidForPromo={
+                    validFor.length === 0 && invalidFor.length === 0
+                      ? true
+                      : invalidFor.length === 0 && validFor.includes(el.id)
+                      ? true
+                      : validFor.length === 0 && !invalidFor.includes(el.id)
+                      ? true
+                      : validFor.length !== 0 &&
+                        invalidFor.length !== 0 &&
+                        validFor.includes(el.id)
+                      ? true
+                      : false
+                  }
+                />
+              ))}
+            </div>
+          )}
+
+          <div className={styles.support_wrapper}>
+            <p className={styles.support}>
+              Остались вопросы? Задай их нашему{" "}
+              <a
+                href="https://t.me/crypton_support"
+                target="_blank"
+                className={styles.support_link}
+              >
+                специалисту в Телеграм
+              </a>
             </p>
           </div>
-        </div>
+          {isAuth && (
+            <div className={styles.openings}>
+              <div className={styles.openings__count}>
+                <span className={styles.openings__count__left}>
+                  Осталось открытий: {safeBoxesLeft}
+                </span>
+                <span className={styles.openings__count__used}>
+                  Использовано попыток: {boxesUsed}
+                </span>
+              </div>
 
-        <div className="app__container__subscribe__content___timer__header">
-          <div className="app__container__subscribe__content__link__mark">
-            До конца акции осталось:
-          </div>
-          <div className="app__container__subscribe__content__timer__progress">
-            <div
-              className="app__container__subscribe__content__timer__progress__bar"
-              style={{ width: `${timerProgress + "%"}` }}
-            >
-              <div className="app__container__subscribe__content__timer__progress__bar__circle">
-                {" "}
-              </div>
+              <a
+                target="_blank"
+                href={ID_URL}
+                className={styles.openings__inventory}
+              >
+                Перейти в свой инвентарь
+              </a>
             </div>
-          </div>
-          <div className="app__container__subscribe__content__timer__countdown">
-            <Countdown
-              className="app__container__subscribe__content__timer__countdown__counter"
-              date={END_DATE}
-            />
-          </div>
-          <div className="app__container__subscribe__content__timer__countdown__names">
-            <div className="app__container__subscribe__content__timer__countdown__names__block">
-              <div className="app__container__subscribe__content__timer__countdown__names__block__text">
-                дней
-              </div>
-              <div className="app__container__subscribe__content__timer__countdown__names__block__text">
-                часов
-              </div>
-              <div className="app__container__subscribe__content__timer__countdown__names__block__text">
-                минут
-              </div>
-              <div className="app__container__subscribe__content__timer__countdown__names__block__text">
-                секунд
-              </div>
-            </div>
-          </div>
+          )}
         </div>
-
-        {/* <div className={styles.first_100}>
-          
-          <div className={styles.first_100_card}>
-            <div className={styles.first_100_remains}>
-              <span>Осталось:</span>
-              <div className={styles.first_100_separator} />
-              <span>{CASHBACK_REMAINS}</span>
-            </div>
-          </div>
-        </div> */}
       </div>
+      <Scroller setDialogOpen={setDialogOpen} />
+
+      <BuySubscriptionDialog
+        key={discountAmount}
+        selectedSubscription={subscriptions[0]}
+        order={0}
+        resolution={resolution}
+        promoForSubmit={promoForSubmit}
+        setPromoForSubmit={setPromoForSubmit}
+        discountAmount={discountAmount}
+        discountKind={discountKind}
+        discounts={discounts}
+        isPromoReferral={isPromoReferral}
+        setIsPromoReferral={setIsPromoReferral}
+        dialogOpen={dialogOpen}
+        setDialogOpen={setDialogOpen}
+      >
+        <button className={styles.button}>Купить подписку</button>
+      </BuySubscriptionDialog>
     </div>
   )
 }
@@ -363,6 +472,7 @@ const SubscriptionCard = ({
   } = subscription
 
   const [cardPrice, setCardPrice] = useState(0)
+  const [dialogOpen, setDialogOpen] = useState(false)
 
   const getSubscriptionPrice = () => {
     return individualPrice ? individualPrice : price
@@ -463,7 +573,7 @@ const SubscriptionCard = ({
 
   return (
     <div className={styles.subscription}>
-      {order === 3 && <div className={styles.profitable}>выгодно</div>}
+      {/* {order === 3 && <div className={styles.profitable}>выгодно</div>} */}
       <span className={styles.duration}>{duration.id} МЕС</span>
       {isPromoPending ? (
         <div className={styles.loading} />
@@ -483,21 +593,21 @@ const SubscriptionCard = ({
                 </>
               )}
             </span>
-            {showMonthlyPrice && (
-              <span
-                className={clsx(
-                  Number.isInteger(cardPrice)
-                    ? styles.price_month
-                    : styles.price_month_fractional
-                )}
-              >
-                / мес
-              </span>
-            )}
+
+            <span
+              className={clsx(
+                Number.isInteger(cardPrice)
+                  ? styles.price_month
+                  : styles.price_month_fractional
+              )}
+            >
+              {showMonthlyPrice && <>/ мес</>}
+            </span>
           </div>
           {duration.id === 1 &&
             discountKind &&
             discountAmount !== 0 &&
+            order !== 0 &&
             discounts && (
               <div className={styles.price_discount}>
                 <span className={styles.price_discount_percent}>
@@ -532,18 +642,37 @@ const SubscriptionCard = ({
           )}
         </div>
       )}
-      <p className={styles.text_before_bonuses}>
-        {order === 0 && (
-          <>
-            Все{" "}
-            <button onClick={scrollToOpportunities}>возможности Prime</button>
-          </>
+      <div className={styles.text_before_bonuses_wrapper}>
+        <p
+          className={clsx(
+            styles.text_before_bonuses,
+            order !== 0 && styles.text_before_bonuses_transparent
+          )}
+        >
+          {order === 0 && (
+            <>
+              Все{" "}
+              <button onClick={scrollToOpportunities}>возможности Prime</button>
+            </>
+          )}
+          {/* {order === 1 && "Все, что входит в 1 месяц"}
+          {order === 2 && "Все, что входит в 3 месяца"}
+          {order === 3 && "Все, что входит в 6 месяцев"} */}
+        </p>
+
+        {order === 3 && (
+          <p className={clsx(styles.text_before_bonuses)}>
+            + приоритетная поддержка
+          </p>
         )}
-        {order === 1 && "Все, что входит в 1 месяц"}
-        {order === 2 && "Все, что входит в 3 месяца"}
-        {order === 3 && "Все, что входит в 6 месяцев"}
-      </p>
-      <div className={styles.bonuses_heading}>
+        <p className={clsx(styles.text_before_bonuses)}>
+          {order === 0 && "+ 1 открытие бокса"}
+          {order === 1 && "+ 3 открытия бокса"}
+          {order === 2 && "+ 6 открытий боксов"}
+          {order === 3 && "+ 12 открытий боксов"}
+        </p>
+      </div>
+      {/* <div className={styles.bonuses_heading}>
         <div className={styles.bonuses_icon}>
           <svg
             width="12"
@@ -567,8 +696,8 @@ const SubscriptionCard = ({
           </svg>
         </div>
         <span className={styles.bonuses_heading_text}>ЭКСТРА БОНУСЫ</span>
-      </div>
-      <ul
+      </div> */}
+      {/* <ul
         className={clsx(
           styles.bonuses,
           (order === 1 || order === 2 || order === 3) && styles.bonuses__small
@@ -681,9 +810,23 @@ const SubscriptionCard = ({
               </li>
             )
           )}
-      </ul>
+      </ul> */}
 
-      <div className={styles.subscription_remains}>
+      <div
+        className={clsx(
+          styles.subscription_box,
+          order === 0 && styles.subscription_box_first
+        )}
+      >
+        <div className={styles.subscription_box_count}>
+          {order === 0 && "1"}
+          {order === 1 && "3"}
+          {order === 2 && "6"}
+          {order === 3 && "12"}
+        </div>
+      </div>
+
+      {/* <div className={styles.subscription_remains}>
         {benefits.map(
           (benefit) =>
             benefit.remainingCount !== null && (
@@ -693,7 +836,7 @@ const SubscriptionCard = ({
               </span>
             )
         )}
-      </div>
+      </div> */}
 
       <BuySubscriptionDialog
         key={discountAmount}
@@ -707,6 +850,8 @@ const SubscriptionCard = ({
         discounts={discounts}
         isPromoReferral={isPromoReferral}
         setIsPromoReferral={setIsPromoReferral}
+        dialogOpen={dialogOpen}
+        setDialogOpen={setDialogOpen}
       >
         <button className={styles.button}>Купить подписку</button>
       </BuySubscriptionDialog>
