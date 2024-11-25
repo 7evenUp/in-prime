@@ -31,7 +31,7 @@ const AuthService: FC<Props> = (props: Props) => {
       .then((res) => {
         localStorage.setItem("token", res.data.token)
         axios
-          .get(`${ID_URL}/auth/users/authenticate/`, {
+          .get(`${ID_URL}/users/authenticate/`, {
             withCredentials: true,
           })
           .then((res) => {
