@@ -67,6 +67,8 @@ const BuySubscriptionPromo = ({
   const [validFor, setValidFor] = useState([])
   const [invalidFor, setInvalidFor] = useState([])
 
+  const [dialogOpen, setDialogOpen] = useState(false)
+
   // const [timerProgress, setTimerProgress] = useState(0)
 
   const {
@@ -395,7 +397,25 @@ const BuySubscriptionPromo = ({
           )}
         </div>
       </div>
-      <Scroller />
+      <Scroller setDialogOpen={setDialogOpen} />
+
+      <BuySubscriptionDialog
+        key={discountAmount}
+        selectedSubscription={subscriptions[0]}
+        order={0}
+        resolution={resolution}
+        promoForSubmit={promoForSubmit}
+        setPromoForSubmit={setPromoForSubmit}
+        discountAmount={discountAmount}
+        discountKind={discountKind}
+        discounts={discounts}
+        isPromoReferral={isPromoReferral}
+        setIsPromoReferral={setIsPromoReferral}
+        dialogOpen={dialogOpen}
+        setDialogOpen={setDialogOpen}
+      >
+        <button className={styles.button}>Купить подписку</button>
+      </BuySubscriptionDialog>
     </div>
   )
 }
@@ -452,6 +472,7 @@ const SubscriptionCard = ({
   } = subscription
 
   const [cardPrice, setCardPrice] = useState(0)
+  const [dialogOpen, setDialogOpen] = useState(false)
 
   const getSubscriptionPrice = () => {
     return individualPrice ? individualPrice : price
@@ -829,6 +850,8 @@ const SubscriptionCard = ({
         discounts={discounts}
         isPromoReferral={isPromoReferral}
         setIsPromoReferral={setIsPromoReferral}
+        dialogOpen={dialogOpen}
+        setDialogOpen={setDialogOpen}
       >
         <button className={styles.button}>Купить подписку</button>
       </BuySubscriptionDialog>

@@ -317,6 +317,11 @@
       display: none;
     }
   }
+  &__subscriber {
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+  }
 }
 
 .fullGift {
@@ -545,16 +550,16 @@
     font-size: 32px;
     text-align: center;
     color: #fff;
-    margin-top: 110px;
-    margin-bottom: 0;
+    margin-bottom: 50px;
+    margin-top: 0;
 
     @media (max-width: 1367px) and (min-width: 768px) {
-      margin-top: 90px;
+      margin-top: 40px;
       font-size: 26px;
     }
 
     @media (max-width: 767px) {
-      margin-top: 60px;
+      margin-top: 10px;
       margin-bottom: 40px;
       font-size: 18px;
     }

@@ -53,6 +53,8 @@ const BuySubscriptionDialog = ({
   discounts,
   isPromoReferral,
   setIsPromoReferral,
+  dialogOpen,
+  setDialogOpen,
 }: {
   children: React.ReactNode
   selectedSubscription: Subscription
@@ -75,6 +77,8 @@ const BuySubscriptionDialog = ({
     | undefined
   isPromoReferral: boolean
   setIsPromoReferral: React.Dispatch<React.SetStateAction<boolean>>
+  dialogOpen: boolean
+  setDialogOpen: (open: boolean) => void
 }) => {
   const router = useRouter()
   const referral = router.query.ref || ""
@@ -389,7 +393,7 @@ const BuySubscriptionDialog = ({
   }
 
   return (
-    <Dialog.Root>
+    <Dialog.Root open={dialogOpen} onOpenChange={setDialogOpen}>
       <Dialog.Trigger className={styles.trigger} asChild>
         {children}
       </Dialog.Trigger>
@@ -711,6 +715,13 @@ const BuySubscriptionDialog = ({
                                   <p className={styles.bonus_text}>
                                     1 открытие бокса
                                   </p>
+                                  <div
+                                    className={clsx(
+                                      styles.subscription_box,
+                                      order === 0 &&
+                                        styles.subscription_box_first
+                                    )}
+                                  ></div>
                                 </li>
                               </>
                             )}
@@ -719,6 +730,9 @@ const BuySubscriptionDialog = ({
                                 <p className={styles.bonus_text}>
                                   3 открытия бокса
                                 </p>
+                                <div
+                                  className={clsx(styles.subscription_box)}
+                                ></div>
                               </li>
                             )}
                             {order === 2 && (
@@ -726,6 +740,9 @@ const BuySubscriptionDialog = ({
                                 <p className={styles.bonus_text}>
                                   6 открытий боксов
                                 </p>
+                                <div
+                                  className={clsx(styles.subscription_box)}
+                                ></div>
                               </li>
                             )}
                             {order === 3 && (
@@ -739,6 +756,12 @@ const BuySubscriptionDialog = ({
                                   <p className={styles.bonus_text}>
                                     12 открытий боксов
                                   </p>
+                                  <div
+                                    className={clsx(
+                                      styles.subscription_box,
+                                      styles.subscription_box_first
+                                    )}
+                                  ></div>
                                 </li>
                               </>
                             )}
@@ -845,7 +868,7 @@ const BuySubscriptionDialog = ({
                           }
                         </span>
                       )}
-                      {/* <span className={styles.support}>
+                      <span className={styles.support}>
                         Изучите{" "}
                         <Dialog.Close
                           style={{
@@ -880,7 +903,7 @@ const BuySubscriptionDialog = ({
                         >
                           Наставнику.
                         </a>
-                      </span> */}
+                      </span>
                     </div>
                   </div>
                 </div>

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react"
+import { FC, useEffect, useRef, useState } from "react"
 import {
   motion,
   useMotionValue,
@@ -20,7 +20,11 @@ import Skeleton from "./Skeleton"
 import { useMutation, useQuery } from "@tanstack/react-query"
 import axios from "axios"
 import { IContainers, OpenContainerResponse } from "@/types/promo-types"
-import { decBoxesLeft, incBoxesUsed } from "@/redux/reducers/modalReducer"
+import {
+  decBoxesLeft,
+  incBoxesUsed,
+  setLoginIDModal,
+} from "@/redux/reducers/modalReducer"
 
 const PRIZE_WIDTH = 136
 const GAP_BETWEEN_PRIZES = 16
@@ -33,7 +37,11 @@ const clickWheelSound = new Sound("./audio/click_wheel.mp3")
 
 const ID_URL = process.env.NEXT_PUBLIC_ID_URL + "/api/v1/"
 
-const Scroller = () => {
+interface IScroller {
+  setDialogOpen: (open: boolean) => void
+}
+
+const Scroller: FC<IScroller> = ({ setDialogOpen }) => {
   const itemPassedRef = useRef(0)
 
   const dispatch = useAppDispatch()
@@ -43,7 +51,7 @@ const Scroller = () => {
   const [animationStarted, setAnimationStarted] = useState(false)
   const [winOpened, setWinOpened] = useState(false)
 
-  const { boxesLeft } = useAppSelector((state) => state.auth)
+  const { boxesLeft, isAuth } = useAppSelector((state) => state.auth)
 
   const {
     data: containerData,
@@ -135,6 +143,16 @@ const Scroller = () => {
   ) => {
     event.preventDefault()
 
+    if (boxesLeft === 0 && isAuth) {
+      setDialogOpen(true)
+      return
+    }
+
+    if (!isAuth) {
+      dispatch(setLoginIDModal(true))
+      return
+    }
+
     if (
       !containerData ||
       containerData.containers.length === 0 ||
@@ -220,7 +238,7 @@ const Scroller = () => {
             <button
               className={styles.button}
               onClick={onOpenClick}
-              disabled={isOpenLoading || boxesLeft === 0}
+              disabled={isOpenLoading}
             >
               {isOpenLoading && (
                 <svg
