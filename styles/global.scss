@@ -226,6 +226,12 @@ p {
 
         cursor: pointer;
 
+        transition: scale 0.3s ease;
+
+        &:hover {
+          scale: 1.1;
+        }
+
         @media (max-width: 1919px) and (min-width: 1368px) {
           background-image: url("/images/png/earn/birthday-promo-lg.png");
 
@@ -1947,15 +1953,15 @@ p {
       z-index: 100;
       display: flex;
       justify-content: center;
-      padding-bottom: 65px;
+      padding-bottom: 0px;
       @media (max-width: 1919px) and (min-width: 1368px) {
         min-width: 1368px;
-        padding-bottom: 45px;
+        padding-bottom: 0px;
       }
 
       @media (max-width: 1367px) and (min-width: 768px) {
         min-width: 768px;
-        padding-bottom: 35px;
+        padding-bottom: 15px;
       }
 
       @media (max-width: 767px) {
@@ -1963,7 +1969,7 @@ p {
         margin-left: auto;
         margin-right: auto;
         width: 375px;
-        padding-bottom: 40px;
+        padding-bottom: 20px;
       }
 
       @media (max-width: 375px) {

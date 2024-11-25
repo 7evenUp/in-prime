@@ -571,7 +571,8 @@
     transition: all 0.15s ease-in-out;
 
     &:hover {
-      color: #bb44cc;
+      opacity: 0.8;
+      color: #ffcd9f;
     }
   }
 }
@@ -1278,4 +1279,25 @@
   bottom: -8px;
   transform: translateY(100%);
   max-width: 300px;
+}
+
+.subscription_box {
+  width: 125px;
+  height: 125px;
+  background-image: url("/images/png/buy-subscription/box_closed.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-left: auto;
+  margin-right: auto;
+
+  margin-top: 25px;
+  position: relative;
+
+  @media (max-width: 767px) {
+    margin-top: 27px;
+  }
+
+  &_first {
+    margin-top: 10px;
+  }
 }
