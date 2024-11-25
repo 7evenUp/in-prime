@@ -222,6 +222,9 @@
 
     &_first {
       margin-top: 50px;
+      @media (max-width: 767px) {
+        margin-top: 30px;
+      }
     }
 
     &_count {
@@ -350,7 +353,7 @@
 
   &_0 {
     @media (max-width: 767px) {
-      height: 65px;
+      height: 85px;
     }
   }
 
