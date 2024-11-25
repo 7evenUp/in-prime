@@ -38,10 +38,10 @@ const clickWheelSound = new Sound("./audio/click_wheel.mp3")
 const ID_URL = process.env.NEXT_PUBLIC_ID_URL + "/api/v1/"
 
 interface IScroller {
-  setDialogOpen: (open: boolean) => void
+  onNoBoxes: () => void
 }
 
-const Scroller: FC<IScroller> = ({ setDialogOpen }) => {
+const Scroller: FC<IScroller> = ({ onNoBoxes }) => {
   const itemPassedRef = useRef(0)
 
   const dispatch = useAppDispatch()
@@ -144,7 +144,7 @@ const Scroller: FC<IScroller> = ({ setDialogOpen }) => {
     event.preventDefault()
 
     if (boxesLeft === 0 && isAuth) {
-      setDialogOpen(true)
+      onNoBoxes()
       return
     }
 

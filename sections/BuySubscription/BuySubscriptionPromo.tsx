@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import { useRouter } from "next/router"
 import { useMutation, useQuery } from "@tanstack/react-query"
@@ -276,6 +276,12 @@ const BuySubscriptionPromo = ({
     validate()
   }, [promoForSubmit])
 
+  const buyRef = useRef(null)
+
+  const scrollToBlock = () => {
+    buyRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   if (isSubscriptionsError || isLoading) {
     return <OldBuySubscription tariffs={tariffs} resolution={resolution} />
   }
@@ -292,7 +298,7 @@ const BuySubscriptionPromo = ({
         {/* </div> */}
         <div className="app__container__subscribe__content">
           <div className="app__container__subscribe__content__header">
-            <h1 className="app__container__subscribe__content__title">
+            <h1 className="app__container__subscribe__content__title" ref={buyRef}>
               Оформите подписку
             </h1>
           </div>
@@ -397,7 +403,7 @@ const BuySubscriptionPromo = ({
           )}
         </div>
       </div>
-      <Scroller setDialogOpen={setDialogOpen} />
+      <Scroller onNoBoxes={scrollToBlock} />
 
       <BuySubscriptionDialog
         key={discountAmount}
