@@ -173,7 +173,7 @@ const Home = (props) => {
 
           <Team teamOpened={teamOpened} setTeamOpened={setTeamOpened} />
 
-          <Birthday />
+          {/* <Birthday /> */}
 
           <TimerPromo />
 

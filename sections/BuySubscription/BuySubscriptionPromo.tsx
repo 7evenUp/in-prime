@@ -31,6 +31,113 @@ const START_DATE = 1721907000000 // 25.07.2024 14:30:00
 const END_DATE = 1722718800000 // 03.08.2024 00:00:00
 const CASHBACK_REMAINS = 99
 
+const fallbackSubscriptions: Subscription[] = [
+  {
+    id: 1,
+    baseDiscount: null,
+    baseDiscountAmount: null,
+    benefits: [
+      {
+        id: 1,
+        file: null,
+        translations: {
+          ru: {
+            name: "1",
+            description: null,
+          },
+        },
+        remainingCount: null,
+      },
+    ],
+    duration: {
+      id: 1,
+      label: "10",
+    },
+    isActive: true,
+    kindId: 1, // 1 - prime | 2 - calendar
+    name: "1",
+    price: 99,
+  },
+  {
+    id: 2,
+    baseDiscount: 5,
+    baseDiscountAmount: 99,
+    benefits: [
+      {
+        id: 1,
+        file: null,
+        translations: {
+          ru: {
+            name: "1",
+            description: null,
+          },
+        },
+        remainingCount: null,
+      },
+    ],
+    duration: {
+      id: 1,
+      label: "10",
+    },
+    isActive: true,
+    kindId: 1, // 1 - prime | 2 - calendar
+    name: "3",
+    price: 99,
+  },
+  {
+    id: 3,
+    baseDiscount: 10,
+    baseDiscountAmount: 99,
+    benefits: [
+      {
+        id: 1,
+        file: null,
+        translations: {
+          ru: {
+            name: "1",
+            description: null,
+          },
+        },
+        remainingCount: null,
+      },
+    ],
+    duration: {
+      id: 1,
+      label: "10",
+    },
+    isActive: true,
+    kindId: 1, // 1 - prime | 2 - calendar
+    name: "3",
+    price: 99,
+  },
+  {
+    id: 4,
+    baseDiscount: 15,
+    baseDiscountAmount: 99,
+    benefits: [
+      {
+        id: 1,
+        file: null,
+        translations: {
+          ru: {
+            name: "1",
+            description: null,
+          },
+        },
+        remainingCount: null,
+      },
+    ],
+    duration: {
+      id: 1,
+      label: "10",
+    },
+    isActive: true,
+    kindId: 1, // 1 - prime | 2 - calendar
+    name: "3",
+    price: 99,
+  },
+]
+
 const BuySubscriptionPromo = ({
   tariffs,
   resolution,
@@ -78,122 +185,18 @@ const BuySubscriptionPromo = ({
   } = useQuery({
     queryKey: ["subscriptions"],
     queryFn: async () => {
-      const response = await axios.get<Subscription[]>(
-        ID_URL + "/api/v1/subscriptions/get-active/"
-      )
-
-      return response.data.filter(
-        (el) => el.isActive && el.kindId === PRIME_SUBSCRIPTION_KIND_ID
-      )
+      try {
+        const response = await axios.get<Subscription[]>(
+          `${ID_URL}/api/v1/subscriptions/get-active/`
+        )
+        return response.data.filter(
+          (el) => el.isActive && el.kindId === PRIME_SUBSCRIPTION_KIND_ID
+        )
+      } catch (error) {
+        return fallbackSubscriptions
+      }
     },
   })
-
-  // const subscriptions: Subscription[] = [
-  //   {
-  //     id: 1,
-  //     baseDiscount: null,
-  //     baseDiscountAmount: null,
-  //     benefits: [
-  //       {
-  //         id: 1,
-  //         file: null,
-  //         translations: {
-  //           ru: {
-  //             name: "1",
-  //             description: null,
-  //           },
-  //         },
-  //         remainingCount: null,
-  //       },
-  //     ],
-  //     duration: {
-  //       id: 1,
-  //       label: "10",
-  //     },
-  //     isActive: true,
-  //     kindId: 1, // 1 - prime | 2 - calendar
-  //     name: "1",
-  //     price: 99,
-  //   },
-  //   {
-  //     id: 2,
-  //     baseDiscount: 5,
-  //     baseDiscountAmount: 99,
-  //     benefits: [
-  //       {
-  //         id: 1,
-  //         file: null,
-  //         translations: {
-  //           ru: {
-  //             name: "1",
-  //             description: null,
-  //           },
-  //         },
-  //         remainingCount: null,
-  //       },
-  //     ],
-  //     duration: {
-  //       id: 1,
-  //       label: "10",
-  //     },
-  //     isActive: true,
-  //     kindId: 1, // 1 - prime | 2 - calendar
-  //     name: "3",
-  //     price: 99,
-  //   },
-  //   {
-  //     id: 3,
-  //     baseDiscount: 10,
-  //     baseDiscountAmount: 99,
-  //     benefits: [
-  //       {
-  //         id: 1,
-  //         file: null,
-  //         translations: {
-  //           ru: {
-  //             name: "1",
-  //             description: null,
-  //           },
-  //         },
-  //         remainingCount: null,
-  //       },
-  //     ],
-  //     duration: {
-  //       id: 1,
-  //       label: "10",
-  //     },
-  //     isActive: true,
-  //     kindId: 1, // 1 - prime | 2 - calendar
-  //     name: "3",
-  //     price: 99,
-  //   },
-  //   {
-  //     id: 4,
-  //     baseDiscount: 15,
-  //     baseDiscountAmount: 99,
-  //     benefits: [
-  //       {
-  //         id: 1,
-  //         file: null,
-  //         translations: {
-  //           ru: {
-  //             name: "1",
-  //             description: null,
-  //           },
-  //         },
-  //         remainingCount: null,
-  //       },
-  //     ],
-  //     duration: {
-  //       id: 1,
-  //       label: "10",
-  //     },
-  //     isActive: true,
-  //     kindId: 1, // 1 - prime | 2 - calendar
-  //     name: "3",
-  //     price: 99,
-  //   },
-  // ]
 
   const {
     mutateAsync: mutatePromoValidation,
@@ -279,10 +282,10 @@ const BuySubscriptionPromo = ({
   const buyRef = useRef(null)
 
   const scrollToBlock = () => {
-    buyRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
+    buyRef.current?.scrollIntoView({ behavior: "smooth" })
+  }
 
-  if (isSubscriptionsError || isLoading) {
+  if (isLoading) {
     return <OldBuySubscription tariffs={tariffs} resolution={resolution} />
   }
 
@@ -298,7 +301,10 @@ const BuySubscriptionPromo = ({
         {/* </div> */}
         <div className="app__container__subscribe__content">
           <div className="app__container__subscribe__content__header">
-            <h1 className="app__container__subscribe__content__title" ref={buyRef}>
+            <h1
+              className="app__container__subscribe__content__title"
+              ref={buyRef}
+            >
               Оформите подписку
             </h1>
           </div>
@@ -381,29 +387,8 @@ const BuySubscriptionPromo = ({
               </a>
             </p>
           </div>
-          {isAuth && (
-            <div className={styles.openings}>
-              <div className={styles.openings__count}>
-                <span className={styles.openings__count__left}>
-                  Осталось открытий: {safeBoxesLeft}
-                </span>
-                <span className={styles.openings__count__used}>
-                  Использовано попыток: {boxesUsed}
-                </span>
-              </div>
-
-              <a
-                target="_blank"
-                href={ID_URL}
-                className={styles.openings__inventory}
-              >
-                Перейти в свой инвентарь
-              </a>
-            </div>
-          )}
         </div>
       </div>
-      <Scroller onNoBoxes={scrollToBlock} />
 
       <BuySubscriptionDialog
         key={discountAmount}
@@ -652,7 +637,7 @@ const SubscriptionCard = ({
         <p
           className={clsx(
             styles.text_before_bonuses,
-            order !== 0 && styles.text_before_bonuses_transparent
+            order === 0 && styles.text_before_bonuses_priority
           )}
         >
           {order === 0 && (
@@ -666,19 +651,23 @@ const SubscriptionCard = ({
           {order === 3 && "Все, что входит в 6 месяцев"} */}
         </p>
 
+        <p className={clsx(styles.text_before_bonuses)}>
+          {order === 1 && "Все, что входит в 1 месяц"}
+          {order === 2 && "Все, что входит в 3 месяца"}
+          {order === 3 && "Все, что входит в 6 месяцев"}
+        </p>
         {order === 3 && (
-          <p className={clsx(styles.text_before_bonuses)}>
+          <p
+            className={clsx(
+              styles.text_before_bonuses,
+              styles.text_before_bonuses_priority
+            )}
+          >
             + приоритетная поддержка
           </p>
         )}
-        <p className={clsx(styles.text_before_bonuses)}>
-          {order === 0 && "+ 1 открытие бокса"}
-          {order === 1 && "+ 3 открытия бокса"}
-          {order === 2 && "+ 6 открытий боксов"}
-          {order === 3 && "+ 12 открытий боксов"}
-        </p>
       </div>
-      {/* <div className={styles.bonuses_heading}>
+      <div className={styles.bonuses_heading}>
         <div className={styles.bonuses_icon}>
           <svg
             width="12"
@@ -701,8 +690,17 @@ const SubscriptionCard = ({
             />
           </svg>
         </div>
-        <span className={styles.bonuses_heading_text}>ЭКСТРА БОНУСЫ</span>
-      </div> */}
+        <span
+          className={clsx(
+            styles.bonuses_heading_text,
+            order === 1 && styles.bonuses_heading_1,
+            order === 2 && styles.bonuses_heading_2,
+            order === 3 && styles.bonuses_heading_3
+          )}
+        >
+          ЭКСТРА БОНУСЫ
+        </span>
+      </div>
       {/* <ul
         className={clsx(
           styles.bonuses,
@@ -818,19 +816,30 @@ const SubscriptionCard = ({
           )}
       </ul> */}
 
-      <div
-        className={clsx(
-          styles.subscription_box,
-          order === 0 && styles.subscription_box_first
-        )}
-      >
-        <div className={styles.subscription_box_count}>
-          {order === 0 && "1"}
-          {order === 1 && "3"}
-          {order === 2 && "6"}
-          {order === 3 && "12"}
-        </div>
-      </div>
+      {order === 0 && (
+        <img
+          src="/images/png/buy-subscription/subscription_1.png"
+          className={clsx(styles.subscription_img)}
+        />
+      )}
+      {order === 1 && (
+        <img
+          src="/images/png/buy-subscription/subscription_2.png"
+          className={clsx(styles.subscription_img)}
+        />
+      )}
+      {order === 2 && (
+        <img
+          src="/images/png/buy-subscription/subscription_3.png"
+          className={clsx(styles.subscription_img)}
+        />
+      )}
+      {order === 3 && (
+        <img
+          src="/images/png/buy-subscription/subscription_4.png"
+          className={clsx(styles.subscription_img)}
+        />
+      )}
 
       {/* <div className={styles.subscription_remains}>
         {benefits.map(
