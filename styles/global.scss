@@ -209,9 +209,9 @@ p {
       }
 
       &__promo {
-        width: 279px;
-        height: 186px;
-        background-image: url("/images/png/earn/birthday-promo-lgg.png");
+        width: 225px;
+        height: 150px;
+        background-image: url("/images/png/earn/friday-promo-lgg.png");
         background-size: cover;
         position: fixed;
         bottom: 58px;
@@ -233,7 +233,7 @@ p {
         }
 
         @media (max-width: 1919px) and (min-width: 1368px) {
-          background-image: url("/images/png/earn/birthday-promo-lg.png");
+          background-image: url("/images/png/earn/friday-promo-lg.png");
 
           width: 180px;
           height: 120px;
@@ -246,7 +246,7 @@ p {
         }
 
         @media (max-width: 1367px) and (min-width: 768px) {
-          background-image: url("/images/png/earn/birthday-promo-lg.png");
+          background-image: url("/images/png/earn/friday-promo-lg.png");
 
           width: 180px;
           height: 120px;
@@ -259,7 +259,7 @@ p {
         }
 
         @media (max-width: 767px) {
-          background-image: url("/images/png/earn/birthday-promo-sm.png");
+          background-image: url("/images/png/earn/friday-promo-sm.png");
 
           width: 126px;
           height: 84px;
@@ -1972,7 +1972,7 @@ p {
         padding-bottom: 20px;
       }
 
-      @media (max-width: 375px) {
+      @media (max-width: 374px) {
         width: 280px;
       }
 

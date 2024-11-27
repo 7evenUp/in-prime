@@ -55,7 +55,7 @@ const fallbackSubscriptions: Subscription[] = [
     },
     isActive: true,
     kindId: 1, // 1 - prime | 2 - calendar
-    name: "1",
+    name: "1 month",
     price: 99,
   },
   {
@@ -76,13 +76,13 @@ const fallbackSubscriptions: Subscription[] = [
       },
     ],
     duration: {
-      id: 1,
-      label: "10",
+      id: 3,
+      label: "Three",
     },
     isActive: true,
     kindId: 1, // 1 - prime | 2 - calendar
-    name: "3",
-    price: 99,
+    name: "3 months",
+    price: 297,
   },
   {
     id: 3,
@@ -102,18 +102,18 @@ const fallbackSubscriptions: Subscription[] = [
       },
     ],
     duration: {
-      id: 1,
-      label: "10",
+      id: 6,
+      label: "Six",
     },
     isActive: true,
     kindId: 1, // 1 - prime | 2 - calendar
-    name: "3",
-    price: 99,
+    name: "6 months",
+    price: 594,
   },
   {
     id: 4,
     baseDiscount: 15,
-    baseDiscountAmount: 99,
+    baseDiscountAmount: 1188,
     benefits: [
       {
         id: 1,
@@ -128,13 +128,13 @@ const fallbackSubscriptions: Subscription[] = [
       },
     ],
     duration: {
-      id: 1,
-      label: "10",
+      id: 12,
+      label: "Twelve",
     },
     isActive: true,
     kindId: 1, // 1 - prime | 2 - calendar
-    name: "3",
-    price: 99,
+    name: "12 months",
+    price: 1188,
   },
 ]
 
@@ -150,13 +150,6 @@ const BuySubscriptionPromo = ({
   }
   resolution: Resolution
 }) => {
-  const { isAuth } = useAppSelector((state) => state.auth)
-  const { boxesLeft, boxesUsed } = useAppSelector((state) => state.auth)
-  const safeBoxesLeft =
-    isNaN(boxesLeft) || boxesLeft === null || boxesLeft === undefined
-      ? 0
-      : boxesLeft
-
   const [showMonthlyPrice, setShowMonthlyPrice] = useState(true)
   const [promoForSubmit, setPromoForSubmit] = useState("")
   const [isPromoReferral, setIsPromoReferral] = useState(false)
@@ -175,8 +168,6 @@ const BuySubscriptionPromo = ({
   const [invalidFor, setInvalidFor] = useState([])
 
   const [dialogOpen, setDialogOpen] = useState(false)
-
-  // const [timerProgress, setTimerProgress] = useState(0)
 
   const {
     data: subscriptions,
@@ -286,7 +277,11 @@ const BuySubscriptionPromo = ({
   }
 
   if (isLoading) {
-    return <OldBuySubscription tariffs={tariffs} resolution={resolution} />
+    return (
+      <div className="app__container__subscribe" id="subscribe">
+        {" "}
+      </div>
+    )
   }
 
   return (
@@ -601,7 +596,15 @@ const SubscriptionCard = ({
             // order !== 0 &&
             discounts && (
               <div className={styles.price_discount}>
-                <span className={styles.price_discount_percent}>
+                <span
+                  className={clsx(
+                    styles.price_discount_percent,
+                    order === 0 && styles.price_discount_percent_0,
+                    order === 1 && styles.price_discount_percent_1,
+                    order === 2 && styles.price_discount_percent_2,
+                    order === 3 && styles.price_discount_percent_3
+                  )}
+                >
                   -
                   {showMonthlyPrice
                     ? Math.round(
@@ -615,7 +618,15 @@ const SubscriptionCard = ({
             )}
           {baseDiscountAmount && (
             <div className={styles.price_discount}>
-              <span className={styles.price_discount_percent}>
+              <span
+                className={clsx(
+                  styles.price_discount_percent,
+                  order === 0 && styles.price_discount_percent_0,
+                  order === 1 && styles.price_discount_percent_1,
+                  order === 2 && styles.price_discount_percent_2,
+                  order === 3 && styles.price_discount_percent_3
+                )}
+              >
                 -
                 {discountKind && discountAmount && discounts
                   ? showMonthlyPrice
@@ -667,7 +678,12 @@ const SubscriptionCard = ({
           </p>
         )}
       </div>
-      <div className={styles.bonuses_heading}>
+      <div
+        className={clsx(
+          styles.bonuses_heading,
+          order === 0 && styles.bonuses_heading_first
+        )}
+      >
         <div className={styles.bonuses_icon}>
           <svg
             width="12"
@@ -818,26 +834,26 @@ const SubscriptionCard = ({
 
       {order === 0 && (
         <img
-          src="/images/png/buy-subscription/subscription_1.png"
+          src="/images/png/buy-subscription/subscription_1_friday.png"
           className={clsx(styles.subscription_img)}
         />
       )}
       {order === 1 && (
         <img
-          src="/images/png/buy-subscription/subscription_2.png"
+          src="/images/png/buy-subscription/subscription_2_friday.png"
           className={clsx(styles.subscription_img)}
         />
       )}
       {order === 2 && (
         <img
-          src="/images/png/buy-subscription/subscription_3.png"
+          src="/images/png/buy-subscription/subscription_3_friday.png"
           className={clsx(styles.subscription_img)}
         />
       )}
       {order === 3 && (
         <img
-          src="/images/png/buy-subscription/subscription_4.png"
-          className={clsx(styles.subscription_img)}
+          src="/images/png/buy-subscription/subscription_4_friday.png"
+          className={clsx(styles.subscription_img, styles.subscription_img_4)}
         />
       )}
 

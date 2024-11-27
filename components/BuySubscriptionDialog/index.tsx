@@ -651,14 +651,14 @@ const BuySubscriptionDialog = ({
                           >
                             {duration.id} МЕС
                           </span>
-                          {/* {order !== 0 && (
+                          {order !== 0 && (
                             <p className={styles.text_before_bonuses}>
                               {order === 1 && "Все, что входит в 1 месяц"}
                               {order === 2 && "Все, что входит в 3 месяца"}
                               {order === 3 && "Все, что входит в 6 месяцев"}
                             </p>
-                          )} */}
-                          {/* {order !== 0 && (
+                          )}
+                          {order !== 0 && (
                             <div
                               className={clsx(
                                 styles.bonuses_heading,
@@ -693,8 +693,8 @@ const BuySubscriptionDialog = ({
                                 ЭКСТРА БОНУСЫ
                               </span>
                             </div>
-                          )} */}
-                          {/* <ul className={styles.bonuses}>
+                          )}
+                          <ul className={styles.bonuses}>
                             {benefits.map((benefit) => (
                               <li key={benefit.id} className={styles.bonus}>
                                 <p className={styles.bonus_text}>
@@ -702,69 +702,6 @@ const BuySubscriptionDialog = ({
                                 </p>
                               </li>
                             ))}
-                          </ul> */}
-                          <ul className={styles.bonuses}>
-                            {order === 0 && (
-                              <>
-                                <li className={styles.bonus}>
-                                  <p className={styles.bonus_text}>
-                                    Все возможности Prime
-                                  </p>
-                                </li>
-                                <li className={styles.bonus}>
-                                  <p className={styles.bonus_text}>
-                                    1 открытие бокса
-                                  </p>
-                                  <div
-                                    className={clsx(
-                                      styles.subscription_box,
-                                      order === 0 &&
-                                        styles.subscription_box_first
-                                    )}
-                                  ></div>
-                                </li>
-                              </>
-                            )}
-                            {order === 1 && (
-                              <li className={styles.bonus}>
-                                <p className={styles.bonus_text}>
-                                  3 открытия бокса
-                                </p>
-                                <div
-                                  className={clsx(styles.subscription_box)}
-                                ></div>
-                              </li>
-                            )}
-                            {order === 2 && (
-                              <li className={styles.bonus}>
-                                <p className={styles.bonus_text}>
-                                  6 открытий боксов
-                                </p>
-                                <div
-                                  className={clsx(styles.subscription_box)}
-                                ></div>
-                              </li>
-                            )}
-                            {order === 3 && (
-                              <>
-                                <li className={styles.bonus}>
-                                  <p className={styles.bonus_text}>
-                                    приоритетная поддержка
-                                  </p>
-                                </li>
-                                <li className={styles.bonus}>
-                                  <p className={styles.bonus_text}>
-                                    12 открытий боксов
-                                  </p>
-                                  <div
-                                    className={clsx(
-                                      styles.subscription_box,
-                                      styles.subscription_box_first
-                                    )}
-                                  ></div>
-                                </li>
-                              </>
-                            )}
                           </ul>
                         </div>
                       ))}

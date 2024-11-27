@@ -15,7 +15,6 @@ import Partners from "@/sections/Partners/Partners"
 import Roadmap from "@/sections/Roadmap/Roadmap"
 import Earn from "@/sections/Earn/Earn"
 import Founders from "@/sections/founders/Founders"
-import BuySubscription from "@/sections/BuySubscription/BuySubscription"
 import OtherProducts from "@/sections/OtherProducts/OtherProducts"
 import Guarantee from "@/sections/Guarantee/Guarantee"
 import Advantages from "@/sections/Advantages/Advantages"
@@ -32,6 +31,7 @@ import TimerPromo from "@/sections/TimerPromo/TimerPromo"
 import AdvantagesSm from "@/sections/Advantages/AdvantagesSm"
 import FeaturesSm from "@/sections/Features/FeaturesSm"
 import LoginIdPopup from "@/components/LoginIdPopup/LoginIdPopup"
+import BuySubscription from "@/sections/BuySubscription/BuySubscription"
 
 const useWindowSize = () => {
   const [currentWidth, setCurrentWidth] = useState(0)
