@@ -1,10 +1,7 @@
-import React, { useEffect, useState } from "react"
-import Image from "next/image"
+import React, { useEffect, useRef, useState } from "react"
 import { useRouter } from "next/router"
 import { useMutation, useQuery } from "@tanstack/react-query"
 import axios from "axios"
-import * as HoverCard from "@radix-ui/react-hover-card"
-import * as Popover from "@radix-ui/react-popover"
 import * as Switch from "@radix-ui/react-switch"
 import clsx from "clsx"
 
@@ -15,12 +12,119 @@ import BuySubscriptionDialog from "@/components/BuySubscriptionDialog"
 import { Resolution } from "@/types/resolution"
 import { Promocode, Subscription } from "@/types/api-types"
 
-import styles from "./BuySubscription.module.scss"
+import styles from "./BuySubscriptionPromo.module.scss"
 
 const PRIME_SUBSCRIPTION_KIND_ID = 1
-const ID_URL = process.env.NEXT_PUBLIC_ID_URL + "/api/v1/"
+const ID_URL = process.env.NEXT_PUBLIC_ID_URL
 const SPECIAL_PROMO = process.env.NEXT_PUBLIC_PROMO
 const DEFAULT_CRYPTON_PROMO = "CRYPTON"
+
+const fallbackSubscriptions: Subscription[] = [
+  {
+    id: 1,
+    baseDiscount: null,
+    baseDiscountAmount: null,
+    benefits: [
+      {
+        id: 1,
+        file: null,
+        translations: {
+          ru: {
+            name: "1",
+            description: null,
+          },
+        },
+        remainingCount: null,
+      },
+    ],
+    duration: {
+      id: 1,
+      label: "10",
+    },
+    isActive: true,
+    kindId: 1, // 1 - prime | 2 - calendar
+    name: "1 month",
+    price: 99,
+  },
+  {
+    id: 2,
+    baseDiscount: 5,
+    baseDiscountAmount: 99,
+    benefits: [
+      {
+        id: 1,
+        file: null,
+        translations: {
+          ru: {
+            name: "1",
+            description: null,
+          },
+        },
+        remainingCount: null,
+      },
+    ],
+    duration: {
+      id: 3,
+      label: "Three",
+    },
+    isActive: true,
+    kindId: 1, // 1 - prime | 2 - calendar
+    name: "3 months",
+    price: 297,
+  },
+  {
+    id: 3,
+    baseDiscount: 10,
+    baseDiscountAmount: 99,
+    benefits: [
+      {
+        id: 1,
+        file: null,
+        translations: {
+          ru: {
+            name: "1",
+            description: null,
+          },
+        },
+        remainingCount: null,
+      },
+    ],
+    duration: {
+      id: 6,
+      label: "Six",
+    },
+    isActive: true,
+    kindId: 1, // 1 - prime | 2 - calendar
+    name: "6 months",
+    price: 594,
+  },
+  {
+    id: 4,
+    baseDiscount: 15,
+    baseDiscountAmount: 1188,
+    benefits: [
+      {
+        id: 1,
+        file: null,
+        translations: {
+          ru: {
+            name: "1",
+            description: null,
+          },
+        },
+        remainingCount: null,
+      },
+    ],
+    duration: {
+      id: 12,
+      label: "Twelve",
+    },
+    isActive: true,
+    kindId: 1, // 1 - prime | 2 - calendar
+    name: "12 months",
+    price: 1188,
+  },
+]
 
 const BuySubscription = ({
   tariffs,
@@ -42,7 +146,6 @@ const BuySubscription = ({
     id: "MONEY" | "PERCENT"
     label: "Money" | "%"
   }>()
-
   const [discounts, setDiscounts] = useState<
     Array<{
       subscriptionId: number
@@ -52,6 +155,8 @@ const BuySubscription = ({
   const [validFor, setValidFor] = useState([])
   const [invalidFor, setInvalidFor] = useState([])
 
+  const [dialogOpen, setDialogOpen] = useState(false)
+
   const {
     data: subscriptions,
     isError: isSubscriptionsError,
@@ -59,13 +164,16 @@ const BuySubscription = ({
   } = useQuery({
     queryKey: ["subscriptions"],
     queryFn: async () => {
-      const response = await axios.get<Subscription[]>(
-        ID_URL + "subscriptions/get-active/"
-      )
-
-      return response.data.filter(
-        (el) => el.isActive && el.kindId === PRIME_SUBSCRIPTION_KIND_ID
-      )
+      try {
+        const response = await axios.get<Subscription[]>(
+          `${ID_URL}/api/v1/subscriptions/get-active/`
+        )
+        return response.data.filter(
+          (el) => el.isActive && el.kindId === PRIME_SUBSCRIPTION_KIND_ID
+        )
+      } catch (error) {
+        return fallbackSubscriptions
+      }
     },
   })
 
@@ -81,11 +189,21 @@ const BuySubscription = ({
       promocode: string
       subscriptionId: number
     }) =>
-      axios.post<Promocode>(ID_URL + "promo-codes/validate/", {
+      axios.post<Promocode>(ID_URL + "/api/v1/promo-codes/validate/", {
         promocode,
         subscription: subscriptionId,
       }),
   })
+
+  // useEffect(() => {
+  //   setTimerProgress(
+  //     Math.round(
+  //       Date.now() >= START_DATE
+  //         ? ((Date.now() - START_DATE) / (END_DATE - START_DATE)) * 100
+  //         : 0
+  //     )
+  //   )
+  // }, [])
 
   useEffect(() => {
     const url = new URL(location.href)
@@ -99,6 +217,8 @@ const BuySubscription = ({
       setPromoForSubmit(refCode)
       return
     }
+
+    setPromoForSubmit(DEFAULT_CRYPTON_PROMO)
   }, [])
 
   useEffect(() => {
@@ -138,99 +258,138 @@ const BuySubscription = ({
     validate()
   }, [promoForSubmit])
 
-  if (isSubscriptionsError || isLoading) {
-    return <OldBuySubscription tariffs={tariffs} resolution={resolution} />
+  const buyRef = useRef(null)
+
+  const scrollToBlock = () => {
+    buyRef.current?.scrollIntoView({ behavior: "smooth" })
+  }
+
+  if (isLoading) {
+    return (
+      <div className="app__container__subscribe" id="subscribe">
+        {" "}
+      </div>
+    )
   }
 
   return (
-    <div className="app__container__subscribe" id="subscribe">
-      <div className="app__container__subscribe__noise" />
-      <div className="app__container__subscribe__back">
-        <div className="app__container__subscribe__back__left-gradient" />
-        <div className="app__container__subscribe__back__right-gradient" />
-      </div>
-      <div className="app__container__subscribe__content">
-        <div className="app__container__subscribe__content__header">
-          <div className="app__container__subscribe__content__title" />
-        </div>
+    <div className="app__container__subscribe__wrapper">
+      <div className="app__container__subscribe__promoback" />
 
-        <div className={styles.switch}>
-          <span className={styles.show_price}>Показать цену:</span>
-          <div className={styles.switch_container}>
-            <span
-              className={clsx(
-                styles.switch_text,
-                showMonthlyPrice && styles.switch_text__active
-              )}
-              onClick={() => setShowMonthlyPrice(true)}
+      <div className="app__container__subscribe" id="subscribe">
+        <div className="app__container__subscribe__noise" />
+        {/* <div className="app__container__subscribe__back"> */}
+        {/* <div className="app__container__subscribe__back__left-gradient" />
+          <div className="app__container__subscribe__back__right-gradient" /> */}
+        {/* </div> */}
+        <div className="app__container__subscribe__content">
+          <div className="app__container__subscribe__content__header">
+            <h1
+              className="app__container__subscribe__content__title"
+              ref={buyRef}
             >
-              в месяц
-            </span>
-            <Switch.Root
-              className={styles.SwitchRoot}
-              checked={showMonthlyPrice}
-              onCheckedChange={setShowMonthlyPrice}
-            >
-              <Switch.Thumb className={styles.SwitchThumb} />
-            </Switch.Root>
-            <span
-              className={clsx(
-                styles.switch_text,
-                !showMonthlyPrice && styles.switch_text__active
-              )}
-              onClick={() => setShowMonthlyPrice(false)}
-            >
-              за весь период
-            </span>
+              Оформите подписку
+            </h1>
+          </div>
+
+          <div className={styles.switch}>
+            <span className={styles.show_price}>Показать цену:</span>
+            <div className={styles.switch_container}>
+              <span
+                className={clsx(
+                  styles.switch_text,
+                  showMonthlyPrice && styles.switch_text__active
+                )}
+                onClick={() => setShowMonthlyPrice(true)}
+              >
+                в месяц
+              </span>
+              <Switch.Root
+                className={styles.SwitchRoot}
+                checked={showMonthlyPrice}
+                onCheckedChange={setShowMonthlyPrice}
+              >
+                <Switch.Thumb className={styles.SwitchThumb} />
+              </Switch.Root>
+              <span
+                className={clsx(
+                  styles.switch_text,
+                  !showMonthlyPrice && styles.switch_text__active
+                )}
+                onClick={() => setShowMonthlyPrice(false)}
+              >
+                за весь период
+              </span>
+            </div>
+          </div>
+
+          {subscriptions && (
+            <div className={styles.subscriptions}>
+              {subscriptions.map((el, i) => (
+                <SubscriptionCard
+                  key={el.id}
+                  subscription={el}
+                  order={i}
+                  resolution={resolution}
+                  showMonthlyPrice={showMonthlyPrice}
+                  promoForSubmit={promoForSubmit}
+                  setPromoForSubmit={setPromoForSubmit}
+                  isPromoReferral={isPromoReferral}
+                  setIsPromoReferral={setIsPromoReferral}
+                  discounts={discounts}
+                  discountAmount={discountAmount}
+                  discountKind={discountKind}
+                  isPromoPending={isPending}
+                  isValidForPromo={
+                    validFor.length === 0 && invalidFor.length === 0
+                      ? true
+                      : invalidFor.length === 0 && validFor.includes(el.id)
+                      ? true
+                      : validFor.length === 0 && !invalidFor.includes(el.id)
+                      ? true
+                      : validFor.length !== 0 &&
+                        invalidFor.length !== 0 &&
+                        validFor.includes(el.id)
+                      ? true
+                      : false
+                  }
+                />
+              ))}
+            </div>
+          )}
+
+          <div className={styles.support_wrapper}>
+            <p className={styles.support}>
+              Остались вопросы? Задай их нашему{" "}
+              <a
+                href="https://t.me/crypton_support"
+                target="_blank"
+                className={styles.support_link}
+              >
+                специалисту в Телеграм
+              </a>
+            </p>
           </div>
         </div>
-
-        {subscriptions && (
-          <div className={styles.subscriptions}>
-            {subscriptions.map((el, i) => (
-              <SubscriptionCard
-                key={el.id}
-                subscription={el}
-                order={i}
-                resolution={resolution}
-                showMonthlyPrice={showMonthlyPrice}
-                promoForSubmit={promoForSubmit}
-                setPromoForSubmit={setPromoForSubmit}
-                isPromoReferral={isPromoReferral}
-                setIsPromoReferral={setIsPromoReferral}
-                discounts={discounts}
-                discountAmount={discountAmount}
-                discountKind={discountKind}
-                isPromoPending={isPending}
-                isValidForPromo={
-                  validFor.length === 0 && invalidFor.length === 0
-                    ? true
-                    : invalidFor.length === 0 && validFor.includes(el.id)
-                    ? true
-                    : validFor.length === 0 && !invalidFor.includes(el.id)
-                    ? true
-                    : validFor.length !== 0 &&
-                      invalidFor.length !== 0 &&
-                      validFor.includes(el.id)
-                    ? true
-                    : false
-                }
-              />
-            ))}
-          </div>
-        )}
-
-        <p className={styles.support}>
-          Остались вопросы? Задай их нашему{" "}
-          <a
-            href="https://t.me/crypton_support"
-            target="_blank"
-            className={styles.support_link}
-          >
-            специалисту в Телеграм
-          </a>
-        </p>
       </div>
+
+      <BuySubscriptionDialog
+        key={discountAmount}
+        selectedSubscription={subscriptions[0]}
+        order={0}
+        resolution={resolution}
+        promoForSubmit={promoForSubmit}
+        setPromoForSubmit={setPromoForSubmit}
+        discountAmount={discountAmount}
+        discountKind={discountKind}
+        discounts={discounts}
+        isPromoReferral={isPromoReferral}
+        setIsPromoReferral={setIsPromoReferral}
+        dialogOpen={dialogOpen}
+        setDialogOpen={setDialogOpen}
+      >
+        <button className={styles.button}>Купить подписку</button>
+      </BuySubscriptionDialog>
     </div>
   )
 }
@@ -388,7 +547,7 @@ const SubscriptionCard = ({
 
   return (
     <div className={styles.subscription}>
-      {order === 3 && <div className={styles.profitable}>выгодно</div>}
+      {/* {order === 3 && <div className={styles.profitable}>выгодно</div>} */}
       <span className={styles.duration}>{duration.id} МЕС</span>
       {isPromoPending ? (
         <div className={styles.loading} />
@@ -397,18 +556,7 @@ const SubscriptionCard = ({
           <div className={styles.price_wrapper}>
             <span className={styles.price_left}>
               $
-              {order === 0 && promoForSubmit === DEFAULT_CRYPTON_PROMO ? (
-                Number.isInteger(getSubscriptionPrice()) ? (
-                  getSubscriptionPrice()
-                ) : (
-                  <>
-                    {getSubscriptionPrice().toFixed(2).split(".")[0]}
-                    <span className={styles.price_fractional}>
-                      .{getSubscriptionPrice().toFixed(2).split(".")[1]}
-                    </span>
-                  </>
-                )
-              ) : Number.isInteger(cardPrice) ? (
+              {Number.isInteger(cardPrice) ? (
                 cardPrice
               ) : (
                 <>
@@ -419,22 +567,21 @@ const SubscriptionCard = ({
                 </>
               )}
             </span>
-            {showMonthlyPrice && (
-              <span
-                className={clsx(
-                  Number.isInteger(cardPrice)
-                    ? styles.price_month
-                    : styles.price_month_fractional
-                )}
-              >
-                / мес
-              </span>
-            )}
+
+            <span
+              className={clsx(
+                Number.isInteger(cardPrice)
+                  ? styles.price_month
+                  : styles.price_month_fractional
+              )}
+            >
+              {showMonthlyPrice && <>/ мес</>}
+            </span>
           </div>
-          {promoForSubmit !== DEFAULT_CRYPTON_PROMO &&
-            duration.id === 1 &&
+          {duration.id === 1 &&
             discountKind &&
             discountAmount !== 0 &&
+            // order !== 0 &&
             discounts && (
               <div className={styles.price_discount}>
                 <span className={styles.price_discount_percent}>
@@ -469,18 +616,46 @@ const SubscriptionCard = ({
           )}
         </div>
       )}
-      <p className={styles.text_before_bonuses}>
-        {order === 0 && (
-          <>
-            Все{" "}
-            <button onClick={scrollToOpportunities}>возможности Prime</button>
-          </>
+      <div className={styles.text_before_bonuses_wrapper}>
+        <p
+          className={clsx(
+            styles.text_before_bonuses,
+            order === 0 && styles.text_before_bonuses_priority
+          )}
+        >
+          {order === 0 && (
+            <>
+              Все{" "}
+              <button onClick={scrollToOpportunities}>возможности Prime</button>
+            </>
+          )}
+          {/* {order === 1 && "Все, что входит в 1 месяц"}
+          {order === 2 && "Все, что входит в 3 месяца"}
+          {order === 3 && "Все, что входит в 6 месяцев"} */}
+        </p>
+
+        <p className={clsx(styles.text_before_bonuses)}>
+          {order === 1 && "Все, что входит в 1 месяц"}
+          {order === 2 && "Все, что входит в 3 месяца"}
+          {order === 3 && "Все, что входит в 6 месяцев"}
+        </p>
+        {order === 3 && (
+          <p
+            className={clsx(
+              styles.text_before_bonuses,
+              styles.text_before_bonuses_priority
+            )}
+          >
+            + приоритетная поддержка
+          </p>
         )}
-        {order === 1 && "Все, что входит в 1 месяц"}
-        {order === 2 && "Все, что входит в 3 месяца"}
-        {order === 3 && "Все, что входит в 6 месяцев"}
-      </p>
-      <div className={styles.bonuses_heading}>
+      </div>
+      <div
+        className={clsx(
+          styles.bonuses_heading,
+          order === 0 && styles.bonuses_heading_first
+        )}
+      >
         <div className={styles.bonuses_icon}>
           <svg
             width="12"
@@ -503,9 +678,18 @@ const SubscriptionCard = ({
             />
           </svg>
         </div>
-        <span className={styles.bonuses_heading_text}>ЭКСТРА БОНУСЫ</span>
+        <span
+          className={clsx(
+            styles.bonuses_heading_text,
+            order === 1 && styles.bonuses_heading_1,
+            order === 2 && styles.bonuses_heading_2,
+            order === 3 && styles.bonuses_heading_3
+          )}
+        >
+          ЭКСТРА БОНУСЫ
+        </span>
       </div>
-      <ul
+      {/* <ul
         className={clsx(
           styles.bonuses,
           (order === 1 || order === 2 || order === 3) && styles.bonuses__small
@@ -618,9 +802,34 @@ const SubscriptionCard = ({
               </li>
             )
           )}
-      </ul>
+      </ul> */}
 
-      <div className={styles.subscription_remains}>
+      {/* {order === 0 && (
+        <img
+          src="/images/png/buy-subscription/subscription_1.png"
+          className={clsx(styles.subscription_img)}
+        />
+      )} */}
+      {order === 1 && (
+        <img
+          src="/images/png/buy-subscription/subscription_2.png"
+          className={clsx(styles.subscription_img)}
+        />
+      )}
+      {order === 2 && (
+        <img
+          src="/images/png/buy-subscription/subscription_3.png"
+          className={clsx(styles.subscription_img)}
+        />
+      )}
+      {order === 3 && (
+        <img
+          src="/images/png/buy-subscription/subscription_4.png"
+          className={clsx(styles.subscription_img, styles.subscription_img_4)}
+        />
+      )}
+
+      {/* <div className={styles.subscription_remains}>
         {benefits.map(
           (benefit) =>
             benefit.remainingCount !== null && (
@@ -630,7 +839,7 @@ const SubscriptionCard = ({
               </span>
             )
         )}
-      </div>
+      </div> */}
 
       <BuySubscriptionDialog
         key={discountAmount}
