@@ -24,8 +24,16 @@
     text-align: center;
     color: #ffe8b3;
 
-    @media (max-width: 1919px) {
-      display: none;
+    @media (max-width: 1919px) and (min-width: 1368px) {
+      font-size: 36px;
+    }
+
+    @media (max-width: 1367px) and (min-width: 768px) {
+      font-size: 22px;
+    }
+
+    @media (max-width: 767px) {
+      font-size: 14px;
     }
   }
 
@@ -110,9 +118,15 @@
       margin-top: 240px;
       margin-bottom: 65px;
 
+      @media (max-width: 1919px) and (min-width: 1368px) {
+        margin-top: 80px;
+      }
+
       @media (max-width: 1367px) and (min-width: 768px) {
         font-size: 28px;
         margin-bottom: 63px;
+
+        margin-top: 50px;
       }
 
       @media (max-width: 767px) {
@@ -120,6 +134,8 @@
         margin-bottom: 45px;
         width: 250px;
         line-height: normal;
+
+        margin-top: 40px;
       }
     }
 
