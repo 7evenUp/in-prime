@@ -245,6 +245,9 @@ const Founders: FC<FoundersProps> = ({ teamOpened, setTeamOpened }) => {
           </div>
         </div>
       </div>
+      <div id="subscriber" className={styles.subscriber}>
+        .
+      </div>
     </section>
   )
 }

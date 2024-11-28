@@ -37,7 +37,7 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
         document.getElementById("header").clientHeight
       : 0,
     subscription: docEnv
-      ? document.getElementById("subscribe").offsetTop -
+      ? document.getElementById("subscriber").offsetTop -
         document.getElementById("header").clientHeight
       : 0,
   }
