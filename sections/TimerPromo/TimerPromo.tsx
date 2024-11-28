@@ -47,7 +47,7 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
   }
 }
 
-const endDate = 1732827540000
+const endDate = 1732870800000
 const ID_URL = process.env.NEXT_PUBLIC_ID_URL + "/api/v1/"
 
 interface Item {
