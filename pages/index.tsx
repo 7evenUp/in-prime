@@ -18,7 +18,6 @@ import Founders from "@/sections/founders/Founders"
 import OtherProducts from "@/sections/OtherProducts/OtherProducts"
 import Guarantee from "@/sections/Guarantee/Guarantee"
 import Advantages from "@/sections/Advantages/Advantages"
-import Birthday from "@/sections/Birthday/Birthday"
 
 import BuySubscr from "@/public/images/jsx/subscribe/buy-subscr"
 import BuySubscrLg from "@/public/images/jsx/subscribe/buy-subscr-lg"
@@ -26,8 +25,6 @@ import BuySubscrMd from "@/public/images/jsx/subscribe/buy-subscr-md"
 import BuySubscrSm from "@/public/images/jsx/subscribe/buy-subscr-sm"
 
 import { Resolution } from "@/types/resolution"
-import BuySubscriptionPromo from "@/sections/BuySubscription/BuySubscriptionPromo"
-import TimerPromo from "@/sections/TimerPromo/TimerPromo"
 import AdvantagesSm from "@/sections/Advantages/AdvantagesSm"
 import FeaturesSm from "@/sections/Features/FeaturesSm"
 import LoginIdPopup from "@/components/LoginIdPopup/LoginIdPopup"
@@ -175,13 +172,13 @@ const Home = (props) => {
 
           {/* <Birthday /> */}
 
-          <TimerPromo />
+          {/* <TimerPromo /> */}
 
           {/* <LoyaltySystem resolution={resolution} /> */}
 
           {/* <BuySubscription tariffs={tariffs} resolution={resolution} /> */}
 
-          <BuySubscriptionPromo tariffs={tariffs} resolution={resolution} />
+          <BuySubscription tariffs={tariffs} resolution={resolution} />
 
           <Testimonials resolution={resolution} />
 

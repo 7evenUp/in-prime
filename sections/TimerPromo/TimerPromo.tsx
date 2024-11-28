@@ -31,7 +31,7 @@ const TimerPromo = () => {
         </div>
         {/* <div className={styles.timer__bg} /> */}
       </div>
-      <div id="subscriber1123" className={styles.timer__subscriber}>
+      <div id="subscriber" className={styles.timer__subscriber}>
         .
       </div>
     </>
