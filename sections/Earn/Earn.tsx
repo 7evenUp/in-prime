@@ -150,10 +150,10 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
       <div className="app__container__earn__right-gradient" /> */}
 
       {/* <div className="app__container__earn__promo__wrapper"> */}
-      {/* <div
+      <div
         className="app__container__earn__promo"
         onClick={scrollToSubscriptions}
-      /> */}
+      />
       {/* </div> */}
 
       <MobileMenu
