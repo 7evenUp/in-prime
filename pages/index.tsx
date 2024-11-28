@@ -29,6 +29,8 @@ import AdvantagesSm from "@/sections/Advantages/AdvantagesSm"
 import FeaturesSm from "@/sections/Features/FeaturesSm"
 import LoginIdPopup from "@/components/LoginIdPopup/LoginIdPopup"
 import BuySubscription from "@/sections/BuySubscription/BuySubscription"
+import BuySubscriptionPromo from "@/sections/BuySubscription/BuySubscriptionPromo"
+import TimerPromo from "@/sections/TimerPromo/TimerPromo"
 
 const useWindowSize = () => {
   const [currentWidth, setCurrentWidth] = useState(0)
@@ -172,13 +174,13 @@ const Home = (props) => {
 
           {/* <Birthday /> */}
 
-          {/* <TimerPromo /> */}
+          <TimerPromo />
 
           {/* <LoyaltySystem resolution={resolution} /> */}
 
           {/* <BuySubscription tariffs={tariffs} resolution={resolution} /> */}
 
-          <BuySubscription tariffs={tariffs} resolution={resolution} />
+          <BuySubscriptionPromo tariffs={tariffs} resolution={resolution} />
 
           <Testimonials resolution={resolution} />
 
