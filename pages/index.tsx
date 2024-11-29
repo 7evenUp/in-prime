@@ -174,13 +174,13 @@ const Home = (props) => {
 
           {/* <Birthday /> */}
 
-          {/* <TimerPromo /> */}
+          <TimerPromo />
 
           {/* <LoyaltySystem resolution={resolution} /> */}
 
           {/* <BuySubscription tariffs={tariffs} resolution={resolution} /> */}
 
-          <BuySubscription tariffs={tariffs} resolution={resolution} />
+          <BuySubscriptionPromo tariffs={tariffs} resolution={resolution} />
 
           <Testimonials resolution={resolution} />
 
