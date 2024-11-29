@@ -4,61 +4,6 @@ import AccordionItem from "./accordionItem"
 
 const leftColumnData = [
   {
-    question: "Участие в акции",
-    answer: (
-      <div className="accordion__title text">
-        <p>
-          Если пользователь приобретает подписку Prime и открывает подарки во
-          время акции дня рождения, то возврат средств не предусмотрен.
-        </p>
-      </div>
-    ),
-  },
-  {
-    question: "Трейд-бан подарков",
-    answer: (
-      <div className="accordion__title text">
-        <p>
-          После открытия бокса вы получите подарок в инвентарь Crypton ID с
-          трейд-баном на 48 часов. Как только трейд-бан спадет, вы сможете
-          активировать и забрать свой подарок в виде TON NFT.
-          <br />
-          <br />
-          Для этого вам потребуется кошелек. Мы рекомендуем использовать{" "}
-          <a
-            href="https://tools.crypton.xyz/wallets_and_cex/wallets?networks=TON&name=Tonkeeper"
-            target="_blank"
-          >
-            Tonkeeper.
-          </a>
-        </p>
-      </div>
-    ),
-  },
-  {
-    question: "Обналичивание подарков в $$$ или баланс Crypton ID",
-    answer: (
-      <div className="accordion__title text">
-        <p>
-          Если вы не хотите забирать подарок, вы можете обналичить его в виде
-          **USDT** или баланса на{" "}
-          <a href="https://id.crypton.xyz/" target="_blank">
-            Crypton ID
-          </a>
-          . Чтобы начать процедуру, свяжитесь{" "}
-          <a href="https://t.me/crypton_support" target="_blank">
-            с наставником
-          </a>
-          .
-          <br />
-          <br />
-          Важно: это возможно только при наличии NFT без трейд-бана.
-        </p>
-      </div>
-    ),
-  },
-
-  {
     question: "Как получить подписку бесплатно?",
     answer: (
       <div className="accordion__title text">
@@ -174,46 +119,6 @@ const leftColumnData = [
 ]
 
 const rightColumnData = [
-  {
-    question: "Вывод подарков в реальный мир",
-    answer: (
-      <div className="accordion__title text">
-        <p>
-          Чтобы получить подарок, достаточно вывести NFT из инвентаря{" "}
-          <a href="https://id.crypton.xyz/" target="_blank">
-            Crypton ID
-          </a>{" "}
-          на TON кошелек (мы рекомендуем{" "}
-          <a
-            href="https://tools.crypton.xyz/wallets_and_cex/wallets?networks=TON&name=Tonkeeper"
-            target="_blank"
-          >
-            Tonkeeper
-          </a>
-          ). Затем перейдите на сайт{" "}
-          <a href="https://merch.crypton.xyz/" target="_blank">
-            https://merch.crypton.xyz/
-          </a>
-          , выберите свой подарок и следуйте инструкции по его активации.
-        </p>
-      </div>
-    ),
-  },
-  {
-    question: "Проблемы с оплатой и другие ошибки",
-    answer: (
-      <div className="accordion__title text">
-        <p>
-          Если у вас возникли проблемы с оплатой или любые другие ошибки на
-          любом этапе, незамедлительно свяжитесь с{" "}
-          <a href="https://t.me/crypton_support" target="_blank">
-            наставником
-          </a>
-          .
-        </p>
-      </div>
-    ),
-  },
   {
     question: "Почему стоит выбрать Prime? ",
     answer: (
