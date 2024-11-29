@@ -37,11 +37,7 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
         document.getElementById("header").clientHeight
       : 0,
     subscription: docEnv
-      ? document.getElementById("subscriber1123").offsetTop -
-        document.getElementById("header").clientHeight
-      : 0,
-    gift: docEnv
-      ? document.getElementById("gifts").offsetTop -
+      ? document.getElementById("subscriber").offsetTop -
         document.getElementById("header").clientHeight
       : 0,
   }
@@ -60,14 +56,6 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
       behavior: "smooth",
     })
     setCurrentY(positions.guarantee)
-  }
-
-  const scrollToGift = () => {
-    window.scrollTo({
-      top: positions.gift,
-      behavior: "smooth",
-    })
-    setCurrentY(positions.gift)
   }
 
   useEffect(() => {
@@ -162,7 +150,10 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
       <div className="app__container__earn__right-gradient" /> */}
 
       {/* <div className="app__container__earn__promo__wrapper"> */}
-      <div className="app__container__earn__promo" onClick={scrollToGift} />
+      {/* <div
+        className="app__container__earn__promo"
+        onClick={scrollToSubscriptions}
+      /> */}
       {/* </div> */}
 
       <MobileMenu

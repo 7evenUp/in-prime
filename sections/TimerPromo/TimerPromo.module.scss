@@ -1,49 +1,39 @@
 .timer {
-  padding-bottom: 120px;
+  padding-bottom: 200px;
 
   @media (max-width: 1919px) and (min-width: 1368px) {
-    padding-bottom: 80px;
+    padding-bottom: 150px;
   }
   @media (max-width: 1367px) and (min-width: 768px) {
-    padding-bottom: 75px;
+    padding-bottom: 90px;
   }
 
   @media (max-width: 767px) {
-    padding-bottom: 58px;
+    padding-bottom: 45px;
   }
 
   position: relative;
 
   &__title {
-    margin-top: 100px;
-    margin-bottom: 52px;
+    margin: 0;
 
     font-family: "Unbounded", sans-serif;
-    font-weight: 500;
-    font-size: 48px;
+    font-weight: 400;
+    font-size: 40px;
     line-height: 100%;
     text-align: center;
-    color: #fff;
+    color: #ffe8b3;
 
     @media (max-width: 1919px) and (min-width: 1368px) {
-      margin-top: 95px;
-      margin-bottom: 70px;
-
-      font-size: 42px;
+      font-size: 36px;
     }
 
     @media (max-width: 1367px) and (min-width: 768px) {
-      font-size: 32px;
-      margin-top: 0;
+      font-size: 22px;
     }
 
     @media (max-width: 767px) {
-      margin-top: 0;
-      font-size: 24px;
-      width: 332px;
-      margin-left: auto;
-      margin-right: auto;
-      margin-bottom: 42px;
+      font-size: 14px;
     }
   }
 
@@ -56,39 +46,65 @@
 
   &__time {
     width: 1284px;
-    height: 460px;
-    backdrop-filter: blur(24px);
-    background: rgba(34, 34, 34, 0.8);
-    border-radius: 36px;
+    height: 1285px;
 
-    z-index: -2;
+    z-index: 0;
     position: relative;
 
+    margin-top: 0;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 125px;
 
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    justify-content: flex-end;
     @media (max-width: 1919px) and (min-width: 1368px) {
-      margin-bottom: 85px;
       width: 1144px;
-      height: 421px;
+      height: 850px;
     }
 
     @media (max-width: 1367px) and (min-width: 768px) {
       width: 672px;
-      height: 359px;
-      margin-bottom: 77px;
+      height: 610px;
     }
 
     @media (max-width: 767px) {
-      border-radius: 18px;
       width: 334px;
-      height: 227px;
-      margin-bottom: 38px;
+      height: 469px;
+    }
+
+    &__image {
+      width: 1183px;
+      height: 1351px;
+
+      background-image: url("/images/png/buy-subscription/black_friday.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: absolute;
+      z-index: -1;
+
+      @media (max-width: 1919px) and (min-width: 1368px) {
+        width: 1042px;
+        height: 1190px;
+        top: 0;
+      }
+
+      @media (max-width: 1367px) and (min-width: 768px) {
+        width: 601px;
+        height: 680px;
+        top: 0;
+
+        background-image: url("/images/png/buy-subscription/black_friday_md.png");
+      }
+
+      @media (max-width: 767px) {
+        width: 330px;
+        height: 374px;
+        top: 0;
+
+        background-image: url("/images/png/buy-subscription/black_friday_sm.png");
+      }
     }
 
     &__text {
@@ -99,21 +115,27 @@
       color: #fff;
       line-height: 100%;
 
-      margin-top: 100px;
+      margin-top: 240px;
       margin-bottom: 65px;
+
+      @media (max-width: 1919px) and (min-width: 1368px) {
+        margin-top: 80px;
+      }
 
       @media (max-width: 1367px) and (min-width: 768px) {
         font-size: 28px;
-        margin-top: 78px;
-        margin-bottom: 70px;
+        margin-bottom: 63px;
+
+        margin-top: 50px;
       }
 
       @media (max-width: 767px) {
         font-size: 20px;
-        margin-top: 32px;
-        margin-bottom: 30px;
+        margin-bottom: 45px;
         width: 250px;
         line-height: normal;
+
+        margin-top: 40px;
       }
     }
 
@@ -170,7 +192,7 @@
       &__sub {
         display: flex;
         gap: 87px;
-        margin-top: 50px;
+        margin-top: 40px;
         align-items: center;
 
         font-family: "Unbounded", sans-serif;
@@ -260,38 +282,6 @@
         width: 334px;
         gap: 16px;
       }
-    }
-  }
-
-  &__image {
-    width: 416px;
-    height: 316px;
-
-    margin-bottom: 52px;
-
-    background-image: url("/images/png/buy-subscription/box_opened.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-
-    margin-left: auto;
-    margin-right: auto;
-
-    @media (max-width: 1919px) and (min-width: 1368px) {
-      width: 390px;
-      height: 296px;
-      margin-bottom: 70px;
-    }
-
-    @media (max-width: 1367px) and (min-width: 768px) {
-      width: 336px;
-      height: 256px;
-      margin-bottom: 50px;
-    }
-
-    @media (max-width: 767px) {
-      width: 258px;
-      height: 196px;
-      margin-bottom: 44px;
     }
   }
 
