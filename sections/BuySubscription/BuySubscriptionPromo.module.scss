@@ -108,7 +108,7 @@
   backdrop-filter: blur(40px);
   background: rgba(34, 34, 34, 0.7);
   padding: 18px;
-  height: 680px;
+  height: 631px;
   box-sizing: border-box;
 
   @media (max-width: 1919px) and (min-width: 1368px) {
@@ -211,8 +211,9 @@
   }
 
   &_img {
-    height: 218px;
+    height: 200px;
     margin-top: 20px;
+    width: -webkit-fill-available;
     width: fit-content;
     margin-left: auto;
     margin-right: auto;
@@ -231,7 +232,7 @@
     }
     &_4 {
       @media (max-width: 767px) {
-        margin-top: 0px;
+        margin-top: 10px;
       }
     }
   }
@@ -457,7 +458,7 @@
 
     &_percent {
       font-family: "Inter", sans-serif;
-      font-weight: 600;
+      font-weight: 400;
       font-size: 24px;
       &_0 {
         color: #4ddfd0;
@@ -1173,11 +1174,5 @@
     @media (max-width: 375px) {
       width: 24px;
     }
-  }
-}
-
-@supports (width: -webkit-fill-available) {
-  .subscription_img {
-    width: -webkit-fill-available;
   }
 }
