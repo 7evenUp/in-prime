@@ -5,8 +5,7 @@ import Countdown from "@/components/countdown"
 
 import styles from "./TimerPromo.module.scss"
 
-const endDate = 1732913999000
-
+const endDate = 1733173199000
 const TimerPromo = () => {
   return (
     <>
