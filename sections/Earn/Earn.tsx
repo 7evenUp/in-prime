@@ -144,16 +144,28 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
     }
   }, [resolution, setLineCount])
 
+  const [fridayRendered, setFridayRendered] = useState(false)
+  React.useEffect(() => {
+    const endFriday = 1733173199000
+
+    const isFridayVisible = endFriday - new Date().getTime() > 0
+
+    if (isFridayVisible) setFridayRendered(true)
+  }, [])
+
   return (
     <section className="app__container__earn">
       {/* <div className="app__container__earn__left-gradient" />
       <div className="app__container__earn__right-gradient" /> */}
 
       {/* <div className="app__container__earn__promo__wrapper"> */}
-      <div
-        className="app__container__earn__promo"
-        onClick={scrollToSubscriptions}
-      />
+      {fridayRendered && (
+        <div
+          className="app__container__earn__promo"
+          onClick={scrollToSubscriptions}
+        />
+      )}
+
       {/* </div> */}
 
       <MobileMenu
