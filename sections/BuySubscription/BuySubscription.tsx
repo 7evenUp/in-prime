@@ -12,7 +12,7 @@ import BuySubscriptionDialog from "@/components/BuySubscriptionDialog"
 import { Resolution } from "@/types/resolution"
 import { Promocode, Subscription } from "@/types/api-types"
 
-import styles from "./BuySubscriptionPromo.module.scss"
+import styles from "./BuySubscription.module.scss"
 
 const PRIME_SUBSCRIPTION_KIND_ID = 1
 const ID_URL = process.env.NEXT_PUBLIC_ID_URL

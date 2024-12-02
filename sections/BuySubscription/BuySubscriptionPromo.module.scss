@@ -108,7 +108,7 @@
   backdrop-filter: blur(40px);
   background: rgba(34, 34, 34, 0.7);
   padding: 18px;
-  height: 631px;
+  height: 680px;
   box-sizing: border-box;
 
   @media (max-width: 1919px) and (min-width: 1368px) {
@@ -211,7 +211,7 @@
   }
 
   &_img {
-    height: 200px;
+    height: 218px;
     margin-top: 20px;
     width: fit-content;
     margin-left: auto;
@@ -231,7 +231,7 @@
     }
     &_4 {
       @media (max-width: 767px) {
-        margin-top: 10px;
+        margin-top: 0px;
       }
     }
   }
@@ -457,7 +457,7 @@
 
     &_percent {
       font-family: "Inter", sans-serif;
-      font-weight: 400;
+      font-weight: 600;
       font-size: 24px;
       &_0 {
         color: #4ddfd0;
