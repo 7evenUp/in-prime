@@ -64,14 +64,14 @@ const Home = (props) => {
 
   let resolution: Resolution = "lgg"
 
-  const [fridayRendered, setFridayRendered] = useState(false)
-  React.useEffect(() => {
-    const endFriday = 1733173199000
+  // const [fridayRendered, setFridayRendered] = useState(false)
+  // React.useEffect(() => {
+  //   const endFriday = 1733173199000
 
-    const isFridayVisible = endFriday - new Date().getTime() > 0
+  //   const isFridayVisible = endFriday - new Date().getTime() > 0
 
-    if (isFridayVisible) setFridayRendered(true)
-  }, [])
+  //   if (isFridayVisible) setFridayRendered(true)
+  // }, [])
 
   switch (true) {
     case currentWidth >= 1920:
@@ -183,17 +183,18 @@ const Home = (props) => {
 
           {/* <Birthday /> */}
 
-          {fridayRendered && <TimerPromo />}
+          {/* {fridayRendered && <TimerPromo />}  */}
 
           {/* <LoyaltySystem resolution={resolution} /> */}
 
           {/* <BuySubscription tariffs={tariffs} resolution={resolution} /> */}
 
-          {fridayRendered ? (
+          {/* {fridayRendered ? (
             <BuySubscriptionPromo tariffs={tariffs} resolution={resolution} />
           ) : (
             <BuySubscription tariffs={tariffs} resolution={resolution} />
-          )}
+          )} */}
+          <BuySubscription tariffs={tariffs} resolution={resolution} />
 
           <Testimonials resolution={resolution} />
 
