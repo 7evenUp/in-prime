@@ -686,7 +686,7 @@ const SubscriptionCard = ({
             order === 3 && styles.bonuses_heading_3
           )}
         >
-          ЭКСТРА БОНУСЫ
+          ЭКСТРА БОНУС
         </span>
       </div>
       {/* <ul
