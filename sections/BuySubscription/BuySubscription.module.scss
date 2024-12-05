@@ -1178,12 +1178,6 @@
 
 @supports (width: -webkit-fill-available) {
   .subscription_img {
-    width: -webkit-fill-available;
-  }
-}
-
-@supports (width: fit-content) {
-  .subscription_img {
-    width: fit-content;
+    width: auto;
   }
 }
