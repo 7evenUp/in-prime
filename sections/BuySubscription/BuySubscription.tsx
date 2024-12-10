@@ -502,7 +502,6 @@ const SubscriptionCard = ({
           : Math.ceil(price * preferedDiscount)
 
       if (baseDiscountAmount) {
-        console.log(111, baseDiscountAmount)
         setCardPrice(
           price -
             baseDiscountAmount -
