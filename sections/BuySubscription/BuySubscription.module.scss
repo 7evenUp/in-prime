@@ -108,21 +108,21 @@
   backdrop-filter: blur(40px);
   background: rgba(34, 34, 34, 0.7);
   padding: 18px;
-  height: 631px;
+  height: 542px;
   box-sizing: border-box;
 
   @media (max-width: 1919px) and (min-width: 1368px) {
-    height: 613px;
+    height: 517px;
     padding: 12px;
   }
 
   @media (max-width: 1367px) and (min-width: 768px) {
     padding: 16px;
-    height: 618px;
+    height: 506px;
   }
 
   @media (max-width: 767px) {
-    height: 565px;
+    height: 467px;
     padding: 16px;
   }
 
@@ -528,7 +528,7 @@
   font-weight: 400;
   font-size: 16px;
   color: #fff;
-  opacity: 0.5;
+  // opacity: 0.5;
   line-height: 130%;
   text-align: center;
 
@@ -542,10 +542,37 @@
     opacity: 1;
   }
 
+  &_ability {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 5px;
+    align-items: center;
+
+    &_icon {
+      width: 25px;
+      height: 25px;
+      > path {
+        opacity: 1;
+      }
+    }
+  }
+
+  &_wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   &_wrapper {
     height: 42px;
     @media (max-width: 767px) {
       height: auto;
+    }
+
+    &_priority {
+      @media (max-width: 767px) {
+        height: 42px;
+      }
     }
   }
 
@@ -576,12 +603,20 @@
 
 .bonuses {
   margin: 0;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 36px;
   padding-left: 14px;
   display: flex;
   flex-direction: column;
   list-style: none;
   gap: 8px;
+
+  &__first {
+    // opacity: 0;
+    display: none;
+  }
 
   @media (max-width: 767px) {
     padding-left: 0px;
@@ -603,7 +638,8 @@
     text-transform: uppercase;
 
     &_first {
-      opacity: 0;
+      // opacity: 0;
+      display: none;
     }
 
     &_1 {
@@ -640,7 +676,7 @@
 .bonus {
   position: relative;
   margin-left: 4px;
-  font-family: "Resist Sans", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 16px;
   line-height: 130%;
   margin: 0;
@@ -875,6 +911,10 @@
     }
   }
 
+  &_hidden {
+    display: none;
+  }
+
   &[data-state="open"] {
     svg {
       rotate: 180deg;
@@ -920,7 +960,7 @@
 }
 
 .HoverCardImage {
-  max-width: 90px;
+  max-width: 150px;
   display: block;
 }
 
@@ -947,6 +987,10 @@
     svg {
       rotate: 180deg;
     }
+  }
+
+  &_hidden {
+    display: none;
   }
 }
 
@@ -1180,4 +1224,13 @@
   .subscription_img {
     width: auto;
   }
+}
+
+.icon_wrapper {
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }

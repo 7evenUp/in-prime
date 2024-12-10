@@ -1,8 +1,9 @@
+import clsx from "clsx"
 import styles from "./Features.module.scss"
 
-export const PrimeKitIcon = () => (
+export const PrimeKitIcon = ({ className }: { className?: string }) => (
   <svg
-    className={styles.icon}
+    className={clsx(styles.icon, className)}
     width="32"
     height="36"
     viewBox="0 0 32 36"
@@ -88,9 +89,9 @@ export const PrimeKitIconGradient = () => (
   </svg>
 )
 
-export const CryptonBonusesIcon = () => (
+export const CryptonBonusesIcon = ({ className }: { className?: string }) => (
   <svg
-    className={styles.icon}
+    className={clsx(styles.icon, className)}
     width="33"
     height="36"
     viewBox="0 0 33 36"
@@ -134,9 +135,9 @@ export const CryptonBonusesIconGradient = () => (
   </svg>
 )
 
-export const CalendarIcon = () => (
+export const CalendarIcon = ({ className }: { className?: string }) => (
   <svg
-    className={styles.icon}
+    className={clsx(styles.icon, className)}
     width="32"
     height="31"
     viewBox="0 0 32 31"
@@ -167,9 +168,9 @@ export const CalendarIconGradient = () => (
   </svg>
 )
 
-export const ContentIcon = () => (
+export const ContentIcon = ({ className }: { className?: string }) => (
   <svg
-    className={styles.icon}
+    className={clsx(styles.icon, className)}
     width="28"
     height="38"
     viewBox="0 0 28 38"
@@ -200,9 +201,9 @@ export const ContentIconGradient = () => (
   </svg>
 )
 
-export const ChatIcon = () => (
+export const ChatIcon = ({ className }: { className?: string }) => (
   <svg
-    className={styles.icon}
+    className={clsx(styles.icon, className)}
     width="34"
     height="34"
     viewBox="0 0 34 34"
@@ -233,9 +234,9 @@ export const ChatIconGradient = () => (
   </svg>
 )
 
-export const MeetupsIcon = () => (
+export const MeetupsIcon = ({ className }: { className?: string }) => (
   <svg
-    className={styles.icon}
+    className={clsx(styles.icon, className)}
     width="41"
     height="30"
     viewBox="0 0 41 30"
@@ -297,9 +298,9 @@ export const MeetupsIconGradient = () => (
   </svg>
 )
 
-export const HelperIcon = () => (
+export const HelperIcon = ({ className }: { className?: string }) => (
   <svg
-    className={styles.icon}
+    className={clsx(styles.icon, className)}
     width="36"
     height="37"
     viewBox="0 0 36 37"
@@ -330,11 +331,11 @@ export const HelperIconGradient = () => (
   </svg>
 )
 
-export const InvestingIcon = () => (
+export const InvestingIcon = ({ className }: { className?: string }) => (
   <svg
     width="36"
     height="36"
-    className={styles.icon}
+    className={clsx(styles.icon, className)}
     viewBox="0 0 36 36"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"

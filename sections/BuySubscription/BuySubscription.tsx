@@ -4,6 +4,15 @@ import { useMutation, useQuery } from "@tanstack/react-query"
 import axios from "axios"
 import * as Switch from "@radix-ui/react-switch"
 import clsx from "clsx"
+import * as HoverCard from "@radix-ui/react-hover-card"
+import * as Popover from "@radix-ui/react-popover"
+
+import {
+  CalendarIcon,
+  ChatIcon,
+  ContentIcon,
+  HelperIcon,
+} from "../Features/Icons"
 
 import SubscribeArrow from "@/public/images/jsx/subscribe/arrow"
 
@@ -559,20 +568,26 @@ const SubscriptionCard = ({
               {Number.isInteger(cardPrice) ? (
                 cardPrice
               ) : (
+                <>{cardPrice.toFixed(2).split(".")[0]}</>
+              )}
+              {/* {Number.isInteger(cardPrice) ? (
+                cardPrice
+              ) : (
                 <>
                   {cardPrice.toFixed(2).split(".")[0]}
                   <span className={styles.price_fractional}>
                     .{cardPrice.toFixed(2).split(".")[1]}
                   </span>
                 </>
-              )}
+              )} */}
             </span>
 
             <span
               className={clsx(
-                Number.isInteger(cardPrice)
-                  ? styles.price_month
-                  : styles.price_month_fractional
+                styles.price_month
+                // Number.isInteger(cardPrice)
+                //   ? styles.price_month
+                //   : styles.price_month_fractional
               )}
             >
               {showMonthlyPrice && <>/ мес</>}
@@ -591,7 +606,7 @@ const SubscriptionCard = ({
                         100 - (cardPrice * 100) / (price / duration.id)
                       )
                     : Math.round(100 - (cardPrice * 100) / price)}
-                  %
+                  {order === 0 ? "$" : "%"}
                 </span>
                 <span className={styles.price_discount_amount}>${price}</span>
               </div>
@@ -616,7 +631,12 @@ const SubscriptionCard = ({
           )}
         </div>
       )}
-      <div className={styles.text_before_bonuses_wrapper}>
+      <div
+        className={clsx(
+          styles.text_before_bonuses_wrapper,
+          order === 0 && styles.text_before_bonuses_wrapper_priority
+        )}
+      >
         <p
           className={clsx(
             styles.text_before_bonuses,
@@ -650,6 +670,69 @@ const SubscriptionCard = ({
           </p>
         )}
       </div>
+
+      {order === 0 && (
+        <div className={styles.text_before_bonuses_wrap}>
+          <p
+            className={clsx(
+              styles.text_before_bonuses,
+              order === 0 && styles.text_before_bonuses_priority,
+              order === 0 && styles.text_before_bonuses_ability
+            )}
+          >
+            +
+            <div className={styles.icon_wrapper}>
+              <ContentIcon
+                className={styles.text_before_bonuses_ability_icon}
+              />
+            </div>
+            Контент о заработке
+          </p>
+          <p
+            className={clsx(
+              styles.text_before_bonuses,
+              order === 0 && styles.text_before_bonuses_priority,
+              order === 0 && styles.text_before_bonuses_ability
+            )}
+          >
+            +
+            <div className={styles.icon_wrapper}>
+              <CalendarIcon
+                className={styles.text_before_bonuses_ability_icon}
+              />
+            </div>
+            Прибыльный календарь
+          </p>
+          <p
+            className={clsx(
+              styles.text_before_bonuses,
+              order === 0 && styles.text_before_bonuses_priority,
+              order === 0 && styles.text_before_bonuses_ability
+            )}
+          >
+            +
+            <div className={styles.icon_wrapper}>
+              <ChatIcon className={styles.text_before_bonuses_ability_icon} />
+            </div>
+            Чаты с сообществом
+          </p>
+
+          <p
+            className={clsx(
+              styles.text_before_bonuses,
+              order === 0 && styles.text_before_bonuses_priority,
+              order === 0 && styles.text_before_bonuses_ability
+            )}
+          >
+            +
+            <div className={styles.icon_wrapper}>
+              <HelperIcon className={styles.text_before_bonuses_ability_icon} />
+            </div>
+            Поддержка экспертов
+          </p>
+        </div>
+      )}
+
       <div
         className={clsx(
           styles.bonuses_heading,
@@ -689,6 +772,96 @@ const SubscriptionCard = ({
           ЭКСТРА БОНУС
         </span>
       </div>
+
+      <ul
+        className={clsx(
+          styles.bonuses,
+          order === 0 && styles.bonuses_first,
+          (order === 1 || order === 2 || order === 3) && styles.bonuses__small
+        )}
+      >
+        {resolution === "sm" ? (
+          <Popover.Root>
+            <Popover.Trigger
+              className={clsx(
+                styles.PopoverTrigger,
+                order === 0 && styles.PopoverTrigger_hidden
+              )}
+            >
+              <li className={styles.bonus}>
+                <p className={styles.bonus_text}>
+                  {/* {benefit.translations.ru.name} */}
+                  {order === 1 && <>Proxyline</>}
+                  {order === 2 && <>Dolphin</>}
+                  {order === 3 && <>Safepal</>}
+                  <NavArrowIcon />
+                </p>
+              </li>
+            </Popover.Trigger>
+            <Popover.Portal>
+              <Popover.Content className={styles.PopoverContent} sideOffset={5}>
+                <img
+                  className={styles.PopoverImage}
+                  src={
+                    order === 1
+                      ? "/images/png/buy-subscription/subscription_2.png"
+                      : order === 2
+                      ? "/images/png/buy-subscription/subscription_3.png"
+                      : order === 3
+                      ? "/images/png/buy-subscription/subscription_4.png"
+                      : "/images/png/buy-subscription/subscription_4.png"
+                  }
+                />
+                {order === 3
+                  ? benefits?.[1]?.translations.ru.description
+                  : benefits?.[0]?.translations.ru.description}
+              </Popover.Content>
+            </Popover.Portal>
+          </Popover.Root>
+        ) : (
+          <HoverCard.Root openDelay={150}>
+            <HoverCard.Trigger
+              className={clsx(
+                styles.HoverCardTrigger,
+                order === 0 && styles.HoverCardTrigger_hidden
+              )}
+            >
+              <li className={styles.bonus}>
+                <p className={styles.bonus_text}>
+                  {/* {benefit.translations.ru.name} */}
+                  {order === 1 && <>Proxyline</>}
+                  {order === 2 && <>Dolphin</>}
+                  {order === 3 && <>Safepal</>}
+                  <NavArrowIcon />
+                </p>
+              </li>
+            </HoverCard.Trigger>
+            <HoverCard.Portal>
+              <HoverCard.Content
+                className={styles.HoverCardContent}
+                sideOffset={5}
+              >
+                <img
+                  className={styles.HoverCardImage}
+                  src={
+                    order === 1
+                      ? "/images/png/buy-subscription/subscription_2.png"
+                      : order === 2
+                      ? "/images/png/buy-subscription/subscription_3.png"
+                      : order === 3
+                      ? "/images/png/buy-subscription/subscription_4.png"
+                      : "/images/png/buy-subscription/subscription_4.png"
+                  }
+                />
+                {order === 3
+                  ? benefits?.[1]?.translations.ru.description
+                  : benefits?.[0]?.translations.ru.description}
+              </HoverCard.Content>
+            </HoverCard.Portal>
+          </HoverCard.Root>
+        )}
+      </ul>
+
       {/* <ul
         className={clsx(
           styles.bonuses,
@@ -764,12 +937,17 @@ const SubscriptionCard = ({
                       sideOffset={5}
                       side="bottom"
                     >
-                      {benefit.file && (
+                      <img
+                        className={styles.PopoverImage}
+                        src={benefit.file}
+                        alt={benefit.translations.ru.name}
+                      />
+                      {/* {benefit.file && (
                         <Image
                           src={benefit.file}
                           alt={benefit.translations.ru.name}
                         />
-                      )}
+                      )} 
                       {benefit.translations.ru.description}
                     </Popover.Content>
                   </Popover.Portal>
@@ -810,7 +988,7 @@ const SubscriptionCard = ({
           className={clsx(styles.subscription_img)}
         />
       )} */}
-      {order === 1 && (
+      {/* {order === 1 && (
         <img
           src="/images/png/buy-subscription/subscription_2.png"
           className={clsx(styles.subscription_img)}
@@ -827,7 +1005,7 @@ const SubscriptionCard = ({
           src="/images/png/buy-subscription/subscription_4.png"
           className={clsx(styles.subscription_img, styles.subscription_img_4)}
         />
-      )}
+      )} */}
 
       {/* <div className={styles.subscription_remains}>
         {benefits.map(
