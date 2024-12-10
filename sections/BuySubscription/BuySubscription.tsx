@@ -33,6 +33,8 @@ const fallbackSubscriptions: Subscription[] = [
     id: 1,
     baseDiscount: null,
     baseDiscountAmount: null,
+    referralDiscountAmount: null,
+    referralDiscountKind: null,
     benefits: [
       {
         id: 1,
@@ -59,6 +61,8 @@ const fallbackSubscriptions: Subscription[] = [
     id: 2,
     baseDiscount: 5,
     baseDiscountAmount: 99,
+    referralDiscountAmount: null,
+    referralDiscountKind: null,
     benefits: [
       {
         id: 1,
@@ -85,6 +89,8 @@ const fallbackSubscriptions: Subscription[] = [
     id: 3,
     baseDiscount: 10,
     baseDiscountAmount: 99,
+    referralDiscountAmount: null,
+    referralDiscountKind: null,
     benefits: [
       {
         id: 1,
@@ -111,6 +117,8 @@ const fallbackSubscriptions: Subscription[] = [
     id: 4,
     baseDiscount: 15,
     baseDiscountAmount: 1188,
+    referralDiscountAmount: null,
+    referralDiscountKind: null,
     benefits: [
       {
         id: 1,
@@ -382,7 +390,7 @@ const BuySubscription = ({
         </div>
       </div>
 
-      <BuySubscriptionDialog
+      {/* <BuySubscriptionDialog
         key={discountAmount}
         selectedSubscription={subscriptions[0]}
         order={0}
@@ -392,13 +400,15 @@ const BuySubscription = ({
         discountAmount={discountAmount}
         discountKind={discountKind}
         discounts={discounts}
+        referralDiscountAmount={referralDiscountAmount}
+        referralDiscountKind={referralDiscountKind}
         isPromoReferral={isPromoReferral}
         setIsPromoReferral={setIsPromoReferral}
         dialogOpen={dialogOpen}
         setDialogOpen={setDialogOpen}
       >
         <button className={styles.button}>Купить подписку</button>
-      </BuySubscriptionDialog>
+      </BuySubscriptionDialog> */}
     </div>
   )
 }
@@ -452,9 +462,12 @@ const SubscriptionCard = ({
     duration,
     benefits,
     individualPrice,
+    referralDiscountAmount,
+    referralDiscountKind,
   } = subscription
 
   const [cardPrice, setCardPrice] = useState(0)
+  const [isPromoLarger, setIsPromoLarger] = useState(false)
   const [dialogOpen, setDialogOpen] = useState(false)
 
   const getSubscriptionPrice = () => {
@@ -465,79 +478,125 @@ const SubscriptionCard = ({
     const price = getSubscriptionPrice()
     let fullPrice
 
-    if (isValidForPromo && discountKind && discountAmount && discounts) {
+    try {
+      // if (isValidForPromo && discountKind && discountAmount && discounts) {
       const matchedDiscount = discounts.find((el) => el.subscriptionId === id)
+
+      // const preferedDiscount = matchedDiscount
+      //   ? matchedDiscount.discountAmount
+      //   : discountAmount
 
       const preferedDiscount = matchedDiscount
         ? matchedDiscount.discountAmount
         : discountAmount
 
-      if (discountKind.id === "MONEY") {
-        if (baseDiscount) {
-          fullPrice = price - price * (baseDiscount / 100) - preferedDiscount
-        } else {
-          fullPrice = price - preferedDiscount
-        }
-      } else {
-        if (baseDiscount) {
-          fullPrice = price - price * (baseDiscount / 100 + preferedDiscount)
-        } else {
-          fullPrice = price - price * preferedDiscount
-        }
-      }
+      const referralDiscount = referralDiscountAmount
+        ? referralDiscountKind === "MONEY"
+          ? referralDiscountAmount
+          : Math.ceil(price * referralDiscountAmount)
+        : 0
 
-      setCardPrice(showMonthlyPrice ? fullPrice / duration.id : fullPrice)
-    } else {
-      if (baseDiscount) {
+      const promocodeDiscount =
+        discountKind?.id === "MONEY"
+          ? preferedDiscount
+          : Math.ceil(price * preferedDiscount)
+
+      if (baseDiscountAmount) {
+        console.log(111, baseDiscountAmount)
         setCardPrice(
-          showMonthlyPrice
-            ? (price - price * (baseDiscount / 100)) / duration.id
-            : price - price * (baseDiscount / 100)
+          price -
+            baseDiscountAmount -
+            Math.max(referralDiscount, promocodeDiscount)
         )
       } else {
-        setCardPrice(showMonthlyPrice ? price / duration.id : price)
+        setCardPrice(price - Math.max(referralDiscount, promocodeDiscount))
       }
+
+      if (referralDiscountAmount && referralDiscountKind) {
+        if (referralDiscount > promocodeDiscount) {
+          setIsPromoLarger(true)
+        } else {
+          setIsPromoLarger(false)
+        }
+      }
+    } catch (error) {
+      setPromoForSubmit("")
     }
-  }, [discountKind, discountAmount, discounts])
+  }, [discountKind, discountAmount, discounts, showMonthlyPrice])
 
   useEffect(() => {
     const price = getSubscriptionPrice()
     let fullPrice
 
-    if (isValidForPromo && discountKind && discountAmount && discounts) {
+    try {
+      // if (isValidForPromo && discountKind && discountAmount && discounts) {
       const matchedDiscount = discounts.find((el) => el.subscriptionId === id)
+
+      // const preferedDiscount = matchedDiscount
+      //   ? matchedDiscount.discountAmount
+      //   : discountAmount
 
       const preferedDiscount = matchedDiscount
         ? matchedDiscount.discountAmount
         : discountAmount
 
-      if (discountKind.id === "MONEY") {
-        if (baseDiscount) {
-          fullPrice = price - price * (baseDiscount / 100) - preferedDiscount
-        } else {
-          fullPrice = price - preferedDiscount
-        }
-      } else {
-        if (baseDiscount) {
-          fullPrice = price - price * (baseDiscount / 100 + preferedDiscount)
-        } else {
-          fullPrice = price - price * preferedDiscount
-        }
-      }
+      const referralDiscount = referralDiscountAmount
+        ? referralDiscountKind === "MONEY"
+          ? referralDiscountAmount
+          : Math.ceil(price * referralDiscountAmount)
+        : 0
 
-      setCardPrice(showMonthlyPrice ? fullPrice / duration.id : fullPrice)
-    } else {
-      if (baseDiscount) {
+      const promocodeDiscount =
+        discountKind?.id === "MONEY"
+          ? preferedDiscount
+          : Math.ceil(price * preferedDiscount)
+
+      if (baseDiscountAmount) {
         setCardPrice(
           showMonthlyPrice
-            ? (price - price * (baseDiscount / 100)) / duration.id
-            : price - price * (baseDiscount / 100)
+            ? (price -
+                baseDiscountAmount -
+                Math.max(referralDiscount, promocodeDiscount)) /
+                duration.id
+            : price -
+                baseDiscountAmount -
+                Math.max(referralDiscount, promocodeDiscount)
         )
       } else {
-        setCardPrice(showMonthlyPrice ? price / duration.id : price)
+        setCardPrice(
+          showMonthlyPrice
+            ? (price - Math.max(referralDiscount, promocodeDiscount)) /
+                duration.id
+            : price - Math.max(referralDiscount, promocodeDiscount)
+        )
       }
+
+      if (referralDiscountAmount && referralDiscountKind) {
+        if (referralDiscount > promocodeDiscount) {
+          setIsPromoLarger(true)
+        } else {
+          setIsPromoLarger(false)
+        }
+      }
+    } catch (error) {
+      setPromoForSubmit("")
     }
   }, [showMonthlyPrice])
+
+  const totalDiscount =
+    discountAmount && discountKind
+      ? baseDiscount
+        ? discountKind.id === "MONEY"
+          ? Math.floor(
+              (discountAmount * 100) / getSubscriptionPrice() + baseDiscount
+            )
+          : discountAmount * 100 + baseDiscount
+        : discountKind.id === "MONEY"
+        ? Math.floor((discountAmount * 100) / getSubscriptionPrice())
+        : discountAmount * 100
+      : baseDiscount
+      ? baseDiscount
+      : 0
 
   const scrollToOpportunities = () => {
     const positions = {
@@ -601,11 +660,12 @@ const SubscriptionCard = ({
               <div className={styles.price_discount}>
                 <span className={styles.price_discount_percent}>
                   -
-                  {showMonthlyPrice
+                  {/* {showMonthlyPrice
                     ? Math.round(
                         100 - (cardPrice * 100) / (price / duration.id)
                       )
-                    : Math.round(100 - (cardPrice * 100) / price)}
+                    : Math.round(100 - (cardPrice * 100) / price)} */}
+                  {totalDiscount}
                   {order === 0 ? "$" : "%"}
                 </span>
                 <span className={styles.price_discount_amount}>${price}</span>
@@ -615,14 +675,14 @@ const SubscriptionCard = ({
             <div className={styles.price_discount}>
               <span className={styles.price_discount_percent}>
                 -
-                {discountKind && discountAmount && discounts
+                {/* {discountKind && discountAmount && discounts
                   ? showMonthlyPrice
                     ? Math.round(
                         100 - (cardPrice * 100) / (price / duration.id)
                       )
                     : Math.round(100 - (cardPrice * 100) / price)
-                  : baseDiscount}
-                %
+                  : baseDiscount} */}
+                {totalDiscount}%
               </span>
               <span className={styles.price_discount_amount}>
                 ${showMonthlyPrice ? price / duration.id : price}
@@ -1028,6 +1088,9 @@ const SubscriptionCard = ({
         setPromoForSubmit={setPromoForSubmit}
         discountAmount={discountAmount}
         discountKind={discountKind}
+        referralDiscountAmount={referralDiscountAmount}
+        referralDiscountKind={referralDiscountKind}
+        baseDiscountAmount={baseDiscountAmount}
         discounts={discounts}
         isPromoReferral={isPromoReferral}
         setIsPromoReferral={setIsPromoReferral}

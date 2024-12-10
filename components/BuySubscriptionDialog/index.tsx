@@ -50,6 +50,9 @@ const BuySubscriptionDialog = ({
   setPromoForSubmit,
   discountAmount,
   discountKind,
+  referralDiscountAmount,
+  referralDiscountKind,
+  baseDiscountAmount,
   discounts,
   isPromoReferral,
   setIsPromoReferral,
@@ -75,6 +78,10 @@ const BuySubscriptionDialog = ({
         discountAmount: number
       }>
     | undefined
+
+  referralDiscountKind: string | null
+  referralDiscountAmount: number | null
+  baseDiscountAmount: number | null
   isPromoReferral: boolean
   setIsPromoReferral: React.Dispatch<React.SetStateAction<boolean>>
   dialogOpen: boolean
@@ -89,6 +96,7 @@ const BuySubscriptionDialog = ({
   const [promoWasUpdated, setPromoWasUpdated] = useState(false)
   const [localPromoForSubmit, setLocalPromoForSubmit] = useState(promoForSubmit)
   const [totalPrice, setTotalPrice] = useState(0)
+  const [isPromoLarger, setIsPromoLarger] = useState(false)
   const [paymentType, setPaymentType] = useState<"crypto" | "card">("crypto")
   const [activeToken, setActiveToken] = useState<string | undefined>(undefined)
   const [activeNetwork, setActiveNetwork] = useState<string | undefined>(
@@ -124,23 +132,34 @@ const BuySubscriptionDialog = ({
           ? matchedDiscount.discountAmount
           : discountAmount
 
-        let fullPrice
+        const referralDiscount = referralDiscountAmount
+          ? referralDiscountKind === "MONEY"
+            ? referralDiscountAmount
+            : Math.ceil(price * referralDiscountAmount)
+          : 0
 
-        if (discountKind.id === "MONEY") {
-          if (baseDiscount) {
-            fullPrice = price - price * (baseDiscount / 100) - preferedDiscount
-          } else {
-            fullPrice = price - preferedDiscount
-          }
+        const promocodeDiscount =
+          discountKind.id === "MONEY"
+            ? preferedDiscount
+            : Math.ceil(price * preferedDiscount)
+
+        if (baseDiscountAmount) {
+          setTotalPrice(
+            price -
+              baseDiscountAmount -
+              Math.max(referralDiscount, promocodeDiscount)
+          )
         } else {
-          if (baseDiscount) {
-            fullPrice = price - price * (baseDiscount / 100 + preferedDiscount)
-          } else {
-            fullPrice = price - price * preferedDiscount
-          }
+          setTotalPrice(price - Math.max(referralDiscount, promocodeDiscount))
         }
 
-        setTotalPrice(fullPrice)
+        if (referralDiscountAmount && referralDiscountKind) {
+          if (referralDiscount > promocodeDiscount) {
+            setIsPromoLarger(true)
+          } else {
+            setIsPromoLarger(false)
+          }
+        }
       }
     }
   }, [])
@@ -324,19 +343,48 @@ const BuySubscriptionDialog = ({
       setLocalPromoForSubmit(promocode)
       setPromoWasUpdated(true)
 
-      if (discountKind.id === "MONEY") {
-        if (baseDiscount) {
-          setTotalPrice(price - price * (baseDiscount / 100) - preferedDiscount)
-        } else {
-          setTotalPrice(price - preferedDiscount)
-        }
+      const referralDiscount = referralDiscountAmount
+        ? referralDiscountKind === "MONEY"
+          ? referralDiscountAmount
+          : Math.ceil(price * referralDiscountAmount)
+        : 0
+
+      const promocodeDiscount =
+        discountKind.id === "MONEY"
+          ? preferedDiscount
+          : Math.ceil(price * preferedDiscount)
+
+      if (baseDiscountAmount) {
+        setTotalPrice(
+          price -
+            baseDiscountAmount -
+            Math.max(referralDiscount, promocodeDiscount)
+        )
       } else {
-        if (baseDiscount) {
-          setTotalPrice(price - price * (baseDiscount / 100 + preferedDiscount))
+        setTotalPrice(price - Math.max(referralDiscount, promocodeDiscount))
+      }
+
+      if (referralDiscountAmount && referralDiscountKind) {
+        if (referralDiscount > promocodeDiscount) {
+          setIsPromoLarger(true)
         } else {
-          setTotalPrice(price - price * preferedDiscount)
+          setIsPromoLarger(false)
         }
       }
+
+      // if (discountKind.id === "MONEY") {
+      //   if (baseDiscount) {
+      //     setTotalPrice(price - price * (baseDiscount / 100) - preferedDiscount)
+      //   } else {
+      //     setTotalPrice(price - preferedDiscount)
+      //   }
+      // } else {
+      //   if (baseDiscount) {
+      //     setTotalPrice(price - price * (baseDiscount / 100 + preferedDiscount))
+      //   } else {
+      //     setTotalPrice(price - price * preferedDiscount)
+      //   }
+      // }
     } catch {}
   }
 
@@ -376,17 +424,32 @@ const BuySubscriptionDialog = ({
       setLocalPromoForSubmit(DEFAULT_CRYPTON_PROMO)
       setPromoWasUpdated(true)
 
-      if (discountKind.id === "MONEY") {
-        if (baseDiscount) {
-          setTotalPrice(price - price * (baseDiscount / 100) - preferedDiscount)
-        } else {
-          setTotalPrice(price - preferedDiscount)
-        }
+      const referralDiscount = referralDiscountAmount
+        ? referralDiscountKind === "MONEY"
+          ? referralDiscountAmount
+          : Math.ceil(price * referralDiscountAmount)
+        : 0
+
+      const promocodeDiscount =
+        discountKind.id === "MONEY"
+          ? preferedDiscount
+          : Math.ceil(price * preferedDiscount)
+
+      if (baseDiscountAmount) {
+        setTotalPrice(
+          price -
+            baseDiscountAmount -
+            Math.max(referralDiscount, promocodeDiscount)
+        )
       } else {
-        if (baseDiscount) {
-          setTotalPrice(price - price * (baseDiscount / 100 + preferedDiscount))
+        setTotalPrice(price - Math.max(referralDiscount, promocodeDiscount))
+      }
+
+      if (referralDiscountAmount && referralDiscountKind) {
+        if (referralDiscount > promocodeDiscount) {
+          setIsPromoLarger(true)
         } else {
-          setTotalPrice(price - price * preferedDiscount)
+          setIsPromoLarger(false)
         }
       }
     } catch {}

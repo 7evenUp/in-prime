@@ -2,6 +2,8 @@ export interface Subscription {
   id: number
   baseDiscount: number | null
   baseDiscountAmount: number | null
+  referralDiscountKind: string | null
+  referralDiscountAmount: number | null
   benefits: Array<{
     id: number
     file: null | string
