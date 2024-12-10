@@ -544,7 +544,7 @@
 
   &_ability {
     display: flex;
-    gap: 5px;
+    gap: 8px;
     margin-bottom: 5px;
     align-items: center;
 
@@ -560,7 +560,14 @@
   &_wrap {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    // align-items: center;
+    width: 249px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media (max-width: 767px) {
+      width: 220px;
+    }
   }
 
   &_wrapper {
