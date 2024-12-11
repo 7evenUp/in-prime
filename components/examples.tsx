@@ -178,7 +178,7 @@ const Examples = ({ resolution }: { resolution: Resolution }) => {
                         Вложения:
                       </div>
                       <div className="examples-content__blocks__block__content__in-out__col__sum white invest">
-                        {spend}
+                        <div>{spend}</div>
                       </div>
                     </div>
                   </div>

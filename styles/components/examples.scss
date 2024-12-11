@@ -286,6 +286,10 @@
 
               &.invest {
                 white-space: unset;
+                > div {
+                  margin-left: -6px;
+                  margin-top: -6px;
+                }
               }
               @media (max-width: 767px) {
                 font-size: 20px;

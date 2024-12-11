@@ -383,7 +383,7 @@
   padding-left: 14px;
   display: flex;
   flex-direction: column;
-  gap: 13px;
+  gap: 4px;
   list-style: none;
 
   @media (max-width: 767px) {
@@ -485,6 +485,7 @@
     content: "+";
     position: absolute;
     left: -14px;
+    top: 2px;
 
     @media (max-width: 767px) {
       display: none;

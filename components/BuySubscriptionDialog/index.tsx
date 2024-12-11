@@ -455,6 +455,10 @@ const BuySubscriptionDialog = ({
     } catch {}
   }
 
+  const filteredBenefits = benefits.filter(
+    (el) => el.translations.ru.name !== "Все возможности Prime"
+  )
+
   return (
     <Dialog.Root open={dialogOpen} onOpenChange={setDialogOpen}>
       <Dialog.Trigger className={styles.trigger} asChild>
@@ -759,7 +763,13 @@ const BuySubscriptionDialog = ({
                           )}
                           {order === 0 && (
                             <ul className={styles.bonuses}>
-                              {benefits.map((benefit) => (
+                              {filteredBenefits.length !== benefits.length && (
+                                <p className={styles.bonus_text}>
+                                  Все возможности Prime
+                                </p>
+                              )}
+
+                              {filteredBenefits.map((benefit) => (
                                 <li key={benefit.id} className={styles.bonus}>
                                   <p className={styles.bonus_text}>
                                     {benefit.translations.ru.name}
