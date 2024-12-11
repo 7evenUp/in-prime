@@ -227,11 +227,226 @@ import SovereigntyNov4 from "@/public/images/png/examples/october/Sovereignty_no
 import TaikoNov4 from "@/public/images/png/examples/october/Taiko_nov4.png"
 import YNov4 from "@/public/images/png/examples/october/y_nov4.png"
 
+import APEDec11 from "@/public/images/png/examples/dec/APE_dec11.jpg"
+import BlastDec11 from "@/public/images/png/examples/dec/Blast_dec11.jpg"
+import BybitDec11 from "@/public/images/png/examples/dec/Bybit_dec11.jpg"
+import DREAMDec11 from "@/public/images/png/examples/dec/DREAM_dec11.jpg"
+import HyperliquidDec11 from "@/public/images/png/examples/dec/Hyperliquid_dec11.jpg"
+import LUMDec11 from "@/public/images/png/examples/dec/LUM_dec11.jpg"
+import LaminaDec11 from "@/public/images/png/examples/dec/Lamina_dec11.png"
+import MeteoraDec11 from "@/public/images/png/examples/dec/Meteora_dec11.jpg"
+import PIGGYDec11 from "@/public/images/png/examples/dec/PIGGY_dec11.png"
+import Parallel2Dec11 from "@/public/images/png/examples/dec/Parallel2_dec11.jpg"
+import ParallelDec11 from "@/public/images/png/examples/dec/Parallel_dec11.jpg"
+import SonicDec11 from "@/public/images/png/examples/dec/Sonic_dec11.jpg"
+import SuperformDec11 from "@/public/images/png/examples/dec/Superform_dec11.jpg"
+import SupraDec11 from "@/public/images/png/examples/dec/Supra_dec11.png"
+import SwellDec11 from "@/public/images/png/examples/dec/Swell_dec11.jpg"
+import VoiDec11 from "@/public/images/png/examples/dec/Voi_dec11.jpg"
+import WOWDec11 from "@/public/images/png/examples/dec/WOW_dec11.jpg"
+import WhaleDec11 from "@/public/images/png/examples/dec/Whale_dec11.png"
+import YesDec11 from "@/public/images/png/examples/dec/Yes_dec11.png"
+
 import BybitDefault from "@/public/images/png/examples/common/bybit-default.png"
 import StakelandDefault from "@/public/images/png/examples/common/stakeland.png"
 import AddicktedDefault from "@/public/images/png/examples/common/addickted.png"
 
 export const examples = {
+  ноябрь: [
+    {
+      title: "Swell",
+      earn: "$600",
+      spend: "$90",
+      category: "Ретродропы",
+      condition: "Застейкать 0.05 $ETH летом прошлого года.",
+      resources: "0.05 $ETH, деньги на комиссию.",
+      reportUrl: "crypton.xyz",
+      img: SwellDec11,
+    },
+    {
+      title: "Whale",
+      earn: "$300",
+      spend: "$50",
+      category: "Промоакции",
+      condition:
+        "Получать фриспины за депозит и делать это на большом количестве кошельков.",
+      resources: "$50, большое количество Telegram-аккаунтов.",
+      reportUrl: "crypton.xyz",
+      img: WhaleDec11,
+    },
+    {
+      title: "Покупка $WOW",
+      earn: "$350",
+      spend: "$50",
+      category: "Мемкоины",
+      condition: "Купить токен $WOW по колу из чата",
+      resources: "0.015 $ETH в сети Base.",
+      reportUrl: "crypton.xyz",
+      img: WOWDec11,
+    },
+    {
+      title: "Покупка $DREAM",
+      earn: "$225",
+      spend: "$50",
+      category: "Мемкоины",
+      condition: "Купить токен $DREAM по колу из чата.",
+      resources: "0.015 $ETH в сети Base.",
+      reportUrl: "crypton.xyz",
+      img: DREAMDec11,
+    },
+    {
+      title: "G's on APE",
+      earn: "$500",
+      spend: "$33",
+      category: "NFT",
+      condition: "Выиграть WL от Prime и сминтить NFT.",
+      resources: "33 $APE (~$33).",
+      reportUrl: "crypton.xyz",
+      img: APEDec11,
+    },
+    {
+      title: "Blast Royale",
+      earn: "$120",
+      spend: "$0",
+      category: "GameFi",
+      condition: "Играть в игру Blast Royale и зарабатывать токены.",
+      resources: "Время на выполнение активности.",
+      reportUrl: "crypton.xyz",
+      img: BlastDec11,
+    },
+    {
+      title: "Meteora",
+      earn: "$217",
+      spend: "$124",
+      category: "DeFi",
+      condition: "Предоставлять ликвидность в парах ликвидности с мемкоинами.",
+      resources: "1 $SOL (~$200), время на выполнение активности.",
+      reportUrl: "crypton.xyz",
+      img: MeteoraDec11,
+    },
+    {
+      title: "Bybit WSOT",
+      earn: "$122",
+      spend: "$55",
+      category: "Промоакции",
+      condition: "Торговать на Bybit DEX, поддерживая проект Gatto.",
+      resources: "$200, время на выполнение активности.",
+      reportUrl: "crypton.xyz",
+      img: BybitDec11,
+    },
+    {
+      title: "Покупка $LUM",
+      earn: "$700",
+      spend: "$100",
+      category: "Мемкоины",
+      condition: "Купить мемкоин $LUM по колу из чата.",
+      resources: "0.05 $ETH в сети Base.",
+      reportUrl: "crypton.xyz",
+      img: LUMDec11,
+    },
+    {
+      title: "Parallel Aftermath Drop",
+      earn: "$150",
+      spend: "$88",
+      category: "NFT",
+      condition: "Купить набор карточек Parallel Aftermath",
+      resources: "11 $PRIME (~$88), время на выполнение активности.",
+      reportUrl: "crypton.xyz",
+      img: ParallelDec11,
+    },
+    {
+      title: "Superform",
+      earn: "$400",
+      spend: "$100",
+      category: "Ретродропы",
+      condition:
+        "Получать роли в Discord и Guild, предоставлять ликвидность на платформе.",
+      resources: "$100, время на выполнение активности.",
+      reportUrl: "crypton.xyz",
+      img: SuperformDec11,
+    },
+    {
+      title: "Покупка $PIGGY",
+      earn: "$160",
+      spend: "$100",
+      category: "Мемкоины",
+      condition: "Купить мемкоин $PIGGY по колу из канала.",
+      resources: "$100 в сети Base.",
+      reportUrl: "crypton.xyz",
+      img: PIGGYDec11,
+    },
+    {
+      title: "Supra",
+      earn: "$1300",
+      spend: "$0",
+      category: "Ретродропы",
+      condition: "Выполнять социальные задания кампании “BlastOff”.",
+      resources: "Время на выполнение активности.",
+      reportUrl: "crypton.xyz",
+      img: SupraDec11,
+    },
+    {
+      title: "Hyperliquid",
+      earn: "$11000",
+      spend: "$1500",
+      category: "Ретродропы",
+      condition: "Предоставлять ликвидность в HLP, торговать на бирже.",
+      resources: "$1500, время на выполнение активности.",
+      reportUrl: "crypton.xyz",
+      img: HyperliquidDec11,
+    },
+    {
+      title: "Lamina1",
+      earn: "$1000",
+      spend: "$324",
+      category: "Ноды",
+      condition: "Держать ноду, выполнять социальные задания",
+      resources: "$324, время на выполнение активности.",
+      reportUrl: "crypton.xyz",
+      img: LaminaDec11,
+    },
+    {
+      title: "Voi",
+      earn: "$140",
+      spend: "$75",
+      category: "Ноды",
+      condition: "Держать ноду.",
+      resources: "$75, время на выполнение активности.",
+      reportUrl: "crypton.xyz",
+      img: VoiDec11,
+    },
+    {
+      title: '"Yes" на Трампа',
+      earn: "$170",
+      spend: "$100",
+      category: "Ретродропы",
+      condition:
+        "Поставить на победу Трампа в рамках отработки Polymarket по колу из канала.",
+      resources: "$100, время на выполнение активности.",
+      reportUrl: "crypton.xyz",
+      img: YesDec11,
+    },
+    {
+      title: "The Road To Sonic",
+      earn: "$130",
+      spend: "$20",
+      category: "Ретродропы",
+      condition: "Получить 6 NFT из кампании “The Road To Sonic” и продать их",
+      resources: "$20, время на выполнение активности.",
+      reportUrl: "crypton.xyz",
+      img: SonicDec11,
+    },
+    {
+      title: "Parallel",
+      earn: "$130",
+      spend: "$0",
+      category: "GameFi",
+      condition: "Играть в игру Parallel TCG и зарабатывать токены $PRIME.",
+      resources: "время на выполнение активности.",
+      reportUrl: "crypton.xyz",
+      img: Parallel2Dec11,
+    },
+  ],
   октябрь: [
     {
       title: "EigenLayer",
@@ -370,7 +585,7 @@ export const examples = {
       img: ParallelNov4,
     },
   ],
-  сентябрь: [
+  "Сентябрь-Январь": [
     {
       title: "Digital Resistance",
       earn: "$35",
@@ -442,8 +657,7 @@ export const examples = {
       reportUrl: "crypton.xyz",
       img: XAISep28,
     },
-  ],
-  "август-январь": [
+
     {
       title: "Stoshi",
       earn: "$1250",
