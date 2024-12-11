@@ -470,6 +470,9 @@ const SubscriptionCard = ({
   const [isPromoLarger, setIsPromoLarger] = useState(false)
   const [dialogOpen, setDialogOpen] = useState(false)
 
+  const [popoverOpened, setPopoverOpened] = useState(false)
+  const [hoverCardOpened, setHoverCardOpened] = useState(false)
+
   const getSubscriptionPrice = () => {
     return individualPrice ? individualPrice : price
   }
@@ -840,12 +843,13 @@ const SubscriptionCard = ({
         )}
       >
         {resolution === "sm" ? (
-          <Popover.Root>
+          <Popover.Root open={popoverOpened} onOpenChange={setPopoverOpened}>
             <Popover.Trigger
               className={clsx(
                 styles.PopoverTrigger,
                 order === 0 && styles.PopoverTrigger_hidden
               )}
+              onClick={() => setPopoverOpened((prev) => !prev)}
             >
               <li className={styles.bonus}>
                 <p className={styles.bonus_text}>
@@ -878,12 +882,17 @@ const SubscriptionCard = ({
             </Popover.Portal>
           </Popover.Root>
         ) : (
-          <HoverCard.Root openDelay={150}>
-            <HoverCard.Trigger
+          <Popover.Root
+            // openDelay={150}
+            open={hoverCardOpened}
+            onOpenChange={setHoverCardOpened}
+          >
+            <Popover.Trigger
               className={clsx(
                 styles.HoverCardTrigger,
                 order === 0 && styles.HoverCardTrigger_hidden
               )}
+              onClick={() => setHoverCardOpened((prev) => !prev)}
             >
               <li className={styles.bonus}>
                 <p className={styles.bonus_text}>
@@ -894,9 +903,9 @@ const SubscriptionCard = ({
                   <NavArrowIcon />
                 </p>
               </li>
-            </HoverCard.Trigger>
-            <HoverCard.Portal>
-              <HoverCard.Content
+            </Popover.Trigger>
+            <Popover.Portal>
+              <Popover.Content
                 className={styles.HoverCardContent}
                 sideOffset={5}
               >
@@ -912,12 +921,14 @@ const SubscriptionCard = ({
                       : "/images/png/buy-subscription/subscription_4.png"
                   }
                 />
-                {order === 3
-                  ? benefits?.[1]?.translations.ru.description
-                  : benefits?.[0]?.translations.ru.description}
-              </HoverCard.Content>
-            </HoverCard.Portal>
-          </HoverCard.Root>
+                <p className={styles.HoverCardContent_text}>
+                  {order === 3
+                    ? benefits?.[1]?.translations.ru.description
+                    : benefits?.[0]?.translations.ru.description}
+                </p>
+              </Popover.Content>
+            </Popover.Portal>
+          </Popover.Root>
         )}
       </ul>
 

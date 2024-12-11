@@ -910,6 +910,7 @@
 
   &:hover {
     color: #bb44cc;
+    font-weight: 400;
 
     .red,
     .purple,
@@ -931,10 +932,10 @@
 
 .HoverCardContent {
   box-sizing: border-box;
-  font-family: "Resist Sans", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 14px;
   line-height: 140%;
-  width: 380px;
+  width: 330px;
   color: white;
   padding: 12px;
   border-radius: 16px;
@@ -951,6 +952,10 @@
 
   @media (max-width: 767px) {
     width: 320px;
+  }
+
+  &_text {
+    margin-left: -25px;
   }
 }
 .HoverCardContent[data-side="top"] {
@@ -1029,7 +1034,7 @@
 
 .PopoverContent {
   box-sizing: border-box;
-  font-family: "Resist Sans", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 14px;
   line-height: 140%;
   width: 320px;
@@ -1062,7 +1067,7 @@
 
 .PopoverContentDescription {
   box-sizing: border-box;
-  font-family: "Resist Sans", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 14px;
   line-height: 140%;
   width: 250px;
