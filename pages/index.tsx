@@ -135,7 +135,7 @@ const Home = (props) => {
 
           {resolution === "sm" ? <AdvantagesSm /> : <Advantages />}
 
-          {resolution === "sm" ? (
+          {resolution === "sm" || resolution === "md" ? (
             <FeaturesSm resolution={resolution} />
           ) : (
             <Features resolution={resolution} />

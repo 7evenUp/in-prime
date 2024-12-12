@@ -36,6 +36,8 @@ const fallbackSubscriptions: Subscription[] = [
     id: 1,
     baseDiscount: null,
     baseDiscountAmount: null,
+    referralDiscountAmount: null,
+    referralDiscountKind: null,
     benefits: [
       {
         id: 1,
@@ -62,6 +64,8 @@ const fallbackSubscriptions: Subscription[] = [
     id: 2,
     baseDiscount: 5,
     baseDiscountAmount: 99,
+    referralDiscountAmount: null,
+    referralDiscountKind: null,
     benefits: [
       {
         id: 1,
@@ -88,6 +92,8 @@ const fallbackSubscriptions: Subscription[] = [
     id: 3,
     baseDiscount: 10,
     baseDiscountAmount: 99,
+    referralDiscountAmount: null,
+    referralDiscountKind: null,
     benefits: [
       {
         id: 1,
@@ -114,6 +120,8 @@ const fallbackSubscriptions: Subscription[] = [
     id: 4,
     baseDiscount: 15,
     baseDiscountAmount: 1188,
+    referralDiscountAmount: null,
+    referralDiscountKind: null,
     benefits: [
       {
         id: 1,
@@ -385,7 +393,7 @@ const BuySubscriptionPromo = ({
         </div>
       </div>
 
-      <BuySubscriptionDialog
+      {/* <BuySubscriptionDialog
         key={discountAmount}
         selectedSubscription={subscriptions[0]}
         order={0}
@@ -401,7 +409,7 @@ const BuySubscriptionPromo = ({
         setDialogOpen={setDialogOpen}
       >
         <button className={styles.button}>Купить подписку</button>
-      </BuySubscriptionDialog>
+      </BuySubscriptionDialog> */}
     </div>
   )
 }
@@ -455,6 +463,8 @@ const SubscriptionCard = ({
     duration,
     benefits,
     individualPrice,
+    referralDiscountAmount,
+    referralDiscountKind,
   } = subscription
 
   const [cardPrice, setCardPrice] = useState(0)
@@ -881,6 +891,9 @@ const SubscriptionCard = ({
         discounts={discounts}
         isPromoReferral={isPromoReferral}
         setIsPromoReferral={setIsPromoReferral}
+        baseDiscountAmount={baseDiscountAmount}
+        referralDiscountAmount={referralDiscountAmount}
+        referralDiscountKind={referralDiscountKind}
         dialogOpen={dialogOpen}
         setDialogOpen={setDialogOpen}
       >

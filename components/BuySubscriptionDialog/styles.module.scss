@@ -383,7 +383,7 @@
   padding-left: 14px;
   display: flex;
   flex-direction: column;
-  gap: 13px;
+  gap: 4px;
   list-style: none;
 
   @media (max-width: 767px) {
@@ -485,6 +485,7 @@
     content: "+";
     position: absolute;
     left: -14px;
+    top: 2px;
 
     @media (max-width: 767px) {
       display: none;
@@ -495,6 +496,10 @@
     @media (max-width: 445px) {
       font-size: 14px;
     }
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 130%;
   }
 }
 
@@ -1299,5 +1304,259 @@
 
   &_first {
     margin-top: 10px;
+  }
+}
+
+.HoverCardTrigger {
+  cursor: pointer;
+  color: white;
+  background: transparent;
+  border: none;
+  text-align: left;
+  padding: 0;
+  width: fit-content;
+
+  &:hover {
+    color: #bb44cc;
+
+    .red,
+    .purple,
+    .beige {
+      color: #bb44cc;
+    }
+  }
+
+  &_hidden {
+    display: none;
+  }
+
+  &[data-state="open"] {
+    svg {
+      rotate: 180deg;
+    }
+  }
+}
+
+.HoverCardContent {
+  box-sizing: border-box;
+  font-family: "Resist Sans", sans-serif;
+  font-size: 14px;
+  line-height: 140%;
+  width: 380px;
+  color: white;
+  padding: 12px;
+  border-radius: 16px;
+  background-color: #121212;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  z-index: 99999;
+  animation-duration: 400ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  @media (max-width: 767px) {
+    width: 320px;
+  }
+}
+.HoverCardContent[data-side="top"] {
+  animation-name: slideDownAndFade;
+}
+.HoverCardContent[data-side="right"] {
+  animation-name: slideLeftAndFade;
+}
+.HoverCardContent[data-side="bottom"] {
+  animation-name: slideUpAndFade;
+}
+.HoverCardContent[data-side="left"] {
+  animation-name: slideRightAndFade;
+}
+
+.HoverCardImage {
+  max-width: 150px;
+  display: block;
+}
+
+.PopoverTrigger {
+  cursor: pointer;
+  color: white;
+  background: transparent;
+  border: none;
+  text-align: left;
+  padding: 0;
+  width: fit-content;
+
+  &:hover {
+    color: #bb44cc;
+
+    .red,
+    .purple,
+    .beige {
+      color: #bb44cc;
+    }
+  }
+
+  &[data-state="open"] {
+    svg {
+      rotate: 180deg;
+    }
+  }
+
+  &_hidden {
+    display: none;
+  }
+}
+
+.PopoverTriggerDescription {
+  cursor: pointer;
+  color: white;
+  background: transparent;
+  border: none;
+  text-align: left;
+  padding: 0;
+  width: fit-content;
+
+  &:hover {
+    color: #bb44cc;
+
+    .red,
+    .purple,
+    .beige {
+      color: #bb44cc;
+    }
+  }
+
+  &[data-state="open"] {
+    svg {
+      rotate: 180deg;
+    }
+  }
+}
+
+.PopoverContent {
+  box-sizing: border-box;
+  font-family: "Resist Sans", sans-serif;
+  font-size: 14px;
+  line-height: 140%;
+  width: 320px;
+  color: white;
+  padding: 12px;
+  border-radius: 16px;
+  background-color: #121212;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  z-index: 99999;
+  animation-duration: 400ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.PopoverContent[data-side="top"] {
+  animation-name: slideDownAndFade;
+}
+.PopoverContent[data-side="right"] {
+  animation-name: slideLeftAndFade;
+}
+.PopoverContent[data-side="bottom"] {
+  animation-name: slideUpAndFade;
+}
+.PopoverContent[data-side="left"] {
+  animation-name: slideRightAndFade;
+}
+
+.PopoverContentDescription {
+  box-sizing: border-box;
+  font-family: "Resist Sans", sans-serif;
+  font-size: 14px;
+  line-height: 140%;
+  width: 250px;
+  color: white;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: #121212;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  z-index: 99999;
+  animation-duration: 400ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  a {
+    color: white;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    cursor: pointer;
+
+    &:hover {
+      color: rgba(255, 255, 255, 0.7);
+    }
+  }
+}
+.PopoverContentDescription[data-side="top"] {
+  animation-name: slideDownAndFade;
+}
+.PopoverContentDescription[data-side="right"] {
+  animation-name: slideLeftAndFade;
+}
+.PopoverContentDescription[data-side="bottom"] {
+  animation-name: slideUpAndFade;
+}
+.PopoverContentDescription[data-side="left"] {
+  animation-name: slideRightAndFade;
+}
+
+.PopoverImage {
+  max-width: 90px;
+  display: block;
+}
+
+@keyframes slideUpAndFade {
+  0% {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideRightAndFade {
+  0% {
+    opacity: 0;
+    transform: translateX(-2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideDownAndFade {
+  0% {
+    opacity: 0;
+    transform: translateY(-2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideLeftAndFade {
+  0% {
+    opacity: 0;
+    transform: translateX(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
