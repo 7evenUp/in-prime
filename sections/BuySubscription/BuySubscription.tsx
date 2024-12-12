@@ -506,12 +506,26 @@ const SubscriptionCard = ({
 
       if (baseDiscountAmount) {
         setCardPrice(
-          price -
-            baseDiscountAmount -
-            Math.max(referralDiscount, promocodeDiscount)
+          showMonthlyPrice
+            ? (price -
+                baseDiscountAmount -
+                Math.max(referralDiscount, promocodeDiscount)) /
+                duration.id
+            : price -
+                baseDiscountAmount -
+                Math.max(referralDiscount, promocodeDiscount)
         )
       } else {
-        setCardPrice(price - Math.max(referralDiscount, promocodeDiscount))
+        setCardPrice(
+          showMonthlyPrice
+            ? (price -
+                baseDiscountAmount -
+                Math.max(referralDiscount, promocodeDiscount)) /
+                duration.id
+            : price -
+                baseDiscountAmount -
+                Math.max(referralDiscount, promocodeDiscount)
+        )
       }
 
       if (referralDiscountAmount && referralDiscountKind) {
