@@ -386,6 +386,10 @@
   gap: 4px;
   list-style: none;
 
+  &_first {
+    padding-left: 0;
+  }
+
   @media (max-width: 767px) {
     padding-left: 0px;
   }
@@ -464,6 +468,87 @@
         color: #ff4a7a;
       }
     }
+  }
+}
+
+.text_before_bonuses_prime {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #fff;
+  // opacity: 0.5;
+  line-height: 130%;
+
+  @media (max-width: 767px) {
+    font-size: 14px;
+  }
+
+  // margin-bottom: 24px;
+
+  &_priority {
+    opacity: 1;
+  }
+
+  &_ability {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 5px;
+    align-items: center;
+
+    &_icon {
+      width: 20px;
+      height: 20px;
+      > path {
+        opacity: 1;
+      }
+    }
+  }
+  &_wrap {
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    // width: 239px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &_wrapper {
+    height: 42px;
+    margin-left: auto;
+    margin-right: auto;
+    @media (max-width: 767px) {
+      height: auto;
+    }
+
+    &_priority {
+      @media (max-width: 767px) {
+        height: 42px;
+      }
+    }
+  }
+
+  button {
+    cursor: pointer;
+    padding: 0;
+    outline: none;
+    border: none;
+    transition: all 0.15s ease-in-out;
+    background: transparent;
+
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #4ddfd0;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+
+    &:hover {
+      color: rgba(255, 255, 255, 0.7);
+    }
+  }
+
+  &_transparent {
+    opacity: 1;
   }
 }
 
@@ -1339,10 +1424,11 @@
 
 .HoverCardContent {
   box-sizing: border-box;
-  font-family: "Resist Sans", sans-serif;
-  font-size: 14px;
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
   line-height: 140%;
-  width: 380px;
+  width: 326px;
+  height: 132px;
   color: white;
   padding: 12px;
   border-radius: 16px;
@@ -1357,10 +1443,25 @@
   align-items: center;
   gap: 12px;
 
+  &_first {
+    width: auto;
+    padding: 15px;
+  }
+
   @media (max-width: 767px) {
     width: 320px;
   }
+
+  &_header {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #fff;
+    margin: 0;
+    margin-bottom: 13px;
+  }
 }
+
 .HoverCardContent[data-side="top"] {
   animation-name: slideDownAndFade;
 }
@@ -1375,7 +1476,7 @@
 }
 
 .HoverCardImage {
-  max-width: 150px;
+  max-width: 100px;
   display: block;
 }
 
@@ -1559,4 +1660,96 @@
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+.text_before_bonuses {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #fff;
+  // opacity: 0.5;
+  line-height: 130%;
+  text-align: center;
+
+  @media (max-width: 767px) {
+    font-size: 14px;
+  }
+
+  // margin-bottom: 24px;
+
+  &_priority {
+    opacity: 1;
+  }
+
+  &_ability {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 5px;
+    align-items: center;
+
+    &_icon {
+      width: 20px;
+      height: 20px;
+      > path {
+        opacity: 1;
+      }
+    }
+  }
+
+  &_wrap {
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    // width: 239px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &_wrapper {
+    height: 42px;
+    margin-left: auto;
+    margin-right: auto;
+    @media (max-width: 767px) {
+      height: auto;
+    }
+
+    &_priority {
+      @media (max-width: 767px) {
+        height: 42px;
+      }
+    }
+  }
+
+  button {
+    cursor: pointer;
+    padding: 0;
+    outline: none;
+    border: none;
+    transition: all 0.15s ease-in-out;
+    background: transparent;
+
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #4ddfd0;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+
+    &:hover {
+      color: rgba(255, 255, 255, 0.7);
+    }
+  }
+
+  &_transparent {
+    opacity: 1;
+  }
+}
+
+.icon_wrapper {
+  width: 20px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
