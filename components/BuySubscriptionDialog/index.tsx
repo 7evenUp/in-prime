@@ -932,18 +932,21 @@ const BuySubscriptionDialog = ({
                                     className={styles.PopoverContent}
                                     sideOffset={5}
                                   >
-                                    <img
-                                      className={styles.PopoverImage}
-                                      src={
-                                        order === 1
-                                          ? "/images/png/buy-subscription/subscription_2_popup.png"
-                                          : order === 2
-                                          ? "/images/png/buy-subscription/subscription_3_popup.png"
-                                          : order === 3
-                                          ? "/images/png/buy-subscription/subscription_4_popup.png"
-                                          : "/images/png/buy-subscription/subscription_4_popup.png"
-                                      }
-                                    />
+                                    <div className={styles.PopoverImage}>
+                                      <img
+                                        className={styles.PopoverImage_img}
+                                        src={
+                                          order === 1
+                                            ? "/images/png/buy-subscription/subscription_2_popup.png"
+                                            : order === 2
+                                            ? "/images/png/buy-subscription/subscription_3_popup.png"
+                                            : order === 3
+                                            ? "/images/png/buy-subscription/subscription_4_popup.png"
+                                            : "/images/png/buy-subscription/subscription_4_popup.png"
+                                        }
+                                      />
+                                    </div>
+
                                     <div>
                                       <h1
                                         className={
@@ -991,18 +994,20 @@ const BuySubscriptionDialog = ({
                                     className={styles.HoverCardContent}
                                     sideOffset={5}
                                   >
-                                    <img
-                                      className={styles.HoverCardImage}
-                                      src={
-                                        order === 1
-                                          ? "/images/png/buy-subscription/subscription_2_popup.png"
-                                          : order === 2
-                                          ? "/images/png/buy-subscription/subscription_3_popup.png"
-                                          : order === 3
-                                          ? "/images/png/buy-subscription/subscription_4_popup.png"
-                                          : "/images/png/buy-subscription/subscription_4_popup.png"
-                                      }
-                                    />
+                                    <div className={styles.HoverCardImage}>
+                                      <img
+                                        className={styles.HoverCardImage_img}
+                                        src={
+                                          order === 1
+                                            ? "/images/png/buy-subscription/subscription_2_popup.png"
+                                            : order === 2
+                                            ? "/images/png/buy-subscription/subscription_3_popup.png"
+                                            : order === 3
+                                            ? "/images/png/buy-subscription/subscription_4_popup.png"
+                                            : "/images/png/buy-subscription/subscription_4_popup.png"
+                                        }
+                                      />
+                                    </div>
                                     <div>
                                       <h1
                                         className={

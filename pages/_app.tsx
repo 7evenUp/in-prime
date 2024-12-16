@@ -12,6 +12,8 @@ import { walletConnect, injected } from "wagmi/connectors"
 
 import "/styles/global.scss"
 
+import "/styles/components/snowfall.css"
+
 import "/styles/components/loginIdPopup.scss"
 import "/styles/components/footer.scss"
 import "/styles/components/accordion.scss"

@@ -374,7 +374,7 @@
 
 .price {
   display: flex;
-  align-items: center;
+  // align-items: center;
   flex-direction: column;
   gap: 16px;
   height: 130px;
@@ -534,6 +534,10 @@
 
   > span {
     text-decoration: underline;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 130%;
+    color: #fff;
   }
 
   @media (max-width: 767px) {
@@ -951,22 +955,30 @@
   width: 326px;
   height: 132px;
   color: white;
-  padding: 12px;
+  padding: 16px;
   border-radius: 16px;
   background-color: #121212;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  // border: 1px solid rgba(255, 255, 255, 0.2);
   position: relative;
   z-index: 99999;
   animation-duration: 400ms;
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, opacity;
   display: flex;
-  align-items: center;
-  gap: 12px;
+  // align-items: center;
+  gap: 14px;
 
   &_first {
     width: auto;
     padding: 15px;
+  }
+
+  &_text {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: normal;
+    width: 180px;
   }
 
   @media (max-width: 767px) {
@@ -979,7 +991,9 @@
     font-size: 16px;
     color: #fff;
     margin: 0;
+    margin-top: 16px;
     margin-bottom: 13px;
+    width: 180px;
   }
 }
 .HoverCardContent[data-side="top"] {
@@ -997,7 +1011,15 @@
 
 .HoverCardImage {
   width: 100px;
+  height: auto;
   display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &_img {
+    width: 100%;
+  }
 }
 
 .PopoverTrigger {
@@ -1062,19 +1084,38 @@
   font-size: 14px;
   line-height: 140%;
   width: 320px;
+  height: 132px;
   color: white;
   padding: 12px;
   border-radius: 16px;
   background-color: #121212;
-  border: 1px solid rgba(255, 255, 255, 0.2);
   position: relative;
   z-index: 99999;
   animation-duration: 400ms;
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, opacity;
   display: flex;
-  align-items: center;
+  // align-items: center;
   gap: 12px;
+
+  &_header {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #fff;
+    margin: 0;
+    margin-top: 16px;
+    margin-bottom: 13px;
+    width: 180px;
+  }
+
+  &_text {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: normal;
+    width: 180px;
+  }
 
   &_first {
     width: auto;
@@ -1138,8 +1179,16 @@
 }
 
 .PopoverImage {
-  max-width: 90px;
+  width: 100px;
+  height: auto;
   display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &_img {
+    width: 100%;
+  }
 }
 
 @keyframes slideUpAndFade {

@@ -7,6 +7,7 @@ import { Resolution } from "@/types/resolution"
 
 import styles from "./Earn.module.scss"
 import clsx from "clsx"
+import Snowfall from "@/components/Snow"
 
 interface EarnProps {
   resolution: Resolution
@@ -247,6 +248,8 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
         <div className={styles.prime_arrow} />
       </div>
 
+      <Snowfall />
+
       <div className={styles.gradient} />
 
       <div className={styles.lines}>
@@ -254,12 +257,12 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
           <div key={index} className={styles.line} />
         ))}
       </div>
-
+      {/* 
       <div className={clsx(styles.lines, styles.lines__stars)}>
         {[...Array(lineCount)].map((_, index) => (
           <div key={index} className={styles.star} />
         ))}
-      </div>
+      </div> */}
     </section>
   )
 }
