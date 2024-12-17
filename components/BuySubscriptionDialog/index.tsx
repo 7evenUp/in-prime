@@ -1321,7 +1321,7 @@ const BuySubscriptionDialog = ({
                             {Math.round(
                               100 - (totalPrice * 100) / getSubscriptionPrice()
                             )}
-                            %
+                            {order === 0 ? "$" : "%"}
                           </span>
                         </>
                       ) : (

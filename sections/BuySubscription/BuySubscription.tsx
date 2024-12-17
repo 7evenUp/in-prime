@@ -604,9 +604,7 @@ const SubscriptionCard = ({
     discountAmount && discountKind
       ? baseDiscount
         ? discountKind.id === "MONEY"
-          ? Math.floor(
-              (discountAmount * 100) / getSubscriptionPrice() + baseDiscount
-            )
+          ? Math.floor(baseDiscount)
           : discountAmount * 100 + baseDiscount
         : discountKind.id === "MONEY"
         ? Math.floor((discountAmount * 100) / getSubscriptionPrice())

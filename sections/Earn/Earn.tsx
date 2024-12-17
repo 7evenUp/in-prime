@@ -248,7 +248,7 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
         <div className={styles.prime_arrow} />
       </div>
 
-      <Snowfall />
+      {/* <Snowfall /> */}
 
       <div className={styles.gradient} />
 
@@ -257,12 +257,12 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
           <div key={index} className={styles.line} />
         ))}
       </div>
-      {/* 
+
       <div className={clsx(styles.lines, styles.lines__stars)}>
         {[...Array(lineCount)].map((_, index) => (
           <div key={index} className={styles.star} />
         ))}
-      </div> */}
+      </div>
     </section>
   )
 }
