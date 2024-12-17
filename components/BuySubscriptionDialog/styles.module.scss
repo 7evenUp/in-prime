@@ -570,7 +570,7 @@
     content: "+";
     position: absolute;
     left: -14px;
-    top: 2px;
+    // top: 2px;
 
     @media (max-width: 767px) {
       display: none;
@@ -1195,6 +1195,9 @@
   &:hover {
     color: rgba(255, 255, 255, 0.7);
   }
+  &_first {
+    text-decoration: none;
+  }
 }
 
 .PopoverContent {
@@ -1408,6 +1411,14 @@
     .purple,
     .beige {
       color: #bb44cc;
+    }
+  }
+
+  &_first {
+    color: #4ddfd0;
+    text-decoration: none;
+    &:hover {
+      color: rgba(255, 255, 255, 0.7);
     }
   }
 
@@ -1720,12 +1731,20 @@
 
 .text_before_bonuses {
   font-family: "Inter", sans-serif;
-  font-weight: 400;
+  font-weight: 300;
   font-size: 16px;
   color: #fff;
   // opacity: 0.5;
+  letter-spacing: 0.02em;
   line-height: 130%;
-  text-align: center;
+  // text-align: center;
+
+  > span {
+    text-decoration: underline;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 130%;
+  }
 
   @media (max-width: 767px) {
     font-size: 14px;
@@ -1735,6 +1754,7 @@
 
   &_priority {
     opacity: 1;
+    margin-bottom: 0;
   }
 
   &_ability {
@@ -1763,8 +1783,8 @@
 
   &_wrapper {
     height: 42px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 16px;
+
     @media (max-width: 767px) {
       height: auto;
     }
@@ -1798,6 +1818,59 @@
 
   &_transparent {
     opacity: 1;
+  }
+}
+
+.bonus {
+  position: relative;
+  margin-left: 4px;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  line-height: 130%;
+  margin: 0;
+
+  &::before {
+    content: "+";
+    position: absolute;
+    left: -14px;
+
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
+
+  &_first::before {
+    content: "";
+  }
+  &_first {
+    display: flex;
+    align-items: center;
+  }
+
+  &_text1 {
+    button {
+      cursor: pointer;
+      padding: 0;
+      outline: none;
+      border: none;
+      color: white;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      transition: all 0.15s ease-in-out;
+      background: transparent;
+      font-size: 16px;
+      font-family: "Resist Sans", sans-serif;
+
+      &:hover {
+        color: rgba(255, 255, 255, 0.7);
+      }
+    }
+  }
+
+  svg {
+    flex-shrink: 0;
+    transition: rotate 0.15s ease-in-out;
+    margin-left: 6px;
   }
 }
 
