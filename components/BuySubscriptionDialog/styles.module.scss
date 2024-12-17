@@ -1430,7 +1430,7 @@
   width: 326px;
   height: 132px;
   color: white;
-  padding: 16px;
+  padding: 16px 12px 16px 16px;
   border-radius: 16px;
   background-color: #121212;
   // border: 1px solid rgba(255, 255, 255, 0.2);
@@ -1446,14 +1446,18 @@
   &_first {
     width: auto;
     padding: 15px;
+    height: auto;
+    padding: 16px;
   }
 
   &_text {
     font-family: "Inter", sans-serif;
-    font-weight: 400;
+    font-weight: 300;
     font-size: 12px;
     line-height: normal;
-    width: 180px;
+    width: 185px;
+
+    letter-spacing: 0.03em;
   }
 
   @media (max-width: 767px) {
@@ -1462,13 +1466,16 @@
 
   &_header {
     font-family: "Inter", sans-serif;
-    font-weight: 500;
+    font-weight: 400;
+
     font-size: 16px;
     color: #fff;
     margin: 0;
     margin-top: 16px;
-    margin-bottom: 13px;
-    width: 180px;
+    margin-bottom: 10px;
+    width: 182px;
+
+    letter-spacing: 0.02em;
   }
 }
 

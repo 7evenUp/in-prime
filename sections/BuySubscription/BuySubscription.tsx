@@ -746,9 +746,12 @@ const SubscriptionCard = ({
                         order === 0 && styles.text_before_bonuses_priority
                       )}
                     >
-                      Все <button>возможности Prime</button>
+                      Все{" "}
+                      <button>
+                        возможности Prime <NavArrowIcon />
+                      </button>
+                      {/* 4ddfd0 */}
                     </p>
-                    <NavArrowIcon />
                   </div>
                 </Popover.Trigger>
                 <Popover.Portal>
@@ -822,17 +825,17 @@ const SubscriptionCard = ({
                 </Popover.Portal>
               </Popover.Root>
             ) : (
-              <Popover.Root
-                // openDelay={150}
+              <HoverCard.Root
+                openDelay={150}
                 open={hoverAbilityOpened}
                 onOpenChange={setHoverAbilityOpened}
               >
-                <Popover.Trigger
+                <HoverCard.Trigger
                   className={clsx(
                     styles.HoverCardTrigger,
                     styles.HoverCardTrigger_first
                   )}
-                  onClick={() => setHoverAbilityOpened((prev) => !prev)}
+                  // onClick={() => setHoverAbilityOpened((prev) => !prev)}
                 >
                   <div className={clsx(styles.bonus, styles.bonus_first)}>
                     <p
@@ -845,9 +848,9 @@ const SubscriptionCard = ({
                     </p>
                     <NavArrowIcon />
                   </div>
-                </Popover.Trigger>
-                <Popover.Portal>
-                  <Popover.Content
+                </HoverCard.Trigger>
+                <HoverCard.Portal>
+                  <HoverCard.Content
                     className={clsx(
                       styles.HoverCardContent,
                       styles.HoverCardContent_first
@@ -913,9 +916,9 @@ const SubscriptionCard = ({
                         Поддержка экспертов
                       </p>
                     </div>
-                  </Popover.Content>
-                </Popover.Portal>
-              </Popover.Root>
+                  </HoverCard.Content>
+                </HoverCard.Portal>
+              </HoverCard.Root>
             )}
           </>
         )}
@@ -1055,7 +1058,6 @@ const SubscriptionCard = ({
             >
               <li className={styles.bonus}>
                 <p className={styles.bonus_text}>
-                  {/* {benefit.translations.ru.name} */}
                   {order === 1 && <>Proxyline</>}
                   {order === 2 && <>Dolphin</>}
                   {order === 3 && <>Safepal</>}
@@ -1096,30 +1098,28 @@ const SubscriptionCard = ({
             </Popover.Portal>
           </Popover.Root>
         ) : (
-          <Popover.Root
-            // openDelay={150}
+          <HoverCard.Root
+            openDelay={150}
             open={hoverCardOpened}
             onOpenChange={setHoverCardOpened}
           >
-            <Popover.Trigger
+            <HoverCard.Trigger
               className={clsx(
                 styles.HoverCardTrigger,
                 order === 0 && styles.HoverCardTrigger_hidden
               )}
-              onClick={() => setHoverCardOpened((prev) => !prev)}
             >
               <li className={styles.bonus}>
                 <p className={styles.bonus_text}>
-                  {/* {benefit.translations.ru.name} */}
                   {order === 1 && <>Proxyline</>}
                   {order === 2 && <>Dolphin</>}
                   {order === 3 && <>Safepal</>}
                   <NavArrowIcon />
                 </p>
               </li>
-            </Popover.Trigger>
-            <Popover.Portal>
-              <Popover.Content
+            </HoverCard.Trigger>
+            <HoverCard.Portal>
+              <HoverCard.Content
                 className={styles.HoverCardContent}
                 sideOffset={5}
               >
@@ -1149,9 +1149,9 @@ const SubscriptionCard = ({
                       : benefits?.[0]?.translations.ru.description}
                   </p>
                 </div>
-              </Popover.Content>
-            </Popover.Portal>
-          </Popover.Root>
+              </HoverCard.Content>
+            </HoverCard.Portal>
+          </HoverCard.Root>
         )}
       </ul>
 

@@ -1223,7 +1223,7 @@ const BuySubscriptionDialog = ({
 
                   <div className={styles.total_container}>
                     <span className={styles.total}>
-                      Итого: ${totalPrice.toFixed(2)}{" "}
+                      Итого: ${totalPrice.toFixed(0)}{" "}
                       <span className={styles.total_per_month}>
                         за{" "}
                         {order === 0
