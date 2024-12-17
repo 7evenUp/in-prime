@@ -1098,8 +1098,7 @@ const SubscriptionCard = ({
         ) : (
           <HoverCard.Root
             openDelay={150}
-            open
-            // open={hoverCardOpened}
+            open={hoverCardOpened}
             onOpenChange={setHoverCardOpened}
           >
             <HoverCard.Trigger
