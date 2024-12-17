@@ -7,6 +7,7 @@ import { Resolution } from "@/types/resolution"
 
 import styles from "./Earn.module.scss"
 import clsx from "clsx"
+import Snowfall from "@/components/Snow"
 
 interface EarnProps {
   resolution: Resolution
@@ -246,6 +247,8 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
         <span>CRYPTON PRIME</span>
         <div className={styles.prime_arrow} />
       </div>
+
+      {/* <Snowfall /> */}
 
       <div className={styles.gradient} />
 

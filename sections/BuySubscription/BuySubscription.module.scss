@@ -107,7 +107,7 @@
   border-radius: 18px;
   backdrop-filter: blur(40px);
   background: rgba(34, 34, 34, 0.7);
-  padding: 18px;
+  padding: 20px;
   height: 542px;
   box-sizing: border-box;
 
@@ -374,10 +374,12 @@
 
 .price {
   display: flex;
-  align-items: center;
+  // align-items: center;
   flex-direction: column;
   gap: 16px;
   height: 130px;
+
+  margin-left: 16px;
 
   @media (max-width: 1367px) and (min-width: 768px) {
     height: 110px;
@@ -426,7 +428,8 @@
 
   &_month {
     font-family: "Inter", sans-serif;
-    font-weight: 400;
+    font-weight: 300;
+    letter-spacing: 0.02em;
     font-size: 20px;
     margin-bottom: 5px;
     margin-left: -50px;
@@ -457,7 +460,7 @@
 
     &_percent {
       font-family: "Inter", sans-serif;
-      font-weight: 400;
+      font-weight: 300;
       font-size: 24px;
       &_0 {
         color: #4ddfd0;
@@ -490,7 +493,7 @@
 
     &_amount {
       font-family: "Inter", sans-serif;
-      font-weight: 400;
+      font-weight: 300;
       font-size: 24px;
       color: #fff;
 
@@ -525,12 +528,20 @@
 
 .text_before_bonuses {
   font-family: "Inter", sans-serif;
-  font-weight: 400;
+  font-weight: 300;
   font-size: 16px;
   color: #fff;
   // opacity: 0.5;
+  letter-spacing: 0.02em;
   line-height: 130%;
-  text-align: center;
+  // text-align: center;
+
+  > span {
+    text-decoration: underline;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 130%;
+  }
 
   @media (max-width: 767px) {
     font-size: 14px;
@@ -552,7 +563,7 @@
       width: 20px;
       height: 20px;
       > path {
-        opacity: 0.5;
+        opacity: 1;
       }
     }
   }
@@ -561,17 +572,15 @@
     display: flex;
     flex-direction: column;
     // align-items: center;
-    width: 239px;
+    // width: 239px;
     margin-left: auto;
     margin-right: auto;
-
-    @media (max-width: 767px) {
-      width: 220px;
-    }
   }
 
   &_wrapper {
     height: 42px;
+    margin-left: 16px;
+
     @media (max-width: 767px) {
       height: auto;
     }
@@ -610,9 +619,10 @@
 
 .bonuses {
   margin: 0;
+  margin-left: 16px;
   margin-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
+  // margin-left: auto;
+  // margin-right: auto;
   margin-bottom: 36px;
   padding-left: 14px;
   display: flex;
@@ -636,13 +646,16 @@
   &_heading {
     display: flex;
     align-items: center;
-    margin-left: auto;
-    margin-right: auto;
+    // margin-left: auto;
+    // margin-right: auto;
     gap: 8px;
     font-family: "Unbounded", sans-serif;
     font-weight: 400;
     font-size: 16px;
+    letter-spacing: 0.02em;
     text-transform: uppercase;
+
+    margin-left: 16px;
 
     &_first {
       // opacity: 0;
@@ -698,6 +711,14 @@
     }
   }
 
+  &_first::before {
+    content: "";
+  }
+  &_first {
+    display: flex;
+    align-items: center;
+  }
+
   &_text1 {
     button {
       cursor: pointer;
@@ -734,7 +755,7 @@
   height: 64px;
 
   font-family: "Inter", sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 18px;
   text-align: center;
   color: #fff;
@@ -919,6 +940,13 @@
     }
   }
 
+  &_first {
+    color: #4ddfd0;
+    &:hover {
+      color: rgba(255, 255, 255, 0.7);
+    }
+  }
+
   &_hidden {
     display: none;
   }
@@ -933,29 +961,57 @@
 .HoverCardContent {
   box-sizing: border-box;
   font-family: "Inter", sans-serif;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 140%;
-  width: 330px;
+  width: 326px;
+  height: 132px;
   color: white;
-  padding: 12px;
+  padding: 16px 12px 16px 16px;
   border-radius: 16px;
   background-color: #121212;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  // border: 1px solid rgba(255, 255, 255, 0.2);
   position: relative;
   z-index: 99999;
   animation-duration: 400ms;
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, opacity;
   display: flex;
-  align-items: center;
-  gap: 12px;
+  // align-items: center;
+  gap: 14px;
+
+  &_first {
+    width: auto;
+    padding: 15px;
+    height: auto;
+    padding: 16px;
+  }
+
+  &_text {
+    font-family: "Inter", sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: normal;
+    width: 185px;
+
+    letter-spacing: 0.03em;
+  }
 
   @media (max-width: 767px) {
     width: 320px;
   }
 
-  &_text {
-    margin-left: -25px;
+  &_header {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+
+    font-size: 16px;
+    color: #fff;
+    margin: 0;
+    margin-top: 16px;
+    margin-bottom: 10px;
+    width: 182px;
+
+    letter-spacing: 0.02em;
   }
 }
 .HoverCardContent[data-side="top"] {
@@ -972,8 +1028,16 @@
 }
 
 .HoverCardImage {
-  max-width: 150px;
+  width: 100px;
+  height: auto;
   display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &_img {
+    width: 100%;
+  }
 }
 
 .PopoverTrigger {
@@ -1033,24 +1097,21 @@
 }
 
 .PopoverContent {
-  box-sizing: border-box;
+  border-radius: 6px;
   font-family: "Inter", sans-serif;
+  width: 256px;
   font-size: 14px;
-  line-height: 140%;
-  width: 320px;
+  line-height: 120%;
+  padding: 12px 15px;
   color: white;
-  padding: 12px;
-  border-radius: 16px;
   background-color: #121212;
-  border: 1px solid rgba(255, 255, 255, 0.2);
   position: relative;
   z-index: 99999;
+  box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
+    hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
   animation-duration: 400ms;
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, opacity;
-  display: flex;
-  align-items: center;
-  gap: 12px;
 }
 .PopoverContent[data-side="top"] {
   animation-name: slideDownAndFade;
@@ -1110,8 +1171,16 @@
 }
 
 .PopoverImage {
-  max-width: 90px;
+  width: 100px;
+  height: auto;
   display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &_img {
+    width: 100%;
+  }
 }
 
 @keyframes slideUpAndFade {
