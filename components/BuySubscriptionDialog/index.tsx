@@ -1294,52 +1294,61 @@ const BuySubscriptionDialog = ({
                       ))}
                     </div>
                     <div className={styles.promocode}>
-                      {localPromoForSubmit ? (
-                        <>
-                          <div className={styles.promocode_submit}>
-                            <div className={styles.promocode_submit_text}>
-                              <span className={styles.promocode_submit_text_2}>
-                                Код
-                              </span>
-                              <span className={styles.promocode_submit_text_1}>
-                                {localPromoForSubmit}
-                              </span>
-                              <span className={styles.promocode_submit_text_2}>
-                                активирован
-                              </span>
+                      {localPromoForSubmit &&
+                        (localPromoForSubmit !== "CRYPTON" || order === 0) && (
+                          <>
+                            <div className={styles.promocode_submit}>
+                              <div className={styles.promocode_submit_text}>
+                                <span
+                                  className={styles.promocode_submit_text_2}
+                                >
+                                  Код
+                                </span>
+                                <span
+                                  className={styles.promocode_submit_text_1}
+                                >
+                                  {localPromoForSubmit}
+                                </span>
+                                <span
+                                  className={styles.promocode_submit_text_2}
+                                >
+                                  активирован
+                                </span>
+                              </div>
+                              <button
+                                className={styles.promocode_submit_button}
+                                type="button"
+                                onClick={onPromoRemoveClick}
+                              >
+                                Удалить
+                              </button>
                             </div>
-                            <button
-                              className={styles.promocode_submit_button}
-                              type="button"
-                              onClick={onPromoRemoveClick}
-                            >
-                              Удалить
-                            </button>
-                          </div>
-                          <span className={styles.promocode_discount}>
-                            Ваша скидка:{" "}
-                            {Math.floor(
-                              100 - (totalPrice * 100) / getSubscriptionPrice()
-                            )}
-                            {order === 0 ? "$" : "%"}
-                          </span>
-                        </>
-                      ) : (
-                        !referral && (
-                          <button
-                            className={styles.promocode_submit_button}
-                            style={{
-                              marginBottom: 16,
-                              textAlign: "left",
-                              width: "fit-content",
-                            }}
-                            type="button"
-                            onClick={applyCryptonPromo}
-                          >
-                            Активировать промо CRYPTON
-                          </button>
-                        )
-                      )}
+                            <span className={styles.promocode_discount}>
+                              Ваша скидка:{" "}
+                              {Math.floor(
+                                100 -
+                                  (totalPrice * 100) / getSubscriptionPrice()
+                              )}
+                              {order === 0 ? "$" : "%"}
+                            </span>
+                          </>
+                        )}
+                      {/* ) : ( 
+                      !referral && ( 
+                       //   <button
+                        //     className={styles.promocode_submit_button}
+                        //     style={{
+                        //       marginBottom: 16,
+                        //       textAlign: "left",
+                        //       width: "fit-content",
+                        //     }}
+                        //     type="button"
+                        //     onClick={applyCryptonPromo}
+                        //   >
+                        //     Активировать промо CRYPTON
+                        //   </button>
+                        // )
+                      // )} */}
                       <div className={styles.promo_wrapper}>
                         <input
                           name="promocode"
