@@ -642,7 +642,8 @@ const SubscriptionCard = ({
               {Number.isInteger(cardPrice) ? (
                 cardPrice
               ) : (
-                <>{cardPrice.toFixed(2).split(".")[0]}</>
+                // <>{cardPrice.toFixed(2).split(".")[0]}</>
+                <>{Math.ceil(cardPrice)}</>
               )}
               {/* {Number.isInteger(cardPrice) ? (
                 cardPrice

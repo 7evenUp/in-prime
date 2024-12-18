@@ -1318,7 +1318,7 @@ const BuySubscriptionDialog = ({
                           </div>
                           <span className={styles.promocode_discount}>
                             Ваша скидка:{" "}
-                            {Math.round(
+                            {Math.floor(
                               100 - (totalPrice * 100) / getSubscriptionPrice()
                             )}
                             {order === 0 ? "$" : "%"}
