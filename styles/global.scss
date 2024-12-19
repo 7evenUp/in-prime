@@ -2007,6 +2007,18 @@ p {
         }
       }
 
+      &__newYear {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        background-image: url("/images/png/subscribe/new-year.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 100%;
+        background-size: cover;
+        height: 100%;
+      }
+
       &__back {
         position: absolute;
         width: 100%;

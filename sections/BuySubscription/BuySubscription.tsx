@@ -1,32 +1,32 @@
-import React, { useEffect, useRef, useState } from "react"
-import { useRouter } from "next/router"
-import { useMutation, useQuery } from "@tanstack/react-query"
-import axios from "axios"
-import * as Switch from "@radix-ui/react-switch"
-import clsx from "clsx"
-import * as HoverCard from "@radix-ui/react-hover-card"
-import * as Popover from "@radix-ui/react-popover"
+import React, { useEffect, useRef, useState } from 'react'
+import { useRouter } from 'next/router'
+import { useMutation, useQuery } from '@tanstack/react-query'
+import axios from 'axios'
+import * as Switch from '@radix-ui/react-switch'
+import clsx from 'clsx'
+import * as HoverCard from '@radix-ui/react-hover-card'
+import * as Popover from '@radix-ui/react-popover'
 
 import {
   CalendarIcon,
   ChatIcon,
   ContentIcon,
   HelperIcon,
-} from "../Features/Icons"
+} from '../Features/Icons'
 
-import SubscribeArrow from "@/public/images/jsx/subscribe/arrow"
+import SubscribeArrow from '@/public/images/jsx/subscribe/arrow'
 
-import BuySubscriptionDialog from "@/components/BuySubscriptionDialog"
+import BuySubscriptionDialog from '@/components/BuySubscriptionDialog'
 
-import { Resolution } from "@/types/resolution"
-import { Promocode, Subscription } from "@/types/api-types"
+import { Resolution } from '@/types/resolution'
+import { Promocode, Subscription } from '@/types/api-types'
 
-import styles from "./BuySubscription.module.scss"
+import styles from './BuySubscription.module.scss'
 
 const PRIME_SUBSCRIPTION_KIND_ID = 1
 const ID_URL = process.env.NEXT_PUBLIC_ID_URL
 const SPECIAL_PROMO = process.env.NEXT_PUBLIC_PROMO
-const DEFAULT_CRYPTON_PROMO = "CRYPTON"
+const DEFAULT_CRYPTON_PROMO = 'CRYPTON'
 
 const fallbackSubscriptions: Subscription[] = [
   {
@@ -41,7 +41,7 @@ const fallbackSubscriptions: Subscription[] = [
         file: null,
         translations: {
           ru: {
-            name: "1",
+            name: '1',
             description: null,
           },
         },
@@ -50,11 +50,11 @@ const fallbackSubscriptions: Subscription[] = [
     ],
     duration: {
       id: 1,
-      label: "10",
+      label: '10',
     },
     isActive: true,
     kindId: 1, // 1 - prime | 2 - calendar
-    name: "1 month",
+    name: '1 month',
     price: 99,
   },
   {
@@ -69,7 +69,7 @@ const fallbackSubscriptions: Subscription[] = [
         file: null,
         translations: {
           ru: {
-            name: "1",
+            name: '1',
             description: null,
           },
         },
@@ -78,11 +78,11 @@ const fallbackSubscriptions: Subscription[] = [
     ],
     duration: {
       id: 3,
-      label: "Three",
+      label: 'Three',
     },
     isActive: true,
     kindId: 1, // 1 - prime | 2 - calendar
-    name: "3 months",
+    name: '3 months',
     price: 297,
   },
   {
@@ -97,7 +97,7 @@ const fallbackSubscriptions: Subscription[] = [
         file: null,
         translations: {
           ru: {
-            name: "1",
+            name: '1',
             description: null,
           },
         },
@@ -106,11 +106,11 @@ const fallbackSubscriptions: Subscription[] = [
     ],
     duration: {
       id: 6,
-      label: "Six",
+      label: 'Six',
     },
     isActive: true,
     kindId: 1, // 1 - prime | 2 - calendar
-    name: "6 months",
+    name: '6 months',
     price: 594,
   },
   {
@@ -125,7 +125,7 @@ const fallbackSubscriptions: Subscription[] = [
         file: null,
         translations: {
           ru: {
-            name: "1",
+            name: '1',
             description: null,
           },
         },
@@ -134,11 +134,11 @@ const fallbackSubscriptions: Subscription[] = [
     ],
     duration: {
       id: 12,
-      label: "Twelve",
+      label: 'Twelve',
     },
     isActive: true,
     kindId: 1, // 1 - prime | 2 - calendar
-    name: "12 months",
+    name: '12 months',
     price: 1188,
   },
 ]
@@ -156,12 +156,12 @@ const BuySubscription = ({
   resolution: Resolution
 }) => {
   const [showMonthlyPrice, setShowMonthlyPrice] = useState(true)
-  const [promoForSubmit, setPromoForSubmit] = useState("")
+  const [promoForSubmit, setPromoForSubmit] = useState('')
   const [isPromoReferral, setIsPromoReferral] = useState(false)
   const [discountAmount, setDiscountAmount] = useState(0)
   const [discountKind, setDiscountKind] = useState<{
-    id: "MONEY" | "PERCENT"
-    label: "Money" | "%"
+    id: 'MONEY' | 'PERCENT'
+    label: 'Money' | '%'
   }>()
   const [discounts, setDiscounts] = useState<
     Array<{
@@ -179,7 +179,7 @@ const BuySubscription = ({
     isError: isSubscriptionsError,
     isLoading,
   } = useQuery({
-    queryKey: ["subscriptions"],
+    queryKey: ['subscriptions'],
     queryFn: async () => {
       try {
         const response = await axios.get<Subscription[]>(
@@ -206,7 +206,7 @@ const BuySubscription = ({
       promocode: string
       subscriptionId: number
     }) =>
-      axios.post<Promocode>(ID_URL + "/api/v1/promo-codes/validate/", {
+      axios.post<Promocode>(ID_URL + '/api/v1/promo-codes/validate/', {
         promocode,
         subscription: subscriptionId,
       }),
@@ -224,7 +224,7 @@ const BuySubscription = ({
 
   useEffect(() => {
     const url = new URL(location.href)
-    const refCode = url.searchParams.get("ref")
+    const refCode = url.searchParams.get('ref')
 
     if (SPECIAL_PROMO) {
       setPromoForSubmit(SPECIAL_PROMO)
@@ -268,7 +268,7 @@ const BuySubscription = ({
           setValidFor(validForSubscriptions)
           setInvalidFor(invalidForSubscriptions)
         } catch {
-          console.log("Error while validating promocode: ", promoForSubmit)
+          console.log('Error while validating promocode: ', promoForSubmit)
         }
       }
     }
@@ -278,31 +278,32 @@ const BuySubscription = ({
   const buyRef = useRef(null)
 
   const scrollToBlock = () => {
-    buyRef.current?.scrollIntoView({ behavior: "smooth" })
+    buyRef.current?.scrollIntoView({ behavior: 'smooth' })
   }
 
   if (isLoading) {
     return (
-      <div className="app__container__subscribe" id="subscribe">
-        {" "}
+      <div className='app__container__subscribe' id='subscribe'>
+        {' '}
       </div>
     )
   }
 
   return (
-    <div className="app__container__subscribe__wrapper">
-      <div className="app__container__subscribe__promoback" />
+    <div className='app__container__subscribe__wrapper'>
+      <div className='app__container__subscribe__promoback' />
+      <div className='app__container__subscribe__newYear' />
 
-      <div className="app__container__subscribe" id="subscribe">
-        <div className="app__container__subscribe__noise" />
+      <div className='app__container__subscribe' id='subscribe'>
+        <div className='app__container__subscribe__noise' />
         {/* <div className="app__container__subscribe__back"> */}
         {/* <div className="app__container__subscribe__back__left-gradient" />
           <div className="app__container__subscribe__back__right-gradient" /> */}
         {/* </div> */}
-        <div className="app__container__subscribe__content">
-          <div className="app__container__subscribe__content__header">
+        <div className='app__container__subscribe__content'>
+          <div className='app__container__subscribe__content__header'>
             <h1
-              className="app__container__subscribe__content__title"
+              className='app__container__subscribe__content__title'
               ref={buyRef}
             >
               Оформите подписку
@@ -377,10 +378,10 @@ const BuySubscription = ({
 
           <div className={styles.support_wrapper}>
             <p className={styles.support}>
-              Остались вопросы? Задай их нашему{" "}
+              Остались вопросы? Задай их нашему{' '}
               <a
-                href="https://t.me/crypton_support"
-                target="_blank"
+                href='https://t.me/crypton_support'
+                target='_blank'
                 className={styles.support_link}
               >
                 специалисту в Телеграм
@@ -441,8 +442,8 @@ const SubscriptionCard = ({
   discountAmount: number | undefined
   discountKind:
     | {
-        id: "MONEY" | "PERCENT"
-        label: "Money" | "%"
+        id: 'MONEY' | 'PERCENT'
+        label: 'Money' | '%'
       }
     | undefined
   discounts:
@@ -495,13 +496,13 @@ const SubscriptionCard = ({
         : discountAmount
 
       const referralDiscount = referralDiscountAmount
-        ? referralDiscountKind === "MONEY"
+        ? referralDiscountKind === 'MONEY'
           ? referralDiscountAmount
           : Math.ceil(price * referralDiscountAmount)
         : 0
 
       const promocodeDiscount =
-        discountKind?.id === "MONEY"
+        discountKind?.id === 'MONEY'
           ? preferedDiscount
           : Math.ceil(price * preferedDiscount)
 
@@ -537,7 +538,7 @@ const SubscriptionCard = ({
         }
       }
     } catch (error) {
-      setPromoForSubmit("")
+      setPromoForSubmit('')
     }
   }, [discountKind, discountAmount, discounts, showMonthlyPrice])
 
@@ -558,13 +559,13 @@ const SubscriptionCard = ({
         : discountAmount
 
       const referralDiscount = referralDiscountAmount
-        ? referralDiscountKind === "MONEY"
+        ? referralDiscountKind === 'MONEY'
           ? referralDiscountAmount
           : Math.ceil(price * referralDiscountAmount)
         : 0
 
       const promocodeDiscount =
-        discountKind?.id === "MONEY"
+        discountKind?.id === 'MONEY'
           ? preferedDiscount
           : Math.ceil(price * preferedDiscount)
 
@@ -596,17 +597,17 @@ const SubscriptionCard = ({
         }
       }
     } catch (error) {
-      setPromoForSubmit("")
+      setPromoForSubmit('')
     }
   }, [showMonthlyPrice])
 
   const totalDiscount =
     discountAmount && discountKind
       ? baseDiscount
-        ? discountKind.id === "MONEY"
+        ? discountKind.id === 'MONEY'
           ? Math.floor(baseDiscount)
           : discountAmount * 100 + baseDiscount
-        : discountKind.id === "MONEY"
+        : discountKind.id === 'MONEY'
         ? Math.floor((discountAmount * 100) / getSubscriptionPrice())
         : discountAmount * 100
       : baseDiscount
@@ -624,7 +625,7 @@ const SubscriptionCard = ({
     }
     window.scrollTo({
       top: positions.opportunities[resolution],
-      behavior: "smooth",
+      behavior: 'smooth',
     })
   }
 
@@ -682,7 +683,7 @@ const SubscriptionCard = ({
                       )
                     : Math.round(100 - (cardPrice * 100) / price)} */}
                   {totalDiscount}
-                  {order === 0 ? "$" : "%"}
+                  {order === 0 ? '$' : '%'}
                 </span>
                 <span className={styles.price_discount_amount}>${price}</span>
               </div>
@@ -714,9 +715,9 @@ const SubscriptionCard = ({
         )}
       >
         <p className={clsx(styles.text_before_bonuses)}>
-          {order === 1 && "Все, что входит в 1 месяц"}
-          {order === 2 && "Все, что входит в 3 месяца"}
-          {order === 3 && "Все, что входит в 6 месяцев"}
+          {order === 1 && 'Все, что входит в 1 месяц'}
+          {order === 2 && 'Все, что входит в 3 месяца'}
+          {order === 3 && 'Все, что входит в 6 месяцев'}
         </p>
         {order === 3 && (
           <p
@@ -796,7 +797,7 @@ const SubscriptionCard = ({
       >
         {order === 0 && (
           <>
-            Все{" "}
+            Все{' '}
             <button onClick={scrollToOpportunities}>возможности Prime</button>
           </>
         )}
@@ -804,29 +805,29 @@ const SubscriptionCard = ({
 
       <div
         className={clsx(
-          styles.bonuses_heading,
-          order === 0 && styles.bonuses_heading_first
+          styles.bonuses_heading
+          // order === 0 && styles.bonuses_heading_first
         )}
       >
         <div className={styles.bonuses_icon}>
           <svg
-            width="12"
-            height="12"
-            viewBox="0 0 12 12"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
+            width='12'
+            height='12'
+            viewBox='0 0 12 12'
+            fill='none'
+            xmlns='http://www.w3.org/2000/svg'
           >
             <path
-              d="M10.6834 6.57031H6.3916V11.9998H10.6834V6.57031Z"
-              fill="#171717"
+              d='M10.6834 6.57031H6.3916V11.9998H10.6834V6.57031Z'
+              fill='#171717'
             />
             <path
-              d="M5.60823 6.57031H1.31641V11.9998H5.60823V6.57031Z"
-              fill="#171717"
+              d='M5.60823 6.57031H1.31641V11.9998H5.60823V6.57031Z'
+              fill='#171717'
             />
             <path
-              d="M9.34618 2.21325C9.46227 2.00055 9.52834 1.75683 9.52834 1.49791C9.52836 0.671953 8.85638 0 8.03045 0C7.41955 0 6.79447 0.315656 6.31557 0.866039C6.19705 1.00223 6.09149 1.1486 6.0002 1.30104C5.90891 1.1486 5.80334 1.00223 5.68482 0.866039C5.20592 0.315656 4.58087 0 3.96995 0C3.14401 0 2.47203 0.671977 2.47203 1.49791C2.47203 1.7568 2.53808 2.00055 2.65419 2.21325H0.614258V5.78791H5.60888V2.21325H6.39149V5.78791H11.3861V2.21325H9.34618ZM3.96995 2.21325C3.57554 2.21325 3.25463 1.89234 3.25463 1.49791C3.25463 1.10348 3.57554 0.782602 3.96995 0.782602C4.68008 0.782602 5.35524 1.509 5.55172 2.21323L3.96995 2.21325ZM8.03045 2.21325H6.44867C6.64515 1.509 7.32031 0.782625 8.03045 0.782625C8.42485 0.782625 8.74576 1.10353 8.74576 1.49794C8.74574 1.89237 8.42485 2.21325 8.03045 2.21325Z"
-              fill="#171717"
+              d='M9.34618 2.21325C9.46227 2.00055 9.52834 1.75683 9.52834 1.49791C9.52836 0.671953 8.85638 0 8.03045 0C7.41955 0 6.79447 0.315656 6.31557 0.866039C6.19705 1.00223 6.09149 1.1486 6.0002 1.30104C5.90891 1.1486 5.80334 1.00223 5.68482 0.866039C5.20592 0.315656 4.58087 0 3.96995 0C3.14401 0 2.47203 0.671977 2.47203 1.49791C2.47203 1.7568 2.53808 2.00055 2.65419 2.21325H0.614258V5.78791H5.60888V2.21325H6.39149V5.78791H11.3861V2.21325H9.34618ZM3.96995 2.21325C3.57554 2.21325 3.25463 1.89234 3.25463 1.49791C3.25463 1.10348 3.57554 0.782602 3.96995 0.782602C4.68008 0.782602 5.35524 1.509 5.55172 2.21323L3.96995 2.21325ZM8.03045 2.21325H6.44867C6.64515 1.509 7.32031 0.782625 8.03045 0.782625C8.42485 0.782625 8.74576 1.10353 8.74576 1.49794C8.74574 1.89237 8.42485 2.21325 8.03045 2.21325Z'
+              fill='#171717'
             />
           </svg>
         </div>
@@ -838,129 +839,105 @@ const SubscriptionCard = ({
             order === 3 && styles.bonuses_heading_3
           )}
         >
-          ЭКСТРА БОНУС
+          ПОДАРКИ
         </span>
       </div>
 
-      <ul
+      <span
         className={clsx(
-          styles.bonuses,
-          order === 0 && styles.bonuses_first,
-          (order === 1 || order === 2 || order === 3) && styles.bonuses__small
+          styles.bonuses_heading_text,
+          styles.bonuses_heading_text_left,
+          order === 1 && styles.bonuses_heading_1,
+          order === 2 && styles.bonuses_heading_2,
+          order === 3 && styles.bonuses_heading_3
         )}
       >
-        {resolution === "sm" ? (
-          <Popover.Root open={popoverOpened} onOpenChange={setPopoverOpened}>
-            <Popover.Trigger
-              className={clsx(
-                styles.HoverCardTrigger,
-                order === 0 && styles.HoverCardTrigger_hidden
-              )}
-            >
-              <li className={styles.bonus}>
-                <p className={styles.bonus_text}>
-                  {order === 1 && <>Proxyline</>}
-                  {order === 2 && <>Dolphin</>}
-                  {order === 3 && <>Safepal</>}
-                  <NavArrowIcon />
-                </p>
-              </li>
-            </Popover.Trigger>
-            <Popover.Portal>
-              <Popover.Content
-                className={clsx(
-                  styles.HoverCardContent,
-                  order === 2 && styles.HoverCardContent_dolphin
+        [ ОСТАЛОСЬ: {benefits.reduce((acc, cur) => acc + cur.remainingCount, 0)}{' '}
+        ]
+      </span>
+
+      <ul className={clsx(styles.bonuses, styles.bonuses__small)}>
+        {benefits.map(
+          (benefit) =>
+            benefit.file &&
+            !(
+              benefit.translations.ru.name === 'Секретный подарок' &&
+              benefit.remainingCount <= 0
+            ) && (
+              <>
+                {resolution === 'sm' ? (
+                  <Popover.Root>
+                    <Popover.Trigger className={styles.PopoverTrigger}>
+                      <li className={clsx(styles.bonus, styles.bonus_small)}>
+                        <img src={benefit.file} className={styles.bonus_img} />
+
+                        <p className={styles.bonus_text}>
+                          {benefit.translations.ru.name}
+                          <NavArrowIcon />
+                        </p>
+                      </li>
+                    </Popover.Trigger>
+                    <Popover.Portal>
+                      <Popover.Content
+                        className={styles.HoverCardContent}
+                        sideOffset={5}
+                      >
+                        <div className={styles.HoverCardImage}>
+                          <img
+                            className={styles.HoverCardImage_img}
+                            src={benefit.file}
+                          />
+                        </div>
+                        <div>
+                          <h1 className={styles.HoverCardContent_header}>
+                            {benefit.translations.ru.name}
+                          </h1>
+                          <p className={styles.HoverCardContent_text}>
+                            {benefit.translations.ru.description}
+                          </p>
+                        </div>
+                      </Popover.Content>
+                    </Popover.Portal>
+                  </Popover.Root>
+                ) : (
+                  <HoverCard.Root openDelay={150}>
+                    <HoverCard.Trigger
+                      className={clsx(styles.HoverCardTrigger)}
+                    >
+                      <li className={styles.bonus}>
+                        <img src={benefit.file} className={styles.bonus_img} />
+
+                        <p className={styles.bonus_text}>
+                          {benefit.translations.ru.name}
+                          <NavArrowIcon />
+                        </p>
+                      </li>
+                    </HoverCard.Trigger>
+                    <HoverCard.Portal>
+                      <HoverCard.Content
+                        className={styles.HoverCardContent}
+                        sideOffset={5}
+                      >
+                        <div className={styles.HoverCardImage}>
+                          <img
+                            className={styles.HoverCardImage_img}
+                            src={benefit.file}
+                          />
+                        </div>
+                        <div>
+                          <h1 className={styles.HoverCardContent_header}>
+                            {benefit.translations.ru.name}
+                          </h1>
+                          <p className={styles.HoverCardContent_text}>
+                            {benefit.translations.ru.description}
+                          </p>
+                        </div>
+                      </HoverCard.Content>
+                    </HoverCard.Portal>
+                  </HoverCard.Root>
                 )}
-                sideOffset={5}
-              >
-                <div className={styles.HoverCardImage}>
-                  <img
-                    className={styles.HoverCardImage_img}
-                    src={
-                      order === 1
-                        ? "/images/png/buy-subscription/subscription_2_popup.png"
-                        : order === 2
-                        ? "/images/png/buy-subscription/subscription_3_popup.png"
-                        : order === 3
-                        ? "/images/png/buy-subscription/subscription_4_popup.png"
-                        : "/images/png/buy-subscription/subscription_4_popup.png"
-                    }
-                  />
-                </div>
-                <div>
-                  <h1 className={styles.HoverCardContent_header}>
-                    {order === 3
-                      ? benefits?.[1]?.translations.ru.name
-                      : benefits?.[0]?.translations.ru.name}
-                  </h1>
-                  <p className={styles.HoverCardContent_text}>
-                    {order === 3
-                      ? benefits?.[1]?.translations.ru.description
-                      : benefits?.[0]?.translations.ru.description}
-                  </p>
-                </div>
-              </Popover.Content>
-            </Popover.Portal>
-          </Popover.Root>
-        ) : (
-          <HoverCard.Root
-            openDelay={150}
-            open={hoverCardOpened}
-            onOpenChange={setHoverCardOpened}
-          >
-            <HoverCard.Trigger
-              className={clsx(
-                styles.HoverCardTrigger,
-                order === 0 && styles.HoverCardTrigger_hidden
-              )}
-            >
-              <li className={styles.bonus}>
-                <p className={styles.bonus_text}>
-                  {order === 1 && <>Proxyline</>}
-                  {order === 2 && <>Dolphin</>}
-                  {order === 3 && <>Safepal</>}
-                  <NavArrowIcon />
-                </p>
-              </li>
-            </HoverCard.Trigger>
-            <HoverCard.Portal>
-              <HoverCard.Content
-                className={clsx(
-                  styles.HoverCardContent,
-                  order === 2 && styles.HoverCardContent_dolphin
-                )}
-                sideOffset={5}
-              >
-                <div className={styles.HoverCardImage}>
-                  <img
-                    className={styles.HoverCardImage_img}
-                    src={
-                      order === 1
-                        ? "/images/png/buy-subscription/subscription_2_popup.png"
-                        : order === 2
-                        ? "/images/png/buy-subscription/subscription_3_popup.png"
-                        : order === 3
-                        ? "/images/png/buy-subscription/subscription_4_popup.png"
-                        : "/images/png/buy-subscription/subscription_4_popup.png"
-                    }
-                  />
-                </div>
-                <div>
-                  <h1 className={styles.HoverCardContent_header}>
-                    {order === 3
-                      ? benefits?.[1]?.translations.ru.name
-                      : benefits?.[0]?.translations.ru.name}
-                  </h1>
-                  <p className={styles.HoverCardContent_text}>
-                    {order === 3
-                      ? benefits?.[1]?.translations.ru.description
-                      : benefits?.[0]?.translations.ru.description}
-                  </p>
-                </div>
-              </HoverCard.Content>
-            </HoverCard.Portal>
-          </HoverCard.Root>
+              </>
+            )
         )}
       </ul>
 
@@ -1126,7 +1103,7 @@ const SubscriptionCard = ({
         selectedSubscription={subscription}
         order={order}
         resolution={resolution}
-        promoForSubmit={isValidForPromo ? promoForSubmit : ""}
+        promoForSubmit={isValidForPromo ? promoForSubmit : ''}
         setPromoForSubmit={setPromoForSubmit}
         discountAmount={discountAmount}
         discountKind={discountKind}
@@ -1158,78 +1135,78 @@ const OldBuySubscription = ({
   resolution: Resolution
 }) => {
   const router = useRouter()
-  const referral = router.query.ref || "agent"
+  const referral = router.query.ref || 'agent'
 
   return (
-    <div className="app__container__subscribe" id="subscribe">
-      <div className="app__container__subscribe__noise" />
-      <div className="app__container__subscribe__back">
-        <div className="app__container__subscribe__back__left-gradient" />
-        <div className="app__container__subscribe__back__right-gradient" />
+    <div className='app__container__subscribe' id='subscribe'>
+      <div className='app__container__subscribe__noise' />
+      <div className='app__container__subscribe__back'>
+        <div className='app__container__subscribe__back__left-gradient' />
+        <div className='app__container__subscribe__back__right-gradient' />
       </div>
-      <div className="app__container__subscribe__content">
-        <div className="app__container__subscribe__content__header">
-          <div className="app__container__subscribe__content__title" />
+      <div className='app__container__subscribe__content'>
+        <div className='app__container__subscribe__content__header'>
+          <div className='app__container__subscribe__content__title' />
         </div>
-        <div className="app__container__subscribe__content__cost bottom">
-          <div className="app__container__subscribe__content__cost__block">
-            <div className="app__container__subscribe__content__cost__block__header">
-              <div className="app__container__subscribe__content__cost__block__header__gradient _5" />
-              <div className="app__container__subscribe__content__cost__block__header__title">
+        <div className='app__container__subscribe__content__cost bottom'>
+          <div className='app__container__subscribe__content__cost__block'>
+            <div className='app__container__subscribe__content__cost__block__header'>
+              <div className='app__container__subscribe__content__cost__block__header__gradient _5' />
+              <div className='app__container__subscribe__content__cost__block__header__title'>
                 1 месяц
               </div>
             </div>
-            <div className="app__container__subscribe__content__cost__block__body">
-              <div className="app__container__subscribe__content__cost__block__body__price _74" />
-              <div className="app__container__subscribe__content__cost__block__body__discount _45" />
+            <div className='app__container__subscribe__content__cost__block__body'>
+              <div className='app__container__subscribe__content__cost__block__body__price _74' />
+              <div className='app__container__subscribe__content__cost__block__body__discount _45' />
             </div>
           </div>
-          <div className="app__container__subscribe__content__cost__block">
-            <div className="app__container__subscribe__content__cost__block__header">
-              <div className="app__container__subscribe__content__cost__block__header__gradient _6" />
-              <div className="app__container__subscribe__content__cost__block__header__title">
+          <div className='app__container__subscribe__content__cost__block'>
+            <div className='app__container__subscribe__content__cost__block__header'>
+              <div className='app__container__subscribe__content__cost__block__header__gradient _6' />
+              <div className='app__container__subscribe__content__cost__block__header__title'>
                 3 месяца
               </div>
             </div>
-            <div className="app__container__subscribe__content__cost__block__body">
-              <div className="app__container__subscribe__content__cost__block__body__price _214" />
-              <div className="app__container__subscribe__content__cost__block__body__discount _225" />
+            <div className='app__container__subscribe__content__cost__block__body'>
+              <div className='app__container__subscribe__content__cost__block__body__price _214' />
+              <div className='app__container__subscribe__content__cost__block__body__discount _225' />
             </div>
           </div>
-          <div className="app__container__subscribe__content__cost__block">
-            <div className="app__container__subscribe__content__cost__block__header">
-              <div className="app__container__subscribe__content__cost__block__header__gradient _7" />
-              <div className="app__container__subscribe__content__cost__block__header__title">
+          <div className='app__container__subscribe__content__cost__block'>
+            <div className='app__container__subscribe__content__cost__block__header'>
+              <div className='app__container__subscribe__content__cost__block__header__gradient _7' />
+              <div className='app__container__subscribe__content__cost__block__header__title'>
                 6 месяцев
               </div>
             </div>
-            <div className="app__container__subscribe__content__cost__block__body">
-              <div className="app__container__subscribe__content__cost__block__body__price _405" />
-              <div className="app__container__subscribe__content__cost__block__body__discount _446" />
+            <div className='app__container__subscribe__content__cost__block__body'>
+              <div className='app__container__subscribe__content__cost__block__body__price _405' />
+              <div className='app__container__subscribe__content__cost__block__body__discount _446' />
             </div>
           </div>
-          <div className="app__container__subscribe__content__cost__block">
-            <div className="app__container__subscribe__content__cost__block__header">
-              <div className="app__container__subscribe__content__cost__block__header__gradient _8" />
-              <div className="app__container__subscribe__content__cost__block__header__title">
+          <div className='app__container__subscribe__content__cost__block'>
+            <div className='app__container__subscribe__content__cost__block__header'>
+              <div className='app__container__subscribe__content__cost__block__header__gradient _8' />
+              <div className='app__container__subscribe__content__cost__block__header__title'>
                 12 месяцев
               </div>
             </div>
-            <div className="app__container__subscribe__content__cost__block__body">
-              <div className="app__container__subscribe__content__cost__block__body__price _765" />
-              <div className="app__container__subscribe__content__cost__block__body__discount _880" />
+            <div className='app__container__subscribe__content__cost__block__body'>
+              <div className='app__container__subscribe__content__cost__block__body__price _765' />
+              <div className='app__container__subscribe__content__cost__block__body__discount _880' />
             </div>
           </div>
         </div>
-        <div className="app__container__subscribe__content__link__mark">
+        <div className='app__container__subscribe__content__link__mark'>
           При оплате картой конвертация в рубли осуществляется по курсу ЦБ РФ
         </div>
-        <div className="app__container__subscribe__content__link">
+        <div className='app__container__subscribe__content__link'>
           <a
             href={`https://t.me/CryptonLobbyBot?start=${referral}`}
-            target={"_blank"}
+            target={'_blank'}
           >
-            <div className="app__container__subscribe__content__link__button">
+            <div className='app__container__subscribe__content__link__button'>
               {tariffs[resolution]}
               <SubscribeArrow />
             </div>
@@ -1246,17 +1223,17 @@ const OldBuySubscription = ({
 
 const NavArrowIcon = () => (
   <svg
-    width="14"
-    height="14"
-    viewBox="0 0 14 14"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
+    width='14'
+    height='14'
+    viewBox='0 0 14 14'
+    fill='none'
+    xmlns='http://www.w3.org/2000/svg'
   >
     <path
-      d="M2.04227 5.66772L6.69377 10.202C6.77547 10.2816 6.88505 10.3262 6.99914 10.3262C7.11323 10.3262 7.22281 10.2816 7.30452 10.202L11.9578 5.66771C11.9959 5.63062 12.0261 5.58627 12.0468 5.53727C12.0675 5.48828 12.0782 5.43564 12.0782 5.38247C12.0782 5.32929 12.0675 5.27665 12.0468 5.22766C12.0261 5.17866 11.9959 5.13431 11.9578 5.09722C11.8796 5.0209 11.7747 4.97817 11.6655 4.97817C11.5563 4.97817 11.4514 5.0209 11.3733 5.09722L6.99914 9.36109L2.62589 5.09722C2.5478 5.02116 2.44309 4.9786 2.33408 4.9786C2.22507 4.9786 2.12036 5.02116 2.04227 5.09722C2.00417 5.13431 1.97388 5.17867 1.95321 5.22766C1.93253 5.27665 1.92187 5.32929 1.92187 5.38247C1.92187 5.43564 1.93253 5.48828 1.95321 5.53727C1.97388 5.58627 2.00417 5.63062 2.04227 5.66772Z"
-      fill="currentColor"
-      stroke="currentColor"
-      strokeWidth="0.5"
+      d='M2.04227 5.66772L6.69377 10.202C6.77547 10.2816 6.88505 10.3262 6.99914 10.3262C7.11323 10.3262 7.22281 10.2816 7.30452 10.202L11.9578 5.66771C11.9959 5.63062 12.0261 5.58627 12.0468 5.53727C12.0675 5.48828 12.0782 5.43564 12.0782 5.38247C12.0782 5.32929 12.0675 5.27665 12.0468 5.22766C12.0261 5.17866 11.9959 5.13431 11.9578 5.09722C11.8796 5.0209 11.7747 4.97817 11.6655 4.97817C11.5563 4.97817 11.4514 5.0209 11.3733 5.09722L6.99914 9.36109L2.62589 5.09722C2.5478 5.02116 2.44309 4.9786 2.33408 4.9786C2.22507 4.9786 2.12036 5.02116 2.04227 5.09722C2.00417 5.13431 1.97388 5.17867 1.95321 5.22766C1.93253 5.27665 1.92187 5.32929 1.92187 5.38247C1.92187 5.43564 1.93253 5.48828 1.95321 5.53727C1.97388 5.58627 2.00417 5.63062 2.04227 5.66772Z'
+      fill='currentColor'
+      stroke='currentColor'
+      strokeWidth='0.5'
     />
   </svg>
 )

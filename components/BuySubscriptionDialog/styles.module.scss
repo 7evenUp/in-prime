@@ -13,7 +13,7 @@
 }
 
 .content {
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   overflow: auto;
   box-sizing: border-box;
   backdrop-filter: blur(40px);
@@ -91,7 +91,7 @@
 }
 
 .crypton {
-  font-family: "Inter";
+  font-family: 'Inter';
   font-size: 14px;
   margin-top: 48px;
   text-align: center;
@@ -352,7 +352,7 @@
   }
 
   &_duration {
-    font-family: "Unbounded", sans-serif;
+    font-family: 'Unbounded', sans-serif;
     line-height: 100%;
     color: #181818;
     border-radius: 6px;
@@ -424,7 +424,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    font-family: "Inter", sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 500;
     font-size: 16px;
     text-transform: uppercase;
@@ -472,7 +472,7 @@
 }
 
 .text_before_bonuses_prime {
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 16px;
   color: #fff;
@@ -535,7 +535,7 @@
     transition: all 0.15s ease-in-out;
     background: transparent;
 
-    font-family: "Inter", sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 400;
     font-size: 16px;
     color: #4ddfd0;
@@ -553,7 +553,7 @@
 }
 
 .text_before_bonuses {
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   line-height: 130%;
   margin-bottom: 20px;
@@ -561,13 +561,13 @@
 
 .bonus {
   position: relative;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   line-height: 105%;
   margin: 0;
 
   &::before {
-    content: "+";
+    content: '+';
     position: absolute;
     left: -14px;
     // top: 2px;
@@ -581,7 +581,7 @@
     @media (max-width: 445px) {
       font-size: 14px;
     }
-    font-family: "Inter", sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 130%;
@@ -597,7 +597,7 @@
 
   &_discount {
     margin-bottom: 20px;
-    font-family: "Inter", sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 16px;
     color: rgba(255, 255, 255, 0.5);
   }
@@ -619,13 +619,13 @@
       gap: 8px;
 
       &_1 {
-        font-family: "Inter", sans-serif;
+        font-family: 'Inter', sans-serif;
         font-size: 16px;
         color: white;
       }
 
       &_2 {
-        font-family: "Inter", sans-serif;
+        font-family: 'Inter', sans-serif;
         font-size: 16px;
         color: rgba(255, 255, 255, 0.5);
       }
@@ -638,7 +638,7 @@
       text-underline-offset: 4px;
       color: rgba(255, 255, 255, 0.5);
       background: transparent;
-      font-family: "Inter", sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 14px;
       padding: 0;
       cursor: pointer;
@@ -673,7 +673,7 @@
   gap: 20px;
 
   &_heading {
-    font-family: "Inter", sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 500;
     font-size: 18px;
     margin: 0;
@@ -681,7 +681,7 @@
   }
 
   &_card {
-    font-family: "Inter", sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 16px;
     color: white;
   }
@@ -743,14 +743,14 @@
 
 .total {
   font-size: 24px;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
 
   @media (max-width: 540px) {
     font-size: 22px;
   }
 
   &_per_month {
-    font-family: "Inter", sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 18px;
 
     @media (max-width: 540px) {
@@ -760,13 +760,13 @@
 
   &_full {
     font-size: 18px;
-    font-family: "Inter", sans-serif;
+    font-family: 'Inter', sans-serif;
     color: rgba(255, 255, 255, 0.5);
   }
 }
 
 .input {
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 16px;
   box-sizing: border-box;
   color: white;
@@ -790,7 +790,7 @@
 
   &_standard {
     width: 270px;
-    font-family: "Inter", sans-serif;
+    font-family: 'Inter', sans-serif;
     background-color: transparent;
     outline: none;
     color: white;
@@ -830,7 +830,7 @@
   background: white;
   color: #181818;
   cursor: pointer;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   border-radius: 12px;
   outline: none;
@@ -847,7 +847,7 @@
   &_repeat {
     margin: 0;
     padding: 0;
-    font-family: "Inter", sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 14px;
     border-radius: 6px;
     background-color: transparent;
@@ -907,7 +907,7 @@
       rgb(255, 239, 203) 0%,
       rgb(255, 225, 157) 100%
     );
-    font-family: "Inter", sans-serif;
+    font-family: 'Inter', sans-serif;
     border: none;
     color: #181818;
 
@@ -936,7 +936,7 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 18px;
 
   &_heading {
@@ -944,7 +944,7 @@
 
     margin: 0;
 
-    font-family: "Unbounded", sans-serif;
+    font-family: 'Unbounded', sans-serif;
     font-weight: 500;
     font-size: 32px;
     text-align: center;
@@ -973,7 +973,7 @@
   }
 
   &_after {
-    font-family: "Inter", sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 400;
     font-size: 16px;
     text-align: center;
@@ -987,7 +987,7 @@
 
     a {
       color: #ffcd9f;
-      font-family: "Inter", sans-serif;
+      font-family: 'Inter', sans-serif;
     }
   }
 }
@@ -1026,7 +1026,7 @@
     align-items: center;
     justify-content: center;
 
-    font-family: "Inter", sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 500;
     font-size: 18px;
     text-align: center;
@@ -1054,7 +1054,7 @@
     border-radius: 16px;
     background: #434343;
 
-    font-family: "Inter", sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 500;
     font-size: 18px;
     text-align: center;
@@ -1143,93 +1143,6 @@
   }
 }
 
-.HoverCardTrigger {
-  cursor: pointer;
-  color: white;
-  text-decoration: none;
-
-  &:hover {
-    color: rgba(255, 255, 255, 0.7);
-  }
-}
-
-.HoverCardContent {
-  border-radius: 6px;
-  font-family: "Inter", sans-serif;
-  font-size: 14px;
-  line-height: 120%;
-  padding: 12px 15px;
-  width: 256px;
-  color: white;
-  background-color: #121212;
-  position: relative;
-  z-index: 99999;
-  box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
-    hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
-  animation-duration: 400ms;
-  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform, opacity;
-}
-.HoverCardContent[data-side="top"] {
-  animation-name: slideDownAndFade;
-}
-.HoverCardContent[data-side="right"] {
-  animation-name: slideLeftAndFade;
-}
-.HoverCardContent[data-side="bottom"] {
-  animation-name: slideUpAndFade;
-}
-.HoverCardContent[data-side="left"] {
-  animation-name: slideRightAndFade;
-}
-
-.PopoverTrigger {
-  cursor: pointer;
-  color: white;
-  text-decoration: underline;
-  background: transparent;
-  border: none;
-  text-align: left;
-  padding: 0;
-
-  &:hover {
-    color: rgba(255, 255, 255, 0.7);
-  }
-  &_first {
-    text-decoration: none;
-  }
-}
-
-.PopoverContent {
-  border-radius: 6px;
-  font-family: "Inter", sans-serif;
-  width: 256px;
-  font-size: 14px;
-  line-height: 120%;
-  padding: 12px 15px;
-  color: white;
-  background-color: #121212;
-  position: relative;
-  z-index: 99999;
-  box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
-    hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
-  animation-duration: 400ms;
-  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform, opacity;
-}
-.PopoverContent[data-side="top"] {
-  animation-name: slideDownAndFade;
-}
-.PopoverContent[data-side="right"] {
-  animation-name: slideLeftAndFade;
-}
-.PopoverContent[data-side="bottom"] {
-  animation-name: slideUpAndFade;
-}
-.PopoverContent[data-side="left"] {
-  animation-name: slideRightAndFade;
-}
-
 @keyframes slideUpAndFade {
   0% {
     opacity: 0;
@@ -1296,16 +1209,16 @@
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, opacity;
 }
-.BonusHoverCardContent[data-side="top"] {
+.BonusHoverCardContent[data-side='top'] {
   animation-name: slideDownAndFade;
 }
-.BonusHoverCardContent[data-side="right"] {
+.BonusHoverCardContent[data-side='right'] {
   animation-name: slideLeftAndFade;
 }
-.BonusHoverCardContent[data-side="bottom"] {
+.BonusHoverCardContent[data-side='bottom'] {
   animation-name: slideUpAndFade;
 }
-.BonusHoverCardContent[data-side="left"] {
+.BonusHoverCardContent[data-side='left'] {
   animation-name: slideRightAndFade;
 }
 
@@ -1340,16 +1253,16 @@
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, opacity;
 }
-.BonusPopoverContent[data-side="top"] {
+.BonusPopoverContent[data-side='top'] {
   animation-name: slideDownAndFade;
 }
-.BonusPopoverContent[data-side="right"] {
+.BonusPopoverContent[data-side='right'] {
   animation-name: slideLeftAndFade;
 }
-.BonusPopoverContent[data-side="bottom"] {
+.BonusPopoverContent[data-side='bottom'] {
   animation-name: slideUpAndFade;
 }
-.BonusPopoverContent[data-side="left"] {
+.BonusPopoverContent[data-side='left'] {
   animation-name: slideRightAndFade;
 }
 
@@ -1366,7 +1279,7 @@
 
 .error_message {
   position: absolute;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   color: #ff4a7a;
   bottom: -8px;
@@ -1377,7 +1290,7 @@
 .subscription_box {
   width: 125px;
   height: 125px;
-  background-image: url("/images/png/buy-subscription/box_closed.png");
+  background-image: url('/images/png/buy-subscription/box_closed.png');
   background-repeat: no-repeat;
   background-size: contain;
   margin-left: auto;
@@ -1426,7 +1339,7 @@
     display: none;
   }
 
-  &[data-state="open"] {
+  &[data-state='open'] {
     svg {
       rotate: 180deg;
     }
@@ -1435,7 +1348,7 @@
 
 .HoverCardContent {
   box-sizing: border-box;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 12px;
   line-height: 140%;
   width: 367px;
@@ -1466,7 +1379,7 @@
   }
 
   &_text {
-    font-family: "Inter", sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 300;
     font-size: 12px;
     line-height: normal;
@@ -1476,7 +1389,7 @@
   }
 
   &_header {
-    font-family: "Inter", sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 400;
 
     font-size: 16px;
@@ -1490,16 +1403,16 @@
   }
 }
 
-.HoverCardContent[data-side="top"] {
+.HoverCardContent[data-side='top'] {
   animation-name: slideDownAndFade;
 }
-.HoverCardContent[data-side="right"] {
+.HoverCardContent[data-side='right'] {
   animation-name: slideLeftAndFade;
 }
-.HoverCardContent[data-side="bottom"] {
+.HoverCardContent[data-side='bottom'] {
   animation-name: slideUpAndFade;
 }
-.HoverCardContent[data-side="left"] {
+.HoverCardContent[data-side='left'] {
   animation-name: slideRightAndFade;
 }
 
@@ -1535,7 +1448,7 @@
     }
   }
 
-  &[data-state="open"] {
+  &[data-state='open'] {
     svg {
       rotate: 180deg;
     }
@@ -1565,7 +1478,7 @@
     }
   }
 
-  &[data-state="open"] {
+  &[data-state='open'] {
     svg {
       rotate: 180deg;
     }
@@ -1574,7 +1487,7 @@
 
 .PopoverContent {
   box-sizing: border-box;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   line-height: 140%;
   width: 320px;
@@ -1593,7 +1506,7 @@
   gap: 12px;
 
   &_header {
-    font-family: "Inter", sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 500;
     font-size: 16px;
     color: #fff;
@@ -1604,7 +1517,7 @@
   }
 
   &_text {
-    font-family: "Inter", sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 400;
     font-size: 12px;
     line-height: normal;
@@ -1615,22 +1528,22 @@
     width: auto;
   }
 }
-.PopoverContent[data-side="top"] {
+.PopoverContent[data-side='top'] {
   animation-name: slideDownAndFade;
 }
-.PopoverContent[data-side="right"] {
+.PopoverContent[data-side='right'] {
   animation-name: slideLeftAndFade;
 }
-.PopoverContent[data-side="bottom"] {
+.PopoverContent[data-side='bottom'] {
   animation-name: slideUpAndFade;
 }
-.PopoverContent[data-side="left"] {
+.PopoverContent[data-side='left'] {
   animation-name: slideRightAndFade;
 }
 
 .PopoverContentDescription {
   box-sizing: border-box;
-  font-family: "Resist Sans", sans-serif;
+  font-family: 'Resist Sans', sans-serif;
   font-size: 14px;
   line-height: 140%;
   width: 250px;
@@ -1659,16 +1572,16 @@
     }
   }
 }
-.PopoverContentDescription[data-side="top"] {
+.PopoverContentDescription[data-side='top'] {
   animation-name: slideDownAndFade;
 }
-.PopoverContentDescription[data-side="right"] {
+.PopoverContentDescription[data-side='right'] {
   animation-name: slideLeftAndFade;
 }
-.PopoverContentDescription[data-side="bottom"] {
+.PopoverContentDescription[data-side='bottom'] {
   animation-name: slideUpAndFade;
 }
-.PopoverContentDescription[data-side="left"] {
+.PopoverContentDescription[data-side='left'] {
   animation-name: slideRightAndFade;
 }
 
@@ -1730,7 +1643,7 @@
 }
 
 .text_before_bonuses {
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 300;
   font-size: 16px;
   color: #fff;
@@ -1803,7 +1716,7 @@
     transition: all 0.15s ease-in-out;
     background: transparent;
 
-    font-family: "Inter", sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 400;
     font-size: 16px;
     color: #4ddfd0;
@@ -1823,13 +1736,13 @@
 .bonus {
   position: relative;
   margin-left: 4px;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 16px;
   line-height: 130%;
   margin: 0;
 
   &::before {
-    content: "+";
+    content: '+';
     position: absolute;
     left: -14px;
 
@@ -1839,7 +1752,7 @@
   }
 
   &_first::before {
-    content: "";
+    content: '';
   }
   &_first {
     display: flex;
@@ -1858,7 +1771,7 @@
       transition: all 0.15s ease-in-out;
       background: transparent;
       font-size: 16px;
-      font-family: "Resist Sans", sans-serif;
+      font-family: 'Resist Sans', sans-serif;
 
       &:hover {
         color: rgba(255, 255, 255, 0.7);

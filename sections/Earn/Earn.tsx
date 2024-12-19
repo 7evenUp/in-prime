@@ -251,6 +251,14 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
       {/* <Snowfall /> */}
 
       <div className={styles.gradient} />
+      {resolution !== "sm" ? (
+        <div className={styles.newYear} />
+      ) : (
+        <>
+          <div className={styles.newYear__top} />
+          <div className={styles.newYear__bottom} />
+        </>
+      )}
 
       <div className={styles.lines}>
         {[...Array(lineCount)].map((_, index) => (
@@ -258,11 +266,11 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
         ))}
       </div>
 
-      <div className={clsx(styles.lines, styles.lines__stars)}>
+      {/* <div className={clsx(styles.lines, styles.lines__stars)}>
         {[...Array(lineCount)].map((_, index) => (
           <div key={index} className={styles.star} />
         ))}
-      </div>
+      </div> */}
     </section>
   )
 }

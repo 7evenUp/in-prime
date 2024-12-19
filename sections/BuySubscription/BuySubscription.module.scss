@@ -108,26 +108,27 @@
   backdrop-filter: blur(40px);
   background: rgba(34, 34, 34, 0.7);
   padding: 20px;
-  height: 542px;
+  height: 656px;
   box-sizing: border-box;
 
   @media (max-width: 1919px) and (min-width: 1368px) {
-    height: 517px;
+    height: 620px;
     padding: 12px;
   }
 
   @media (max-width: 1367px) and (min-width: 768px) {
     padding: 16px;
-    height: 506px;
+    height: 610px;
   }
 
   @media (max-width: 767px) {
-    height: 467px;
+    height: 574px;
     padding: 16px;
   }
 
   &:nth-child(1) {
-    .duration {
+    .duration,
+    .bonuses_icon {
       background: #4ddfd0;
     }
 
@@ -544,7 +545,7 @@
   }
 
   @media (max-width: 767px) {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   &_features {
@@ -625,8 +626,8 @@
 
 .bonuses {
   margin: 0;
-  margin-left: 16px;
-  margin-top: 20px;
+  // margin-left: 16px;
+  margin-top: 25px;
   // margin-left: auto;
   // margin-right: auto;
   margin-bottom: 36px;
@@ -662,6 +663,19 @@
     text-transform: uppercase;
 
     margin-left: 16px;
+
+    &_text {
+      &_left {
+        margin: 0;
+        margin-top: 14px;
+        font-family: "Unbounded", sans-serif;
+        font-weight: 400;
+        font-size: 14px;
+        text-transform: uppercase;
+        color: #4ddfd0;
+        margin-left: 16px;
+      }
+    }
 
     &_first {
       // opacity: 0;
@@ -707,22 +721,36 @@
   line-height: 130%;
   margin: 0;
 
-  &::before {
-    content: "+";
-    position: absolute;
-    left: -14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 
+  @media (max-width: 1919px) and (min-width: 1368px) {
+    gap: 10px;
+  }
+
+  &_small {
     @media (max-width: 767px) {
-      display: none;
+      margin-left: 16px;
     }
   }
 
-  &_first::before {
-    content: "";
+  &_img {
+    border-radius: 8px;
+
+    width: 48px;
+    height: 48px;
+
+    @media (max-width: 1919px) and (min-width: 1368px) {
+      height: 44px;
+      width: 44px;
+    }
   }
+
   &_first {
     display: flex;
     align-items: center;
+    gap: 0px;
   }
 
   &_text1 {

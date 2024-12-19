@@ -19,10 +19,11 @@ const Testimonials = ({ resolution }: { resolution: Resolution }) => {
 
   return (
     <section className={styles.container} id="testimonials">
+      {/* <div className={styles.bg} /> */}
+
       <div className={styles.header}>
         <h2 className={styles.title}>О нас отзываются</h2>
       </div>
-
       <div className={styles.navigation}>
         <button
           className={styles.arrow_btn}
@@ -37,7 +38,6 @@ const Testimonials = ({ resolution }: { resolution: Resolution }) => {
           <Arrow className={styles.arrow_next} />
         </button>
       </div>
-
       <Swiper
         // @ts-ignore
         ref={swiperRef}

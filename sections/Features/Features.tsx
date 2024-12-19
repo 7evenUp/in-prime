@@ -42,6 +42,7 @@ const Features = ({ resolution }: { resolution: Resolution }) => {
   return (
     <section className={styles.container} id="features">
       <div className={styles.container_bg} />
+      <div className={styles.container_newYear} />
       <h2 className={styles.title}>Новый уровень возможностей</h2>
       <FeaturesTabs resolution={resolution} />
     </section>
