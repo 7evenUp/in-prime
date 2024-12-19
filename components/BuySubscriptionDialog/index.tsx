@@ -399,9 +399,7 @@ const BuySubscriptionDialog = ({
     setIsCryptonReferralSet(false)
     setPromoWasUpdated(true)
     if (baseDiscount) {
-      setTotalPrice(
-        getSubscriptionPrice() - getSubscriptionPrice() * (baseDiscount / 100)
-      )
+      setTotalPrice(getSubscriptionPrice() - baseDiscountAmount)
     } else {
       setTotalPrice(getSubscriptionPrice())
     }
@@ -794,7 +792,7 @@ const BuySubscriptionDialog = ({
                                     </p>
                                   </li>
                                 ))}
-                              {/* {order === 0 && (
+                              {order === 0 && (
                                 <>
                                   <div
                                     className={styles.text_before_bonuses_wrap}
@@ -873,7 +871,6 @@ const BuySubscriptionDialog = ({
                                       Поддержка экспертов
                                     </p>
                                   </div>
-                                  
 
                                   <p
                                     className={clsx(
@@ -887,265 +884,6 @@ const BuySubscriptionDialog = ({
                                       возможности Prime
                                     </button>
                                   </p>
-                                </>
-                              )} */}
-
-                              {order === 0 && (
-                                <>
-                                  {resolution === "sm" ? (
-                                    <Popover.Root>
-                                      <Popover.Trigger
-                                        className={clsx(
-                                          styles.PopoverTrigger,
-                                          styles.PopoverTrigger_first
-                                        )}
-                                      >
-                                        <div
-                                          className={clsx(
-                                            styles.bonus,
-                                            styles.bonus_first
-                                          )}
-                                        >
-                                          <p
-                                            className={clsx(
-                                              styles.text_before_bonuses,
-                                              order === 0 &&
-                                                styles.text_before_bonuses_priority
-                                            )}
-                                          >
-                                            Все{" "}
-                                            <button>
-                                              возможности Prime <NavArrowIcon />
-                                            </button>
-                                            {/* 4ddfd0 */}
-                                          </p>
-                                        </div>
-                                      </Popover.Trigger>
-                                      <Popover.Portal>
-                                        <Popover.Content
-                                          className={clsx(
-                                            styles.PopoverContent,
-                                            styles.PopoverContent_first
-                                          )}
-                                          sideOffset={5}
-                                        >
-                                          <div
-                                            className={
-                                              styles.text_before_bonuses_wrap
-                                            }
-                                          >
-                                            <p
-                                              className={clsx(
-                                                styles.text_before_bonuses,
-                                                order === 0 &&
-                                                  styles.text_before_bonuses_priority,
-                                                order === 0 &&
-                                                  styles.text_before_bonuses_ability
-                                              )}
-                                            >
-                                              <div
-                                                className={styles.icon_wrapper}
-                                              >
-                                                <ContentIcon
-                                                  className={
-                                                    styles.text_before_bonuses_ability_icon
-                                                  }
-                                                />
-                                              </div>
-                                              Контент о заработке
-                                            </p>
-                                            <p
-                                              className={clsx(
-                                                styles.text_before_bonuses,
-                                                order === 0 &&
-                                                  styles.text_before_bonuses_priority,
-                                                order === 0 &&
-                                                  styles.text_before_bonuses_ability
-                                              )}
-                                            >
-                                              <div
-                                                className={styles.icon_wrapper}
-                                              >
-                                                <CalendarIcon
-                                                  className={
-                                                    styles.text_before_bonuses_ability_icon
-                                                  }
-                                                />
-                                              </div>
-                                              Прибыльный календарь
-                                            </p>
-                                            <p
-                                              className={clsx(
-                                                styles.text_before_bonuses,
-                                                order === 0 &&
-                                                  styles.text_before_bonuses_priority,
-                                                order === 0 &&
-                                                  styles.text_before_bonuses_ability
-                                              )}
-                                            >
-                                              <div
-                                                className={styles.icon_wrapper}
-                                              >
-                                                <ChatIcon
-                                                  className={
-                                                    styles.text_before_bonuses_ability_icon
-                                                  }
-                                                />
-                                              </div>
-                                              Чаты с сообществом
-                                            </p>
-
-                                            <p
-                                              className={clsx(
-                                                styles.text_before_bonuses,
-                                                order === 0 &&
-                                                  styles.text_before_bonuses_priority,
-                                                order === 0 &&
-                                                  styles.text_before_bonuses_ability
-                                              )}
-                                            >
-                                              <div
-                                                className={styles.icon_wrapper}
-                                              >
-                                                <HelperIcon
-                                                  className={
-                                                    styles.text_before_bonuses_ability_icon
-                                                  }
-                                                />
-                                              </div>
-                                              Поддержка экспертов
-                                            </p>
-                                          </div>
-                                        </Popover.Content>
-                                      </Popover.Portal>
-                                    </Popover.Root>
-                                  ) : (
-                                    <HoverCard.Root openDelay={150}>
-                                      <HoverCard.Trigger
-                                        className={clsx(
-                                          styles.HoverCardTrigger,
-                                          styles.HoverCardTrigger_first
-                                        )}
-                                        // onClick={() => setHoverAbilityOpened((prev) => !prev)}
-                                      >
-                                        <div
-                                          className={clsx(
-                                            styles.bonus,
-                                            styles.bonus_first
-                                          )}
-                                        >
-                                          <p
-                                            className={clsx(
-                                              styles.text_before_bonuses,
-                                              order === 0 &&
-                                                styles.text_before_bonuses_priority
-                                            )}
-                                          >
-                                            Все{" "}
-                                            <button>возможности Prime</button>
-                                          </p>
-                                          <NavArrowIcon />
-                                        </div>
-                                      </HoverCard.Trigger>
-                                      <HoverCard.Portal>
-                                        <HoverCard.Content
-                                          className={clsx(
-                                            styles.HoverCardContent,
-                                            styles.HoverCardContent_first
-                                          )}
-                                          sideOffset={5}
-                                        >
-                                          <div
-                                            className={
-                                              styles.text_before_bonuses_wrap
-                                            }
-                                          >
-                                            <p
-                                              className={clsx(
-                                                styles.text_before_bonuses,
-                                                order === 0 &&
-                                                  styles.text_before_bonuses_priority,
-                                                order === 0 &&
-                                                  styles.text_before_bonuses_ability
-                                              )}
-                                            >
-                                              <div
-                                                className={styles.icon_wrapper}
-                                              >
-                                                <ContentIcon
-                                                  className={
-                                                    styles.text_before_bonuses_ability_icon
-                                                  }
-                                                />
-                                              </div>
-                                              Контент о заработке
-                                            </p>
-                                            <p
-                                              className={clsx(
-                                                styles.text_before_bonuses,
-                                                order === 0 &&
-                                                  styles.text_before_bonuses_priority,
-                                                order === 0 &&
-                                                  styles.text_before_bonuses_ability
-                                              )}
-                                            >
-                                              <div
-                                                className={styles.icon_wrapper}
-                                              >
-                                                <CalendarIcon
-                                                  className={
-                                                    styles.text_before_bonuses_ability_icon
-                                                  }
-                                                />
-                                              </div>
-                                              Прибыльный календарь
-                                            </p>
-                                            <p
-                                              className={clsx(
-                                                styles.text_before_bonuses,
-                                                order === 0 &&
-                                                  styles.text_before_bonuses_priority,
-                                                order === 0 &&
-                                                  styles.text_before_bonuses_ability
-                                              )}
-                                            >
-                                              <div
-                                                className={styles.icon_wrapper}
-                                              >
-                                                <ChatIcon
-                                                  className={
-                                                    styles.text_before_bonuses_ability_icon
-                                                  }
-                                                />
-                                              </div>
-                                              Чаты с сообществом
-                                            </p>
-
-                                            <p
-                                              className={clsx(
-                                                styles.text_before_bonuses,
-                                                order === 0 &&
-                                                  styles.text_before_bonuses_priority,
-                                                order === 0 &&
-                                                  styles.text_before_bonuses_ability
-                                              )}
-                                            >
-                                              <div
-                                                className={styles.icon_wrapper}
-                                              >
-                                                <HelperIcon
-                                                  className={
-                                                    styles.text_before_bonuses_ability_icon
-                                                  }
-                                                />
-                                              </div>
-                                              Поддержка экспертов
-                                            </p>
-                                          </div>
-                                        </HoverCard.Content>
-                                      </HoverCard.Portal>
-                                    </HoverCard.Root>
-                                  )}
                                 </>
                               )}
 
@@ -1170,13 +908,13 @@ const BuySubscriptionDialog = ({
                               <Popover.Root>
                                 <Popover.Trigger
                                   className={clsx(
-                                    styles.PopoverTrigger,
-                                    order === 0 && styles.PopoverTrigger_hidden
+                                    styles.HoverCardTrigger,
+                                    order === 0 &&
+                                      styles.HoverCardTrigger_hidden
                                   )}
                                 >
                                   <li className={styles.bonus}>
                                     <p className={styles.bonus_text}>
-                                      {/* {benefit.translations.ru.name} */}
                                       {order === 1 && <>Proxyline</>}
                                       {order === 2 && <>Dolphin</>}
                                       {order === 3 && <>Safepal</>}
@@ -1186,12 +924,16 @@ const BuySubscriptionDialog = ({
                                 </Popover.Trigger>
                                 <Popover.Portal>
                                   <Popover.Content
-                                    className={styles.PopoverContent}
+                                    className={clsx(
+                                      styles.HoverCardContent,
+                                      order === 2 &&
+                                        styles.HoverCardContent_dolphin
+                                    )}
                                     sideOffset={5}
                                   >
-                                    <div className={styles.PopoverImage}>
+                                    <div className={styles.HoverCardImage}>
                                       <img
-                                        className={styles.PopoverImage_img}
+                                        className={styles.HoverCardImage_img}
                                         src={
                                           order === 1
                                             ? "/images/png/buy-subscription/subscription_2_popup.png"
@@ -1203,7 +945,6 @@ const BuySubscriptionDialog = ({
                                         }
                                       />
                                     </div>
-
                                     <div>
                                       <h1
                                         className={
@@ -1238,7 +979,6 @@ const BuySubscriptionDialog = ({
                                 >
                                   <li className={styles.bonus}>
                                     <p className={styles.bonus_text}>
-                                      {/* {benefit.translations.ru.name} */}
                                       {order === 1 && <>Proxyline</>}
                                       {order === 2 && <>Dolphin</>}
                                       {order === 3 && <>Safepal</>}
@@ -1248,7 +988,11 @@ const BuySubscriptionDialog = ({
                                 </HoverCard.Trigger>
                                 <HoverCard.Portal>
                                   <HoverCard.Content
-                                    className={styles.HoverCardContent}
+                                    className={clsx(
+                                      styles.HoverCardContent,
+                                      order === 2 &&
+                                        styles.HoverCardContent_dolphin
+                                    )}
                                     sideOffset={5}
                                   >
                                     <div className={styles.HoverCardImage}>
@@ -1489,8 +1233,12 @@ const BuySubscriptionDialog = ({
 
                   <div className={styles.total_container}>
                     <span className={styles.total}>
-                      Итого: ${totalPrice.toFixed(0)}{" "}
+                      Итого:{" "}
+                      {promoForSubmit
+                        ? totalPrice.toFixed(0)
+                        : getSubscriptionPrice() - baseDiscountAmount}
                       <span className={styles.total_per_month}>
+                        {" "}
                         за{" "}
                         {order === 0
                           ? "1"

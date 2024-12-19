@@ -713,215 +713,6 @@ const SubscriptionCard = ({
           order === 0 && styles.text_before_bonuses_wrapper_priority
         )}
       >
-        {/* <p
-          className={clsx(
-            styles.text_before_bonuses,
-            order === 0 && styles.text_before_bonuses_priority
-          )}
-        >
-          {order === 0 && (
-            <>
-              Все{" "}
-              <button onClick={scrollToOpportunities}>возможности Prime</button>
-            </>
-          )}
-        </p> */}
-
-        {order === 0 && (
-          <>
-            {resolution === "sm" ? (
-              <Popover.Root
-                open={hoverAbilityOpened}
-                onOpenChange={setHoverAbilityOpened}
-              >
-                <Popover.Trigger
-                  className={clsx(styles.PopoverTrigger)}
-                  onClick={() => setHoverAbilityOpened((prev) => !prev)}
-                >
-                  <div className={clsx(styles.bonus, styles.bonus_first)}>
-                    <p
-                      className={clsx(
-                        styles.text_before_bonuses,
-                        order === 0 && styles.text_before_bonuses_priority
-                      )}
-                    >
-                      Все{" "}
-                      <button>
-                        возможности Prime <NavArrowIcon />
-                      </button>
-                      {/* 4ddfd0 */}
-                    </p>
-                  </div>
-                </Popover.Trigger>
-                <Popover.Portal>
-                  <Popover.Content
-                    className={clsx(
-                      styles.PopoverContent,
-                      styles.PopoverContent_first
-                    )}
-                    sideOffset={5}
-                  >
-                    <div className={styles.text_before_bonuses_wrap}>
-                      <p
-                        className={clsx(
-                          styles.text_before_bonuses,
-                          order === 0 && styles.text_before_bonuses_priority,
-                          order === 0 && styles.text_before_bonuses_ability
-                        )}
-                      >
-                        <div className={styles.icon_wrapper}>
-                          <ContentIcon
-                            className={styles.text_before_bonuses_ability_icon}
-                          />
-                        </div>
-                        Контент о заработке
-                      </p>
-                      <p
-                        className={clsx(
-                          styles.text_before_bonuses,
-                          order === 0 && styles.text_before_bonuses_priority,
-                          order === 0 && styles.text_before_bonuses_ability
-                        )}
-                      >
-                        <div className={styles.icon_wrapper}>
-                          <CalendarIcon
-                            className={styles.text_before_bonuses_ability_icon}
-                          />
-                        </div>
-                        Прибыльный календарь
-                      </p>
-                      <p
-                        className={clsx(
-                          styles.text_before_bonuses,
-                          order === 0 && styles.text_before_bonuses_priority,
-                          order === 0 && styles.text_before_bonuses_ability
-                        )}
-                      >
-                        <div className={styles.icon_wrapper}>
-                          <ChatIcon
-                            className={styles.text_before_bonuses_ability_icon}
-                          />
-                        </div>
-                        Чаты с сообществом
-                      </p>
-
-                      <p
-                        className={clsx(
-                          styles.text_before_bonuses,
-                          order === 0 && styles.text_before_bonuses_priority,
-                          order === 0 && styles.text_before_bonuses_ability
-                        )}
-                      >
-                        <div className={styles.icon_wrapper}>
-                          <HelperIcon
-                            className={styles.text_before_bonuses_ability_icon}
-                          />
-                        </div>
-                        Поддержка экспертов
-                      </p>
-                    </div>
-                  </Popover.Content>
-                </Popover.Portal>
-              </Popover.Root>
-            ) : (
-              <HoverCard.Root
-                openDelay={150}
-                open={hoverAbilityOpened}
-                onOpenChange={setHoverAbilityOpened}
-              >
-                <HoverCard.Trigger
-                  className={clsx(
-                    styles.HoverCardTrigger,
-                    styles.HoverCardTrigger_first
-                  )}
-                  // onClick={() => setHoverAbilityOpened((prev) => !prev)}
-                >
-                  <div className={clsx(styles.bonus, styles.bonus_first)}>
-                    <p
-                      className={clsx(
-                        styles.text_before_bonuses,
-                        order === 0 && styles.text_before_bonuses_priority
-                      )}
-                    >
-                      Все <button>возможности Prime</button>
-                    </p>
-                    <NavArrowIcon />
-                  </div>
-                </HoverCard.Trigger>
-                <HoverCard.Portal>
-                  <HoverCard.Content
-                    className={clsx(
-                      styles.HoverCardContent,
-                      styles.HoverCardContent_first
-                    )}
-                    sideOffset={5}
-                  >
-                    <div className={styles.text_before_bonuses_wrap}>
-                      <p
-                        className={clsx(
-                          styles.text_before_bonuses,
-                          order === 0 && styles.text_before_bonuses_priority,
-                          order === 0 && styles.text_before_bonuses_ability
-                        )}
-                      >
-                        <div className={styles.icon_wrapper}>
-                          <ContentIcon
-                            className={styles.text_before_bonuses_ability_icon}
-                          />
-                        </div>
-                        Контент о заработке
-                      </p>
-                      <p
-                        className={clsx(
-                          styles.text_before_bonuses,
-                          order === 0 && styles.text_before_bonuses_priority,
-                          order === 0 && styles.text_before_bonuses_ability
-                        )}
-                      >
-                        <div className={styles.icon_wrapper}>
-                          <CalendarIcon
-                            className={styles.text_before_bonuses_ability_icon}
-                          />
-                        </div>
-                        Прибыльный календарь
-                      </p>
-                      <p
-                        className={clsx(
-                          styles.text_before_bonuses,
-                          order === 0 && styles.text_before_bonuses_priority,
-                          order === 0 && styles.text_before_bonuses_ability
-                        )}
-                      >
-                        <div className={styles.icon_wrapper}>
-                          <ChatIcon
-                            className={styles.text_before_bonuses_ability_icon}
-                          />
-                        </div>
-                        Чаты с сообществом
-                      </p>
-
-                      <p
-                        className={clsx(
-                          styles.text_before_bonuses,
-                          order === 0 && styles.text_before_bonuses_priority,
-                          order === 0 && styles.text_before_bonuses_ability
-                        )}
-                      >
-                        <div className={styles.icon_wrapper}>
-                          <HelperIcon
-                            className={styles.text_before_bonuses_ability_icon}
-                          />
-                        </div>
-                        Поддержка экспертов
-                      </p>
-                    </div>
-                  </HoverCard.Content>
-                </HoverCard.Portal>
-              </HoverCard.Root>
-            )}
-          </>
-        )}
-
         <p className={clsx(styles.text_before_bonuses)}>
           {order === 1 && "Все, что входит в 1 месяц"}
           {order === 2 && "Все, что входит в 3 месяца"}
@@ -938,8 +729,8 @@ const SubscriptionCard = ({
           </p>
         )}
       </div>
-
-      {/* <div className={styles.text_before_bonuses_wrap}>
+      {order === 0 && (
+        <div className={styles.text_before_bonuses_wrap}>
           <p
             className={clsx(
               styles.text_before_bonuses,
@@ -947,7 +738,6 @@ const SubscriptionCard = ({
               order === 0 && styles.text_before_bonuses_ability
             )}
           >
-            +
             <div className={styles.icon_wrapper}>
               <ContentIcon
                 className={styles.text_before_bonuses_ability_icon}
@@ -962,7 +752,6 @@ const SubscriptionCard = ({
               order === 0 && styles.text_before_bonuses_ability
             )}
           >
-            +
             <div className={styles.icon_wrapper}>
               <CalendarIcon
                 className={styles.text_before_bonuses_ability_icon}
@@ -977,7 +766,6 @@ const SubscriptionCard = ({
               order === 0 && styles.text_before_bonuses_ability
             )}
           >
-            +
             <div className={styles.icon_wrapper}>
               <ChatIcon className={styles.text_before_bonuses_ability_icon} />
             </div>
@@ -991,13 +779,28 @@ const SubscriptionCard = ({
               order === 0 && styles.text_before_bonuses_ability
             )}
           >
-            +
             <div className={styles.icon_wrapper}>
               <HelperIcon className={styles.text_before_bonuses_ability_icon} />
             </div>
             Поддержка экспертов
           </p>
-        </div> */}
+        </div>
+      )}
+
+      <p
+        className={clsx(
+          styles.text_before_bonuses,
+          order === 0 && styles.text_before_bonuses_priority,
+          order === 0 && styles.text_before_bonuses_features
+        )}
+      >
+        {order === 0 && (
+          <>
+            Все{" "}
+            <button onClick={scrollToOpportunities}>возможности Prime</button>
+          </>
+        )}
+      </p>
 
       <div
         className={clsx(
@@ -1050,10 +853,9 @@ const SubscriptionCard = ({
           <Popover.Root open={popoverOpened} onOpenChange={setPopoverOpened}>
             <Popover.Trigger
               className={clsx(
-                styles.PopoverTrigger,
-                order === 0 && styles.PopoverTrigger_hidden
+                styles.HoverCardTrigger,
+                order === 0 && styles.HoverCardTrigger_hidden
               )}
-              onClick={() => setPopoverOpened((prev) => !prev)}
             >
               <li className={styles.bonus}>
                 <p className={styles.bonus_text}>
@@ -1065,10 +867,16 @@ const SubscriptionCard = ({
               </li>
             </Popover.Trigger>
             <Popover.Portal>
-              <Popover.Content className={styles.PopoverContent} sideOffset={5}>
-                <div className={styles.PopoverImage}>
+              <Popover.Content
+                className={clsx(
+                  styles.HoverCardContent,
+                  order === 2 && styles.HoverCardContent_dolphin
+                )}
+                sideOffset={5}
+              >
+                <div className={styles.HoverCardImage}>
                   <img
-                    className={styles.PopoverImage_img}
+                    className={styles.HoverCardImage_img}
                     src={
                       order === 1
                         ? "/images/png/buy-subscription/subscription_2_popup.png"
@@ -1080,7 +888,6 @@ const SubscriptionCard = ({
                     }
                   />
                 </div>
-
                 <div>
                   <h1 className={styles.HoverCardContent_header}>
                     {order === 3
@@ -1119,7 +926,10 @@ const SubscriptionCard = ({
             </HoverCard.Trigger>
             <HoverCard.Portal>
               <HoverCard.Content
-                className={styles.HoverCardContent}
+                className={clsx(
+                  styles.HoverCardContent,
+                  order === 2 && styles.HoverCardContent_dolphin
+                )}
                 sideOffset={5}
               >
                 <div className={styles.HoverCardImage}>
