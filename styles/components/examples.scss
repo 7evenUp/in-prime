@@ -143,6 +143,11 @@
     transition: 0.5s;
     cursor: pointer;
 
+    &.active {
+      transition: height 0.35s;
+      max-height: 1100px;
+    }
+
     @media (max-width: 1367px) and (min-width: 768px) {
       margin-top: 20px;
     }
@@ -152,6 +157,7 @@
     }
 
     &__block {
+      height: min-content;
       width: 400px;
       max-height: 1100px;
       display: flex;
@@ -209,8 +215,6 @@
 
         @media (max-width: 767px) {
           padding: 0px 24px 24px;
-          height: 404px;
-          box-sizing: border-box;
         }
 
         &__title {

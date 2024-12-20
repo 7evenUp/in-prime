@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react"
 
-import Categories from "@/components/categories"
+// import Categories from "@/components/categories"
 import MobileMenu from "@/components/mobile-menu"
 
 import { Resolution } from "@/types/resolution"
 
 import styles from "./Earn.module.scss"
-import clsx from "clsx"
-import Snowfall from "@/components/Snow"
+import {Snowfall} from '@/components/Snow/snow'
 
 interface EarnProps {
   resolution: Resolution
@@ -169,6 +168,8 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
 
       {/* </div> */}
 
+      <Snowfall />
+
       <MobileMenu
         open={mobileMenu}
         changeMobileMenu={() => changeMobileMenu(!mobileMenu)}
@@ -248,7 +249,6 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
         <div className={styles.prime_arrow} />
       </div>
 
-      {/* <Snowfall /> */}
 
       <div className={styles.gradient} />
       {resolution !== "sm" ? (

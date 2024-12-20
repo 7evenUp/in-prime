@@ -97,7 +97,7 @@
   text-align: center;
 
   a {
-    color: #ffcd9f;
+    color: #ffe5aa;
     text-decoration: none;
 
     &:hover {
@@ -144,11 +144,11 @@
   &_0__active {
     .card {
       &_0 {
-        border: 1px solid #4ddfd0;
+        border: 1px solid var(--prime-active-color);
         z-index: 4;
       }
       &_1 {
-        border: 1px solid #ffcd9f;
+        border: 1px solid var(--prime-active-color);
         margin-left: 24px;
         z-index: 3;
         height: 244px;
@@ -161,7 +161,7 @@
       }
 
       &_2 {
-        border: 1px solid #bb44cc;
+        border: 1px solid var(--prime-active-color);
         margin-left: 48px;
         z-index: 2;
         height: 222px;
@@ -174,7 +174,7 @@
       }
 
       &_3 {
-        border: 1px solid #ff4a7a;
+        border: 1px solid var(--prime-active-color);
         margin-left: 72px;
         z-index: 1;
         height: 202px;
@@ -191,14 +191,14 @@
   &_1__active {
     .card {
       &_0 {
-        border: 1px solid #4ddfd0;
+        border: 1px solid var(--prime-active-color);
         z-index: 3;
         height: 244px;
         top: 50%;
         translate: 0 -50%;
       }
       &_1 {
-        border: 1px solid #ffcd9f;
+        border: 1px solid var(--prime-active-color);
         margin-left: 24px;
         z-index: 4;
         height: 266px;
@@ -209,7 +209,7 @@
       }
 
       &_2 {
-        border: 1px solid #bb44cc;
+        border: 1px solid var(--prime-active-color);
         margin-left: 48px;
         z-index: 2;
         height: 244px;
@@ -222,7 +222,7 @@
       }
 
       &_3 {
-        border: 1px solid #ff4a7a;
+        border: 1px solid var(--prime-active-color);
         margin-left: 72px;
         z-index: 1;
         height: 222px;
@@ -239,14 +239,14 @@
   &_2__active {
     .card {
       &_0 {
-        border: 1px solid #4ddfd0;
+        border: 1px solid var(--prime-active-color);
         z-index: 2;
         height: 222px;
         top: 50%;
         translate: 0 -50%;
       }
       &_1 {
-        border: 1px solid #ffcd9f;
+        border: 1px solid var(--prime-active-color);
         margin-left: 24px;
         z-index: 3;
         height: 244px;
@@ -259,7 +259,7 @@
       }
 
       &_2 {
-        border: 1px solid #bb44cc;
+        border: 1px solid var(--prime-active-color);
         margin-left: 48px;
         z-index: 4;
         height: 266px;
@@ -270,7 +270,7 @@
       }
 
       &_3 {
-        border: 1px solid #ff4a7a;
+        border: 1px solid var(--prime-active-color);
         margin-left: 72px;
         z-index: 1;
         height: 244px;
@@ -287,14 +287,14 @@
   &_3__active {
     .card {
       &_0 {
-        border: 1px solid #4ddfd0;
+        border: 1px solid var(--prime-active-color);
         z-index: 1;
         height: 202px;
         top: 50%;
         translate: 0 -50%;
       }
       &_1 {
-        border: 1px solid #ffcd9f;
+        border: 1px solid var(--prime-active-color);
         margin-left: 24px;
         z-index: 2;
         height: 222px;
@@ -307,7 +307,7 @@
       }
 
       &_2 {
-        border: 1px solid #bb44cc;
+        border: 1px solid var(--prime-active-color);
         margin-left: 48px;
         z-index: 3;
         height: 244px;
@@ -320,7 +320,7 @@
       }
 
       &_3 {
-        border: 1px solid #ff4a7a;
+        border: 1px solid var(--prime-active-color);
         margin-left: 72px;
         z-index: 4;
         height: 266px;
@@ -348,7 +348,20 @@
 
   @media (max-width: 445px) {
     padding: 16px;
-    width: 235px;
+    width: 260px;
+  }
+
+  &_0 {
+    --prime-active-color: #4ddfd0;
+  }
+  &_1 {
+    --prime-active-color: #ffe5aa;
+  }
+  &_2 {
+    --prime-active-color: #bb44cc;
+  }
+  &_3 {
+    --prime-active-color: #ff4a7a;
   }
 
   &_duration {
@@ -364,16 +377,16 @@
     margin-bottom: 32px;
 
     &__active1 {
-      background: #4ddfd0;
+      background: var(--prime-active-color);
     }
     &__active2 {
-      background: #ffcd9f;
+      background: var(--prime-active-color);
     }
     &__active3 {
-      background: #bb44cc;
+      background: var(--prime-active-color);
     }
     &__active4 {
-      background: #ff4a7a;
+      background: var(--prime-active-color);
     }
   }
 }
@@ -385,10 +398,6 @@
   flex-direction: column;
   gap: 4px;
   list-style: none;
-
-  &_first {
-    padding-left: 0;
-  }
 
   @media (max-width: 767px) {
     padding-left: 0px;
@@ -444,29 +453,11 @@
       font-size: 14px;
     }
 
-    &1 {
-      .bonuses_heading_icon {
-        background: #ffcd9f;
-      }
-      .bonuses_heading_text {
-        color: #ffcd9f;
-      }
+    .bonuses_heading_icon {
+      background: var(--prime-active-color);
     }
-    &2 {
-      .bonuses_heading_icon {
-        background: #bb44cc;
-      }
-      .bonuses_heading_text {
-        color: #bb44cc;
-      }
-    }
-    &3 {
-      .bonuses_heading_icon {
-        background: #ff4a7a;
-      }
-      .bonuses_heading_text {
-        color: #ff4a7a;
-      }
+    .bonuses_heading_text {
+      color: var(--prime-active-color);
     }
   }
 }
@@ -534,11 +525,13 @@
     border: none;
     transition: all 0.15s ease-in-out;
     background: transparent;
+    display: inline-flex;
+    align-items: center;
 
     font-family: 'Inter', sans-serif;
     font-weight: 400;
     font-size: 16px;
-    color: #4ddfd0;
+    color: var(--prime-active-color, #4ddfd0);
     text-decoration: underline;
     text-underline-offset: 4px;
 
@@ -656,13 +649,13 @@
   margin-top: 8px;
 
   &_link {
-    color: #ffcd9f;
+    color: #ffe5aa;
     text-decoration: none;
     transition: all 0.15s ease-in-out;
 
     &:hover {
       opacity: 0.8;
-      color: #ffcd9f;
+      color: #ffe5aa;
     }
   }
 }
@@ -717,11 +710,6 @@
 
   @media (max-width: 940px) {
     width: 100%;
-  }
-
-  @media (max-width: 500px) {
-    flex-direction: column;
-    align-items: flex-start;
   }
 }
 
@@ -871,7 +859,7 @@
   }
 
   &:focus-visible {
-    outline: solid 1px #ffcd9f;
+    outline: solid 1px #ffe5aa;
   }
 
   &:disabled {
@@ -986,7 +974,7 @@
     }
 
     a {
-      color: #ffcd9f;
+      color: #ffe5aa;
       font-family: 'Inter', sans-serif;
     }
   }
@@ -1104,7 +1092,7 @@
   width: 100px;
   height: 100px;
   animation: spin 1s linear infinite;
-  color: #ffcd9f;
+  color: #ffe5aa;
   margin-top: 50px;
   margin-bottom: 58px;
   margin-inline: auto;
@@ -1425,6 +1413,7 @@
   justify-content: center;
 
   &_img {
+    border-radius: 8px;
     width: 100%;
   }
 }
@@ -1594,6 +1583,7 @@
   justify-content: center;
 
   &_img {
+    border-radius: 8px;
     width: 100%;
   }
 }
@@ -1720,7 +1710,6 @@
     font-weight: 400;
     font-size: 16px;
     color: #4ddfd0;
-    text-decoration: underline;
     text-underline-offset: 4px;
 
     &:hover {
@@ -1782,7 +1771,6 @@
   svg {
     flex-shrink: 0;
     transition: rotate 0.15s ease-in-out;
-    margin-left: 6px;
   }
 }
 

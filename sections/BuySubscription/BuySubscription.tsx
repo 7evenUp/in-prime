@@ -1,4 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, {
+  type Dispatch,
+  type SetStateAction,
+  useEffect,
+  useRef,
+  useState,
+} from 'react'
 import { useRouter } from 'next/router'
 import { useMutation, useQuery } from '@tanstack/react-query'
 import axios from 'axios'
@@ -22,6 +28,7 @@ import { Resolution } from '@/types/resolution'
 import { Promocode, Subscription } from '@/types/api-types'
 
 import styles from './BuySubscription.module.scss'
+import { useIsTouchDevice } from '@/hooks/device'
 
 const PRIME_SUBSCRIPTION_KIND_ID = 1
 const ID_URL = process.env.NEXT_PUBLIC_ID_URL
@@ -471,9 +478,8 @@ const SubscriptionCard = ({
   const [isPromoLarger, setIsPromoLarger] = useState(false)
   const [dialogOpen, setDialogOpen] = useState(false)
 
-  const [popoverOpened, setPopoverOpened] = useState(false)
-  const [hoverCardOpened, setHoverCardOpened] = useState(false)
-  const [hoverAbilityOpened, setHoverAbilityOpened] = useState(false)
+  const [primeOpportunitiesOpened, setPrimeOpportunitiesOpened] =
+    useState(false)
 
   const getSubscriptionPrice = () => {
     return individualPrice ? individualPrice : price
@@ -711,14 +717,13 @@ const SubscriptionCard = ({
       <div
         className={clsx(
           styles.text_before_bonuses_wrapper,
-          order === 0 && styles.text_before_bonuses_wrapper_priority
         )}
       >
-        <p className={clsx(styles.text_before_bonuses)}>
-          {order === 1 && 'Все, что входит в 1 месяц'}
-          {order === 2 && 'Все, что входит в 3 месяца'}
-          {order === 3 && 'Все, что входит в 6 месяцев'}
-        </p>
+        <PrimeOpportunities
+          open={primeOpportunitiesOpened}
+          setOpen={setPrimeOpportunitiesOpened}
+        />
+
         {order === 3 && (
           <p
             className={clsx(
@@ -730,79 +735,7 @@ const SubscriptionCard = ({
           </p>
         )}
       </div>
-      {order === 0 && (
-        <div className={styles.text_before_bonuses_wrap}>
-          <p
-            className={clsx(
-              styles.text_before_bonuses,
-              order === 0 && styles.text_before_bonuses_priority,
-              order === 0 && styles.text_before_bonuses_ability
-            )}
-          >
-            <div className={styles.icon_wrapper}>
-              <ContentIcon
-                className={styles.text_before_bonuses_ability_icon}
-              />
-            </div>
-            Контент о заработке
-          </p>
-          <p
-            className={clsx(
-              styles.text_before_bonuses,
-              order === 0 && styles.text_before_bonuses_priority,
-              order === 0 && styles.text_before_bonuses_ability
-            )}
-          >
-            <div className={styles.icon_wrapper}>
-              <CalendarIcon
-                className={styles.text_before_bonuses_ability_icon}
-              />
-            </div>
-            Прибыльный календарь
-          </p>
-          <p
-            className={clsx(
-              styles.text_before_bonuses,
-              order === 0 && styles.text_before_bonuses_priority,
-              order === 0 && styles.text_before_bonuses_ability
-            )}
-          >
-            <div className={styles.icon_wrapper}>
-              <ChatIcon className={styles.text_before_bonuses_ability_icon} />
-            </div>
-            Чаты с сообществом
-          </p>
-
-          <p
-            className={clsx(
-              styles.text_before_bonuses,
-              order === 0 && styles.text_before_bonuses_priority,
-              order === 0 && styles.text_before_bonuses_ability
-            )}
-          >
-            <div className={styles.icon_wrapper}>
-              <HelperIcon className={styles.text_before_bonuses_ability_icon} />
-            </div>
-            Поддержка экспертов
-          </p>
-        </div>
-      )}
-
-      <p
-        className={clsx(
-          styles.text_before_bonuses,
-          order === 0 && styles.text_before_bonuses_priority,
-          order === 0 && styles.text_before_bonuses_features
-        )}
-      >
-        {order === 0 && (
-          <>
-            Все{' '}
-            <button onClick={scrollToOpportunities}>возможности Prime</button>
-          </>
-        )}
-      </p>
-
+      
       <div
         className={clsx(
           styles.bonuses_heading
@@ -852,251 +785,24 @@ const SubscriptionCard = ({
           order === 3 && styles.bonuses_heading_3
         )}
       >
-        [ ОСТАЛОСЬ: {benefits.reduce((acc, cur) => acc + cur.remainingCount, 0)}{' '}
-        ]
+        [ ОСТАЛОСЬ:{' '}
+        {benefits.reduce((acc, cur) => acc + (cur.remainingCount ?? 0), 0)} ]
       </span>
-
       <ul className={clsx(styles.bonuses, styles.bonuses__small)}>
         {benefits.map(
           (benefit) =>
             benefit.file &&
-            !(
-              benefit.translations.ru.name === 'Секретный подарок' &&
-              benefit.remainingCount <= 0
-            ) && (
-              <>
-                {resolution === 'sm' ? (
-                  <Popover.Root>
-                    <Popover.Trigger className={styles.PopoverTrigger}>
-                      <li className={clsx(styles.bonus, styles.bonus_small)}>
-                        <img src={benefit.file} className={styles.bonus_img} />
-
-                        <p className={styles.bonus_text}>
-                          {benefit.translations.ru.name}
-                          <NavArrowIcon />
-                        </p>
-                      </li>
-                    </Popover.Trigger>
-                    <Popover.Portal>
-                      <Popover.Content
-                        className={styles.HoverCardContent}
-                        sideOffset={5}
-                      >
-                        <div className={styles.HoverCardImage}>
-                          <img
-                            className={styles.HoverCardImage_img}
-                            src={benefit.file}
-                          />
-                        </div>
-                        <div>
-                          <h1 className={styles.HoverCardContent_header}>
-                            {benefit.translations.ru.name}
-                          </h1>
-                          <p className={styles.HoverCardContent_text}>
-                            {benefit.translations.ru.description}
-                          </p>
-                        </div>
-                      </Popover.Content>
-                    </Popover.Portal>
-                  </Popover.Root>
-                ) : (
-                  <HoverCard.Root openDelay={150}>
-                    <HoverCard.Trigger
-                      className={clsx(styles.HoverCardTrigger)}
-                    >
-                      <li className={styles.bonus}>
-                        <img src={benefit.file} className={styles.bonus_img} />
-
-                        <p className={styles.bonus_text}>
-                          {benefit.translations.ru.name}
-                          <NavArrowIcon />
-                        </p>
-                      </li>
-                    </HoverCard.Trigger>
-                    <HoverCard.Portal>
-                      <HoverCard.Content
-                        className={styles.HoverCardContent}
-                        sideOffset={5}
-                      >
-                        <div className={styles.HoverCardImage}>
-                          <img
-                            className={styles.HoverCardImage_img}
-                            src={benefit.file}
-                          />
-                        </div>
-                        <div>
-                          <h1 className={styles.HoverCardContent_header}>
-                            {benefit.translations.ru.name}
-                          </h1>
-                          <p className={styles.HoverCardContent_text}>
-                            {benefit.translations.ru.description}
-                          </p>
-                        </div>
-                      </HoverCard.Content>
-                    </HoverCard.Portal>
-                  </HoverCard.Root>
-                )}
-              </>
+            benefit.remainingCount !== 0 && (
+              <BenefitCard
+                benefit={{
+                  file: benefit.file,
+                  name: benefit.translations.ru.name,
+                  description: benefit.translations.ru.description,
+                }}
+              />
             )
         )}
       </ul>
-
-      {/* <ul
-        className={clsx(
-          styles.bonuses,
-          (order === 1 || order === 2 || order === 3) && styles.bonuses__small
-        )}
-      >
-        {order !== 0 &&
-          benefits.map((benefit) =>
-            benefit.file ? (
-              resolution === "sm" ? (
-                <Popover.Root key={benefit.id}>
-                  <Popover.Trigger className={styles.PopoverTrigger}>
-                    <li className={styles.bonus}>
-                      <p className={styles.bonus_text}>
-                        {benefit.translations.ru.name}
-                        <NavArrowIcon />
-                      </p>
-                    </li>
-                  </Popover.Trigger>
-                  <Popover.Portal>
-                    <Popover.Content
-                      className={styles.PopoverContent}
-                      sideOffset={5}
-                    >
-                      <img
-                        className={styles.PopoverImage}
-                        src={benefit.file}
-                        alt={benefit.translations.ru.name}
-                      />
-                      {benefit.translations.ru.description}
-                    </Popover.Content>
-                  </Popover.Portal>
-                </Popover.Root>
-              ) : (
-                <HoverCard.Root key={benefit.id} openDelay={150}>
-                  <HoverCard.Trigger className={styles.HoverCardTrigger}>
-                    <li className={styles.bonus}>
-                      <p className={styles.bonus_text}>
-                        {benefit.translations.ru.name}
-                        <NavArrowIcon />
-                      </p>
-                    </li>
-                  </HoverCard.Trigger>
-                  <HoverCard.Portal>
-                    <HoverCard.Content
-                      className={styles.HoverCardContent}
-                      sideOffset={5}
-                    >
-                      <img
-                        className={styles.HoverCardImage}
-                        src={benefit.file}
-                        alt={benefit.translations.ru.name}
-                      />
-                      {benefit.translations.ru.description}
-                    </HoverCard.Content>
-                  </HoverCard.Portal>
-                </HoverCard.Root>
-              )
-            ) : benefit.translations.ru.description !== null ? (
-              resolution === "sm" ? (
-                <Popover.Root key={benefit.id}>
-                  <Popover.Trigger className={styles.PopoverTriggerDescription}>
-                    <li className={styles.bonus}>
-                      <p className={styles.bonus_text}>
-                        {benefit.translations.ru.name}
-                        <NavArrowIcon />
-                      </p>
-                    </li>
-                  </Popover.Trigger>
-                  <Popover.Portal>
-                    <Popover.Content
-                      className={styles.PopoverContentDescription}
-                      sideOffset={5}
-                      side="bottom"
-                    >
-                      <img
-                        className={styles.PopoverImage}
-                        src={benefit.file}
-                        alt={benefit.translations.ru.name}
-                      />
-                      {/* {benefit.file && (
-                        <Image
-                          src={benefit.file}
-                          alt={benefit.translations.ru.name}
-                        />
-                      )} 
-                      {benefit.translations.ru.description}
-                    </Popover.Content>
-                  </Popover.Portal>
-                </Popover.Root>
-              ) : (
-                <HoverCard.Root key={benefit.id} openDelay={150}>
-                  <HoverCard.Trigger className={styles.HoverCardTrigger}>
-                    <li className={styles.bonus}>
-                      <p className={styles.bonus_text}>
-                        {benefit.translations.ru.name}
-                        <NavArrowIcon />
-                      </p>
-                    </li>
-                  </HoverCard.Trigger>
-                  <HoverCard.Portal>
-                    <HoverCard.Content
-                      className={styles.HoverCardContent}
-                      sideOffset={5}
-                    >
-                      {benefit.translations.ru.description}
-                    </HoverCard.Content>
-                  </HoverCard.Portal>
-                </HoverCard.Root>
-              )
-            ) : (
-              <li key={benefit.id} className={styles.bonus}>
-                <p className={styles.bonus_text}>
-                  {benefit.translations.ru.name}
-                </p>
-              </li>
-            )
-          )}
-      </ul> */}
-
-      {/* {order === 0 && (
-        <img
-          src="/images/png/buy-subscription/subscription_1.png"
-          className={clsx(styles.subscription_img)}
-        />
-      )} */}
-      {/* {order === 1 && (
-        <img
-          src="/images/png/buy-subscription/subscription_2.png"
-          className={clsx(styles.subscription_img)}
-        />
-      )}
-      {order === 2 && (
-        <img
-          src="/images/png/buy-subscription/subscription_3.png"
-          className={clsx(styles.subscription_img)}
-        />
-      )}
-      {order === 3 && (
-        <img
-          src="/images/png/buy-subscription/subscription_4.png"
-          className={clsx(styles.subscription_img, styles.subscription_img_4)}
-        />
-      )} */}
-
-      {/* <div className={styles.subscription_remains}>
-        {benefits.map(
-          (benefit) =>
-            benefit.remainingCount !== null && (
-              <span key={benefit.id}>
-                ОСТАЛОСЬ: {benefit.remainingCount}{" "}
-                {benefit.translations.ru.name}
-              </span>
-            )
-        )}
-      </div> */}
 
       <BuySubscriptionDialog
         key={discountAmount}
@@ -1237,3 +943,141 @@ const NavArrowIcon = () => (
     />
   </svg>
 )
+
+const AbilityItem = ({ icon: Icon, text }) => (
+  <p
+    className={clsx(
+      styles.text_before_bonuses,
+      styles.text_before_bonuses_priority,
+      styles.text_before_bonuses_ability
+    )}
+  >
+    <div className={styles.icon_wrapper}>
+      <Icon className={styles.text_before_bonuses_ability_icon} />
+    </div>
+    {text}
+  </p>
+)
+
+export const PrimeOpportunities = ({
+  open,
+  setOpen,
+}: {
+  open?: boolean
+  setOpen?: Dispatch<SetStateAction<boolean>>
+}) => {
+  const isTouchDevice = useIsTouchDevice()
+  const HoverCardOrPopover = isTouchDevice ? Popover : HoverCard
+
+  return (
+    <HoverCardOrPopover.Root open={open} onOpenChange={setOpen} openDelay={150}>
+      <HoverCardOrPopover.Trigger
+        className={clsx(
+          isTouchDevice ? styles.PopoverTrigger : styles.HoverCardTrigger,
+          isTouchDevice
+            ? styles.PopoverTrigger_first
+            : styles.HoverCardTrigger_first
+        )}
+        {...(setOpen &&
+           { onClick: () => setOpen((prev) => !prev) }
+          )}
+      >
+        <div className={clsx(styles.bonus, styles.bonus_first)}>
+          <p className={clsx(styles.text_before_bonuses)}>
+            Все{' '}
+            <button type='button'>
+              возможности Prime{' '}
+              <span style={{ marginLeft: '4px', marginTop: '3px' }}>
+                <NavArrowIcon />
+              </span>
+            </button>
+          </p>
+        </div>
+      </HoverCardOrPopover.Trigger>
+      <HoverCardOrPopover.Portal>
+        <HoverCardOrPopover.Content
+          className={clsx(
+            isTouchDevice ? styles.PopoverContent : styles.HoverCardContent,
+
+            isTouchDevice
+              ? styles.PopoverContent_first
+              : styles.HoverCardContent_first
+          )}
+          sideOffset={5}
+        >
+          <div className={styles.text_before_bonuses_wrap}>
+            <AbilityItem icon={ContentIcon} text='Контент о заработке' />
+            <AbilityItem icon={CalendarIcon} text='Прибыльный календарь' />
+            <AbilityItem icon={ChatIcon} text='Чаты с сообществом' />
+            <AbilityItem icon={HelperIcon} text='Поддержка экспертов' />
+          </div>
+        </HoverCardOrPopover.Content>
+      </HoverCardOrPopover.Portal>
+    </HoverCardOrPopover.Root>
+  )
+}
+
+export const BenefitCard = ({
+  benefit,
+  compact,
+  open: outerOpen,
+  setOpen: outerSetIsOpen,
+}: {
+  benefit: {
+    file: string
+    name: string
+    description: string
+  }
+  compact?: boolean
+  open?: boolean
+  setOpen?: Dispatch<SetStateAction<boolean>>
+}) => {
+  const isTouchDevice = useIsTouchDevice()
+  const HoverCardOrPopover = isTouchDevice ? Popover : HoverCard
+  
+  // Mobile bug fix
+  const [localOpen, localSetOpen] = useState(false)
+  const [open, setOpen] = useMemo(
+    () => (outerSetIsOpen ? [outerOpen, outerSetIsOpen] : [localOpen, localSetOpen]),
+    [outerOpen, outerSetIsOpen, localOpen, localSetOpen]
+  )
+
+  return (
+    <HoverCardOrPopover.Root open={open} onOpenChange={setOpen} openDelay={150}>
+      <HoverCardOrPopover.Trigger
+        style={{ width: '100%' }}
+        className={clsx(
+          isTouchDevice ? styles.PopoverTrigger : styles.HoverCardTrigger
+        )}
+        {...(setOpen && { onClick: () => setOpen((prev) => !prev) })}
+      >
+        <li className={clsx(styles.bonus, isTouchDevice && styles.bonus_small)}>
+          {!compact && <img src={benefit.file} className={styles.bonus_img} />}
+          <p className={styles.bonus_text}>
+            {benefit.name}
+            <span style={{ marginLeft: '6px' }}>
+              <NavArrowIcon />
+            </span>
+          </p>
+        </li>
+      </HoverCardOrPopover.Trigger>
+      <HoverCardOrPopover.Portal>
+        <HoverCardOrPopover.Content
+          className={styles.HoverCardContent}
+          sideOffset={compact ? 2 : 4}
+          align='center'
+        >
+          <div className={styles.HoverCardImage}>
+            <img className={styles.HoverCardImage_img} src={benefit.file} />
+          </div>
+          <div>
+            <h1 className={styles.HoverCardContent_header}>{benefit.name}</h1>
+            <p className={styles.HoverCardContent_text}>
+              {benefit.description}
+            </p>
+          </div>
+        </HoverCardOrPopover.Content>
+      </HoverCardOrPopover.Portal>
+    </HoverCardOrPopover.Root>
+  )
+}

@@ -18,40 +18,42 @@ const Histories = () => {
   const [activeIndex, setActiveIndex] = useState(0)
 
   return (
-    <section className={styles.container} id="histories">
-      <div className={styles.header}>
-        <h2 className={styles.title}>Их жизнь изменилась</h2>
-      </div>
-      <div className={styles.navigation}>
-        <button
-          className={styles.arrow_btn}
-          onClick={() => swiperRef.current.swiper.slidePrev()}
-        >
-          <Arrow className={styles.arrow_prev} />
-        </button>
-        <button
-          className={styles.arrow_btn}
-          onClick={() => swiperRef.current.swiper.slideNext()}
-        >
-          <Arrow className={styles.arrow_next} />
-        </button>
-      </div>
+    <section className={styles.wrapper} id="histories">
+      <div className={styles.container}>
+        <div className={styles.header}>
+          <h2 className={styles.title}>Их жизнь изменилась</h2>
+        </div>
+        <div className={styles.navigation}>
+          <button
+            className={styles.arrow_btn}
+            onClick={() => swiperRef.current.swiper.slidePrev()}
+          >
+            <Arrow className={styles.arrow_prev} />
+          </button>
+          <button
+            className={styles.arrow_btn}
+            onClick={() => swiperRef.current.swiper.slideNext()}
+          >
+            <Arrow className={styles.arrow_next} />
+          </button>
+        </div>
 
-      <Swiper
-        // @ts-ignore
-        ref={swiperRef}
-        slidesPerView={1}
-        onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
-        className={styles.swiper}
-        wrapperClass={styles.swiper_wrapper}
-        loop={true}
-      >
-        {historiesData.map((history, i) => (
-          <SwiperSlide key={i} className={styles.slide}>
-            <HistoryCard {...history} cardIndex={i} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+        <Swiper
+          // @ts-ignore
+          ref={swiperRef}
+          slidesPerView={1}
+          onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+          className={styles.swiper}
+          wrapperClass={styles.swiper_wrapper}
+          loop={true}
+        >
+          {historiesData.map((history, i) => (
+            <SwiperSlide key={i} className={styles.slide}>
+              <HistoryCard {...history} cardIndex={i} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </section>
   )
 }

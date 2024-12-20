@@ -36,6 +36,10 @@ import {
   ContentIcon,
   HelperIcon,
 } from '@/sections/Features/Icons'
+import {
+  BenefitCard,
+  PrimeOpportunities,
+} from '@/sections/BuySubscription/BuySubscription'
 
 const ID_URL = process.env.NEXT_PUBLIC_ID_URL + '/api/v1/'
 const DEFAULT_CRYPTON_PROMO = 'CRYPTON'
@@ -116,7 +120,6 @@ const BuySubscriptionDialog = ({
   const [checkboxValue, setCheckboxValue] = useState<boolean | 'indeterminate'>(
     false
   )
-
   const getSubscriptionPrice = () => {
     return individualPrice ? individualPrice : price
   }
@@ -734,305 +737,71 @@ const BuySubscriptionDialog = ({
                           >
                             {duration.id} МЕС
                           </span>
-                          {order !== 0 && (
-                            <p className={styles.text_before_bonuses}>
-                              {order === 1 && 'Все, что входит в 1 месяц'}
-                              {order === 2 && 'Все, что входит в 3 месяца'}
-                              {order === 3 && 'Все, что входит в 6 месяцев'}
-                            </p>
-                          )}
-                          {order !== 0 && (
-                            <div
-                              className={clsx(
-                                styles.bonuses_heading,
-                                order === 1 && styles.bonuses_heading1,
-                                order === 2 && styles.bonuses_heading2,
-                                order === 3 && styles.bonuses_heading3
-                              )}
-                            >
-                              <div className={styles.bonuses_heading_icon}>
-                                <svg
-                                  width='12'
-                                  height='12'
-                                  viewBox='0 0 12 12'
-                                  fill='none'
-                                  xmlns='http://www.w3.org/2000/svg'
-                                >
-                                  <path
-                                    d='M10.6834 6.57031H6.3916V11.9998H10.6834V6.57031Z'
-                                    fill='#171717'
-                                  />
-                                  <path
-                                    d='M5.60823 6.57031H1.31641V11.9998H5.60823V6.57031Z'
-                                    fill='#171717'
-                                  />
-                                  <path
-                                    d='M9.34618 2.21325C9.46227 2.00055 9.52834 1.75683 9.52834 1.49791C9.52836 0.671953 8.85638 0 8.03045 0C7.41955 0 6.79447 0.315656 6.31557 0.866039C6.19705 1.00223 6.09149 1.1486 6.0002 1.30104C5.90891 1.1486 5.80334 1.00223 5.68482 0.866039C5.20592 0.315656 4.58087 0 3.96995 0C3.14401 0 2.47203 0.671977 2.47203 1.49791C2.47203 1.7568 2.53808 2.00055 2.65419 2.21325H0.614258V5.78791H5.60888V2.21325H6.39149V5.78791H11.3861V2.21325H9.34618ZM3.96995 2.21325C3.57554 2.21325 3.25463 1.89234 3.25463 1.49791C3.25463 1.10348 3.57554 0.782602 3.96995 0.782602C4.68008 0.782602 5.35524 1.509 5.55172 2.21323L3.96995 2.21325ZM8.03045 2.21325H6.44867C6.64515 1.509 7.32031 0.782625 8.03045 0.782625C8.42485 0.782625 8.74576 1.10353 8.74576 1.49794C8.74574 1.89237 8.42485 2.21325 8.03045 2.21325Z'
-                                    fill='#171717'
-                                  />
-                                </svg>
+                          <p className={styles.text_before_bonuses}>
+                            <PrimeOpportunities />
+                          </p>
+                          {benefits.length && (
+                            <>
+                              <div
+                                className={clsx(
+                                  styles.bonuses_heading,
+                                  order === 0 && styles.bonuses_heading0,
+                                  order === 1 && styles.bonuses_heading1,
+                                  order === 2 && styles.bonuses_heading2,
+                                  order === 3 && styles.bonuses_heading3
+                                )}
+                              >
+                                <div className={styles.bonuses_heading_icon}>
+                                  <svg
+                                    width='12'
+                                    height='12'
+                                    viewBox='0 0 12 12'
+                                    fill='none'
+                                    xmlns='http://www.w3.org/2000/svg'
+                                  >
+                                    <path
+                                      d='M10.6834 6.57031H6.3916V11.9998H10.6834V6.57031Z'
+                                      fill='#171717'
+                                    />
+                                    <path
+                                      d='M5.60823 6.57031H1.31641V11.9998H5.60823V6.57031Z'
+                                      fill='#171717'
+                                    />
+                                    <path
+                                      d='M9.34618 2.21325C9.46227 2.00055 9.52834 1.75683 9.52834 1.49791C9.52836 0.671953 8.85638 0 8.03045 0C7.41955 0 6.79447 0.315656 6.31557 0.866039C6.19705 1.00223 6.09149 1.1486 6.0002 1.30104C5.90891 1.1486 5.80334 1.00223 5.68482 0.866039C5.20592 0.315656 4.58087 0 3.96995 0C3.14401 0 2.47203 0.671977 2.47203 1.49791C2.47203 1.7568 2.53808 2.00055 2.65419 2.21325H0.614258V5.78791H5.60888V2.21325H6.39149V5.78791H11.3861V2.21325H9.34618ZM3.96995 2.21325C3.57554 2.21325 3.25463 1.89234 3.25463 1.49791C3.25463 1.10348 3.57554 0.782602 3.96995 0.782602C4.68008 0.782602 5.35524 1.509 5.55172 2.21323L3.96995 2.21325ZM8.03045 2.21325H6.44867C6.64515 1.509 7.32031 0.782625 8.03045 0.782625C8.42485 0.782625 8.74576 1.10353 8.74576 1.49794C8.74574 1.89237 8.42485 2.21325 8.03045 2.21325Z'
+                                      fill='#171717'
+                                    />
+                                  </svg>
+                                </div>
+                                <span className={styles.bonuses_heading_text}>
+                                  ПОДАРКИ
+                                </span>
                               </div>
-                              <span className={styles.bonuses_heading_text}>
-                                ПОДАРКИ
-                              </span>
-                            </div>
+
+                              <ul
+                                className={clsx(
+                                  styles.bonuses,
+                                  styles.bonuses__small
+                                )}
+                              >
+                                {benefits.map(
+                                  (benefit) =>
+                                    benefit.file &&
+                                    benefit.remainingCount !== 0 && (
+                                      <BenefitCard
+                                        compact
+                                        benefit={{
+                                          name: benefit.translations.ru.name,
+                                          description:
+                                            benefit.translations.ru.description,
+                                          file: benefit.file,
+                                        }}
+                                      />
+                                    )
+                                )}
+                              </ul>
+                            </>
                           )}
-                          {order === 0 && (
-                            <ul
-                              className={clsx(
-                                styles.bonuses,
-                                styles.bonuses_first
-                              )}
-                            >
-                              {order !== 0 &&
-                                benefits.map((benefit) => (
-                                  <li key={benefit.id} className={styles.bonus}>
-                                    <p className={styles.bonus_text}>
-                                      {benefit.translations.ru.description}
-                                    </p>
-                                  </li>
-                                ))}
-                              {order === 0 && (
-                                <>
-                                  <div
-                                    className={styles.text_before_bonuses_wrap}
-                                  >
-                                    <p
-                                      className={clsx(
-                                        styles.text_before_bonuses,
-                                        order === 0 &&
-                                          styles.text_before_bonuses_priority,
-                                        order === 0 &&
-                                          styles.text_before_bonuses_ability
-                                      )}
-                                    >
-                                      <div className={styles.icon_wrapper}>
-                                        <ContentIcon
-                                          className={
-                                            styles.text_before_bonuses_ability_icon
-                                          }
-                                        />
-                                      </div>
-                                      Контент о заработке
-                                    </p>
-                                    <p
-                                      className={clsx(
-                                        styles.text_before_bonuses,
-                                        order === 0 &&
-                                          styles.text_before_bonuses_priority,
-                                        order === 0 &&
-                                          styles.text_before_bonuses_ability
-                                      )}
-                                    >
-                                      <div className={styles.icon_wrapper}>
-                                        <CalendarIcon
-                                          className={
-                                            styles.text_before_bonuses_ability_icon
-                                          }
-                                        />
-                                      </div>
-                                      Прибыльный календарь
-                                    </p>
-                                    <p
-                                      className={clsx(
-                                        styles.text_before_bonuses,
-                                        order === 0 &&
-                                          styles.text_before_bonuses_priority,
-                                        order === 0 &&
-                                          styles.text_before_bonuses_ability
-                                      )}
-                                    >
-                                      <div className={styles.icon_wrapper}>
-                                        <ChatIcon
-                                          className={
-                                            styles.text_before_bonuses_ability_icon
-                                          }
-                                        />
-                                      </div>
-                                      Чаты с сообществом
-                                    </p>
-
-                                    <p
-                                      className={clsx(
-                                        styles.text_before_bonuses,
-                                        order === 0 &&
-                                          styles.text_before_bonuses_priority,
-                                        order === 0 &&
-                                          styles.text_before_bonuses_ability
-                                      )}
-                                    >
-                                      <div className={styles.icon_wrapper}>
-                                        <HelperIcon
-                                          className={
-                                            styles.text_before_bonuses_ability_icon
-                                          }
-                                        />
-                                      </div>
-                                      Поддержка экспертов
-                                    </p>
-                                  </div>
-
-                                  <p
-                                    className={clsx(
-                                      styles.text_before_bonuses_prime,
-                                      order === 0 &&
-                                        styles.text_before_bonuses_prime_priority
-                                    )}
-                                  >
-                                    Все{' '}
-                                    <button onClick={scrollToOpportunities}>
-                                      возможности Prime
-                                    </button>
-                                  </p>
-                                </>
-                              )}
-
-                              {/* {filteredBenefits.map((benefit) => (
-                                <li key={benefit.id} className={styles.bonus}>
-                                  <p className={styles.bonus_text}>
-                                    {benefit.translations.ru.description}
-                                  </p>
-                                </li>
-                              ))} */}
-                            </ul>
-                          )}
-                          <ul
-                            className={clsx(
-                              styles.bonuses,
-                              order === 0 && styles.bonuses_first,
-                              (order === 1 || order === 2 || order === 3) &&
-                                styles.bonuses__small
-                            )}
-                          >
-                            {benefits.map(
-                              (benefit) =>
-                                benefit.file &&
-                                !(
-                                  benefit.translations.ru.name ===
-                                    'Секретный подарок' &&
-                                  benefit.remainingCount <= 0
-                                ) && (
-                                  <>
-                                    {resolution === 'sm' ? (
-                                      <Popover.Root>
-                                        <Popover.Trigger
-                                          className={styles.PopoverTrigger}
-                                        >
-                                          <li
-                                            className={clsx(
-                                              styles.bonus,
-                                              styles.bonus_small
-                                            )}
-                                          >
-                                            <img
-                                              src={benefit.file}
-                                              className={styles.bonus_img}
-                                            />
-
-                                            <p className={styles.bonus_text}>
-                                              {benefit.translations.ru.name}
-                                              <NavArrowIcon />
-                                            </p>
-                                          </li>
-                                        </Popover.Trigger>
-                                        <Popover.Portal>
-                                          <Popover.Content
-                                            className={styles.HoverCardContent}
-                                            sideOffset={5}
-                                          >
-                                            <div
-                                              className={styles.HoverCardImage}
-                                            >
-                                              <img
-                                                className={
-                                                  styles.HoverCardImage_img
-                                                }
-                                                src={benefit.file}
-                                              />
-                                            </div>
-                                            <div>
-                                              <h1
-                                                className={
-                                                  styles.HoverCardContent_header
-                                                }
-                                              >
-                                                {benefit.translations.ru.name}
-                                              </h1>
-                                              <p
-                                                className={
-                                                  styles.HoverCardContent_text
-                                                }
-                                              >
-                                                {
-                                                  benefit.translations.ru
-                                                    .description
-                                                }
-                                              </p>
-                                            </div>
-                                          </Popover.Content>
-                                        </Popover.Portal>
-                                      </Popover.Root>
-                                    ) : (
-                                      <HoverCard.Root openDelay={150}>
-                                        <HoverCard.Trigger
-                                          className={clsx(
-                                            styles.HoverCardTrigger
-                                          )}
-                                        >
-                                          <li className={styles.bonus}>
-                                            {/* <img
-                                              src={benefit.file}
-                                              className={styles.bonus_img}
-                                            /> */}
-
-                                            <p className={styles.bonus_text}>
-                                              {benefit.translations.ru.name}
-                                              <NavArrowIcon />
-                                            </p>
-                                          </li>
-                                        </HoverCard.Trigger>
-                                        <HoverCard.Portal>
-                                          <HoverCard.Content
-                                            className={styles.HoverCardContent}
-                                            sideOffset={5}
-                                          >
-                                            <div
-                                              className={styles.HoverCardImage}
-                                            >
-                                              <img
-                                                className={
-                                                  styles.HoverCardImage_img
-                                                }
-                                                src={benefit.file}
-                                              />
-                                            </div>
-                                            <div>
-                                              <h1
-                                                className={
-                                                  styles.HoverCardContent_header
-                                                }
-                                              >
-                                                {benefit.translations.ru.name}
-                                              </h1>
-                                              <p
-                                                className={
-                                                  styles.HoverCardContent_text
-                                                }
-                                              >
-                                                {
-                                                  benefit.translations.ru
-                                                    .description
-                                                }
-                                              </p>
-                                            </div>
-                                          </HoverCard.Content>
-                                        </HoverCard.Portal>
-                                      </HoverCard.Root>
-                                    )}
-                                  </>
-                                )
-                            )}
-                          </ul>
                         </div>
                       ))}
                     </div>

@@ -12,8 +12,6 @@ import { walletConnect, injected } from "wagmi/connectors"
 
 import "/styles/global.scss"
 
-import "/styles/components/snowfall.css"
-
 import "/styles/components/loginIdPopup.scss"
 import "/styles/components/footer.scss"
 import "/styles/components/accordion.scss"
@@ -23,9 +21,10 @@ import "/styles/components/categories.scss"
 import "/styles/components/team.scss"
 import "/styles/components/mobile-menu.scss"
 
-import "/styles/pages/404.scss"
-import AuthProvider from "@/providers/auth-provider"
-import store from "@/redux/store"
+import '/styles/pages/404.scss'
+import AuthProvider from '@/providers/auth-provider'
+import store from '@/redux/store'
+import { UserAgentProvider } from '@/providers/user-agent-provider'
 
 const queryClient = new QueryClient()
 
@@ -64,44 +63,51 @@ createWeb3Modal({
   },
 })
 
-const App = ({ Component, pageProps }: AppProps) => (
-  <>
-    <Head>
-      <title>Crypton Prime</title>
-      <meta name="description" content="Crypton Prime Landing" />
-      <link rel="icon" href="/favicon.ico" />
-      <link
-        rel="apple-touch-icon"
-        sizes="180x180"
-        href="/apple-touch-icon.png"
-      />
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="32x32"
-        href="/favicon-32x32.png"
-      />
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="16x16"
-        href="/favicon-16x16.png"
-      />
-      <link rel="manifest" href="/site.webmanifest" />
-      <meta name="msapplication-TileColor" content="#da532c" />
-      <meta name="theme-color" content="#ffffff"></meta>
-    </Head>
-    <Toaster position="top-right" />
-    <ReduxProvider store={store}>
-      <WagmiProvider config={config}>
-        <QueryClientProvider client={queryClient}>
-          <AuthProvider>
-            <Component {...pageProps} />
-          </AuthProvider>
-        </QueryClientProvider>
-      </WagmiProvider>{" "}
-    </ReduxProvider>
-  </>
-)
+const App = ({ Component, pageProps }: AppProps) => {
+  const userAgent =
+    (typeof navigator !== 'undefined' && navigator.userAgent) || ''
+
+  return (
+    <>
+      <Head>
+        <title>Crypton Prime</title>
+        <meta name='description' content='Crypton Prime Landing' />
+        <link rel='icon' href='/favicon.ico' />
+        <link
+          rel='apple-touch-icon'
+          sizes='180x180'
+          href='/apple-touch-icon.png'
+        />
+        <link
+          rel='icon'
+          type='image/png'
+          sizes='32x32'
+          href='/favicon-32x32.png'
+        />
+        <link
+          rel='icon'
+          type='image/png'
+          sizes='16x16'
+          href='/favicon-16x16.png'
+        />
+        <link rel='manifest' href='/site.webmanifest' />
+        <meta name='msapplication-TileColor' content='#da532c' />
+        <meta name='theme-color' content='#ffffff'></meta>
+      </Head>
+      <Toaster position='top-right' />
+      <ReduxProvider store={store}>
+        <WagmiProvider config={config}>
+          <QueryClientProvider client={queryClient}>
+            <AuthProvider>
+              <UserAgentProvider ua={userAgent}>
+                <Component {...pageProps} />
+              </UserAgentProvider>
+            </AuthProvider>
+          </QueryClientProvider>
+        </WagmiProvider>{' '}
+      </ReduxProvider>
+    </>
+  )
+}
 
 export default App

@@ -18,42 +18,43 @@ const Testimonials = ({ resolution }: { resolution: Resolution }) => {
   const [activeIndex, setActiveIndex] = useState(0)
 
   return (
-    <section className={styles.container} id="testimonials">
-      {/* <div className={styles.bg} /> */}
-
-      <div className={styles.header}>
-        <h2 className={styles.title}>О нас отзываются</h2>
-      </div>
-      <div className={styles.navigation}>
-        <button
-          className={styles.arrow_btn}
-          onClick={() => swiperRef.current.swiper.slidePrev()}
+    <section className={styles.wrapper} id="testimonials">
+      <div className={styles.bg} />
+      <div className={styles.container}>
+        <div className={styles.header}>
+          <h2 className={styles.title}>О нас отзываются</h2>
+        </div>
+        <div className={styles.navigation}>
+          <button
+            className={styles.arrow_btn}
+            onClick={() => swiperRef.current.swiper.slidePrev()}
+          >
+            <Arrow className={styles.arrow_prev} />
+          </button>
+          <button
+            className={styles.arrow_btn}
+            onClick={() => swiperRef.current.swiper.slideNext()}
+          >
+            <Arrow className={styles.arrow_next} />
+          </button>
+        </div>
+        <Swiper
+          // @ts-ignore
+          ref={swiperRef}
+          slidesPerView={1}
+          onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+          className={styles.swiper}
+          wrapperClass={styles.swiper_wrapper}
+          loop={true}
+          loopAdditionalSlides={4}
         >
-          <Arrow className={styles.arrow_prev} />
-        </button>
-        <button
-          className={styles.arrow_btn}
-          onClick={() => swiperRef.current.swiper.slideNext()}
-        >
-          <Arrow className={styles.arrow_next} />
-        </button>
+          {testimonialsData.map((testimonial, i) => (
+            <SwiperSlide className={styles.slide} key={i}>
+              <TestimonialsItem {...testimonial} cardIndex={i} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
-      <Swiper
-        // @ts-ignore
-        ref={swiperRef}
-        slidesPerView={1}
-        onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
-        className={styles.swiper}
-        wrapperClass={styles.swiper_wrapper}
-        loop={true}
-        loopAdditionalSlides={4}
-      >
-        {testimonialsData.map((testimonial, i) => (
-          <SwiperSlide className={styles.slide} key={i}>
-            <TestimonialsItem {...testimonial} cardIndex={i} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
     </section>
   )
 }

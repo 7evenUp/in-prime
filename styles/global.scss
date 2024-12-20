@@ -178,6 +178,7 @@ p {
     // }
 
     &__earn {
+      position: relative;
       overflow: hidden;
       background: #181818;
       min-width: 1920px;
@@ -2125,7 +2126,7 @@ p {
         @media (max-width: 1919px) and (min-width: 1368px) {
           box-sizing: border-box;
           padding: 0;
-          width: 1210px;
+          width: 1300px;
         }
 
         @media (max-width: 1367px) and (min-width: 768px) {
