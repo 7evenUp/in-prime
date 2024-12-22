@@ -1,6 +1,5 @@
-import React, { ChangeEvent, useEffect, useState } from 'react'
+import React, { ChangeEvent, useMemo, useState } from 'react'
 import { useRouter } from 'next/router'
-import Image from 'next/image'
 import * as Dialog from '@radix-ui/react-dialog'
 import * as HoverCard from '@radix-ui/react-hover-card'
 import * as Popover from '@radix-ui/react-popover'
@@ -15,7 +14,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from './Select'
-import { Loader, LoaderSmall, Check, Error, Help } from './Icons'
+import { Loader, LoaderSmall, Error, Help } from './Icons'
 
 import { RadioGroup, RadioGroupItem } from '@/shared/ui/RadioGroup/RadioGroup'
 import Checkbox from '@/shared/ui/Checkbox/Checkbox'
@@ -31,38 +30,23 @@ import { Resolution } from '@/types/resolution'
 import styles from './styles.module.scss'
 import { toast } from 'sonner'
 import {
-  CalendarIcon,
-  ChatIcon,
-  ContentIcon,
-  HelperIcon,
-} from '@/sections/Features/Icons'
-import {
   BenefitCard,
   PrimeOpportunities,
 } from '@/sections/BuySubscription/BuySubscription'
+import { calculateSubscriptionDetails } from '@/shared/subsciption'
 
 const ID_URL = process.env.NEXT_PUBLIC_ID_URL + '/api/v1/'
 const DEFAULT_CRYPTON_PROMO = 'CRYPTON'
 
 const BuySubscriptionDialog = ({
   children,
-  selectedSubscription: {
-    baseDiscount,
-    price,
-    id,
-    duration,
-    benefits,
-    individualPrice,
-  },
+  selectedSubscription,
   order,
   resolution,
   promoForSubmit,
   setPromoForSubmit,
   discountAmount,
   discountKind,
-  referralDiscountAmount,
-  referralDiscountKind,
-  baseDiscountAmount,
   discounts,
   isPromoReferral,
   setIsPromoReferral,
@@ -89,9 +73,6 @@ const BuySubscriptionDialog = ({
       }>
     | undefined
 
-  referralDiscountKind: string | null
-  referralDiscountAmount: number | null
-  baseDiscountAmount: number | null
   isPromoReferral: boolean
   setIsPromoReferral: React.Dispatch<React.SetStateAction<boolean>>
   dialogOpen: boolean
@@ -104,9 +85,14 @@ const BuySubscriptionDialog = ({
 
   const [isCryptonReferralSet, setIsCryptonReferralSet] = useState(false)
   const [promoWasUpdated, setPromoWasUpdated] = useState(false)
-  const [localPromoForSubmit, setLocalPromoForSubmit] = useState(promoForSubmit)
-  const [totalPrice, setTotalPrice] = useState(0)
-  const [isPromoLarger, setIsPromoLarger] = useState(false)
+  const [localPromocode, setLocalPromocode] = useState<Pick<
+    Promocode,
+    'code' | 'discountAmount' | 'discountKind' | 'discounts'
+  > | null>(
+    promoForSubmit && discountAmount && discountKind
+      ? { code: promoForSubmit, discountAmount, discountKind, discounts }
+      : null
+  )
   const [paymentType, setPaymentType] = useState<'crypto' | 'card'>('crypto')
   const [activeToken, setActiveToken] = useState<string | undefined>(undefined)
   const [activeNetwork, setActiveNetwork] = useState<string | undefined>(
@@ -120,58 +106,17 @@ const BuySubscriptionDialog = ({
   const [checkboxValue, setCheckboxValue] = useState<boolean | 'indeterminate'>(
     false
   )
-  const getSubscriptionPrice = () => {
-    return individualPrice ? individualPrice : price
-  }
 
-  useEffect(() => {
-    const price = getSubscriptionPrice()
+  const { id, duration, benefits } = selectedSubscription
 
-    if (baseDiscount) {
-      setTotalPrice(price - price * (baseDiscount / 100))
-    } else {
-      setTotalPrice(price)
-    }
-
-    if (localPromoForSubmit) {
-      if (discountKind && discountAmount && discounts) {
-        const matchedDiscount = discounts.find((el) => el.subscriptionId === id)
-
-        const preferedDiscount = matchedDiscount
-          ? matchedDiscount.discountAmount
-          : discountAmount
-
-        const referralDiscount = referralDiscountAmount
-          ? referralDiscountKind === 'MONEY'
-            ? referralDiscountAmount
-            : Math.ceil(price * referralDiscountAmount)
-          : 0
-
-        const promocodeDiscount =
-          discountKind.id === 'MONEY'
-            ? preferedDiscount
-            : Math.ceil(price * preferedDiscount)
-
-        if (baseDiscountAmount) {
-          setTotalPrice(
-            price -
-              baseDiscountAmount -
-              Math.max(referralDiscount, promocodeDiscount)
-          )
-        } else {
-          setTotalPrice(price - Math.max(referralDiscount, promocodeDiscount))
-        }
-
-        if (referralDiscountAmount && referralDiscountKind) {
-          if (referralDiscount > promocodeDiscount) {
-            setIsPromoLarger(true)
-          } else {
-            setIsPromoLarger(false)
-          }
-        }
-      }
-    }
-  }, [])
+  const { finalPrice, totalDiscount, originalPrice } = useMemo(
+    () =>
+      calculateSubscriptionDetails({
+        subscription: selectedSubscription,
+        promocode: localPromocode,
+      }),
+    [selectedSubscription, localPromocode]
+  )
 
   const { data: methods } = useQuery({
     queryKey: ['methods'],
@@ -265,16 +210,16 @@ const BuySubscriptionDialog = ({
       }
     }
 
-    if (localPromoForSubmit) {
+    if (localPromocode) {
       if (isPromoReferral) {
         payload = {
           ...payload,
-          referral_code: localPromoForSubmit,
+          referral_code: localPromocode.code,
         }
       } else {
         payload = {
           ...payload,
-          promoCode: localPromoForSubmit,
+          promoCode: localPromocode.code,
         }
       }
     }
@@ -312,170 +257,45 @@ const BuySubscriptionDialog = ({
     if (isPromoError || isPromoSuccess) resetPromo()
 
     setPromocode(evt.currentTarget.value)
-
-    if (localPromoForSubmit) return
-
-    if (baseDiscount) {
-      setTotalPrice(
-        getSubscriptionPrice() - getSubscriptionPrice() * (baseDiscount / 100)
-      )
-    } else {
-      setTotalPrice(getSubscriptionPrice())
-    }
   }
 
   const applyPromocode = async () => {
     if (isPromoPending || promocode.length === 0) return
 
-    const price = getSubscriptionPrice()
-
     try {
-      const {
-        data: { discountAmount, discountKind, discounts, isReferralCode },
-      } = await mutatePromoValidation({
+      const { data } = await mutatePromoValidation({
         promocode,
         subscriptionId: id,
       })
 
-      if (isReferralCode) {
-        setIsCryptonReferralSet(false)
-      }
-
-      setIsPromoReferral(isReferralCode)
-
-      const matchedDiscount = discounts.find((el) => el.subscriptionId === id)
-
-      const preferedDiscount = matchedDiscount
-        ? matchedDiscount.discountAmount
-        : discountAmount
-
-      setLocalPromoForSubmit(promocode)
+      if (data.isReferralCode) setIsCryptonReferralSet(false)
+      setIsPromoReferral(data.isReferralCode)
+      setLocalPromocode(data)
       setPromoWasUpdated(true)
-
-      const referralDiscount = referralDiscountAmount
-        ? referralDiscountKind === 'MONEY'
-          ? referralDiscountAmount
-          : Math.ceil(price * referralDiscountAmount)
-        : 0
-
-      const promocodeDiscount =
-        discountKind.id === 'MONEY'
-          ? preferedDiscount
-          : Math.ceil(price * preferedDiscount)
-
-      if (baseDiscountAmount) {
-        setTotalPrice(
-          price -
-            baseDiscountAmount -
-            Math.max(referralDiscount, promocodeDiscount)
-        )
-      } else {
-        setTotalPrice(price - Math.max(referralDiscount, promocodeDiscount))
-      }
-
-      if (referralDiscountAmount && referralDiscountKind) {
-        if (referralDiscount > promocodeDiscount) {
-          setIsPromoLarger(true)
-        } else {
-          setIsPromoLarger(false)
-        }
-      }
-
-      // if (discountKind.id === "MONEY") {
-      //   if (baseDiscount) {
-      //     setTotalPrice(price - price * (baseDiscount / 100) - preferedDiscount)
-      //   } else {
-      //     setTotalPrice(price - preferedDiscount)
-      //   }
-      // } else {
-      //   if (baseDiscount) {
-      //     setTotalPrice(price - price * (baseDiscount / 100 + preferedDiscount))
-      //   } else {
-      //     setTotalPrice(price - price * preferedDiscount)
-      //   }
-      // }
     } catch {}
   }
 
   const onPromoRemoveClick = () => {
-    setLocalPromoForSubmit('')
+    setLocalPromocode(null)
     setIsCryptonReferralSet(false)
     setPromoWasUpdated(true)
-    if (baseDiscount) {
-      setTotalPrice(getSubscriptionPrice() - baseDiscountAmount)
-    } else {
-      setTotalPrice(getSubscriptionPrice())
-    }
+    setPromoForSubmit('')
   }
 
   const applyCryptonPromo = async () => {
     if (isPromoPending) return
 
     try {
-      const {
-        data: { discountAmount, discountKind, discounts, isReferralCode },
-      } = await mutatePromoValidation({
+      const { data } = await mutatePromoValidation({
         promocode: DEFAULT_CRYPTON_PROMO,
         subscriptionId: id,
       })
 
       setIsCryptonReferralSet(true)
-      setIsPromoReferral(isReferralCode)
-
-      const matchedDiscount = discounts.find((el) => el.subscriptionId === id)
-
-      const preferedDiscount = matchedDiscount
-        ? matchedDiscount.discountAmount
-        : discountAmount
-
-      setLocalPromoForSubmit(DEFAULT_CRYPTON_PROMO)
+      setIsPromoReferral(data.isReferralCode)
+      setLocalPromocode(data)
       setPromoWasUpdated(true)
-
-      const referralDiscount = referralDiscountAmount
-        ? referralDiscountKind === 'MONEY'
-          ? referralDiscountAmount
-          : Math.ceil(price * referralDiscountAmount)
-        : 0
-
-      const promocodeDiscount =
-        discountKind.id === 'MONEY'
-          ? preferedDiscount
-          : Math.ceil(price * preferedDiscount)
-
-      if (baseDiscountAmount) {
-        setTotalPrice(
-          price -
-            baseDiscountAmount -
-            Math.max(referralDiscount, promocodeDiscount)
-        )
-      } else {
-        setTotalPrice(price - Math.max(referralDiscount, promocodeDiscount))
-      }
-
-      if (referralDiscountAmount && referralDiscountKind) {
-        if (referralDiscount > promocodeDiscount) {
-          setIsPromoLarger(true)
-        } else {
-          setIsPromoLarger(false)
-        }
-      }
     } catch {}
-  }
-
-  const scrollToOpportunities = () => {
-    setDialogOpen(false)
-    const positions = {
-      opportunities: {
-        lgg: 1812,
-        lg: 1450,
-        md: 1750,
-        sm: 1296,
-      },
-    }
-    window.scrollTo({
-      top: positions.opportunities[resolution],
-      behavior: 'smooth',
-    })
   }
 
   return (
@@ -490,21 +310,21 @@ const BuySubscriptionDialog = ({
           onEscapeKeyDown={() => {
             reset()
             if (promoWasUpdated) {
-              setPromoForSubmit(localPromoForSubmit)
+              setPromoForSubmit(localPromocode?.code)
               setPromoWasUpdated(false)
             }
           }}
           onInteractOutside={() => {
             reset()
             if (promoWasUpdated) {
-              setPromoForSubmit(localPromoForSubmit)
+              setPromoForSubmit(localPromocode?.code)
               setPromoWasUpdated(false)
             }
           }}
           onPointerDownOutside={() => {
             reset()
             if (promoWasUpdated) {
-              setPromoForSubmit(localPromoForSubmit)
+              setPromoForSubmit(localPromocode?.code)
               setPromoWasUpdated(false)
             }
           }}
@@ -806,61 +626,49 @@ const BuySubscriptionDialog = ({
                       ))}
                     </div>
                     <div className={styles.promocode}>
-                      {localPromoForSubmit &&
-                        (localPromoForSubmit !== 'CRYPTON' || order === 0) && (
-                          <>
-                            <div className={styles.promocode_submit}>
-                              <div className={styles.promocode_submit_text}>
-                                <span
-                                  className={styles.promocode_submit_text_2}
-                                >
-                                  Код
-                                </span>
-                                <span
-                                  className={styles.promocode_submit_text_1}
-                                >
-                                  {localPromoForSubmit}
-                                </span>
-                                <span
-                                  className={styles.promocode_submit_text_2}
-                                >
-                                  активирован
-                                </span>
-                              </div>
-                              <button
-                                className={styles.promocode_submit_button}
-                                type='button'
-                                onClick={onPromoRemoveClick}
-                              >
-                                Удалить
-                              </button>
+                      {totalDiscount && localPromocode?.code ? (
+                        <>
+                          <div className={styles.promocode_submit}>
+                            <div className={styles.promocode_submit_text}>
+                              <span className={styles.promocode_submit_text_2}>
+                                Код
+                              </span>
+                              <span className={styles.promocode_submit_text_1}>
+                                {localPromocode.code}
+                              </span>
+                              <span className={styles.promocode_submit_text_2}>
+                                активирован
+                              </span>
                             </div>
-                            <span className={styles.promocode_discount}>
-                              Ваша скидка:{' '}
-                              {Math.floor(
-                                100 -
-                                  (totalPrice * 100) / getSubscriptionPrice()
-                              )}
-                              {order === 0 ? '$' : '%'}
-                            </span>
-                          </>
-                        )}
-                      {/* ) : ( 
-                      !referral && ( 
-                       //   <button
-                        //     className={styles.promocode_submit_button}
-                        //     style={{
-                        //       marginBottom: 16,
-                        //       textAlign: "left",
-                        //       width: "fit-content",
-                        //     }}
-                        //     type="button"
-                        //     onClick={applyCryptonPromo}
-                        //   >
-                        //     Активировать промо CRYPTON
-                        //   </button>
-                        // )
-                      // )} */}
+                            <button
+                              className={styles.promocode_submit_button}
+                              type='button'
+                              onClick={onPromoRemoveClick}
+                            >
+                              Удалить
+                            </button>
+                          </div>
+                          <span className={styles.promocode_discount}>
+                            Ваша скидка: {totalDiscount.value}
+                            {totalDiscount.type}
+                          </span>
+                        </>
+                      ) : (
+                        !referral && (
+                          <button
+                            className={styles.promocode_submit_button}
+                            style={{
+                              marginBottom: 16,
+                              textAlign: 'left',
+                              width: 'fit-content',
+                            }}
+                            type='button'
+                            onClick={applyCryptonPromo}
+                          >
+                            Активировать промо CRYPTON
+                          </button>
+                        )
+                      )}
                       <div className={styles.promo_wrapper}>
                         <input
                           name='promocode'
@@ -1001,10 +809,7 @@ const BuySubscriptionDialog = ({
 
                   <div className={styles.total_container}>
                     <span className={styles.total}>
-                      Итого:{' '}
-                      {promoForSubmit
-                        ? totalPrice.toFixed(0)
-                        : getSubscriptionPrice() - baseDiscountAmount}
+                      Итого: ${finalPrice.toFixed(0)}{' '}
                       <span className={styles.total_per_month}>
                         {' '}
                         за{' '}
@@ -1018,9 +823,9 @@ const BuySubscriptionDialog = ({
                         мес
                       </span>
                     </span>
-                    {localPromoForSubmit && (
+                    {finalPrice !== originalPrice && (
                       <span className={styles.total_full}>
-                        вместо ${getSubscriptionPrice()}
+                        вместо ${originalPrice}
                       </span>
                     )}
                   </div>

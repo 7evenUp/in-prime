@@ -2,6 +2,7 @@ import React, {
   type Dispatch,
   type SetStateAction,
   useEffect,
+  useMemo,
   useRef,
   useState,
 } from 'react'
@@ -29,6 +30,7 @@ import { Promocode, Subscription } from '@/types/api-types'
 
 import styles from './BuySubscription.module.scss'
 import { useIsTouchDevice } from '@/hooks/device'
+import { calculateSubscriptionDetails } from '@/shared/subsciption'
 
 const PRIME_SUBSCRIPTION_KIND_ID = 1
 const ID_URL = process.env.NEXT_PUBLIC_ID_URL
@@ -63,6 +65,7 @@ const fallbackSubscriptions: Subscription[] = [
     kindId: 1, // 1 - prime | 2 - calendar
     name: '1 month',
     price: 99,
+    isPromotionalModeActive: false,
   },
   {
     id: 2,
@@ -91,6 +94,7 @@ const fallbackSubscriptions: Subscription[] = [
     kindId: 1, // 1 - prime | 2 - calendar
     name: '3 months',
     price: 297,
+    isPromotionalModeActive: false,
   },
   {
     id: 3,
@@ -119,6 +123,7 @@ const fallbackSubscriptions: Subscription[] = [
     kindId: 1, // 1 - prime | 2 - calendar
     name: '6 months',
     price: 594,
+    isPromotionalModeActive: false,
   },
   {
     id: 4,
@@ -147,6 +152,7 @@ const fallbackSubscriptions: Subscription[] = [
     kindId: 1, // 1 - prime | 2 - calendar
     name: '12 months',
     price: 1188,
+    isPromotionalModeActive: false,
   },
 ]
 
@@ -462,178 +468,31 @@ const SubscriptionCard = ({
   isPromoPending: boolean
   isValidForPromo: boolean
 }) => {
-  const {
-    baseDiscountAmount,
-    baseDiscount,
-    price,
-    id,
-    duration,
-    benefits,
-    individualPrice,
-    referralDiscountAmount,
-    referralDiscountKind,
-  } = subscription
+  const { duration, benefits } = subscription
 
-  const [cardPrice, setCardPrice] = useState(0)
-  const [isPromoLarger, setIsPromoLarger] = useState(false)
+  const localPromocode = useMemo(
+    () =>
+      discountKind && discounts
+        ? { discountAmount, discountKind, discounts }
+        : undefined,
+    [discountAmount, discountKind, discounts]
+  )
   const [dialogOpen, setDialogOpen] = useState(false)
 
   const [primeOpportunitiesOpened, setPrimeOpportunitiesOpened] =
     useState(false)
 
-  const getSubscriptionPrice = () => {
-    return individualPrice ? individualPrice : price
-  }
-
-  useEffect(() => {
-    const price = getSubscriptionPrice()
-    let fullPrice
-
-    try {
-      // if (isValidForPromo && discountKind && discountAmount && discounts) {
-      const matchedDiscount = discounts.find((el) => el.subscriptionId === id)
-
-      // const preferedDiscount = matchedDiscount
-      //   ? matchedDiscount.discountAmount
-      //   : discountAmount
-
-      const preferedDiscount = matchedDiscount
-        ? matchedDiscount.discountAmount
-        : discountAmount
-
-      const referralDiscount = referralDiscountAmount
-        ? referralDiscountKind === 'MONEY'
-          ? referralDiscountAmount
-          : Math.ceil(price * referralDiscountAmount)
-        : 0
-
-      const promocodeDiscount =
-        discountKind?.id === 'MONEY'
-          ? preferedDiscount
-          : Math.ceil(price * preferedDiscount)
-
-      if (baseDiscountAmount) {
-        setCardPrice(
-          showMonthlyPrice
-            ? (price -
-                baseDiscountAmount -
-                Math.max(referralDiscount, promocodeDiscount)) /
-                duration.id
-            : price -
-                baseDiscountAmount -
-                Math.max(referralDiscount, promocodeDiscount)
-        )
-      } else {
-        setCardPrice(
-          showMonthlyPrice
-            ? (price -
-                baseDiscountAmount -
-                Math.max(referralDiscount, promocodeDiscount)) /
-                duration.id
-            : price -
-                baseDiscountAmount -
-                Math.max(referralDiscount, promocodeDiscount)
-        )
-      }
-
-      if (referralDiscountAmount && referralDiscountKind) {
-        if (referralDiscount > promocodeDiscount) {
-          setIsPromoLarger(true)
-        } else {
-          setIsPromoLarger(false)
-        }
-      }
-    } catch (error) {
-      setPromoForSubmit('')
-    }
-  }, [discountKind, discountAmount, discounts, showMonthlyPrice])
-
-  useEffect(() => {
-    const price = getSubscriptionPrice()
-    let fullPrice
-
-    try {
-      // if (isValidForPromo && discountKind && discountAmount && discounts) {
-      const matchedDiscount = discounts.find((el) => el.subscriptionId === id)
-
-      // const preferedDiscount = matchedDiscount
-      //   ? matchedDiscount.discountAmount
-      //   : discountAmount
-
-      const preferedDiscount = matchedDiscount
-        ? matchedDiscount.discountAmount
-        : discountAmount
-
-      const referralDiscount = referralDiscountAmount
-        ? referralDiscountKind === 'MONEY'
-          ? referralDiscountAmount
-          : Math.ceil(price * referralDiscountAmount)
-        : 0
-
-      const promocodeDiscount =
-        discountKind?.id === 'MONEY'
-          ? preferedDiscount
-          : Math.ceil(price * preferedDiscount)
-
-      if (baseDiscountAmount) {
-        setCardPrice(
-          showMonthlyPrice
-            ? (price -
-                baseDiscountAmount -
-                Math.max(referralDiscount, promocodeDiscount)) /
-                duration.id
-            : price -
-                baseDiscountAmount -
-                Math.max(referralDiscount, promocodeDiscount)
-        )
-      } else {
-        setCardPrice(
-          showMonthlyPrice
-            ? (price - Math.max(referralDiscount, promocodeDiscount)) /
-                duration.id
-            : price - Math.max(referralDiscount, promocodeDiscount)
-        )
-      }
-
-      if (referralDiscountAmount && referralDiscountKind) {
-        if (referralDiscount > promocodeDiscount) {
-          setIsPromoLarger(true)
-        } else {
-          setIsPromoLarger(false)
-        }
-      }
-    } catch (error) {
-      setPromoForSubmit('')
-    }
-  }, [showMonthlyPrice])
-
-  const totalDiscount =
-    discountAmount && discountKind
-      ? baseDiscount
-        ? discountKind.id === 'MONEY'
-          ? Math.floor(baseDiscount)
-          : discountAmount * 100 + baseDiscount
-        : discountKind.id === 'MONEY'
-        ? Math.floor((discountAmount * 100) / getSubscriptionPrice())
-        : discountAmount * 100
-      : baseDiscount
-      ? baseDiscount
-      : 0
-
-  const scrollToOpportunities = () => {
-    const positions = {
-      opportunities: {
-        lgg: 1812,
-        lg: 1450,
-        md: 1750,
-        sm: 1296,
-      },
-    }
-    window.scrollTo({
-      top: positions.opportunities[resolution],
-      behavior: 'smooth',
-    })
-  }
+  const {
+    finalPrice,
+    finalMonthlyPrice,
+    originalMonthlyPrice,
+    originalPrice,
+    totalDiscount,
+  } = useMemo(
+    () =>
+      calculateSubscriptionDetails({ subscription, promocode: localPromocode }),
+    [subscription, localPromocode]
+  )
 
   return (
     <div className={styles.subscription}>
@@ -646,12 +505,13 @@ const SubscriptionCard = ({
           <div className={styles.price_wrapper}>
             <span className={styles.price_left}>
               $
-              {Number.isInteger(cardPrice) ? (
-                cardPrice
-              ) : (
-                // <>{cardPrice.toFixed(2).split(".")[0]}</>
-                <>{Math.ceil(cardPrice)}</>
-              )}
+              <>
+                {
+                  (showMonthlyPrice ? finalMonthlyPrice : finalPrice)
+                    .toFixed(2)
+                    .split('.')[0]
+                }
+              </>
               {/* {Number.isInteger(cardPrice) ? (
                 cardPrice
               ) : (
@@ -675,40 +535,14 @@ const SubscriptionCard = ({
               {showMonthlyPrice && <>/ мес</>}
             </span>
           </div>
-          {duration.id === 1 &&
-            discountKind &&
-            discountAmount !== 0 &&
-            // order !== 0 &&
-            discounts && (
-              <div className={styles.price_discount}>
-                <span className={styles.price_discount_percent}>
-                  -
-                  {/* {showMonthlyPrice
-                    ? Math.round(
-                        100 - (cardPrice * 100) / (price / duration.id)
-                      )
-                    : Math.round(100 - (cardPrice * 100) / price)} */}
-                  {totalDiscount}
-                  {order === 0 ? '$' : '%'}
-                </span>
-                <span className={styles.price_discount_amount}>${price}</span>
-              </div>
-            )}
-          {baseDiscountAmount && (
+          {totalDiscount && (
             <div className={styles.price_discount}>
               <span className={styles.price_discount_percent}>
-                -
-                {/* {discountKind && discountAmount && discounts
-                  ? showMonthlyPrice
-                    ? Math.round(
-                        100 - (cardPrice * 100) / (price / duration.id)
-                      )
-                    : Math.round(100 - (cardPrice * 100) / price)
-                  : baseDiscount} */}
-                {totalDiscount}%
+                -{totalDiscount.value}
+                {totalDiscount.type}
               </span>
               <span className={styles.price_discount_amount}>
-                ${showMonthlyPrice ? price / duration.id : price}
+                ${showMonthlyPrice ? originalMonthlyPrice : originalPrice}
               </span>
             </div>
           )}
@@ -813,9 +647,6 @@ const SubscriptionCard = ({
         setPromoForSubmit={setPromoForSubmit}
         discountAmount={discountAmount}
         discountKind={discountKind}
-        referralDiscountAmount={referralDiscountAmount}
-        referralDiscountKind={referralDiscountKind}
-        baseDiscountAmount={baseDiscountAmount}
         discounts={discounts}
         isPromoReferral={isPromoReferral}
         setIsPromoReferral={setIsPromoReferral}
