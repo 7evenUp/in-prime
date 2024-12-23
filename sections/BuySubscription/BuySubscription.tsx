@@ -34,7 +34,7 @@ import { calculateSubscriptionDetails } from '@/shared/subsciption'
 
 const PRIME_SUBSCRIPTION_KIND_ID = 1
 const ID_URL = process.env.NEXT_PUBLIC_ID_URL
-const SPECIAL_PROMO = process.env.NEXT_PUBLIC_PROMO
+const SPECIAL_PROMOS = (process.env.NEXT_PUBLIC_PROMOS||'NEW,PRIME').split(',')
 const DEFAULT_CRYPTON_PROMO = 'CRYPTON'
 
 const fallbackSubscriptions: Subscription[] = [
@@ -225,30 +225,25 @@ const BuySubscription = ({
       }),
   })
 
-  // useEffect(() => {
-  //   setTimerProgress(
-  //     Math.round(
-  //       Date.now() >= START_DATE
-  //         ? ((Date.now() - START_DATE) / (END_DATE - START_DATE)) * 100
-  //         : 0
-  //     )
-  //   )
-  // }, [])
+  const submittedPromoIsValid = () => document.dispatchEvent(new CustomEvent('promo-apply-result', {detail: {isValid: true}}));
+  const submittedPromoIsInvalid = () => document.dispatchEvent(new CustomEvent('promo-apply-result', {detail: {isValid: false}}));
+  const applyOneOfPromocodes = async (promo:string) => {
+    return new Promise<boolean>((resolve) => {
+      setPromoForSubmit(promo)
+      document.addEventListener('promo-apply-result', (e: CustomEvent) => resolve(e.detail.isValid), {once:true})
+    });
+  }
 
   useEffect(() => {
     const url = new URL(location.href)
     const refCode = url.searchParams.get('ref')
 
-    if (SPECIAL_PROMO) {
-      setPromoForSubmit(SPECIAL_PROMO)
-      return
-    }
-    if (refCode) {
-      setPromoForSubmit(refCode)
-      return
+    const applyPromos = async () => {
+      const promosToValidate = [...SPECIAL_PROMOS, refCode, DEFAULT_CRYPTON_PROMO].filter(Boolean)
+      for(let promoToValidate of promosToValidate) if (await applyOneOfPromocodes(promoToValidate)) break
     }
 
-    setPromoForSubmit(DEFAULT_CRYPTON_PROMO)
+    applyPromos()
   }, [])
 
   useEffect(() => {
@@ -280,7 +275,9 @@ const BuySubscription = ({
           setDiscounts(discounts)
           setValidFor(validForSubscriptions)
           setInvalidFor(invalidForSubscriptions)
+          submittedPromoIsValid()
         } catch {
+          submittedPromoIsInvalid()
           console.log('Error while validating promocode: ', promoForSubmit)
         }
       }
