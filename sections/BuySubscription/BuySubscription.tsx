@@ -170,22 +170,9 @@ const BuySubscription = ({
 }) => {
   const [showMonthlyPrice, setShowMonthlyPrice] = useState(true)
   const [promoForSubmit, setPromoForSubmit] = useState('')
-  const [isPromoReferral, setIsPromoReferral] = useState(false)
-  const [discountAmount, setDiscountAmount] = useState(0)
-  const [discountKind, setDiscountKind] = useState<{
-    id: 'MONEY' | 'PERCENT'
-    label: 'Money' | '%'
-  }>()
-  const [discounts, setDiscounts] = useState<
-    Array<{
-      subscriptionId: number
-      discountAmount: number
-    }>
-  >([])
-  const [validFor, setValidFor] = useState([])
-  const [invalidFor, setInvalidFor] = useState([])
 
   const [fallbackPromocode, setFallbackPromocode] = useState<Promocode|null>(null)
+  const [activePromocode, setActivePromocode] = useState<Promocode|null>(null)
 
   const {
     data: subscriptions,
@@ -254,9 +241,7 @@ const BuySubscription = ({
 
   useEffect(() => {
     reset()
-    setDiscountAmount(0)
-    setDiscountKind(undefined)
-    setDiscounts([])
+    setActivePromocode(null)
 
     const validate = async () => {
       if (promoForSubmit) {
@@ -265,12 +250,7 @@ const BuySubscription = ({
             promocode: promoForSubmit,
           })
 
-          setIsPromoReferral(data.isReferralCode)
-          setDiscountAmount(data.discountAmount)
-          setDiscountKind(data.discountKind)
-          setDiscounts(data.discounts)
-          setValidFor(data.validForSubscriptions)
-          setInvalidFor(data.invalidForSubscriptions)
+          setActivePromocode(data)
           submittedPromoIsValid(data)
         } catch {
           submittedPromoIsInvalid()
@@ -357,27 +337,9 @@ const BuySubscription = ({
                   order={i}
                   resolution={resolution}
                   showMonthlyPrice={showMonthlyPrice}
-                  promoForSubmit={promoForSubmit}
                   setPromoForSubmit={setPromoForSubmit}
-                  isPromoReferral={isPromoReferral}
-                  setIsPromoReferral={setIsPromoReferral}
-                  discounts={discounts}
-                  discountAmount={discountAmount}
-                  discountKind={discountKind}
+                  activePromocode={activePromocode}
                   isPromoPending={isPending}
-                  isValidForPromo={
-                    validFor.length === 0 && invalidFor.length === 0
-                      ? true
-                      : invalidFor.length === 0 && validFor.includes(el.id)
-                      ? true
-                      : validFor.length === 0 && !invalidFor.includes(el.id)
-                      ? true
-                      : validFor.length !== 0 &&
-                        invalidFor.length !== 0 &&
-                        validFor.includes(el.id)
-                      ? true
-                      : false
-                  }
                 />
               ))}
             </div>
@@ -408,51 +370,22 @@ const SubscriptionCard = ({
   order,
   resolution,
   showMonthlyPrice,
-  promoForSubmit,
   setPromoForSubmit,
-  isPromoReferral,
-  setIsPromoReferral,
-  discountAmount,
-  discountKind,
-  discounts,
   isPromoPending,
-  isValidForPromo,
-  fallbackPromocode
+  activePromocode,
+  fallbackPromocode,
 }: {
   subscription: Subscription
   order: number
   resolution: Resolution
   showMonthlyPrice: boolean
-  promoForSubmit: string
   setPromoForSubmit: React.Dispatch<React.SetStateAction<string>>
-  isPromoReferral: boolean
-  setIsPromoReferral: React.Dispatch<React.SetStateAction<boolean>>
-  discountAmount: number | undefined
-  discountKind:
-    | {
-        id: 'MONEY' | 'PERCENT'
-        label: 'Money' | '%'
-      }
-    | undefined
-  discounts:
-    | Array<{
-        subscriptionId: number
-        discountAmount: number
-      }>
-    | undefined
+  activePromocode: Promocode | null
   isPromoPending: boolean
-  isValidForPromo: boolean,
   fallbackPromocode: Promocode | null
 }) => {
   const { duration, benefits } = subscription
 
-  const localPromocode = useMemo(
-    () =>
-      discountKind && discounts
-        ? { discountAmount, discountKind, discounts }
-        : undefined,
-    [discountAmount, discountKind, discounts]
-  )
   const [dialogOpen, setDialogOpen] = useState(false)
 
   const [primeOpportunitiesOpened, setPrimeOpportunitiesOpened] =
@@ -466,8 +399,8 @@ const SubscriptionCard = ({
     totalDiscount,
   } = useMemo(
     () =>
-      calculateSubscriptionDetails({ subscription, promocode: localPromocode }),
-    [subscription, localPromocode]
+      calculateSubscriptionDetails({ subscription, promocode: activePromocode }),
+    [subscription, activePromocode]
   )
 
   return (
@@ -615,18 +548,13 @@ const SubscriptionCard = ({
       </ul>
 
       <BuySubscriptionDialog
-        key={discountAmount}
+        key={activePromocode?.code}
         selectedSubscription={subscription}
         fallbackPromocode={fallbackPromocode}
         order={order}
         resolution={resolution}
-        promoForSubmit={isValidForPromo ? promoForSubmit : ''}
         setPromoForSubmit={setPromoForSubmit}
-        discountAmount={discountAmount}
-        discountKind={discountKind}
-        discounts={discounts}
-        isPromoReferral={isPromoReferral}
-        setIsPromoReferral={setIsPromoReferral}
+        activePromocode={activePromocode}
         dialogOpen={dialogOpen}
         setDialogOpen={setDialogOpen}
       >

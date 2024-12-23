@@ -7,7 +7,7 @@ export const calculateSubscriptionDetails = ({
   promocode,
 }: {
   subscription: Pick<Subscription, 'baseDiscount'|'baseDiscountAmount'|'price'|'id'|'duration'|'individualPrice'|'referralDiscountAmount'|'referralDiscountKind'|'isPromotionalModeActive'>
-  promocode?: Pick<Promocode, 'discountKind' | 'discountAmount' | 'discounts'>|null
+  promocode?: Pick<Promocode, 'discountKind' | 'discountAmount' | 'discounts' | 'validForSubscriptions'|'invalidForSubscriptions'>|null
 }): CalculatedSubscriptionDetails => {
   const {
     baseDiscountAmount,
@@ -20,6 +20,18 @@ export const calculateSubscriptionDetails = ({
     referralDiscountKind,
     isPromotionalModeActive,
   } = subscription
+
+  const isPromocodeValidForSubscription = promocode &&
+    (
+      promocode.validForSubscriptions.length === 0 || 
+      promocode.validForSubscriptions.includes(subscription.id)
+    ) && 
+    (
+      promocode.invalidForSubscriptions.length === 0 || 
+      !promocode.invalidForSubscriptions.includes(subscription.id)
+    );
+
+  if (!isPromocodeValidForSubscription) promocode = null;
 
   // Вычисляем цену подписки
   const subscriptionPrice = individualPrice || price

@@ -42,39 +42,18 @@ const BuySubscriptionDialog = ({
   selectedSubscription,
   order,
   resolution,
-  promoForSubmit,
   setPromoForSubmit,
-  discountAmount,
-  discountKind,
-  discounts,
-  isPromoReferral,
-  setIsPromoReferral,
   dialogOpen,
   setDialogOpen,
+  activePromocode,
   fallbackPromocode,
 }: {
   children: React.ReactNode
   selectedSubscription: Subscription
   order: number
   resolution: Resolution
-  promoForSubmit: string
   setPromoForSubmit: React.Dispatch<React.SetStateAction<string>>
-  discountAmount: number | undefined
-  discountKind:
-    | {
-        id: 'MONEY' | 'PERCENT'
-        label: 'Money' | '%'
-      }
-    | undefined
-  discounts:
-    | Array<{
-        subscriptionId: number
-        discountAmount: number
-      }>
-    | undefined
-
-  isPromoReferral: boolean
-  setIsPromoReferral: React.Dispatch<React.SetStateAction<boolean>>
+  activePromocode: Promocode|null
   dialogOpen: boolean
   fallbackPromocode: Promocode|null
   setDialogOpen: (open: boolean) => void
@@ -85,14 +64,7 @@ const BuySubscriptionDialog = ({
   const closeRef = React.createRef<HTMLButtonElement>()
 
   const [promoWasUpdated, setPromoWasUpdated] = useState(false)
-  const [localPromocode, setLocalPromocode] = useState<Pick<
-    Promocode,
-    'code' | 'discountAmount' | 'discountKind' | 'discounts'
-  > | null>(
-    promoForSubmit && discountAmount && discountKind
-      ? { code: promoForSubmit, discountAmount, discountKind, discounts }
-      : null
-  )
+  const [localPromocode, setLocalPromocode] = useState<Promocode | null>(activePromocode||null)
   const [paymentType, setPaymentType] = useState<'crypto' | 'card'>('crypto')
   const [activeToken, setActiveToken] = useState<string | undefined>(undefined)
   const [activeNetwork, setActiveNetwork] = useState<string | undefined>(
@@ -204,7 +176,7 @@ const BuySubscriptionDialog = ({
     }
 
     if (localPromocode) {
-      if (isPromoReferral) {
+      if (localPromocode.isReferralCode) {
         payload = {
           ...payload,
           referral_code: localPromocode.code,
@@ -260,7 +232,6 @@ const BuySubscriptionDialog = ({
         promocode,
         subscriptionId: id,
       })
-      setIsPromoReferral(data.isReferralCode)
       setLocalPromocode(data)
       setPromoWasUpdated(true)
     } catch {}
@@ -274,7 +245,6 @@ const BuySubscriptionDialog = ({
 
   const applyFallbackPromo = async () => {
     if (isPromoPending || !fallbackPromocode) return
-    setIsPromoReferral(fallbackPromocode.isReferralCode)
     setLocalPromocode(fallbackPromocode)
     setPromoWasUpdated(true)
   }
