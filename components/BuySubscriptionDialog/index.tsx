@@ -33,7 +33,7 @@ import {
   BenefitCard,
   PrimeOpportunities,
 } from '@/sections/BuySubscription/BuySubscription'
-import { calculateSubscriptionDetails } from '@/shared/subsciption'
+import { calculateSubscriptionDetails, getIsPromocodeValidForSubscription } from '@/shared/subsciption'
 
 const ID_URL = process.env.NEXT_PUBLIC_ID_URL + '/api/v1/'
 
@@ -88,6 +88,15 @@ const BuySubscriptionDialog = ({
         promocode: localPromocode,
       }),
     [selectedSubscription, localPromocode]
+  )
+
+  const fallbackPromocodeAvailable = useMemo(
+    () =>
+      getIsPromocodeValidForSubscription({
+        subscription: selectedSubscription,
+        promocode: fallbackPromocode
+      }),
+    [selectedSubscription, fallbackPromocode]
   )
 
   const { data: methods } = useQuery({
@@ -605,7 +614,7 @@ const BuySubscriptionDialog = ({
                           </span>
                         </>
                       ) : (
-                        !referral && fallbackPromocode?.code && (
+                        !referral && fallbackPromocodeAvailable && fallbackPromocode?.code && (
                           <button
                             className={styles.promocode_submit_button}
                             style={{

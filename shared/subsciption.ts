@@ -2,6 +2,24 @@ import { Promocode, Subscription } from '@/types/api-types'
 
 type CalculatedSubscriptionDetails = {originalPrice: number, originalMonthlyPrice:number, finalPrice: number, finalMonthlyPrice:number, totalDiscount?: null | {value:number, type: '$'|'%'}}
 
+export const getIsPromocodeValidForSubscription = ({
+  subscription,
+  promocode,
+}: {
+  subscription: Pick<Subscription, 'id'>
+  promocode?: Pick<Promocode, 'validForSubscriptions'|'invalidForSubscriptions'>|null
+}) => {
+  return promocode &&
+  (
+    promocode.validForSubscriptions.length === 0 || 
+    promocode.validForSubscriptions.includes(subscription.id)
+  ) && 
+  (
+    promocode.invalidForSubscriptions.length === 0 || 
+    !promocode.invalidForSubscriptions.includes(subscription.id)
+  );
+}
+
 export const calculateSubscriptionDetails = ({
   subscription,
   promocode,
@@ -21,16 +39,7 @@ export const calculateSubscriptionDetails = ({
     isPromotionalModeActive,
   } = subscription
 
-  const isPromocodeValidForSubscription = promocode &&
-    (
-      promocode.validForSubscriptions.length === 0 || 
-      promocode.validForSubscriptions.includes(subscription.id)
-    ) && 
-    (
-      promocode.invalidForSubscriptions.length === 0 || 
-      !promocode.invalidForSubscriptions.includes(subscription.id)
-    );
-
+  const isPromocodeValidForSubscription = getIsPromocodeValidForSubscription({subscription,promocode})
   if (!isPromocodeValidForSubscription) promocode = null;
 
   // Вычисляем цену подписки
