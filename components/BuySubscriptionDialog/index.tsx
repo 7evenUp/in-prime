@@ -36,7 +36,6 @@ import {
 import { calculateSubscriptionDetails } from '@/shared/subsciption'
 
 const ID_URL = process.env.NEXT_PUBLIC_ID_URL + '/api/v1/'
-const DEFAULT_CRYPTON_PROMO = 'CRYPTON'
 
 const BuySubscriptionDialog = ({
   children,
@@ -52,6 +51,7 @@ const BuySubscriptionDialog = ({
   setIsPromoReferral,
   dialogOpen,
   setDialogOpen,
+  fallbackPromocode,
 }: {
   children: React.ReactNode
   selectedSubscription: Subscription
@@ -76,6 +76,7 @@ const BuySubscriptionDialog = ({
   isPromoReferral: boolean
   setIsPromoReferral: React.Dispatch<React.SetStateAction<boolean>>
   dialogOpen: boolean
+  fallbackPromocode: Promocode|null
   setDialogOpen: (open: boolean) => void
 }) => {
   const router = useRouter()
@@ -83,7 +84,6 @@ const BuySubscriptionDialog = ({
 
   const closeRef = React.createRef<HTMLButtonElement>()
 
-  const [isCryptonReferralSet, setIsCryptonReferralSet] = useState(false)
   const [promoWasUpdated, setPromoWasUpdated] = useState(false)
   const [localPromocode, setLocalPromocode] = useState<Pick<
     Promocode,
@@ -146,7 +146,7 @@ const BuySubscriptionDialog = ({
       axios.post<Promocode>(ID_URL + 'promo-codes/validate/', {
         promocode,
         subscription: subscriptionId,
-      }),
+      }, { withCredentials: true }),
   })
 
   const {
@@ -200,13 +200,6 @@ const BuySubscriptionDialog = ({
       payload = {
         ...payload,
         referral_code: referral,
-      }
-    }
-
-    if (isCryptonReferralSet) {
-      payload = {
-        ...payload,
-        referral_code: DEFAULT_CRYPTON_PROMO,
       }
     }
 
@@ -267,8 +260,6 @@ const BuySubscriptionDialog = ({
         promocode,
         subscriptionId: id,
       })
-
-      if (data.isReferralCode) setIsCryptonReferralSet(false)
       setIsPromoReferral(data.isReferralCode)
       setLocalPromocode(data)
       setPromoWasUpdated(true)
@@ -277,25 +268,15 @@ const BuySubscriptionDialog = ({
 
   const onPromoRemoveClick = () => {
     setLocalPromocode(null)
-    setIsCryptonReferralSet(false)
     setPromoWasUpdated(true)
     setPromoForSubmit('')
   }
 
-  const applyCryptonPromo = async () => {
-    if (isPromoPending) return
-
-    try {
-      const { data } = await mutatePromoValidation({
-        promocode: DEFAULT_CRYPTON_PROMO,
-        subscriptionId: id,
-      })
-
-      setIsCryptonReferralSet(true)
-      setIsPromoReferral(data.isReferralCode)
-      setLocalPromocode(data)
-      setPromoWasUpdated(true)
-    } catch {}
+  const applyFallbackPromo = async () => {
+    if (isPromoPending || !fallbackPromocode) return
+    setIsPromoReferral(fallbackPromocode.isReferralCode)
+    setLocalPromocode(fallbackPromocode)
+    setPromoWasUpdated(true)
   }
 
   return (
@@ -654,7 +635,7 @@ const BuySubscriptionDialog = ({
                           </span>
                         </>
                       ) : (
-                        !referral && (
+                        !referral && fallbackPromocode?.code && (
                           <button
                             className={styles.promocode_submit_button}
                             style={{
@@ -663,9 +644,9 @@ const BuySubscriptionDialog = ({
                               width: 'fit-content',
                             }}
                             type='button'
-                            onClick={applyCryptonPromo}
+                            onClick={applyFallbackPromo}
                           >
-                            Активировать промо CRYPTON
+                            Активировать промо {fallbackPromocode.code}
                           </button>
                         )
                       )}

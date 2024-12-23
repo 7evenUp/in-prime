@@ -185,7 +185,7 @@ const BuySubscription = ({
   const [validFor, setValidFor] = useState([])
   const [invalidFor, setInvalidFor] = useState([])
 
-  const [dialogOpen, setDialogOpen] = useState(false)
+  const [fallbackPromocode, setFallbackPromocode] = useState<Promocode|null>(null)
 
   const {
     data: subscriptions,
@@ -217,20 +217,20 @@ const BuySubscription = ({
       subscriptionId,
     }: {
       promocode: string
-      subscriptionId: number
+      subscriptionId?: number
     }) =>
       axios.post<Promocode>(ID_URL + '/api/v1/promo-codes/validate/', {
         promocode,
         subscription: subscriptionId,
-      }),
+      }, { withCredentials:true }),
   })
 
-  const submittedPromoIsValid = () => document.dispatchEvent(new CustomEvent('promo-apply-result', {detail: {isValid: true}}));
-  const submittedPromoIsInvalid = () => document.dispatchEvent(new CustomEvent('promo-apply-result', {detail: {isValid: false}}));
+  const submittedPromoIsValid = (promo: Promocode) => document.dispatchEvent(new CustomEvent('promo-apply-result', {detail: promo}));
+  const submittedPromoIsInvalid = () => document.dispatchEvent(new CustomEvent('promo-apply-result', {detail: null}));
   const applyOneOfPromocodes = async (promo:string) => {
-    return new Promise<boolean>((resolve) => {
+    return new Promise<Promocode>((resolve) => {
       setPromoForSubmit(promo)
-      document.addEventListener('promo-apply-result', (e: CustomEvent) => resolve(e.detail.isValid), {once:true})
+      document.addEventListener('promo-apply-result', (e: CustomEvent) => resolve(e.detail), {once:true})
     });
   }
 
@@ -240,7 +240,13 @@ const BuySubscription = ({
 
     const applyPromos = async () => {
       const promosToValidate = [...SPECIAL_PROMOS, refCode, DEFAULT_CRYPTON_PROMO].filter(Boolean)
-      for(let promoToValidate of promosToValidate) if (await applyOneOfPromocodes(promoToValidate)) break
+      for(let promoToValidate of promosToValidate) {
+        const promo = await applyOneOfPromocodes(promoToValidate)
+        if (promo) {
+          setFallbackPromocode(promo)
+          break;
+        }
+      }
     }
 
     applyPromos()
@@ -255,27 +261,17 @@ const BuySubscription = ({
     const validate = async () => {
       if (promoForSubmit) {
         try {
-          const {
-            data: {
-              discountAmount,
-              discountKind,
-              discounts,
-              isReferralCode,
-              invalidForSubscriptions,
-              validForSubscriptions,
-            },
-          } = await mutatePromoValidation({
+          const { data } = await mutatePromoValidation({
             promocode: promoForSubmit,
-            subscriptionId: 1,
           })
 
-          setIsPromoReferral(isReferralCode)
-          setDiscountAmount(discountAmount)
-          setDiscountKind(discountKind)
-          setDiscounts(discounts)
-          setValidFor(validForSubscriptions)
-          setInvalidFor(invalidForSubscriptions)
-          submittedPromoIsValid()
+          setIsPromoReferral(data.isReferralCode)
+          setDiscountAmount(data.discountAmount)
+          setDiscountKind(data.discountKind)
+          setDiscounts(data.discounts)
+          setValidFor(data.validForSubscriptions)
+          setInvalidFor(data.invalidForSubscriptions)
+          submittedPromoIsValid(data)
         } catch {
           submittedPromoIsInvalid()
           console.log('Error while validating promocode: ', promoForSubmit)
@@ -355,6 +351,7 @@ const BuySubscription = ({
             <div className={styles.subscriptions}>
               {subscriptions.map((el, i) => (
                 <SubscriptionCard
+                  fallbackPromocode={fallbackPromocode}
                   key={el.id}
                   subscription={el}
                   order={i}
@@ -400,26 +397,6 @@ const BuySubscription = ({
           </div>
         </div>
       </div>
-
-      {/* <BuySubscriptionDialog
-        key={discountAmount}
-        selectedSubscription={subscriptions[0]}
-        order={0}
-        resolution={resolution}
-        promoForSubmit={promoForSubmit}
-        setPromoForSubmit={setPromoForSubmit}
-        discountAmount={discountAmount}
-        discountKind={discountKind}
-        discounts={discounts}
-        referralDiscountAmount={referralDiscountAmount}
-        referralDiscountKind={referralDiscountKind}
-        isPromoReferral={isPromoReferral}
-        setIsPromoReferral={setIsPromoReferral}
-        dialogOpen={dialogOpen}
-        setDialogOpen={setDialogOpen}
-      >
-        <button className={styles.button}>Купить подписку</button>
-      </BuySubscriptionDialog> */}
     </div>
   )
 }
@@ -440,6 +417,7 @@ const SubscriptionCard = ({
   discounts,
   isPromoPending,
   isValidForPromo,
+  fallbackPromocode
 }: {
   subscription: Subscription
   order: number
@@ -463,7 +441,8 @@ const SubscriptionCard = ({
       }>
     | undefined
   isPromoPending: boolean
-  isValidForPromo: boolean
+  isValidForPromo: boolean,
+  fallbackPromocode: Promocode | null
 }) => {
   const { duration, benefits } = subscription
 
@@ -638,6 +617,7 @@ const SubscriptionCard = ({
       <BuySubscriptionDialog
         key={discountAmount}
         selectedSubscription={subscription}
+        fallbackPromocode={fallbackPromocode}
         order={order}
         resolution={resolution}
         promoForSubmit={isValidForPromo ? promoForSubmit : ''}
