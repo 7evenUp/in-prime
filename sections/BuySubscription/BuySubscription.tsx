@@ -226,7 +226,7 @@ const BuySubscription = ({
     const refCode = url.searchParams.get('ref')
 
     const applyPromos = async () => {
-      const promosToValidate = [...SPECIAL_PROMOS, refCode, DEFAULT_CRYPTON_PROMO].filter(Boolean)
+      const promosToValidate = [refCode, ...SPECIAL_PROMOS, DEFAULT_CRYPTON_PROMO].filter(Boolean)
       for(let promoToValidate of promosToValidate) {
         const promo = await applyOneOfPromocodes(promoToValidate)
         if (promo) {
