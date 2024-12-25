@@ -29,6 +29,10 @@ import AdvantagesSm from "@/sections/Advantages/AdvantagesSm"
 import FeaturesSm from "@/sections/Features/FeaturesSm"
 import LoginIdPopup from "@/components/LoginIdPopup/LoginIdPopup"
 import BuySubscription from "@/sections/BuySubscription/BuySubscription"
+import { AdBanner, TAdBanner } from '@/components/banner/ad-banner.client'
+import { isProd } from '@/shared/helpers'
+import { getCookie } from 'cookies-next'
+import { GetServerSideProps } from 'next'
 // import TimerPromo from "@/sections/TimerPromo/TimerPromo"
 
 const useWindowSize = () => {
@@ -51,7 +55,12 @@ const useWindowSize = () => {
   return currentWidth
 }
 
-const Home = (props) => {
+type SSRProps = {
+  banner: TAdBanner | null
+  bannerCookieName: string
+}
+
+const Home = ({bannerCookieName,banner}: SSRProps) => {
   const router = useRouter()
   const referral = router.query.ref || "agent"
 
@@ -217,8 +226,32 @@ const Home = (props) => {
       <div className="back noise" />
 
       <LoginIdPopup />
+
+      {bannerCookieName && banner && <AdBanner cookieName={bannerCookieName} banner={banner} />}
     </>
   )
 }
 
 export default Home
+
+
+export const getServerSideProps: GetServerSideProps<SSRProps> = async (context) => {
+  const banners: TAdBanner[] = []
+
+  const getBannerClosedCookie = (name: string) =>
+    `banner ${name} closed`.replaceAll(' ', '_')
+  const getCurrentBanner = async () => {
+    const bs = banners.filter(
+      (banner) =>
+        new Date() >= new Date(banner.start) &&
+        new Date() <= new Date(banner.end) &&
+        !getCookie(getBannerClosedCookie(banner.name), context)
+    )
+    return bs.at(0) || null
+  }
+
+  const banner = await getCurrentBanner()
+  const cookieName = banner ? getBannerClosedCookie(banner.name) : ''
+
+  return { props: { banner, bannerCookieName: cookieName } }
+}

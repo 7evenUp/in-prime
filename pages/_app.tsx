@@ -1,5 +1,5 @@
 import Head from "next/head"
-import type { AppProps } from "next/app"
+import type { AppContext, AppInitialProps, AppProps } from "next/app"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { Provider as ReduxProvider } from "react-redux"
 
@@ -63,10 +63,7 @@ createWeb3Modal({
   },
 })
 
-const App = ({ Component, pageProps }: AppProps) => {
-  const userAgent =
-    (typeof navigator !== 'undefined' && navigator.userAgent) || ''
-
+const App = ({ Component, pageProps, userAgent }: AppProps & {userAgent:string}) => {
   return (
     <>
       <Head>
@@ -111,3 +108,8 @@ const App = ({ Component, pageProps }: AppProps) => {
 }
 
 export default App
+
+App.getInitialProps = async (context: AppContext): Promise<AppInitialProps&{userAgent:string}> => {
+  const userAgent = context.ctx.req?.headers['user-agent']||''
+  return { pageProps: {}, userAgent: userAgent }
+}

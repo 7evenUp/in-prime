@@ -1,0 +1,22 @@
+.ad-banner {
+  scale: 1;
+
+  .icon {
+    color: white;
+    &:hover {
+      color: #40f3bd;
+    }
+  }
+
+  &:not(.visible) {
+    transform: translateY(150%);
+  }
+
+  &.visible {
+    transform: translateY(0);
+
+    &:not(.mobile):hover {
+      scale: 1.1;
+    }
+  }
+}
