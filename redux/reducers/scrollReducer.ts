@@ -1,0 +1,86 @@
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+
+export interface IScrollReducer {
+  scrollY: number
+}
+
+const initialState: IScrollReducer = {
+  scrollY: 0,
+}
+
+const sections = {
+  Главная: {
+    name: 'Главная',
+    getPosition: () => 0,
+  },
+  Преимущества: {
+    name: 'Преимущества',
+    getPosition: () => document.getElementById('benefits').offsetTop,
+  },
+  Возможности: {
+    name: 'Возможности',
+    getPosition: () => document.getElementById('features').offsetTop,
+  },
+  Окупаемость: {
+    name: 'Окупаемость',
+    getPosition: () => document.getElementById('guarantee').offsetTop,
+  },
+  Кейсы: {
+    name: 'Кейсы',
+    getPosition: () => document.getElementById('examples').offsetTop,
+  },
+  Роадмап: {
+    name: 'Роадмап',
+    getPosition: () => document.getElementById('roadmap').offsetTop,
+  },
+  Команда: {
+    name: 'Команда',
+    getPosition: () => document.getElementById('founder').offsetTop,
+  },
+  Подписка: {
+    name: 'Подписка',
+    getPosition: () => document.getElementById('subscribe').offsetTop,
+  },
+  Отзывы: {
+    name: 'Отзывы',
+    getPosition: () => document.getElementById('testimonials').offsetTop,
+  },
+  'Истории успеха': {
+    name: 'Истории успеха',
+    getPosition: () => document.getElementById('histories').offsetTop,
+  },
+  Партнеры: {
+    name: 'Партнеры',
+    getPosition: () => document.getElementById('partners').offsetTop,
+  },
+  FAQ: {
+    name: 'FAQ',
+    getPosition: () => document.getElementById('faq').offsetTop,
+  },
+} as const
+
+export const getSection = <Key extends keyof typeof sections>(
+  section: Key
+): (typeof sections)[Key] => sections[section]
+
+export const scrollToSection = (
+  section:
+    | keyof typeof sections
+    | Pick<(typeof sections)[keyof typeof sections], 'getPosition'>
+) => {
+  if (typeof section === 'string') section = getSection(section)
+  const headerHeight = document.getElementById('header').clientHeight
+  const top = (section?.getPosition() || 0) - headerHeight
+  window.scrollTo({ top, behavior: 'smooth' })
+}
+
+export const scrollReducer = createSlice({
+  name: 'scroll',
+  initialState,
+  reducers: {
+    setScrollY(state, action: PayloadAction<number>) {
+      state.scrollY = action.payload
+    },
+  },
+  selectors: { getScrollY: (state: IScrollReducer) => state.scrollY },
+})

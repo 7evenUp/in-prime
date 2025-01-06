@@ -6,16 +6,15 @@ import MobileMenu from "@/components/mobile-menu"
 import { Resolution } from "@/types/resolution"
 
 import styles from "./Earn.module.scss"
-import {Snowfall} from '@/components/Snow/snow'
+import { getSection, scrollReducer, scrollToSection } from '@/redux/reducers/scrollReducer'
+import { useSelector } from 'react-redux'
 
 interface EarnProps {
   resolution: Resolution
   referral: string | string[]
-  currentY: number
-  setCurrentY: React.Dispatch<React.SetStateAction<number>>
 }
 
-const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
+const Earn = ({ resolution, referral }: EarnProps) => {
   const [docEnv, setDocEnv] = useState(false)
 
   useEffect(() => {
@@ -25,101 +24,26 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
   }, [])
 
   const [mobileMenu, changeMobileMenu] = useState(false)
-  const [scrollY, setScrollY] = React.useState(0)
 
-  const scrollHandler = React.useCallback((event) => {
-    setScrollY(window.scrollY)
-  }, [])
+  const scrollToSubscriptions = () => scrollToSection("Подписка")
+  const scrollToGuarantee = () => scrollToSection("Окупаемость")
 
-  const positions = {
-    guarantee: docEnv
-      ? document.getElementById("guarantee").offsetTop -
-        document.getElementById("header").clientHeight
-      : 0,
-    subscription: docEnv
-      ? document.getElementById("subscriber").offsetTop -
-        document.getElementById("header").clientHeight
-      : 0,
-  }
-
-  const scrollToSubscriptions = () => {
-    window.scrollTo({
-      top: positions.subscription,
-      behavior: "smooth",
-    })
-    setCurrentY(positions.subscription)
-  }
-
-  const scrollToGuarantee = () => {
-    window.scrollTo({
-      top: positions.guarantee,
-      behavior: "smooth",
-    })
-    setCurrentY(positions.guarantee)
-  }
-
-  useEffect(() => {
-    window.addEventListener("scroll", scrollHandler, { passive: true })
-    return () => window.removeEventListener("scroll", scrollHandler)
-  }, [])
+  const scrollY = useSelector(scrollReducer.selectors.getScrollY)
 
   function toggleMenu(position) {
     window.scrollTo({
       top: position,
       behavior: "smooth",
     })
-    setCurrentY(position)
   }
 
   const categories = [
-    {
-      number: "03",
-      name: "Возможности",
-      position: docEnv
-        ? document.getElementById("features").offsetTop -
-          document.getElementById("header").clientHeight
-        : 0,
-    },
-    {
-      number: "04",
-      name: "Кейсы",
-      position: docEnv
-        ? document.getElementById("examples").offsetTop -
-          document.getElementById("header").clientHeight
-        : 0,
-    },
-    {
-      number: "05",
-      name: "Роадмап",
-      position: docEnv
-        ? document.getElementById("roadmap").offsetTop -
-          document.getElementById("header").clientHeight
-        : 0,
-    },
-    {
-      number: "06",
-      name: "О нас",
-      position: docEnv
-        ? document.getElementById("founder").offsetTop -
-          document.getElementById("header").clientHeight
-        : 0,
-    },
-    {
-      number: "07",
-      name: "Отзывы",
-      position: docEnv
-        ? document.getElementById("testimonials").offsetTop -
-          document.getElementById("header").clientHeight
-        : 0,
-    },
-    {
-      number: "08",
-      name: "Истории успеха",
-      position: docEnv
-        ? document.getElementById("histories").offsetTop -
-          document.getElementById("header").clientHeight
-        : 0,
-    },
+    { number: "03", ...getSection("Возможности") },
+    { number: "04", ...getSection("Кейсы") },
+    { number: "05", ...getSection("Роадмап") },
+    { number: "06", ...getSection("Команда"), name: "О нас" },
+    { number: "07", ...getSection("FAQ") },
+    { number: "08", ...getSection("Истории успеха") },
   ]
 
   const [lineCount, setLineCount] = useState(9)
@@ -168,14 +92,10 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
 
       {/* </div> */}
 
-      <Snowfall />
-
       <MobileMenu
         open={mobileMenu}
         changeMobileMenu={() => changeMobileMenu(!mobileMenu)}
         resolution={resolution}
-        currentY={currentY}
-        setCurrentY={setCurrentY}
         referral={referral}
       />
 
@@ -194,7 +114,7 @@ const Earn = ({ resolution, referral, currentY, setCurrentY }: EarnProps) => {
             return (
               <div
                 className="app__container__earn__header__menu__item"
-                onClick={() => toggleMenu(elem.position)}
+                onClick={() => toggleMenu(elem.getPosition())}
                 key={index}
               >
                 <div className="name">{elem.name}</div>

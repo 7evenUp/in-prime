@@ -6,6 +6,7 @@ import Vk from "../public/images/jsx/footer/vk"
 import Instagram from "../public/images/jsx/footer/instagram"
 import Telegram from "../public/images/jsx/footer/telegram"
 import Youtube from "../public/images/jsx/footer/youtube"
+import { getSection, scrollToSection } from '@/redux/reducers/scrollReducer'
 
 const MobileMenu = (props) => {
   const [docEnv, setDocEnv] = useState(false)
@@ -16,82 +17,10 @@ const MobileMenu = (props) => {
     }
   }, [])
 
-  const setCurrentY = props.setCurrentY
-
-  async function toggleMenu(position) {
+  async function toggleMenu(section: {getPosition: ()=>number}) {
     await props.changeMobileMenu(!props.open)
-    window.scrollTo({
-      top: position,
-      behavior: "smooth",
-    })
-    setCurrentY(position)
+    scrollToSection(section)
   }
-
-  const categories = [
-    // Преимущества
-    {
-      position: docEnv
-        ? document.getElementById("benefits").offsetTop -
-          document.getElementById("header").clientHeight
-        : 0,
-    },
-    // Возможности
-    {
-      position: docEnv
-        ? document.getElementById("features").offsetTop -
-          document.getElementById("header").clientHeight
-        : 0,
-    },
-    // Примеры заработка
-    {
-      position: docEnv
-        ? document.getElementById("examples").offsetTop -
-          document.getElementById("header").clientHeight
-        : 0,
-    },
-    // Команда
-    {
-      position: docEnv
-        ? document.getElementById("founder").offsetTop -
-          document.getElementById("header").clientHeight
-        : 0,
-    },
-    // Подписка
-    {
-      position: docEnv
-        ? document.getElementById("subscribe").offsetTop -
-          document.getElementById("header").clientHeight
-        : 0,
-    },
-    // Отзывы
-    // {
-    //   position: {
-    //     md: 10085,
-    //     sm: 9946,
-    //   },
-    // },
-    {
-      // Отзывы
-      position: docEnv
-        ? document.getElementById("testimonials").offsetTop -
-          document.getElementById("header").clientHeight
-        : 0,
-    },
-    {
-      // Партнёры
-      position: docEnv
-        ? document.getElementById("partners").offsetTop -
-          document.getElementById("header").clientHeight
-        : 0,
-    },
-    {
-      // FAQ
-      position: docEnv
-        ? document.getElementById("faq").offsetTop -
-          document.getElementById("header").clientHeight
-        : 0,
-    },
-  ]
 
   return (
     <div
@@ -119,49 +48,49 @@ const MobileMenu = (props) => {
         <div className="mobile-menu__container__cat-place">
           <div
             className="mobile-menu__container__cat-place__item"
-            onClick={() => toggleMenu(categories[0].position)}
+            onClick={() => toggleMenu(getSection('Преимущества'))}
           >
             Преимущества
           </div>
           <div
             className="mobile-menu__container__cat-place__item"
-            onClick={() => toggleMenu(categories[1].position)}
+            onClick={() => toggleMenu(getSection('Возможности'))}
           >
             Возможности
           </div>
           <div
             className="mobile-menu__container__cat-place__item"
-            onClick={() => toggleMenu(categories[2].position)}
+            onClick={() => toggleMenu(getSection('Кейсы'))}
           >
             Примеры заработка
           </div>
           <div
             className="mobile-menu__container__cat-place__item"
-            onClick={() => toggleMenu(categories[3].position)}
+            onClick={() => toggleMenu(getSection('Команда'))}
           >
             Команда
           </div>
           <div
             className="mobile-menu__container__cat-place__item"
-            onClick={() => toggleMenu(categories[4].position)}
+            onClick={() => toggleMenu(getSection('Подписка'))}
           >
             Подписка
           </div>
           <div
             className="mobile-menu__container__cat-place__item"
-            onClick={() => toggleMenu(categories[5].position)}
+            onClick={() => toggleMenu(getSection('Отзывы'))}
           >
             Отзывы
           </div>
           <div
             className="mobile-menu__container__cat-place__item"
-            onClick={() => toggleMenu(categories[6].position)}
+            onClick={() => toggleMenu(getSection('Партнеры'))}
           >
             Партнеры
           </div>
           <div
             className="mobile-menu__container__cat-place__item"
-            onClick={() => toggleMenu(categories[7].position)}
+            onClick={() => toggleMenu(getSection('FAQ'))}
           >
             FAQ
           </div>
@@ -174,7 +103,7 @@ const MobileMenu = (props) => {
               cursor: "pointer",
             }}
             className="mobile-menu__container__subscribe-block__subscribe"
-            onClick={() => toggleMenu(categories[4].position)}
+            onClick={() => toggleMenu(getSection('Подписка'))}
           >
             <div className="mobile-menu__container__subscribe-block__subscribe__text">
               Оформить подписку

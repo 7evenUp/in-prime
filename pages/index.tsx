@@ -30,9 +30,11 @@ import FeaturesSm from "@/sections/Features/FeaturesSm"
 import LoginIdPopup from "@/components/LoginIdPopup/LoginIdPopup"
 import BuySubscription from "@/sections/BuySubscription/BuySubscription"
 import { AdBanner, TAdBanner } from '@/components/banner/ad-banner.client'
-import { isProd } from '@/shared/helpers'
 import { getCookie } from 'cookies-next'
 import { GetServerSideProps } from 'next'
+import { useDispatch } from 'react-redux'
+import { scrollReducer } from '@/redux/reducers/scrollReducer'
+import { useThrottledCallback } from '@react-hookz/web'
 // import TimerPromo from "@/sections/TimerPromo/TimerPromo"
 
 const useWindowSize = () => {
@@ -62,11 +64,17 @@ type SSRProps = {
 
 const Home = ({bannerCookieName,banner}: SSRProps) => {
   const router = useRouter()
+  const dispatch = useDispatch()
   const referral = router.query.ref || "agent"
 
   const [teamOpened, setTeamOpened] = useState(false)
-
-  const [currentY, setCurrentY] = useState(0)
+  const scrollHandler = useThrottledCallback((event) => {
+    dispatch(scrollReducer.actions.setScrollY(window.scrollY))
+  }, [], 200)
+  useEffect(() => {
+    window.addEventListener("scroll", scrollHandler, { passive: true })
+    return () => window.removeEventListener("scroll", scrollHandler)
+  }, [])
 
   const currentWidth = useWindowSize()
 
@@ -111,32 +119,16 @@ const Home = ({bannerCookieName,banner}: SSRProps) => {
     sm: <BuySubscrSm />,
   }
 
-  const wheelHandler = (event) => {
-    setCurrentY(window.scrollY)
-  }
-
-  useEffect(() => {
-    window.addEventListener("wheel", wheelHandler)
-
-    return () => {
-      window.removeEventListener("wheel", wheelHandler)
-    }
-  }, [])
-
   return (
     <>
       <div className="app">
         {/* {["lgg", "lg"].includes(resolution) && (
           <Menu
             resolution={resolution}
-            currentY={currentY}
-            setCurrentY={setCurrentY}
           />
         )} */}
         <div className="app__container">
           <Earn
-            currentY={currentY}
-            setCurrentY={setCurrentY}
             referral={referral}
             resolution={resolution}
           />
@@ -216,8 +208,6 @@ const Home = ({bannerCookieName,banner}: SSRProps) => {
 
           <Footer
             resolution={resolution}
-            currentY={currentY}
-            setCurrentY={setCurrentY}
           />
         </div>
       </div>

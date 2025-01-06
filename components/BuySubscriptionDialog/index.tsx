@@ -34,6 +34,7 @@ import {
   PrimeOpportunities,
 } from '@/sections/BuySubscription/BuySubscription'
 import { calculateSubscriptionDetails, getIsPromocodeValidForSubscription } from '@/shared/subsciption'
+import { scrollToSection } from '@/redux/reducers/scrollReducer'
 
 const ID_URL = process.env.NEXT_PUBLIC_ID_URL + '/api/v1/'
 
@@ -695,14 +696,7 @@ const BuySubscriptionDialog = ({
                           <a
                             className={styles.support_link}
                             onClick={() => {
-                              window.scrollTo({
-                                top:
-                                  document.getElementById('testimonials')
-                                    .offsetTop -
-                                  document.getElementById('header')
-                                    .clientHeight,
-                                behavior: 'smooth',
-                              })
+                              scrollToSection('Отзывы')
                             }}
                           >
                             отзывы
