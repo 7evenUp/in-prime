@@ -154,56 +154,6 @@
   }
 }
 
-.button2 {
-  width: 233px;
-  height: 56px;
-  border: none;
-  border-radius: 16px;
-
-  backdrop-filter: blur(40px);
-  background: rgba(207, 207, 207, 0.2);
-
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  font-size: 16px;
-  text-align: center;
-  color: #fff;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  outline: none;
-  cursor: pointer;
-
-  @media (max-width: 1919px) and (min-width: 1368px) {
-    height: 48px;
-  }
-
-  @media (max-width: 1367px) and (min-width: 768px) {
-    height: 48px;
-  }
-
-  @media (max-width: 767px) {
-    width: 334px;
-    height: 48px;
-    font-size: 14px;
-  }
-
-  &:hover {
-    background: white;
-    color: #181818;
-  }
-
-  &:active {
-    opacity: 0.7;
-  }
-
-  &:focus-visible {
-    border: 1px solid white;
-  }
-}
-
 .prime_bottom {
   position: absolute;
   bottom: 45px;

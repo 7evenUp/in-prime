@@ -3,7 +3,6 @@ import React, {
   type SetStateAction,
   useEffect,
   useMemo,
-  useRef,
   useState,
 } from 'react'
 import { useRouter } from 'next/router'
@@ -262,26 +261,21 @@ const BuySubscription = ({
     validate()
   }, [promoForSubmit])
 
-  const buyRef = useRef(null)
-
-  const scrollToBlock = () => {
-    buyRef.current?.scrollIntoView({ behavior: 'smooth' })
-  }
 
   if (isLoading) {
     return (
-      <div className='app__container__subscribe' id='subscribe'>
+      <div className='app__container__subscribe'>
         {' '}
       </div>
     )
   }
 
   return (
-    <div className='app__container__subscribe__wrapper'>
+    <div id='subscribe' className='app__container__subscribe__wrapper'>
       <div className='app__container__subscribe__promoback' />
       <div className='app__container__subscribe__newYear' />
 
-      <div className='app__container__subscribe' id='subscribe'>
+      <div className='app__container__subscribe'>
         <div className='app__container__subscribe__noise' />
         {/* <div className="app__container__subscribe__back"> */}
         {/* <div className="app__container__subscribe__back__left-gradient" />
@@ -291,7 +285,6 @@ const BuySubscription = ({
           <div className='app__container__subscribe__content__header'>
             <h1
               className='app__container__subscribe__content__title'
-              ref={buyRef}
             >
               Оформите подписку
             </h1>
@@ -589,7 +582,7 @@ const OldBuySubscription = ({
   const referral = router.query.ref || 'agent'
 
   return (
-    <div className='app__container__subscribe' id='subscribe'>
+    <div className='app__container__subscribe'>
       <div className='app__container__subscribe__noise' />
       <div className='app__container__subscribe__back'>
         <div className='app__container__subscribe__back__left-gradient' />
