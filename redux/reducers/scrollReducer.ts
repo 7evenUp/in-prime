@@ -69,7 +69,10 @@ export const scrollToSection = (
     | Pick<(typeof sections)[keyof typeof sections], 'getPosition'>
 ) => {
   if (typeof section === 'string') section = getSection(section)
-  const headerHeight = document.getElementById('header').clientHeight
+  const headerEl = document.getElementById('header')
+  const headerStyle = getComputedStyle(headerEl)
+  const isFixed = headerStyle.position === 'fixed'
+  const headerHeight = isFixed ? parseInt(headerStyle.height) : 0
   const top = (section?.getPosition() || 0) - headerHeight
   window.scrollTo({ top, behavior: 'smooth' })
 }
