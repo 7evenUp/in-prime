@@ -112,7 +112,7 @@ export const calculateSubscriptionDetails = ({
     originalPrice: subscriptionPrice,
     originalMonthlyPrice: Math.round(subscriptionPrice / duration.id),
 
-    totalDiscount: discountValue ? { value: Math.ceil(discountValue), type: discountType } : null,
+    totalDiscount: discountValue ? { value: Math.floor(discountValue), type: discountType } : null,
   }
 
   if(res.finalPrice > 999 && !isPromotionalModeActive) {
