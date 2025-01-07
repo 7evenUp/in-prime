@@ -10,7 +10,7 @@
   }
 
   &_bg {
-    background-image: url("/images/png/features/bg-gradient.png");
+    background-image: url('/images/png/features/bg-gradient.png');
     background-repeat: no-repeat;
     background-size: cover;
     position: absolute;
@@ -33,7 +33,7 @@
     }
 
     @media (max-width: 1367px) and (min-width: 768px) {
-      background-image: url("/images/png/features/bg-gradient-md.png");
+      background-image: url('/images/png/features/bg-gradient-md.png');
       background-size: cover;
       background-position: center;
       height: 1810px;
@@ -43,9 +43,6 @@
 
     @media (max-width: 767px) {
       width: 767px;
-      background-image: url("/images/png/features/bg-gradient-md.png");
-      background-size: cover;
-      background-position: center;
       height: 1235px;
       margin-top: -60px;
 
@@ -54,10 +51,6 @@
   }
 
   &_newYear {
-    background-image: url("/images/png/features/new-year.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
     position: absolute;
     left: 0;
     width: 100vw;
@@ -132,7 +125,7 @@
 
 .title {
   width: 100%;
-  font-family: "Unbounded", sans-serif;
+  font-family: 'Unbounded', sans-serif;
   font-weight: 700;
   font-size: 54px;
   line-height: 100%;
@@ -169,7 +162,7 @@
 .TabsRoot {
   display: flex;
   width: 100%;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   overflow: hidden;
 
   @media (max-width: 1367px) {
@@ -345,7 +338,7 @@
     background-color: rgba(67, 67, 67, 0.8);
   }
 
-  &[data-state="active"] {
+  &[data-state='active'] {
     border-color: transparent;
     background: #ffffff;
     color: #222222;
@@ -406,7 +399,7 @@
     padding-bottom: 12px;
   }
 
-  &[data-state="inactive"] {
+  &[data-state='inactive'] {
     display: none;
   }
 }

@@ -5,8 +5,6 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  padding-bottom: 8rem;
-  margin-bottom: -8rem;
 }
 
 .container {
@@ -39,7 +37,6 @@
   position: absolute;
   left: 0;
 
-  background-image: url("/images/png/testimonials/new-year-2025-testimonials-bg.avif");
   background-repeat: no-repeat;
   background-position: center;
   width: 100%;
@@ -76,7 +73,7 @@
 }
 
 .title {
-  font-family: "Unbounded", sans-serif;
+  font-family: 'Unbounded', sans-serif;
   font-weight: 700;
   font-size: 54px;
   line-height: 160%;
@@ -166,7 +163,7 @@
   padding: 36px;
   display: flex;
   flex-direction: column;
-  font-family: "Resist Sans", sans-serif;
+  font-family: 'Resist Sans', sans-serif;
   transition: opacity 0.15s ease-in;
 
   margin-bottom: 160px;
@@ -184,7 +181,7 @@
   }
 
   &_text {
-    font-family: "Inter", sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 300;
     font-size: 16px;
     line-height: normal;
@@ -227,7 +224,7 @@
 }
 
 .name {
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 300;
   font-size: 28px;
   color: #fff;
@@ -238,7 +235,7 @@
 }
 
 .date {
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 300;
   font-size: 16px;
   color: rgba(255, 255, 255, 0.5);
@@ -249,7 +246,7 @@
 }
 
 .link {
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 300;
   font-size: 16px;
   color: rgba(255, 255, 255, 0.5);

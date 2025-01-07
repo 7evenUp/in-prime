@@ -31,6 +31,7 @@ import { Promocode, Subscription } from '@/types/api-types'
 import styles from './BuySubscription.module.scss'
 import { useIsTouchDevice } from '@/hooks/device'
 import { calculateSubscriptionDetails } from '@/shared/subsciption'
+import { scrollToSection } from '@/redux/reducers/scrollReducer'
 
 const PRIME_SUBSCRIPTION_KIND_ID = 1
 const ID_URL = process.env.NEXT_PUBLIC_ID_URL
@@ -331,6 +332,7 @@ const BuySubscription = ({
             <div className={styles.subscriptions}>
               {subscriptions.map((el, i) => (
                 <SubscriptionCard
+                  subscriptions={subscriptions}
                   fallbackPromocode={fallbackPromocode}
                   key={el.id}
                   subscription={el}
@@ -367,6 +369,7 @@ export default BuySubscription
 
 const SubscriptionCard = ({
   subscription,
+  subscriptions,
   order,
   resolution,
   showMonthlyPrice,
@@ -376,6 +379,7 @@ const SubscriptionCard = ({
   fallbackPromocode,
 }: {
   subscription: Subscription
+  subscriptions: Subscription[]
   order: number
   resolution: Resolution
   showMonthlyPrice: boolean
@@ -388,9 +392,6 @@ const SubscriptionCard = ({
 
   const [dialogOpen, setDialogOpen] = useState(false)
 
-  const [primeOpportunitiesOpened, setPrimeOpportunitiesOpened] =
-    useState(false)
-
   const {
     finalPrice,
     finalMonthlyPrice,
@@ -402,6 +403,13 @@ const SubscriptionCard = ({
       calculateSubscriptionDetails({ subscription, promocode: activePromocode }),
     [subscription, activePromocode]
   )
+
+  const scrollToFeatures = () => scrollToSection("Возможности")
+
+  const prevSub = subscriptions[order - 1]
+  const prevSubMonths = prevSub?.duration.id ?? 0
+  const prevSubMonthsString = prevSubMonths === 1 ? 'месяц' :
+   [2,3,4].includes(prevSubMonths) ? 'месяца' : 'месяцев'
 
   return (
     <div className={styles.subscription}>
@@ -457,15 +465,24 @@ const SubscriptionCard = ({
           )}
         </div>
       )}
+      <div style={{ marginTop: 16 }}></div>
+      {
+        order === 0 && <div style={{marginLeft: 16}}><PrimeOpportunitiesContent/></div>
+      }
       <div
         className={clsx(
           styles.text_before_bonuses_wrapper,
         )}
       >
-        <PrimeOpportunities
-          open={primeOpportunitiesOpened}
-          setOpen={setPrimeOpportunitiesOpened}
-        />
+        {
+          order === 0 
+            ? 
+              <span className={styles.text_before_bonuses} onClick={scrollToFeatures}> <div style={{ marginTop: 16 }}></div> <PrimeOpportunities open={false} setOpen={()=>null} hideArrow /> </span>
+            : 
+              <span className={styles.text_before_bonuses} style={{opacity: 0.5}}>
+                Все, что входит в {prevSubMonths} {prevSubMonthsString}
+              </span>
+        }
 
         {order === 3 && (
           <p
@@ -479,73 +496,65 @@ const SubscriptionCard = ({
         )}
       </div>
       
-      <div
-        className={clsx(
-          styles.bonuses_heading
-          // order === 0 && styles.bonuses_heading_first
-        )}
-      >
-        <div className={styles.bonuses_icon}>
-          <svg
-            width='12'
-            height='12'
-            viewBox='0 0 12 12'
-            fill='none'
-            xmlns='http://www.w3.org/2000/svg'
-          >
-            <path
-              d='M10.6834 6.57031H6.3916V11.9998H10.6834V6.57031Z'
-              fill='#171717'
-            />
-            <path
-              d='M5.60823 6.57031H1.31641V11.9998H5.60823V6.57031Z'
-              fill='#171717'
-            />
-            <path
-              d='M9.34618 2.21325C9.46227 2.00055 9.52834 1.75683 9.52834 1.49791C9.52836 0.671953 8.85638 0 8.03045 0C7.41955 0 6.79447 0.315656 6.31557 0.866039C6.19705 1.00223 6.09149 1.1486 6.0002 1.30104C5.90891 1.1486 5.80334 1.00223 5.68482 0.866039C5.20592 0.315656 4.58087 0 3.96995 0C3.14401 0 2.47203 0.671977 2.47203 1.49791C2.47203 1.7568 2.53808 2.00055 2.65419 2.21325H0.614258V5.78791H5.60888V2.21325H6.39149V5.78791H11.3861V2.21325H9.34618ZM3.96995 2.21325C3.57554 2.21325 3.25463 1.89234 3.25463 1.49791C3.25463 1.10348 3.57554 0.782602 3.96995 0.782602C4.68008 0.782602 5.35524 1.509 5.55172 2.21323L3.96995 2.21325ZM8.03045 2.21325H6.44867C6.64515 1.509 7.32031 0.782625 8.03045 0.782625C8.42485 0.782625 8.74576 1.10353 8.74576 1.49794C8.74574 1.89237 8.42485 2.21325 8.03045 2.21325Z'
-              fill='#171717'
-            />
-          </svg>
-        </div>
-        <span
+      {order !== 0 && benefits?.length > 0 && 
+      <>
+        <div
           className={clsx(
-            styles.bonuses_heading_text,
-            order === 1 && styles.bonuses_heading_1,
-            order === 2 && styles.bonuses_heading_2,
-            order === 3 && styles.bonuses_heading_3
+            styles.bonuses_heading
+            // order === 0 && styles.bonuses_heading_first
           )}
         >
-          ПОДАРКИ
-        </span>
-      </div>
-
-      <span
-        className={clsx(
-          styles.bonuses_heading_text,
-          styles.bonuses_heading_text_left,
-          order === 1 && styles.bonuses_heading_1,
-          order === 2 && styles.bonuses_heading_2,
-          order === 3 && styles.bonuses_heading_3
-        )}
-      >
-        [ ОСТАЛОСЬ:{' '}
-        {benefits.reduce((acc, cur) => acc + (cur.remainingCount ?? 0), 0)} ]
-      </span>
-      <ul className={clsx(styles.bonuses, styles.bonuses__small)}>
-        {benefits.map(
-          (benefit) =>
-            benefit.file &&
-            benefit.remainingCount !== 0 && (
-              <BenefitCard
-                benefit={{
-                  file: benefit.file,
-                  name: benefit.translations.ru.name,
-                  description: benefit.translations.ru.description,
-                }}
+          <div className={styles.bonuses_icon}>
+            <svg
+              width='12'
+              height='12'
+              viewBox='0 0 12 12'
+              fill='none'
+              xmlns='http://www.w3.org/2000/svg'
+            >
+              <path
+                d='M10.6834 6.57031H6.3916V11.9998H10.6834V6.57031Z'
+                fill='#171717'
               />
-            )
-        )}
-      </ul>
+              <path
+                d='M5.60823 6.57031H1.31641V11.9998H5.60823V6.57031Z'
+                fill='#171717'
+              />
+              <path
+                d='M9.34618 2.21325C9.46227 2.00055 9.52834 1.75683 9.52834 1.49791C9.52836 0.671953 8.85638 0 8.03045 0C7.41955 0 6.79447 0.315656 6.31557 0.866039C6.19705 1.00223 6.09149 1.1486 6.0002 1.30104C5.90891 1.1486 5.80334 1.00223 5.68482 0.866039C5.20592 0.315656 4.58087 0 3.96995 0C3.14401 0 2.47203 0.671977 2.47203 1.49791C2.47203 1.7568 2.53808 2.00055 2.65419 2.21325H0.614258V5.78791H5.60888V2.21325H6.39149V5.78791H11.3861V2.21325H9.34618ZM3.96995 2.21325C3.57554 2.21325 3.25463 1.89234 3.25463 1.49791C3.25463 1.10348 3.57554 0.782602 3.96995 0.782602C4.68008 0.782602 5.35524 1.509 5.55172 2.21323L3.96995 2.21325ZM8.03045 2.21325H6.44867C6.64515 1.509 7.32031 0.782625 8.03045 0.782625C8.42485 0.782625 8.74576 1.10353 8.74576 1.49794C8.74574 1.89237 8.42485 2.21325 8.03045 2.21325Z'
+                fill='#171717'
+              />
+            </svg>
+          </div>
+          <span
+            className={clsx(
+              styles.bonuses_heading_text,
+              order === 1 && styles.bonuses_heading_1,
+              order === 2 && styles.bonuses_heading_2,
+              order === 3 && styles.bonuses_heading_3
+            )}
+          >
+            ЭКСТРА БОНУСЫ
+          </span>
+        </div>
+
+        <ul className={clsx(styles.bonuses, styles.bonuses__small)}>
+          {benefits.map(
+            (benefit) =>
+              benefit.file &&
+              benefit.remainingCount !== 0 && (
+                <BenefitCard
+                  benefit={{
+                    file: benefit.file,
+                    name: benefit.translations.ru.name,
+                    description: benefit.translations.ru.description,
+                  }}
+                />
+              )
+          )}
+        </ul>
+      </>
+      }
 
       <BuySubscriptionDialog
         key={activePromocode?.code}
@@ -698,9 +707,11 @@ const AbilityItem = ({ icon: Icon, text }) => (
 export const PrimeOpportunities = ({
   open,
   setOpen,
+  hideArrow
 }: {
   open?: boolean
-  setOpen?: Dispatch<SetStateAction<boolean>>
+  setOpen?: Dispatch<SetStateAction<boolean>>,
+  hideArrow?: boolean
 }) => {
   const isTouchDevice = useIsTouchDevice()
   const HoverCardOrPopover = isTouchDevice ? Popover : HoverCard
@@ -723,9 +734,9 @@ export const PrimeOpportunities = ({
             Все{' '}
             <button type='button'>
               возможности Prime{' '}
-              <span style={{ marginLeft: '4px', marginTop: '3px' }}>
+              {!hideArrow && <span style={{ marginLeft: '4px', marginTop: '3px' }}>
                 <NavArrowIcon />
-              </span>
+              </span>}
             </button>
           </p>
         </div>
@@ -734,19 +745,13 @@ export const PrimeOpportunities = ({
         <HoverCardOrPopover.Content
           className={clsx(
             isTouchDevice ? styles.PopoverContent : styles.HoverCardContent,
-
             isTouchDevice
               ? styles.PopoverContent_first
               : styles.HoverCardContent_first
           )}
           sideOffset={5}
         >
-          <div className={styles.text_before_bonuses_wrap}>
-            <AbilityItem icon={ContentIcon} text='Контент о заработке' />
-            <AbilityItem icon={CalendarIcon} text='Прибыльный календарь' />
-            <AbilityItem icon={ChatIcon} text='Чаты с сообществом' />
-            <AbilityItem icon={HelperIcon} text='Поддержка экспертов' />
-          </div>
+          <PrimeOpportunitiesContent/>
         </HoverCardOrPopover.Content>
       </HoverCardOrPopover.Portal>
     </HoverCardOrPopover.Root>
@@ -816,4 +821,13 @@ export const BenefitCard = ({
       </HoverCardOrPopover.Portal>
     </HoverCardOrPopover.Root>
   )
+}
+
+export const PrimeOpportunitiesContent = () => {
+  return <div className={styles.text_before_bonuses_wrap}>
+      <AbilityItem icon={ContentIcon} text='Контент о заработке' />
+      <AbilityItem icon={CalendarIcon} text='Прибыльный календарь' />
+      <AbilityItem icon={ChatIcon} text='Чаты с сообществом' />
+      <AbilityItem icon={HelperIcon} text='Поддержка экспертов' />
+  </div>
 }

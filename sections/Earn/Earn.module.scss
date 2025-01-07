@@ -1,7 +1,7 @@
 .title {
   margin-top: 185px;
   margin-bottom: 38px;
-  font-family: "Unbounded", sans-serif;
+  font-family: 'Unbounded', sans-serif;
   font-weight: 500;
   font-size: 80px;
   text-transform: uppercase;
@@ -42,7 +42,7 @@
   width: 890px;
   height: 81px;
   z-index: 1;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 20px;
   line-height: 136%;
@@ -116,7 +116,7 @@
   outline: none;
   cursor: pointer;
 
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 500;
   font-size: 16px;
   text-align: center;
@@ -163,7 +163,7 @@
   backdrop-filter: blur(40px);
   background: rgba(207, 207, 207, 0.2);
 
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 500;
   font-size: 16px;
   text-align: center;
@@ -216,7 +216,7 @@
   align-items: center;
   gap: 40px;
 
-  font-family: "Unbounded", sans-serif;
+  font-family: 'Unbounded', sans-serif;
   font-weight: 500;
   font-size: 16px;
   line-height: 136%;
@@ -245,13 +245,13 @@
 .prime_arrow {
   width: 35px;
   height: 48px;
-  background-image: url("/images/svg/earn/bottom-arrow.svg");
+  background-image: url('/images/svg/earn/bottom-arrow.svg');
   background-repeat: no-repeat;
 
   @media (max-width: 767px) {
     width: 27px;
     height: 37px;
-    background-image: url("/images/svg/earn/bottom-arrow-sm.svg");
+    background-image: url('/images/svg/earn/bottom-arrow-sm.svg');
   }
 }
 
@@ -260,7 +260,7 @@
   bottom: -3px;
   width: 1920px;
   height: 488px;
-  background-image: url("/images/svg/earn/circle-gradient-lgg.svg");
+  background-image: url('/images/svg/earn/circle-gradient-lgg.svg');
   background-repeat: no-repeat;
   z-index: 1;
 
@@ -273,14 +273,14 @@
   @media (max-width: 1367px) and (min-width: 768px) {
     background-position: center;
     background-size: contain;
-    background-image: url("/images/png/earn/circle-gradient-md.png");
+    background-image: url('/images/png/earn/circle-gradient-md.png');
     width: 1512px;
     height: 418px;
   }
   @media (max-width: 767px) {
     background-position: center;
     background-size: contain;
-    background-image: url("/images/png/earn/circle-gradient-sm.png");
+    background-image: url('/images/png/earn/circle-gradient-sm.png');
     width: 868px;
     height: 294px;
   }
@@ -293,8 +293,6 @@
   width: 100%;
   height: 100%;
   z-index: 0;
-  background-size: cover;
-  background-image: url("/images/png/earn/new-year.png");
 
   &__top {
     position: absolute;
@@ -303,8 +301,6 @@
     width: 100vw;
     height: 179px;
     z-index: 0;
-    background-size: cover;
-    background-image: url("/images/png/earn/new-year-top.png");
   }
 
   &__bottom {
@@ -314,8 +310,6 @@
     width: 100vw;
     height: 194px;
     z-index: 0;
-    background-size: cover;
-    background-image: url("/images/png/earn/new-year-bottom.png");
     opacity: 0.3;
   }
 }
@@ -353,7 +347,7 @@
 
 .line {
   height: 100%;
-  background-image: url("/images/svg/earn/vert-line.svg");
+  background-image: url('/images/svg/earn/vert-line.svg');
   background-repeat: no-repeat;
   z-index: 0;
   width: 2px;
@@ -428,7 +422,7 @@
 
 .star {
   height: 100%;
-  background-image: url("/images/svg/earn/star-line.svg");
+  background-image: url('/images/svg/earn/star-line.svg');
   background-repeat: no-repeat;
   z-index: 0;
   width: 2px;
