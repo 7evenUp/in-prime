@@ -32,6 +32,7 @@ import { toast } from 'sonner'
 import {
   BenefitCard,
   PrimeOpportunities,
+  PrimeOpportunitiesContent,
 } from '@/sections/BuySubscription/BuySubscription'
 import { calculateSubscriptionDetails, getIsPromocodeValidForSubscription } from '@/shared/subsciption'
 import { scrollToSection } from '@/redux/reducers/scrollReducer'
@@ -82,7 +83,7 @@ const BuySubscriptionDialog = ({
 
   const { id, duration, benefits } = selectedSubscription
 
-  const { finalPrice, totalDiscount, originalPrice } = useMemo(
+  const { finalPrice, originalPrice } = useMemo(
     () =>
       calculateSubscriptionDetails({
         subscription: selectedSubscription,
@@ -519,9 +520,12 @@ const BuySubscriptionDialog = ({
                             {duration.id} МЕС
                           </span>
                           <p className={styles.text_before_bonuses}>
-                            <PrimeOpportunities />
+                            {order === 0 
+                              ? <div><PrimeOpportunitiesContent/><div style={{marginTop: 16}}><PrimeOpportunities open={false} setOpen={()=>null} hideArrow /></div></div> 
+                              : <PrimeOpportunities />
+                            }
                           </p>
-                          {benefits.length && (
+                          {order !== 0 && benefits.length && (
                             <>
                               <div
                                 className={clsx(
@@ -587,7 +591,7 @@ const BuySubscriptionDialog = ({
                       ))}
                     </div>
                     <div className={styles.promocode}>
-                      {totalDiscount && localPromocode?.code ? (
+                      {localPromocode?.code ? (
                         <>
                           <div className={styles.promocode_submit}>
                             <div className={styles.promocode_submit_text}>
@@ -610,8 +614,14 @@ const BuySubscriptionDialog = ({
                             </button>
                           </div>
                           <span className={styles.promocode_discount}>
-                            Ваша скидка: {totalDiscount.value}
-                            {totalDiscount.type}
+                            Ваша скидка:{' '}
+                            {localPromocode.discountKind.id === 'MONEY'
+                              ? '$'
+                              : ''}
+                            {localPromocode.discountAmount}
+                            {localPromocode.discountKind.id === 'MONEY'
+                              ? ''
+                              : '%'}
                           </span>
                         </>
                       ) : (
