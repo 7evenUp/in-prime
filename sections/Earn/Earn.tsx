@@ -159,6 +159,9 @@ const Earn = ({ resolution, referral }: EarnProps) => {
         <button className={styles.button1} onClick={scrollToGuarantee}>
           Гарантируем окупаемость
         </button>
+        <button className={styles.button2} onClick={scrollToSubscriptions}>
+          Забрать подарок
+        </button>
       </div>
 
       <div className={styles.prime_bottom}>
