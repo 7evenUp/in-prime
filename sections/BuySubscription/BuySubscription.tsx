@@ -4,38 +4,40 @@ import React, {
   useEffect,
   useMemo,
   useState,
-} from 'react'
-import { useRouter } from 'next/router'
-import { useMutation, useQuery } from '@tanstack/react-query'
-import axios from 'axios'
-import * as Switch from '@radix-ui/react-switch'
-import clsx from 'clsx'
-import * as HoverCard from '@radix-ui/react-hover-card'
-import * as Popover from '@radix-ui/react-popover'
+} from "react"
+import { useRouter } from "next/router"
+import { useMutation, useQuery } from "@tanstack/react-query"
+import axios from "axios"
+import * as Switch from "@radix-ui/react-switch"
+import clsx from "clsx"
+import * as HoverCard from "@radix-ui/react-hover-card"
+import * as Popover from "@radix-ui/react-popover"
 
 import {
   CalendarIcon,
   ChatIcon,
   ContentIcon,
   HelperIcon,
-} from '../Features/Icons'
+} from "../Features/Icons"
 
-import SubscribeArrow from '@/public/images/jsx/subscribe/arrow'
+import SubscribeArrow from "@/public/images/jsx/subscribe/arrow"
 
-import BuySubscriptionDialog from '@/components/BuySubscriptionDialog'
+import BuySubscriptionDialog from "@/components/BuySubscriptionDialog"
 
-import { Resolution } from '@/types/resolution'
-import { Promocode, Subscription } from '@/types/api-types'
+import { Resolution } from "@/types/resolution"
+import { Promocode, Subscription } from "@/types/api-types"
 
-import styles from './BuySubscription.module.scss'
-import { useIsTouchDevice } from '@/hooks/device'
-import { calculateSubscriptionDetails } from '@/shared/subsciption'
-import { scrollToSection } from '@/redux/reducers/scrollReducer'
+import styles from "./BuySubscription.module.scss"
+import { useIsTouchDevice } from "@/hooks/device"
+import { calculateSubscriptionDetails } from "@/shared/subsciption"
+import { scrollToSection } from "@/redux/reducers/scrollReducer"
 
 const PRIME_SUBSCRIPTION_KIND_ID = 1
 const ID_URL = process.env.NEXT_PUBLIC_ID_URL
-const SPECIAL_PROMOS = (process.env.NEXT_PUBLIC_PROMOS||'NEW,PRIME').split(',')
-const DEFAULT_CRYPTON_PROMO = 'CRYPTON'
+const SPECIAL_PROMOS = (process.env.NEXT_PUBLIC_PROMOS || "NEW,PRIME").split(
+  ","
+)
+const DEFAULT_CRYPTON_PROMO = "CRYPTON"
 
 const fallbackSubscriptions: Subscription[] = [
   {
@@ -50,7 +52,7 @@ const fallbackSubscriptions: Subscription[] = [
         file: null,
         translations: {
           ru: {
-            name: '1',
+            name: "1",
             description: null,
           },
         },
@@ -59,11 +61,11 @@ const fallbackSubscriptions: Subscription[] = [
     ],
     duration: {
       id: 1,
-      label: '10',
+      label: "10",
     },
     isActive: true,
     kindId: 1, // 1 - prime | 2 - calendar
-    name: '1 month',
+    name: "1 month",
     price: 99,
     isPromotionalModeActive: false,
   },
@@ -79,7 +81,7 @@ const fallbackSubscriptions: Subscription[] = [
         file: null,
         translations: {
           ru: {
-            name: '1',
+            name: "1",
             description: null,
           },
         },
@@ -88,11 +90,11 @@ const fallbackSubscriptions: Subscription[] = [
     ],
     duration: {
       id: 3,
-      label: 'Three',
+      label: "Three",
     },
     isActive: true,
     kindId: 1, // 1 - prime | 2 - calendar
-    name: '3 months',
+    name: "3 months",
     price: 297,
     isPromotionalModeActive: false,
   },
@@ -108,7 +110,7 @@ const fallbackSubscriptions: Subscription[] = [
         file: null,
         translations: {
           ru: {
-            name: '1',
+            name: "1",
             description: null,
           },
         },
@@ -117,11 +119,11 @@ const fallbackSubscriptions: Subscription[] = [
     ],
     duration: {
       id: 6,
-      label: 'Six',
+      label: "Six",
     },
     isActive: true,
     kindId: 1, // 1 - prime | 2 - calendar
-    name: '6 months',
+    name: "6 months",
     price: 594,
     isPromotionalModeActive: false,
   },
@@ -137,7 +139,7 @@ const fallbackSubscriptions: Subscription[] = [
         file: null,
         translations: {
           ru: {
-            name: '1',
+            name: "1",
             description: null,
           },
         },
@@ -146,11 +148,11 @@ const fallbackSubscriptions: Subscription[] = [
     ],
     duration: {
       id: 12,
-      label: 'Twelve',
+      label: "Twelve",
     },
     isActive: true,
     kindId: 1, // 1 - prime | 2 - calendar
-    name: '12 months',
+    name: "12 months",
     price: 1188,
     isPromotionalModeActive: false,
   },
@@ -169,17 +171,19 @@ const BuySubscription = ({
   resolution: Resolution
 }) => {
   const [showMonthlyPrice, setShowMonthlyPrice] = useState(true)
-  const [promoForSubmit, setPromoForSubmit] = useState('')
+  const [promoForSubmit, setPromoForSubmit] = useState("")
 
-  const [fallbackPromocode, setFallbackPromocode] = useState<Promocode|null>(null)
-  const [activePromocode, setActivePromocode] = useState<Promocode|null>(null)
+  const [fallbackPromocode, setFallbackPromocode] = useState<Promocode | null>(
+    null
+  )
+  const [activePromocode, setActivePromocode] = useState<Promocode | null>(null)
 
   const {
     data: subscriptions,
     isError: isSubscriptionsError,
     isLoading,
   } = useQuery({
-    queryKey: ['subscriptions'],
+    queryKey: ["subscriptions"],
     queryFn: async () => {
       try {
         const response = await axios.get<Subscription[]>(
@@ -206,32 +210,50 @@ const BuySubscription = ({
       promocode: string
       subscriptionId?: number
     }) =>
-      axios.post<Promocode>(ID_URL + '/api/v1/promo-codes/validate/', {
-        promocode,
-        subscription: subscriptionId,
-      }, { withCredentials:true }),
+      axios.post<Promocode>(
+        ID_URL + "/api/v1/promo-codes/validate/",
+        {
+          promocode,
+          subscription: subscriptionId,
+        },
+        { withCredentials: true }
+      ),
   })
 
-  const submittedPromoIsValid = (promo: Promocode) => document.dispatchEvent(new CustomEvent('promo-apply-result', {detail: promo}));
-  const submittedPromoIsInvalid = () => document.dispatchEvent(new CustomEvent('promo-apply-result', {detail: null}));
-  const applyOneOfPromocodes = async (promo:string) => {
+  const submittedPromoIsValid = (promo: Promocode) =>
+    document.dispatchEvent(
+      new CustomEvent("promo-apply-result", { detail: promo })
+    )
+  const submittedPromoIsInvalid = () =>
+    document.dispatchEvent(
+      new CustomEvent("promo-apply-result", { detail: null })
+    )
+  const applyOneOfPromocodes = async (promo: string) => {
     return new Promise<Promocode>((resolve) => {
       setPromoForSubmit(promo)
-      document.addEventListener('promo-apply-result', (e: CustomEvent) => resolve(e.detail), {once:true})
-    });
+      document.addEventListener(
+        "promo-apply-result",
+        (e: CustomEvent) => resolve(e.detail),
+        { once: true }
+      )
+    })
   }
 
   useEffect(() => {
     const url = new URL(location.href)
-    const refCode = url.searchParams.get('ref')
+    const refCode = url.searchParams.get("ref")
 
     const applyPromos = async () => {
-      const promosToValidate = [refCode, ...SPECIAL_PROMOS, DEFAULT_CRYPTON_PROMO].filter(Boolean)
-      for(let promoToValidate of promosToValidate) {
+      const promosToValidate = [
+        refCode,
+        ...SPECIAL_PROMOS,
+        DEFAULT_CRYPTON_PROMO,
+      ].filter(Boolean)
+      for (let promoToValidate of promosToValidate) {
         const promo = await applyOneOfPromocodes(promoToValidate)
         if (promo) {
           setFallbackPromocode(promo)
-          break;
+          break
         }
       }
     }
@@ -254,38 +276,31 @@ const BuySubscription = ({
           submittedPromoIsValid(data)
         } catch {
           submittedPromoIsInvalid()
-          console.log('Error while validating promocode: ', promoForSubmit)
+          console.log("Error while validating promocode: ", promoForSubmit)
         }
       }
     }
     validate()
   }, [promoForSubmit])
 
-
   if (isLoading) {
-    return (
-      <div className='app__container__subscribe'>
-        {' '}
-      </div>
-    )
+    return <div className="app__container__subscribe"> </div>
   }
 
   return (
-    <div id='subscribe' className='app__container__subscribe__wrapper'>
-      <div className='app__container__subscribe__promoback' />
-      <div className='app__container__subscribe__newYear' />
+    <div id="subscribe" className="app__container__subscribe__wrapper">
+      <div className="app__container__subscribe__promoback" />
+      <div className="app__container__subscribe__newYear" />
 
-      <div className='app__container__subscribe'>
-        <div className='app__container__subscribe__noise' />
+      <div className="app__container__subscribe">
+        <div className="app__container__subscribe__noise" />
         {/* <div className="app__container__subscribe__back"> */}
         {/* <div className="app__container__subscribe__back__left-gradient" />
           <div className="app__container__subscribe__back__right-gradient" /> */}
         {/* </div> */}
-        <div className='app__container__subscribe__content'>
-          <div className='app__container__subscribe__content__header'>
-            <h1
-              className='app__container__subscribe__content__title'
-            >
+        <div className="app__container__subscribe__content">
+          <div className="app__container__subscribe__content__header">
+            <h1 className="app__container__subscribe__content__title">
               Оформите подписку
             </h1>
           </div>
@@ -342,10 +357,10 @@ const BuySubscription = ({
 
           <div className={styles.support_wrapper}>
             <p className={styles.support}>
-              Остались вопросы? Задай их нашему{' '}
+              Остались вопросы? Задай их нашему{" "}
               <a
-                href='https://t.me/crypton_support'
-                target='_blank'
+                href="https://t.me/crypton_support"
+                target="_blank"
                 className={styles.support_link}
               >
                 специалисту в Телеграм
@@ -393,7 +408,10 @@ const SubscriptionCard = ({
     totalDiscount,
   } = useMemo(
     () =>
-      calculateSubscriptionDetails({ subscription, promocode: activePromocode }),
+      calculateSubscriptionDetails({
+        subscription,
+        promocode: activePromocode,
+      }),
     [subscription, activePromocode]
   )
 
@@ -401,8 +419,12 @@ const SubscriptionCard = ({
 
   const prevSub = subscriptions[order - 1]
   const prevSubMonths = prevSub?.duration.id ?? 0
-  const prevSubMonthsString = prevSubMonths === 1 ? 'месяц' :
-   [2,3,4].includes(prevSubMonths) ? 'месяца' : 'месяцев'
+  const prevSubMonthsString =
+    prevSubMonths === 1
+      ? "месяц"
+      : [2, 3, 4].includes(prevSubMonths)
+      ? "месяца"
+      : "месяцев"
 
   return (
     <div className={styles.subscription}>
@@ -419,7 +441,7 @@ const SubscriptionCard = ({
                 {
                   (showMonthlyPrice ? finalMonthlyPrice : finalPrice)
                     .toFixed(2)
-                    .split('.')[0]
+                    .split(".")[0]
                 }
               </>
               {/* {Number.isInteger(cardPrice) ? (
@@ -459,23 +481,26 @@ const SubscriptionCard = ({
         </div>
       )}
       <div style={{ marginTop: 16 }}></div>
-      {
-        order === 0 && <div style={{marginLeft: 16}}><PrimeOpportunitiesContent/></div>
-      }
-      <div
-        className={clsx(
-          styles.text_before_bonuses_wrapper,
+      {order === 0 && (
+        <div style={{ marginLeft: 16 }}>
+          <PrimeOpportunitiesContent />
+        </div>
+      )}
+      <div className={clsx(styles.text_before_bonuses_wrapper)}>
+        {order === 0 ? (
+          <span
+            className={styles.text_before_bonuses}
+            onClick={scrollToFeatures}
+          >
+            {" "}
+            <div style={{ marginTop: 16 }}></div>{" "}
+            <PrimeOpportunities open={false} setOpen={() => null} hideArrow />{" "}
+          </span>
+        ) : (
+          <span className={styles.text_before_bonuses} style={{ opacity: 0.5 }}>
+            Все, что входит в {prevSubMonths} {prevSubMonthsString}
+          </span>
         )}
-      >
-        {
-          order === 0 
-            ? 
-              <span className={styles.text_before_bonuses} onClick={scrollToFeatures}> <div style={{ marginTop: 16 }}></div> <PrimeOpportunities open={false} setOpen={()=>null} hideArrow /> </span>
-            : 
-              <span className={styles.text_before_bonuses} style={{opacity: 0.5}}>
-                Все, что входит в {prevSubMonths} {prevSubMonthsString}
-              </span>
-        }
 
         {order === 3 && (
           <p
@@ -488,66 +513,66 @@ const SubscriptionCard = ({
           </p>
         )}
       </div>
-      
-      {order !== 0 && benefits?.length > 0 && 
-      <>
-        <div
-          className={clsx(
-            styles.bonuses_heading
-            // order === 0 && styles.bonuses_heading_first
-          )}
-        >
-          <div className={styles.bonuses_icon}>
-            <svg
-              width='12'
-              height='12'
-              viewBox='0 0 12 12'
-              fill='none'
-              xmlns='http://www.w3.org/2000/svg'
-            >
-              <path
-                d='M10.6834 6.57031H6.3916V11.9998H10.6834V6.57031Z'
-                fill='#171717'
-              />
-              <path
-                d='M5.60823 6.57031H1.31641V11.9998H5.60823V6.57031Z'
-                fill='#171717'
-              />
-              <path
-                d='M9.34618 2.21325C9.46227 2.00055 9.52834 1.75683 9.52834 1.49791C9.52836 0.671953 8.85638 0 8.03045 0C7.41955 0 6.79447 0.315656 6.31557 0.866039C6.19705 1.00223 6.09149 1.1486 6.0002 1.30104C5.90891 1.1486 5.80334 1.00223 5.68482 0.866039C5.20592 0.315656 4.58087 0 3.96995 0C3.14401 0 2.47203 0.671977 2.47203 1.49791C2.47203 1.7568 2.53808 2.00055 2.65419 2.21325H0.614258V5.78791H5.60888V2.21325H6.39149V5.78791H11.3861V2.21325H9.34618ZM3.96995 2.21325C3.57554 2.21325 3.25463 1.89234 3.25463 1.49791C3.25463 1.10348 3.57554 0.782602 3.96995 0.782602C4.68008 0.782602 5.35524 1.509 5.55172 2.21323L3.96995 2.21325ZM8.03045 2.21325H6.44867C6.64515 1.509 7.32031 0.782625 8.03045 0.782625C8.42485 0.782625 8.74576 1.10353 8.74576 1.49794C8.74574 1.89237 8.42485 2.21325 8.03045 2.21325Z'
-                fill='#171717'
-              />
-            </svg>
-          </div>
-          <span
+
+      {order !== 0 && benefits?.length > 0 && (
+        <>
+          <div
             className={clsx(
-              styles.bonuses_heading_text,
-              order === 1 && styles.bonuses_heading_1,
-              order === 2 && styles.bonuses_heading_2,
-              order === 3 && styles.bonuses_heading_3
+              styles.bonuses_heading
+              // order === 0 && styles.bonuses_heading_first
             )}
           >
-            ЭКСТРА БОНУСЫ
-          </span>
-        </div>
-
-        <ul className={clsx(styles.bonuses, styles.bonuses__small)}>
-          {benefits.map(
-            (benefit) =>
-              benefit.file &&
-              benefit.remainingCount !== 0 && (
-                <BenefitCard
-                  benefit={{
-                    file: benefit.file,
-                    name: benefit.translations.ru.name,
-                    description: benefit.translations.ru.description,
-                  }}
+            <div className={styles.bonuses_icon}>
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 12 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10.6834 6.57031H6.3916V11.9998H10.6834V6.57031Z"
+                  fill="#171717"
                 />
-              )
-          )}
-        </ul>
-      </>
-      }
+                <path
+                  d="M5.60823 6.57031H1.31641V11.9998H5.60823V6.57031Z"
+                  fill="#171717"
+                />
+                <path
+                  d="M9.34618 2.21325C9.46227 2.00055 9.52834 1.75683 9.52834 1.49791C9.52836 0.671953 8.85638 0 8.03045 0C7.41955 0 6.79447 0.315656 6.31557 0.866039C6.19705 1.00223 6.09149 1.1486 6.0002 1.30104C5.90891 1.1486 5.80334 1.00223 5.68482 0.866039C5.20592 0.315656 4.58087 0 3.96995 0C3.14401 0 2.47203 0.671977 2.47203 1.49791C2.47203 1.7568 2.53808 2.00055 2.65419 2.21325H0.614258V5.78791H5.60888V2.21325H6.39149V5.78791H11.3861V2.21325H9.34618ZM3.96995 2.21325C3.57554 2.21325 3.25463 1.89234 3.25463 1.49791C3.25463 1.10348 3.57554 0.782602 3.96995 0.782602C4.68008 0.782602 5.35524 1.509 5.55172 2.21323L3.96995 2.21325ZM8.03045 2.21325H6.44867C6.64515 1.509 7.32031 0.782625 8.03045 0.782625C8.42485 0.782625 8.74576 1.10353 8.74576 1.49794C8.74574 1.89237 8.42485 2.21325 8.03045 2.21325Z"
+                  fill="#171717"
+                />
+              </svg>
+            </div>
+            <span
+              className={clsx(
+                styles.bonuses_heading_text,
+                order === 1 && styles.bonuses_heading_1,
+                order === 2 && styles.bonuses_heading_2,
+                order === 3 && styles.bonuses_heading_3
+              )}
+            >
+              ЭКСТРА БОНУСЫ
+            </span>
+          </div>
+
+          <ul className={clsx(styles.bonuses, styles.bonuses__small)}>
+            {benefits.map(
+              (benefit) =>
+                benefit.file &&
+                benefit.remainingCount !== 0 && (
+                  <BenefitCard
+                    benefit={{
+                      file: benefit.file,
+                      name: benefit.translations.ru.name,
+                      description: benefit.translations.ru.description,
+                    }}
+                  />
+                )
+            )}
+          </ul>
+        </>
+      )}
 
       <BuySubscriptionDialog
         key={activePromocode?.code}
@@ -579,78 +604,78 @@ const OldBuySubscription = ({
   resolution: Resolution
 }) => {
   const router = useRouter()
-  const referral = router.query.ref || 'agent'
+  const referral = router.query.ref || "agent"
 
   return (
-    <div className='app__container__subscribe'>
-      <div className='app__container__subscribe__noise' />
-      <div className='app__container__subscribe__back'>
-        <div className='app__container__subscribe__back__left-gradient' />
-        <div className='app__container__subscribe__back__right-gradient' />
+    <div className="app__container__subscribe">
+      <div className="app__container__subscribe__noise" />
+      <div className="app__container__subscribe__back">
+        <div className="app__container__subscribe__back__left-gradient" />
+        <div className="app__container__subscribe__back__right-gradient" />
       </div>
-      <div className='app__container__subscribe__content'>
-        <div className='app__container__subscribe__content__header'>
-          <div className='app__container__subscribe__content__title' />
+      <div className="app__container__subscribe__content">
+        <div className="app__container__subscribe__content__header">
+          <div className="app__container__subscribe__content__title" />
         </div>
-        <div className='app__container__subscribe__content__cost bottom'>
-          <div className='app__container__subscribe__content__cost__block'>
-            <div className='app__container__subscribe__content__cost__block__header'>
-              <div className='app__container__subscribe__content__cost__block__header__gradient _5' />
-              <div className='app__container__subscribe__content__cost__block__header__title'>
+        <div className="app__container__subscribe__content__cost bottom">
+          <div className="app__container__subscribe__content__cost__block">
+            <div className="app__container__subscribe__content__cost__block__header">
+              <div className="app__container__subscribe__content__cost__block__header__gradient _5" />
+              <div className="app__container__subscribe__content__cost__block__header__title">
                 1 месяц
               </div>
             </div>
-            <div className='app__container__subscribe__content__cost__block__body'>
-              <div className='app__container__subscribe__content__cost__block__body__price _74' />
-              <div className='app__container__subscribe__content__cost__block__body__discount _45' />
+            <div className="app__container__subscribe__content__cost__block__body">
+              <div className="app__container__subscribe__content__cost__block__body__price _74" />
+              <div className="app__container__subscribe__content__cost__block__body__discount _45" />
             </div>
           </div>
-          <div className='app__container__subscribe__content__cost__block'>
-            <div className='app__container__subscribe__content__cost__block__header'>
-              <div className='app__container__subscribe__content__cost__block__header__gradient _6' />
-              <div className='app__container__subscribe__content__cost__block__header__title'>
+          <div className="app__container__subscribe__content__cost__block">
+            <div className="app__container__subscribe__content__cost__block__header">
+              <div className="app__container__subscribe__content__cost__block__header__gradient _6" />
+              <div className="app__container__subscribe__content__cost__block__header__title">
                 3 месяца
               </div>
             </div>
-            <div className='app__container__subscribe__content__cost__block__body'>
-              <div className='app__container__subscribe__content__cost__block__body__price _214' />
-              <div className='app__container__subscribe__content__cost__block__body__discount _225' />
+            <div className="app__container__subscribe__content__cost__block__body">
+              <div className="app__container__subscribe__content__cost__block__body__price _214" />
+              <div className="app__container__subscribe__content__cost__block__body__discount _225" />
             </div>
           </div>
-          <div className='app__container__subscribe__content__cost__block'>
-            <div className='app__container__subscribe__content__cost__block__header'>
-              <div className='app__container__subscribe__content__cost__block__header__gradient _7' />
-              <div className='app__container__subscribe__content__cost__block__header__title'>
+          <div className="app__container__subscribe__content__cost__block">
+            <div className="app__container__subscribe__content__cost__block__header">
+              <div className="app__container__subscribe__content__cost__block__header__gradient _7" />
+              <div className="app__container__subscribe__content__cost__block__header__title">
                 6 месяцев
               </div>
             </div>
-            <div className='app__container__subscribe__content__cost__block__body'>
-              <div className='app__container__subscribe__content__cost__block__body__price _405' />
-              <div className='app__container__subscribe__content__cost__block__body__discount _446' />
+            <div className="app__container__subscribe__content__cost__block__body">
+              <div className="app__container__subscribe__content__cost__block__body__price _405" />
+              <div className="app__container__subscribe__content__cost__block__body__discount _446" />
             </div>
           </div>
-          <div className='app__container__subscribe__content__cost__block'>
-            <div className='app__container__subscribe__content__cost__block__header'>
-              <div className='app__container__subscribe__content__cost__block__header__gradient _8' />
-              <div className='app__container__subscribe__content__cost__block__header__title'>
+          <div className="app__container__subscribe__content__cost__block">
+            <div className="app__container__subscribe__content__cost__block__header">
+              <div className="app__container__subscribe__content__cost__block__header__gradient _8" />
+              <div className="app__container__subscribe__content__cost__block__header__title">
                 12 месяцев
               </div>
             </div>
-            <div className='app__container__subscribe__content__cost__block__body'>
-              <div className='app__container__subscribe__content__cost__block__body__price _765' />
-              <div className='app__container__subscribe__content__cost__block__body__discount _880' />
+            <div className="app__container__subscribe__content__cost__block__body">
+              <div className="app__container__subscribe__content__cost__block__body__price _765" />
+              <div className="app__container__subscribe__content__cost__block__body__discount _880" />
             </div>
           </div>
         </div>
-        <div className='app__container__subscribe__content__link__mark'>
+        <div className="app__container__subscribe__content__link__mark">
           При оплате картой конвертация в рубли осуществляется по курсу ЦБ РФ
         </div>
-        <div className='app__container__subscribe__content__link'>
+        <div className="app__container__subscribe__content__link">
           <a
             href={`https://t.me/CryptonLobbyBot?start=${referral}`}
-            target={'_blank'}
+            target={"_blank"}
           >
-            <div className='app__container__subscribe__content__link__button'>
+            <div className="app__container__subscribe__content__link__button">
               {tariffs[resolution]}
               <SubscribeArrow />
             </div>
@@ -667,17 +692,17 @@ const OldBuySubscription = ({
 
 const NavArrowIcon = () => (
   <svg
-    width='14'
-    height='14'
-    viewBox='0 0 14 14'
-    fill='none'
-    xmlns='http://www.w3.org/2000/svg'
+    width="14"
+    height="14"
+    viewBox="0 0 14 14"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      d='M2.04227 5.66772L6.69377 10.202C6.77547 10.2816 6.88505 10.3262 6.99914 10.3262C7.11323 10.3262 7.22281 10.2816 7.30452 10.202L11.9578 5.66771C11.9959 5.63062 12.0261 5.58627 12.0468 5.53727C12.0675 5.48828 12.0782 5.43564 12.0782 5.38247C12.0782 5.32929 12.0675 5.27665 12.0468 5.22766C12.0261 5.17866 11.9959 5.13431 11.9578 5.09722C11.8796 5.0209 11.7747 4.97817 11.6655 4.97817C11.5563 4.97817 11.4514 5.0209 11.3733 5.09722L6.99914 9.36109L2.62589 5.09722C2.5478 5.02116 2.44309 4.9786 2.33408 4.9786C2.22507 4.9786 2.12036 5.02116 2.04227 5.09722C2.00417 5.13431 1.97388 5.17867 1.95321 5.22766C1.93253 5.27665 1.92187 5.32929 1.92187 5.38247C1.92187 5.43564 1.93253 5.48828 1.95321 5.53727C1.97388 5.58627 2.00417 5.63062 2.04227 5.66772Z'
-      fill='currentColor'
-      stroke='currentColor'
-      strokeWidth='0.5'
+      d="M2.04227 5.66772L6.69377 10.202C6.77547 10.2816 6.88505 10.3262 6.99914 10.3262C7.11323 10.3262 7.22281 10.2816 7.30452 10.202L11.9578 5.66771C11.9959 5.63062 12.0261 5.58627 12.0468 5.53727C12.0675 5.48828 12.0782 5.43564 12.0782 5.38247C12.0782 5.32929 12.0675 5.27665 12.0468 5.22766C12.0261 5.17866 11.9959 5.13431 11.9578 5.09722C11.8796 5.0209 11.7747 4.97817 11.6655 4.97817C11.5563 4.97817 11.4514 5.0209 11.3733 5.09722L6.99914 9.36109L2.62589 5.09722C2.5478 5.02116 2.44309 4.9786 2.33408 4.9786C2.22507 4.9786 2.12036 5.02116 2.04227 5.09722C2.00417 5.13431 1.97388 5.17867 1.95321 5.22766C1.93253 5.27665 1.92187 5.32929 1.92187 5.38247C1.92187 5.43564 1.93253 5.48828 1.95321 5.53727C1.97388 5.58627 2.00417 5.63062 2.04227 5.66772Z"
+      fill="currentColor"
+      stroke="currentColor"
+      strokeWidth="0.5"
     />
   </svg>
 )
@@ -700,10 +725,10 @@ const AbilityItem = ({ icon: Icon, text }) => (
 export const PrimeOpportunities = ({
   open,
   setOpen,
-  hideArrow
+  hideArrow,
 }: {
   open?: boolean
-  setOpen?: Dispatch<SetStateAction<boolean>>,
+  setOpen?: Dispatch<SetStateAction<boolean>>
   hideArrow?: boolean
 }) => {
   const isTouchDevice = useIsTouchDevice()
@@ -718,18 +743,18 @@ export const PrimeOpportunities = ({
             ? styles.PopoverTrigger_first
             : styles.HoverCardTrigger_first
         )}
-        {...(setOpen &&
-           { onClick: () => setOpen((prev) => !prev) }
-          )}
+        {...(setOpen && { onClick: () => setOpen((prev) => !prev) })}
       >
         <div className={clsx(styles.bonus, styles.bonus_first)}>
           <p className={clsx(styles.text_before_bonuses)}>
-            Все{' '}
-            <button type='button'>
-              возможности Prime{' '}
-              {!hideArrow && <span style={{ marginLeft: '4px', marginTop: '3px' }}>
-                <NavArrowIcon />
-              </span>}
+            Все{" "}
+            <button type="button">
+              возможности Prime{" "}
+              {!hideArrow && (
+                <span style={{ marginLeft: "4px", marginTop: "3px" }}>
+                  <NavArrowIcon />
+                </span>
+              )}
             </button>
           </p>
         </div>
@@ -744,7 +769,7 @@ export const PrimeOpportunities = ({
           )}
           sideOffset={5}
         >
-          <PrimeOpportunitiesContent/>
+          <PrimeOpportunitiesContent />
         </HoverCardOrPopover.Content>
       </HoverCardOrPopover.Portal>
     </HoverCardOrPopover.Root>
@@ -768,18 +793,19 @@ export const BenefitCard = ({
 }) => {
   const isTouchDevice = useIsTouchDevice()
   const HoverCardOrPopover = isTouchDevice ? Popover : HoverCard
-  
+
   // Mobile bug fix
   const [localOpen, localSetOpen] = useState(false)
   const [open, setOpen] = useMemo(
-    () => (outerSetIsOpen ? [outerOpen, outerSetIsOpen] : [localOpen, localSetOpen]),
+    () =>
+      outerSetIsOpen ? [outerOpen, outerSetIsOpen] : [localOpen, localSetOpen],
     [outerOpen, outerSetIsOpen, localOpen, localSetOpen]
   )
 
   return (
     <HoverCardOrPopover.Root open={open} onOpenChange={setOpen} openDelay={150}>
       <HoverCardOrPopover.Trigger
-        style={{ width: '100%' }}
+        style={{ width: "100%" }}
         className={clsx(
           isTouchDevice ? styles.PopoverTrigger : styles.HoverCardTrigger
         )}
@@ -789,7 +815,7 @@ export const BenefitCard = ({
           {!compact && <img src={benefit.file} className={styles.bonus_img} />}
           <p className={styles.bonus_text}>
             {benefit.name}
-            <span style={{ marginLeft: '6px' }}>
+            <span style={{ marginLeft: "6px" }}>
               <NavArrowIcon />
             </span>
           </p>
@@ -799,7 +825,7 @@ export const BenefitCard = ({
         <HoverCardOrPopover.Content
           className={styles.HoverCardContent}
           sideOffset={compact ? 2 : 4}
-          align='center'
+          align="center"
         >
           <div className={styles.HoverCardImage}>
             <img className={styles.HoverCardImage_img} src={benefit.file} />
@@ -817,10 +843,12 @@ export const BenefitCard = ({
 }
 
 export const PrimeOpportunitiesContent = () => {
-  return <div className={styles.text_before_bonuses_wrap}>
-      <AbilityItem icon={ContentIcon} text='Контент о заработке' />
-      <AbilityItem icon={CalendarIcon} text='Прибыльный календарь' />
-      <AbilityItem icon={ChatIcon} text='Чаты с сообществом' />
-      <AbilityItem icon={HelperIcon} text='Поддержка экспертов' />
-  </div>
+  return (
+    <div className={styles.text_before_bonuses_wrap}>
+      <AbilityItem icon={ContentIcon} text="Контент о заработке" />
+      <AbilityItem icon={CalendarIcon} text="Прибыльный календарь" />
+      <AbilityItem icon={ChatIcon} text="Чаты с сообществом" />
+      <AbilityItem icon={HelperIcon} text="Поддержка экспертов" />
+    </div>
+  )
 }
