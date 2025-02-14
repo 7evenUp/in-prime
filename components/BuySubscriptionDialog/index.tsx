@@ -615,13 +615,17 @@ const BuySubscriptionDialog = ({
                           </div>
                           <span className={styles.promocode_discount}>
                             Ваша скидка:{' '}
-                            {localPromocode.discountKind.id === 'MONEY'
-                              ? '$'
-                              : ''}
-                            {localPromocode.discountAmount}
-                            {localPromocode.discountKind.id === 'MONEY'
-                              ? ''
-                              : '%'}
+                            {localPromocode.discountKind.id === 'MONEY' ? (
+                              <>
+                                {'$'}
+                                {localPromocode.discountAmount}
+                              </>
+                            ) : (
+                              <>
+                                {localPromocode.discountAmount * 100}
+                                {'%'}
+                              </>
+                            )}
                           </span>
                         </>
                       ) : (
