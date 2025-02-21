@@ -251,7 +251,213 @@ import BybitDefault from "@/public/images/png/examples/common/bybit-default.png"
 import StakelandDefault from "@/public/images/png/examples/common/stakeland.png"
 import AddicktedDefault from "@/public/images/png/examples/common/addickted.png"
 
+import _2025_01_Xterio from '@/public/images/png/examples/2025/january/2025_01-Xterio.jpg'
+import _2025_01_Derive from '@/public/images/png/examples/2025/january/2025_01-Derive.jpg'
+import _2025_01_Solv from '@/public/images/png/examples/2025/january/2025_01-solv.jpg'
+import _2025_01_Wormhole from '@/public/images/png/examples/2025/january/2025_01-Wormhole.jpg'
+import _2025_01_Creator_Bid from '@/public/images/png/examples/2025/january/2025_01-Creator Bid.jpg'
+import _2025_01_Jupiter from '@/public/images/png/examples/2025/january/2025_01-Jupiter.jpg'
+import _2025_01_Meteora from '@/public/images/png/examples/2025/january/2025_01-Meteora.jpg'
+import _2025_01_Parallel from '@/public/images/png/examples/2025/january/2025_01-parallel.jpg'
+
+import _2024_12_Xion from '@/public/images/png/examples/2024/december/2024_12-Xion.jpg'
+import _2024_12_Magic_Eden from '@/public/images/png/examples/2024/december/2024_12-Magic Eden.jpg'
+import _2024_12_Movement from '@/public/images/png/examples/2024/december/2024_12-Movement.jpg'
+import _2024_12_YO10 from '@/public/images/png/examples/2024/december/2024_12-YO10.jpg'
+import _2024_12_M3M3 from '@/public/images/png/examples/2024/december/2024_12-M3M3.png'
+import _2024_12_Echos from '@/public/images/png/examples/2024/december/2024_12-Echos.png'
+import _2024_12_SEKOIA from '@/public/images/png/examples/2024/december/2024_12-SEKOIA.jpg'
+import _2024_12_GUESS from '@/public/images/png/examples/2024/december/2024_12-GUESS.jpg'
+import _2024_12_Pengu from '@/public/images/png/examples/2024/december/2024_12-Pengu.jpg'
+
 export const examples = {
+  январь: [
+    {
+      title: 'Xterio на Bybit',
+      earn: '$195',
+      spend: '$15',
+      category: 'Токенсейлы',
+      condition: 'Заблокировать 100 $USDT для участия в лотерее.',
+      resources: '$100, время на выполнение активности.',
+      reportUrl: 'crypton.xyz',
+      img: _2025_01_Xterio,
+    },
+    {
+      title: 'Derive',
+      earn: '$800',
+      spend: '$400',
+      category: 'Аирдропы',
+      condition: 'Набивать торговый объём на бирже.',
+      resources: '$400 на торговые комиссии, время на выполнение активности.',
+      reportUrl: 'crypton.xyz',
+      img: _2025_01_Derive,
+    },
+    {
+      title: 'Solv Protocol',
+      earn: '$1200',
+      spend: '$670',
+      category: 'Ретродропы',
+      condition:
+        'Купить $BTC в апреле 2024 года и заблокировать его до января 2025 года.',
+      resources: '$670 на покупку $BTC, время на выполнение активности.',
+      reportUrl: 'crypton.xyz',
+      img: _2025_01_Solv,
+    },
+    {
+      title: 'Wormhole',
+      earn: '$165',
+      spend: '$45',
+      category: 'Ретродропы',
+      condition: 'Купить токены $W и делегировать их для голосований.',
+      resources: '$45 на покупку $W, время на выполнение активности.',
+      reportUrl: 'crypton.xyz',
+      img: _2025_01_Wormhole,
+    },
+    {
+      title: 'Creator Bid',
+      earn: '$3500',
+      spend: '$500',
+      category: 'Токенсейлы',
+      condition: 'Купить аллокацию токенов $BID на Binance Web3 Wallet.',
+      resources: '$500, время на выполнение активности.',
+      reportUrl: 'crypton.xyz',
+      img: _2025_01_Creator_Bid,
+    },
+    {
+      title: 'Jupiter',
+      earn: '$200',
+      spend: '$10',
+      category: 'Ретродропы',
+      condition: 'Торговать на площадке Jupiter, участвовать в голосованиях.',
+      resources: '$10 на комиссии, время на выполнение активности.',
+      reportUrl: 'crypton.xyz',
+      img: _2025_01_Jupiter,
+    },
+    {
+      title: 'Meteora',
+      earn: '$361',
+      spend: '$200',
+      category: 'DeFi',
+      condition:
+        'Предоставлять ликвидность в парах ликвидности с мемкоинами.',
+      resources: '1 $SOL (~$200), время на выполнение активности.',
+      reportUrl: 'crypton.xyz',
+      img: _2025_01_Meteora,
+    },
+    {
+      title: 'Parallel',
+      earn: '$130',
+      spend: '$0',
+      category: 'GameFi',
+      condition: 'Играть в игру Parallel TCG и зарабатывать токены $PRIME.',
+      resources: 'Время на выполнение активности.',
+      reportUrl: 'crypton.xyz',
+      img: _2025_01_Parallel,
+    },
+  ],
+  декабрь: [
+    {
+      title: 'Xion',
+      earn: '$1250',
+      spend: '$0',
+      category: 'Тестнеты',
+      condition: 'Участвовать в социальных кампаниях проекта.',
+      resources: 'Время на выполнение активности.',
+      reportUrl: 'crypton.xyz',
+      img: _2024_12_Xion,
+    },
+    {
+      title: 'Magic Eden',
+      earn: '$2000',
+      spend: '$100',
+      category: 'Ретродропы',
+      condition: 'Проявлять активность на площадке, зарабатывая поинты.',
+      resources: '$100, время на выполнение активности.',
+      reportUrl: 'crypton.xyz',
+      img: _2024_12_Magic_Eden,
+    },
+    {
+      title: 'Movement',
+      earn: '$2000',
+      spend: '$0',
+      category: 'Тестнеты',
+      condition: 'Участвовать в квестах проекта.',
+      resources: 'Время на выполнение активности.',
+      reportUrl: 'crypton.xyz',
+      img: _2024_12_Movement,
+    },
+    {
+      title: '$YO10 от Yobit',
+      earn: '$1000',
+      spend: '$5',
+      category: 'Промоакции',
+      condition:
+        'Набить торговый объём на Yobit, подключить бота безопасности.',
+      resources: '$5 на комиссии, время на выполнение активности.',
+      reportUrl: 'crypton.xyz',
+      img: _2024_12_YO10,
+    },
+    {
+      title: '$M3M3 от Meteora',
+      earn: '$400',
+      spend: '$100',
+      category: 'Ретродропы',
+      condition: 'Заработать от $1600 комиссий на Meteora.',
+      resources: '$100 на комиссии, время на выполнение активности.',
+      reportUrl: 'crypton.xyz',
+      img: _2024_12_M3M3,
+    },
+    {
+      title: 'Echos',
+      earn: '$1500',
+      spend: '$200',
+      category: 'Мемкоины',
+      condition: 'Купить токены площадки Echos по коллу из канала.',
+      resources: '$200, время на выполнение активности.',
+      reportUrl: 'crypton.xyz',
+      img: _2024_12_Echos,
+    },
+    {
+      title: 'Покупка токена $SEKOIA',
+      earn: '$400',
+      spend: '$100',
+      category: 'Мемкоины',
+      condition: 'Купить мемкоин $SEKOIA по колу из чата.',
+      resources: '$100, время на выполнение активности.',
+      reportUrl: 'crypton.xyz',
+      img: _2024_12_SEKOIA,
+    },
+    {
+      title: 'Покупка токена $GUESS',
+      earn: '$150',
+      spend: '$100',
+      category: 'Мемкоины',
+      condition: 'Купить мемкоин $GUESS по колу из чата.',
+      resources: '$100, время на выполнение активности.',
+      reportUrl: 'crypton.xyz',
+      img: _2024_12_GUESS,
+    },
+    {
+      title: 'Pengu',
+      earn: '$1000',
+      spend: '$300',
+      category: 'Ретродропы',
+      condition: 'Проявлять активность в сети Ethereum в 2022-2023 годах.',
+      resources: '$300, время на выполнение активности.',
+      reportUrl: 'crypton.xyz',
+      img: _2024_12_Pengu,
+    },
+    {
+      title: 'Parallel',
+      earn: '$130',
+      spend: '$0',
+      category: 'GameFi',
+      condition: 'Играть в игру Parallel TCG и зарабатывать токены $PRIME.',
+      resources: 'Время на выполнение активности.',
+      reportUrl: 'crypton.xyz',
+      img: _2025_01_Parallel,
+    },
+  ],
   ноябрь: [
     {
       title: "Swell",
