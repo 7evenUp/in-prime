@@ -12,8 +12,8 @@ RUN \
   elif [ -f package-lock.json ]; then npm ci; \
   elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm i --frozen-lockfile; \
   else echo "Lockfile not found." && exit 1; \
+  npm run build \
   fi
-RUN npm run build
 # Копируем все файлы проекта в рабочую директорию
 COPY . .
 
