@@ -264,16 +264,16 @@ import Quai from "@/public/images/png/examples/2025/february/Quai.jpg";
 import ParallelFeb from "@/public/images/png/examples/2025/february/Parallel.jpg";
 
 // Импорты картинок для марта
-import BinanceWalletSales from "@/public/images/png/examples/march/BinanceWalletSales.jpg";
-import Redstone from "@/public/images/png/examples/march/Redstone.jpg";
-import BackpackIoNet from "@/public/images/png/examples/march/BackpackIoNet.jpg";
-import Henlo from "@/public/images/png/examples/march/Henlo.jpg";
-import SolanaBet from "@/public/images/png/examples/march/SolanaBet.jpg";
-import NillionOG from "@/public/images/png/examples/march/NillionOG.jpg";
-import NillionNode from "@/public/images/png/examples/march/NillionNode.jpg";
-import Mantra from "@/public/images/png/examples/march/Mantra.jpg";
-import OneGravity from "@/public/images/png/examples/march/OneGravity.jpg";
-import GoodVibesClub from "@/public/images/png/examples/march/GoodVibesClub.jpg";
+import BinanceWalletSales from "@/public/images/png/examples/2025/march/BinanceWalletSales.jpg";
+import Redstone from "@/public/images/png/examples/2025/march/Redstone.png";
+import BackpackIoNet from "@/public/images/png/examples/2025/march/BackpackIoNet.jpg";
+import Henlo from "@/public/images/png/examples/2025/march/Henlo.jpg";
+import SolanaBet from "@/public/images/png/examples/2025/march/SolanaBet.jpg";
+import NillionOG from "@/public/images/png/examples/2025/march/NillionOG.jpg";
+import NillionNode from "@/public/images/png/examples/2025/march/NillionNode.jpg";
+import Mantra from "@/public/images/png/examples/2025/march/Mantra.jpg";
+import OneGravity from "@/public/images/png/examples/2025/march/OneGravity.jpg";
+import GoodVibesClub from "@/public/images/png/examples/2025/march/GoodVibesClub.jpg";
 
 import _2025_01_Xterio from "@/public/images/png/examples/2025/january/2025_01-Xterio.jpg";
 import _2025_01_Derive from "@/public/images/png/examples/2025/january/2025_01-Derive.jpg";
@@ -295,6 +295,114 @@ import _2024_12_GUESS from "@/public/images/png/examples/2024/december/2024_12-G
 import _2024_12_Pengu from "@/public/images/png/examples/2024/december/2024_12-Pengu.jpg";
 
 export const examples = {
+  март: [
+    {
+      title: "Сейлы Binance Wallet",
+      earn: "$260",
+      spend: "$30",
+      category: "Токенсейлы",
+      condition: "Участвовать в токенсейлах через кошелёк Binance.",
+      resources:
+        "$1900 для максимальной аллокации, время на выполнение активности.",
+      reportUrl: "crypton.xyz",
+      img: BinanceWalletSales,
+    },
+    {
+      title: "Redstone",
+      earn: "$3000",
+      spend: "$0",
+      category: "Ретродропы",
+      condition:
+        "Выполнять социальные задания: подписки, репосты, создание мемов и постов.",
+      resources: "Время на выполнение активности.",
+      reportUrl: "crypton.xyz",
+      img: Redstone,
+    },
+    {
+      title: "Backpack x IoNet",
+      earn: "$77",
+      spend: "$22",
+      category: "Аирдропы",
+      condition:
+        "Торговать в паре $IO/$USDT, увеличивая объём потраченных средств на комиссии.",
+      resources: "$100, время на выполнение активности.",
+      reportUrl: "crypton.xyz",
+      img: BackpackIoNet,
+    },
+    {
+      title: "Henlo",
+      earn: "$95",
+      spend: "$8",
+      category: "Ретродропы",
+      condition:
+        "Выкупить аллокацию токенов $HENLO, которые раздавали за холд NFT и токенов.",
+      resources: "$8, время на выполнение активности.",
+      reportUrl: "crypton.xyz",
+      img: Henlo,
+    },
+    {
+      title: "Ставка на курс Solana",
+      earn: "$110",
+      spend: "$100",
+      category: "Ретродропы",
+      condition:
+        "Поставить на то, что курс $SOL не упадёт ниже $110 до конца марта (Polymarket).",
+      resources: "Время на выполнение активности.",
+      reportUrl: "crypton.xyz",
+      img: SolanaBet,
+    },
+    {
+      title: "Nillion",
+      earn: "$6200",
+      spend: "$0",
+      category: "Ретродропы",
+      condition:
+        "Получить роль OG в Discord за выполнение социальных активностей.",
+      resources: "Время на выполнение активности.",
+      reportUrl: "crypton.xyz",
+      img: NillionOG,
+    },
+    {
+      title: "Nillion",
+      earn: "$900",
+      spend: "$20",
+      category: "Ноды",
+      condition: "Держать ноду Nillion.",
+      resources: "$20, время на выполнение активности.",
+      reportUrl: "crypton.xyz",
+      img: NillionNode,
+    },
+    {
+      title: "Mantra",
+      earn: "$2191",
+      spend: "$450",
+      category: "Ретродропы",
+      condition: "Выполнять социальные задания.",
+      resources: "$10 на один кошелёк, время на выполнение активности.",
+      reportUrl: "crypton.xyz",
+      img: Mantra,
+    },
+    {
+      title: "One Gravity",
+      earn: "$1900",
+      spend: "$500",
+      category: "NFT",
+      condition: "Участвовать в минте коллекции.",
+      resources: "WL за наличие ноды 0G, время на выполнение активности.",
+      reportUrl: "crypton.xyz",
+      img: OneGravity,
+    },
+    {
+      title: "Good Vibes Club",
+      earn: "$760",
+      spend: "$480",
+      category: "NFT",
+      condition: "Купить NFT по коллу из чата и продать через несколько дней.",
+      resources: "$480, время на выполнение активности.",
+      reportUrl: "crypton.xyz",
+      img: GoodVibesClub,
+    },
+  ],
   февраль: [
     {
       title: "GLHFers",
@@ -401,114 +509,6 @@ export const examples = {
     },
   ],
 
-  // март: [
-  //   {
-  //     title: "Сейлы Binance Wallet",
-  //     earn: "$260",
-  //     spend: "$30",
-  //     category: "Токенсейлы",
-  //     condition: "Участвовать в токенсейлах через кошелёк Binance.",
-  //     resources:
-  //       "$1900 для максимальной аллокации, время на выполнение активности.",
-  //     reportUrl: "crypton.xyz",
-  //     img: BinanceWalletSales,
-  //   },
-  //   {
-  //     title: "Redstone",
-  //     earn: "$3000",
-  //     spend: "$0",
-  //     category: "Ретродропы",
-  //     condition:
-  //       "Выполнять социальные задания: подписки, репосты, создание мемов и постов.",
-  //     resources: "Время на выполнение активности.",
-  //     reportUrl: "crypton.xyz",
-  //     img: Redstone,
-  //   },
-  //   {
-  //     title: "Backpack x IoNet",
-  //     earn: "$77",
-  //     spend: "$22",
-  //     category: "Аирдропы",
-  //     condition:
-  //       "Торговать в паре $IO/$USDT, увеличивая объём потраченных средств на комиссии.",
-  //     resources: "$100, время на выполнение активности.",
-  //     reportUrl: "crypton.xyz",
-  //     img: BackpackIoNet,
-  //   },
-  //   {
-  //     title: "Henlo",
-  //     earn: "$95",
-  //     spend: "$8",
-  //     category: "Ретродропы",
-  //     condition:
-  //       "Выкупить аллокацию токенов $HENLO, которые раздавали за холд NFT и токенов.",
-  //     resources: "$8, время на выполнение активности.",
-  //     reportUrl: "crypton.xyz",
-  //     img: Henlo,
-  //   },
-  //   {
-  //     title: "Ставка на курс Solana",
-  //     earn: "$110",
-  //     spend: "$100",
-  //     category: "Ретродропы",
-  //     condition:
-  //       "Поставить на то, что курс $SOL не упадёт ниже $110 до конца марта (Polymarket).",
-  //     resources: "Время на выполнение активности.",
-  //     reportUrl: "crypton.xyz",
-  //     img: SolanaBet,
-  //   },
-  //   {
-  //     title: "Nillion",
-  //     earn: "$6200",
-  //     spend: "$0",
-  //     category: "Ретродропы",
-  //     condition:
-  //       "Получить роль OG в Discord за выполнение социальных активностей.",
-  //     resources: "Время на выполнение активности.",
-  //     reportUrl: "crypton.xyz",
-  //     img: NillionOG,
-  //   },
-  //   {
-  //     title: "Nillion",
-  //     earn: "$900",
-  //     spend: "$20",
-  //     category: "Ноды",
-  //     condition: "Держать ноду Nillion.",
-  //     resources: "$20, время на выполнение активности.",
-  //     reportUrl: "crypton.xyz",
-  //     img: NillionNode,
-  //   },
-  //   {
-  //     title: "Mantra",
-  //     earn: "$2191",
-  //     spend: "$450",
-  //     category: "Ретродропы",
-  //     condition: "Выполнять социальные задания.",
-  //     resources: "$10 на один кошелёк, время на выполнение активности.",
-  //     reportUrl: "crypton.xyz",
-  //     img: Mantra,
-  //   },
-  //   {
-  //     title: "One Gravity",
-  //     earn: "$1900",
-  //     spend: "$500",
-  //     category: "NFT",
-  //     condition: "Участвовать в минте коллекции.",
-  //     resources: "WL за наличие ноды 0G, время на выполнение активности.",
-  //     reportUrl: "crypton.xyz",
-  //     img: OneGravity,
-  //   },
-  //   {
-  //     title: "Good Vibes Club",
-  //     earn: "$760",
-  //     spend: "$480",
-  //     category: "NFT",
-  //     condition: "Купить NFT по коллу из чата и продать через несколько дней.",
-  //     resources: "$480, время на выполнение активности.",
-  //     reportUrl: "crypton.xyz",
-  //     img: GoodVibesClub,
-  //   },
-  // ],
   январь: [
     {
       title: "Xterio на Bybit",
