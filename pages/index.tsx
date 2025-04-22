@@ -1,84 +1,88 @@
-import React, { useState, useEffect } from "react"
-import { useRouter } from "next/router"
+import React, { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 
-import Footer from "@/components/footer"
-import Examples from "@/components/examples"
-import Accordion from "@/components/accordion/accordion"
-import Team from "@/components/Team"
-import Ribbon from "@/components/ribbon"
+import Footer from "@/components/footer";
+import Examples from "@/components/examples";
+import Accordion from "@/components/accordion/accordion";
+import Team from "@/components/Team";
+import Ribbon from "@/components/ribbon";
 
-import Testimonials from "@/sections/Testimonials/Testimonials"
-import Histories from "@/sections/Histories/Histories"
-import Features from "@/sections/Features/Features"
-import FeaturesMd from "@/sections/Features/FeaturesMd"
-import Partners from "@/sections/Partners/Partners"
-import Roadmap from "@/sections/Roadmap/Roadmap"
-import Earn from "@/sections/Earn/Earn"
-import Founders from "@/sections/founders/Founders"
-import OtherProducts from "@/sections/OtherProducts/OtherProducts"
-import Guarantee from "@/sections/Guarantee/Guarantee"
-import Advantages from "@/sections/Advantages/Advantages"
+import Testimonials from "@/sections/Testimonials/Testimonials";
+import Histories from "@/sections/Histories/Histories";
+import Features from "@/sections/Features/Features";
+import FeaturesMd from "@/sections/Features/FeaturesMd";
+import Partners from "@/sections/Partners/Partners";
+import Roadmap from "@/sections/Roadmap/Roadmap";
+import Earn from "@/sections/Earn/Earn";
+import Founders from "@/sections/founders/Founders";
+import OtherProducts from "@/sections/OtherProducts/OtherProducts";
+import Guarantee from "@/sections/Guarantee/Guarantee";
+import Advantages from "@/sections/Advantages/Advantages";
 
-import BuySubscr from "@/public/images/jsx/subscribe/buy-subscr"
-import BuySubscrLg from "@/public/images/jsx/subscribe/buy-subscr-lg"
-import BuySubscrMd from "@/public/images/jsx/subscribe/buy-subscr-md"
-import BuySubscrSm from "@/public/images/jsx/subscribe/buy-subscr-sm"
+import BuySubscr from "@/public/images/jsx/subscribe/buy-subscr";
+import BuySubscrLg from "@/public/images/jsx/subscribe/buy-subscr-lg";
+import BuySubscrMd from "@/public/images/jsx/subscribe/buy-subscr-md";
+import BuySubscrSm from "@/public/images/jsx/subscribe/buy-subscr-sm";
 
-import { Resolution } from "@/types/resolution"
-import AdvantagesSm from "@/sections/Advantages/AdvantagesSm"
-import FeaturesSm from "@/sections/Features/FeaturesSm"
-import LoginIdPopup from "@/components/LoginIdPopup/LoginIdPopup"
-import BuySubscription from "@/sections/BuySubscription/BuySubscription"
-import { AdBanner, TAdBanner } from '@/components/banner/ad-banner.client'
-import { getCookie } from 'cookies-next'
-import { GetServerSideProps } from 'next'
-import { useDispatch } from 'react-redux'
-import { scrollReducer } from '@/redux/reducers/scrollReducer'
-import { useThrottledCallback } from '@react-hookz/web'
+import { Resolution } from "@/types/resolution";
+import AdvantagesSm from "@/sections/Advantages/AdvantagesSm";
+import FeaturesSm from "@/sections/Features/FeaturesSm";
+import LoginIdPopup from "@/components/LoginIdPopup/LoginIdPopup";
+import BuySubscription from "@/sections/BuySubscription/BuySubscription";
+import { AdBanner, TAdBanner } from "@/components/banner/ad-banner.client";
+import { getCookie } from "cookies-next";
+import { GetServerSideProps } from "next";
+import { useDispatch } from "react-redux";
+import { scrollReducer } from "@/redux/reducers/scrollReducer";
+import { useThrottledCallback } from "@react-hookz/web";
 // import TimerPromo from "@/sections/TimerPromo/TimerPromo"
 
 const useWindowSize = () => {
-  const [currentWidth, setCurrentWidth] = useState(0)
+  const [currentWidth, setCurrentWidth] = useState(0);
 
   const handleResize = () => {
-    setCurrentWidth(window.innerWidth)
-  }
+    setCurrentWidth(window.innerWidth);
+  };
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      window.addEventListener("resize", handleResize)
+      window.addEventListener("resize", handleResize);
 
-      handleResize()
+      handleResize();
 
-      return () => window.removeEventListener("resize", handleResize)
+      return () => window.removeEventListener("resize", handleResize);
     }
-  }, [])
+  }, []);
 
-  return currentWidth
-}
+  return currentWidth;
+};
 
 type SSRProps = {
-  banner: TAdBanner | null
-  bannerCookieName: string
-}
+  banner: TAdBanner | null;
+  bannerCookieName: string;
+};
 
-const Home = ({bannerCookieName,banner}: SSRProps) => {
-  const router = useRouter()
-  const dispatch = useDispatch()
-  const referral = router.query.ref || "agent"
+const Home = ({ bannerCookieName, banner }: SSRProps) => {
+  const router = useRouter();
+  const dispatch = useDispatch();
+  const referral = router.query.ref || "agent";
 
-  const [teamOpened, setTeamOpened] = useState(false)
-  const scrollHandler = useThrottledCallback((event) => {
-    dispatch(scrollReducer.actions.setScrollY(window.scrollY))
-  }, [], 200)
+  const [teamOpened, setTeamOpened] = useState(false);
+  const scrollHandler = useThrottledCallback(
+    (event) => {
+      dispatch(scrollReducer.actions.setScrollY(window.scrollY));
+    },
+    [],
+    200
+  );
   useEffect(() => {
-    window.addEventListener("scroll", scrollHandler, { passive: true })
-    return () => window.removeEventListener("scroll", scrollHandler)
-  }, [])
+    window.addEventListener("scroll", scrollHandler, { passive: true });
+    return () => window.removeEventListener("scroll", scrollHandler);
+  }, []);
 
-  const currentWidth = useWindowSize()
+  const currentWidth = useWindowSize();
 
-  let resolution: Resolution = "lgg"
+  let resolution: Resolution = "lgg";
 
   // const [fridayRendered, setFridayRendered] = useState(false)
   // React.useEffect(() => {
@@ -91,19 +95,19 @@ const Home = ({bannerCookieName,banner}: SSRProps) => {
 
   switch (true) {
     case currentWidth >= 1920:
-      resolution = "lgg"
-      break
+      resolution = "lgg";
+      break;
     case currentWidth < 1920 && currentWidth >= 1368:
-      resolution = "lg"
-      break
+      resolution = "lg";
+      break;
     case currentWidth < 1368 && currentWidth >= 768:
-      resolution = "md"
-      break
+      resolution = "md";
+      break;
     case currentWidth < 768:
-      resolution = "sm"
-      break
+      resolution = "sm";
+      break;
     default:
-      break
+      break;
   }
 
   // const tariffs = {
@@ -117,7 +121,7 @@ const Home = ({bannerCookieName,banner}: SSRProps) => {
     lg: <BuySubscrLg />,
     md: <BuySubscrMd />,
     sm: <BuySubscrSm />,
-  }
+  };
 
   return (
     <>
@@ -128,10 +132,7 @@ const Home = ({bannerCookieName,banner}: SSRProps) => {
           />
         )} */}
         <div className="app__container">
-          <Earn
-            referral={referral}
-            resolution={resolution}
-          />
+          <Earn referral={referral} resolution={resolution} />
 
           {resolution === "sm" ? <AdvantagesSm /> : <Advantages />}
 
@@ -206,9 +207,7 @@ const Home = ({bannerCookieName,banner}: SSRProps) => {
 
           <OtherProducts />
 
-          <Footer
-            resolution={resolution}
-          />
+          <Footer resolution={resolution} />
         </div>
       </div>
 
@@ -217,31 +216,34 @@ const Home = ({bannerCookieName,banner}: SSRProps) => {
 
       <LoginIdPopup />
 
-      {bannerCookieName && banner && <AdBanner cookieName={bannerCookieName} banner={banner} />}
+      {bannerCookieName && banner && (
+        <AdBanner cookieName={bannerCookieName} banner={banner} />
+      )}
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
 
-
-export const getServerSideProps: GetServerSideProps<SSRProps> = async (context) => {
-  const banners: TAdBanner[] = []
+export const getServerSideProps: GetServerSideProps<SSRProps> = async (
+  context
+) => {
+  const banners: TAdBanner[] = [];
 
   const getBannerClosedCookie = (name: string) =>
-    `banner ${name} closed`.replaceAll(' ', '_')
+    `banner ${name} closed`.replaceAll(" ", "_");
   const getCurrentBanner = async () => {
     const bs = banners.filter(
       (banner) =>
         new Date() >= new Date(banner.start) &&
         new Date() <= new Date(banner.end) &&
         !getCookie(getBannerClosedCookie(banner.name), context)
-    )
-    return bs.at(0) || null
-  }
+    );
+    return bs.at(0) || null;
+  };
 
-  const banner = await getCurrentBanner()
-  const cookieName = banner ? getBannerClosedCookie(banner.name) : ''
+  const banner = await getCurrentBanner();
+  const cookieName = banner ? getBannerClosedCookie(banner.name) : "";
 
-  return { props: { banner, bannerCookieName: cookieName } }
-}
+  return { props: { banner, bannerCookieName: cookieName } };
+};
