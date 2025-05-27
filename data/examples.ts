@@ -294,7 +294,67 @@ import _2024_12_SEKOIA from "@/public/images/png/examples/2024/december/2024_12-
 import _2024_12_GUESS from "@/public/images/png/examples/2024/december/2024_12-GUESS.jpg";
 import _2024_12_Pengu from "@/public/images/png/examples/2024/december/2024_12-Pengu.jpg";
 
+import BinanceWalletSalesApr from "@/public/images/png/examples/2025/april/BinanceWalletSales.jpg";
+import Wayfinder from "@/public/images/png/examples/2025/april/Wayfinder.jpeg";
+import Initia from "@/public/images/png/examples/2025/april/Initia.jpeg";
+import Hyperlane from "@/public/images/png/examples/2025/april/Hyperlane.jpeg";
+import Zora from "@/public/images/png/examples/2025/april/Zora.jpeg";
+
 export const examples = {
+  апрель: [
+    {
+      title: "Сейлы Binance Wallet",
+      earn: "$210",
+      spend: "$30",
+      category: "Токенсейлы",
+      condition: "Участвовать в токенсейлах через кошелёк Binance.",
+      resources:
+        "$1650 для получения максимальной аллокации, время на выполнение активности.",
+      reportUrl: "crypton.xyz",
+      img: BinanceWalletSalesApr,
+    },
+    {
+      title: "Wayfinder",
+      earn: "$40",
+      spend: "$0.5",
+      category: "Ретродропы",
+      condition: "Выполнять социальные задания.",
+      resources: "5 минут на выполнение активности.",
+      reportUrl: "crypton.xyz",
+      img: Wayfinder,
+    },
+    {
+      title: "Initia",
+      earn: "$300",
+      spend: "$0",
+      category: "Тестнеты",
+      condition: "Повышать уровень игрового питомца в тестовой сети Initia.",
+      resources: "Время на выполнение активности.",
+      reportUrl: "crypton.xyz",
+      img: Initia,
+    },
+    {
+      title: "Hyperlane",
+      earn: "$20+",
+      spend: "$5",
+      category: "Ретродропы",
+      condition: "Использовать мосты с технологией Hyperlane.",
+      resources: "Время на выполнение активности.",
+      reportUrl: "crypton.xyz",
+      img: Hyperlane,
+    },
+    {
+      title: "Zora",
+      earn: "$72+",
+      spend: "$10",
+      category: "Ретродропы",
+      condition:
+        "Проявлять активность на сайте Zora (покупать и продавать NFT, создавать свои NFT).",
+      resources: "Время на выполнение активности.",
+      reportUrl: "crypton.xyz",
+      img: Zora,
+    },
+  ],
   март: [
     {
       title: "Сейлы Binance Wallet",
@@ -508,7 +568,6 @@ export const examples = {
       img: ParallelFeb,
     },
   ],
-
   январь: [
     {
       title: "Xterio на Bybit",
@@ -592,7 +651,8 @@ export const examples = {
       img: _2025_01_Parallel,
     },
   ],
-  декабрь: [
+  " 2024": [
+    // Декабрь
     {
       title: "Xion",
       earn: "$1250",
@@ -694,8 +754,8 @@ export const examples = {
       reportUrl: "crypton.xyz",
       img: _2025_01_Parallel,
     },
-  ],
-  ноябрь: [
+
+    // Ноябрь
     {
       title: "Swell",
       earn: "$600",
@@ -889,8 +949,8 @@ export const examples = {
       reportUrl: "crypton.xyz",
       img: Parallel2Dec11,
     },
-  ],
-  октябрь: [
+
+    // Октябрь
     {
       title: "EigenLayer",
       earn: "$400",
@@ -1027,8 +1087,8 @@ export const examples = {
       reportUrl: "crypton.xyz",
       img: ParallelNov4,
     },
-  ],
-  "Сентябрь-Январь": [
+
+    // Сентябрь-Январь
     {
       title: "Digital Resistance",
       earn: "$35",
@@ -1100,7 +1160,6 @@ export const examples = {
       reportUrl: "crypton.xyz",
       img: XAISep28,
     },
-
     {
       title: "Stoshi",
       earn: "$1250",
@@ -1284,798 +1343,6 @@ export const examples = {
       resources: "время на выполнение активности.",
       reportUrl: "crypton.xyz",
       img: BigBallsBirdsAug6,
-    },
-
-    {
-      title: "LayerZero",
-      earn: "до $40 000",
-      spend: "от $50",
-      category: "Ретродропы",
-      condition:
-        "Проявлять активность в проектах использующих протокол LayerZero.",
-      resources: "время на выполнение активности, затраты на комиссии.",
-      reportUrl: "crypton.xyz",
-      img: LayerZeroJune24,
-    },
-    {
-      title: "ZkSync",
-      earn: "до $20 000",
-      spend: "от $50",
-      category: "Ретродропы",
-      condition: "Проявлять активность в сети, предоставлять ликвидность.",
-      resources: "время на выполнение активности, затраты на комиссии.",
-      reportUrl: "crypton.xyz",
-      img: ZkSyncJune24,
-    },
-    {
-      title: "Bybit-акции",
-      earn: "$1 300",
-      spend: "$15",
-      category: "Аирдропы",
-      condition: "Участвовать в промоакциях биржи Bybit.",
-      resources:
-        "$15 на комиссию, время для участия, свободная ликвидность для стейкинга.",
-      reportUrl: "crypton.xyz",
-      img: BybitDefault,
-    },
-    {
-      title: "OKX-акции",
-      earn: "$500",
-      spend: "$10",
-      category: "Аирдропы",
-      condition: "Участвовать в промоакциях биржи OKX.",
-      resources: "время для участия, свободная ликвидность для стейкинга.",
-      reportUrl: "crypton.xyz",
-      img: OKXJune24,
-    },
-    {
-      title: "CityVerse Tycoon",
-      earn: "$387",
-      spend: "$95",
-      category: "NFT",
-      condition: "Играть в игру, проявлять активность в дискорде, получить WL.",
-      resources: "5 минут в день, $10 на комиссию, $85 для минта NFT.",
-      reportUrl: "crypton.xyz",
-      img: CityVerseJune24,
-    },
-    {
-      title: "Zeta Markets",
-      earn: "$300",
-      spend: "$100",
-      category: "Ретродропы",
-      condition:
-        "Торговать и фармить поинты. Заработать можно было x3-x4 от затрат на комиссии.",
-      resources: "время на выполнение активности, затраты ка комиссии.",
-      reportUrl: "crypton.xyz",
-      img: ZetaMarketsJune24,
-    },
-    {
-      title: "Addickted",
-      earn: "$240",
-      spend: "$0",
-      category: "NFT",
-      condition: "Холд токенов на момент снепшота для получения NFT.",
-      resources: "время на выполнения активности.",
-      reportUrl: "crypton.xyz",
-      img: AddicktedDefault,
-    },
-    {
-      title: "Big Balls Birds",
-      earn: "$230",
-      spend: "$50",
-      category: "Аирдропы",
-      condition: "Получение WL в телеграм-чате, участие в конкурсах.",
-      resources: "время на выполнения активности.",
-      reportUrl: "crypton.xyz",
-      img: BigBallsBirdsJune24,
-    },
-    {
-      title: "Parallel",
-      earn: "$220",
-      spend: "$70",
-      category: "Game-Fi",
-      condition: "Играть в игру, получать токены за победы.",
-      resources: "~$70 на покупку нужных NFT, ежедневная игра.",
-      reportUrl: "crypton.xyz",
-      img: ParallelJune24,
-    },
-    {
-      title: "Lista Dao",
-      earn: "от $170",
-      spend: "от $2",
-      category: "Ретродропы",
-      condition:
-        "Можно было получить $170 за выполнение простого задания на Galxe. Также можно было предоставить ликвидность и получить x3 от вложений.",
-      resources: "время на выполнение активности, свободная ликвидность.",
-      reportUrl: "crypton.xyz",
-      img: ListaDAOJune24,
-    },
-    {
-      title: "ZIELCHAIN",
-      earn: "$55",
-      spend: "$0",
-      category: "NFT",
-      condition: "Фармить WL в дискорде.",
-      resources: "15 минут в день.",
-      reportUrl: "crypton.xyz",
-      img: ZielChainJune24,
-    },
-    {
-      title: "Trust Wallet x Merlin Chain",
-      earn: "$53",
-      spend: "до $15",
-      category: "Аирдропы",
-      condition: "Выполнять квесты на QuestN.",
-      resources: "время на отработку активности, $150 возвратной ликвидности.",
-      reportUrl: "crypton.xyz",
-      img: TrustWalletJune24,
-    },
-    {
-      title: "Ai Arena",
-      earn: "от $50",
-      spend: "$0",
-      category: "Аирдропы",
-      condition: "Фармить поинты за квесты, играть в игру.",
-      resources: "время на выполнение активности.",
-      reportUrl: "crypton.xyz",
-      img: AIArenaJune24,
-    },
-    {
-      title: "Stakeland x Yolo Games",
-      earn: "$35",
-      spend: "$20",
-      category: "Аирдропы",
-      condition: "Выполнить социальные задания на платформе.",
-      resources: "время на активность, ферма аккаунтов.",
-      reportUrl: "crypton.xyz",
-      img: StakelandDefault,
-    },
-    {
-      title: "Stakeland x BorpaToken",
-      earn: "$30",
-      spend: "$0",
-      category: "Аирдропы",
-      condition: "Выполнить социальные задания на платформе.",
-      resources: "время на активность, ферма аккаунтов.",
-      reportUrl: "crypton.xyz",
-      img: StakelandDefault,
-    },
-
-    {
-      title: "Taiko",
-      earn: "$2 500+",
-      spend: "$400",
-      category: "Тестнет, Ноды",
-      condition:
-        "Поставить ноду, участвовать в Galxe-кампаниях, получать роли в дискорде и тд.",
-      resources:
-        "~$300-$500 на поддержание сервера, время на выполнение активностей.",
-      reportUrl: "crypton.xyz",
-      img: TaikoMay24,
-    },
-    {
-      title: "Crypton x StormTrade",
-      earn: "до $2 200",
-      spend: "$30",
-      category: "Торговый конкурс, Ретродропы",
-      condition:
-        "Торговать в парах к USDT и TON в течение недели с 6 по 12 мая. Шанс на победу был 18%.",
-      resources:
-        "$1 000 возвратной ликвидности, время на выполнение активности.",
-      reportUrl: "crypton.xyz",
-      img: CryptonXStormTradeMay24,
-    },
-    {
-      title: "Frucks",
-      earn: "$1 500",
-      spend: "$90",
-      category: "NFT",
-      condition:
-        "Активность в Twitter, активность на сайте проекта, участие в раффлах.",
-      resources: "ферма аккаунтов, время на выполнение активности.",
-      reportUrl: "crypton.xyz",
-      img: FrucksMay24,
-    },
-    {
-      title: "Bybit-акции",
-      earn: "$900",
-      spend: "$15",
-      category: "Аирдропы",
-      condition: "Участвовать в промоакциях биржи Bybit.",
-      resources:
-        "$15 на комиссию, время для участия, свободная ликвидность для стейкинга.",
-      reportUrl: "crypton.xyz",
-      img: BybitDefault,
-    },
-    {
-      title: "Addickted",
-      earn: "$450",
-      spend: "$0",
-      category: "Аирдропы",
-      condition:
-        "Выполнять задания в телеграм-боте, играть в телеграм-приложении.",
-      resources: "Время на выполнение активности.",
-      reportUrl: "crypton.xyz",
-      img: AddicktedDefault,
-    },
-    {
-      title: "PotK",
-      earn: "$300",
-      spend: "$0",
-      category: "NFT",
-      condition:
-        "Активность в Twitter, активность в игре на телефоне, участие в раффлах.",
-      resources: "Время на отработку активности, ферма аккаунтов.",
-      reportUrl: "crypton.xyz",
-      img: PotKMay24,
-    },
-    {
-      title: "Parallel",
-      earn: "$250",
-      spend: "$70",
-      category: "Game-Fi",
-      condition: "Играть в игру, получать токены за победы.",
-      resources: "~$70 на покупку нужных NFT, ежедневная игра.",
-      reportUrl: "crypton.xyz",
-      img: ParallelMay24,
-    },
-    {
-      title: "Anti Social Frogs",
-      earn: "$200",
-      spend: "$110",
-      category: "NFT",
-      condition: "Активность в Twitter, участие в раффлах.",
-      resources: "Ферма аккаунтов, время на выполнение активности.",
-      reportUrl: "crypton.xyz",
-      img: AntiSocialFrogsMay24,
-    },
-    {
-      title: "Nutcrackers",
-      earn: "$125",
-      spend: "$75",
-      category: "NFT",
-      condition: "Холдить щелкунчика, выиграть в раффле.",
-      resources: "владение NFT Щелкунчик.",
-      reportUrl: "crypton.xyz",
-      img: NutcrackersMay24,
-    },
-    {
-      title: "Nyan Heroes",
-      earn: "$100",
-      spend: "$0",
-      category: "NFT",
-      condition:
-        "Выполнять соц. задания и играть в игру. Пользователи, которые играли в игру, смогли заработать ~$100-$300.",
-      resources: "время на выполнение активности.",
-      reportUrl: "crypton.xyz",
-      img: NyanHeroesMay24,
-    },
-    {
-      title: "Stakeland",
-      earn: "$25",
-      spend: "$0",
-      category: "Аирдропы",
-      condition: "Выполнить социальные задания на платформе.",
-      resources: "время на активность, ферма аккаунтов.",
-      reportUrl: "crypton.xyz",
-      img: StakelandDefault,
-    },
-    {
-      title: "Castile",
-      earn: "$7 800",
-      spend: "$900",
-      category: "NFT",
-      condition:
-        "Активничать на Discord-сервере проекта, участвовать в раффлах.",
-      resources: "Ферма аккаунтов, время на выполнение активности.",
-      reportUrl: "crypton.xyz",
-      img: CastileApril24,
-    },
-    {
-      title: "Nibiru",
-      earn: "$1 700",
-      spend: "$15",
-      category: "Ноды",
-      condition:
-        "Участвовать в нескольких тестнетах на протяжении 10 месяцев. Было 4 тестнета, 2 из них это поддерживание ноды. Последние тестнеты это активность на самой площадке Nibiru.",
-      resources:
-        "~15$ - на содержание сервера. Если считать все тестнеты и участие в них, затраты составляют: ~$150 за 10 месяцев работы ноды",
-      reportUrl: "crypton.xyz",
-      img: NibiruApril24,
-    },
-    {
-      title: "MMMC",
-      earn: "$1 450",
-      spend: "$15",
-      category: "NFT",
-      condition: "Проявлять активность в Twitter проекта, участие в раффлах.",
-      resources: "Ферма аккаунтов, время на выполнение активности.",
-      reportUrl: "crypton.xyz",
-      img: MMMCApril24,
-    },
-    {
-      title: "GM Network",
-      earn: "$1 350",
-      spend: "$0",
-      category: "NFT-колл",
-      condition: "Участие в раффле, заполнить формы, выполнить соц. задания.",
-      resources: "Ферма аккаунтов, время на выполнение активности.",
-      reportUrl: "crypton.xyz",
-      img: GMNetworkApril24,
-    },
-    {
-      title: "Wormhole",
-      earn: "$1 200",
-      spend: "$75",
-      category: "Ретродропы",
-      condition: "Взаимодействовать с экосистемой проекта.",
-      resources:
-        "Время на отработку активности, ферма аккаунтов, средства на комиссии.",
-      reportUrl: "crypton.xyz",
-      img: WormholeApril24,
-    },
-    {
-      title: "Palio",
-      earn: "$1 000",
-      spend: "$300",
-      category: "NFT",
-      condition: "Получить вайтлист и отчеканить NFT.",
-      resources: "Время на выполнение активности, $300 для минта NFT.",
-      reportUrl: "crypton.xyz",
-      img: PalioApril24,
-    },
-    {
-      title: "Omni",
-      earn: "$920",
-      spend: "$0",
-      category: "Тестнеты",
-      condition:
-        "Нужно было собирать OAT'ы через Galxe и собирать роли в дискорде.",
-      resources: "Пару часов времени в течении 9 месяцев.",
-      reportUrl: "crypton.xyz",
-      img: OmniApril24,
-    },
-    {
-      title: "SA World",
-      earn: "$425",
-      spend: "$15",
-      category: "NFT",
-      condition: "Выполнять ежедневные задания в расширении в браузере.",
-      resources: "Время на выполнение активности.",
-      reportUrl: "crypton.xyz",
-      img: SAWorldApril24,
-    },
-    {
-      title: "Elixir Games",
-      earn: "$400",
-      spend: "$0",
-      category: "NFT/Аирдроп",
-      condition: "Участвовать в раффле и выполнить задания на Galxe.",
-      resources: "Время на выполнение активности.",
-      reportUrl: "crypton.xyz",
-      img: ElixirGamesApril24,
-    },
-    {
-      title: "Stakeland",
-      earn: "$50",
-      spend: "$0",
-      category: "Аирдропы",
-      condition: "Выполнить социальные задание на платформе.",
-      resources: "Время на активность, ферма аккаунтов.",
-      reportUrl: "crypton.xyz",
-      img: StakelandDefault,
-    },
-    {
-      title: "Ethena",
-      earn: "50%-60%",
-      spend: "$100",
-      category: "Ретродропы",
-      condition: "Отправить токены в пул ликвидности и фармить поинты.",
-      resources:
-        "$100 на комиссию, свободная ликвидность для фарминга поинтов.",
-      reportUrl: "crypton.xyz",
-      img: EthenaApril24,
-    },
-    {
-      title: "Memeland",
-      earn: "$100",
-      spend: "$10",
-      category: "Аирдропы",
-      condition: "Выполнить задания на сайте проекта.",
-      resources: "Время на выполнение активности, ферма аккаунтов.",
-      reportUrl: "crypton.xyz",
-      img: MemelandMarch24,
-    },
-    {
-      title: "Aevo",
-      earn: "$1 300",
-      spend: "$300",
-      category: "Ретродропы",
-      condition: "Торговать на платформе, стейкинг.",
-      resources: "Время на отработку проекта.",
-      reportUrl: "crypton.xyz",
-      img: AevoMarch24,
-    },
-    {
-      title: "Polyhedra Network⁪",
-      earn: "$500",
-      spend: "$50",
-      category: "Ретродропы",
-      condition: "Выполнять задания, совершать бриджи.",
-      resources: "Деньги на комиссии, время на активность.",
-      reportUrl: "crypton.xyz",
-      img: PolyhedraMarch24,
-    },
-    {
-      title: "OverTrip⁪",
-      earn: "$400",
-      spend: "$0",
-      category: "NFT",
-      condition:
-        "Проявлять активность в соц. сетях, выполнять задания в Discord.",
-      resources: "Время для отработки активности.",
-      reportUrl: "crypton.xyz",
-      img: OverTripMarch24,
-    },
-    {
-      title: "SA World",
-      earn: "$135",
-      spend: "$0",
-      category: "NFT",
-      condition: "Выполнять ежедневные задания в расширении в браузере.",
-      resources: "Время для ежедневных заданий.",
-      reportUrl: "crypton.xyz",
-      img: SaWorldMarch24,
-    },
-    {
-      title: "Polyhedra Network на OKX",
-      earn: "+3-5%",
-      spend: "любая сумма",
-      category: "Token Sale",
-      condition: "Закинуть ликвидность в стейкинг.",
-      resources: "Свободная ликвидность для стейкинга.",
-      reportUrl: "crypton.xyz",
-      img: PolyhedraOKXMarch24,
-    },
-    {
-      title: "BlockGames",
-      earn: "$2 440",
-      spend: "$15",
-      category: "NFT-колл",
-      condition:
-        "Следовать рекомендациям из колла нашего эксперта: купить NFT по указанной цене, выставить на продажу через лимитный ордер по высшей цене из колла и ожидать продажи. Обязательно следить за своей позицией и уведомлениями от эксперта.",
-      resources:
-        "$1 050 на покупку NFT (депозит возвращается) и $15 на комиссию.",
-      reportUrl: "crypton.xyz",
-      img: BlockGamesMarch24,
-    },
-    {
-      title: "Early Retired Cats Club",
-      earn: "$1 760",
-      spend: "$15",
-      category: "NFT-колл",
-      condition:
-        "Следовать рекомендациям из колла нашего эксперта: купить NFT по указанной цене, выставить на продажу через лимитный ордер по высшей цене из колла и ожидать продажи. Обязательно следить за своей позицией и уведомлениями от эксперта.",
-      resources:
-        "$1 540 на покупку NFT (депозит возвращается) и $15 на комиссию.",
-      reportUrl: "crypton.xyz",
-      img: ERCCMarch24,
-    },
-    {
-      title: "Sproto Gremlins",
-      earn: "$870",
-      spend: "$15",
-      category: "NFT-колл",
-      condition:
-        "Следовать рекомендациям из колла нашего эксперта: купить NFT по указанной цене, выставить на продажу через лимитный ордер по высшей цене из колла и ожидать продажи. Обязательно следить за своей позицией и уведомлениями от эксперта.",
-      resources:
-        "$1 680 на покупку NFT (депозит возвращается) и $15 на комиссию.",
-      reportUrl: "crypton.xyz",
-      img: SprotoGremlinsMarch24,
-    },
-    {
-      title: "ByBit акции",
-      earn: "$60",
-      spend: "$2",
-      category: "Аирдропы",
-      condition:
-        "Совершить торговый оборот с токенами, нужными для участия в акциях на сумму $100.",
-      resources:
-        "Аккаунт биржи ByBit, 101+ $USDT и время на выполнение активности.",
-      reportUrl: "crypton.xyz",
-      img: BybitDefault,
-    },
-
-    {
-      title: "Milady",
-      earn: "$2 720",
-      spend: "$15",
-      category: "NFT-колл",
-      condition:
-        "Следовать рекомендациям из колла нашего эксперта: купить NFT по указанной цене, выставить на продажу через лимитный ордер по высшей цене из колла и ожидать продажи. Обязательно следить за своей позицией и уведомлениями от эксперта.",
-      resources:
-        "$6 100 на покупку NFT (депозит возвращается) и $15 на комиссию.",
-      reportUrl: "crypton.xyz",
-      img: Milady,
-    },
-    {
-      title: "Persona",
-      earn: "$2 040",
-      spend: "$1 060",
-      category: "GameFi",
-      condition: "Принять участие в аукционе на покупку NFT.",
-      resources: "$990 для участия в аукционе и $70 на комиссию.",
-      reportUrl: "crypton.xyz",
-      img: Persona,
-    },
-    {
-      title: "Starknet",
-      earn: "$2 040",
-      spend: "$20",
-      category: "Ретродропы",
-      condition: "Проявлять активность в сети Starknet.",
-      resources: "$20 на комиссии и время для отработки активности.",
-      reportUrl: "crypton.xyz",
-      img: Starknet,
-    },
-    {
-      title: "Lil Pudgys",
-      earn: "$750",
-      spend: "$15",
-      category: "NFT-колл",
-      condition:
-        "Следовать рекомендациям из колла нашего эксперта: купить NFT по указанной цене, выставить на продажу через лимитный ордер по высшей цене из колла и ожидать продажи. Обязательно следить за своей позицией и уведомлениями от эксперта.",
-      resources:
-        "$2 236 на покупку NFT (депозит возвращается) и $15 на комиссию.",
-      reportUrl: "crypton.xyz",
-      img: Pudgys,
-    },
-    {
-      title: "Pixels",
-      earn: "$500+",
-      spend: "$0",
-      category: "GameFi",
-      condition: "Играть в игру, попасть в топ 20 000.",
-      resources: "Ферма аккаунтов, время на игру.",
-      reportUrl: "crypton.xyz",
-      img: Pixels,
-    },
-    {
-      title: "Pudgy Presents",
-      earn: "$425",
-      spend: "$15",
-      category: "NFT-колл",
-      condition:
-        "Следовать рекомендациям из колла нашего эксперта: купить NFT по указанной цене, выставить на продажу через лимитный ордер по высшей цене из колла и ожидать продажи. Обязательно следить за своей позицией и уведомлениями от эксперта.",
-      resources:
-        "$1400 на покупку NFT (депозит возвращается) и $15 на комиссию.",
-      reportUrl: "crypton.xyz",
-      img: PudgyPresents,
-    },
-    {
-      title: "BlockGames",
-      earn: "$345",
-      spend: "$15",
-      category: "NFT-колл",
-      condition:
-        "Следовать рекомендациям из колла нашего эксперта: купить NFT по указанной цене, выставить на продажу через лимитный ордер по высшей цене из колла и ожидать продажи. Обязательно следить за своей позицией и уведомлениями от эксперта.",
-      resources:
-        "$990 на покупку NFT (депозит возвращается) и $15 на комиссию.",
-      reportUrl: "crypton.xyz",
-      img: BlockGames,
-    },
-    {
-      title: "Bybit",
-      earn: "$220",
-      spend: "$0.2",
-      category: "Аирдропы",
-      condition:
-        "Совершить торговый оборот с токеном $MAVIA на сумму $100 и заполнить форму.",
-      resources:
-        "Аккаунт биржи Bybit, 101+ $USDT и время на выполнение активности.",
-      reportUrl: "crypton.xyz",
-      img: ByBit,
-    },
-    {
-      title: "Farcana",
-      earn: "$150",
-      spend: "$0",
-      category: "Аирдропы",
-      condition: "Выполнить квесты на площадке.",
-      resources:
-        "Ферма аккаунтов, 30 минут времени на выполнение квестов на 1 аккаунт.",
-      reportUrl: "crypton.xyz",
-      img: Farcana,
-    },
-    {
-      title: "Shrapnel Operators",
-      earn: "$138",
-      spend: "$15",
-      category: "NFT-колл",
-      condition:
-        "Следовать рекомендациям из колла нашего эксперта: купить NFT по указанной цене, выставить на продажу через лимитный ордер по высшей цене из колла и ожидать продажи. Обязательно следить за своей позицией и уведомлениями от эксперта.",
-      resources:
-        "$440 на покупку NFT (депозит возвращается) и $15 на комиссию.",
-      reportUrl: "crypton.xyz",
-      img: ShrapnelFeb,
-    },
-    {
-      title: "Bybit",
-      earn: "$120",
-      spend: "$1",
-      category: "Токенсейл",
-      condition: "Держать на балансе биржи не менее 100 $USDT.",
-      resources: "Аккаунт биржи Bybit и 100+ $USDT.",
-      reportUrl: "crypton.xyz",
-      img: ByBit,
-    },
-    {
-      title: "QnA3",
-      earn: "$50",
-      spend: "$2",
-      category: "Аирдропы",
-      condition: "Совершать ежедневный check in на сайте проекта.",
-      resources: "Ферма аккаунтов, время на выполнение активности.",
-      reportUrl: "crypton.xyz",
-      img: QnA3,
-    },
-    {
-      title: "Bybit",
-      earn: "$25",
-      spend: "$0.2",
-      category: "Аирдропы",
-      condition: "Совершить торговый оборот с токеном $DMAIL на сумму $100.",
-      resources:
-        "Аккаунт биржи Bybit, 101+ $USDT и время на выполнение активности.",
-      reportUrl: "crypton.xyz",
-      img: ByBit,
-    },
-    {
-      title: "Bybit",
-      earn: "$25",
-      spend: "$0.2",
-      category: "Аирдропы",
-      condition: "Совершить торговый оборот с токеном $JUP на сумму $100.",
-      resources:
-        "Аккаунт биржи Bybit, 101+ $USDT и время на выполнение активности.",
-      reportUrl: "crypton.xyz",
-      img: ByBit,
-    },
-
-    {
-      title: "Altlayer",
-      earn: "$50 000",
-      spend: "$0",
-      category: "Ретродропы",
-      condition:
-        "Проект, о котором мы говорили ещё в июле 2022 года, раздал дроп своим преданным пользователям. За холд пары NFT проекта получили токенов на сумму $50 000.",
-      resources:
-        "Терпение, чтобы не продать эти NFT, учитывая, что их флор был $20 000 и $5 000 соответственно.",
-      reportUrl: "crypton.xyz",
-      img: Altlayer,
-    },
-    {
-      title: "Ninjalerts",
-      earn: "$4 700",
-      spend: "$1 340",
-      category: "NFT",
-      condition: "Получить WL, заминтить NFT и продать на торговой площадке.",
-      resources:
-        "Время для получения WL. $1 300 на минт NFT и $40 на комиссии.",
-      reportUrl: "crypton.xyz",
-      img: Ninjalerts,
-    },
-    {
-      title: "Age of Dino",
-      earn: "$2 760",
-      spend: "$1 365",
-      category: "NFT",
-      condition: "Получить WL через различные активности в проекте.",
-      resources:
-        "Ферма аккаунтов, время для получения WL. $1 350 на минт NFT и $15 на комиссии.",
-      reportUrl: "crypton.xyz",
-      img: Dino,
-    },
-    {
-      title: "Xai",
-      earn: "$1 500",
-      spend: "$0",
-      category: "Ретродропы",
-      condition:
-        "Проект раздал дроп за роли, полученные в первой фазе тестнета.",
-      resources: "Время на отработку активности.",
-      reportUrl: "crypton.xyz",
-      img: Xai,
-    },
-    {
-      title: "Lil Pudgys",
-      earn: "$910",
-      spend: "$15",
-      category: "NFT-колл",
-      condition:
-        "Следовать рекомендациям из колла нашого эксперта: купить NFT по указанной цене, выставить на продажу через лимитный ордер по высшей цене из колла и ожидать продажи. Обязательно следить за своей позицией и уведомлениями от эксперта.",
-      resources:
-        "$2 210 на покупку NFT (депозит возвращается) и $15 на комиссию.",
-      reportUrl: "crypton.xyz",
-      img: Pudgys,
-    },
-    {
-      title: "Playember",
-      earn: "$870",
-      spend: "$15",
-      category: "NFT",
-      condition:
-        "Фармить поинты за взаимодействие с соц. сетями, участие конкурсах, мероприятиях и т.д.",
-      resources: "Время на фарм поинтов, $15 на комиссию для чеканки NFT.",
-      reportUrl: "crypton.xyz",
-      img: Playember,
-    },
-    {
-      title: "Jupiter",
-      earn: "$500",
-      spend: "$10",
-      category: "Ретродропы",
-      condition:
-        'Проявлять активность на децентрализованном агрегаторе в сети Solana “Jupiter”. Получили дроп с большой вероятностью те, кто следовал инструкциям из рубрики "Возможности”.',
-      resources: "Ферма аккаунтов, средства на оплату комиссий при отработке.",
-      reportUrl: "crypton.xyz",
-      img: Jupiter,
-    },
-    {
-      title: "Altlayer",
-      earn: "$300",
-      spend: "$0",
-      category: "Ретродропы",
-      condition:
-        "Дроп в размере ~$300 можно было получить за прохождение Galxe-кампании.",
-      resources: "Время на прохождение кампании, ферма аккаунтов.",
-      reportUrl: "crypton.xyz",
-      img: Altlayer,
-    },
-    {
-      title: "Hal Froggy Bobblehead",
-      earn: "$250",
-      spend: "$15",
-      category: "NFT-колл",
-      condition:
-        "Следовать рекомендациям из колла нашего эксперта: купить NFT по указанной цене, выставить на продажу через лимитный ордер по высшей цене из колла и ожидать продажи. Обязательно следить за своей позицией и уведомлениями от эксперта.",
-      resources: "$60 на покупку NFT (депозит возвращается) и $15 на комиссию.",
-      reportUrl: "crypton.xyz",
-      img: Bobblehead,
-    },
-    {
-      title: "Shrapnel Operators",
-      earn: "$140",
-      spend: "$15",
-      category: "NFT-колл",
-      condition:
-        "Следовать рекомендациям из колла нашего эксперта: купить NFT по указанной цене, выставить на продажу через лимитный ордер по высшей цене из колла и ожидать продажи. Обязательно следить за своей позицией и уведомлениями от эксперта.",
-      resources:
-        "$550 на покупку NFT (депозит возвращается) и $15 на комиссию.",
-      reportUrl: "crypton.xyz",
-      img: Shrapnel,
-    },
-    {
-      title: "BlockGames",
-      earn: "$115",
-      spend: "$15",
-      category: "NFT-колл",
-      condition:
-        "Следовать рекомендациям из колла нашего эксперта: купить NFT по указанной цене, выставить на продажу через лимитный ордер по высшей цене из колла и ожидать продажи. Обязательно следить за своей позицией и уведомлениями от эксперта.",
-      resources:
-        "$670 на покупку NFT (депозит возвращается) и $15 на комиссию.",
-      reportUrl: "crypton.xyz",
-      img: BlockGames,
-    },
-    {
-      title: "Magic Square",
-      earn: "$70",
-      spend: "$0",
-      category: "Аирдропы",
-      condition: "Выполнять квесты на площадке проекта.",
-      resources: "Время на прохождение квестов.",
-      reportUrl: "crypton.xyz",
-      img: Square,
     },
   ],
   " 2023": [
