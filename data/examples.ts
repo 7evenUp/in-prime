@@ -300,7 +300,91 @@ import Initia from "@/public/images/png/examples/2025/april/Initia.jpeg";
 import Hyperlane from "@/public/images/png/examples/2025/april/Hyperlane.jpeg";
 import Zora from "@/public/images/png/examples/2025/april/Zora.jpeg";
 
+import TokenSaleLOUDMay from "@/public/images/png/examples/2025/may/TokenSaleLOUD.jpg";
+import TokenSalesVirtualsMay from "@/public/images/png/examples/2025/may/TokenSalesVirtuals.jpeg";
+import HumaMay from "@/public/images/png/examples/2025/may/Huma.jpeg";
+import SpaceAndTimeMay from "@/public/images/png/examples/2025/may/SpaceAndTime.jpeg";
+import ProcoinMay from "@/public/images/png/examples/2025/may/Procoin.jpeg";
+import ShortTRUMPMay from "@/public/images/png/examples/2025/may/ShortTRUMP.jpeg";
+import SophonMay from "@/public/images/png/examples/2025/may/Sophon.jpeg";
+
 export const examples = {
+  май: [
+    {
+      title: "Токенсейл $LOUD",
+      earn: "$800",
+      spend: "$8",
+      category: "Токенсейлы",
+      condition: "Получить 10 Smart Followers в Twitter",
+      resources: "$8, время на выполнение активности",
+      reportUrl: "crypton.xyz",
+      img: TokenSaleLOUDMay,
+    },
+    {
+      title: "Токенсейлы Virtuals",
+      earn: "$1050",
+      spend: "$500",
+      category: "Токенсейлы",
+      condition:
+        "Участвовать в токенсейлах ИИ-агентов на площадке Virtuals, обменивая баллы на доступ к аллокации",
+      resources:
+        "$250 на блокировку токенов, $250 на комиссии при накрутке торгового объёма",
+      reportUrl: "crypton.xyz",
+      img: TokenSalesVirtualsMay,
+    },
+    {
+      title: "Huma",
+      earn: "$1200",
+      spend: "$1000",
+      category: "Ретродропы",
+      condition: "Заблокировать ликвидность от 1 до 6 месяцев",
+      resources: "Любая сумма в долларах, время на выполнение активности",
+      reportUrl: "crypton.xyz",
+      img: HumaMay,
+    },
+    {
+      title: "Space and Time",
+      earn: "$1600",
+      spend: "$100",
+      category: "Ретродропы",
+      condition: "Выполнять социальные задания",
+      resources:
+        "$5 на аккаунт для прохождения верификации, время на выполнение активности",
+      reportUrl: "crypton.xyz",
+      img: SpaceAndTimeMay,
+    },
+    {
+      title: "Procoin",
+      earn: "До $450",
+      spend: "$120",
+      category: "Ретродропы",
+      condition: "Купить подписку Farcaster Pro",
+      resources: "$120, время на выполнение активности",
+      reportUrl: "crypton.xyz",
+      img: ProcoinMay,
+    },
+    {
+      title: "Шорт $TRUMP",
+      earn: "$1600",
+      spend: "$1000",
+      category: "Трейдинг",
+      condition:
+        "Открыть шорт по $TRUMP с плечом x15 ввиду собрания топ-холдеров токена",
+      resources: "Время на выполнение активности",
+      reportUrl: "crypton.xyz",
+      img: ShortTRUMPMay,
+    },
+    {
+      title: "Sophon",
+      earn: "$140",
+      spend: "$3",
+      category: "Ретродропы",
+      condition: "Совершать активность в сети ZKSync",
+      resources: "$3, время на выполнение активности",
+      reportUrl: "crypton.xyz",
+      img: SophonMay,
+    },
+  ],
   апрель: [
     {
       title: "Сейлы Binance Wallet",
