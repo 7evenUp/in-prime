@@ -300,7 +300,7 @@ import Initia from "@/public/images/png/examples/2025/april/Initia.jpeg";
 import Hyperlane from "@/public/images/png/examples/2025/april/Hyperlane.jpeg";
 import Zora from "@/public/images/png/examples/2025/april/Zora.jpeg";
 
-import TokenSaleLOUDMay from "@/public/images/png/examples/2025/may/TokenSaleLOUD.jpg";
+import TokenSaleLOUDMay from "@/public/images/png/examples/2025/may/TokenSaleLOUD.jpeg";
 import TokenSalesVirtualsMay from "@/public/images/png/examples/2025/may/TokenSalesVirtuals.jpeg";
 import HumaMay from "@/public/images/png/examples/2025/may/Huma.jpeg";
 import SpaceAndTimeMay from "@/public/images/png/examples/2025/may/SpaceAndTime.jpeg";
