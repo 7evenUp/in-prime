@@ -1,0 +1,4 @@
+  include:
+  - project: 'tools/shared'
+    ref: 'devops'
+    file: 'pipelines/gitlab-ci.yml'
