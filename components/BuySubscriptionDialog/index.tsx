@@ -127,7 +127,7 @@ const BuySubscriptionDialog = ({
       subscriptionId: number
     }) =>
       axios.post<Promocode>(ID_URL + 'promo-codes/validate/', {
-        promocode,
+        promocode: promocode.trim().toUpperCase(),
         subscription: subscriptionId,
       }, { withCredentials: true }),
   })

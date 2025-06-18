@@ -213,7 +213,7 @@ const BuySubscription = ({
       axios.post<Promocode>(
         ID_URL + "/api/v1/promo-codes/validate/",
         {
-          promocode,
+          promocode: promocode.trim().toUpperCase(),
           subscription: subscriptionId,
         },
         { withCredentials: true }
@@ -283,10 +283,6 @@ const BuySubscription = ({
     validate()
   }, [promoForSubmit])
 
-  if (isLoading) {
-    return <div className="app__container__subscribe"> </div>
-  }
-
   return (
     <div id="subscribe" className="app__container__subscribe__wrapper">
       <div className="app__container__subscribe__promoback" />
@@ -336,37 +332,64 @@ const BuySubscription = ({
             </div>
           </div>
 
-          {subscriptions && (
+          {isLoading ? (
             <div className={styles.subscriptions}>
-              {subscriptions.map((el, i) => (
-                <SubscriptionCard
-                  subscriptions={subscriptions}
-                  fallbackPromocode={fallbackPromocode}
-                  key={el.id}
-                  subscription={el}
-                  order={i}
-                  resolution={resolution}
-                  showMonthlyPrice={showMonthlyPrice}
-                  setPromoForSubmit={setPromoForSubmit}
-                  activePromocode={activePromocode}
-                  isPromoPending={isPending}
-                />
-              ))}
+              <div className={styles.skeleton} />
+              <div className={styles.skeleton} />
+              <div className={styles.skeleton} />
+              <div className={styles.skeleton} />
             </div>
+          ) : (
+            subscriptions && (
+              <div className={styles.subscriptions}>
+                {subscriptions.map((el, i) => (
+                  <SubscriptionCard
+                    subscriptions={subscriptions}
+                    fallbackPromocode={fallbackPromocode}
+                    key={el.id}
+                    subscription={el}
+                    order={i}
+                    resolution={resolution}
+                    showMonthlyPrice={showMonthlyPrice}
+                    setPromoForSubmit={setPromoForSubmit}
+                    activePromocode={activePromocode}
+                    isPromoPending={isPending}
+                  />
+                ))}
+              </div>
+            )
           )}
 
-          <div className={styles.support_wrapper}>
-            <p className={styles.support}>
-              Остались вопросы? Задай их нашему{" "}
-              <a
-                href="https://t.me/crypton_support"
-                target="_blank"
-                className={styles.support_link}
-              >
-                специалисту в Телеграм
-              </a>
-            </p>
-          </div>
+          {isLoading ? (
+            <>
+              <p className={styles.support}>Загружаем подписки...</p>
+              <div className={styles.support_wrapper}>
+                <p className={styles.support}>
+                  Если есть вопросы - задай их нашему{" "}
+                  <a
+                    href="https://t.me/crypton_support"
+                    target="_blank"
+                    className={styles.support_link}
+                  >
+                    специалисту в Телеграм
+                  </a>
+                </p>
+              </div>
+            </>
+          ) : (
+            <div className={styles.support_wrapper}>
+              <p className={styles.support}>
+                Остались вопросы? Задай их нашему{" "}
+                <a
+                  href="https://t.me/crypton_support"
+                  target="_blank"
+                  className={styles.support_link}
+                >
+                  специалисту в Телеграм
+                </a>
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </div>
@@ -552,9 +575,76 @@ const SubscriptionCard = ({
                 order === 3 && styles.bonuses_heading_3
               )}
             >
+              {/* Только до 25.04 */}
               ЭКСТРА БОНУСЫ
             </span>
           </div>
+
+          {/*
+          {benefits.find((benefit) => benefit.remainingCount !== null) && (
+            <span className={styles.benefits_remains}>
+              [ Осталось:{" "}
+              {
+                benefits.find((benefit) => benefit.remainingCount !== null)
+                  .remainingCount
+              }{" "}
+              ]
+            </span>
+          )}
+ 
+          {order === 0 && (
+            <span
+              style={{
+                display: "block",
+                marginLeft: 16,
+                color: "rgba(255,255,255,0.75)",
+                marginTop: 4,
+                fontSize: 14,
+              }}
+            >
+              + 10 бонусных дней подписки
+            </span>
+          )}
+          {order === 1 && (
+            <span
+              style={{
+                display: "block",
+                marginLeft: 16,
+                color: "rgba(255,255,255,0.75)",
+                marginTop: 4,
+                fontSize: 14,
+              }}
+            >
+              + 10 бонусных дней подписки
+            </span>
+          )}
+          {order === 2 && (
+            <span
+              style={{
+                display: "block",
+                marginLeft: 16,
+                color: "rgba(255,255,255,0.75)",
+                marginTop: 4,
+                fontSize: 14,
+              }}
+            >
+              + 14 бонусных дней подписки
+            </span>
+          )}
+          {order === 3 && (
+            <span
+              style={{
+                display: "block",
+                marginLeft: 16,
+                color: "rgba(255,255,255,0.75)",
+                marginTop: 4,
+                fontSize: 14,
+              }}
+            >
+              + 28 бонусных дней подписки
+            </span>
+          )}
+          */}
 
           <ul className={clsx(styles.bonuses, styles.bonuses__small)}>
             {benefits.map(

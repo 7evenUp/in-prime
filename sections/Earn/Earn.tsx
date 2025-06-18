@@ -6,8 +6,12 @@ import MobileMenu from "@/components/mobile-menu"
 import { Resolution } from "@/types/resolution"
 
 import styles from "./Earn.module.scss"
-import { getSection, scrollReducer, scrollToSection } from '@/redux/reducers/scrollReducer'
-import { useSelector } from 'react-redux'
+import {
+  getSection,
+  scrollReducer,
+  scrollToSection,
+} from "@/redux/reducers/scrollReducer"
+import { useSelector } from "react-redux"
 
 interface EarnProps {
   resolution: Resolution
@@ -160,7 +164,7 @@ const Earn = ({ resolution, referral }: EarnProps) => {
           Гарантируем окупаемость
         </button>
         <button className={styles.button2} onClick={scrollToSubscriptions}>
-          Забрать подарок
+          Тарифы
         </button>
       </div>
 
@@ -168,7 +172,6 @@ const Earn = ({ resolution, referral }: EarnProps) => {
         <span>CRYPTON PRIME</span>
         <div className={styles.prime_arrow} />
       </div>
-
 
       <div className={styles.gradient} />
       {resolution !== "sm" ? (

@@ -148,18 +148,6 @@ const FeaturesTabs = ({ resolution }: { resolution: Resolution }) => {
         <Tabs.Content className={styles.TabsContent} value="tab5">
           <Slider data={featuresData.helper} resolution={resolution} />
         </Tabs.Content>
-        <Tabs.Trigger className={styles.TabsTrigger} value="primeKit">
-          <div className={styles.trigger_container}>
-            <div className={styles.icon_wrapper}>
-              <PrimeKitIcon />
-              <PrimeKitIconGradient />
-            </div>
-            <span>Стартовый Prime-набор</span>
-          </div>
-        </Tabs.Trigger>
-        <Tabs.Content className={styles.TabsContent} value="primeKit">
-          <Slider data={featuresData.primeKit} resolution={resolution} />
-        </Tabs.Content>
         <Tabs.Trigger className={styles.TabsTrigger} value="tab6">
           <div className={styles.trigger_container}>
             <div className={styles.icon_wrapper}>

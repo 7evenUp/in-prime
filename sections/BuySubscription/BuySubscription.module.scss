@@ -97,6 +97,33 @@
   }
 }
 
+.skeleton {
+  width: 310px;
+  height: 683px;
+  border-radius: 18px;
+  background-color: rgba(255, 255, 255, 0.5);
+
+  @media (max-width: 1919px) and (min-width: 1368px) {
+    width: 310px;
+    height: 646px;
+  }
+
+  @media (max-width: 1367px) and (min-width: 768px) {
+    width: 324px;
+    height: 658px;
+  }
+
+  @media (max-width: 767px) {
+    width: 335px;
+    height: 622px;
+  }
+
+  @media (max-width: 375px) {
+    width: 240px;
+    height: 650px;
+  }
+}
+
 .subscription {
   position: relative;
   overflow: hidden;
@@ -594,6 +621,17 @@
   &_transparent {
     opacity: 1;
   }
+}
+
+.benefits_remains {
+  font-family: "Unbounded", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin-left: 16px;
+  margin-top: 8px;
+  color: var(--prime-active-color);
 }
 
 .bonuses {
