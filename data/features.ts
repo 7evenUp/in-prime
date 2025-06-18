@@ -9,12 +9,10 @@ import calendar2 from "@/public/images/png/features/calendar-2.png"
 import calendar3 from "@/public/images/png/features/calendar-3.png"
 
 import content1 from "@/public/images/png/features/content-1.png"
-import content2 from "@/public/images/png/features/content-2.png"
 import content3 from "@/public/images/png/features/content-3.png"
 
 import chat1 from "@/public/images/png/features/chat-1.png"
 import chat2 from "@/public/images/png/features/chat-2.png"
-import chat3 from "@/public/images/png/features/chat-3.png"
 import chat4 from "@/public/images/png/features/chat-4.png"
 
 import meetups1 from "@/public/images/png/features/meetups-1.png"
@@ -26,10 +24,6 @@ import helper2 from "@/public/images/png/features/helper-2.png"
 
 import investing1 from "@/public/images/png/features/investing-1.png"
 import investing2 from "@/public/images/png/features/investing-2.png"
-
-import primeKit1 from "@/public/images/png/features/primeKit1.png"
-import primeKit2 from "@/public/images/png/features/primeKit2.png"
-import primeKit3 from "@/public/images/png/features/primeKit3.png"
 
 export const data = {
   cryptonBonuses: [
@@ -50,7 +44,7 @@ export const data = {
     {
       imgSrc: cryptonBonuses3,
       description:
-        "Ранний доступ к разрабатываемым продуктам. Наши участники первыми опробовали Tools и Research, а вскоре получат доступ и к Календарю.",
+        "Ранний доступ к разрабатываемым продуктам. Наши участники первыми опробовали Tools, Research и Календарь.",
     },
     {
       imgSrc: cryptonBonuses4,
@@ -82,10 +76,6 @@ export const data = {
         "Авторский материал от экспертов в разных направлениях крипторынка. Уникальные схемы и идеи. Широкое разнообразие авторов и уникальных рубрик: от марафонов по заработку до установки нод.",
     },
     {
-      imgSrc: content2,
-      description: "Доступ к полезным инструментам",
-    },
-    {
       imgSrc: content3,
       description:
         "Сильная команда экспертов по всем направлениям рынка: ретродропы, токенсейлы, ноды, трейдинг, NFT, DeFi, Yield Farming и тестнеты.",
@@ -101,11 +91,6 @@ export const data = {
       imgSrc: chat2,
       description:
         "Для тех, кто не хочет что-то пропустить! Ежедневные выжимки самых горячих тем чата.",
-    },
-    {
-      imgSrc: chat3,
-      description:
-        "В любое время дня и ночи приходите в голосовые комнаты в Discord, общайтесь с единомышленниками, обсуждайте тренды и ищите товарищей по интересам!",
     },
     {
       imgSrc: chat4,
@@ -151,23 +136,6 @@ export const data = {
       imgSrc: investing2,
       description:
         'Наша цель — увеличить стоимость фонда в 10 раз, то есть до $1 миллиона, после чего распределить эту прибыль между вами, владельцами SHARES. Отследить текущее состояние фонда <a href="https://bit.ly/3R27F0e">можно здесь</a>.',
-    },
-  ],
-  primeKit: [
-    {
-      imgSrc: primeKit1,
-      description:
-        "План действий для заработка, включающий в себя обучающий курс по базовым и продвинутым темам, и пошаговые действия по отработке активностей с видео-гайдами.",
-    },
-    {
-      imgSrc: primeKit2,
-      description:
-        "Координата по актуальным и прибыльным событиям с простыми видео-инструкциями.",
-    },
-    {
-      imgSrc: primeKit3,
-      description:
-        "Постоянная поддержка от личного Наставника, команды Prime, а также более опытных участников нашего комьюнити.",
     },
   ],
 }
