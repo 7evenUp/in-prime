@@ -19,6 +19,7 @@ import {
   ContentIcon,
   HelperIcon,
 } from "../Features/Icons"
+import { BotIcon, CommunityIcon } from "./Icons"
 
 import SubscribeArrow from "@/public/images/jsx/subscribe/arrow"
 
@@ -40,35 +41,35 @@ const SPECIAL_PROMOS = (process.env.NEXT_PUBLIC_PROMOS || "NEW,PRIME").split(
 const DEFAULT_CRYPTON_PROMO = "CRYPTON"
 
 const fallbackSubscriptions: Subscription[] = [
-  {
-    id: 1,
-    baseDiscount: null,
-    baseDiscountAmount: null,
-    referralDiscountAmount: null,
-    referralDiscountKind: null,
-    benefits: [
-      {
-        id: 1,
-        file: null,
-        translations: {
-          ru: {
-            name: "1",
-            description: null,
-          },
-        },
-        remainingCount: null,
-      },
-    ],
-    duration: {
-      id: 1,
-      label: "10",
-    },
-    isActive: true,
-    kindId: 1, // 1 - prime | 2 - calendar
-    name: "1 month",
-    price: 99,
-    isPromotionalModeActive: false,
-  },
+  // {
+  //   id: 1,
+  //   baseDiscount: null,
+  //   baseDiscountAmount: null,
+  //   referralDiscountAmount: null,
+  //   referralDiscountKind: null,
+  //   benefits: [
+  //     {
+  //       id: 1,
+  //       file: null,
+  //       translations: {
+  //         ru: {
+  //           name: "1",
+  //           description: null,
+  //         },
+  //       },
+  //       remainingCount: null,
+  //     },
+  //   ],
+  //   duration: {
+  //     id: 1,
+  //     label: "10",
+  //   },
+  //   isActive: true,
+  //   kindId: 1, // 1 - prime | 2 - calendar
+  //   name: "1 month",
+  //   price: 99,
+  //   isPromotionalModeActive: false,
+  // },
   {
     id: 2,
     baseDiscount: 5,
@@ -190,7 +191,11 @@ const BuySubscription = ({
           `${ID_URL}/api/v1/subscriptions/get-active/`
         )
         return response.data.filter(
-          (el) => el.isActive && el.kindId === PRIME_SUBSCRIPTION_KIND_ID
+          (el) =>
+            el.isActive &&
+            el.kindId === PRIME_SUBSCRIPTION_KIND_ID &&
+            // Не рендерим подписку на 1 месяц (закоментить условие если надо включить)
+            el.duration.id !== 1
         )
       } catch (error) {
         return fallbackSubscriptions
@@ -337,7 +342,7 @@ const BuySubscription = ({
               <div className={styles.skeleton} />
               <div className={styles.skeleton} />
               <div className={styles.skeleton} />
-              <div className={styles.skeleton} />
+              {/* <div className={styles.skeleton} /> */}
             </div>
           ) : (
             subscriptions && (
@@ -422,6 +427,9 @@ const SubscriptionCard = ({
   const { duration, benefits } = subscription
 
   const [dialogOpen, setDialogOpen] = useState(false)
+
+  const isTouchDevice = useIsTouchDevice()
+  const HoverCardOrPopover = isTouchDevice ? Popover : HoverCard
 
   const {
     finalPrice,
@@ -525,19 +533,63 @@ const SubscriptionCard = ({
           </span>
         )}
 
-        {order === 3 && (
-          <p
-            className={clsx(
-              styles.text_before_bonuses,
-              styles.text_before_bonuses_priority
-            )}
-          >
-            + <span>приоритетная поддержка</span>
-          </p>
+        {/* Поменять на 3, когда вернётся подписка на 1 мес */}
+        {order === 2 && (
+          <>
+            <p
+              className={clsx(
+                styles.text_before_bonuses,
+                styles.text_before_bonuses_priority
+              )}
+            >
+              + Приоритетная поддержка
+            </p>
+            <HoverCardOrPopover.Root openDelay={150}>
+              <HoverCardOrPopover.Trigger
+                className={clsx(
+                  isTouchDevice
+                    ? styles.PopoverTrigger
+                    : styles.HoverCardTrigger,
+                  isTouchDevice
+                    ? styles.PopoverTrigger_first
+                    : styles.HoverCardTrigger_first
+                )}
+              >
+                <p
+                  className={clsx(
+                    styles.text_before_bonuses,
+                    styles.text_before_bonuses_priority
+                  )}
+                >
+                  + <span>Личная консультация</span>
+                </p>
+              </HoverCardOrPopover.Trigger>
+              <HoverCardOrPopover.Portal>
+                <HoverCardOrPopover.Content
+                  className={clsx(
+                    isTouchDevice
+                      ? styles.PopoverContent
+                      : styles.HoverCardContent,
+                    isTouchDevice
+                      ? styles.PopoverContent_first
+                      : styles.HoverCardContent_first
+                  )}
+                  style={{ flexDirection: "column" }}
+                  sideOffset={5}
+                >
+                  <h2>
+                    Личная консультация <br /> с Павлом Сычевым
+                  </h2>
+                  <p>Звонок или переписка, 30 минут, один раз в год.</p>
+                </HoverCardOrPopover.Content>
+              </HoverCardOrPopover.Portal>
+            </HoverCardOrPopover.Root>
+          </>
         )}
       </div>
 
-      {order !== 0 && benefits?.length > 0 && (
+      {/* Добавить условие `order !== 0 &&`, когда вернётся подписка на 1 мес */}
+      {benefits?.length > 0 && (
         <>
           <div
             className={clsx(
@@ -570,12 +622,12 @@ const SubscriptionCard = ({
             <span
               className={clsx(
                 styles.bonuses_heading_text,
-                order === 1 && styles.bonuses_heading_1,
-                order === 2 && styles.bonuses_heading_2,
-                order === 3 && styles.bonuses_heading_3
+                // поменять на 1,2,3 - когда вернётся подписка на 1 месяц
+                order === 0 && styles.bonuses_heading_1,
+                order === 1 && styles.bonuses_heading_2,
+                order === 2 && styles.bonuses_heading_3
               )}
             >
-              {/* Только до 25.04 */}
               ЭКСТРА БОНУСЫ
             </span>
           </div>
@@ -797,21 +849,6 @@ const NavArrowIcon = () => (
   </svg>
 )
 
-const AbilityItem = ({ icon: Icon, text }) => (
-  <p
-    className={clsx(
-      styles.text_before_bonuses,
-      styles.text_before_bonuses_priority,
-      styles.text_before_bonuses_ability
-    )}
-  >
-    <div className={styles.icon_wrapper}>
-      <Icon className={styles.text_before_bonuses_ability_icon} />
-    </div>
-    {text}
-  </p>
-)
-
 export const PrimeOpportunities = ({
   open,
   setOpen,
@@ -936,9 +973,26 @@ export const PrimeOpportunitiesContent = () => {
   return (
     <div className={styles.text_before_bonuses_wrap}>
       <AbilityItem icon={ContentIcon} text="Контент о заработке" />
-      <AbilityItem icon={CalendarIcon} text="Прибыльный календарь" />
+      <AbilityItem icon={CalendarIcon} text="Crypton Drops Calendar" />
+      <AbilityItem icon={BotIcon} text="Runner bot - коллы на мемкоины" />
       <AbilityItem icon={ChatIcon} text="Чаты с сообществом" />
+      <AbilityItem icon={CommunityIcon} text="Совместная отработка проектов" />
       <AbilityItem icon={HelperIcon} text="Поддержка экспертов" />
     </div>
   )
 }
+
+const AbilityItem = ({ icon: Icon, text }) => (
+  <p
+    className={clsx(
+      styles.text_before_bonuses,
+      styles.text_before_bonuses_priority,
+      styles.text_before_bonuses_ability
+    )}
+  >
+    <div className={styles.icon_wrapper}>
+      <Icon className={styles.text_before_bonuses_ability_icon} />
+    </div>
+    {text}
+  </p>
+)

@@ -1,8 +1,15 @@
 .subscriptions {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  // Поменять 3 -> 4, когда возвращается подписка на 1 мес
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
   font-family: "Resist Sans", sans-serif;
+
+  // Выключить когда возвращается подписка на 1 мес
+  @media (min-width: 1367px) {
+    width: 1100px;
+    margin-inline: auto;
+  }
 
   @media (max-width: 1367px) and (min-width: 768px) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -152,16 +159,16 @@
   &:nth-of-type(1) {
     --prime-active-color: #4ddfd0;
   }
-
-  &:nth-of-type(2) {
+  // Поменять на 2, когда вернётся подписка на 1 мес
+  &:nth-of-type(1) {
     --prime-active-color: #ffe5aa;
   }
-
-  &:nth-of-type(3) {
+  // Поменять на 3, когда вернётся подписка на 1 мес
+  &:nth-of-type(2) {
     --prime-active-color: #bb44cc;
   }
-
-  &:nth-of-type(4) {
+  // Поменять на 4, когда вернётся подписка на 1 мес
+  &:nth-of-type(3) {
     --prime-active-color: #ff4a7a;
   }
 
@@ -170,7 +177,8 @@
     background: var(--prime-active-color);
   }
 
-  &:nth-child(4) {
+  // Поменять на 4, когда вернётся подписка на 1 мес
+  &:nth-child(3) {
     // border: 1px solid #ff4a7a;
     background: rgba(67, 67, 67, 0.6);
 
@@ -186,16 +194,6 @@
     }
 
     .button {
-      // background: linear-gradient(
-      //   129.5deg,
-      //   #FFE5AA 2.02%,
-      //   #ff4a7a 56.6%,
-      //   #bb44cc 104.76%
-      // );
-      // font-family: "Resist Sans Medium", sans-serif;
-      // border: none;
-      // color: #181818;
-
       font-family: "Inter", sans-serif;
       font-weight: 600;
       font-size: 18px;
@@ -588,7 +586,7 @@
   }
 
   &_wrapper {
-    height: 42px;
+    height: 72px;
     margin-left: 16px;
 
     @media (max-width: 767px) {

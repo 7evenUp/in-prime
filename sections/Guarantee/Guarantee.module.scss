@@ -34,14 +34,13 @@
 
 .info {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-
   margin-top: 92px;
   margin-bottom: 36px;
 
   @media (max-width: 1919px) and (min-width: 1368px) {
     margin-bottom: 0;
-    align-items: center;
   }
 
   @media (max-width: 1367px) and (min-width: 768px) {
@@ -395,13 +394,12 @@
   display: flex;
   align-items: center;
   gap: 16px;
-  padding: 0;
   cursor: pointer;
 
   // width: fit-content;
   width: 500px;
   margin-left: auto;
-  padding: 2px 12px 2px 0;
+  padding: 4px 16px;
   border-radius: 6px;
   transition: background-color 0.1s ease-in-out;
 
@@ -415,7 +413,6 @@
 
   @media (max-width: 1919px) and (min-width: 1368px) {
     font-size: 28px;
-    padding-left: 20px;
   }
 
   @media (max-width: 1367px) {

@@ -351,14 +351,16 @@
     width: 260px;
   }
 
+  // Поднять цвета на следующий уровень, а #4ddfd0 поставить на _0,
+  // когда вернётся подписка на 1 мес
   &_0 {
-    --prime-active-color: #4ddfd0;
-  }
-  &_1 {
     --prime-active-color: #ffe5aa;
   }
-  &_2 {
+  &_1 {
     --prime-active-color: #bb44cc;
+  }
+  &_2 {
+    --prime-active-color: #ff4a7a;
   }
   &_3 {
     --prime-active-color: #ff4a7a;

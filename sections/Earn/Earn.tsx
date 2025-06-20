@@ -108,6 +108,7 @@ const Earn = ({ resolution, referral }: EarnProps) => {
         id="header"
         style={{
           background: scrollY ? "rgba(34, 34, 34, 0.8)" : "transparent",
+          backdropFilter: "blur(4px)",
         }}
       />
 

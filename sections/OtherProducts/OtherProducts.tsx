@@ -48,7 +48,7 @@ const OtherProducts = () => {
               </p>
             </div>
           </a>
-          <a
+          {/* <a
             href="https://research.crypton.xyz/"
             target={"_blank"}
             className={styles.product}
@@ -62,7 +62,7 @@ const OtherProducts = () => {
                 Следи за выжимками только важных новостей от любимых проектов
               </p>
             </div>
-          </a>
+          </a> */}
         </div>
       </div>
     </section>
