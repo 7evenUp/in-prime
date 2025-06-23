@@ -459,8 +459,13 @@ const SubscriptionCard = ({
 
   return (
     <div className={styles.subscription}>
-      {/* {order === 3 && <div className={styles.profitable}>выгодно</div>} */}
-      <span className={styles.duration}>{duration.id} МЕС</span>
+      {order === 2 && <div className={styles.profitable}>Лучший выбор</div>}
+      <span className={styles.duration}>
+        {/* Поднять порядок ордеров, когда вернётся подписка на 1 мес */}
+        {order === 0 && "START"}
+        {order === 1 && "SUPER"}
+        {order === 2 && "EPIC"} ({duration.id} МЕС)
+      </span>
       {isPromoPending ? (
         <div className={styles.loading} />
       ) : (

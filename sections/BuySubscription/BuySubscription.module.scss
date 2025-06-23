@@ -141,7 +141,7 @@
   border-radius: 18px;
   backdrop-filter: blur(40px);
   background: rgba(34, 34, 34, 0.7);
-  padding: 20px;
+  padding: 12px;
   box-sizing: border-box;
 
   @media (max-width: 1919px) and (min-width: 1368px) {
@@ -149,11 +149,11 @@
   }
 
   @media (max-width: 1367px) and (min-width: 768px) {
-    padding: 16px;
+    padding: 12px;
   }
 
   @media (max-width: 767px) {
-    padding: 16px;
+    padding: 12px;
   }
 
   &:nth-of-type(1) {
@@ -298,20 +298,21 @@
 
 .profitable {
   position: absolute;
-  rotate: 39deg;
-  right: -40px;
-  top: 25px;
-  height: 30px;
-  width: 170px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 60px;
+  height: 26px;
+  width: 120px;
+  border: 1px solid #ff4a7a;
+  border-radius: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #ffe5aa;
-  color: #181818;
+  background: #ff4a7a47;
+  color: #ff4a7a;
   font-family: "Resist Sans Medium", sans-serif;
   font-weight: 500;
   font-size: 14px;
-  text-transform: uppercase;
 }
 
 .duration {
