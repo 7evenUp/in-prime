@@ -29,14 +29,6 @@
   gap: 20px;
   margin-bottom: 24px;
 
-  @media (max-width: 767px) {
-    margin-bottom: 12px;
-  }
-
-  @media (max-width: 1367px) and (min-width: 768px) {
-    padding-bottom: 34px;
-  }
-
   &_container {
     display: flex;
     align-items: center;
@@ -160,13 +152,13 @@
     --prime-active-color: #4ddfd0;
   }
   // Поменять на 2, когда вернётся подписка на 1 мес
-  &:nth-of-type(1) {
+  &:nth-of-type(2) {
     --prime-active-color: #ffe5aa;
   }
   // Поменять на 3, когда вернётся подписка на 1 мес
-  &:nth-of-type(2) {
-    --prime-active-color: #bb44cc;
-  }
+  // &:nth-of-type(2) {
+  //   --prime-active-color: #bb44cc;
+  // }
   // Поменять на 4, когда вернётся подписка на 1 мес
   &:nth-of-type(3) {
     --prime-active-color: #ff4a7a;
@@ -174,18 +166,13 @@
 
   .duration,
   .bonuses_icon {
-    background: var(--prime-active-color);
+    background: white;
   }
 
   // Поменять на 4, когда вернётся подписка на 1 мес
   &:nth-child(3) {
     // border: 1px solid #ff4a7a;
     background: rgba(67, 67, 67, 0.6);
-
-    .duration,
-    .bonuses_icon {
-      background: #ff4a7a;
-    }
 
     .bonuses_heading,
     .subscription_remains,
@@ -296,23 +283,51 @@
   }
 }
 
+.subscription_header {
+  margin-left: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 32px;
+}
+
+.subscription_name_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 32px;
+}
+
+.subscription_name {
+  color: var(--prime-active-color);
+  font-family: "Unbounded", sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.subscription_duration {
+  font-family: "Unbounded", sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
 .profitable {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 60px;
-  height: 26px;
-  width: 120px;
-  border: 1px solid #ff4a7a;
+  height: 32px;
+  width: fit-content;
+  padding-inline: 14px;
   border-radius: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #ff4a7a47;
+  gap: 8px;
+  background: #ff4a7a20;
   color: #ff4a7a;
-  font-family: "Resist Sans Medium", sans-serif;
-  font-weight: 500;
-  font-size: 14px;
+  font-family: "Resist Sans", sans-serif;
+  font-size: 15px;
 }
 
 .duration {
@@ -385,16 +400,11 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  height: 110px;
+  height: 90px;
   margin-left: 16px;
 
   @media (max-width: 1367px) and (min-width: 768px) {
-    height: 110px;
     gap: 22px;
-  }
-
-  @media (max-width: 767px) {
-    height: 90px;
   }
 
   &_0 {
@@ -412,12 +422,12 @@
   &_left {
     font-family: "Unbounded", sans-serif;
     font-weight: 500;
-    font-size: 42px;
+    font-size: 36px;
     color: #fff;
     position: relative;
 
     @media (max-width: 767px) {
-      font-size: 36px;
+      font-size: 28px;
     }
   }
 
@@ -438,8 +448,7 @@
     font-weight: 300;
     letter-spacing: 0.02em;
     font-size: 20px;
-    margin-bottom: 5px;
-    margin-left: -50px;
+    margin-left: -40px;
 
     @media (max-width: 375px) {
       font-size: 16px;
@@ -457,14 +466,12 @@
   }
 
   &_newDiscount {
-    background-color: var(--prime-active-color);
-    width: fit-content;
-    padding: 8px 14px;
-    color: #181818;
-    font-family: "Resist Sans", sans-serif;
+    color: var(--prime-active-color);
+    font-family: "Unbounded", sans-serif;
     font-size: 18px;
     letter-spacing: 0.02em;
     border-radius: 6px;
+    text-transform: uppercase;
   }
 
   &_discount {
@@ -541,6 +548,18 @@
         background: rgba(255, 255, 255, 1);
       }
     }
+  }
+}
+
+.price_line_through {
+  font-family: "Unbounded", sans-serif;
+  font-weight: 500;
+  font-size: 36px;
+  color: rgba(128, 128, 128);
+  text-decoration: line-through;
+
+  @media (max-width: 767px) {
+    font-size: 28px;
   }
 }
 
@@ -683,7 +702,7 @@
     margin-left: 16px;
 
     &_text {
-      color: var(--prime-active-color);
+      color: white;
     }
 
     &_first {

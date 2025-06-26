@@ -251,7 +251,6 @@
 
 .mobile-menu-button {
   z-index: 11;
-  cursor: pointer;
   &.open {
     width: 24px;
     height: 18px;
@@ -269,6 +268,7 @@
   &-wrapper {
     width: 48px;
     height: 48px;
+    cursor: pointer;
 
     display: flex;
     justify-content: center;

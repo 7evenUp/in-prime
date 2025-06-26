@@ -599,9 +599,53 @@ const BuySubscriptionDialog = ({
                                 )}
                               >
                                 {order === 2 && (
-                                  <span className={styles.bonus_seo}>
-                                    Консультация с основателем Crypton
-                                  </span>
+                                  <HoverCardOrPopover.Root openDelay={150}>
+                                    <HoverCardOrPopover.Trigger
+                                      className={clsx(
+                                        isTouchDevice
+                                          ? styles.PopoverTrigger
+                                          : styles.HoverCardTrigger
+                                      )}
+                                    >
+                                      <li className={styles.bonus_seo}>
+                                        <p className={styles.bonus_text}>
+                                          Консультация с основателем Crypton
+                                          <span style={{ marginLeft: "6px" }}>
+                                            <NavArrowIcon />
+                                          </span>
+                                        </p>
+                                      </li>
+                                    </HoverCardOrPopover.Trigger>
+                                    <HoverCardOrPopover.Portal>
+                                      <HoverCardOrPopover.Content
+                                        className={clsx(
+                                          isTouchDevice
+                                            ? styles.PopoverContent
+                                            : styles.HoverCardContent
+                                        )}
+                                        style={{
+                                          flexDirection: "column",
+                                          gap: 8,
+                                          maxWidth: 350,
+                                          height: 225,
+                                        }}
+                                        sideOffset={5}
+                                      >
+                                        <p>
+                                          С тарифом Epic вы получите личную
+                                          консультацию от основателя Crypton —
+                                          Павла Сычева. За 30 минут он передаст
+                                          концентрат опыта, который поможет
+                                          избежать 99% ошибок в Web3. У Павла
+                                          7-летний опыт в крипте, успешное
+                                          крипто-медиа и 5 Web3-продуктов с
+                                          командой из 70 человек. Один звонок
+                                          может сэкономить вам месяцы и тысячи
+                                          долларов — просто назначьте его.
+                                        </p>
+                                      </HoverCardOrPopover.Content>
+                                    </HoverCardOrPopover.Portal>
+                                  </HoverCardOrPopover.Root>
                                 )}
                                 {benefits.map(
                                   (benefit) =>

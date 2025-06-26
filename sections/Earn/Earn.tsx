@@ -128,20 +128,20 @@ const Earn = ({ resolution, referral }: EarnProps) => {
           })}
         </div>
         <div className="menu-sub-block">
-          <div
+          {/* <div
             className="app__container__earn__header__subscribe"
             onClick={scrollToSubscriptions}
           >
             <div className="app__container__earn__header__subscribe__text">
               Оформить подписку
             </div>
-          </div>
+          </div> */}
           {["md", "sm"].includes(resolution) && (
-            <div className="mobile-menu-button-wrapper">
-              <div
-                className={`mobile-menu-button open`}
-                onClick={() => changeMobileMenu(!mobileMenu)}
-              />
+            <div
+              className="mobile-menu-button-wrapper"
+              onClick={() => changeMobileMenu(!mobileMenu)}
+            >
+              <div className={`mobile-menu-button open`} />
             </div>
           )}
         </div>
