@@ -514,12 +514,7 @@ const SubscriptionCard = ({
             </span>
           </div>
           {totalDiscount && (
-            <div
-              className={clsx(
-                styles.price_newDiscount,
-                order === 2 && styles.price_newDiscount_12
-              )}
-            >
+            <div className={styles.price_newDiscount}>
               Выгода $
               {showMonthlyPrice
                 ? Math.floor(originalMonthlyPrice - finalMonthlyPrice)
@@ -626,9 +621,7 @@ const SubscriptionCard = ({
                       : styles.HoverCardTrigger
                   )}
                 >
-                  <div
-                    style={{ display: "flex", alignItems: "center", gap: 10 }}
-                  >
+                  <li className={styles.bonus}>
                     <img
                       src="/images/png/ceo/pasha-square.png"
                       alt="Павел Сычев"
@@ -638,14 +631,13 @@ const SubscriptionCard = ({
                         height: 48,
                       }}
                     />
-
                     <p className={styles.bonus_text}>
                       Консультация с основателем Crypton
                       <span style={{ marginLeft: "6px" }}>
                         <NavArrowIcon />
                       </span>
                     </p>
-                  </div>
+                  </li>
                 </HoverCardOrPopover.Trigger>
                 <HoverCardOrPopover.Portal>
                   <HoverCardOrPopover.Content
@@ -663,19 +655,11 @@ const SubscriptionCard = ({
                     <p>
                       С тарифом Epic вы получите личную консультацию от
                       основателя Crypton — Павла Сычева. За 30 минут он передаст
-                      вам концентрат опыта, который поможет избежать 99% ошибок
-                      в Web-3.
-                    </p>
-                    <ul style={{ margin: 0, marginLeft: -16 }}>
-                      <li>7 лет в крипто;</li>
-                      <li>Создатель успешного крипто-медиа;</li>
-                      <li>
-                        Запустил 5 Web3-продуктов с командой из 70 человек.
-                      </li>
-                    </ul>
-                    <p>
-                      Один звонок может сэкономить вам месяцы проб и тысячи
-                      долларов. Назначьте его.
+                      концентрат опыта, который поможет избежать 99% ошибок в
+                      Web3. У Павла 7-летний опыт в крипте, успешное
+                      крипто-медиа и 5 Web3-продуктов с командой из 70 человек.
+                      Один звонок может сэкономить вам месяцы и тысячи долларов
+                      — просто назначьте его.
                     </p>
                   </HoverCardOrPopover.Content>
                 </HoverCardOrPopover.Portal>
@@ -920,7 +904,7 @@ export const BenefitCard = ({
         )}
         {...(setOpen && { onClick: () => setOpen((prev) => !prev) })}
       >
-        <li className={clsx(styles.bonus, isTouchDevice && styles.bonus_small)}>
+        <li className={styles.bonus}>
           {!compact && <img src={benefit.file} className={styles.bonus_img} />}
           <p className={styles.bonus_text}>
             {benefit.name}

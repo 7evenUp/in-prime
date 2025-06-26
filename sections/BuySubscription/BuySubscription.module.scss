@@ -342,7 +342,6 @@
   }
 
   @media (max-width: 767px) {
-    margin-bottom: 40px;
     font-size: 14px;
   }
 }
@@ -466,12 +465,6 @@
     font-size: 18px;
     letter-spacing: 0.02em;
     border-radius: 6px;
-  }
-
-  &_newDiscount_12 {
-    font-size: 22px;
-    padding: 10px 16px;
-    border-radius: 8px;
   }
 
   &_discount {
@@ -734,12 +727,6 @@
     gap: 10px;
   }
 
-  &_small {
-    @media (max-width: 767px) {
-      margin-left: 16px;
-    }
-  }
-
   &_img {
     border-radius: 8px;
     width: 48px;
@@ -963,7 +950,6 @@
 
   &:hover {
     color: var(--prime-active-color, #4ddfd0);
-    font-weight: 400;
   }
 
   &_first {
@@ -1077,13 +1063,7 @@
   width: fit-content;
 
   &:hover {
-    color: #bb44cc;
-
-    .red,
-    .purple,
-    .beige {
-      color: #bb44cc;
-    }
+    color: var(--prime-active-color, #4ddfd0);
   }
 
   &[data-state="open"] {
