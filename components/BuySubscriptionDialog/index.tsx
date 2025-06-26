@@ -626,8 +626,8 @@ const BuySubscriptionDialog = ({
                                         style={{
                                           flexDirection: "column",
                                           gap: 8,
-                                          maxWidth: 350,
-                                          height: 225,
+                                          maxWidth: "95vw",
+                                          height: "fit-content",
                                         }}
                                         sideOffset={5}
                                       >
