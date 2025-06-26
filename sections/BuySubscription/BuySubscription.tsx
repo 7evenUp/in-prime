@@ -501,14 +501,16 @@ const SubscriptionCard = ({
               )}
             >
               {/* {showMonthlyPrice && <>/ мес</>} */}
-              <span
-                style={{
-                  color: "rgba(255,255,255,0.5)",
-                  textDecoration: "line-through",
-                }}
-              >
-                ${showMonthlyPrice ? originalMonthlyPrice : originalPrice}
-              </span>
+              {totalDiscount && (
+                <span
+                  style={{
+                    color: "rgba(255,255,255,0.5)",
+                    textDecoration: "line-through",
+                  }}
+                >
+                  ${showMonthlyPrice ? originalMonthlyPrice : originalPrice}
+                </span>
+              )}
             </span>
           </div>
           {totalDiscount && (
