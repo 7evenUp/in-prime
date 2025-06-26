@@ -248,6 +248,8 @@ const BuySubscription = ({
     const url = new URL(location.href)
     const refCode = url.searchParams.get("ref")
 
+    console.log("SPECIAL_PROMOS: ", SPECIAL_PROMOS)
+
     const applyPromos = async () => {
       const promosToValidate = [
         refCode,
