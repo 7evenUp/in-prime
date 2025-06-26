@@ -171,7 +171,7 @@ const BuySubscription = ({
   }
   resolution: Resolution
 }) => {
-  const [showMonthlyPrice, setShowMonthlyPrice] = useState(true)
+  const [showMonthlyPrice, setShowMonthlyPrice] = useState(false)
   const [promoForSubmit, setPromoForSubmit] = useState("")
 
   const [fallbackPromocode, setFallbackPromocode] = useState<Promocode | null>(
@@ -500,19 +500,38 @@ const SubscriptionCard = ({
                 //   : styles.price_month_fractional
               )}
             >
-              {showMonthlyPrice && <>/ мес</>}
+              {/* {showMonthlyPrice && <>/ мес</>} */}
+              <span
+                style={{
+                  color: "rgba(255,255,255,0.5)",
+                  textDecoration: "line-through",
+                }}
+              >
+                ${showMonthlyPrice ? originalMonthlyPrice : originalPrice}
+              </span>
             </span>
           </div>
           {totalDiscount && (
-            <div className={styles.price_discount}>
-              <span className={styles.price_discount_percent}>
-                -{totalDiscount.value}
-                {totalDiscount.type}
-              </span>
-              <span className={styles.price_discount_amount}>
-                ${showMonthlyPrice ? originalMonthlyPrice : originalPrice}
-              </span>
+            <div
+              className={clsx(
+                styles.price_newDiscount,
+                order === 2 && styles.price_newDiscount_12
+              )}
+            >
+              Выгода $
+              {showMonthlyPrice
+                ? Math.floor(originalMonthlyPrice - finalMonthlyPrice)
+                : Math.floor(originalPrice - finalPrice)}
             </div>
+            // <div className={styles.price_discount}>
+            //   <span className={styles.price_discount_percent}>
+            //     -{totalDiscount.value}
+            //     {totalDiscount.type}
+            //   </span>
+            //   <span className={styles.price_discount_amount}>
+            //     ${showMonthlyPrice ? originalMonthlyPrice : originalPrice}
+            //   </span>
+            // </div>
           )}
         </div>
       )}
@@ -540,56 +559,14 @@ const SubscriptionCard = ({
 
         {/* Поменять на 3, когда вернётся подписка на 1 мес */}
         {order === 2 && (
-          <>
-            <p
-              className={clsx(
-                styles.text_before_bonuses,
-                styles.text_before_bonuses_priority
-              )}
-            >
-              + Приоритетная поддержка
-            </p>
-            <HoverCardOrPopover.Root openDelay={150}>
-              <HoverCardOrPopover.Trigger
-                className={clsx(
-                  isTouchDevice
-                    ? styles.PopoverTrigger
-                    : styles.HoverCardTrigger,
-                  isTouchDevice
-                    ? styles.PopoverTrigger_first
-                    : styles.HoverCardTrigger_first
-                )}
-              >
-                <p
-                  className={clsx(
-                    styles.text_before_bonuses,
-                    styles.text_before_bonuses_priority
-                  )}
-                >
-                  + <span>Личная консультация</span>
-                </p>
-              </HoverCardOrPopover.Trigger>
-              <HoverCardOrPopover.Portal>
-                <HoverCardOrPopover.Content
-                  className={clsx(
-                    isTouchDevice
-                      ? styles.PopoverContent
-                      : styles.HoverCardContent,
-                    isTouchDevice
-                      ? styles.PopoverContent_first
-                      : styles.HoverCardContent_first
-                  )}
-                  style={{ flexDirection: "column" }}
-                  sideOffset={5}
-                >
-                  <h2>
-                    Личная консультация <br /> с Павлом Сычевым
-                  </h2>
-                  <p>Звонок или переписка, 30 минут, один раз в год.</p>
-                </HoverCardOrPopover.Content>
-              </HoverCardOrPopover.Portal>
-            </HoverCardOrPopover.Root>
-          </>
+          <p
+            className={clsx(
+              styles.text_before_bonuses,
+              styles.text_before_bonuses_priority
+            )}
+          >
+            + Приоритетная поддержка
+          </p>
         )}
       </div>
 
@@ -637,73 +614,71 @@ const SubscriptionCard = ({
             </span>
           </div>
 
-          {/*
-          {benefits.find((benefit) => benefit.remainingCount !== null) && (
-            <span className={styles.benefits_remains}>
-              [ Осталось:{" "}
-              {
-                benefits.find((benefit) => benefit.remainingCount !== null)
-                  .remainingCount
-              }{" "}
-              ]
-            </span>
-          )}
- 
-          {order === 0 && (
-            <span
-              style={{
-                display: "block",
-                marginLeft: 16,
-                color: "rgba(255,255,255,0.75)",
-                marginTop: 4,
-                fontSize: 14,
-              }}
-            >
-              + 10 бонусных дней подписки
-            </span>
-          )}
-          {order === 1 && (
-            <span
-              style={{
-                display: "block",
-                marginLeft: 16,
-                color: "rgba(255,255,255,0.75)",
-                marginTop: 4,
-                fontSize: 14,
-              }}
-            >
-              + 10 бонусных дней подписки
-            </span>
-          )}
-          {order === 2 && (
-            <span
-              style={{
-                display: "block",
-                marginLeft: 16,
-                color: "rgba(255,255,255,0.75)",
-                marginTop: 4,
-                fontSize: 14,
-              }}
-            >
-              + 14 бонусных дней подписки
-            </span>
-          )}
-          {order === 3 && (
-            <span
-              style={{
-                display: "block",
-                marginLeft: 16,
-                color: "rgba(255,255,255,0.75)",
-                marginTop: 4,
-                fontSize: 14,
-              }}
-            >
-              + 28 бонусных дней подписки
-            </span>
-          )}
-          */}
-
           <ul className={clsx(styles.bonuses, styles.bonuses__small)}>
+            {order === 2 && (
+              <HoverCardOrPopover.Root openDelay={150}>
+                <HoverCardOrPopover.Trigger
+                  className={clsx(
+                    isTouchDevice
+                      ? styles.PopoverTrigger
+                      : styles.HoverCardTrigger
+                  )}
+                >
+                  <div
+                    style={{ display: "flex", alignItems: "center", gap: 10 }}
+                  >
+                    <img
+                      src="/images/png/ceo/pasha-square.png"
+                      alt="Павел Сычев"
+                      style={{
+                        borderRadius: 8,
+                        width: 48,
+                        height: 48,
+                      }}
+                    />
+
+                    <p className={styles.bonus_text}>
+                      Консультация с основателем Crypton
+                      <span style={{ marginLeft: "6px" }}>
+                        <NavArrowIcon />
+                      </span>
+                    </p>
+                  </div>
+                </HoverCardOrPopover.Trigger>
+                <HoverCardOrPopover.Portal>
+                  <HoverCardOrPopover.Content
+                    className={clsx(
+                      isTouchDevice
+                        ? styles.PopoverContent
+                        : styles.HoverCardContent,
+                      isTouchDevice
+                        ? styles.PopoverContent_first
+                        : styles.HoverCardContent_first
+                    )}
+                    style={{ flexDirection: "column", gap: 8 }}
+                    sideOffset={5}
+                  >
+                    <p>
+                      С тарифом Epic вы получите личную консультацию от
+                      основателя Crypton — Павла Сычева. За 30 минут он передаст
+                      вам концентрат опыта, который поможет избежать 99% ошибок
+                      в Web-3.
+                    </p>
+                    <ul style={{ margin: 0, marginLeft: -16 }}>
+                      <li>7 лет в крипто;</li>
+                      <li>Создатель успешного крипто-медиа;</li>
+                      <li>
+                        Запустил 5 Web3-продуктов с командой из 70 человек.
+                      </li>
+                    </ul>
+                    <p>
+                      Один звонок может сэкономить вам месяцы проб и тысячи
+                      долларов. Назначьте его.
+                    </p>
+                  </HoverCardOrPopover.Content>
+                </HoverCardOrPopover.Portal>
+              </HoverCardOrPopover.Root>
+            )}
             {benefits.map(
               (benefit) =>
                 benefit.file &&

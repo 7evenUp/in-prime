@@ -1,11 +1,11 @@
-import React, { ChangeEvent, useMemo, useState } from 'react'
-import { useRouter } from 'next/router'
-import * as Dialog from '@radix-ui/react-dialog'
-import * as HoverCard from '@radix-ui/react-hover-card'
-import * as Popover from '@radix-ui/react-popover'
-import { useMutation, useQuery } from '@tanstack/react-query'
-import axios from 'axios'
-import clsx from 'clsx'
+import React, { ChangeEvent, useMemo, useState } from "react"
+import { useRouter } from "next/router"
+import * as Dialog from "@radix-ui/react-dialog"
+import * as HoverCard from "@radix-ui/react-hover-card"
+import * as Popover from "@radix-ui/react-popover"
+import { useMutation, useQuery } from "@tanstack/react-query"
+import axios from "axios"
+import clsx from "clsx"
 
 import {
   Select,
@@ -13,31 +13,35 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from './Select'
-import { Loader, LoaderSmall, Error, Help } from './Icons'
+} from "./Select"
+import { Loader, LoaderSmall, Error, Help } from "./Icons"
 
-import { RadioGroup, RadioGroupItem } from '@/shared/ui/RadioGroup/RadioGroup'
-import Checkbox from '@/shared/ui/Checkbox/Checkbox'
+import { RadioGroup, RadioGroupItem } from "@/shared/ui/RadioGroup/RadioGroup"
+import Checkbox from "@/shared/ui/Checkbox/Checkbox"
 
 import {
   PaymentRequestArgs,
   PaymentsMethod,
   Promocode,
   Subscription,
-} from '@/types/api-types'
-import { Resolution } from '@/types/resolution'
+} from "@/types/api-types"
+import { Resolution } from "@/types/resolution"
 
-import styles from './styles.module.scss'
-import { toast } from 'sonner'
+import styles from "./styles.module.scss"
+import { toast } from "sonner"
 import {
   BenefitCard,
   PrimeOpportunities,
   PrimeOpportunitiesContent,
-} from '@/sections/BuySubscription/BuySubscription'
-import { calculateSubscriptionDetails, getIsPromocodeValidForSubscription } from '@/shared/subsciption'
-import { scrollToSection } from '@/redux/reducers/scrollReducer'
+} from "@/sections/BuySubscription/BuySubscription"
+import {
+  calculateSubscriptionDetails,
+  getIsPromocodeValidForSubscription,
+} from "@/shared/subsciption"
+import { scrollToSection } from "@/redux/reducers/scrollReducer"
+import { useIsTouchDevice } from "@/hooks/device"
 
-const ID_URL = process.env.NEXT_PUBLIC_ID_URL + '/api/v1/'
+const ID_URL = process.env.NEXT_PUBLIC_ID_URL + "/api/v1/"
 
 const BuySubscriptionDialog = ({
   children,
@@ -55,31 +59,36 @@ const BuySubscriptionDialog = ({
   order: number
   resolution: Resolution
   setPromoForSubmit: React.Dispatch<React.SetStateAction<string>>
-  activePromocode: Promocode|null
+  activePromocode: Promocode | null
   dialogOpen: boolean
-  fallbackPromocode: Promocode|null
+  fallbackPromocode: Promocode | null
   setDialogOpen: (open: boolean) => void
 }) => {
   const router = useRouter()
-  const referral = router.query.ref || ''
+  const referral = router.query.ref || ""
 
   const closeRef = React.createRef<HTMLButtonElement>()
 
   const [promoWasUpdated, setPromoWasUpdated] = useState(false)
-  const [localPromocode, setLocalPromocode] = useState<Promocode | null>(activePromocode||null)
-  const [paymentType, setPaymentType] = useState<'crypto' | 'card'>('crypto')
+  const [localPromocode, setLocalPromocode] = useState<Promocode | null>(
+    activePromocode || null
+  )
+  const [paymentType, setPaymentType] = useState<"crypto" | "card">("crypto")
   const [activeToken, setActiveToken] = useState<string | undefined>(undefined)
   const [activeNetwork, setActiveNetwork] = useState<string | undefined>(
     undefined
   )
-  const [paymentURL, setPaymentURL] = useState('')
+  const [paymentURL, setPaymentURL] = useState("")
   const [paymentID, setPaymentID] = useState<number | null>(null)
   // input values
-  const [promocode, setPromocode] = useState('')
-  const [email, setEmail] = useState('')
-  const [checkboxValue, setCheckboxValue] = useState<boolean | 'indeterminate'>(
+  const [promocode, setPromocode] = useState("")
+  const [email, setEmail] = useState("")
+  const [checkboxValue, setCheckboxValue] = useState<boolean | "indeterminate">(
     false
   )
+
+  const isTouchDevice = useIsTouchDevice()
+  const HoverCardOrPopover = isTouchDevice ? Popover : HoverCard
 
   const { id, duration, benefits } = selectedSubscription
 
@@ -96,16 +105,16 @@ const BuySubscriptionDialog = ({
     () =>
       getIsPromocodeValidForSubscription({
         subscription: selectedSubscription,
-        promocode: fallbackPromocode
+        promocode: fallbackPromocode,
       }),
     [selectedSubscription, fallbackPromocode]
   )
 
   const { data: methods } = useQuery({
-    queryKey: ['methods'],
+    queryKey: ["methods"],
     queryFn: async () => {
       const response = await axios.get<PaymentsMethod[]>(
-        ID_URL + 'payments/available/methods'
+        ID_URL + "payments/available/methods"
       )
 
       return response.data
@@ -126,10 +135,14 @@ const BuySubscriptionDialog = ({
       promocode: string
       subscriptionId: number
     }) =>
-      axios.post<Promocode>(ID_URL + 'promo-codes/validate/', {
-        promocode: promocode.trim().toUpperCase(),
-        subscription: subscriptionId,
-      }, { withCredentials: true }),
+      axios.post<Promocode>(
+        ID_URL + "promo-codes/validate/",
+        {
+          promocode: promocode.trim().toUpperCase(),
+          subscription: subscriptionId,
+        },
+        { withCredentials: true }
+      ),
   })
 
   const {
@@ -143,13 +156,13 @@ const BuySubscriptionDialog = ({
     mutationFn: (args: PaymentRequestArgs) =>
       axios.post<
         PaymentRequestArgs & { paymentId: number; paymentUrl: string }
-      >(ID_URL + 'landing/subscriptions/buy/', {
+      >(ID_URL + "landing/subscriptions/buy/", {
         ...args,
       }),
   })
 
   const cryptoMethods = methods
-    ?.filter((el) => el.method.id === 'crypto' && el.isActive)
+    ?.filter((el) => el.method.id === "crypto" && el.isActive)
     .sort((a, b) => +b.isDefault - +a.isDefault)
 
   const networks = new Set<string>()
@@ -171,10 +184,10 @@ const BuySubscriptionDialog = ({
     event.preventDefault()
 
     let payload: PaymentRequestArgs = {
-      paymentType: 'card',
+      paymentType: "card",
       isReceiptNeed: checkboxValue as boolean,
-      successUrl: 'https://id.crypton.xyz/payment-success',
-      failUrl: 'https://id.crypton.xyz/payment-error',
+      successUrl: "https://id.crypton.xyz/payment-success",
+      failUrl: "https://id.crypton.xyz/payment-error",
       email,
       subscriptionId: id,
     }
@@ -201,18 +214,18 @@ const BuySubscriptionDialog = ({
     }
 
     try {
-      if (paymentType === 'card') {
+      if (paymentType === "card") {
         payload = {
           ...payload,
-          paymentType: 'card',
-          currency: 'RUB',
+          paymentType: "card",
+          currency: "RUB",
         }
       } else {
         payload = {
           ...payload,
-          paymentType: 'crypto',
-          network: activeNetwork ?? 'BSC',
-          currency: activeToken ?? 'USDT',
+          paymentType: "crypto",
+          network: activeNetwork ?? "BSC",
+          currency: activeToken ?? "USDT",
         }
       }
 
@@ -223,9 +236,9 @@ const BuySubscriptionDialog = ({
       setPaymentURL(paymentUrl)
       setPaymentID(paymentId)
 
-      window.open(paymentUrl, '_blank')
+      window.open(paymentUrl, "_blank")
     } catch {
-      console.log('error happened')
+      console.log("error happened")
     }
   }
 
@@ -251,7 +264,7 @@ const BuySubscriptionDialog = ({
   const onPromoRemoveClick = () => {
     setLocalPromocode(null)
     setPromoWasUpdated(true)
-    setPromoForSubmit('')
+    setPromoForSubmit("")
   }
 
   const applyFallbackPromo = async () => {
@@ -313,35 +326,35 @@ const BuySubscriptionDialog = ({
                   <div className={styles.top_left}>
                     <div
                       style={{
-                        display: 'flex',
-                        alignItems: 'center',
+                        display: "flex",
+                        alignItems: "center",
                         gap: 8,
                       }}
                     >
                       <input
-                        name='email'
-                        type='email'
+                        name="email"
+                        type="email"
                         required
-                        placeholder='Электронная почта'
+                        placeholder="Электронная почта"
                         className={styles.input_standard}
                         value={email}
                         onChange={(evt) => setEmail(evt.currentTarget.value)}
                       />
-                      {resolution === 'sm' ? (
+                      {resolution === "sm" ? (
                         <Popover.Root>
                           <Popover.Trigger className={styles.PopoverTrigger}>
                             <button
                               style={{
-                                background: 'transparent',
-                                color: 'white',
-                                outline: 'none',
-                                border: 'none',
-                                position: 'relative',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
+                                background: "transparent",
+                                color: "white",
+                                outline: "none",
+                                border: "none",
+                                position: "relative",
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
                               }}
-                              type='button'
+                              type="button"
                             >
                               <Help />
                             </button>
@@ -369,16 +382,16 @@ const BuySubscriptionDialog = ({
                           >
                             <button
                               style={{
-                                background: 'transparent',
-                                color: 'white',
-                                outline: 'none',
-                                border: 'none',
-                                position: 'relative',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
+                                background: "transparent",
+                                color: "white",
+                                outline: "none",
+                                border: "none",
+                                position: "relative",
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
                               }}
-                              type='button'
+                              type="button"
                             >
                               <Help />
                             </button>
@@ -387,7 +400,7 @@ const BuySubscriptionDialog = ({
                             <HoverCard.Content
                               className={styles.HoverCardContent}
                               sideOffset={5}
-                              side='right'
+                              side="right"
                             >
                               <p>
                                 Если у вас нет аккаунта Crypton ID, данная почта
@@ -402,7 +415,7 @@ const BuySubscriptionDialog = ({
                       )}
                     </div>
                     <Checkbox
-                      id='receipt'
+                      id="receipt"
                       checked={checkboxValue}
                       onCheckedChange={setCheckboxValue}
                     >
@@ -413,18 +426,18 @@ const BuySubscriptionDialog = ({
                       <RadioGroup
                         value={paymentType}
                         onValueChange={(value) =>
-                          setPaymentType(value as 'crypto' | 'card')
+                          setPaymentType(value as "crypto" | "card")
                         }
                       >
-                        <RadioGroupItem value='crypto'>
+                        <RadioGroupItem value="crypto">
                           Криптовалюта
                         </RadioGroupItem>
-                        <RadioGroupItem value='card'>
+                        <RadioGroupItem value="card">
                           Банковская карта
                         </RadioGroupItem>
                       </RadioGroup>
                     </div>
-                    {paymentType === 'card' ? (
+                    {paymentType === "card" ? (
                       <p className={styles.payment_card}>
                         При оплате картой конвертация <br /> осуществляется по
                         курсу ЦБ РФ
@@ -433,9 +446,9 @@ const BuySubscriptionDialog = ({
                       <div className={styles.payment_crypto}>
                         <div
                           style={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'space-between',
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "space-between",
                             gap: 16,
                           }}
                         >
@@ -449,7 +462,7 @@ const BuySubscriptionDialog = ({
                             }}
                           >
                             <SelectTrigger>
-                              <SelectValue placeholder='Не выбрано' />
+                              <SelectValue placeholder="Не выбрано" />
                             </SelectTrigger>
                             <SelectContent>
                               {[...tokens].map((el) => (
@@ -462,9 +475,9 @@ const BuySubscriptionDialog = ({
                         </div>
                         <div
                           style={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'space-between',
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "space-between",
                             gap: 16,
                           }}
                         >
@@ -478,7 +491,7 @@ const BuySubscriptionDialog = ({
                             disabled={!activeToken}
                           >
                             <SelectTrigger>
-                              <SelectValue placeholder='Не выбрано' />
+                              <SelectValue placeholder="Не выбрано" />
                             </SelectTrigger>
                             <SelectContent>
                               {[...networks].map((el) => (
@@ -518,15 +531,30 @@ const BuySubscriptionDialog = ({
                               order === 3 && styles.card_duration__active4
                             )}
                           >
-                            {duration.id} МЕС
+                            {order === 0 && "START"}
+                            {order === 1 && "SUPER"}
+                            {order === 2 && "EPIC"} ({duration.id} МЕС)
                           </span>
                           <p className={styles.text_before_bonuses}>
-                            {order === 0 
-                              ? <div><PrimeOpportunitiesContent/><div style={{marginTop: 16}}><PrimeOpportunities open={false} setOpen={()=>null} hideArrow /></div></div> 
-                              : <PrimeOpportunities />
-                            }
+                            {/* Раскоментить когда вернётся подписка на 1 мес */}
+                            {/* {order === 0 ? (
+                              <div>
+                                <PrimeOpportunitiesContent />
+                                <div style={{ marginTop: 16 }}>
+                                  <PrimeOpportunities
+                                    open={false}
+                                    setOpen={() => null}
+                                    hideArrow
+                                  />
+                                </div>
+                              </div>
+                            ) : (
+                              <PrimeOpportunities />
+                            )} */}
+                            <PrimeOpportunities />
                           </p>
-                          {order !== 0 && benefits.length && (
+                          {/* вернуть `order !== 0 &&`, когда вернётся подписка на 1 мес */}
+                          {benefits.length && (
                             <>
                               <div
                                 className={clsx(
@@ -539,23 +567,23 @@ const BuySubscriptionDialog = ({
                               >
                                 <div className={styles.bonuses_heading_icon}>
                                   <svg
-                                    width='12'
-                                    height='12'
-                                    viewBox='0 0 12 12'
-                                    fill='none'
-                                    xmlns='http://www.w3.org/2000/svg'
+                                    width="12"
+                                    height="12"
+                                    viewBox="0 0 12 12"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
                                   >
                                     <path
-                                      d='M10.6834 6.57031H6.3916V11.9998H10.6834V6.57031Z'
-                                      fill='#171717'
+                                      d="M10.6834 6.57031H6.3916V11.9998H10.6834V6.57031Z"
+                                      fill="#171717"
                                     />
                                     <path
-                                      d='M5.60823 6.57031H1.31641V11.9998H5.60823V6.57031Z'
-                                      fill='#171717'
+                                      d="M5.60823 6.57031H1.31641V11.9998H5.60823V6.57031Z"
+                                      fill="#171717"
                                     />
                                     <path
-                                      d='M9.34618 2.21325C9.46227 2.00055 9.52834 1.75683 9.52834 1.49791C9.52836 0.671953 8.85638 0 8.03045 0C7.41955 0 6.79447 0.315656 6.31557 0.866039C6.19705 1.00223 6.09149 1.1486 6.0002 1.30104C5.90891 1.1486 5.80334 1.00223 5.68482 0.866039C5.20592 0.315656 4.58087 0 3.96995 0C3.14401 0 2.47203 0.671977 2.47203 1.49791C2.47203 1.7568 2.53808 2.00055 2.65419 2.21325H0.614258V5.78791H5.60888V2.21325H6.39149V5.78791H11.3861V2.21325H9.34618ZM3.96995 2.21325C3.57554 2.21325 3.25463 1.89234 3.25463 1.49791C3.25463 1.10348 3.57554 0.782602 3.96995 0.782602C4.68008 0.782602 5.35524 1.509 5.55172 2.21323L3.96995 2.21325ZM8.03045 2.21325H6.44867C6.64515 1.509 7.32031 0.782625 8.03045 0.782625C8.42485 0.782625 8.74576 1.10353 8.74576 1.49794C8.74574 1.89237 8.42485 2.21325 8.03045 2.21325Z'
-                                      fill='#171717'
+                                      d="M9.34618 2.21325C9.46227 2.00055 9.52834 1.75683 9.52834 1.49791C9.52836 0.671953 8.85638 0 8.03045 0C7.41955 0 6.79447 0.315656 6.31557 0.866039C6.19705 1.00223 6.09149 1.1486 6.0002 1.30104C5.90891 1.1486 5.80334 1.00223 5.68482 0.866039C5.20592 0.315656 4.58087 0 3.96995 0C3.14401 0 2.47203 0.671977 2.47203 1.49791C2.47203 1.7568 2.53808 2.00055 2.65419 2.21325H0.614258V5.78791H5.60888V2.21325H6.39149V5.78791H11.3861V2.21325H9.34618ZM3.96995 2.21325C3.57554 2.21325 3.25463 1.89234 3.25463 1.49791C3.25463 1.10348 3.57554 0.782602 3.96995 0.782602C4.68008 0.782602 5.35524 1.509 5.55172 2.21323L3.96995 2.21325ZM8.03045 2.21325H6.44867C6.64515 1.509 7.32031 0.782625 8.03045 0.782625C8.42485 0.782625 8.74576 1.10353 8.74576 1.49794C8.74574 1.89237 8.42485 2.21325 8.03045 2.21325Z"
+                                      fill="#171717"
                                     />
                                   </svg>
                                 </div>
@@ -570,6 +598,67 @@ const BuySubscriptionDialog = ({
                                   styles.bonuses__small
                                 )}
                               >
+                                {order === 2 && (
+                                  <HoverCardOrPopover.Root openDelay={150}>
+                                    <HoverCardOrPopover.Trigger
+                                      className={clsx(
+                                        isTouchDevice
+                                          ? styles.PopoverTrigger
+                                          : styles.HoverCardTrigger
+                                      )}
+                                    >
+                                      <p className={styles.bonus_text}>
+                                        Консультация с основателем Crypton
+                                        <span style={{ marginLeft: "6px" }}>
+                                          <NavArrowIcon />
+                                        </span>
+                                      </p>
+                                    </HoverCardOrPopover.Trigger>
+                                    <HoverCardOrPopover.Portal>
+                                      <HoverCardOrPopover.Content
+                                        className={clsx(
+                                          isTouchDevice
+                                            ? styles.PopoverContent
+                                            : styles.HoverCardContent,
+                                          isTouchDevice
+                                            ? styles.PopoverContent_first
+                                            : styles.HoverCardContent_first
+                                        )}
+                                        style={{
+                                          flexDirection: "column",
+                                          gap: 8,
+                                          maxWidth: 400,
+                                        }}
+                                        sideOffset={5}
+                                      >
+                                        <p>
+                                          С тарифом Epic вы получите личную
+                                          консультацию от основателя Crypton —
+                                          Павла Сычева. За 30 минут он передаст
+                                          вам концентрат опыта, который поможет
+                                          избежать 99% ошибок в Web-3.
+                                        </p>
+                                        <ul
+                                          style={{ margin: 0, marginLeft: -16 }}
+                                        >
+                                          <li>7 лет в крипто;</li>
+                                          <li>
+                                            Создатель успешного крипто-медиа;
+                                          </li>
+                                          <li>
+                                            Запустил 5 Web3-продуктов с командой
+                                            из 70 человек.
+                                          </li>
+                                        </ul>
+                                        <p>
+                                          Один звонок может сэкономить вам
+                                          месяцы проб и тысячи долларов.
+                                          Назначьте его.
+                                        </p>
+                                      </HoverCardOrPopover.Content>
+                                    </HoverCardOrPopover.Portal>
+                                  </HoverCardOrPopover.Root>
+                                )}
                                 {benefits.map(
                                   (benefit) =>
                                     benefit.file &&
@@ -608,37 +697,39 @@ const BuySubscriptionDialog = ({
                             </div>
                             <button
                               className={styles.promocode_submit_button}
-                              type='button'
+                              type="button"
                               onClick={onPromoRemoveClick}
                             >
                               Удалить
                             </button>
                           </div>
                           <span className={styles.promocode_discount}>
-                            Ваша скидка:{' '}
-                            {localPromocode.discountKind.id === 'MONEY' ? (
+                            Ваша скидка:{" "}
+                            {localPromocode.discountKind.id === "MONEY" ? (
                               <>
-                                {'$'}
+                                {"$"}
                                 {localPromocode.discountAmount}
                               </>
                             ) : (
                               <>
                                 {localPromocode.discountAmount * 100}
-                                {'%'}
+                                {"%"}
                               </>
                             )}
                           </span>
                         </>
                       ) : (
-                        !referral && fallbackPromocodeAvailable && fallbackPromocode?.code && (
+                        !referral &&
+                        fallbackPromocodeAvailable &&
+                        fallbackPromocode?.code && (
                           <button
                             className={styles.promocode_submit_button}
                             style={{
                               marginBottom: 16,
-                              textAlign: 'left',
-                              width: 'fit-content',
+                              textAlign: "left",
+                              width: "fit-content",
                             }}
-                            type='button'
+                            type="button"
                             onClick={applyFallbackPromo}
                           >
                             Активировать промо {fallbackPromocode.code}
@@ -647,80 +738,80 @@ const BuySubscriptionDialog = ({
                       )}
                       <div className={styles.promo_wrapper}>
                         <input
-                          name='promocode'
+                          name="promocode"
                           // placeholder={
                           //   resolution === "sm"
                           //     ? "Промокод"
                           //     : "Промокод или рефкод"
                           // }
-                          placeholder='Промокод'
+                          placeholder="Промокод"
                           className={styles.input}
                           value={promocode}
                           onChange={onPromoInputChange}
                         />
                         <button
                           className={styles.button}
-                          type='button'
+                          type="button"
                           onClick={applyPromocode}
                           disabled={promocode.length <= 0}
                         >
-                          {isPromoPending ? 'Применяем...' : 'Применить'}
+                          {isPromoPending ? "Применяем..." : "Применить"}
                         </button>
                       </div>
                       {isPromoError && (
-                        <span style={{ color: '#ff4a7a', fontSize: 12 }}>
+                        <span style={{ color: "#ff4a7a", fontSize: 12 }}>
                           {
                             /* @ts-expect-error No-Error-Types */
                             promoError?.response.status === 400
                               ? /* @ts-expect-error No-Error-Types */
                                 promoError?.response.data.code ===
-                                'discount_not_found'
-                                ? 'Такого промокода не существует'
+                                "discount_not_found"
+                                ? "Такого промокода не существует"
                                 : /* @ts-expect-error No-Error-Types */
                                 promoError?.response.data.code ===
-                                  'discount_for_non_subscribed_only'
-                                ? 'Промокод доступен только для аккаунтов без активной подписки'
+                                  "discount_for_non_subscribed_only"
+                                ? "Промокод доступен только для аккаунтов без активной подписки"
                                 : /* @ts-expect-error No-Error-Types */
                                 promoError?.response.data.code ===
-                                  'discount_for_new_users_only'
-                                ? 'Промокод доступен только новым пользователям'
+                                  "discount_for_new_users_only"
+                                ? "Промокод доступен только новым пользователям"
                                 : /* @ts-expect-error No-Error-Types */
                                 promoError?.response.data.code ===
-                                  'discount_code_already_used'
-                                ? 'Промокод уже был использован'
+                                  "discount_code_already_used"
+                                ? "Промокод уже был использован"
                                 : /* @ts-expect-error No-Error-Types */
                                 promoError?.response.data.code ===
-                                  'discount_code_validation_error'
-                                ? 'Не можем провалидировать промокод'
-                                : 'Произошла непредвиденная ошибка'
-                              : 'Произошла непредвиденная ошибка'
+                                  "discount_code_validation_error"
+                                ? "Не можем провалидировать промокод"
+                                : "Произошла непредвиденная ошибка"
+                              : "Произошла непредвиденная ошибка"
                           }
                         </span>
                       )}
                       <span className={styles.support}>
-                        Изучите{' '}
+                        Изучите{" "}
                         <Dialog.Close
                           style={{
-                            background: 'transparent',
-                            border: 'none',
+                            background: "transparent",
+                            border: "none",
                             padding: 0,
-                            cursor: 'pointer',
+                            cursor: "pointer",
                             fontSize: 12,
                           }}
                         >
                           <a
                             className={styles.support_link}
                             onClick={() => {
-                              scrollToSection('Отзывы')
+                              scrollToSection("Отзывы")
                             }}
                           >
                             отзывы
                           </a>
-                        </Dialog.Close>{' '}
-                        или задайте любые вопросы{' '}
+                        </Dialog.Close>{" "}
+                        или задайте любые вопросы{" "}
                         <a
-                          href='https://t.me/crypton_support'
-                          target='_blank'
+                          href="https://t.me/crypton_support"
+                          target="_blank"
                           className={styles.support_link}
                         >
                           Наставнику.
@@ -736,7 +827,7 @@ const BuySubscriptionDialog = ({
                       disabled={
                         email.length === 0 ||
                         methods === undefined ||
-                        (paymentType === 'crypto' &&
+                        (paymentType === "crypto" &&
                           (!activeToken || !activeNetwork))
                       }
                     >
@@ -752,43 +843,48 @@ const BuySubscriptionDialog = ({
                         buyError?.response.status === 400
                           ? /* @ts-expect-error No-Error-Types */
                             buyError?.response.data.code ===
-                            'discount_not_found'
-                            ? 'Такого промокода не существует'
+                            "discount_not_found"
+                            ? "Такого промокода не существует"
                             : /* @ts-expect-error No-Error-Types */
                             buyError?.response.data.code ===
-                              'discount_for_non_subscribed_only'
-                            ? 'Используемый промокод доступен только для пользователей без активной подписки'
+                              "discount_for_non_subscribed_only"
+                            ? "Используемый промокод доступен только для пользователей без активной подписки"
                             : /* @ts-expect-error No-Error-Types */
                             buyError?.response.data.code ===
-                              'discount_for_new_users_only'
-                            ? 'Промокод доступен только новым пользователям'
+                              "discount_for_new_users_only"
+                            ? "Промокод доступен только новым пользователям"
                             : /* @ts-expect-error No-Error-Types */
                             buyError?.response.data.code ===
-                              'discount_code_already_used'
-                            ? 'Промокод уже был использован'
+                              "discount_code_already_used"
+                            ? "Промокод уже был использован"
                             : /* @ts-expect-error No-Error-Types */
                             buyError?.response.data.code ===
-                              'discount_code_validation_error'
-                            ? 'Не можем провалидировать промокод'
-                            : 'Произошла непредвиденная ошибка'
-                          : 'Произошла непредвиденная ошибка'
+                              "discount_code_validation_error"
+                            ? "Не можем провалидировать промокод"
+                            : "Произошла непредвиденная ошибка"
+                          : "Произошла непредвиденная ошибка"
                       }
                     </span>
                   )}
 
                   <div className={styles.total_container}>
                     <span className={styles.total}>
-                      Итого: ${finalPrice.toFixed(0)}{' '}
+                      Итого: ${finalPrice.toFixed(0)}{" "}
                       <span className={styles.total_per_month}>
-                        {' '}
-                        за{' '}
-                        {order === 0
-                          ? '1'
+                        {" "}
+                        за {/* Вернуть когда вернётся подписка на 1 мес */}
+                        {/* {order === 0
+                          ? "1"
                           : order === 1
-                          ? '3'
+                          ? "3"
                           : order === 2
-                          ? '6'
-                          : order === 3 && '12'}{' '}
+                          ? "6"
+                          : order === 3 && "12"} */}
+                        {order === 0
+                          ? "3"
+                          : order === 1
+                          ? "6"
+                          : order === 2 && "12"}{" "}
                         мес
                       </span>
                     </span>
@@ -828,11 +924,11 @@ const PaymentStatus = ({
   closeRef?: React.RefObject<HTMLButtonElement>
 }) => {
   const { data: status, isLoading } = useQuery({
-    queryKey: ['payment-status'],
+    queryKey: ["payment-status"],
     queryFn: async () => {
       const response = await axios.get<{
-        status: 'PENDING' | 'CANCELLED' | 'COMPLETED'
-      }>(ID_URL + 'landing/subscriptions/status/?paymentId=' + paymentId)
+        status: "PENDING" | "CANCELLED" | "COMPLETED"
+      }>(ID_URL + "landing/subscriptions/status/?paymentId=" + paymentId)
 
       return response.data.status
     },
@@ -846,14 +942,14 @@ const PaymentStatus = ({
   const onLater = () => {
     onClose()
     toast.info(
-      'Все неоткрытые боксы будут храниться у нас в течение 2 недель после окончания акции. После этого они автоматически откроются, а подарки будут добавлены в ваш инвентарь в Crypton ID.',
+      "Все неоткрытые боксы будут храниться у нас в течение 2 недель после окончания акции. После этого они автоматически откроются, а подарки будут добавлены в ваш инвентарь в Crypton ID.",
       {
         duration: 10000,
       }
     )
   }
 
-  if (isLoading || status === 'PENDING') {
+  if (isLoading || status === "PENDING") {
     return (
       <>
         <h2 className={styles.status_heading} style={{ marginBottom: 24 }}>
@@ -870,8 +966,8 @@ const PaymentStatus = ({
 
           <p>
             Если у вас не открылась новая вкладка, перейдите по ссылке для
-            оплаты:{' '}
-            <a href={paymentUrl} target='_blank'>
+            оплаты:{" "}
+            <a href={paymentUrl} target="_blank">
               {paymentUrl}
             </a>
           </p>
@@ -880,7 +976,7 @@ const PaymentStatus = ({
     )
   }
 
-  if (status === 'COMPLETED') {
+  if (status === "COMPLETED") {
     return (
       <>
         <div className={styles.status}>
@@ -896,7 +992,7 @@ const PaymentStatus = ({
           </p>
           <div className={styles.buttons}>
             <button
-              type='button'
+              type="button"
               className={styles.buttons__close}
               onClick={onClose}
             >
@@ -911,7 +1007,7 @@ const PaymentStatus = ({
     )
   }
 
-  if (status === 'CANCELLED') {
+  if (status === "CANCELLED") {
     return (
       <>
         <div className={styles.status}>
@@ -945,3 +1041,20 @@ const PaymentStatus = ({
     </>
   )
 }
+
+const NavArrowIcon = () => (
+  <svg
+    width="14"
+    height="14"
+    viewBox="0 0 14 14"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M2.04227 5.66772L6.69377 10.202C6.77547 10.2816 6.88505 10.3262 6.99914 10.3262C7.11323 10.3262 7.22281 10.2816 7.30452 10.202L11.9578 5.66771C11.9959 5.63062 12.0261 5.58627 12.0468 5.53727C12.0675 5.48828 12.0782 5.43564 12.0782 5.38247C12.0782 5.32929 12.0675 5.27665 12.0468 5.22766C12.0261 5.17866 11.9959 5.13431 11.9578 5.09722C11.8796 5.0209 11.7747 4.97817 11.6655 4.97817C11.5563 4.97817 11.4514 5.0209 11.3733 5.09722L6.99914 9.36109L2.62589 5.09722C2.5478 5.02116 2.44309 4.9786 2.33408 4.9786C2.22507 4.9786 2.12036 5.02116 2.04227 5.09722C2.00417 5.13431 1.97388 5.17867 1.95321 5.22766C1.93253 5.27665 1.92187 5.32929 1.92187 5.38247C1.92187 5.43564 1.93253 5.48828 1.95321 5.53727C1.97388 5.58627 2.00417 5.63062 2.04227 5.66772Z"
+      fill="currentColor"
+      stroke="currentColor"
+      strokeWidth="0.5"
+    />
+  </svg>
+)

@@ -457,6 +457,23 @@
     }
   }
 
+  &_newDiscount {
+    background-color: var(--prime-active-color);
+    width: fit-content;
+    padding: 8px 14px;
+    color: #181818;
+    font-family: "Resist Sans", sans-serif;
+    font-size: 18px;
+    letter-spacing: 0.02em;
+    border-radius: 6px;
+  }
+
+  &_newDiscount_12 {
+    font-size: 22px;
+    padding: 10px 16px;
+    border-radius: 8px;
+  }
+
   &_discount {
     display: flex;
     gap: 26px;
@@ -587,7 +604,7 @@
   }
 
   &_wrapper {
-    height: 72px;
+    height: 42px;
     margin-left: 16px;
 
     @media (max-width: 767px) {
@@ -725,14 +742,8 @@
 
   &_img {
     border-radius: 8px;
-
     width: 48px;
     height: 48px;
-
-    @media (max-width: 1919px) and (min-width: 1368px) {
-      height: 44px;
-      width: 44px;
-    }
   }
 
   &_first {
