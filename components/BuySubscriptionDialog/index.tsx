@@ -460,6 +460,7 @@ const BuySubscriptionDialog = ({
                               setActiveToken(value)
                               setActiveNetwork(undefined)
                             }}
+                            required={paymentType === "crypto"}
                           >
                             <SelectTrigger>
                               <SelectValue placeholder="Не выбрано" />
@@ -489,6 +490,7 @@ const BuySubscriptionDialog = ({
                               setActiveNetwork(value)
                             }}
                             disabled={!activeToken}
+                            required={paymentType === "crypto"}
                           >
                             <SelectTrigger>
                               <SelectValue placeholder="Не выбрано" />
@@ -812,16 +814,15 @@ const BuySubscriptionDialog = ({
                   <div className={styles.button_wrapper}>
                     <button
                       className={styles.button_main}
-                      disabled={
-                        email.length === 0 ||
-                        methods === undefined ||
-                        (paymentType === "crypto" &&
-                          (!activeToken || !activeNetwork))
-                      }
+                      // disabled={
+                      //   email.length === 0 ||
+                      //   methods === undefined ||
+                      //   (paymentType === "crypto" &&
+                      //     (!activeToken || !activeNetwork))
+                      // }
                     >
-                      Оплатить
+                      {isPending ? <LoaderSmall /> : "Оплатить"}
                     </button>
-                    {isPending && <LoaderSmall />}
                   </div>
 
                   {isBuyError && (
@@ -884,12 +885,6 @@ const BuySubscriptionDialog = ({
                   </div>
                 </div>
               </form>
-              {/* <p className={styles.crypton}>
-                Работает на базе Crypton ID от{" "}
-                <a href="https://crypton.xyz/" target="_blank">
-                  Crypton
-                </a>
-              </p> */}
             </>
           )}
         </Dialog.Content>
