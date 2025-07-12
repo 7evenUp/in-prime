@@ -22,8 +22,8 @@ import meetups3 from "@/public/images/png/features/meetups-3.png"
 import helper1 from "@/public/images/png/features/helper-1.png"
 import helper2 from "@/public/images/png/features/helper-2.png"
 
-import investing1 from "@/public/images/png/features/investing-1.png"
-import investing2 from "@/public/images/png/features/investing-2.png"
+// import investing1 from "@/public/images/png/features/investing-1.png"
+// import investing2 from "@/public/images/png/features/investing-2.png"
 
 export const data = {
   cryptonBonuses: [
@@ -127,15 +127,15 @@ export const data = {
         "Надо созвониться и решить вопрос голосом или через демонстрацию экрана? Не вопрос!",
     },
   ],
-  investing: [
-    {
-      imgSrc: investing1,
-      description: `5% от цены каждой купленной подписки Prime мы инвестируем в различные криптоактивы. Взамен, мы выдаем вам NFT "SHARES", которые являются подтверждением владения доли в фонде пропорционально номиналу.`,
-    },
-    {
-      imgSrc: investing2,
-      description:
-        'Наша цель — увеличить стоимость фонда в 10 раз, то есть до $1 миллиона, после чего распределить эту прибыль между вами, владельцами SHARES. Отследить текущее состояние фонда <a href="https://bit.ly/3R27F0e">можно здесь</a>.',
-    },
-  ],
+  // investing: [
+  //   {
+  //     imgSrc: investing1,
+  //     description: `5% от цены каждой купленной подписки Prime мы инвестируем в различные криптоактивы. Взамен, мы выдаем вам NFT "SHARES", которые являются подтверждением владения доли в фонде пропорционально номиналу.`,
+  //   },
+  //   {
+  //     imgSrc: investing2,
+  //     description:
+  //       'Наша цель — увеличить стоимость фонда в 10 раз, то есть до $1 миллиона, после чего распределить эту прибыль между вами, владельцами SHARES. Отследить текущее состояние фонда <a href="https://bit.ly/3R27F0e">можно здесь</a>.',
+  //   },
+  // ],
 }

@@ -7,8 +7,6 @@ import clsx from "clsx"
 import { useSwiperReactive } from "@/hooks/useSwiperReactive"
 
 import {
-  PrimeKitIcon,
-  PrimeKitIconGradient,
   CryptonBonusesIcon,
   CryptonBonusesIconGradient,
   CalendarIcon,
@@ -21,8 +19,6 @@ import {
   HelperIconGradient,
   MeetupsIcon,
   MeetupsIconGradient,
-  InvestingIcon,
-  InvestingIconGradient,
 } from "./Icons"
 
 import styles from "./Features.module.scss"
@@ -40,11 +36,12 @@ const swiperWidth = {
 
 const FeaturesSm = ({ resolution }: { resolution: Resolution }) => {
   return (
-    <section className={styles.container} id="features">
-      <div className={styles.container_bg} />
-      <h2 className={styles.title}>Новый уровень возможностей</h2>
-      <FeaturesTabs resolution={resolution} />
-    </section>
+    <div className={styles.wrapper}>
+      <section className={styles.container} id="features">
+        <h2 className={styles.title}>Новый уровень возможностей</h2>
+        <FeaturesTabs resolution={resolution} />
+      </section>
+    </div>
   )
 }
 
@@ -147,18 +144,6 @@ const FeaturesTabs = ({ resolution }: { resolution: Resolution }) => {
         </Tabs.Trigger>
         <Tabs.Content className={styles.TabsContent} value="tab5">
           <Slider data={featuresData.helper} resolution={resolution} />
-        </Tabs.Content>
-        <Tabs.Trigger className={styles.TabsTrigger} value="tab6">
-          <div className={styles.trigger_container}>
-            <div className={styles.icon_wrapper}>
-              <InvestingIcon />
-              <InvestingIconGradient />
-            </div>
-            <span>Инвестируем за вас</span>
-          </div>
-        </Tabs.Trigger>
-        <Tabs.Content className={styles.TabsContent} value="tab6">
-          <Slider data={featuresData.investing} resolution={resolution} />
         </Tabs.Content>
         <Tabs.Trigger className={styles.TabsTrigger} value="tab7">
           <div className={styles.trigger_container}>
