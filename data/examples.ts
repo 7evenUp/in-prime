@@ -308,7 +308,98 @@ import ProcoinMay from "@/public/images/png/examples/2025/may/Procoin.jpeg";
 import ShortTRUMPMay from "@/public/images/png/examples/2025/may/ShortTRUMP.jpeg";
 import SophonMay from "@/public/images/png/examples/2025/may/Sophon.jpeg";
 
+import ReturnOfIotaJune from "@/public/images/png/examples/2025/june/ReturnOfIota.jpeg";
+import MagicNewtonJune from "@/public/images/png/examples/2025/june/MagicNewton.jpeg";
+import SaharaAITestnetJune from "@/public/images/png/examples/2025/june/SaharaAITestnet.jpeg";
+import SaharaAITokenSaleJune from "@/public/images/png/examples/2025/june/SaharaAITokenSale.jpeg";
+import IRISVirtualsJune from "@/public/images/png/examples/2025/june/IRISVirtuals.jpeg";
+import XaiRaijinJune from "@/public/images/png/examples/2025/june/XaiRaijin.jpeg";
+import NamadaJune from "@/public/images/png/examples/2025/june/Namada.jpeg";
+import RunnerBotJune from "@/public/images/png/examples/2025/june/RunnerBot.png";
+
 export const examples = {
+  июнь: [
+    {
+      title: "The Return of Iota",
+      earn: "$35000",
+      spend: "$7500",
+      category: "Промоакции",
+      condition: "Собрать 8 NFT в промо-кампании по видеогайду от Prime",
+      resources: "$10, время на выполнение активности",
+      reportUrl: "crypton.xyz",
+      img: ReturnOfIotaJune,
+    },
+    {
+      title: "Magic Newton",
+      earn: "$841",
+      spend: "$0",
+      category: "Тестнеты",
+      condition: "Зарабатывать баллы, выполнять задания по видеогайду от Prime",
+      resources: "время на выполнение активности",
+      reportUrl: "crypton.xyz",
+      img: MagicNewtonJune,
+    },
+    {
+      title: "Sahara AI",
+      earn: "$2150",
+      spend: "$0",
+      category: "Тестнеты",
+      condition: "Выполнять задания по видеогайду от Prime",
+      resources: "время на выполнение активности",
+      reportUrl: "crypton.xyz",
+      img: SaharaAITestnetJune,
+    },
+    {
+      title: "Sahara AI",
+      earn: "$2276",
+      spend: "$843",
+      category: "Токенсейлы",
+      condition: "Участвовать в токенсейле проекта Sahara AI",
+      resources: "$2000 на получение максимальной аллокации",
+      reportUrl: "crypton.xyz",
+      img: SaharaAITokenSaleJune,
+    },
+    {
+      title: "$IRIS на Virtuals",
+      earn: "$2300",
+      spend: "$700",
+      category: "Токенсейлы",
+      condition: "Участвовать в токенсейле проекта $IRIS",
+      resources: "$700, время на выполнение активности",
+      reportUrl: "crypton.xyz",
+      img: IRISVirtualsJune,
+    },
+    {
+      title: "Xai Raijin",
+      earn: "$2920",
+      spend: "$132",
+      category: "Промоакции",
+      condition: "Участвовать в розыгрышах на платформе",
+      resources: "время на выполнение активности",
+      reportUrl: "crypton.xyz",
+      img: XaiRaijinJune,
+    },
+    {
+      title: "Namada",
+      earn: "$500",
+      spend: "$180",
+      category: "Ноды",
+      condition: "Держать ноду проекта, участвовать в церемонии",
+      resources: "время на выполнение активности",
+      reportUrl: "crypton.xyz",
+      img: NamadaJune,
+    },
+    {
+      title: "Runner Bot",
+      earn: "$600",
+      spend: "$300",
+      category: "Мемкоины",
+      condition: "Покупать и продавать мемкоины по автоматическим коллам от бота",
+      resources: "время на выполнение активности",
+      reportUrl: "crypton.xyz",
+      img: RunnerBotJune,
+    },
+  ],
   май: [
     {
       title: "Токенсейл $LOUD",
@@ -1545,7 +1636,7 @@ export const examples = {
       img: RawpassDecember,
     },
     {
-      title: "Sandbox Dr. Bomkus’ Trials",
+      title: "Sandbox Dr. Bomkus' Trials",
       earn: "$200",
       spend: "$3,5",
       category: "NFT",
@@ -1667,7 +1758,7 @@ export const examples = {
       spend: "$10",
       category: "Ретродропы",
       condition:
-        'Конкретных критериев разработчики не раскрывали, но получили дроп с большой вероятностью те, кто следовал инструкциям из рубрики "Возможности”.',
+        'Конкретных критериев разработчики не раскрывали, но получили дроп с большой вероятностью те, кто следовал инструкциям из рубрики "Возможности" (Opportunities).',
       resources: "Средства на действия в разных блокчейнах и комиссии.",
       reportUrl: "crypton.xyz",
       img: Pyth,
@@ -2923,4 +3014,5 @@ export const examples = {
       img: Walken,
     },
   ],
+ 
 };
