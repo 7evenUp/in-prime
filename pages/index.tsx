@@ -209,7 +209,7 @@ const Home = ({ bannerCookieName, banner }: SSRProps) => {
 
           <Histories />
 
-          <Partners />
+          {/* <Partners /> */}
 
           <div className="app__container__faq" id="faq">
             <div className="app__container__faq__title">

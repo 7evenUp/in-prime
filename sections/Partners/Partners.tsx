@@ -15,8 +15,7 @@ import styles from "./Partners.module.scss"
 
 const Partners = () => {
   return (
-    <div className={styles.container} id="partners">
-      <h2 className={styles.heading}>Нам доверяют</h2>
+    <div className={styles.container}>
       <div className={styles.partners}>
         <div className={styles.row}>
           <Image src={BinanceImg} alt="Binance" />

@@ -1,56 +1,20 @@
 .container {
   width: 100vw;
-  padding: 100px 0;
-  background: #222;
+  margin-top: auto;
+  margin-bottom: 60px;
+  position: relative;
+  z-index: 2;
 
   @media (max-width: 1919px) {
-    padding: 64px 0;
-  }
-
-  @media (max-width: 1367px) {
-    padding: 60px 0;
+    margin-bottom: 48px;
   }
 
   @media (max-width: 767px) {
-    padding: 48px 0;
-    margin-top: 0;
-  }
-}
-
-.heading {
-  font-family: "Unbounded", sans-serif;
-  font-weight: 500;
-  font-size: 36px;
-  line-height: 160%;
-  text-align: center;
-  color: #fff;
-
-  width: 1300px;
-  margin: 0;
-  margin-inline: auto;
-
-  @media (max-width: 1919px) and (min-width: 1368px) {
-    width: 1144px;
-  }
-
-  @media (max-width: 1367px) and (min-width: 768px) {
-    width: 672px;
-    font-size: 34px;
-  }
-
-  @media (max-width: 767px) {
-    width: 335px;
-    font-size: 26px;
-  }
-
-  @media (max-width: 420px) {
-    width: 290px;
-    font-size: 20px;
+    margin-bottom: 44px;
   }
 }
 
 .partners {
-  margin-top: 100px;
   display: flex;
 
   -webkit-mask: linear-gradient(
@@ -62,17 +26,7 @@
   );
   mask: linear-gradient(90deg, transparent, white 30%, white 70%, transparent);
 
-  @media (max-width: 1919px) {
-    margin-top: 73px;
-  }
-
-  @media (max-width: 1367px) {
-    margin-top: 50px;
-  }
-
   @media (max-width: 767px) {
-    margin-top: 44px;
-
     -webkit-mask: linear-gradient(
       90deg,
       transparent,

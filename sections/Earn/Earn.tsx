@@ -1,4 +1,11 @@
 import React, { useEffect, useState } from "react"
+import {
+  getSection,
+  scrollReducer,
+  scrollToSection,
+} from "@/redux/reducers/scrollReducer"
+import { useSelector } from "react-redux"
+import clsx from "clsx"
 
 // import Categories from "@/components/categories"
 import MobileMenu from "@/components/mobile-menu"
@@ -6,12 +13,7 @@ import MobileMenu from "@/components/mobile-menu"
 import { Resolution } from "@/types/resolution"
 
 import styles from "./Earn.module.scss"
-import {
-  getSection,
-  scrollReducer,
-  scrollToSection,
-} from "@/redux/reducers/scrollReducer"
-import { useSelector } from "react-redux"
+import Partners from "../Partners/Partners"
 
 interface EarnProps {
   resolution: Resolution
@@ -150,29 +152,27 @@ const Earn = ({ resolution, referral }: EarnProps) => {
       {/* <Categories /> */}
 
       <h1 className={styles.title}>
-        Зарабатывайте
+        Зарабатывайте в крипте
         <br />
-        на крипте <span> проще</span>
+        <span>больше с Prime</span>
       </h1>
 
       <div className={styles.description}>
-        Получите в Prime <span>понятный план действий</span> и{" "}
-        <span>поддержку</span> от наших экспертов для извлечения максимальной{" "}
-        прибыли всего за пару кликов.
+        Экономьте силы и время с помощью готовых стратегий и помощи экспертов.{" "}
+        <span>Освойте актуальные направления заработка</span> и чувствуйте себя
+        уверенно на любом рынке
       </div>
+
       <div className={styles.footer}>
-        <button className={styles.button1} onClick={scrollToGuarantee}>
+        {/* <button className={styles.button1} onClick={scrollToGuarantee}>
           Гарантируем окупаемость
-        </button>
-        <button className={styles.button2} onClick={scrollToSubscriptions}>
-          Тарифы
+        </button> */}
+        <button className={styles.button1} onClick={scrollToSubscriptions}>
+          Выбрать тариф
         </button>
       </div>
 
-      <div className={styles.prime_bottom}>
-        <span>CRYPTON PRIME</span>
-        <div className={styles.prime_arrow} />
-      </div>
+      <Partners />
 
       <div className={styles.gradient} />
       {resolution !== "sm" ? (
@@ -190,11 +190,11 @@ const Earn = ({ resolution, referral }: EarnProps) => {
         ))}
       </div>
 
-      {/* <div className={clsx(styles.lines, styles.lines__stars)}>
+      <div className={clsx(styles.lines, styles.lines__stars)}>
         {[...Array(lineCount)].map((_, index) => (
           <div key={index} className={styles.star} />
         ))}
-      </div> */}
+      </div>
     </section>
   )
 }
