@@ -8,7 +8,6 @@ import { useThrottledCallback } from "@react-hookz/web"
 import Footer from "@/components/footer"
 import Accordion from "@/components/accordion/accordion"
 import Team from "@/components/Team"
-import Ribbon from "@/components/ribbon"
 import LoginIdPopup from "@/components/LoginIdPopup/LoginIdPopup"
 import { AdBanner, TAdBanner } from "@/components/banner/ad-banner.client"
 
@@ -176,8 +175,6 @@ const Home = ({ bannerCookieName, banner }: SSRProps) => {
           </div> */}
 
           <Guarantee />
-
-          <Ribbon currentWidth={currentWidth} />
 
           <Roadmap resolution={resolution} />
 
