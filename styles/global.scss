@@ -2776,25 +2776,20 @@ p {
 
     &__faq {
       width: 1310px;
-      padding: 0 570px 0 310px;
-      margin-top: 140px;
       margin-left: auto;
       margin-right: auto;
 
       @media (max-width: 1919px) and (min-width: 1368px) {
-        padding: 0 216px 0 112px;
-        margin-top: 120px;
+        width: 1140px;
       }
 
       @media (max-width: 1367px) and (min-width: 768px) {
         width: 672px;
-        margin-top: 100px;
         padding: 0 48px 0 48px;
       }
 
       @media (max-width: 767px) {
         width: 335px;
-        margin-top: 70px;
         padding: 0 19px 0 20px;
       }
 
