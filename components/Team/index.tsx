@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react"
+import React, { useEffect } from "react"
 import Image from "next/image"
 import * as Collapsible from "@radix-ui/react-collapsible"
 import clsx from "clsx"
@@ -11,12 +11,13 @@ import styles from "./styles.module.scss"
 
 const FOUNDER_ANCHOR_ID = "founder"
 
-interface TeamProps {
+const Team = ({
+  teamOpened,
+  setTeamOpened,
+}: {
   teamOpened: boolean
   setTeamOpened: (opened: boolean) => void
-}
-
-const Team: FC<TeamProps> = ({ teamOpened, setTeamOpened }) => {
+}) => {
   useEffect(() => {
     if (location.hash === `#${FOUNDER_ANCHOR_ID}`) setTeamOpened(true)
   }, [])

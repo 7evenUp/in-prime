@@ -151,35 +151,11 @@ const Home = ({ bannerCookieName, banner }: SSRProps) => {
             <Features resolution={resolution} />
           )}
 
-          {/* <div className="app__container__video-block" id="video">
-            <div className="app__container__video-block__video">
-              <iframe
-                style={{ borderRadius: "8px", border: 0 }}
-                width="100%"
-                height="100%"
-                src="https://www.youtube.com/embed/cRucxHqqWZA"
-                title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            </div>
-            <div className="app__container__video-block__description-block">
-              <div className="app__container__video-block__description-block__title">
-                Все возможности Prime
-              </div>
-              <div className="app__container__video-block__description-block__description">
-                Узнайте больше о том, что вас ждет в Prime, после приобретения
-                подписки!
-              </div>
-            </div>
-          </div> */}
-
           <Guarantee />
 
           {/* <Roadmap resolution={resolution} /> */}
 
           <Founders teamOpened={teamOpened} setTeamOpened={setTeamOpened} />
-
           <Team teamOpened={teamOpened} setTeamOpened={setTeamOpened} />
 
           {/* <Birthday /> */}
