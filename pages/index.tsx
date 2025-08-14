@@ -21,8 +21,6 @@ import Earn from "@/sections/Earn/Earn"
 import Founders from "@/sections/founders/Founders"
 import OtherProducts from "@/sections/OtherProducts/OtherProducts"
 import Guarantee from "@/sections/Guarantee/Guarantee"
-import Advantages from "@/sections/Advantages/Advantages"
-import AdvantagesSm from "@/sections/Advantages/AdvantagesSm"
 import BuySubscription from "@/sections/BuySubscription/BuySubscription"
 import Examples from "@/sections/Examples/Examples"
 
@@ -147,8 +145,6 @@ const Home = ({ bannerCookieName, banner }: SSRProps) => {
           <Earn referral={referral} resolution={resolution} />
 
           <Examples resolution={resolution} />
-
-          {resolution === "sm" ? <AdvantagesSm /> : <Advantages />}
 
           {resolution === "sm" || resolution === "md" ? (
             <FeaturesSm resolution={resolution} />
