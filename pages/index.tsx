@@ -11,7 +11,7 @@ import Team from "@/components/Team"
 import LoginIdPopup from "@/components/LoginIdPopup/LoginIdPopup"
 import { AdBanner, TAdBanner } from "@/components/banner/ad-banner.client"
 
-import Testimonials from "@/sections/Testimonials/Testimonials"
+// import Testimonials from "@/sections/Testimonials/Testimonials"
 import Histories from "@/sections/Histories/Histories"
 import Features from "@/sections/Features/Features"
 import FeaturesSm from "@/sections/Features/FeaturesSm"
@@ -171,7 +171,7 @@ const Home = ({ bannerCookieName, banner }: SSRProps) => {
 
           <BuySubscription tariffs={tariffs} resolution={resolution} />
 
-          <Testimonials resolution={resolution} />
+          {/* <Testimonials resolution={resolution} /> */}
 
           <Histories />
 
