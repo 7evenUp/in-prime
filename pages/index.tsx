@@ -6,7 +6,6 @@ import { useDispatch } from "react-redux"
 import { useThrottledCallback } from "@react-hookz/web"
 
 import Footer from "@/components/footer"
-import Examples from "@/components/examples"
 import Accordion from "@/components/accordion/accordion"
 import Team from "@/components/Team"
 import Ribbon from "@/components/ribbon"
@@ -17,7 +16,6 @@ import Testimonials from "@/sections/Testimonials/Testimonials"
 import Histories from "@/sections/Histories/Histories"
 import Features from "@/sections/Features/Features"
 import FeaturesSm from "@/sections/Features/FeaturesSm"
-import Partners from "@/sections/Partners/Partners"
 import Roadmap from "@/sections/Roadmap/Roadmap"
 import Earn from "@/sections/Earn/Earn"
 import Founders from "@/sections/founders/Founders"
@@ -26,6 +24,7 @@ import Guarantee from "@/sections/Guarantee/Guarantee"
 import Advantages from "@/sections/Advantages/Advantages"
 import AdvantagesSm from "@/sections/Advantages/AdvantagesSm"
 import BuySubscription from "@/sections/BuySubscription/BuySubscription"
+import Examples from "@/sections/Examples/Examples"
 
 import BuySubscr from "@/public/images/jsx/subscribe/buy-subscr"
 import BuySubscrLg from "@/public/images/jsx/subscribe/buy-subscr-lg"
@@ -147,6 +146,8 @@ const Home = ({ bannerCookieName, banner }: SSRProps) => {
         <div className="app__container">
           <Earn referral={referral} resolution={resolution} />
 
+          <Examples resolution={resolution} />
+
           {resolution === "sm" ? <AdvantagesSm /> : <Advantages />}
 
           {resolution === "sm" || resolution === "md" ? (
@@ -181,13 +182,6 @@ const Home = ({ bannerCookieName, banner }: SSRProps) => {
           <Guarantee />
 
           <Ribbon currentWidth={currentWidth} />
-
-          <div className="app__container__examples" id="examples">
-            <div className="app__container__examples__title">
-              Наши подписчики уже <br /> заработали
-            </div>
-            <Examples resolution={resolution} />
-          </div>
 
           <Roadmap resolution={resolution} />
 

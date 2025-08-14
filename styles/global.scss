@@ -1213,67 +1213,6 @@ p {
       }
     }
 
-    &__examples {
-      width: 1610px;
-      display: flex;
-      flex-direction: column;
-      padding-left: 310px;
-
-      @media (max-width: 1919px) and (min-width: 1368px) {
-        padding-left: 112px;
-        width: 1256px;
-      }
-
-      @media (max-width: 1367px) and (min-width: 768px) {
-        width: 721px;
-        padding-left: 48px;
-      }
-
-      @media (max-width: 767px) {
-        width: 355px;
-        padding-left: 20px;
-      }
-
-      @media (max-width: 420px) {
-        box-sizing: border-box;
-        width: 100%;
-      }
-
-      @media (max-width: 420px) {
-        margin-top: 60px;
-      }
-
-      &__title {
-        font-family: "Unbounded", sans-serif;
-        font-weight: 700;
-        font-size: 54px;
-        text-align: center;
-        color: #fff;
-        line-height: normal;
-
-        margin-bottom: 65px;
-        width: 1300px;
-
-        @media (max-width: 1919px) and (min-width: 1368px) {
-          font-size: 49px;
-          margin-bottom: 85px;
-        }
-
-        @media (max-width: 1367px) and (min-width: 768px) {
-          font-size: 42px;
-          margin-bottom: 65px;
-          width: 667px;
-        }
-
-        @media (max-width: 767px) {
-          font-size: 28px;
-          margin-bottom: 38px;
-          margin-top: 30px;
-          width: 318px;
-        }
-      }
-    }
-
     &__about-ceo {
       &__ceo {
         &__description {
