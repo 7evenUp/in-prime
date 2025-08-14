@@ -15,7 +15,7 @@ import Testimonials from "@/sections/Testimonials/Testimonials"
 import Histories from "@/sections/Histories/Histories"
 import Features from "@/sections/Features/Features"
 import FeaturesSm from "@/sections/Features/FeaturesSm"
-import Roadmap from "@/sections/Roadmap/Roadmap"
+// import Roadmap from "@/sections/Roadmap/Roadmap"
 import Earn from "@/sections/Earn/Earn"
 import Founders from "@/sections/founders/Founders"
 import OtherProducts from "@/sections/OtherProducts/OtherProducts"
@@ -176,7 +176,7 @@ const Home = ({ bannerCookieName, banner }: SSRProps) => {
 
           <Guarantee />
 
-          <Roadmap resolution={resolution} />
+          {/* <Roadmap resolution={resolution} /> */}
 
           <Founders teamOpened={teamOpened} setTeamOpened={setTeamOpened} />
 
