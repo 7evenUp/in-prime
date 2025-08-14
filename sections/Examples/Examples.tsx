@@ -8,6 +8,8 @@ import ToggleRight from "@/public/images/jsx/icons/toggle-right"
 
 import { examples } from "@/data/examples"
 
+import { scrollToSection } from "@/redux/reducers/scrollReducer"
+
 import { Resolution } from "@/types/resolution"
 
 import styles from "./Examples.module.scss"
@@ -30,6 +32,8 @@ const Examples = ({ resolution }: { resolution: Resolution }) => {
   const [currentBlock, setCurrentBlock] = useState(0)
   const [currentMonth, setCurrentMonth] = useState(0)
   const [showDescription, setShowDescription] = useState(-1)
+
+  const scrollToSubscriptions = () => scrollToSection("Подписка")
 
   const swiperRef = useRef(null)
 
@@ -119,7 +123,6 @@ const Examples = ({ resolution }: { resolution: Resolution }) => {
           spaceBetween={spaces[resolution]}
           slidesPerView={1}
           style={{ width: width[resolution] }}
-          wrapperClass={styles.swiper_wrapper}
         >
           {Object.entries(examples)[currentMonth][1].map(
             (
@@ -276,6 +279,10 @@ const Examples = ({ resolution }: { resolution: Resolution }) => {
         />
       )} */}
       </div>
+
+      <button className={styles.button} onClick={scrollToSubscriptions}>
+        Хочу так же
+      </button>
     </div>
   )
 }

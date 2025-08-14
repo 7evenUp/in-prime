@@ -62,11 +62,6 @@
   }
 }
 
-.swiper_wrapper {
-  display: flex;
-  height: 100%;
-}
-
 .examples_content {
   width: 200%;
 
@@ -502,4 +497,21 @@
 .invested_title,
 .invested_value {
   color: #b5b5b5;
+}
+
+.button {
+  margin-top: 40px;
+  margin-inline: auto;
+  height: 56px;
+  width: 220px;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 100%;
+  color: #181818;
+  background-image: linear-gradient(to right, #ffe29d, #ffe8b0, #ffe29d);
+  border: none;
+  outline: none;
+  border-radius: 16px;
+  cursor: pointer;
 }
