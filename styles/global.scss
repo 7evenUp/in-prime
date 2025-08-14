@@ -2031,26 +2031,6 @@ p {
         }
       }
 
-      &__noise {
-        position: absolute;
-        width: 100%;
-        height: 788px;
-        // background-image: url("/images/png/noise.png");
-        z-index: 1;
-
-        @media (max-width: 1919px) and (min-width: 1368px) {
-          height: 705px;
-        }
-
-        @media (max-width: 1367px) and (min-width: 768px) {
-          height: 966px;
-        }
-
-        @media (max-width: 767px) {
-          height: 1247px;
-        }
-      }
-
       &__content {
         width: 1300px;
         padding: 0 310px 0 310px;
@@ -3076,10 +3056,6 @@ p {
     &.light {
       background: #e5e5e5;
     }
-  }
-
-  &.noise {
-    background: url("/images/png/noise.png");
   }
 }
 

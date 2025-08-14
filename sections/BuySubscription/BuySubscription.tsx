@@ -294,7 +294,6 @@ const BuySubscription = ({
       <div className="app__container__subscribe__newYear" />
 
       <div className="app__container__subscribe">
-        <div className="app__container__subscribe__noise" />
         {/* <div className="app__container__subscribe__back"> */}
         {/* <div className="app__container__subscribe__back__left-gradient" />
           <div className="app__container__subscribe__back__right-gradient" /> */}
@@ -740,7 +739,6 @@ const OldBuySubscription = ({
 
   return (
     <div className="app__container__subscribe">
-      <div className="app__container__subscribe__noise" />
       <div className="app__container__subscribe__back">
         <div className="app__container__subscribe__back__left-gradient" />
         <div className="app__container__subscribe__back__right-gradient" />

@@ -25,7 +25,6 @@ const PageNotFound = (props) => (
     </div>
 
     <div className="back color dark"></div>
-    <div className="back noise"></div>
   </>
 )
 

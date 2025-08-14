@@ -219,7 +219,6 @@ const Home = ({ bannerCookieName, banner }: SSRProps) => {
       </div>
 
       <div className="back color dark" />
-      <div className="back noise" />
 
       <LoginIdPopup />
 
