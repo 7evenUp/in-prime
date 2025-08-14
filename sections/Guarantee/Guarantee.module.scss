@@ -2,6 +2,9 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  background-color: #0D0D0D;
+  padding-top: 90px;
+  padding-bottom: 86px;
 
   @media (max-width: 767px) {
     border: none;
@@ -35,7 +38,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 92px;
   margin-bottom: 36px;
 
   @media (max-width: 1919px) and (min-width: 1368px) {
@@ -43,14 +45,12 @@
   }
 
   @media (max-width: 1367px) and (min-width: 768px) {
-    margin-top: 80px;
     margin-bottom: 0;
     flex-direction: column;
     justify-content: center;
   }
 
   @media (max-width: 767px) {
-    margin-top: 0px;
     margin-bottom: 0;
     flex-direction: column;
     justify-content: center;
