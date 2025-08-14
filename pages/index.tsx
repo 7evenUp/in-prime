@@ -22,6 +22,7 @@ import OtherProducts from "@/sections/OtherProducts/OtherProducts"
 import Guarantee from "@/sections/Guarantee/Guarantee"
 import BuySubscription from "@/sections/BuySubscription/BuySubscription"
 import Examples from "@/sections/Examples/Examples"
+import Achievements from "@/sections/Achievements/Achievements"
 
 import BuySubscr from "@/public/images/jsx/subscribe/buy-subscr"
 import BuySubscrLg from "@/public/images/jsx/subscribe/buy-subscr-lg"
@@ -144,6 +145,8 @@ const Home = ({ bannerCookieName, banner }: SSRProps) => {
           <Earn referral={referral} resolution={resolution} />
 
           <Examples resolution={resolution} />
+
+          <Achievements resolution={resolution} />
 
           {resolution === "sm" || resolution === "md" ? (
             <FeaturesSm resolution={resolution} />
