@@ -48,9 +48,9 @@ const MobileMenu = (props) => {
         <div className="mobile-menu__container__cat-place">
           <div
             className="mobile-menu__container__cat-place__item"
-            onClick={() => toggleMenu(getSection('Преимущества'))}
+            onClick={() => toggleMenu(getSection('Оформить подписку'))}
           >
-            Преимущества
+            Оформить подписку
           </div>
           <div
             className="mobile-menu__container__cat-place__item"

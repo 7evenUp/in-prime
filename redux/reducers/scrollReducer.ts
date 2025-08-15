@@ -10,52 +10,52 @@ const initialState: IScrollReducer = {
 
 const sections = {
   Главная: {
-    name: 'Главная',
+    name: "Главная",
     getPosition: () => 0,
   },
-  Преимущества: {
-    name: 'Преимущества',
-    getPosition: () => document.getElementById('benefits').offsetTop,
+  "Оформить подписку": {
+    name: "Оформить подписку",
+    getPosition: () => document.getElementById("subscribe").offsetTop,
   },
   Возможности: {
-    name: 'Возможности',
-    getPosition: () => document.getElementById('features').offsetTop,
+    name: "Возможности",
+    getPosition: () => document.getElementById("features").offsetTop,
   },
   Окупаемость: {
-    name: 'Окупаемость',
-    getPosition: () => document.getElementById('guarantee').offsetTop,
+    name: "Окупаемость",
+    getPosition: () => document.getElementById("guarantee").offsetTop,
   },
   Кейсы: {
-    name: 'Кейсы',
-    getPosition: () => document.getElementById('examples').offsetTop,
+    name: "Кейсы",
+    getPosition: () => document.getElementById("examples").offsetTop,
   },
-  Роадмап: {
-    name: 'Роадмап',
-    getPosition: () => document.getElementById('roadmap').offsetTop,
+  Профиты: {
+    name: "Профиты",
+    getPosition: () => document.getElementById("achievements").offsetTop,
   },
   Команда: {
-    name: 'Команда',
-    getPosition: () => document.getElementById('founder').offsetTop,
+    name: "Команда",
+    getPosition: () => document.getElementById("founder").offsetTop,
   },
   Подписка: {
-    name: 'Подписка',
-    getPosition: () => document.getElementById('subscribe').offsetTop,
+    name: "Подписка",
+    getPosition: () => document.getElementById("subscribe").offsetTop,
   },
   Отзывы: {
-    name: 'Отзывы',
-    getPosition: () => document.getElementById('testimonials').offsetTop,
+    name: "Отзывы",
+    getPosition: () => document.getElementById("testimonials").offsetTop,
   },
-  'Истории успеха': {
-    name: 'Истории успеха',
-    getPosition: () => document.getElementById('histories').offsetTop,
+  "Истории успеха": {
+    name: "Истории успеха",
+    getPosition: () => document.getElementById("histories").offsetTop,
   },
   Партнеры: {
-    name: 'Партнеры',
-    getPosition: () => document.getElementById('partners').offsetTop,
+    name: "Партнеры",
+    getPosition: () => document.getElementById("partners").offsetTop,
   },
   FAQ: {
-    name: 'FAQ',
-    getPosition: () => document.getElementById('faq').offsetTop,
+    name: "FAQ",
+    getPosition: () => document.getElementById("faq").offsetTop,
   },
 } as const
 

@@ -15,7 +15,7 @@ const Menu = (props) => {
 
   const categories = [
     { number: "01", ...getSection("Главная") },
-    { number: "02", ...getSection("Преимущества") },
+    { number: "02", ...getSection("Оформить подписку") },
     { number: "03", ...getSection("Возможности") },
     { number: "04", ...getSection("Кейсы") },
     { number: "05", ...getSection("Команда") },

@@ -243,47 +243,49 @@ export default Footer
 
 
 const FooterRectangleRight = () => {
-  return <div className="footer__rectangle__right">
-    <div className="footer__rectangle__right__column">
-      <div
-        className="footer__rectangle__right__column__route"
-        onClick={() => scrollToSection('Преимущества')}
-      >
-        Преимущества
+  return (
+    <div className="footer__rectangle__right">
+      <div className="footer__rectangle__right__column">
+        <div
+          className="footer__rectangle__right__column__route"
+          onClick={() => scrollToSection("Оформить подписку")}
+        >
+          Оформить подписку
+        </div>
+        <div
+          className="footer__rectangle__right__column__route"
+          onClick={() => scrollToSection("Возможности")}
+        >
+          Возможности
+        </div>
+        <div
+          className="footer__rectangle__right__column__route"
+          onClick={() => scrollToSection("Кейсы")}
+        >
+          Примеры заработка
+        </div>
       </div>
-      <div
-        className="footer__rectangle__right__column__route"
-        onClick={() => scrollToSection('Возможности')}
-      >
-        Возможности
-      </div>
-      <div
-        className="footer__rectangle__right__column__route"
-        onClick={() => scrollToSection('Кейсы')}
-      >
-        Примеры заработка
-      </div>
-    </div>
 
-    <div className="footer__rectangle__right__column">
-      <div
-        className="footer__rectangle__right__column__route"
-        onClick={() => scrollToSection('Команда')}
-      >
-        Команда
-      </div>
-      <div
-        className="footer__rectangle__right__column__route"
-        onClick={() => scrollToSection('Партнеры')}
-      >
-        Партнёры
-      </div>
-      <div
-        className="footer__rectangle__right__column__route"
-        onClick={() => scrollToSection('FAQ')}
-      >
-        FAQ
+      <div className="footer__rectangle__right__column">
+        <div
+          className="footer__rectangle__right__column__route"
+          onClick={() => scrollToSection("Команда")}
+        >
+          Команда
+        </div>
+        <div
+          className="footer__rectangle__right__column__route"
+          onClick={() => scrollToSection("Партнеры")}
+        >
+          Партнёры
+        </div>
+        <div
+          className="footer__rectangle__right__column__route"
+          onClick={() => scrollToSection("FAQ")}
+        >
+          FAQ
+        </div>
       </div>
     </div>
-  </div>
+  )
 }

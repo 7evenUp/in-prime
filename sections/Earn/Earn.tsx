@@ -46,7 +46,7 @@ const Earn = ({ resolution, referral }: EarnProps) => {
   const categories = [
     { number: "03", ...getSection("Возможности") },
     { number: "04", ...getSection("Кейсы") },
-    { number: "05", ...getSection("Роадмап") },
+    { number: "05", ...getSection("Профиты") },
     { number: "06", ...getSection("Команда"), name: "О нас" },
     { number: "07", ...getSection("FAQ") },
     { number: "08", ...getSection("Истории успеха") },

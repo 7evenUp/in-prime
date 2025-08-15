@@ -19,7 +19,7 @@ const Achievements = ({ resolution }: { resolution: Resolution }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel()
 
   return (
-    <section className={styles.container}>
+    <section className={styles.container} id="achievements">
       <div className={styles.wrapper}>
         <h2 className={styles.title}>Достижения участников</h2>
         <p className={styles.title_description}>
