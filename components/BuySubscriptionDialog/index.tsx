@@ -506,6 +506,103 @@ const BuySubscriptionDialog = ({
                   </div>
 
                   <div className={styles.top_right}>
+                    <div
+                      className={clsx(
+                        styles.cards,
+                        order === 0 && styles.cards_0__active,
+                        order === 1 && styles.cards_1__active,
+                        order === 2 && styles.cards_2__active,
+                        order === 3 && styles.cards_3__active
+                      )}
+                    >
+                      {/* Добавить четвертый элемент в массив, когда вернётся подписка на 1 мес */}
+                      {[0, 1, 2].map((el) => (
+                        <div
+                          key={el}
+                          className={clsx(styles.card, styles[`card_${el}`])}
+                        >
+                          <span
+                            className={clsx(
+                              styles.card_duration,
+                              order === 0 && styles.card_duration__active1,
+                              order === 1 && styles.card_duration__active2,
+                              order === 2 && styles.card_duration__active3,
+                              order === 3 && styles.card_duration__active4
+                            )}
+                          >
+                            {order === 0 && "START"}
+                            {order === 1 && "SUPER"}
+                            {order === 2 && "EPIC"} ({duration.id} МЕС)
+                          </span>
+
+                          <Advantages order={order} isCompact />
+
+                          {/* вернуть `order !== 0 &&`, когда вернётся подписка на 1 мес */}
+                          {/* {benefits.length > 0 && (
+                            <>
+                              <div
+                                className={clsx(
+                                  styles.bonuses_heading,
+                                  order === 0 && styles.bonuses_heading0,
+                                  order === 1 && styles.bonuses_heading1,
+                                  order === 2 && styles.bonuses_heading2,
+                                  order === 3 && styles.bonuses_heading3
+                                )}
+                              >
+                                <div className={styles.bonuses_heading_icon}>
+                                  <svg
+                                    width="12"
+                                    height="12"
+                                    viewBox="0 0 12 12"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M10.6834 6.57031H6.3916V11.9998H10.6834V6.57031Z"
+                                      fill="#171717"
+                                    />
+                                    <path
+                                      d="M5.60823 6.57031H1.31641V11.9998H5.60823V6.57031Z"
+                                      fill="#171717"
+                                    />
+                                    <path
+                                      d="M9.34618 2.21325C9.46227 2.00055 9.52834 1.75683 9.52834 1.49791C9.52836 0.671953 8.85638 0 8.03045 0C7.41955 0 6.79447 0.315656 6.31557 0.866039C6.19705 1.00223 6.09149 1.1486 6.0002 1.30104C5.90891 1.1486 5.80334 1.00223 5.68482 0.866039C5.20592 0.315656 4.58087 0 3.96995 0C3.14401 0 2.47203 0.671977 2.47203 1.49791C2.47203 1.7568 2.53808 2.00055 2.65419 2.21325H0.614258V5.78791H5.60888V2.21325H6.39149V5.78791H11.3861V2.21325H9.34618ZM3.96995 2.21325C3.57554 2.21325 3.25463 1.89234 3.25463 1.49791C3.25463 1.10348 3.57554 0.782602 3.96995 0.782602C4.68008 0.782602 5.35524 1.509 5.55172 2.21323L3.96995 2.21325ZM8.03045 2.21325H6.44867C6.64515 1.509 7.32031 0.782625 8.03045 0.782625C8.42485 0.782625 8.74576 1.10353 8.74576 1.49794C8.74574 1.89237 8.42485 2.21325 8.03045 2.21325Z"
+                                      fill="#171717"
+                                    />
+                                  </svg>
+                                </div>
+                                <span className={styles.bonuses_heading_text}>
+                                  ПОДАРКИ
+                                </span>
+                              </div>
+
+                              <ul
+                                className={clsx(
+                                  styles.bonuses,
+                                  styles.bonuses__small
+                                )}
+                              >
+                                {benefits.map(
+                                  (benefit) =>
+                                    benefit.file &&
+                                    benefit.remainingCount !== 0 && (
+                                      <BenefitCard
+                                        compact
+                                        benefit={{
+                                          name: benefit.translations.ru.name,
+                                          description:
+                                            benefit.translations.ru.description,
+                                          file: benefit.file,
+                                        }}
+                                      />
+                                    )
+                                )}
+                              </ul>
+                            </>
+                          )} */}
+                        </div>
+                      ))}
+                    </div>
                     <div className={styles.promocode}>
                       {localPromocode?.code ? (
                         <>

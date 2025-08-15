@@ -5,18 +5,34 @@ import { useIsTouchDevice } from "@/hooks/device"
 
 import { NavArrowIcon } from "../Icons"
 
-import { advantages_start, advantages_pro, advantages_prime } from "./data"
+import {
+  advantages_start,
+  advantages_pro,
+  advantages_prime,
+  advantages_start_compact,
+  advantages_pro_compact,
+} from "./data"
 
 import styles from "./Advantages.module.scss"
+import clsx from "clsx"
 
-const Advantages = ({ order }: { order: number }) => {
+const Advantages = ({
+  order,
+  isCompact,
+}: {
+  order: number
+  isCompact?: boolean
+}) => {
   const isTouchDevice = useIsTouchDevice()
   const HoverCardOrPopover = isTouchDevice ? Popover : HoverCard
+
+  const start = isCompact ? advantages_start_compact : advantages_start
+  const pro = isCompact ? advantages_pro_compact : advantages_pro
 
   return (
     <div className={styles.advantages}>
       {order === 0 &&
-        advantages_start.map((advantage) =>
+        start.map((advantage) =>
           advantage.name ===
           "Календарь актуальных крипто-активностей в одном месте" ? (
             <>
@@ -26,7 +42,12 @@ const Advantages = ({ order }: { order: number }) => {
                   className={styles.Trigger}
                 >
                   <CalendarIcon className={styles.calendar_icon} />
-                  <p className={styles.advantage}>
+                  <p
+                    className={clsx(
+                      styles.advantage,
+                      isCompact && styles.advantage_sm
+                    )}
+                  >
                     {advantage.name} <NavArrowIcon />
                   </p>
                 </HoverCardOrPopover.Trigger>
@@ -40,7 +61,9 @@ const Advantages = ({ order }: { order: number }) => {
                   </HoverCardOrPopover.Content>
                 </HoverCardOrPopover.Portal>
               </HoverCardOrPopover.Root>
-              <p className={styles.advantage_additional}>Включает в себя:</p>
+              {!isCompact && (
+                <p className={styles.advantage_additional}>Включает в себя:</p>
+              )}
             </>
           ) : advantage.description ? (
             <HoverCardOrPopover.Root openDelay={150}>
@@ -48,7 +71,12 @@ const Advantages = ({ order }: { order: number }) => {
                 style={{ width: "100%" }}
                 className={styles.Trigger}
               >
-                <p className={styles.advantage}>
+                <p
+                  className={clsx(
+                    styles.advantage,
+                    isCompact && styles.advantage_sm
+                  )}
+                >
                   + {advantage.name} <NavArrowIcon />
                 </p>
               </HoverCardOrPopover.Trigger>
@@ -63,11 +91,18 @@ const Advantages = ({ order }: { order: number }) => {
               </HoverCardOrPopover.Portal>
             </HoverCardOrPopover.Root>
           ) : (
-            <p className={styles.advantage}>+ {advantage.name}</p>
+            <p
+              className={clsx(
+                styles.advantage,
+                isCompact && styles.advantage_sm
+              )}
+            >
+              + {advantage.name}
+            </p>
           )
         )}
       {order === 1 &&
-        advantages_pro.map((advantage) =>
+        pro.map((advantage) =>
           advantage.description ? (
             <HoverCardOrPopover.Root openDelay={150}>
               <HoverCardOrPopover.Trigger
@@ -75,7 +110,12 @@ const Advantages = ({ order }: { order: number }) => {
                 className={styles.Trigger}
               >
                 {advantage.icon && advantage.icon}
-                <p className={styles.advantage}>
+                <p
+                  className={clsx(
+                    styles.advantage,
+                    isCompact && styles.advantage_sm
+                  )}
+                >
                   {!advantage.icon && "+"} {advantage.name} <NavArrowIcon />
                 </p>
               </HoverCardOrPopover.Trigger>
@@ -90,7 +130,14 @@ const Advantages = ({ order }: { order: number }) => {
               </HoverCardOrPopover.Portal>
             </HoverCardOrPopover.Root>
           ) : (
-            <p className={styles.advantage}>+ {advantage.name}</p>
+            <p
+              className={clsx(
+                styles.advantage,
+                isCompact && styles.advantage_sm
+              )}
+            >
+              + {advantage.name}
+            </p>
           )
         )}
       {order === 2 &&
@@ -101,7 +148,12 @@ const Advantages = ({ order }: { order: number }) => {
                 style={{ width: "100%" }}
                 className={styles.Trigger}
               >
-                <p className={styles.advantage}>
+                <p
+                  className={clsx(
+                    styles.advantage,
+                    isCompact && styles.advantage_sm
+                  )}
+                >
                   + {advantage.name} <NavArrowIcon />
                 </p>
               </HoverCardOrPopover.Trigger>
@@ -116,7 +168,14 @@ const Advantages = ({ order }: { order: number }) => {
               </HoverCardOrPopover.Portal>
             </HoverCardOrPopover.Root>
           ) : (
-            <p className={styles.advantage}>+ {advantage.name}</p>
+            <p
+              className={clsx(
+                styles.advantage,
+                isCompact && styles.advantage_sm
+              )}
+            >
+              + {advantage.name}
+            </p>
           )
         )}
     </div>
