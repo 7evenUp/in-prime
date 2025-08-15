@@ -134,6 +134,22 @@ const SubscriptionCard = ({
         </div>
       )}
 
+      <div
+        className={clsx(
+          showMonthlyPrice ? styles.guarantee_small : styles.guarantee
+        )}
+      >
+        {showMonthlyPrice ? (
+          <p className={styles.guarantee_heading}>Гарантия прибыли</p>
+        ) : (
+          <>
+            <p className={styles.guarantee_heading}>Гарантия</p>
+            <p className={styles.guarantee_linethrough}>первой прибыли</p>
+            <p className={styles.guarantee_heading}>окупаемости</p>
+          </>
+        )}
+      </div>
+
       <div style={{ marginTop: 16 }} />
 
       {/* {order === 0 && (

@@ -74,8 +74,9 @@ const Advantages = ({ order }: { order: number }) => {
                 style={{ width: "100%" }}
                 className={styles.Trigger}
               >
+                {advantage.icon && advantage.icon}
                 <p className={styles.advantage}>
-                  + {advantage.name} <NavArrowIcon />
+                  {!advantage.icon && "+"} {advantage.name} <NavArrowIcon />
                 </p>
               </HoverCardOrPopover.Trigger>
               <HoverCardOrPopover.Portal>

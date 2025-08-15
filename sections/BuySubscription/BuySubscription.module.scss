@@ -76,10 +76,12 @@
 
   &:nth-of-type(1) {
     --prime-active-color: #4ddfd0;
+    --prime-active-bg-color: rgba(77, 223, 208, 0.12);
   }
   // Поменять на 2, когда вернётся подписка на 1 мес
   &:nth-of-type(2) {
     --prime-active-color: #ffe5aa;
+    --prime-active-bg-color: rgba(255, 229, 170, 0.12);
   }
   // Поменять на 3, когда вернётся подписка на 1 мес
   // &:nth-of-type(2) {
@@ -88,6 +90,7 @@
   // Поменять на 4, когда вернётся подписка на 1 мес
   &:nth-of-type(3) {
     --prime-active-color: #ff4a7a;
+    --prime-active-bg-color: rgba(255, 74, 122, 0.12);
   }
 
   .duration,
@@ -1262,4 +1265,45 @@
   justify-content: center;
   align-items: center;
   position: relative;
+}
+
+.guarantee {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--prime-active-color);
+  background-color: var(--prime-active-bg-color);
+  padding-top: 6px;
+  padding-bottom: 6px;
+  border-radius: 12px;
+}
+.guarantee_small {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-inline: auto;
+  margin-bottom: 16px;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--prime-active-color);
+  background-color: var(--prime-active-bg-color);
+  padding: 12px;
+  border-radius: 12px;
+  width: fit-content;
+}
+
+.guarantee_heading {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.guarantee_linethrough {
+  opacity: 0.7;
+  text-decoration: line-through;
 }

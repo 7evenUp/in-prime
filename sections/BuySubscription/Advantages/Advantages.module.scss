@@ -47,8 +47,11 @@
   }
 
   svg {
-    transition: all 0.15s ease-in-out;
     flex-shrink: 0;
+  }
+
+  svg:last-child {
+    transition: all 0.15s ease-in-out;
     margin-left: auto;
   }
 
