@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 
 export interface IScrollReducer {
   scrollY: number
@@ -51,7 +51,7 @@ const sections = {
   },
   Партнеры: {
     name: "Партнеры",
-    getPosition: () => document.getElementById("partners").offsetTop,
+    getPosition: () => document.getElementById("earn").offsetTop,
   },
   FAQ: {
     name: "FAQ",
@@ -66,19 +66,19 @@ export const getSection = <Key extends keyof typeof sections>(
 export const scrollToSection = (
   section:
     | keyof typeof sections
-    | Pick<(typeof sections)[keyof typeof sections], 'getPosition'>
+    | Pick<(typeof sections)[keyof typeof sections], "getPosition">
 ) => {
-  if (typeof section === 'string') section = getSection(section)
-  const headerEl = document.getElementById('header')
+  if (typeof section === "string") section = getSection(section)
+  const headerEl = document.getElementById("header")
   const headerStyle = getComputedStyle(headerEl)
-  const isFixed = headerStyle.position === 'fixed'
+  const isFixed = headerStyle.position === "fixed"
   const headerHeight = isFixed ? parseInt(headerStyle.height) : 0
   const top = (section?.getPosition() || 0) - headerHeight
-  window.scrollTo({ top, behavior: 'smooth' })
+  window.scrollTo({ top, behavior: "smooth" })
 }
 
 export const scrollReducer = createSlice({
-  name: 'scroll',
+  name: "scroll",
   initialState,
   reducers: {
     setScrollY(state, action: PayloadAction<number>) {

@@ -151,7 +151,7 @@ const Earn = ({ resolution, referral }: EarnProps) => {
 
       {/* <Categories /> */}
 
-      <h1 className={styles.title}>
+      <h1 className={styles.title} id="earn">
         Зарабатывайте в крипте
         <br />
         <span>больше с Prime</span>
