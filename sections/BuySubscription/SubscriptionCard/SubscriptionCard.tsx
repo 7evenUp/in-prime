@@ -3,8 +3,6 @@ import * as HoverCard from "@radix-ui/react-hover-card"
 import * as Popover from "@radix-ui/react-popover"
 import clsx from "clsx"
 
-import PrimeOpportunitiesContent from "../PrimeOpportunitiesContent"
-import PrimeOpportunities from "../PrimeOpportunities"
 import BenefitCard from "../BenefitCard"
 import { BonusIcon, NavArrowIcon } from "../Icons"
 
@@ -134,29 +132,16 @@ const SubscriptionCard = ({
         </div>
       )}
 
-      <div
-        className={clsx(
-          showMonthlyPrice ? styles.guarantee_small : styles.guarantee
-        )}
-      >
+      <div className={styles.guarantee}>
         {showMonthlyPrice ? (
-          <p className={styles.guarantee_heading}>Гарантия прибыли</p>
+          <p className={styles.guarantee_heading}>Гарантия первой прибыли</p>
         ) : (
           <>
-            <p className={styles.guarantee_heading}>Гарантия</p>
-            <p className={styles.guarantee_linethrough}>первой прибыли</p>
-            <p className={styles.guarantee_heading}>окупаемости</p>
+            <p className={styles.guarantee_heading}>Гарантия окупаемости</p>
           </>
         )}
       </div>
 
-      <div style={{ marginTop: 16 }} />
-
-      {/* {order === 0 && (
-        <div style={{ marginLeft: 16 }}>
-          <PrimeOpportunitiesContent />
-        </div>
-      )} */}
       <div className={clsx(styles.text_before_bonuses_wrapper)}>
         {order !== 0 && (
           <span className={styles.text_before_bonuses} style={{ opacity: 0.5 }}>
