@@ -6,6 +6,7 @@ import * as Popover from "@radix-ui/react-popover"
 import { useMutation, useQuery } from "@tanstack/react-query"
 import axios from "axios"
 import clsx from "clsx"
+import { toast } from "sonner"
 
 import {
   Select,
@@ -16,8 +17,19 @@ import {
 } from "./Select"
 import { Loader, LoaderSmall, Error, Help } from "./Icons"
 
+import BenefitCard from "@/sections/BuySubscription/BenefitCard"
+import PrimeOpportunities from "@/sections/BuySubscription/PrimeOpportunities"
+
 import { RadioGroup, RadioGroupItem } from "@/shared/ui/RadioGroup/RadioGroup"
 import Checkbox from "@/shared/ui/Checkbox/Checkbox"
+import {
+  calculateSubscriptionDetails,
+  getIsPromocodeValidForSubscription,
+} from "@/shared/subsciption"
+
+import { scrollToSection } from "@/redux/reducers/scrollReducer"
+
+import { useIsTouchDevice } from "@/hooks/device"
 
 import {
   PaymentRequestArgs,
@@ -28,18 +40,6 @@ import {
 import { Resolution } from "@/types/resolution"
 
 import styles from "./styles.module.scss"
-import { toast } from "sonner"
-import {
-  BenefitCard,
-  PrimeOpportunities,
-  PrimeOpportunitiesContent,
-} from "@/sections/BuySubscription/BuySubscription"
-import {
-  calculateSubscriptionDetails,
-  getIsPromocodeValidForSubscription,
-} from "@/shared/subsciption"
-import { scrollToSection } from "@/redux/reducers/scrollReducer"
-import { useIsTouchDevice } from "@/hooks/device"
 
 const ID_URL = process.env.NEXT_PUBLIC_ID_URL + "/api/v1/"
 
@@ -88,7 +88,6 @@ const BuySubscriptionDialog = ({
   )
 
   const isTouchDevice = useIsTouchDevice()
-  const HoverCardOrPopover = isTouchDevice ? Popover : HoverCard
 
   const { id, duration, benefits } = selectedSubscription
 
@@ -538,21 +537,6 @@ const BuySubscriptionDialog = ({
                             {order === 2 && "EPIC"} ({duration.id} МЕС)
                           </span>
                           <p className={styles.text_before_bonuses}>
-                            {/* Раскоментить когда вернётся подписка на 1 мес */}
-                            {/* {order === 0 ? (
-                              <div>
-                                <PrimeOpportunitiesContent />
-                                <div style={{ marginTop: 16 }}>
-                                  <PrimeOpportunities
-                                    open={false}
-                                    setOpen={() => null}
-                                    hideArrow
-                                  />
-                                </div>
-                              </div>
-                            ) : (
-                              <PrimeOpportunities />
-                            )} */}
                             <PrimeOpportunities />
                           </p>
                           {/* вернуть `order !== 0 &&`, когда вернётся подписка на 1 мес */}
@@ -600,55 +584,6 @@ const BuySubscriptionDialog = ({
                                   styles.bonuses__small
                                 )}
                               >
-                                {order === 2 && (
-                                  <HoverCardOrPopover.Root openDelay={150}>
-                                    <HoverCardOrPopover.Trigger
-                                      className={clsx(
-                                        isTouchDevice
-                                          ? styles.PopoverTrigger
-                                          : styles.HoverCardTrigger
-                                      )}
-                                    >
-                                      <li className={styles.bonus_seo}>
-                                        <p className={styles.bonus_text}>
-                                          Консультация с основателем Crypton
-                                          <span style={{ marginLeft: "6px" }}>
-                                            <NavArrowIcon />
-                                          </span>
-                                        </p>
-                                      </li>
-                                    </HoverCardOrPopover.Trigger>
-                                    <HoverCardOrPopover.Portal>
-                                      <HoverCardOrPopover.Content
-                                        className={clsx(
-                                          isTouchDevice
-                                            ? styles.PopoverContent
-                                            : styles.HoverCardContent
-                                        )}
-                                        style={{
-                                          flexDirection: "column",
-                                          gap: 8,
-                                          maxWidth: "95vw",
-                                          height: "fit-content",
-                                        }}
-                                        sideOffset={5}
-                                      >
-                                        <p>
-                                          С тарифом Epic вы получите личную
-                                          консультацию от основателя Crypton —
-                                          Павла Сычева. За 30 минут он передаст
-                                          концентрат опыта, который поможет
-                                          избежать 99% ошибок в Web3. У Павла
-                                          7-летний опыт в крипте, успешное
-                                          крипто-медиа и 5 Web3-продуктов с
-                                          командой из 70 человек. Один звонок
-                                          может сэкономить вам месяцы и тысячи
-                                          долларов — просто назначьте его.
-                                        </p>
-                                      </HoverCardOrPopover.Content>
-                                    </HoverCardOrPopover.Portal>
-                                  </HoverCardOrPopover.Root>
-                                )}
                                 {benefits.map(
                                   (benefit) =>
                                     benefit.file &&

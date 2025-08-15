@@ -1,0 +1,279 @@
+.advantages {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+  margin-bottom: 25px;
+
+  @media (max-width: 767px) {
+    margin-bottom: 34px;
+  }
+}
+
+.advantage {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 20px;
+}
+.advantage_additional {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.calendar_icon {
+  width: 32px;
+  height: 32px;
+}
+
+.Trigger {
+  cursor: pointer;
+  color: white;
+  border: none;
+  text-align: left;
+  padding: 0;
+  width: fit-content;
+  transition: all 0.15s ease-in-out;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  &:hover {
+    color: var(--prime-active-color, #4ddfd0);
+  }
+
+  svg {
+    transition: all 0.15s ease-in-out;
+    flex-shrink: 0;
+    margin-left: auto;
+  }
+
+  &[data-state="open"] {
+    svg:last-child {
+      rotate: 180deg;
+    }
+  }
+}
+
+.Content {
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  line-height: 130%;
+  max-width: 370px;
+  padding: 16px 12px 16px 16px;
+  width: auto;
+  color: white;
+  background-color: #121212;
+  position: relative;
+  z-index: 99999;
+  animation-duration: 400ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.HoverCardContent {
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  line-height: 140%;
+  max-width: 390px;
+  width: auto;
+  min-height: 132px;
+  color: white;
+  padding: 16px 12px 16px 16px;
+  border-radius: 16px;
+  background-color: #121212;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  z-index: 99999;
+  animation-duration: 400ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+  display: flex;
+  // align-items: center;
+  gap: 12px;
+
+  &_dolphin {
+    border-radius: 60px;
+  }
+
+  &_first {
+    width: auto;
+    padding: 15px;
+    height: auto;
+    padding: 16px;
+  }
+
+  &_text {
+    font-family: "Inter", sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: normal;
+
+    letter-spacing: 0.02em;
+  }
+
+  &_header {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+
+    font-size: 16px;
+    color: #fff;
+    margin: 0;
+    margin-top: 14px;
+    margin-bottom: 14px;
+
+    letter-spacing: 0.02em;
+  }
+}
+.HoverCardContent[data-side="top"] {
+  animation-name: slideDownAndFade;
+}
+.HoverCardContent[data-side="right"] {
+  animation-name: slideLeftAndFade;
+}
+.HoverCardContent[data-side="bottom"] {
+  animation-name: slideUpAndFade;
+}
+.HoverCardContent[data-side="left"] {
+  animation-name: slideRightAndFade;
+}
+
+.PopoverContent {
+  border-radius: 6px;
+  font-family: "Inter", sans-serif;
+  max-width: 256px;
+  width: auto;
+  font-size: 14px;
+  line-height: 120%;
+  padding: 12px 15px;
+  color: white;
+  background-color: #121212;
+  position: relative;
+  z-index: 99999;
+  box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
+    hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
+  animation-duration: 400ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+.PopoverContent[data-side="top"] {
+  animation-name: slideDownAndFade;
+}
+.PopoverContent[data-side="right"] {
+  animation-name: slideLeftAndFade;
+}
+.PopoverContent[data-side="bottom"] {
+  animation-name: slideUpAndFade;
+}
+.PopoverContent[data-side="left"] {
+  animation-name: slideRightAndFade;
+}
+
+.PopoverContentDescription {
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  line-height: 140%;
+  width: 250px;
+  color: white;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: #121212;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  z-index: 99999;
+  animation-duration: 400ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  a {
+    color: white;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    cursor: pointer;
+
+    &:hover {
+      color: rgba(255, 255, 255, 0.7);
+    }
+  }
+}
+.PopoverContentDescription[data-side="top"] {
+  animation-name: slideDownAndFade;
+}
+.PopoverContentDescription[data-side="right"] {
+  animation-name: slideLeftAndFade;
+}
+.PopoverContentDescription[data-side="bottom"] {
+  animation-name: slideUpAndFade;
+}
+.PopoverContentDescription[data-side="left"] {
+  animation-name: slideRightAndFade;
+}
+
+.PopoverImage {
+  width: 100px;
+  height: auto;
+  display: block;
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: column;
+  justify-content: center;
+
+  &_img {
+    width: 100%;
+  }
+}
+
+@keyframes slideUpAndFade {
+  0% {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideRightAndFade {
+  0% {
+    opacity: 0;
+    transform: translateX(-2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideDownAndFade {
+  0% {
+    opacity: 0;
+    transform: translateY(-2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideLeftAndFade {
+  0% {
+    opacity: 0;
+    transform: translateX(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

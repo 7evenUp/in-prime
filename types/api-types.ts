@@ -13,7 +13,9 @@ export interface Subscription {
         description: string | null
       }
     }
+    quantity: number | null
     remainingCount: number | null
+    type: string | null
   }>
   duration: {
     id: number
@@ -21,10 +23,15 @@ export interface Subscription {
   }
   isActive: boolean
   isPromotionalModeActive: boolean
-  kindId: 1 | 2 // 1 - prime | 2 - calendar
+  kindId: number
   name: string
   price: number
   individualPrice?: number
+  kind: {
+    id: number
+    name: string
+    rang: number
+  }
 }
 
 export interface Promocode {
