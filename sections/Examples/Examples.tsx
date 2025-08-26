@@ -2,17 +2,43 @@ import React, { useRef, useState } from "react"
 import Image from "next/image"
 import { Swiper, SwiperSlide } from "swiper/react"
 import clsx from "clsx"
+import { useQuery } from "@tanstack/react-query"
+import axios from "axios"
 
 import ToggleLeft from "@/public/images/jsx/icons/toggle-left"
 import ToggleRight from "@/public/images/jsx/icons/toggle-right"
 
-import { examples } from "@/data/examples"
+// import { examples } from "@/data/examples"
 
 import { scrollToSection } from "@/redux/reducers/scrollReducer"
 
 import { Resolution } from "@/types/resolution"
 
 import styles from "./Examples.module.scss"
+
+const ID_URL = process.env.NEXT_PUBLIC_ID_URL + "/api/v1/"
+
+interface IncomeCase {
+  category: string
+  condition: string
+  earn: string
+  group: number
+  id: number
+  image: string
+  isActive: boolean
+  link: string | null
+  order: number
+  resource: string | null
+  spend: string
+  title: string
+}
+
+interface ExamplesData {
+  id: number
+  incomeCases: IncomeCase[]
+  name: string
+  order: number
+}
 
 const spaces = {
   lgg: 22,
@@ -37,6 +63,17 @@ const Examples = ({ resolution }: { resolution: Resolution }) => {
 
   const swiperRef = useRef(null)
 
+  const { data: examplesData, isLoading } = useQuery({
+    queryKey: ["examples"],
+    queryFn: async () => {
+      const response = await axios.get<ExamplesData[]>(
+        ID_URL + "landing/income-cases/"
+      )
+
+      return response.data.sort((a, b) => a.order - b.order)
+    },
+  })
+
   const changeBlock = (index: number) => {
     setCurrentBlock(index)
     setShowDescription(-1)
@@ -59,7 +96,7 @@ const Examples = ({ resolution }: { resolution: Resolution }) => {
   const toggleBlock = (action: "up" | "down") => {
     if (
       action == "up" &&
-      currentBlock < Object.entries(examples)[currentMonth][1].length - 1
+      currentBlock < examplesData[currentMonth].incomeCases.length - 1
     ) {
       swiperRef.current?.swiper.slideTo(currentBlock + 1)
       setCurrentBlock(currentBlock + 1)
@@ -88,204 +125,215 @@ const Examples = ({ resolution }: { resolution: Resolution }) => {
           <br />
           <span>источник заработка</span>
         </h1>
-        <div className={styles.examples_content}>
-          <div className={styles.examples_content__header}>
-            <div className={styles.examples_content__header__months}>
-              {Object.keys(examples).map((month, monthIndex) => (
-                <div
-                  className={clsx(
-                    styles.examples_content__header__months__month,
-                    monthIndex === currentMonth && styles.active
-                  )}
-                  onClick={() => toggleMonth(monthIndex)}
-                  key={monthIndex}
-                >
-                  {month}
-                </div>
-              ))}
-            </div>
+        {isLoading ? (
+          <div className={styles.skeleton} />
+        ) : (
+          <>
+            <div className={styles.examples_content}>
+              {examplesData && (
+                <div className={styles.examples_content__header}>
+                  <div className={styles.examples_content__header__months}>
+                    {examplesData.map((el, i) => (
+                      <div
+                        key={i}
+                        className={clsx(
+                          styles.examples_content__header__months__month,
+                          i === currentMonth && styles.active
+                        )}
+                        onClick={() => toggleMonth(i)}
+                      >
+                        {el.name}
+                      </div>
+                    ))}
+                  </div>
 
-            {["lgg", "lg"].includes(resolution) && (
-              <PaginationToggle
-                currentBlock={currentBlock}
-                currentMonth={currentMonth}
-                toggleBlock={toggleBlock}
-                resolution={resolution}
-              />
-            )}
-          </div>
-
-          <Swiper
-            // @ts-ignore
-            ref={swiperRef}
-            onSlideChange={(swiper) => changeBlock(swiper.activeIndex)}
-            initialSlide={currentBlock}
-            className={styles.examples_content__blocks}
-            spaceBetween={spaces[resolution]}
-            slidesPerView={1}
-            style={{ width: width[resolution] }}
-          >
-            {Object.entries(examples)[currentMonth][1].map(
-              (
-                {
-                  category,
-                  condition,
-                  earn,
-                  reportUrl,
-                  resources,
-                  spend,
-                  title,
-                  img,
-                },
-                projectIndex
-              ) => {
-                const swiper_slide = (
-                  <SwiperSlide
-                    className={styles.examples_content__blocks__block}
-                    key={title + projectIndex}
-                    style={{
-                      opacity:
-                        projectIndex < currentBlock
-                          ? 0.5
-                          : projectIndex > currentBlock + 3
-                          ? 0.5
-                          : 1,
-                    }}
-                  >
-                    <Image
-                      src={img}
-                      alt={title}
-                      className={styles.examples_content__blocks__block__image}
+                  {["lgg", "lg"].includes(resolution) && (
+                    <PaginationToggle
+                      currentBlock={currentBlock}
+                      currentMonth={currentMonth}
+                      toggleBlock={toggleBlock}
+                      resolution={resolution}
+                      examplesData={examplesData}
                     />
-                    <div
-                      className={
-                        styles.examples_content__blocks__block__content
-                      }
-                    >
-                      <div
-                        className={
-                          styles.examples_content__blocks__block__content__title
-                        }
-                      >
-                        {title}
-                      </div>
-                      <div className={styles.earned}>
-                        <span className={styles.earned_title}>Заработано:</span>
-                        <span className={styles.earned_value}>{earn}</span>
-                      </div>
-                      <div className={styles.invested}>
-                        <span className={styles.invested_title}>Вложения:</span>
-                        <span className={styles.invested_value}>{spend}</span>
-                      </div>
+                  )}
+                </div>
+              )}
 
-                      <div
-                        className={
-                          styles.examples_content__blocks__block__content__cat_and_more
-                        }
-                      >
-                        <div
-                          className={
-                            styles.examples_content__blocks__block__content__cat_and_more__cat
-                          }
+              {examplesData && (
+                <Swiper
+                  // @ts-ignore
+                  ref={swiperRef}
+                  onSlideChange={(swiper) => changeBlock(swiper.activeIndex)}
+                  initialSlide={currentBlock}
+                  className={styles.examples_content__blocks}
+                  spaceBetween={spaces[resolution]}
+                  slidesPerView={1}
+                  style={{ width: width[resolution] }}
+                >
+                  {examplesData[currentMonth].incomeCases.map(
+                    (
+                      {
+                        category,
+                        condition,
+                        earn,
+                        spend,
+                        title,
+                        resource,
+                        image,
+                        link,
+                      },
+                      projectIndex
+                    ) => {
+                      const swiper_slide = (
+                        <SwiperSlide
+                          className={styles.examples_content__blocks__block}
+                          key={title + projectIndex}
+                          style={{
+                            opacity:
+                              projectIndex < currentBlock
+                                ? 0.5
+                                : projectIndex > currentBlock + 3
+                                ? 0.5
+                                : 1,
+                          }}
                         >
-                          {category}
-                        </div>
-                        <div
-                          className={clsx(
-                            styles.examples_content__blocks__block__content__cat_and_more__more,
-                            styles.toggle
-                          )}
-                          onClick={() => toggleDescription(projectIndex)}
-                        >
-                          {showDescription == projectIndex
-                            ? "Скрыть"
-                            : "Подробнее"}
-                        </div>
-                      </div>
-
-                      <div
-                        className={
-                          styles.examples_content__blocks__block__content__extended_info
-                        }
-                        aria-expanded={showDescription != projectIndex}
-                      >
-                        <div
-                          className={
-                            styles.examples_content__blocks__block__content__extended_info__condition_title
-                          }
-                        >
-                          Условия:
-                        </div>
-                        <div
-                          className={
-                            styles.examples_content__blocks__block__content__extended_info__condition_description
-                          }
-                        >
-                          {condition}
-                        </div>
-                        {resources ? (
-                          <>
+                          <img
+                            src={image}
+                            alt={title}
+                            className={
+                              styles.examples_content__blocks__block__image
+                            }
+                          />
+                          <div
+                            className={
+                              styles.examples_content__blocks__block__content
+                            }
+                          >
                             <div
                               className={
-                                styles.examples_content__blocks__block__content__extended_info__resources_title
+                                styles.examples_content__blocks__block__content__title
                               }
                             >
-                              Ресурсы:
+                              {title}
                             </div>
-                            <div
-                              className={
-                                styles.examples_content__blocks__block__content__extended_info__resources_description
-                              }
-                            >
-                              {resources}
+                            <div className={styles.earned}>
+                              <span className={styles.earned_title}>
+                                Заработано:
+                              </span>
+                              <span className={styles.earned_value}>
+                                {earn}
+                              </span>
                             </div>
-                          </>
-                        ) : null}
+                            <div className={styles.invested}>
+                              <span className={styles.invested_title}>
+                                Вложения:
+                              </span>
+                              <span className={styles.invested_value}>
+                                {spend}
+                              </span>
+                            </div>
 
-                        {reportUrl != "crypton.xyz" && (
-                          <a href={reportUrl} target="_blank">
                             <div
                               className={
-                                styles.examples_content__blocks__block__content__extended_info__full_report
+                                styles.examples_content__blocks__block__content__cat_and_more
                               }
                             >
                               <div
                                 className={
-                                  styles.examples_content__blocks__block__content__extended_info__full_report__text
+                                  styles.examples_content__blocks__block__content__cat_and_more__cat
                                 }
                               >
-                                Событие в Calendar
+                                {category}
+                              </div>
+                              <div
+                                className={clsx(
+                                  styles.examples_content__blocks__block__content__cat_and_more__more,
+                                  styles.toggle
+                                )}
+                                onClick={() => toggleDescription(projectIndex)}
+                              >
+                                {showDescription == projectIndex
+                                  ? "Скрыть"
+                                  : "Подробнее"}
+                              </div>
+                            </div>
+
+                            <div
+                              className={
+                                styles.examples_content__blocks__block__content__extended_info
+                              }
+                              aria-expanded={showDescription != projectIndex}
+                            >
+                              <div
+                                className={
+                                  styles.examples_content__blocks__block__content__extended_info__condition_title
+                                }
+                              >
+                                Условия:
                               </div>
                               <div
                                 className={
-                                  styles.examples_content__blocks__block__content__extended_info__full_report__arrow
+                                  styles.examples_content__blocks__block__content__extended_info__condition_description
                                 }
-                              />
+                              >
+                                {condition}
+                              </div>
+                              {resource ? (
+                                <>
+                                  <div
+                                    className={
+                                      styles.examples_content__blocks__block__content__extended_info__resources_title
+                                    }
+                                  >
+                                    Ресурсы:
+                                  </div>
+                                  <div
+                                    className={
+                                      styles.examples_content__blocks__block__content__extended_info__resources_description
+                                    }
+                                  >
+                                    {resource}
+                                  </div>
+                                </>
+                              ) : null}
+
+                              {/* {(link !== null || link !== "crypton.xyz") && (
+                            <a href={link} target="_blank">
+                              <div
+                                className={
+                                  styles.examples_content__blocks__block__content__extended_info__full_report
+                                }
+                              >
+                                <div
+                                  className={
+                                    styles.examples_content__blocks__block__content__extended_info__full_report__text
+                                  }
+                                >
+                                  Событие в Calendar
+                                </div>
+                                <div
+                                  className={
+                                    styles.examples_content__blocks__block__content__extended_info__full_report__arrow
+                                  }
+                                />
+                              </div>
+                            </a>
+                          )} */}
                             </div>
-                          </a>
-                        )}
-                      </div>
-                    </div>
-                  </SwiperSlide>
-                )
-                return swiper_slide
-              }
-            )}
-          </Swiper>
-
-          {/* {["md", "sm"].includes(resolution) && (
-        <PaginationToggle
-          currentBlock={currentBlock}
-          currentMonth={currentMonth}
-          toggleBlock={toggleBlock}
-          resolution={resolution}
-        />
-      )} */}
-        </div>
-
-        <button className={styles.button} onClick={scrollToSubscriptions}>
-          Хочу так же
-        </button>
+                          </div>
+                        </SwiperSlide>
+                      )
+                      return swiper_slide
+                    }
+                  )}
+                </Swiper>
+              )}
+            </div>
+            <button className={styles.button} onClick={scrollToSubscriptions}>
+              Хочу так же
+            </button>
+          </>
+        )}
       </div>
     </div>
   )
@@ -298,13 +346,15 @@ const PaginationToggle = ({
   currentBlock,
   currentMonth,
   resolution,
+  examplesData,
 }: {
   currentMonth: number
   currentBlock: number
   resolution: Resolution
   toggleBlock: (action: "up" | "down") => void
+  examplesData: ExamplesData[]
 }) => {
-  const projectsLength = Object.entries(examples)[currentMonth][1].length
+  const projectsLength = examplesData[currentMonth].incomeCases.length
 
   return (
     <div className={styles.examples_content__header__toggle}>
