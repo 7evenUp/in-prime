@@ -183,6 +183,7 @@ const SubscriptionCard = ({
                 benefit.file &&
                 benefit.remainingCount !== 0 && (
                   <BenefitCard
+                    key={benefit.id}
                     benefit={{
                       file: benefit.file,
                       name: benefit.translations.ru.name,

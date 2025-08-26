@@ -1,3 +1,4 @@
+import { Fragment } from "react"
 import * as HoverCard from "@radix-ui/react-hover-card"
 import * as Popover from "@radix-ui/react-popover"
 
@@ -32,10 +33,10 @@ const Advantages = ({
   return (
     <div className={styles.advantages}>
       {order === 0 &&
-        start.map((advantage) =>
+        start.map((advantage, i) =>
           advantage.name ===
           "Календарь актуальных крипто-активностей в одном месте" ? (
-            <>
+            <Fragment key={i}>
               <HoverCardOrPopover.Root openDelay={150}>
                 <HoverCardOrPopover.Trigger
                   style={{ width: "100%" }}
@@ -64,9 +65,9 @@ const Advantages = ({
               {!isCompact && (
                 <p className={styles.advantage_additional}>Включает в себя:</p>
               )}
-            </>
+            </Fragment>
           ) : advantage.description ? (
-            <HoverCardOrPopover.Root openDelay={150}>
+            <HoverCardOrPopover.Root key={i} openDelay={150}>
               <HoverCardOrPopover.Trigger
                 style={{ width: "100%" }}
                 className={styles.Trigger}
@@ -92,6 +93,7 @@ const Advantages = ({
             </HoverCardOrPopover.Root>
           ) : (
             <p
+              key={i}
               className={clsx(
                 styles.advantage,
                 isCompact && styles.advantage_sm
@@ -102,9 +104,9 @@ const Advantages = ({
           )
         )}
       {order === 1 &&
-        pro.map((advantage) =>
+        pro.map((advantage, i) =>
           advantage.description ? (
-            <HoverCardOrPopover.Root openDelay={150}>
+            <HoverCardOrPopover.Root key={i} openDelay={150}>
               <HoverCardOrPopover.Trigger
                 style={{ width: "100%" }}
                 className={styles.Trigger}
@@ -131,6 +133,7 @@ const Advantages = ({
             </HoverCardOrPopover.Root>
           ) : (
             <p
+              key={i}
               className={clsx(
                 styles.advantage,
                 isCompact && styles.advantage_sm
@@ -141,9 +144,9 @@ const Advantages = ({
           )
         )}
       {order === 2 &&
-        advantages_prime.map((advantage) =>
+        advantages_prime.map((advantage, i) =>
           advantage.description ? (
-            <HoverCardOrPopover.Root openDelay={150}>
+            <HoverCardOrPopover.Root key={i} openDelay={150}>
               <HoverCardOrPopover.Trigger
                 style={{ width: "100%" }}
                 className={styles.Trigger}
@@ -169,6 +172,7 @@ const Advantages = ({
             </HoverCardOrPopover.Root>
           ) : (
             <p
+              key={i}
               className={clsx(
                 styles.advantage,
                 isCompact && styles.advantage_sm
