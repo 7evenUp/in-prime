@@ -535,7 +535,11 @@ const BuySubscriptionDialog = ({
                             {order === 2 && "EPIC"} ({duration.id} МЕС)
                           </span>
 
-                          <Advantages order={order} isCompact />
+                          <Advantages
+                            order={order}
+                            isCompact
+                            benefits={benefits}
+                          />
 
                           {/* вернуть `order !== 0 &&`, когда вернётся подписка на 1 мес */}
                           {/* {benefits.length > 0 && (

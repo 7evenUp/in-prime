@@ -1,24 +1,17 @@
 import React, { useMemo, useState } from "react"
-import * as HoverCard from "@radix-ui/react-hover-card"
-import * as Popover from "@radix-ui/react-popover"
 import clsx from "clsx"
 
-import BenefitCard from "../BenefitCard"
-import { BonusIcon, NavArrowIcon } from "../Icons"
+import Advantages from "../Advantages/Advantages"
+import ExtraBonuses from "../ExtraBonuses/ExtraBonuses"
 
 import BuySubscriptionDialog from "@/components/BuySubscriptionDialog"
 
 import { calculateSubscriptionDetails } from "@/shared/subsciption"
 
-import { scrollToSection } from "@/redux/reducers/scrollReducer"
-
 import { Resolution } from "@/types/resolution"
 import { Promocode, Subscription } from "@/types/api-types"
 
-import { useIsTouchDevice } from "@/hooks/device"
-
 import styles from "../BuySubscription.module.scss"
-import Advantages from "../Advantages/Advantages"
 
 const SubscriptionCard = ({
   subscription,
@@ -45,9 +38,6 @@ const SubscriptionCard = ({
 
   const [dialogOpen, setDialogOpen] = useState(false)
 
-  const isTouchDevice = useIsTouchDevice()
-  const HoverCardOrPopover = isTouchDevice ? Popover : HoverCard
-
   const {
     finalPrice,
     finalMonthlyPrice,
@@ -62,8 +52,6 @@ const SubscriptionCard = ({
       }),
     [subscription, activePromocode]
   )
-
-  const scrollToFeatures = () => scrollToSection("Возможности")
 
   return (
     <div className={styles.subscription}>
@@ -142,59 +130,11 @@ const SubscriptionCard = ({
         )}
       </div>
 
-      <div className={clsx(styles.text_before_bonuses_wrapper)}>
-        {order !== 0 && (
-          <span className={styles.text_before_bonuses} style={{ opacity: 0.5 }}>
-            Все, что входит в {order === 1 ? "Start" : order === 2 && "Pro"}
-          </span>
-        )}
-
-        <Advantages order={order} />
+      <div className={styles.text_before_bonuses_wrapper}>
+        <Advantages benefits={benefits} />
       </div>
 
-      {/* Добавить условие `order !== 0 &&`, когда вернётся подписка на 1 мес */}
-      {benefits?.length > 0 && (
-        <>
-          <div
-            className={clsx(
-              styles.bonuses_heading
-              // order === 0 && styles.bonuses_heading_first
-            )}
-          >
-            <div className={styles.bonuses_icon}>
-              <BonusIcon />
-            </div>
-            <span
-              className={clsx(
-                styles.bonuses_heading_text,
-                // поменять на 1,2,3 - когда вернётся подписка на 1 месяц
-                order === 0 && styles.bonuses_heading_1,
-                order === 1 && styles.bonuses_heading_2,
-                order === 2 && styles.bonuses_heading_3
-              )}
-            >
-              ЭКСТРА БОНУСЫ
-            </span>
-          </div>
-
-          <ul className={clsx(styles.bonuses, styles.bonuses__small)}>
-            {benefits.map(
-              (benefit) =>
-                benefit.file &&
-                benefit.remainingCount !== 0 && (
-                  <BenefitCard
-                    key={benefit.id}
-                    benefit={{
-                      file: benefit.file,
-                      name: benefit.translations.ru.name,
-                      description: benefit.translations.ru.description,
-                    }}
-                  />
-                )
-            )}
-          </ul>
-        </>
-      )}
+      <ExtraBonuses benefits={benefits} />
 
       <BuySubscriptionDialog
         key={activePromocode?.code}

@@ -1,187 +1,96 @@
-import { Fragment } from "react"
+import { useMemo } from "react"
 import * as HoverCard from "@radix-ui/react-hover-card"
 import * as Popover from "@radix-ui/react-popover"
+import clsx from "clsx"
 
 import { useIsTouchDevice } from "@/hooks/device"
 
 import { NavArrowIcon } from "../Icons"
 
-import {
-  advantages_start,
-  advantages_pro,
-  advantages_prime,
-  advantages_start_compact,
-  advantages_pro_compact,
-} from "./data"
-
 import styles from "./Advantages.module.scss"
-import clsx from "clsx"
+import buySubscriptionStyles from "../BuySubscription.module.scss"
+
+import { Benefit } from "@/types/api-types"
 
 const Advantages = ({
-  order,
   isCompact,
+  benefits,
+  order,
 }: {
-  order: number
   isCompact?: boolean
+  benefits: Benefit[]
+  order?: number
 }) => {
   const isTouchDevice = useIsTouchDevice()
   const HoverCardOrPopover = isTouchDevice ? Popover : HoverCard
 
-  const start = isCompact ? advantages_start_compact : advantages_start
-  const pro = isCompact ? advantages_pro_compact : advantages_pro
+  const neededBenefits = useMemo(() => {
+    if (!benefits || benefits.length === 0) return []
+
+    const neededBenefits = benefits.filter(
+      (benefit) =>
+        benefit.type === "COMMON" || benefit.type === "INCLUDE_ALL_PREVIOUS"
+    )
+
+    if (neededBenefits.length === 0) return []
+
+    if (isCompact) {
+      if (order === 0) return neededBenefits.slice(0, 1)
+      if (order === 1) return neededBenefits.slice(1, 4)
+      if (order === 2) return neededBenefits.slice(1)
+    }
+
+    return neededBenefits
+  }, [benefits])
+
+  if (neededBenefits.length === 0) return null
 
   return (
     <div className={styles.advantages}>
-      {order === 0 &&
-        start.map((advantage, i) =>
-          advantage.name ===
-          "Календарь актуальных крипто-активностей в одном месте" ? (
-            <Fragment key={i}>
-              <HoverCardOrPopover.Root openDelay={150}>
-                <HoverCardOrPopover.Trigger
-                  style={{ width: "100%" }}
-                  className={styles.Trigger}
-                >
-                  <CalendarIcon className={styles.calendar_icon} />
-                  <p
-                    className={clsx(
-                      styles.advantage,
-                      isCompact && styles.advantage_sm
-                    )}
-                  >
-                    {advantage.name} <NavArrowIcon />
-                  </p>
-                </HoverCardOrPopover.Trigger>
-                <HoverCardOrPopover.Portal>
-                  <HoverCardOrPopover.Content
-                    className={styles.Content}
-                    sideOffset={2}
-                    align="center"
-                  >
-                    <p>{advantage.description}</p>
-                  </HoverCardOrPopover.Content>
-                </HoverCardOrPopover.Portal>
-              </HoverCardOrPopover.Root>
-              {!isCompact && (
-                <p className={styles.advantage_additional}>Включает в себя:</p>
-              )}
-            </Fragment>
-          ) : advantage.description ? (
-            <HoverCardOrPopover.Root key={i} openDelay={150}>
-              <HoverCardOrPopover.Trigger
-                style={{ width: "100%" }}
-                className={styles.Trigger}
-              >
-                <p
-                  className={clsx(
-                    styles.advantage,
-                    isCompact && styles.advantage_sm
-                  )}
-                >
-                  + {advantage.name} <NavArrowIcon />
-                </p>
-              </HoverCardOrPopover.Trigger>
-              <HoverCardOrPopover.Portal>
-                <HoverCardOrPopover.Content
-                  className={styles.Content}
-                  sideOffset={2}
-                  align="center"
-                >
-                  <p>{advantage.description}</p>
-                </HoverCardOrPopover.Content>
-              </HoverCardOrPopover.Portal>
-            </HoverCardOrPopover.Root>
-          ) : (
-            <p
-              key={i}
-              className={clsx(
-                styles.advantage,
-                isCompact && styles.advantage_sm
-              )}
+      {neededBenefits.map((benefit) =>
+        benefit.type === "INCLUDE_ALL_PREVIOUS" ? (
+          <span
+            className={buySubscriptionStyles.text_before_bonuses}
+            style={{ opacity: 0.5 }}
+          >
+            {benefit.translations.ru.name}
+          </span>
+        ) : benefit.translations.ru.description ? (
+          <HoverCardOrPopover.Root key={benefit.id} openDelay={150}>
+            <HoverCardOrPopover.Trigger
+              style={{ width: "100%" }}
+              className={styles.Trigger}
             >
-              + {advantage.name}
-            </p>
-          )
-        )}
-      {order === 1 &&
-        pro.map((advantage, i) =>
-          advantage.description ? (
-            <HoverCardOrPopover.Root key={i} openDelay={150}>
-              <HoverCardOrPopover.Trigger
-                style={{ width: "100%" }}
-                className={styles.Trigger}
+              {benefit.file && <img src={benefit.file} />}
+              <p
+                className={clsx(
+                  styles.advantage,
+                  isCompact && styles.advantage_sm
+                )}
               >
-                {advantage.icon && advantage.icon}
-                <p
-                  className={clsx(
-                    styles.advantage,
-                    isCompact && styles.advantage_sm
-                  )}
-                >
-                  {!advantage.icon && "+"} {advantage.name} <NavArrowIcon />
-                </p>
-              </HoverCardOrPopover.Trigger>
-              <HoverCardOrPopover.Portal>
-                <HoverCardOrPopover.Content
-                  className={styles.Content}
-                  sideOffset={2}
-                  align="center"
-                >
-                  <p>{advantage.description}</p>
-                </HoverCardOrPopover.Content>
-              </HoverCardOrPopover.Portal>
-            </HoverCardOrPopover.Root>
-          ) : (
-            <p
-              key={i}
-              className={clsx(
-                styles.advantage,
-                isCompact && styles.advantage_sm
-              )}
-            >
-              + {advantage.name}
-            </p>
-          )
-        )}
-      {order === 2 &&
-        advantages_prime.map((advantage, i) =>
-          advantage.description ? (
-            <HoverCardOrPopover.Root key={i} openDelay={150}>
-              <HoverCardOrPopover.Trigger
-                style={{ width: "100%" }}
-                className={styles.Trigger}
+                {!benefit.file && "+"} {benefit.translations.ru.name}{" "}
+                <NavArrowIcon />
+              </p>
+            </HoverCardOrPopover.Trigger>
+            <HoverCardOrPopover.Portal>
+              <HoverCardOrPopover.Content
+                className={styles.Content}
+                sideOffset={2}
+                align="center"
               >
-                <p
-                  className={clsx(
-                    styles.advantage,
-                    isCompact && styles.advantage_sm
-                  )}
-                >
-                  + {advantage.name} <NavArrowIcon />
-                </p>
-              </HoverCardOrPopover.Trigger>
-              <HoverCardOrPopover.Portal>
-                <HoverCardOrPopover.Content
-                  className={styles.Content}
-                  sideOffset={2}
-                  align="center"
-                >
-                  <p>{advantage.description}</p>
-                </HoverCardOrPopover.Content>
-              </HoverCardOrPopover.Portal>
-            </HoverCardOrPopover.Root>
-          ) : (
-            <p
-              key={i}
-              className={clsx(
-                styles.advantage,
-                isCompact && styles.advantage_sm
-              )}
-            >
-              + {advantage.name}
-            </p>
-          )
-        )}
+                <p>{benefit.translations.ru.description}</p>
+              </HoverCardOrPopover.Content>
+            </HoverCardOrPopover.Portal>
+          </HoverCardOrPopover.Root>
+        ) : (
+          <p
+            key={benefit.id}
+            className={clsx(styles.advantage, isCompact && styles.advantage_sm)}
+          >
+            + {benefit.translations.ru.name}
+          </p>
+        )
+      )}
     </div>
   )
 }

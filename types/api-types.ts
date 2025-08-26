@@ -4,19 +4,7 @@ export interface Subscription {
   baseDiscountAmount: number | null
   referralDiscountKind: string | null
   referralDiscountAmount: number | null
-  benefits: Array<{
-    id: number
-    file: null | string
-    translations: {
-      ru: {
-        name: string
-        description: string | null
-      }
-    }
-    quantity: number | null
-    remainingCount: number | null
-    type: string | null
-  }>
+  benefits: Benefit[]
   duration: {
     id: number
     label: string
@@ -32,6 +20,20 @@ export interface Subscription {
     name: string
     rang: number
   }
+}
+
+export interface Benefit {
+  id: number
+  file: null | string
+  translations: {
+    ru: {
+      name: string
+      description: string | null
+    }
+  }
+  quantity: number | null
+  remainingCount: number | null
+  type: string | null
 }
 
 export interface Promocode {
