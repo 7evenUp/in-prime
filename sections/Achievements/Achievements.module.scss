@@ -134,3 +134,42 @@
     width: 98%;
   }
 }
+
+.skeleton {
+  width: 1300px;
+  height: 1132px;
+  border-radius: 18px;
+  background-color: rgba(255, 255, 255, 0.5);
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+  @media (max-width: 1919px) and (min-width: 1368px) {
+    width: 1256px;
+    height: 1094px;
+  }
+
+  @media (max-width: 1367px) {
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+
+  @media (max-width: 1367px) and (min-width: 768px) {
+    width: 721px;
+    height: 926px;
+  }
+
+  @media (max-width: 767px) {
+    width: 355px;
+    height: 872px;
+  }
+
+  @media (max-width: 420px) {
+    width: 98%;
+    height: auto;
+  }
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
+  }
+}

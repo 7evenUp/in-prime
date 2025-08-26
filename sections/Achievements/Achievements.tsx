@@ -1,22 +1,40 @@
-import React, { useRef } from "react"
-import Image from "next/image"
+import React from "react"
 import useEmblaCarousel from "embla-carousel-react"
-
-import Slide1Lg from "@/public/images/png/achievements/slide-1-lg.png"
-import Slide2Lg from "@/public/images/png/achievements/slide-2-lg.png"
-import Slide1Md from "@/public/images/png/achievements/slide-1-md.png"
-import Slide2Md from "@/public/images/png/achievements/slide-2-md.png"
-import Slide1Sm from "@/public/images/png/achievements/slide-1-sm.png"
-import Slide2Sm from "@/public/images/png/achievements/slide-2-sm.png"
-import Slide3Sm from "@/public/images/png/achievements/slide-3-sm.png"
-import Slide4Sm from "@/public/images/png/achievements/slide-4-sm.png"
+import { useQuery } from "@tanstack/react-query"
+import axios from "axios"
 
 import styles from "./Achievements.module.scss"
 
 import { Resolution } from "@/types/resolution"
 
+const ID_URL = process.env.NEXT_PUBLIC_ID_URL + "/api/v1/"
+
+interface AchievementsData {
+  id: number
+  image: string
+  imageSize: {
+    id: "small" | "medium" | "large"
+    label: "Small" | "Medium" | "Large"
+  }
+  isActive: boolean
+  order: number
+}
+
 const Achievements = ({ resolution }: { resolution: Resolution }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel()
+
+  const { data: achievements, isLoading } = useQuery({
+    queryKey: ["achievements"],
+    queryFn: async () => {
+      const response = await axios.get<AchievementsData[]>(
+        ID_URL + "landing/participant-achievements/"
+      )
+
+      return response.data
+        .sort((a, b) => a.order - b.order)
+        .filter((el) => el.isActive)
+    },
+  })
 
   return (
     <section className={styles.container} id="achievements">
@@ -41,46 +59,52 @@ const Achievements = ({ resolution }: { resolution: Resolution }) => {
           </button>
         </div>
 
-        <div className={styles.embla} ref={emblaRef}>
-          <div className={styles.embla__container}>
-            {resolution === "sm" && (
-              <>
-                <div className={styles.embla__slide}>
-                  <Image src={Slide1Sm} alt="" className={styles.image} />
-                </div>
-                <div className={styles.embla__slide}>
-                  <Image src={Slide2Sm} alt="" className={styles.image} />
-                </div>
-                <div className={styles.embla__slide}>
-                  <Image src={Slide3Sm} alt="" className={styles.image} />
-                </div>
-                <div className={styles.embla__slide}>
-                  <Image src={Slide4Sm} alt="" className={styles.image} />
-                </div>
-              </>
-            )}
-            {resolution === "md" && (
-              <>
-                <div className={styles.embla__slide}>
-                  <Image src={Slide1Md} alt="" className={styles.image} />
-                </div>
-                <div className={styles.embla__slide}>
-                  <Image src={Slide2Md} alt="" className={styles.image} />
-                </div>
-              </>
-            )}
-            {(resolution === "lg" || resolution === "lgg") && (
-              <>
-                <div className={styles.embla__slide}>
-                  <Image src={Slide1Lg} alt="" className={styles.image} />
-                </div>
-                <div className={styles.embla__slide}>
-                  <Image src={Slide2Lg} alt="" className={styles.image} />
-                </div>
-              </>
-            )}
+        {isLoading ? (
+          <div className={styles.embla} ref={emblaRef}>
+            <div className={styles.embla__container}>
+              <div className={styles.skeleton} />
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className={styles.embla} ref={emblaRef}>
+            <div className={styles.embla__container}>
+              {achievements.map((achievement) => {
+                let neededAchievement: AchievementsData | null = null
+
+                if (
+                  resolution === "sm" &&
+                  achievement.imageSize.id === "small"
+                ) {
+                  neededAchievement = achievement
+                }
+                if (
+                  resolution === "md" &&
+                  achievement.imageSize.id === "medium"
+                ) {
+                  neededAchievement = achievement
+                }
+                if (
+                  (resolution === "lg" || resolution === "lgg") &&
+                  achievement.imageSize.id === "large"
+                ) {
+                  neededAchievement = achievement
+                }
+
+                if (neededAchievement !== null) {
+                  return (
+                    <div key={achievement.id} className={styles.embla__slide}>
+                      <img
+                        src={neededAchievement.image}
+                        alt=""
+                        className={styles.image}
+                      />
+                    </div>
+                  )
+                }
+              })}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   )
