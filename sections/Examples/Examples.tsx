@@ -1,5 +1,4 @@
 import React, { useRef, useState } from "react"
-import Image from "next/image"
 import { Swiper, SwiperSlide } from "swiper/react"
 import clsx from "clsx"
 import { useQuery } from "@tanstack/react-query"
