@@ -26,8 +26,6 @@ import {
 
 import { scrollToSection } from "@/redux/reducers/scrollReducer"
 
-import { useIsTouchDevice } from "@/hooks/device"
-
 import {
   PaymentRequestArgs,
   PaymentsMethod,
@@ -85,9 +83,7 @@ const BuySubscriptionDialog = ({
     false
   )
 
-  const isTouchDevice = useIsTouchDevice()
-
-  const { id, duration, benefits } = selectedSubscription
+  const { id, duration, kind, benefits } = selectedSubscription
 
   const { finalPrice, originalPrice } = useMemo(
     () =>
@@ -529,10 +525,9 @@ const BuySubscriptionDialog = ({
                               order === 2 && styles.card_duration__active3,
                               order === 3 && styles.card_duration__active4
                             )}
+                            style={{ textTransform: "uppercase" }}
                           >
-                            {order === 0 && "START"}
-                            {order === 1 && "SUPER"}
-                            {order === 2 && "EPIC"} ({duration.id} МЕС)
+                            {kind.name} ({duration.id} МЕС)
                           </span>
 
                           <Advantages
@@ -798,20 +793,7 @@ const BuySubscriptionDialog = ({
                       Итого: ${finalPrice.toFixed(0)}{" "}
                       <span className={styles.total_per_month}>
                         {" "}
-                        за {/* Вернуть когда вернётся подписка на 1 мес */}
-                        {/* {order === 0
-                          ? "1"
-                          : order === 1
-                          ? "3"
-                          : order === 2
-                          ? "6"
-                          : order === 3 && "12"} */}
-                        {order === 0
-                          ? "3"
-                          : order === 1
-                          ? "6"
-                          : order === 2 && "12"}{" "}
-                        мес
+                        за {duration.id} мес
                       </span>
                     </span>
                     {finalPrice !== originalPrice && (
