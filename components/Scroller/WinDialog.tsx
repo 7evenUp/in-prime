@@ -5,7 +5,6 @@ import styles from "./WinDialog.module.scss"
 import { OpenContainerResponse } from "@/types/promo-types"
 import { useAppSelector } from "@/redux/hooks"
 import { getColorByRarity } from "@/sections/TimerPromo/getColorByRarity"
-import { toast } from "sonner"
 
 const ID_URL = process.env.NEXT_PUBLIC_ID_URL
 

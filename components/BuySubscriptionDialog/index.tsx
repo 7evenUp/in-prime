@@ -6,7 +6,6 @@ import * as Popover from "@radix-ui/react-popover"
 import { useMutation, useQuery } from "@tanstack/react-query"
 import axios from "axios"
 import clsx from "clsx"
-import { toast } from "sonner"
 
 import {
   Select,
@@ -841,16 +840,6 @@ const PaymentStatus = ({
     closeRef?.current?.click()
   }
 
-  const onLater = () => {
-    onClose()
-    toast.info(
-      "Все неоткрытые боксы будут храниться у нас в течение 2 недель после окончания акции. После этого они автоматически откроются, а подарки будут добавлены в ваш инвентарь в Crypton ID.",
-      {
-        duration: 10000,
-      }
-    )
-  }
-
   if (isLoading || status === "PENDING") {
     return (
       <>
@@ -881,16 +870,39 @@ const PaymentStatus = ({
   if (status === "COMPLETED") {
     return (
       <>
+        <h2
+          className={styles.status_heading}
+          style={{ marginBottom: 30, lineHeight: 1.3 }}
+        >
+          Поздравляем с оформлением подписки Prime!
+        </h2>
+
         <div className={styles.status}>
-          <h2
-            className={styles.status_heading}
-            style={{ marginBottom: 30, lineHeight: 1.3 }}
-          >
-            Готовы получать подарки?
-          </h2>
-          <p className={styles.status_after}>
-            Теперь у вас есть возможность открывать боксы с нашими топовыми
-            призами!
+          <p>Чтобы активировать доступ, следуйте инструкции ниже:</p>
+
+          <div className={styles.list}>
+            <p>
+              1. Проверьте почту: мы отправили Вам письмо с ссылкой на вход в
+              Ваш профиль в Crypton ID.
+            </p>
+            <p>
+              2. Перейдите в{" "}
+              <a href="https://id.crypton.xyz" target="_blank">
+                Crypton ID
+              </a>
+              : это Ваш личный кабинет для управления подпиской Prime.
+            </p>
+            <p>
+              3. Подключите Telegram, так Вы получите доступ ко всем каналам и
+              материалам Prime.
+            </p>
+          </div>
+
+          <p>
+            Если возникнут вопросы, напишите Вашему{" "}
+            <a href="https://t.me/crypton_support" target="_blank">
+              Crypton Наставнику
+            </a>
           </p>
           <div className={styles.buttons}>
             <button
@@ -898,11 +910,8 @@ const PaymentStatus = ({
               className={styles.buttons__close}
               onClick={onClose}
             >
-              К открытию подарков
+              Ознакомлен
             </button>
-            <div onClick={onLater} className={styles.buttons__id}>
-              Позже
-            </div>
           </div>
         </div>
       </>
