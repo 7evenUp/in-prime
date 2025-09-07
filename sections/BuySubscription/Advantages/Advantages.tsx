@@ -10,6 +10,10 @@ import { NavArrowIcon } from "../Icons"
 import styles from "./Advantages.module.scss"
 import buySubscriptionStyles from "../BuySubscription.module.scss"
 
+import { useAppDispatch } from "@/redux/hooks"
+import { scrollToSection } from "@/redux/reducers/scrollReducer"
+import { setActiveTab } from "@/redux/reducers/featuresReducer"
+
 import { Benefit } from "@/types/api-types"
 
 const Advantages = ({
@@ -23,6 +27,7 @@ const Advantages = ({
 }) => {
   const isTouchDevice = useIsTouchDevice()
   const HoverCardOrPopover = isTouchDevice ? Popover : HoverCard
+  const dispatch = useAppDispatch()
 
   const neededBenefits = useMemo(() => {
     if (!benefits || benefits.length === 0) return []
@@ -44,6 +49,11 @@ const Advantages = ({
   }, [benefits])
 
   if (neededBenefits.length === 0) return null
+
+  const scrollToFeatures = () => {
+    dispatch(setActiveTab("tab2"))
+    scrollToSection("Возможности")
+  }
 
   return (
     <div className={styles.advantages}>
@@ -78,7 +88,23 @@ const Advantages = ({
                 sideOffset={2}
                 align="center"
               >
-                <p>{benefit.translations.ru.description}</p>
+                {benefit.translations.ru.description
+                  .match(/[^!.?]+[!.?]?/g)
+                  .map((part, i) => (
+                    <p key={i} style={{ marginBlock: 4 }}>
+                      {part}
+                    </p>
+                  ))}
+                {benefit.translations.ru.name.includes(
+                  "Календарь актуальных крипто-активностей в одном месте"
+                ) && (
+                  <button
+                    className={styles.more_button}
+                    onClick={scrollToFeatures}
+                  >
+                    Подробнее
+                  </button>
+                )}
               </HoverCardOrPopover.Content>
             </HoverCardOrPopover.Portal>
           </HoverCardOrPopover.Root>

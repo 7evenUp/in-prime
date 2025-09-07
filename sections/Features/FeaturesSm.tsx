@@ -25,6 +25,9 @@ import styles from "./Features.module.scss"
 
 import { data as featuresData } from "@/data/features"
 
+import { setActiveTab } from "@/redux/reducers/featuresReducer"
+import { useAppDispatch, useAppSelector } from "@/redux/hooks"
+
 import { Resolution } from "@/types/resolution"
 
 const swiperWidth = {
@@ -78,10 +81,14 @@ export const makeDescrLink = (inputString: string) => {
 export default FeaturesSm
 
 const FeaturesTabs = ({ resolution }: { resolution: Resolution }) => {
+  const dispatch = useAppDispatch()
+  const activeTab = useAppSelector((state) => state.features.activeTab)
+
   return (
     <Tabs.Root
       className={styles.TabsRoot}
-      defaultValue="tab1"
+      value={activeTab}
+      onValueChange={(value) => dispatch(setActiveTab(value))}
       orientation="vertical"
     >
       <Tabs.List className={styles.TabsList} aria-label="Prime Features">

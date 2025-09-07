@@ -8,6 +8,8 @@ import BuySubscriptionDialog from "@/components/BuySubscriptionDialog"
 
 import { calculateSubscriptionDetails } from "@/shared/subsciption"
 
+import { scrollToSection } from "@/redux/reducers/scrollReducer"
+
 import { Resolution } from "@/types/resolution"
 import { Promocode, Subscription } from "@/types/api-types"
 
@@ -53,6 +55,8 @@ const SubscriptionCard = ({
     [subscription, activePromocode]
   )
 
+  const scrollToGuarantee = () => scrollToSection("Окупаемость")
+
   return (
     <div className={styles.subscription}>
       <div className={styles.subscription_header}>
@@ -95,43 +99,49 @@ const SubscriptionCard = ({
             <span className={styles.price_left}>
               $
               {
-                (showMonthlyPrice ? finalMonthlyPrice : finalPrice)
+                (showMonthlyPrice ? finalMonthlyPrice : finalPrice / 12)
                   .toFixed(2)
                   .split(".")[0]
               }
             </span>
+            {!showMonthlyPrice && (
+              <span className={styles.price_month}>/мес</span>
+            )}
 
-            <span className={clsx(styles.price_month)}>
+            <span className={clsx(styles.price_discount_through)}>
               {totalDiscount && (
                 <span className={styles.price_line_through}>
-                  ${showMonthlyPrice ? originalMonthlyPrice : originalPrice}
+                  $
+                  {showMonthlyPrice ? originalMonthlyPrice : originalPrice / 12}
                 </span>
               )}
             </span>
           </div>
-          {totalDiscount && (
+          {/* {totalDiscount && (
             <div className={styles.price_newDiscount}>
               Выгода $
               {showMonthlyPrice
                 ? Math.floor(originalMonthlyPrice - finalMonthlyPrice)
                 : Math.floor(originalPrice - finalPrice)}
             </div>
-          )}
+          )} */}
         </div>
       )}
 
-      <div
+      <button
         className={clsx(
           styles.guarantee,
-          order === 0 && styles.guarantee__hidden
+          order === 0 && styles.guarantee__hidden,
+          !showMonthlyPrice && styles.guarantee__highlighted
         )}
+        onClick={scrollToGuarantee}
       >
         <p className={styles.guarantee_heading}>
           {showMonthlyPrice
             ? "Гарантия первой прибыли"
             : "Гарантия окупаемости"}
         </p>
-      </div>
+      </button>
 
       <div className={styles.text_before_bonuses_wrapper}>
         <Advantages benefits={benefits} />

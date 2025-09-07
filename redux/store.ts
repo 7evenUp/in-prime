@@ -1,11 +1,14 @@
-import { configureStore } from '@reduxjs/toolkit'
-import authReducer from './reducers/modalReducer'
-import { scrollReducer } from './reducers/scrollReducer'
+import { configureStore } from "@reduxjs/toolkit"
+
+import authReducer from "./reducers/modalReducer"
+import { scrollReducer } from "./reducers/scrollReducer"
+import { feautresReducer } from "./reducers/featuresReducer"
 
 const store = configureStore({
   reducer: {
     auth: authReducer,
     scroll: scrollReducer.reducer,
+    features: feautresReducer.reducer,
   },
 })
 

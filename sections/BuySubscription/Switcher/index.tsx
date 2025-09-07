@@ -37,7 +37,7 @@ const Switcher = ({
               !showMonthlyPrice && styles.switch_text__active
             )}
           >
-            год
+            ежегодно
           </span>
           <span
             className={clsx(
@@ -45,7 +45,7 @@ const Switcher = ({
               !showMonthlyPrice && styles.discount__active
             )}
           >
-            Выгода до -40%
+            (выгода более $600)
           </span>
         </div>
       </div>
