@@ -16,6 +16,9 @@ import {
 } from "./Select"
 import { Loader, LoaderSmall, Error, Help } from "./Icons"
 
+import Advantages from "@/sections/BuySubscription/Advantages/Advantages"
+import BenefitCard from "@/sections/BuySubscription/BenefitCard"
+
 import { RadioGroup, RadioGroupItem } from "@/shared/ui/RadioGroup/RadioGroup"
 import Checkbox from "@/shared/ui/Checkbox/Checkbox"
 import {
@@ -34,7 +37,6 @@ import {
 import { Resolution } from "@/types/resolution"
 
 import styles from "./styles.module.scss"
-import Advantages from "@/sections/BuySubscription/Advantages/Advantages"
 
 const ID_URL = process.env.NEXT_PUBLIC_ID_URL + "/api/v1/"
 
@@ -534,6 +536,23 @@ const BuySubscriptionDialog = ({
                             isCompact
                             benefits={benefits}
                           />
+
+                          {order === 2 &&
+                            benefits.find((el) =>
+                              el.translations.ru.name.includes("Safepal")
+                            ) && (
+                              <BenefitCard
+                                benefit={{
+                                  file: benefits.find((el) =>
+                                    el.translations.ru.name.includes("Safepal")
+                                  ).file,
+                                  name: "Safepal X1 доступен только для новых пользователей",
+                                  description: benefits.find((el) =>
+                                    el.translations.ru.name.includes("Safepal")
+                                  ).translations.ru.description,
+                                }}
+                              />
+                            )}
 
                           {/* вернуть `order !== 0 &&`, когда вернётся подписка на 1 мес */}
                           {/* {benefits.length > 0 && (

@@ -40,7 +40,7 @@ const Advantages = ({
     if (neededBenefits.length === 0) return []
 
     if (isCompact) {
-      if (order === 0) return neededBenefits.slice(0, 1)
+      if (order === 0) return neededBenefits.slice(1, 2)
       if (order === 1) return neededBenefits.slice(1, 4)
       if (order === 2) return neededBenefits.slice(1)
     }
