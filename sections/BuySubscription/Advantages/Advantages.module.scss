@@ -16,6 +16,26 @@
   font-weight: 300;
   line-height: 20px;
 }
+.advantage_wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-align: left;
+
+  outline: none;
+  border: none;
+  background: none;
+  color: white;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+
+  &:hover {
+    color: #ffe5aa;
+  }
+}
 .advantage_additional {
   font-family: "Inter", sans-serif;
   font-size: 16px;
@@ -30,22 +50,6 @@
 .calendar_icon {
   width: 32px;
   height: 32px;
-}
-
-.more_button {
-  outline: none;
-  border: none;
-  background: none;
-  color: white;
-  text-decoration: underline;
-  cursor: pointer;
-  margin: 0;
-  padding: 0;
-  font-size: 14px;
-
-  &:hover {
-    color: #ffe5aa;
-  }
 }
 
 .Trigger {
