@@ -1,24 +1,38 @@
 import React, { useRef, useState } from "react"
 import Image, { StaticImageData } from "next/image"
 import { Swiper, SwiperSlide } from "swiper/react"
+import clsx from "clsx"
+import { useInView } from "react-intersection-observer"
 
 import TelegramIcon from "@/public/images/png/histories/telegram.svg"
 
 import { useSwiperReactive } from "@/hooks/useSwiperReactive"
+import useSendEvent from "@/hooks/useSendEvent"
 
 import { historiesData } from "@/data/histories"
 
 import Modal from "./Modal/Modal"
 
 import styles from "./Histories.module.scss"
-import clsx from "clsx"
 
 const Histories = () => {
   const swiperRef = useRef(null)
   const [activeIndex, setActiveIndex] = useState(0)
 
+  const { sendEvent } = useSendEvent()
+
+  const { ref } = useInView({
+    triggerOnce: true,
+    rootMargin: "-500px 0px",
+    onChange: (inView) => {
+      if (inView) {
+        sendEvent({ name: "landing_view.histories" })
+      }
+    },
+  })
+
   return (
-    <section className={styles.wrapper} id="histories">
+    <section className={styles.wrapper} id="histories" ref={ref}>
       <div className={styles.container}>
         <div className={styles.header}>
           <h2 className={styles.title}>Их жизнь изменилась</h2>

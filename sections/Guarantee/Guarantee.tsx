@@ -3,8 +3,10 @@ import Image from "next/image"
 import * as Collapsible from "@radix-ui/react-collapsible"
 import clsx from "clsx"
 import { Swiper, SwiperSlide } from "swiper/react"
+import { useInView } from "react-intersection-observer"
 
 import { useSwiperReactive } from "@/hooks/useSwiperReactive"
+import useSendEvent from "@/hooks/useSendEvent"
 
 import guarantee1 from "@/public/images/png/features/guarantee-1.png"
 import guarantee2 from "@/public/images/png/features/guarantee-2.png"
@@ -17,8 +19,20 @@ const Guarantee = () => {
 
   const swiperRef = React.useRef(null)
 
+  const { sendEvent } = useSendEvent()
+
+  const { ref } = useInView({
+    triggerOnce: true,
+    rootMargin: "-200px 0px",
+    onChange: (inView) => {
+      if (inView) {
+        sendEvent({ name: "landing_view.guarantee" })
+      }
+    },
+  })
+
   return (
-    <section className={styles.section} id="guarantee">
+    <section className={styles.section} id="guarantee" ref={ref}>
       <div className={styles.container}>
         <div className={styles.info}>
           <h2 className={styles.title}>

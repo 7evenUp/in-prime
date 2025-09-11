@@ -78,6 +78,7 @@ const Advantages = ({
           </button>
         ) : benefit.type === "INCLUDE_ALL_PREVIOUS" ? (
           <span
+            key={benefit.id}
             className={buySubscriptionStyles.text_before_bonuses}
             style={{ opacity: 0.5 }}
           >

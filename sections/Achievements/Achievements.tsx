@@ -2,8 +2,11 @@ import React from "react"
 import useEmblaCarousel from "embla-carousel-react"
 import { useQuery } from "@tanstack/react-query"
 import axios from "axios"
+import { useInView } from "react-intersection-observer"
 
 import styles from "./Achievements.module.scss"
+
+import useSendEvent from "@/hooks/useSendEvent"
 
 import { Resolution } from "@/types/resolution"
 
@@ -23,6 +26,18 @@ interface AchievementsData {
 const Achievements = ({ resolution }: { resolution: Resolution }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel()
 
+  const { sendEvent } = useSendEvent()
+
+  const { ref } = useInView({
+    triggerOnce: true,
+    rootMargin: "-500px 0px",
+    onChange: (inView) => {
+      if (inView) {
+        sendEvent({ name: "landing_view.achievements" })
+      }
+    },
+  })
+
   const { data: achievements, isLoading } = useQuery({
     queryKey: ["achievements"],
     queryFn: async () => {
@@ -37,7 +52,7 @@ const Achievements = ({ resolution }: { resolution: Resolution }) => {
   })
 
   return (
-    <section className={styles.container} id="achievements">
+    <section className={styles.container} id="achievements" ref={ref}>
       <div className={styles.wrapper}>
         <h2 className={styles.title}>Достижения участников</h2>
         <p className={styles.title_description}>

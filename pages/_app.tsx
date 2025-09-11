@@ -2,9 +2,10 @@ import Head from "next/head"
 import type { AppContext, AppInitialProps, AppProps } from "next/app"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { Provider as ReduxProvider } from "react-redux"
+import { init } from "web-analytics-crypton"
 
-import AuthProvider from "@/providers/auth-provider"
 import { UserAgentProvider } from "@/providers/user-agent-provider"
+import AuthProvider from "@/providers/AuthProvider"
 
 import store from "@/redux/store"
 
@@ -19,6 +20,13 @@ import "/styles/components/team.scss"
 import "/styles/components/mobile-menu.scss"
 
 import "/styles/pages/404.scss"
+
+init({
+  url: "https://api.metrics.crypton.xyz",
+  client: "web",
+  clientType: "landing",
+  serviceName: "in-prime",
+})
 
 const queryClient = new QueryClient()
 
@@ -54,7 +62,7 @@ const App = ({
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff"></meta>
       </Head>
-      
+
       <ReduxProvider store={store}>
         <QueryClientProvider client={queryClient}>
           <AuthProvider>

@@ -1,8 +1,11 @@
 import clsx from "clsx"
+import { useInView } from "react-intersection-observer"
 
 import Telegram from "@/public/images/jsx/ceo/telegram"
 import YouTube from "@/public/images/jsx/ceo/you-tube"
 import ArrowTeam from "@/public/images/jsx/ceo/arrow-team"
+
+import useSendEvent from "@/hooks/useSendEvent"
 
 import styles from "./Founders.module.scss"
 
@@ -13,8 +16,20 @@ const Founders = ({
   teamOpened: boolean
   setTeamOpened: (opened: boolean) => void
 }) => {
+  const { sendEvent } = useSendEvent()
+
+  const { ref } = useInView({
+    triggerOnce: true,
+    rootMargin: "-500px 0px",
+    onChange: (inView) => {
+      if (inView) {
+        sendEvent({ name: "landing_view.team" })
+      }
+    },
+  })
+
   return (
-    <section className={styles.section} id="founder">
+    <section className={styles.section} id="founder" ref={ref}>
       <h2 className={styles.title}>Спикеры</h2>
       <p className={styles.title_description}>
         Перенимайте опыт ведущих специалистови основателей Crypton и быстро

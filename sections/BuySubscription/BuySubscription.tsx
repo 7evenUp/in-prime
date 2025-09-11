@@ -1,11 +1,14 @@
 import React, { useEffect, useMemo, useState } from "react"
 import { useMutation, useQuery } from "@tanstack/react-query"
 import axios from "axios"
+import { useInView } from "react-intersection-observer"
 
 import { fallbackSubscriptions } from "./fallback"
 
 import Switcher from "./Switcher"
 import SubscriptionCard from "./SubscriptionCard/SubscriptionCard"
+
+import useSendEvent from "@/hooks/useSendEvent"
 
 import { Resolution } from "@/types/resolution"
 import { Promocode, Subscription } from "@/types/api-types"
@@ -30,6 +33,7 @@ const BuySubscription = ({
   }
   resolution: Resolution
 }) => {
+  
   const [showMonthlyPrice, setShowMonthlyPrice] = useState(false)
   const [promoForSubmit, setPromoForSubmit] = useState("")
 
@@ -37,6 +41,19 @@ const BuySubscription = ({
     null
   )
   const [activePromocode, setActivePromocode] = useState<Promocode | null>(null)
+
+  const { sendEvent } = useSendEvent()
+
+
+  const { ref } = useInView({
+    triggerOnce: true,
+    rootMargin: "-400px 0px",
+    onChange: (inView) => {
+      if (inView) {
+        sendEvent({ name: "landing_view.subscriptions" })
+      }
+    },
+  })
 
   const {
     data: subscriptionsData,
@@ -153,7 +170,11 @@ const BuySubscription = ({
   }, [promoForSubmit])
 
   return (
-    <div id="subscribe" className="app__container__subscribe__wrapper">
+    <div
+      id="subscribe"
+      className="app__container__subscribe__wrapper"
+      ref={ref}
+    >
       <div className="app__container__subscribe__promoback" />
       <div className="app__container__subscribe__newYear" />
 

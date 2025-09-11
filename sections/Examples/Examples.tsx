@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react"
 import clsx from "clsx"
 import { useQuery } from "@tanstack/react-query"
 import axios from "axios"
+import { useInView } from "react-intersection-observer"
 
 import ToggleLeft from "@/public/images/jsx/icons/toggle-left"
 import ToggleRight from "@/public/images/jsx/icons/toggle-right"
@@ -10,6 +11,8 @@ import ToggleRight from "@/public/images/jsx/icons/toggle-right"
 // import { examples } from "@/data/examples"
 
 import { scrollToSection } from "@/redux/reducers/scrollReducer"
+
+import useSendEvent from "@/hooks/useSendEvent"
 
 import { Resolution } from "@/types/resolution"
 
@@ -61,6 +64,18 @@ const Examples = ({ resolution }: { resolution: Resolution }) => {
   const scrollToSubscriptions = () => scrollToSection("Подписка")
 
   const swiperRef = useRef(null)
+
+  const { sendEvent } = useSendEvent()
+
+  const { ref } = useInView({
+    triggerOnce: true,
+    rootMargin: "-500px 0px",
+    onChange: (inView) => {
+      if (inView) {
+        sendEvent({ name: "landing_view.examples" })
+      }
+    },
+  })
 
   const { data: examplesData, isLoading } = useQuery({
     queryKey: ["examples"],
@@ -117,7 +132,7 @@ const Examples = ({ resolution }: { resolution: Resolution }) => {
   }
 
   return (
-    <div className={styles.container} id="examples">
+    <div className={styles.container} id="examples" ref={ref}>
       <div className={styles.wrapper}>
         <h1 className={styles.title}>
           Prime — стабильный

@@ -6,7 +6,6 @@ import { useDispatch } from "react-redux"
 import { useThrottledCallback } from "@react-hookz/web"
 
 import Footer from "@/components/footer"
-import Accordion from "@/components/accordion/accordion"
 import Team from "@/components/Team"
 import { AdBanner, TAdBanner } from "@/components/banner/ad-banner.client"
 
@@ -31,6 +30,7 @@ import BuySubscrSm from "@/public/images/jsx/subscribe/buy-subscr-sm"
 import { Resolution } from "@/types/resolution"
 
 import { scrollReducer } from "@/redux/reducers/scrollReducer"
+import FAQ from "@/sections/FAQ/FAQ"
 // import TimerPromo from "@/sections/TimerPromo/TimerPromo"
 
 const useWindowSize = () => {
@@ -176,12 +176,7 @@ const Home = ({ bannerCookieName, banner }: SSRProps) => {
 
           {/* <Partners /> */}
 
-          <div className="app__container__faq" id="faq">
-            <div className="app__container__faq__title">
-              Часто задаваемые вопросы
-            </div>
-            <Accordion mode={"faq"} />
-          </div>
+          <FAQ />
 
           <OtherProducts />
 

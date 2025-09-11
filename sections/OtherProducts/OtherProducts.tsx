@@ -1,10 +1,25 @@
 import React from "react"
+import { useInView } from "react-intersection-observer"
+
+import useSendEvent from "@/hooks/useSendEvent"
 
 import styles from "./OtherProducts.module.scss"
 
 const OtherProducts = () => {
+  const { sendEvent } = useSendEvent()
+
+  const { ref } = useInView({
+    triggerOnce: true,
+    rootMargin: "-500px 0px",
+    onChange: (inView) => {
+      if (inView) {
+        sendEvent({ name: "landing_view.other_products" })
+      }
+    },
+  })
+
   return (
-    <section className={styles.section}>
+    <section className={styles.section} ref={ref}>
       <div className={styles.content}>
         <div className={styles.info}>
           <h2 className={styles.info_title}>Другие продукты Crypton</h2>

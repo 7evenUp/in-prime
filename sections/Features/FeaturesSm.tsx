@@ -3,6 +3,7 @@ import Image, { StaticImageData } from "next/image"
 import * as Tabs from "@radix-ui/react-tabs"
 import { Swiper, SwiperSlide } from "swiper/react"
 import clsx from "clsx"
+import { useInView } from "react-intersection-observer"
 
 import { useSwiperReactive } from "@/hooks/useSwiperReactive"
 
@@ -28,6 +29,8 @@ import { data as featuresData } from "@/data/features"
 import { setActiveTab } from "@/redux/reducers/featuresReducer"
 import { useAppDispatch, useAppSelector } from "@/redux/hooks"
 
+import useSendEvent from "@/hooks/useSendEvent"
+
 import { Resolution } from "@/types/resolution"
 
 const swiperWidth = {
@@ -38,8 +41,20 @@ const swiperWidth = {
 }
 
 const FeaturesSm = ({ resolution }: { resolution: Resolution }) => {
+  const { sendEvent } = useSendEvent()
+
+  const { ref } = useInView({
+    triggerOnce: true,
+    rootMargin: "-500px 0px",
+    onChange: (inView) => {
+      if (inView) {
+        sendEvent({ name: "landing_view.features" })
+      }
+    },
+  })
+
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} ref={ref}>
       <section className={styles.container} id="features">
         <h2 className={styles.title}>Новый уровень возможностей</h2>
         <FeaturesTabs resolution={resolution} />
