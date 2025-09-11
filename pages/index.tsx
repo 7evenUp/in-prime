@@ -8,7 +8,6 @@ import { useThrottledCallback } from "@react-hookz/web"
 import Footer from "@/components/footer"
 import Accordion from "@/components/accordion/accordion"
 import Team from "@/components/Team"
-import LoginIdPopup from "@/components/LoginIdPopup/LoginIdPopup"
 import { AdBanner, TAdBanner } from "@/components/banner/ad-banner.client"
 
 // import Testimonials from "@/sections/Testimonials/Testimonials"
@@ -191,8 +190,6 @@ const Home = ({ bannerCookieName, banner }: SSRProps) => {
       </div>
 
       <div className="back color dark" />
-
-      <LoginIdPopup />
 
       {bannerCookieName && banner && (
         <AdBanner cookieName={bannerCookieName} banner={banner} />

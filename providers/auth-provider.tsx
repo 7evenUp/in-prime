@@ -30,12 +30,7 @@ const AuthService: FC<Props> = (props: Props) => {
       })
       .then((res) => {
         localStorage.setItem("token", res.data.token)
-        setTimeout(() => {}, 1000)
-        // axios
-        //   .get(`${ID_URL}/api/v1/users/authenticate/`, {
-        //     withCredentials: true,
-        //   })
-        //   .then((res) => {
+        
         axios
           .get(`${ID_URL}/api/v1/users/profile/`, {
             withCredentials: true,
@@ -51,10 +46,6 @@ const AuthService: FC<Props> = (props: Props) => {
           })
         localStorage.setItem("user", res.data.id)
       })
-      // .catch((err) => {
-      //   console.log(err)
-      // })
-      // })
       .catch((err) => {
         dispatch(setAuth(false))
         console.error(err)
