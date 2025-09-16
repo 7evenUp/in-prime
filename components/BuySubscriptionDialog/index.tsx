@@ -539,17 +539,32 @@ const BuySubscriptionDialog = ({
 
                           {order === 2 &&
                             benefits.find((el) =>
-                              el.translations.ru.name.includes("Safepal")
+                              el.translations.ru.name
+                                .toLowerCase()
+                                .includes("safepal")
                             ) && (
                               <BenefitCard
                                 benefit={{
                                   file: benefits.find((el) =>
-                                    el.translations.ru.name.includes("Safepal")
+                                    el.translations.ru.name
+                                      .toLowerCase()
+                                      .includes("safepal")
                                   ).file,
-                                  name: "Safepal X1 доступен только для новых пользователей",
+                                  name: benefits.find((el) =>
+                                    el.translations.ru.name
+                                      .toLowerCase()
+                                      .includes("safepal")
+                                  ).translations.ru.name,
                                   description: benefits.find((el) =>
-                                    el.translations.ru.name.includes("Safepal")
+                                    el.translations.ru.name
+                                      .toLowerCase()
+                                      .includes("safepal")
                                   ).translations.ru.description,
+                                  remainingCount: benefits.find((el) =>
+                                    el.translations.ru.name
+                                      .toLowerCase()
+                                      .includes("safepal")
+                                  ).remainingCount,
                                 }}
                               />
                             )}

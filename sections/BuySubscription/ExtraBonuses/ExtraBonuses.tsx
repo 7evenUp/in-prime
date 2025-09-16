@@ -49,6 +49,7 @@ const ExtraBonuses = ({ benefits }: { benefits: Benefit[] }) => {
                   file: benefit.file,
                   name: benefit.translations.ru.name,
                   description: benefit.translations.ru.description,
+                  remainingCount: benefit.remainingCount,
                 }}
               />
             )

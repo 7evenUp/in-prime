@@ -20,6 +20,7 @@ const BenefitCard = ({
     file: string
     name: string
     description: string
+    remainingCount?: number
   }
   compact?: boolean
   open?: boolean
@@ -49,6 +50,7 @@ const BenefitCard = ({
           {!compact && <img src={benefit.file} className={styles.bonus_img} />}
           <p className={styles.bonus_text}>
             {benefit.name}
+            {benefit.remainingCount && ` (${benefit.remainingCount})`}
             <span style={{ marginLeft: "6px" }}>
               <NavArrowIcon />
             </span>
