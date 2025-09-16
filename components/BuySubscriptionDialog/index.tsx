@@ -542,7 +542,8 @@ const BuySubscriptionDialog = ({
                               el.translations.ru.name
                                 .toLowerCase()
                                 .includes("safepal")
-                            ) && (
+                            ) &&
+                            duration.id === 1 && (
                               <BenefitCard
                                 benefit={{
                                   file: benefits.find((el) =>
