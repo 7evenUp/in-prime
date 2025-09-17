@@ -567,6 +567,7 @@ const BuySubscriptionDialog = ({
                                       .includes("safepal")
                                   ).remainingCount,
                                 }}
+                                compact
                               />
                             )}
 

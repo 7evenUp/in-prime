@@ -65,6 +65,7 @@ const Advantages = ({
             key={benefit.id}
             className={styles.advantage_wrapper}
             onClick={scrollToFeatures}
+            type="button"
           >
             {benefit.file && <img src={benefit.file} />}
             <p

@@ -47,8 +47,15 @@ const BenefitCard = ({
         {...(setOpen && { onClick: () => setOpen((prev) => !prev) })}
       >
         <li className={styles.bonus}>
-          {!compact && <img src={benefit.file} className={styles.bonus_img} />}
-          <p className={styles.bonus_text}>
+          {
+            <img
+              src={benefit.file}
+              className={clsx(compact ? styles.bonus_img_sm : styles.bonus_img)}
+            />
+          }
+          <p
+            className={clsx(compact ? styles.bonus_text_sm : styles.bonus_text)}
+          >
             {benefit.name}
             {benefit.remainingCount && ` (${benefit.remainingCount})`}
             <span style={{ marginLeft: "6px" }}>

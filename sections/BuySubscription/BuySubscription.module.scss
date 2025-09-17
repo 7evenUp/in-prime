@@ -684,12 +684,27 @@
     border-radius: 8px;
     width: 48px;
     height: 48px;
+
+    &_sm {
+      border-radius: 2px;
+      width: 40px;
+      height: 40px;
+    }
   }
 
   &_first {
     display: inline-flex;
     align-items: center;
     gap: 0px;
+  }
+
+  &_text {
+    font-size: 16px;
+
+    &_sm {
+      font-size: 14px;
+      line-height: 1.2;
+    }
   }
 
   &_text1 {
