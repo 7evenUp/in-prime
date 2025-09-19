@@ -308,6 +308,7 @@ const BuySubscriptionDialog = ({
                 paymentUrl={paymentURL}
                 reset={reset}
                 closeRef={closeRef}
+                isStart={kind.name === "Start"}
               />
             </>
           ) : (
@@ -854,11 +855,13 @@ const PaymentStatus = ({
   paymentId,
   reset,
   closeRef,
+  isStart,
 }: {
   paymentUrl: string
   paymentId: number
   reset: () => void
   closeRef?: React.RefObject<HTMLButtonElement>
+  isStart: boolean
 }) => {
   const { data: status, isLoading } = useQuery({
     queryKey: ["payment-status"],
@@ -910,7 +913,7 @@ const PaymentStatus = ({
           className={styles.status_heading}
           style={{ marginBottom: 30, lineHeight: 1.3 }}
         >
-          Поздравляем с оформлением подписки Prime!
+          Поздравляем с оформлением подписки {isStart ? "Start" : "Prime"}!
         </h2>
 
         <div className={styles.status}>
@@ -926,12 +929,24 @@ const PaymentStatus = ({
               <a href="https://id.crypton.xyz" target="_blank">
                 Crypton ID
               </a>
-              : это Ваш личный кабинет для управления подпиской Prime.
+              : это Ваш личный кабинет для управления подпиской{" "}
+              {isStart ? "Start" : "Prime"}.
             </p>
             <p>
-              3. Подключите Telegram, так Вы получите доступ ко всем каналам и
-              материалам Prime.
+              3.{" "}
+              {isStart
+                ? "Подключите Telegram, чтобы активировать Lobby bot и получать важные уведомления."
+                : "Подключите Telegram, так Вы получите доступ ко всем каналам и материалам Prime."}
             </p>
+            {isStart && (
+              <p>
+                4. Перейдите в{" "}
+                <a href="https://calendar.crypton.xyz/events" target="_blank">
+                  Календарь
+                </a>{" "}
+                для начала заработка!
+              </p>
+            )}
           </div>
 
           <p>
