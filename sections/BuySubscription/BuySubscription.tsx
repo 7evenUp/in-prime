@@ -8,6 +8,8 @@ import { fallbackSubscriptions } from "./fallback"
 import Switcher from "./Switcher"
 import SubscriptionCard from "./SubscriptionCard/SubscriptionCard"
 
+import TimerPromo from "../TimerPromo/TimerPromo"
+
 import useSendEvent from "@/hooks/useSendEvent"
 
 import { Resolution } from "@/types/resolution"
@@ -33,8 +35,7 @@ const BuySubscription = ({
   }
   resolution: Resolution
 }) => {
-  
-  const [showMonthlyPrice, setShowMonthlyPrice] = useState(false)
+  const [showMonthlyPrice, setShowMonthlyPrice] = useState(true)
   const [promoForSubmit, setPromoForSubmit] = useState("")
 
   const [fallbackPromocode, setFallbackPromocode] = useState<Promocode | null>(
@@ -43,7 +44,6 @@ const BuySubscription = ({
   const [activePromocode, setActivePromocode] = useState<Promocode | null>(null)
 
   const { sendEvent } = useSendEvent()
-
 
   const { ref } = useInView({
     triggerOnce: true,
@@ -222,6 +222,8 @@ const BuySubscription = ({
               </div>
             )
           )}
+
+          <TimerPromo />
 
           {isLoading ? (
             <>
