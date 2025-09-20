@@ -95,7 +95,10 @@ const SubscriptionCard = ({
         <div className={styles.loading} />
       ) : (
         <div className={clsx(styles.price, order === 0 && styles.price_0)}>
-          <div className={styles.price_wrapper}>
+          <div
+            className={styles.price_wrapper}
+            style={{ gap: showMonthlyPrice ? 8 : 0 }}
+          >
             <span className={styles.price_left}>
               $
               {
