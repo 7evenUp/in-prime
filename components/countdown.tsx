@@ -46,7 +46,6 @@ const Countdown: React.FC<CountdownProps> = ({
         key={1}
         suppressHydrationWarning
       >
-        {timeLeft.days / 10 >= 1 ? "" : "0"}
         {timeLeft.days}
       </div>
       <div className="sep">:</div>
