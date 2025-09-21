@@ -193,6 +193,10 @@ const BuySubscription = ({
           <Switcher
             showMonthlyPrice={showMonthlyPrice}
             setShowMonthlyPrice={setShowMonthlyPrice}
+            dropPromo={() => {
+              reset()
+              setActivePromocode(null)
+            }}
           />
 
           {isLoading ? (

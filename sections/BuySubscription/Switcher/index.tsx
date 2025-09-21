@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction } from "react"
+import React, { Dispatch, SetStateAction, useEffect } from "react"
 import * as Switch from "@radix-ui/react-switch"
 import clsx from "clsx"
 
@@ -7,10 +7,16 @@ import styles from "./styles.module.scss"
 const Switcher = ({
   showMonthlyPrice,
   setShowMonthlyPrice,
+  dropPromo,
 }: {
   showMonthlyPrice: boolean
   setShowMonthlyPrice: Dispatch<SetStateAction<boolean>>
+  dropPromo: VoidFunction
 }) => {
+  useEffect(() => {
+    dropPromo()
+  }, [showMonthlyPrice])
+
   return (
     <div className={styles.switch}>
       <div className={styles.switch_container}>
