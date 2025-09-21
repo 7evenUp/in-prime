@@ -1,7 +1,6 @@
 import React, { Dispatch, SetStateAction } from "react"
 import * as Switch from "@radix-ui/react-switch"
 import clsx from "clsx"
-import onPromoRemoveClick from "../../../components/BuySubscriptionDialog/index"
 import styles from "./styles.module.scss"
 import BuySubscription from "../BuySubscription"
 
@@ -21,7 +20,7 @@ const Switcher = ({
             styles.switch_text,
             showMonthlyPrice && styles.switch_text__active
           )}
-          onClick={() => (setShowMonthlyPrice(true), onPromoRemoveClick())}
+          onClick={() => (setShowMonthlyPrice(true))}
         >
           месяц
         </span>
