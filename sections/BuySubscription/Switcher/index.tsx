@@ -1,8 +1,9 @@
 import React, { Dispatch, SetStateAction, useEffect } from "react"
 import * as Switch from "@radix-ui/react-switch"
 import clsx from "clsx"
-
 import styles from "./styles.module.scss"
+import BuySubscription from "../BuySubscription"
+
 
 const Switcher = ({
   showMonthlyPrice,
@@ -25,7 +26,7 @@ const Switcher = ({
             styles.switch_text,
             showMonthlyPrice && styles.switch_text__active
           )}
-          onClick={() => setShowMonthlyPrice(true)}
+          onClick={() => (setShowMonthlyPrice(true))}
         >
           месяц
         </span>
