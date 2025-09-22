@@ -740,7 +740,7 @@ const BuySubscriptionDialog = ({
                                 : /* @ts-expect-error No-Error-Types */
                                 promoError?.response.data.code ===
                                   "discount_code_validation_error"
-                                ? "Не можем провалидировать промокод"
+                                ? "Промокод не действует на этот тариф"
                                 : "Произошла непредвиденная ошибка"
                               : "Произошла непредвиденная ошибка"
                           }
