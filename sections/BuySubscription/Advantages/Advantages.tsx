@@ -57,8 +57,10 @@ const Advantages = ({
 
   return (
     <div className={styles.advantages}>
-      {neededBenefits.map((benefit) =>
-        benefit.translations.ru.name.includes(
+      {neededBenefits.map((benefit) => {
+        const benefitName = benefit.translations.ru.name
+
+        return benefitName.includes(
           "Календарь актуальных крипто-активностей в одном месте"
         ) ? (
           <button
@@ -74,16 +76,16 @@ const Advantages = ({
                 isCompact && styles.advantage_sm
               )}
             >
-              {benefit.translations.ru.name}
+              {benefitName}
             </p>
           </button>
         ) : benefit.type === "INCLUDE_ALL_PREVIOUS" ? (
           <span
             key={benefit.id}
             className={buySubscriptionStyles.text_before_bonuses}
-            style={{ opacity: 0.5 }}
+            style={{ opacity: 0.5, marginBottom: 8 }}
           >
-            {benefit.translations.ru.name}
+            {benefitName}
           </span>
         ) : benefit.translations.ru.description ? (
           <HoverCardOrPopover.Root key={benefit.id} openDelay={150}>
@@ -98,8 +100,12 @@ const Advantages = ({
                   isCompact && styles.advantage_sm
                 )}
               >
-                {!benefit.file && "+"} {benefit.translations.ru.name}{" "}
-                <NavArrowIcon />
+                {!benefit.file && "+"}{" "}
+                {/* Чтоб стрелка не переносилась одна на новую строку, а вместе с последним словом */}
+                {benefitName.slice(0, benefitName.length - 1)}
+                <span style={{ whiteSpace: "nowrap" }}>
+                  {benefitName[benefitName.length - 1]} <NavArrowIcon />
+                </span>
               </p>
             </HoverCardOrPopover.Trigger>
             <HoverCardOrPopover.Portal>
@@ -127,11 +133,11 @@ const Advantages = ({
                 isCompact && styles.advantage_sm
               )}
             >
-              {benefit.translations.ru.name}
+              {benefitName}
             </p>
           </div>
         )
-      )}
+      })}
     </div>
   )
 }

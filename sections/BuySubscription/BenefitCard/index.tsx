@@ -37,6 +37,10 @@ const BenefitCard = ({
     [outerOpen, outerSetIsOpen, localOpen, localSetOpen]
   )
 
+  const benefitName = benefit.remainingCount
+    ? `${benefit.name} (Осталось ${benefit.remainingCount})`
+    : benefit.name
+
   return (
     <HoverCardOrPopover.Root open={open} onOpenChange={setOpen} openDelay={150}>
       <HoverCardOrPopover.Trigger
@@ -56,10 +60,10 @@ const BenefitCard = ({
           <p
             className={clsx(compact ? styles.bonus_text_sm : styles.bonus_text)}
           >
-            {benefit.name}
-            {benefit.remainingCount && ` (Осталось ${benefit.remainingCount})`}
-            <span style={{ marginLeft: "6px" }}>
-              <NavArrowIcon />
+            {/* Чтоб стрелка не переносилась одна на новую строку, а вместе с последним словом */}
+            {benefitName.slice(0, benefitName.length - 1)}
+            <span style={{ whiteSpace: "nowrap" }}>
+              {benefitName[benefitName.length - 1]} <NavArrowIcon />
             </span>
           </p>
         </li>
@@ -74,7 +78,7 @@ const BenefitCard = ({
             <img className={styles.HoverCardImage_img} src={benefit.file} />
           </div>
           <div>
-            <h1 className={styles.HoverCardContent_header}>{benefit.name}</h1>
+            <h1 className={styles.HoverCardContent_header}>{benefitName}</h1>
             {benefit.description.match(/[^!.?]+[!.?]?/g).map((part, i) => (
               <p
                 key={i}

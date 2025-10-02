@@ -618,7 +618,6 @@ const BuySubscriptionDialog = ({
                               <ul
                                 className={clsx(
                                   styles.bonuses,
-                                  styles.bonuses__small
                                 )}
                               >
                                 {benefits.map(

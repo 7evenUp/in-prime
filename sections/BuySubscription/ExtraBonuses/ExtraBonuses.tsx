@@ -46,11 +46,7 @@ const ExtraBonuses = ({
       </div>
 
       <ul
-        className={clsx(
-          styles.bonuses,
-          styles.bonuses__small,
-          isCompact && styles.bonuses__compact
-        )}
+        className={clsx(styles.bonuses, isCompact && styles.bonuses__compact)}
       >
         {neededBenefits.map(
           (benefit) =>
