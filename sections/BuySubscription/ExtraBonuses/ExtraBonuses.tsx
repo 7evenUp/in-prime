@@ -8,7 +8,13 @@ import { Benefit } from "@/types/api-types"
 
 import styles from "../BuySubscription.module.scss"
 
-const ExtraBonuses = ({ benefits }: { benefits: Benefit[] }) => {
+const ExtraBonuses = ({
+  benefits,
+  isCompact,
+}: {
+  benefits: Benefit[]
+  isCompact?: boolean
+}) => {
   const neededBenefits = useMemo(() => {
     if (!benefits || benefits.length === 0) return []
 
@@ -28,7 +34,8 @@ const ExtraBonuses = ({ benefits }: { benefits: Benefit[] }) => {
     <>
       <div
         className={clsx(
-          styles.bonuses_heading
+          styles.bonuses_heading,
+          isCompact && styles.bonuses_heading__compact
           // order === 0 && styles.bonuses_heading_first
         )}
       >
@@ -38,7 +45,13 @@ const ExtraBonuses = ({ benefits }: { benefits: Benefit[] }) => {
         <span className={styles.bonuses_heading_text}>ЭКСТРА БОНУСЫ</span>
       </div>
 
-      <ul className={clsx(styles.bonuses, styles.bonuses__small)}>
+      <ul
+        className={clsx(
+          styles.bonuses,
+          styles.bonuses__small,
+          isCompact && styles.bonuses__compact
+        )}
+      >
         {neededBenefits.map(
           (benefit) =>
             benefit.file &&
@@ -51,6 +64,7 @@ const ExtraBonuses = ({ benefits }: { benefits: Benefit[] }) => {
                   description: benefit.translations.ru.description,
                   remainingCount: benefit.remainingCount,
                 }}
+                compact={isCompact}
               />
             )
         )}

@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-top: 8px;
   margin-bottom: 25px;
 
   @media (max-width: 767px) {
@@ -19,21 +18,23 @@
 .advantage_wrapper {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
   text-align: left;
 
   outline: none;
   border: none;
   background: none;
   color: white;
-  text-decoration: underline;
-  text-underline-offset: 4px;
   cursor: pointer;
   margin: 0;
   padding: 0;
 
   &:hover {
-    color: #ffe5aa;
+    color: #4ddfd0;
+  }
+
+  p {
+    font-weight: 400;
   }
 }
 .advantage_additional {

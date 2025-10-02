@@ -37,6 +37,7 @@ import {
 import { Resolution } from "@/types/resolution"
 
 import styles from "./styles.module.scss"
+import ExtraBonuses from "@/sections/BuySubscription/ExtraBonuses/ExtraBonuses"
 
 const ID_URL = process.env.NEXT_PUBLIC_ID_URL + "/api/v1/"
 
@@ -297,6 +298,7 @@ const BuySubscriptionDialog = ({
               setPromoWasUpdated(false)
             }
           }}
+          onCloseAutoFocus={(evt) => evt.preventDefault()}
         >
           {isSuccess ? (
             <>
@@ -538,7 +540,9 @@ const BuySubscriptionDialog = ({
                             benefits={benefits}
                           />
 
-                          {order === 2 &&
+                          <ExtraBonuses benefits={benefits} isCompact />
+
+                          {/* {order === 2 &&
                             benefits.find((el) =>
                               el.translations.ru.name
                                 .toLowerCase()
@@ -570,7 +574,7 @@ const BuySubscriptionDialog = ({
                                 }}
                                 compact
                               />
-                            )}
+                            )} */}
 
                           {/* вернуть `order !== 0 &&`, когда вернётся подписка на 1 мес */}
                           {/* {benefits.length > 0 && (

@@ -76,13 +76,13 @@
 
   &:nth-of-type(1) {
     --prime-active-color: #4ddfd0;
-    --prime-active-bg-color: rgba(77, 223, 208, 0.12);
+    --prime-active-bg-color: rgba(77, 223, 208, 0.2);
     --prime-active-bg-color--pale: rgba(77, 223, 208, 0.06);
   }
   // Поменять на 2, когда вернётся подписка на 1 мес
   &:nth-of-type(2) {
     --prime-active-color: #ffe5aa;
-    --prime-active-bg-color: rgba(255, 229, 170, 0.12);
+    --prime-active-bg-color: rgba(255, 229, 170, 0.2);
     --prime-active-bg-color--pale: rgba(255, 229, 170, 0.06);
   }
   // Поменять на 3, когда вернётся подписка на 1 мес
@@ -92,12 +92,11 @@
   // Поменять на 4, когда вернётся подписка на 1 мес
   &:nth-of-type(3) {
     --prime-active-color: #ff4a7a;
-    --prime-active-bg-color: rgba(255, 74, 122, 0.12);
+    --prime-active-bg-color: rgba(255, 74, 122, 0.2);
     --prime-active-bg-color--pale: rgba(255, 74, 122, 0.06);
   }
 
-  .duration,
-  .bonuses_icon {
+  .duration {
     background: white;
   }
 
@@ -105,12 +104,6 @@
   &:nth-child(3) {
     // border: 1px solid #ff4a7a;
     background: rgba(67, 67, 67, 0.6);
-
-    .bonuses_heading,
-    .subscription_remains,
-    .price_discount_percent {
-      // color: #ff4a7a;
-    }
 
     .button {
       font-family: "Inter", sans-serif;
@@ -332,17 +325,11 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  height: 90px;
   margin-left: 16px;
+  margin-bottom: 32px;
 
   @media (max-width: 1367px) and (min-width: 768px) {
     gap: 22px;
-  }
-
-  &_0 {
-    @media (max-width: 767px) {
-      height: 85px;
-    }
   }
 
   &_wrapper {
@@ -603,10 +590,7 @@
 
 .bonuses {
   margin: 0;
-  // margin-left: 16px;
-  margin-top: 25px;
-  // margin-left: auto;
-  // margin-right: auto;
+  margin-top: 16px;
   margin-bottom: 36px;
   padding-left: 14px;
   display: flex;
@@ -623,6 +607,10 @@
     padding-left: 0px;
   }
 
+  &__compact {
+    padding-left: 0px;
+  }
+
   &__small {
     margin-bottom: 40px;
   }
@@ -630,8 +618,6 @@
   &_heading {
     display: flex;
     align-items: center;
-    // margin-left: auto;
-    // margin-right: auto;
     gap: 8px;
     font-family: "Unbounded", sans-serif;
     font-weight: 400;
@@ -645,7 +631,6 @@
     }
 
     &_first {
-      // opacity: 0;
       display: none;
     }
 
@@ -654,13 +639,24 @@
     }
   }
 
+  &_heading__compact {
+    margin-left: 0;
+    font-size: 14px;
+  }
+
   &_icon {
     border-radius: 100%;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: white;
+
+    svg {
+      width: 14px;
+      height: 14px;
+    }
   }
 }
 
@@ -1298,7 +1294,7 @@
   flex-direction: column;
   align-items: center;
   margin-inline: auto;
-  margin-bottom: 16px;
+  margin-bottom: 32px;
   font-family: "Inter", sans-serif;
   font-size: 16px;
   font-weight: 400;
@@ -1319,7 +1315,6 @@
   &__highlighted {
     color: var(--prime-active-color);
     background-color: var(--prime-active-bg-color);
-    box-shadow: 0px 0px 8px 0px var(--prime-active-color);
   }
 }
 

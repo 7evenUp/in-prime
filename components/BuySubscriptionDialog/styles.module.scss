@@ -146,6 +146,10 @@
       &_0 {
         border: 1px solid var(--prime-active-color);
         z-index: 4;
+
+        &::-webkit-scrollbar {
+          max-width: 6px;
+        }
       }
       &_1 {
         border: 1px solid var(--prime-active-color);
@@ -157,6 +161,10 @@
 
         @media (max-width: 445px) {
           margin-left: 16px;
+        }
+
+        &::-webkit-scrollbar {
+          max-width: 0px;
         }
       }
 
@@ -170,6 +178,10 @@
 
         @media (max-width: 445px) {
           margin-left: 32px;
+        }
+
+        &::-webkit-scrollbar {
+          max-width: 0px;
         }
       }
 
@@ -196,12 +208,18 @@
         height: 244px;
         top: 50%;
         translate: 0 -50%;
+        &::-webkit-scrollbar {
+          max-width: 0px;
+        }
       }
       &_1 {
         border: 1px solid var(--prime-active-color);
         margin-left: 24px;
         z-index: 4;
         height: 266px;
+        &::-webkit-scrollbar {
+          max-width: 6px;
+        }
 
         @media (max-width: 445px) {
           margin-left: 16px;
@@ -215,6 +233,9 @@
         height: 244px;
         top: 50%;
         translate: 0 -50%;
+        &::-webkit-scrollbar {
+          max-width: 0px;
+        }
 
         @media (max-width: 445px) {
           margin-left: 32px;
@@ -244,6 +265,10 @@
         height: 222px;
         top: 50%;
         translate: 0 -50%;
+
+        &::-webkit-scrollbar {
+          max-width: 0px;
+        }
       }
       &_1 {
         border: 1px solid var(--prime-active-color);
@@ -252,6 +277,10 @@
         height: 244px;
         top: 50%;
         translate: 0 -50%;
+
+        &::-webkit-scrollbar {
+          max-width: 0px;
+        }
 
         @media (max-width: 445px) {
           margin-left: 16px;
@@ -263,6 +292,10 @@
         margin-left: 48px;
         z-index: 4;
         height: 266px;
+
+        &::-webkit-scrollbar {
+          max-width: 6px;
+        }
 
         @media (max-width: 445px) {
           margin-left: 32px;
@@ -344,7 +377,7 @@
   display: flex;
   flex-direction: column;
   background: #232323;
-  overflow: hidden;
+  overflow-y: scroll;
 
   @media (max-width: 445px) {
     padding: 16px;

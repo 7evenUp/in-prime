@@ -57,7 +57,7 @@ const BenefitCard = ({
             className={clsx(compact ? styles.bonus_text_sm : styles.bonus_text)}
           >
             {benefit.name}
-            {benefit.remainingCount && ` (${benefit.remainingCount})`}
+            {benefit.remainingCount && ` (Осталось ${benefit.remainingCount})`}
             <span style={{ marginLeft: "6px" }}>
               <NavArrowIcon />
             </span>
@@ -75,9 +75,15 @@ const BenefitCard = ({
           </div>
           <div>
             <h1 className={styles.HoverCardContent_header}>{benefit.name}</h1>
-            <p className={styles.HoverCardContent_text}>
-              {benefit.description}
-            </p>
+            {benefit.description.match(/[^!.?]+[!.?]?/g).map((part, i) => (
+              <p
+                key={i}
+                style={{ marginBlock: 4 }}
+                className={styles.HoverCardContent_text}
+              >
+                {part.trim()}
+              </p>
+            ))}
           </div>
         </HoverCardOrPopover.Content>
       </HoverCardOrPopover.Portal>

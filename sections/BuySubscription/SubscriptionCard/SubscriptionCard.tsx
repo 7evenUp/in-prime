@@ -141,7 +141,7 @@ const SubscriptionCard = ({
       >
         <p className={styles.guarantee_heading}>
           {showMonthlyPrice
-            ? "Гарантия первой прибыли"
+            ? "Гарантия прибыли"
             : "Гарантия окупаемости"}
         </p>
       </button>
