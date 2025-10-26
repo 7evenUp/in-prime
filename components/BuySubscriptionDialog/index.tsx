@@ -178,6 +178,19 @@ const BuySubscriptionDialog = ({
 
     event.preventDefault()
 
+    const url = new URL(location.href)
+    const utm_source = url.searchParams.get("utm_source")
+    const utm_medium = url.searchParams.get("utm_medium")
+    const utm_campaign = url.searchParams.get("utm_campaign")
+    const utm_content = url.searchParams.get("utm_content")
+
+    const utm_data = {
+      utm_source: utm_source || null,
+      utm_medium: utm_medium || null,
+      utm_campaign: utm_campaign || null,
+      utm_content: utm_content || null,
+    }
+
     let payload: PaymentRequestArgs = {
       paymentType: "card",
       isReceiptNeed: checkboxValue as boolean,
@@ -185,6 +198,10 @@ const BuySubscriptionDialog = ({
       failUrl: "https://id.crypton.xyz/payment-error",
       email,
       subscriptionId: id,
+    }
+
+    if (utm_source || utm_medium || utm_campaign || utm_content) {
+      payload = { ...payload, utm: JSON.stringify(utm_data) }
     }
 
     if (referral) {

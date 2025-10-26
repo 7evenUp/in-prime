@@ -79,4 +79,5 @@ export interface PaymentRequestArgs {
   promoCode?: string
   referral_code?: string | string[]
   email: string
+  utm?: string
 }
