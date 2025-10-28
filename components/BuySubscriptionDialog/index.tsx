@@ -211,7 +211,7 @@ const BuySubscriptionDialog = ({
       }
     }
 
-    if (localPromocode) {
+    if (localPromocode && totalDiscount !== null) {
       if (localPromocode.isReferralCode) {
         payload = {
           ...payload,
