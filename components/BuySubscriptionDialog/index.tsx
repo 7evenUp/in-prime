@@ -87,7 +87,7 @@ const BuySubscriptionDialog = ({
 
   const { id, duration, kind, benefits } = selectedSubscription
 
-  const { finalPrice, originalPrice } = useMemo(
+  const { finalPrice, originalPrice, totalDiscount } = useMemo(
     () =>
       calculateSubscriptionDetails({
         subscription: selectedSubscription,
@@ -683,7 +683,19 @@ const BuySubscriptionDialog = ({
                           </div>
                           <span className={styles.promocode_discount}>
                             Ваша скидка:{" "}
-                            {localPromocode.discountKind.id === "MONEY" ? (
+                            {totalDiscount ? (
+                              totalDiscount.type === "$" ? (
+                                <>
+                                  {"$"}
+                                  {totalDiscount.value}
+                                </>
+                              ) : (
+                                <>
+                                  {totalDiscount.value}
+                                  {"%"}
+                                </>
+                              )
+                            ) : localPromocode.discountKind.id === "MONEY" ? (
                               <>
                                 {"$"}
                                 {localPromocode.discountAmount}
