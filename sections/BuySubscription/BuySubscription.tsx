@@ -64,7 +64,8 @@ const BuySubscription = ({
     queryFn: async () => {
       try {
         const response = await axios.get<Subscription[]>(
-          `${ID_URL}/api/v1/subscriptions/get-active/`
+          `${ID_URL}/api/v1/subscriptions/get-active/`,
+          { withCredentials: true }
         )
         return response.data
           .filter((el) => el.isActive)
