@@ -22,6 +22,21 @@
   }
 }
 
+.subscriptions_sm {
+  display: flex;
+  justify-content: center;
+
+  .subscription {
+    max-width: 360px;
+  }
+
+  @media (max-width: 767px) {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 20px;
+  }
+}
+
 .skeleton {
   width: 310px;
   height: 683px;

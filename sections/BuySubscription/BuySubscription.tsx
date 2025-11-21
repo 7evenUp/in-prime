@@ -17,6 +17,7 @@ import { Promocode, Subscription } from "@/types/api-types"
 
 import styles from "./BuySubscription.module.scss"
 import Scroller from "@/blackFriday/Scroller"
+import clsx from "clsx"
 
 const ID_URL = process.env.NEXT_PUBLIC_ID_URL
 const SPECIAL_PROMOS = (process.env.NEXT_PUBLIC_PROMOS || "NEW,PRIME").split(
@@ -210,7 +211,12 @@ const BuySubscription = ({
             </div>
           ) : (
             subscriptions && (
-              <div className={styles.subscriptions}>
+              <div
+                className={clsx(
+                  styles.subscriptions,
+                  subscriptions.length === 2 && styles.subscriptions_sm
+                )}
+              >
                 {subscriptions.map((el, i) => (
                   <SubscriptionCard
                     subscriptions={subscriptions}
