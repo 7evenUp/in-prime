@@ -16,6 +16,7 @@ import { Resolution } from "@/types/resolution"
 import { Promocode, Subscription } from "@/types/api-types"
 
 import styles from "./BuySubscription.module.scss"
+import Scroller from "@/blackFriday/Scroller"
 
 const ID_URL = process.env.NEXT_PUBLIC_ID_URL
 const SPECIAL_PROMOS = (process.env.NEXT_PUBLIC_PROMOS || "NEW,PRIME").split(
@@ -260,6 +261,8 @@ const BuySubscription = ({
               </p>
             </div>
           )}
+
+          <Scroller />
         </div>
       </div>
     </div>

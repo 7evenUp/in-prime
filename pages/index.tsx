@@ -31,6 +31,9 @@ import { Resolution } from "@/types/resolution"
 
 import { scrollReducer } from "@/redux/reducers/scrollReducer"
 import FAQ from "@/sections/FAQ/FAQ"
+import BlackFridayBanner from "@/blackFriday/BlackFridayBanner"
+import BlackFridayInfo from "@/blackFriday/BlackFridayInfo"
+import BlackFridayTimer from "@/blackFriday/BlackFridayTimer"
 // import TimerPromo from "@/sections/TimerPromo/TimerPromo"
 
 const useWindowSize = () => {
@@ -135,6 +138,7 @@ const Home = ({ bannerCookieName, banner }: SSRProps) => {
   return (
     <>
       <div className="app">
+        <BlackFridayBanner />
         {/* {["lgg", "lg"].includes(resolution) && (
           <Menu
             resolution={resolution}
@@ -167,6 +171,9 @@ const Home = ({ bannerCookieName, banner }: SSRProps) => {
           {/* <LoyaltySystem resolution={resolution} /> */}
 
           {/* <BuySubscription tariffs={tariffs} resolution={resolution} /> */}
+
+          <BlackFridayInfo />
+          <BlackFridayTimer />
 
           <BuySubscription tariffs={tariffs} resolution={resolution} />
 

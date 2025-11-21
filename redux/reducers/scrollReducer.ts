@@ -57,6 +57,10 @@ const sections = {
     name: "FAQ",
     getPosition: () => document.getElementById("faq").offsetTop,
   },
+  BlackFriday: {
+    name: "blackFriday",
+    getPosition: () => document.getElementById("black-friday").offsetTop,
+  },
 } as const
 
 export const getSection = <Key extends keyof typeof sections>(

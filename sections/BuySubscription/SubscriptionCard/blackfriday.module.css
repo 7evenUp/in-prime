@@ -1,0 +1,103 @@
+.Content {
+  border-radius: 4px;
+  padding: 16px;
+  padding-left: 0px;
+  width: 300px;
+  border-radius: 16px;
+  box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
+    hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
+  animation-duration: 400ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+  color: white;
+  background-color: #121212;
+  position: relative;
+  z-index: 99999;
+}
+.Content[data-state="open"][data-side="top"] {
+  animation-name: slideDownAndFade;
+}
+.Content[data-state="open"][data-side="right"] {
+  animation-name: slideLeftAndFade;
+}
+.Content[data-state="open"][data-side="bottom"] {
+  animation-name: slideUpAndFade;
+}
+.Content[data-state="open"][data-side="left"] {
+  animation-name: slideRightAndFade;
+}
+
+.Arrow {
+  fill: white;
+}
+
+.IconButton {
+  all: unset;
+  font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: rgb(255 255 255 / 0.5);
+  border: none;
+  outline: none;
+  margin-bottom: 8px;
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+}
+
+.IconButton svg {
+  transition: all 0.15s ease-in-out;
+}
+
+.IconButton[data-state="open"] svg {
+  transform: rotate(180deg);
+}
+
+.IconButton:hover {
+  color: rgb(255 255 255 / 1);
+}
+
+@keyframes slideUpAndFade {
+  from {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideRightAndFade {
+  from {
+    opacity: 0;
+    transform: translateX(-2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideDownAndFade {
+  from {
+    opacity: 0;
+    transform: translateY(-2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideLeftAndFade {
+  from {
+    opacity: 0;
+    transform: translateX(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

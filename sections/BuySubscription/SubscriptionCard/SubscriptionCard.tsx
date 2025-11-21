@@ -14,6 +14,7 @@ import { Resolution } from "@/types/resolution"
 import { Promocode, Subscription } from "@/types/api-types"
 
 import styles from "../BuySubscription.module.scss"
+import BlackFriday from "./BlackFriday"
 
 const SubscriptionCard = ({
   subscription,
@@ -140,17 +141,23 @@ const SubscriptionCard = ({
         onClick={scrollToGuarantee}
       >
         <p className={styles.guarantee_heading}>
-          {showMonthlyPrice
-            ? "Гарантия прибыли"
-            : "Гарантия окупаемости"}
+          {showMonthlyPrice ? "Гарантия прибыли" : "Гарантия окупаемости"}
         </p>
       </button>
 
-      <div className={styles.text_before_bonuses_wrapper}>
-        <Advantages benefits={benefits} />
-      </div>
+      <BlackFriday>
+        <div className={styles.text_before_bonuses_wrapper}>
+          <Advantages benefits={benefits} order={order} />
+        </div>
 
-      <ExtraBonuses benefits={benefits} />
+        <ExtraBonuses benefits={benefits} />
+      </BlackFriday>
+
+      <span style={{ textAlign: "center", marginBottom: 50 }}>
+        + {order === 0 ? 6 : 12} открытий боксов
+      </span>
+
+      <img src="/images/black-friday/black-friday-white-gift.png" />
 
       <BuySubscriptionDialog
         key={activePromocode?.code}

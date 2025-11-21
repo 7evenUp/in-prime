@@ -12,7 +12,8 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     queryFn: async () => {
       try {
         const response = await axios.get<User>(
-          `${ID_URL}/api/v1/users/profile/`
+          `${ID_URL}/api/v1/users/profile/`,
+          { withCredentials: true }
         )
         return response.data
       } catch (error) {
