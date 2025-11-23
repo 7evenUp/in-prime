@@ -3,6 +3,7 @@ import Image from "next/image"
 import * as Dialog from "@radix-ui/react-dialog"
 
 import styles from "./styles.module.css"
+import PreviousGifts from "./PreviousGifts"
 
 const img_urls = [
   "Iphone",
@@ -23,8 +24,8 @@ const img_urls = [
 ]
 
 const BlackFridayTimer = () => {
-  // 2025-11-28T20:59:59Z
-  const targetDate = 1764363599000 // конечная дата в мс
+  // "2025-11-29T21:00:00Z"
+  const targetDate = 1764450000000 // конечная дата в мс
 
   const [timeLeft, setTimeLeft] = useState({
     days: "0",
@@ -98,8 +99,8 @@ const BlackFridayTimer = () => {
             </Dialog.Description>
 
             <div className={styles.dialog_boxes}>
-              {img_urls.map((img) => (
-                <img src={`/images/black-friday/gifts/${img}.png`} />
+              {img_urls.map((img, i) => (
+                <img key={i} src={`/images/black-friday/gifts/${img}.png`} />
               ))}
             </div>
           </Dialog.Content>
@@ -165,20 +166,7 @@ const BlackFridayTimer = () => {
         className={styles.pattern}
       />
 
-      <p className={styles.gifts_title}>Последние подарки:</p>
-
-      <div className={styles.gifts}>
-        {new Array(50).fill(null).map((_, i) => (
-          <div key={i} className={styles.gift}>
-            <div className={styles.gift_image} />
-            <div className={styles.gift_owner}>
-              <div className={styles.owner_avatar} />
-              <span className={styles.owner_name}>mambaBlackz</span>
-            </div>
-            <span className={styles.gift_date}>12 мин назад</span>
-          </div>
-        ))}
-      </div>
+      <PreviousGifts />
     </div>
   )
 }

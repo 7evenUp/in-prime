@@ -122,8 +122,6 @@
 .gift_image {
   width: 180px;
   height: 180px;
-  background-color: #434343;
-  border-radius: 18px;
 }
 
 .gift_owner {
@@ -150,6 +148,7 @@
   font-family: "Inter", sans-serif;
   font-size: 14px;
   color: rgb(255 255 255 / 0.5);
+  text-align: left;
 }
 
 .Overlay {

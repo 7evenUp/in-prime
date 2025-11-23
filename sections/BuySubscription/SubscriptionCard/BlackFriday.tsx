@@ -3,11 +3,21 @@ import * as Popover from "@radix-ui/react-popover"
 
 import styles from "./blackfriday.module.css"
 
-const BlackFriday = ({ children }: { children: React.ReactNode }) => {
+const BlackFriday = ({
+  children,
+  order,
+}: {
+  order: number
+  children: React.ReactNode
+}) => {
   return (
     <Popover.Root>
       <Popover.Trigger className={styles.IconButton}>
-        Включает в себя
+        {order === 0
+          ? "Подробнее о тарифе Pro"
+          : order === 1
+          ? "Подробнее о тарифе Prime"
+          : "Включает в себя"}
         <svg
           width="14"
           height="14"

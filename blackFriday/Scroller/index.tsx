@@ -191,25 +191,29 @@ const Scroller = () => {
     }
   }
 
-  // const { promoBoxAvailableOpensNumber, totalOpenedPromoBox } = profile
-  const totalOpenedPromoBox = 2
-  const promoBoxAvailableOpensNumber = 3
-
   return (
     <>
       <div className={styles.top}>
-        <div className={styles.top_info}>
-          <div className={styles.top_left}>
-            <p className={styles.top_left_1}>
-              Осталось открытий: {promoBoxAvailableOpensNumber}
-            </p>
-            <p className={styles.top_left_2}>
-              Использовано попыток: {totalOpenedPromoBox}
-            </p>
-          </div>
+        {profile && (
+          <div className={styles.top_info}>
+            <div className={styles.top_left}>
+              <p className={styles.top_left_1}>
+                Осталось открытий: {profile.promoBoxAvailableOpensNumber}
+              </p>
+              <p className={styles.top_left_2}>
+                Использовано попыток: {profile.totalOpenedPromoBox}
+              </p>
+            </div>
 
-          <button className={styles.top_right}>Перейти в свой инвентарь</button>
-        </div>
+            <a
+              className={styles.top_right}
+              href="https://id.crypton.xyz?open_tab=inventory"
+              target="_blank"
+            >
+              Перейти в свой инвентарь
+            </a>
+          </div>
+        )}
 
         <div className={styles.scroller_wrapper}>
           <div className={styles.scroller}>
@@ -226,15 +230,18 @@ const Scroller = () => {
 
           {isLoading ? (
             <Skeleton className={styles.button_skeleton} />
-          ) : (
+          ) : profile ? (
             <button
               className={clsx(
                 styles.button,
                 isOpenLocked && styles.button_animated,
-                promoBoxAvailableOpensNumber <= 0 && styles.button_disabled
+                profile.promoBoxAvailableOpensNumber <= 0 &&
+                  styles.button_disabled
               )}
               onClick={onOpenClick}
-              disabled={promoBoxAvailableOpensNumber <= 0 || isOpenLocked}
+              disabled={
+                profile.promoBoxAvailableOpensNumber <= 0 || isOpenLocked
+              }
             >
               {isOpenLoading && (
                 <svg
@@ -254,6 +261,8 @@ const Scroller = () => {
               )}
               {isOpenLocked ? "Крутим-крутим..." : "Крутить рулетку"}
             </button>
+          ) : (
+            <button className={styles.button}>Бесплатный спин</button>
           )}
         </div>
       </div>

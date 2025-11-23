@@ -145,7 +145,7 @@ const SubscriptionCard = ({
         </p>
       </button>
 
-      <BlackFriday>
+      <BlackFriday order={order}>
         <div className={styles.text_before_bonuses_wrapper}>
           <Advantages benefits={benefits} order={order} />
         </div>

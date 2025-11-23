@@ -60,6 +60,7 @@
   font-size: 22px;
   letter-spacing: 0.03em;
   font-weight: 600;
+  line-height: 1;
 }
 
 .prize_description {
@@ -70,7 +71,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-top: auto;
+  margin-top: 16px;
 }
 
 .link {
@@ -127,6 +128,9 @@
   }
   .prize_description {
     max-width: auto;
+  }
+  .links {
+    margin-top: auto;
   }
 }
 @media (min-width: 768px) {
