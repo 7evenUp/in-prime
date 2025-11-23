@@ -33,6 +33,7 @@ const PreviousGifts = () => {
         return null
       }
     },
+    refetchInterval: 60 * 1000,
   })
 
   return (
