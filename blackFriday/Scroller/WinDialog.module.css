@@ -101,7 +101,37 @@
   }
 }
 
+.top_right {
+  border: none;
+  outline: none;
+  background-color: #434343;
+  color: white;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 24px;
+  height: 48px;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  text-decoration: none;
+  margin-top: 12px;
+  text-align: center;
+}
+
+.top_right:hover {
+  color: #434343;
+  background-color: white;
+  opacity: 0.9;
+}
+
 @media (min-width: 640px) {
+  .top_right {
+    margin-top: auto;
+  }
   .Content {
     border-radius: 0.75rem;
     height: 240px;

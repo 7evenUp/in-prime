@@ -57,13 +57,15 @@ const InfoDialog = ({
                         >
                           Подробнее
                         </a>
-                        <a
-                          href={getgemsLink}
-                          target="_blank"
-                          className={styles.link}
-                        >
-                          GetGems
-                        </a>
+                        {getgemsLink && (
+                          <a
+                            href={getgemsLink}
+                            target="_blank"
+                            className={styles.link}
+                          >
+                            GetGems
+                          </a>
+                        )}
                       </>
                     )
                   ) : (

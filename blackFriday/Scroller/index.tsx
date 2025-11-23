@@ -13,11 +13,16 @@ import { generateAnimation } from "./generateAnimation"
 import WinDialog from "./WinDialog"
 import { Skeleton } from "./Skeleton"
 import { sound } from "./sound"
-import { ContainersResponse, OpenContainerResponse } from "./types"
+import {
+  ContainersResponse,
+  FreeSpinResponse,
+  OpenContainerResponse,
+} from "./types"
 
 import { User } from "@/types/id-profile-user"
 
 import styles from "./styles.module.css"
+import AuthDialog from "./AuthDialog"
 
 const PRIZE_WIDTH = 136
 const GAP_BETWEEN_PRIZES = 16
@@ -35,10 +40,11 @@ const Scroller = () => {
   const [wonPrizes, setWonPrizes] = useState<JSX.Element | null>(null)
   const [soundLoaded, setSoundLoaded] = useState(false)
   const [animationStarted, setAnimationStarted] = useState(false)
+  const [authOpened, setAuthOpened] = useState(false)
   const [winOpened, setWinOpened] = useState(false)
   const [isOpenLocked, setIsOpenLocked] = useState(false)
 
-  const { data: profile } = useQuery({
+  const { data: profile, refetch: refetchProfile } = useQuery({
     queryKey: ["profile"],
     queryFn: async () => {
       try {
@@ -77,6 +83,25 @@ const Scroller = () => {
       try {
         const response = await axios.post<OpenContainerResponse>(
           `${ID_URL}/api/v1/crypton-events/containers/open/?containerId=${containerId}`,
+          undefined,
+          { withCredentials: true }
+        )
+        return response.data
+      } catch (error) {
+        return null
+      }
+    },
+  })
+  const {
+    mutateAsync: makeFreeSpin,
+    data: freeSpinData,
+    isPending: isFreeSpinLoading,
+  } = useMutation({
+    mutationKey: ["free-spin"],
+    mutationFn: async () => {
+      try {
+        const response = await axios.post<FreeSpinResponse>(
+          `${ID_URL}/api/v1/crypton-events/free-spin/`,
           undefined,
           { withCredentials: true }
         )
@@ -153,6 +178,8 @@ const Scroller = () => {
     try {
       const winResult = await openContainer(containerData.containers[0].id)
 
+      refetchProfile()
+
       setIsOpenLocked(true)
 
       x.jump(0)
@@ -161,6 +188,70 @@ const Scroller = () => {
         generateAnimation(
           AMOUNT_OF_GENERATED_PRIZES,
           winResult.prize,
+          containerData.containers[0].prizes
+        )
+      )
+
+      setAnimationStarted(true)
+
+      animate(x, -MIDDLE_X_POSITION, {
+        duration: ANIMATION_DURATION_IN_SEC,
+        ease: [0, 1.01, 0.73, 1],
+      })
+
+      setTimeout(() => {
+        setWinOpened(true)
+        setIsOpenLocked(false)
+      }, ANIMATION_DURATION_IN_SEC * 1000 + 200)
+    } catch (error) {
+      if (error.status === 400) {
+        if (error.data.code === "not_enough_available_open_box_attempts") {
+          console.log("Недостаточно ключей для лутбокса")
+        } else {
+          console.log("Не удалось открыть бокс")
+        }
+      } else if (error.status === 429) {
+        console.log("Слишком много запросов. Пожалуйста, попробуйте позже")
+      } else {
+        console.log("Не удалось открыть бокс")
+      }
+    }
+  }
+
+  const onFreeClick = async (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    event.preventDefault()
+
+    if (isFreeSpinLoading || isOpenLocked) return
+
+    if (
+      !containerData ||
+      containerData.containers.length === 0 ||
+      containerData.containers[0].prizes.length === 0
+    )
+      return
+
+    if (soundLoaded) clickWheelSound.current.play(0)
+
+    try {
+      const winResult = await makeFreeSpin()
+
+      refetchProfile()
+
+      setIsOpenLocked(true)
+
+      x.jump(0)
+
+      setWonPrizes(
+        generateAnimation(
+          AMOUNT_OF_GENERATED_PRIZES,
+          {
+            ...winResult,
+            link: null,
+            nftImageUrl: null,
+            totalCountForUser: null,
+          },
           containerData.containers[0].prizes
         )
       )
@@ -231,43 +322,91 @@ const Scroller = () => {
           {isLoading ? (
             <Skeleton className={styles.button_skeleton} />
           ) : profile ? (
-            <button
-              className={clsx(
-                styles.button,
-                isOpenLocked && styles.button_animated,
-                profile.promoBoxAvailableOpensNumber <= 0 &&
-                  styles.button_disabled
-              )}
-              onClick={onOpenClick}
-              disabled={
-                profile.promoBoxAvailableOpensNumber <= 0 || isOpenLocked
-              }
-            >
-              {isOpenLoading && (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className={styles.loader}
-                >
-                  <path d="M21 12a9 9 0 1 1-6.219-8.56" />
-                </svg>
-              )}
-              {isOpenLocked ? "Крутим-крутим..." : "Крутить рулетку"}
-            </button>
+            profile.isFreeSpinUsed ? (
+              <button
+                className={clsx(
+                  styles.button,
+                  isOpenLocked && styles.button_animated,
+                  profile.promoBoxAvailableOpensNumber <= 0 &&
+                    styles.button_disabled
+                )}
+                onClick={onOpenClick}
+                disabled={
+                  profile.promoBoxAvailableOpensNumber <= 0 || isOpenLocked
+                }
+              >
+                {isOpenLoading && (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className={styles.loader}
+                  >
+                    <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+                  </svg>
+                )}
+                {isOpenLocked ? "Крутим-крутим..." : "Крутить рулетку"}
+              </button>
+            ) : (
+              <button
+                className={clsx(
+                  styles.button,
+                  isOpenLocked && styles.button_animated
+                )}
+                onClick={onFreeClick}
+                disabled={isOpenLocked}
+              >
+                {isFreeSpinLoading && (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className={styles.loader}
+                  >
+                    <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+                  </svg>
+                )}
+                {isOpenLocked ? "Крутим-крутим..." : "Бесплатный спин"}
+              </button>
+            )
           ) : (
-            <button className={styles.button}>Бесплатный спин</button>
+            <button
+              className={styles.button}
+              onClick={() => setAuthOpened(true)}
+            >
+              Бесплатный спин
+            </button>
           )}
         </div>
       </div>
 
-      <WinDialog open={winOpened} onOpenChange={setWinOpened} data={winData} />
+      <WinDialog
+        open={winOpened}
+        onOpenChange={setWinOpened}
+        data={winData}
+        freeSpinData={freeSpinData}
+      />
+
+      <AuthDialog
+        open={authOpened}
+        onOpenChange={setAuthOpened}
+        refetchCb={() => {
+          refetchProfile()
+          setAuthOpened(false)
+        }}
+      />
     </>
   )
 }

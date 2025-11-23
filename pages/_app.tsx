@@ -1,13 +1,9 @@
 import Head from "next/head"
 import type { AppContext, AppInitialProps, AppProps } from "next/app"
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
-import { Provider as ReduxProvider } from "react-redux"
-import { init } from "web-analytics-crypton"
-
+import Providers from "@/components/Providers"
 import { UserAgentProvider } from "@/providers/user-agent-provider"
-import AuthProvider from "@/providers/AuthProvider"
 
-import store from "@/redux/store"
+import { init } from "web-analytics-crypton"
 
 import "/styles/global.scss"
 
@@ -21,14 +17,25 @@ import "/styles/components/mobile-menu.scss"
 
 import "/styles/pages/404.scss"
 
+import "/components/AuthContainer/styles.css"
+import "/components/AuthContainer/components/AuthByCode/styles.css"
+import "/components/AuthContainer/components/AuthVariants/styles.css"
+import "/components/AuthContainer/components/Divider/styles.css"
+import "/components/AuthContainer/components/EmailRegister/styles.css"
+import "/components/AuthContainer/components/TelegramLogin/styles.css"
+import "/components/AuthContainer/shared/Button/styles.css"
+import "/components/AuthContainer/shared/Checkbox/styles.css"
+import "/components/AuthContainer/shared/Form/styles.css"
+import "/components/AuthContainer/shared/Input/styles.css"
+import "/components/AuthContainer/shared/InputOTP/styles.css"
+import "/components/AuthContainer/shared/Loader/styles.css"
+
 init({
   url: "https://api.metrics.crypton.xyz",
   client: "web",
   clientType: "landing",
   serviceName: "in-prime",
 })
-
-const queryClient = new QueryClient()
 
 const App = ({
   Component,
@@ -63,15 +70,11 @@ const App = ({
         <meta name="theme-color" content="#ffffff"></meta>
       </Head>
 
-      <ReduxProvider store={store}>
-        <QueryClientProvider client={queryClient}>
-          <AuthProvider>
-            <UserAgentProvider ua={userAgent}>
-              <Component {...pageProps} />
-            </UserAgentProvider>
-          </AuthProvider>
-        </QueryClientProvider>
-      </ReduxProvider>
+      <Providers>
+        <UserAgentProvider ua={userAgent}>
+          <Component {...pageProps} />
+        </UserAgentProvider>
+      </Providers>
     </>
   )
 }
