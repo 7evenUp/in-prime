@@ -75,10 +75,13 @@ const PreviousGifts = () => {
                     </span>
                   </div>
                   <span className={styles.gift_date}>
-                    {formatDistanceToNow(new Date(lastOpen.openedDatetime), {
-                      addSuffix: true,
-                      locale: ru,
-                    })}
+                    {formatDistanceToNow(
+                      new Date(lastOpen.openedDatetime + "+03:00"),
+                      {
+                        addSuffix: true,
+                        locale: ru,
+                      }
+                    )}
                   </span>
                 </div>
               </InfoDialog>
