@@ -16,6 +16,7 @@ export interface Container {
 export interface ContainerPrize {
   numberInContainer: number
   prize: Prize
+  remainingQuantity: number
 }
 
 export interface Prize {

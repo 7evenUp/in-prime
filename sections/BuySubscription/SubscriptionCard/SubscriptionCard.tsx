@@ -137,7 +137,7 @@ const SubscriptionCard = ({
       <button
         className={clsx(
           styles.guarantee,
-          order === 0 && styles.guarantee__hidden,
+          // order === 0 && styles.guarantee__hidden,
           !showMonthlyPrice && styles.guarantee__highlighted
         )}
         onClick={scrollToGuarantee}
@@ -166,12 +166,19 @@ const SubscriptionCard = ({
                 (benefit) => benefit.type === "PROMO_BOX"
               ).quantity
             }{" "}
-            открытий боксов
+            {subscription.benefits.find(
+              (benefit) => benefit.type === "PROMO_BOX"
+            ).quantity === 1
+              ? "открытие бокса"
+              : "открытий боксов"}
           </>
         )}
       </span>
 
-      <img src="/images/black-friday/black-friday-white-gift.png" />
+      <img
+        style={{ width: 334, height: 280 }}
+        src="/images/black-friday/black-friday-white-gift.png"
+      />
 
       <BuySubscriptionDialog
         key={activePromocode?.code}

@@ -31,7 +31,7 @@
 
 .blackFridayInfo {
   margin-top: 80px;
-  padding-bottom: 90px;
+  padding-bottom: 130px;
   font-family: "Unbounded", sans-serif;
   display: flex;
   flex-direction: column;
@@ -266,7 +266,7 @@
 
 @media (max-width: 767px) {
   .blackFridayInfo {
-    padding-bottom: 48px;
+    padding-bottom: 72px;
   }
 
   .title {

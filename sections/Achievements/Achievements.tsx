@@ -55,9 +55,18 @@ const Achievements = ({ resolution }: { resolution: Resolution }) => {
     <section className={styles.container} id="achievements" ref={ref}>
       <div className={styles.wrapper}>
         <h2 className={styles.title}>Достижения участников</h2>
-        <p className={styles.title_description}>
-          Отзывы о победах и знаниях, полученных в Prime
-        </p>
+        <div className={styles.description_wrapper}>
+          <p className={styles.title_description}>
+            Отзывы о победах и знаниях, полученных в Prime
+          </p>
+          <a
+            className={styles.link}
+            href="https://t.me/reviews_prime"
+            target="_blank"
+          >
+            Больше отзывов здесь
+          </a>
+        </div>
 
         <div className={styles.navigation}>
           <button

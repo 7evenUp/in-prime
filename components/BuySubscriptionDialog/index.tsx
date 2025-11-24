@@ -813,7 +813,7 @@ const BuySubscriptionDialog = ({
                           <a
                             className={styles.support_link}
                             onClick={() => {
-                              scrollToSection("Отзывы")
+                              scrollToSection("Достижения")
                             }}
                           >
                             отзывы
@@ -887,7 +887,10 @@ const BuySubscriptionDialog = ({
                     </span>
                     {finalPrice !== originalPrice && (
                       <span className={styles.total_full}>
-                        вместо ${originalPrice}
+                        вместо{" "}
+                        <span style={{ textDecoration: "line-through" }}>
+                          ${originalPrice}
+                        </span>
                       </span>
                     )}
                   </div>

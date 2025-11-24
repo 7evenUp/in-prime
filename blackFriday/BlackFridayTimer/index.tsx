@@ -1,9 +1,13 @@
-import React, { useEffect, useMemo, useState } from "react"
+import React, { useEffect, useState } from "react"
 import Image from "next/image"
-import * as Dialog from "@radix-ui/react-dialog"
+import * as Popover from "@radix-ui/react-popover"
 
 import styles from "./styles.module.css"
 import PreviousGifts from "./PreviousGifts"
+import { useQuery } from "@tanstack/react-query"
+import axios from "axios"
+import { ContainersResponse } from "../Scroller/types"
+import InfoDialog from "../Scroller/InfoDialog"
 
 const img_urls = [
   "Iphone",
@@ -23,6 +27,8 @@ const img_urls = [
   "TG Stars",
 ]
 
+const ID_URL = process.env.NEXT_PUBLIC_ID_URL
+
 const BlackFridayTimer = () => {
   // "2025-11-29T21:00:00Z"
   const targetDate = 1764450000000 // конечная дата в мс
@@ -31,6 +37,21 @@ const BlackFridayTimer = () => {
     days: "0",
     hours: "0",
     minutes: "0",
+  })
+
+  const { data: containerData, isLoading } = useQuery({
+    queryKey: ["containers"],
+    queryFn: async () => {
+      try {
+        const response = await axios.get<ContainersResponse>(
+          `${ID_URL}/api/v1/crypton-events/containers/`,
+          { withCredentials: true }
+        )
+        return response.data
+      } catch (error) {
+        return null
+      }
+    },
   })
 
   useEffect(() => {
@@ -70,15 +91,32 @@ const BlackFridayTimer = () => {
         height={358}
       />
 
-      <Dialog.Root>
-        <Dialog.Trigger asChild>
-          <button className={styles.button}>
+      {!containerData ||
+      containerData.containers.length === 0 ||
+      containerData.containers[0].prizes.length === 0 ? null : (
+        <p className={styles.prizes_remain}>
+          Осталось{" "}
+          {containerData.containers[0].prizes.reduce(
+            (acc, currentValue) => acc + currentValue.remainingQuantity,
+            0
+          )}{" "}
+          призов
+        </p>
+      )}
+
+      <Popover.Root>
+        <Popover.Trigger asChild className={styles.Trigger}>
+          <button
+            className={styles.button}
+            disabled={isLoading || !containerData}
+          >
             <svg
               width="18"
               height="16"
               viewBox="0 0 18 16"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
+              className={styles.arrow_icon}
             >
               <path
                 d="M10.6637 15C9.89389 16.3333 7.96939 16.3333 7.19959 15L0.271387 3C-0.498414 1.66667 0.463836 1.17996e-07 2.00344 2.52592e-07L15.8598 1.46396e-06C17.3994 1.59855e-06 18.3617 1.66667 17.5919 3L10.6637 15Z"
@@ -87,25 +125,38 @@ const BlackFridayTimer = () => {
             </svg>
             Разверни и узнай
           </button>
-        </Dialog.Trigger>
-        <Dialog.Portal>
-          <Dialog.Overlay className={styles.Overlay} />
-          <Dialog.Content className={styles.Content}>
-            <Dialog.Title className={styles.Title}>
-              Бокс с подарками
-            </Dialog.Title>
-            <Dialog.Description className={styles.Description}>
-              Вы можете получить любой из этих крутых призов
-            </Dialog.Description>
-
+        </Popover.Trigger>
+        <Popover.Portal>
+          <Popover.Content sideOffset={8} className={styles.Content}>
             <div className={styles.dialog_boxes}>
-              {img_urls.map((img, i) => (
-                <img key={i} src={`/images/black-friday/gifts/${img}.png`} />
-              ))}
+              {!containerData ||
+              containerData.containers.length === 0 ||
+              containerData.containers[0].prizes.length === 0
+                ? null
+                : containerData.containers[0].prizes.map(
+                    ({ prize, numberInContainer }, i) => (
+                      <InfoDialog
+                        key={i}
+                        image={prize.image}
+                        title={prize.title}
+                        description={prize.description}
+                        moreLink={prize.link}
+                        getgemsLink={null}
+                      >
+                        <div style={{ position: "relative" }}>
+                          <img key={i} src={prize.image} />
+                          <span className={styles.numberInContainer}>
+                            {numberInContainer}
+                          </span>
+                        </div>
+                      </InfoDialog>
+                    )
+                  )}
             </div>
-          </Dialog.Content>
-        </Dialog.Portal>
-      </Dialog.Root>
+            <Popover.Arrow className={styles.Arrow} />
+          </Popover.Content>
+        </Popover.Portal>
+      </Popover.Root>
 
       <div className={styles.timer_wrapper}>
         <p className={styles.timer_title}>До конца акции осталось:</p>
