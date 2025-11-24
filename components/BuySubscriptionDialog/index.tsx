@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useMemo, useState } from "react"
+import React, { ChangeEvent, useEffect, useMemo, useState } from "react"
 import { useRouter } from "next/router"
 import * as Dialog from "@radix-ui/react-dialog"
 import * as HoverCard from "@radix-ui/react-hover-card"
@@ -38,6 +38,7 @@ import { Resolution } from "@/types/resolution"
 
 import styles from "./styles.module.scss"
 import ExtraBonuses from "@/sections/BuySubscription/ExtraBonuses/ExtraBonuses"
+import { User } from "@/types/id-profile-user"
 
 const ID_URL = process.env.NEXT_PUBLIC_ID_URL + "/api/v1/"
 
@@ -172,6 +173,26 @@ const BuySubscriptionDialog = ({
       }
     }
   })
+
+  const { data: profile } = useQuery({
+    queryKey: ["profile"],
+    queryFn: async () => {
+      try {
+        const response = await axios.get<User>(ID_URL + "users/profile/", {
+          withCredentials: true,
+        })
+        return response.data
+      } catch (error) {
+        return null
+      }
+    },
+  })
+
+  useEffect(() => {
+    if (profile && profile.email) {
+      setEmail(profile.email)
+    }
+  }, [profile])
 
   const onSubmit = async (event) => {
     if (email.length === 0) return

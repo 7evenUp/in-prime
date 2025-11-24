@@ -218,69 +218,69 @@ const Scroller = () => {
     }
   }
 
-  const onFreeClick = async (
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => {
-    event.preventDefault()
+  // const onFreeClick = async (
+  //   event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  // ) => {
+  //   event.preventDefault()
 
-    if (isFreeSpinLoading || isOpenLocked) return
+  //   if (isFreeSpinLoading || isOpenLocked) return
 
-    if (
-      !containerData ||
-      containerData.containers.length === 0 ||
-      containerData.containers[0].prizes.length === 0
-    )
-      return
+  //   if (
+  //     !containerData ||
+  //     containerData.containers.length === 0 ||
+  //     containerData.containers[0].prizes.length === 0
+  //   )
+  //     return
 
-    if (soundLoaded) clickWheelSound.current.play(0)
+  //   if (soundLoaded) clickWheelSound.current.play(0)
 
-    try {
-      const winResult = await makeFreeSpin()
+  //   try {
+  //     const winResult = await makeFreeSpin()
 
-      refetchProfile()
+  //     refetchProfile()
 
-      setIsOpenLocked(true)
+  //     setIsOpenLocked(true)
 
-      x.jump(0)
+  //     x.jump(0)
 
-      setWonPrizes(
-        generateAnimation(
-          AMOUNT_OF_GENERATED_PRIZES,
-          {
-            ...winResult,
-            link: null,
-            nftImageUrl: null,
-            totalCountForUser: null,
-          },
-          containerData.containers[0].prizes
-        )
-      )
+  //     setWonPrizes(
+  //       generateAnimation(
+  //         AMOUNT_OF_GENERATED_PRIZES,
+  //         {
+  //           ...winResult,
+  //           link: null,
+  //           nftImageUrl: null,
+  //           totalCountForUser: null,
+  //         },
+  //         containerData.containers[0].prizes
+  //       )
+  //     )
 
-      setAnimationStarted(true)
+  //     setAnimationStarted(true)
 
-      animate(x, -MIDDLE_X_POSITION, {
-        duration: ANIMATION_DURATION_IN_SEC,
-        ease: [0, 1.01, 0.73, 1],
-      })
+  //     animate(x, -MIDDLE_X_POSITION, {
+  //       duration: ANIMATION_DURATION_IN_SEC,
+  //       ease: [0, 1.01, 0.73, 1],
+  //     })
 
-      setTimeout(() => {
-        setWinOpened(true)
-        setIsOpenLocked(false)
-      }, ANIMATION_DURATION_IN_SEC * 1000 + 200)
-    } catch (error) {
-      if (error.status === 400) {
-        if (error.data.code === "not_enough_available_open_box_attempts") {
-          console.log("Недостаточно ключей для лутбокса")
-        } else {
-          console.log("Не удалось открыть бокс")
-        }
-      } else if (error.status === 429) {
-        console.log("Слишком много запросов. Пожалуйста, попробуйте позже")
-      } else {
-        console.log("Не удалось открыть бокс")
-      }
-    }
-  }
+  //     setTimeout(() => {
+  //       setWinOpened(true)
+  //       setIsOpenLocked(false)
+  //     }, ANIMATION_DURATION_IN_SEC * 1000 + 200)
+  //   } catch (error) {
+  //     if (error.status === 400) {
+  //       if (error.data.code === "not_enough_available_open_box_attempts") {
+  //         console.log("Недостаточно ключей для лутбокса")
+  //       } else {
+  //         console.log("Не удалось открыть бокс")
+  //       }
+  //     } else if (error.status === 429) {
+  //       console.log("Слишком много запросов. Пожалуйста, попробуйте позже")
+  //     } else {
+  //       console.log("Не удалось открыть бокс")
+  //     }
+  //   }
+  // }
 
   return (
     <>
@@ -320,6 +320,48 @@ const Scroller = () => {
           </div>
 
           {isLoading ? (
+            <Skeleton className={styles.button_skeleton} />
+          ) : profile ? (
+            <button
+              className={clsx(
+                styles.button,
+                isOpenLocked && styles.button_animated,
+                profile.promoBoxAvailableOpensNumber <= 0 &&
+                  styles.button_disabled
+              )}
+              onClick={onOpenClick}
+              disabled={
+                profile.promoBoxAvailableOpensNumber <= 0 || isOpenLocked
+              }
+            >
+              {isOpenLoading && (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className={styles.loader}
+                >
+                  <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+                </svg>
+              )}
+              {isOpenLocked ? "Крутим-крутим..." : "Крутить рулетку"}
+            </button>
+          ) : (
+            <button
+              className={styles.button}
+              onClick={() => setAuthOpened(true)}
+            >
+              Крутить
+            </button>
+          )}
+
+          {/* {isLoading ? (
             <Skeleton className={styles.button_skeleton} />
           ) : profile ? (
             profile.isFreeSpinUsed ? (
@@ -386,9 +428,9 @@ const Scroller = () => {
               className={styles.button}
               onClick={() => setAuthOpened(true)}
             >
-              Бесплатный спин
+              Крутить
             </button>
-          )}
+          )} */}
         </div>
       </div>
 
