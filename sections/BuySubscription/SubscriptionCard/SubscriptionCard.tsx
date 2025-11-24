@@ -58,6 +58,8 @@ const SubscriptionCard = ({
 
   const scrollToGuarantee = () => scrollToSection("Окупаемость")
 
+  if (subscription.kind.name === "Start") return null
+
   return (
     <div className={styles.subscription}>
       <div className={styles.subscription_header}>
@@ -154,7 +156,19 @@ const SubscriptionCard = ({
       </BlackFriday>
 
       <span style={{ textAlign: "center", marginBottom: 50 }}>
-        + {order === 0 ? 6 : 12} открытий боксов
+        {subscription.benefits.find(
+          (benefit) => benefit.type === "PROMO_BOX"
+        ) && (
+          <>
+            +{" "}
+            {
+              subscription.benefits.find(
+                (benefit) => benefit.type === "PROMO_BOX"
+              ).quantity
+            }{" "}
+            открытий боксов
+          </>
+        )}
       </span>
 
       <img src="/images/black-friday/black-friday-white-gift.png" />
