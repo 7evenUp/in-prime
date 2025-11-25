@@ -43,8 +43,10 @@ const PreviousGifts = () => {
     dragFree: true,
     containScroll: false,
     loop: false,
-    startIndex: 0,
+    startIndex: 3,
   })
+
+  if (!lastOpenedContainers || lastOpenedContainers.length === 0) return null
 
   return (
     <>
@@ -52,43 +54,41 @@ const PreviousGifts = () => {
 
       <div className={styles.embla} ref={emblaRef}>
         <div className={styles.gifts}>
-          {lastOpenedContainers &&
-            lastOpenedContainers.length !== 0 &&
-            lastOpenedContainers.map((lastOpen, i) => (
-              <InfoDialog
-                image={lastOpen.prizeImageUrl}
-                title={lastOpen.prizeTitle}
-                description={lastOpen.prizeDescription}
-                moreLink={lastOpen.link}
-                getgemsLink={lastOpen.prizeNftImageUrl}
-                key={i}
-              >
-                <div className={styles.gift}>
+          {lastOpenedContainers.map((lastOpen, i) => (
+            <InfoDialog
+              image={lastOpen.prizeImageUrl}
+              title={lastOpen.prizeTitle}
+              description={lastOpen.prizeDescription}
+              moreLink={lastOpen.link}
+              getgemsLink={lastOpen.prizeNftImageUrl}
+              key={i}
+            >
+              <div className={styles.gift}>
+                <img
+                  className={styles.gift_image}
+                  src={lastOpen.prizeImageUrl}
+                />
+                <div className={styles.gift_owner}>
                   <img
-                    className={styles.gift_image}
-                    src={lastOpen.prizeImageUrl}
+                    className={styles.owner_avatar}
+                    src={lastOpen.userProfileAvatar}
                   />
-                  <div className={styles.gift_owner}>
-                    <img
-                      className={styles.owner_avatar}
-                      src={lastOpen.userProfileAvatar}
-                    />
-                    <span className={styles.owner_name}>
-                      {lastOpen.userProfileName}
-                    </span>
-                  </div>
-                  <span className={styles.gift_date}>
-                    {formatDistanceToNow(
-                      new Date(lastOpen.openedDatetime + "+03:00"),
-                      {
-                        addSuffix: true,
-                        locale: ru,
-                      }
-                    )}
+                  <span className={styles.owner_name}>
+                    {lastOpen.userProfileName}
                   </span>
                 </div>
-              </InfoDialog>
-            ))}
+                <span className={styles.gift_date}>
+                  {formatDistanceToNow(
+                    new Date(lastOpen.openedDatetime + "+03:00"),
+                    {
+                      addSuffix: true,
+                      locale: ru,
+                    }
+                  )}
+                </span>
+              </div>
+            </InfoDialog>
+          ))}
         </div>
       </div>
     </>
