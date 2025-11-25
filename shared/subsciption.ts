@@ -146,27 +146,6 @@ export const calculateSubscriptionDetails = ({
       : null,
   }
 
-  if (
-    res.finalPrice > 999 &&
-    !isPromotionalModeActive &&
-    res.totalDiscount !== null
-  ) {
-    const calc999 = calculateSubscriptionDetails({
-      subscription: {
-        ...subscription,
-        baseDiscount: null,
-        baseDiscountAmount: 0,
-        price: 999,
-      },
-      promocode,
-    })
-    return {
-      ...res,
-      finalPrice: calc999.finalPrice,
-      finalMonthlyPrice: calc999.finalMonthlyPrice,
-    }
-  }
-
   return res
 }
 
