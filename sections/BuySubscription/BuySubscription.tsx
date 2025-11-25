@@ -23,7 +23,7 @@ const ID_URL = process.env.NEXT_PUBLIC_ID_URL
 const SPECIAL_PROMOS = (process.env.NEXT_PUBLIC_PROMOS || "NEW,PRIME").split(
   ","
 )
-const DEFAULT_CRYPTON_PROMO = ""
+const DEFAULT_CRYPTON_PROMO = "BLACK"
 
 const BuySubscription = ({
   tariffs,
@@ -136,7 +136,7 @@ const BuySubscription = ({
       const promosToValidate = [
         refCode,
         // ...SPECIAL_PROMOS,
-        // DEFAULT_CRYPTON_PROMO,
+        DEFAULT_CRYPTON_PROMO,
       ].filter(Boolean)
       for (let promoToValidate of promosToValidate) {
         const promo = await applyOneOfPromocodes(promoToValidate)
