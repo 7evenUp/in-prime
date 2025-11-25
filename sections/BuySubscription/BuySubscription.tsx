@@ -197,8 +197,8 @@ const BuySubscription = ({
             showMonthlyPrice={showMonthlyPrice}
             setShowMonthlyPrice={setShowMonthlyPrice}
             dropPromo={() => {
-              reset()
-              setActivePromocode(null)
+              // reset()
+              // setActivePromocode(null)
             }}
           />
 
