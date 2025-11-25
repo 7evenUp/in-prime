@@ -1,5 +1,5 @@
 import React from "react"
-import { useQuery } from "@tanstack/react-query"
+import { useQuery, keepPreviousData } from "@tanstack/react-query"
 import axios from "axios"
 import { formatDistanceToNow } from "date-fns"
 import { ru } from "date-fns/locale"
@@ -36,6 +36,7 @@ const PreviousGifts = () => {
       }
     },
     refetchInterval: 20 * 1000,
+    placeholderData: keepPreviousData,
   })
 
   const [emblaRef] = useEmblaCarousel({
