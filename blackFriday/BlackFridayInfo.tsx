@@ -10,7 +10,7 @@ const BlackFridayInfo = () => {
         <span>Birthday</span>
       </h2>
       <p className={styles.paragraph_1}>
-        До 28 ноября за каждый приобретенный месяц подписки вы получаете
+        До 29 ноября за каждый приобретенный месяц подписки вы получаете
         случайный подарок! 🎁
       </p>
       <p className={styles.paragraph_2}>
