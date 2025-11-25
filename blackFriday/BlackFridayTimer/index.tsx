@@ -134,7 +134,7 @@ const BlackFridayTimer = () => {
               containerData.containers[0].prizes.length === 0
                 ? null
                 : containerData.containers[0].prizes.map(
-                    ({ prize, numberInContainer }, i) => (
+                    ({ prize, remainingQuantity }, i) => (
                       <InfoDialog
                         key={i}
                         image={prize.image}
@@ -146,7 +146,7 @@ const BlackFridayTimer = () => {
                         <div style={{ position: "relative" }}>
                           <img key={i} src={prize.image} />
                           <span className={styles.numberInContainer}>
-                            {numberInContainer}
+                            {remainingQuantity}
                           </span>
                         </div>
                       </InfoDialog>
