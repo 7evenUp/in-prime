@@ -161,7 +161,7 @@
   border-radius: 12px;
   padding: 20px;
   width: 90vw;
-  max-width: 1300px;
+  max-width: 930px;
   background-color: rgba(67, 67, 67, 1);
   animation-duration: 400ms;
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
@@ -234,6 +234,9 @@
 }
 
 @media (max-width: 1850px) {
+  .Content {
+    max-width: 800px;
+  }
   .title {
     font-size: 36px;
   }
@@ -280,6 +283,9 @@
 }
 
 @media (max-width: 980px) {
+  .Content {
+    max-width: 600px;
+  }
   .title {
     font-size: 28px;
   }
