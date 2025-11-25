@@ -172,6 +172,12 @@ const BuySubscription = ({
     validate()
   }, [promoForSubmit])
 
+  const filteredSubscriptions = useMemo(() => {
+    if (!subscriptions) return []
+
+    return subscriptions.filter((sub) => sub.kind.name !== "Start")
+  }, [subscriptions])
+
   return (
     <div
       id="subscribe"
@@ -210,16 +216,16 @@ const BuySubscription = ({
               {/* <div className={styles.skeleton} /> */}
             </div>
           ) : (
-            subscriptions && (
+            filteredSubscriptions && (
               <div
                 className={clsx(
                   styles.subscriptions,
-                  subscriptions.length === 2 && styles.subscriptions_sm
+                  filteredSubscriptions.length === 2 && styles.subscriptions_sm
                 )}
               >
-                {subscriptions.map((el, i) => (
+                {filteredSubscriptions.map((el, i) => (
                   <SubscriptionCard
-                    subscriptions={subscriptions}
+                    subscriptions={filteredSubscriptions}
                     fallbackPromocode={fallbackPromocode}
                     key={el.id}
                     subscription={el}
