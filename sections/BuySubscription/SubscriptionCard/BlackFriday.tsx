@@ -34,7 +34,11 @@ const BlackFriday = ({
         </svg>
       </Popover.Trigger>
       <Popover.Portal>
-        <Popover.Content sideOffset={8} className={styles.Content}>
+        <Popover.Content
+          avoidCollisions={false}
+          sideOffset={8}
+          className={styles.Content}
+        >
           {children}
         </Popover.Content>
       </Popover.Portal>

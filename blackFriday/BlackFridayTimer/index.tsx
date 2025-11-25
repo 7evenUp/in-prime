@@ -127,7 +127,11 @@ const BlackFridayTimer = () => {
           </button>
         </Popover.Trigger>
         <Popover.Portal>
-          <Popover.Content sideOffset={8} className={styles.Content}>
+          <Popover.Content
+            avoidCollisions={false}
+            sideOffset={8}
+            className={styles.Content}
+          >
             <div className={styles.dialog_boxes}>
               {!containerData ||
               containerData.containers.length === 0 ||
