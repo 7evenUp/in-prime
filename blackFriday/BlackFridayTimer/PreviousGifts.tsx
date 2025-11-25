@@ -17,6 +17,7 @@ const PreviousGifts = () => {
       try {
         const response = await axios.get<
           {
+            link: string | null
             openedDatetime: string
             prizeDescription: string
             prizeImageUrl: string
@@ -57,6 +58,7 @@ const PreviousGifts = () => {
                 image={lastOpen.prizeImageUrl}
                 title={lastOpen.prizeTitle}
                 description={lastOpen.prizeDescription}
+                moreLink={lastOpen.link}
                 getgemsLink={lastOpen.prizeNftImageUrl}
                 key={i}
               >

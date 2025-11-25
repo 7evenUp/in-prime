@@ -59,7 +59,11 @@ const Scroller = () => {
     },
   })
 
-  const { data: containerData, isLoading } = useQuery({
+  const {
+    data: containerData,
+    isLoading,
+    refetch: refetchContainers,
+  } = useQuery({
     queryKey: ["containers"],
     queryFn: async () => {
       try {
@@ -179,6 +183,7 @@ const Scroller = () => {
       const winResult = await openContainer(containerData.containers[0].id)
 
       refetchProfile()
+      refetchContainers()
 
       setIsOpenLocked(true)
 
@@ -238,6 +243,7 @@ const Scroller = () => {
   //     const winResult = await makeFreeSpin()
 
   //     refetchProfile()
+  //     refetchContainers()
 
   //     setIsOpenLocked(true)
 
