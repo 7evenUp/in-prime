@@ -106,6 +106,7 @@ const Scroller = () => {
     mutateAsync: openContainer,
     data: winData,
     isPending: isOpenLoading,
+    reset: resetOpenContainer,
   } = useMutation({
     mutationKey: ["open-container"],
     mutationFn: async (containerId: number) => {
@@ -306,6 +307,8 @@ const Scroller = () => {
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     event.preventDefault()
+
+    resetOpenContainer()
 
     if (isFreeSpinLoading || isOpenLocked) return
 
