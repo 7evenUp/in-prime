@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import { REGEXP_ONLY_DIGITS } from "input-otp"
-import { AxiosError } from "axios"
-import { useMutation } from "@tanstack/react-query"
+import axios, { AxiosError } from "axios"
+import { useMutation, useQuery } from "@tanstack/react-query"
 
 import MailToLinkMap from "../MailToLinkMap"
 
@@ -13,8 +13,12 @@ import AuthApi from "../../api"
 import { useAuthContext } from "../../AuthContext"
 
 import { useTranslate } from "../../useTranslate"
+import { FreeSpinResponse } from "@/blackFriday/Scroller/types"
+import { User } from "@/types/id-profile-user"
 
 const MAX_CODE_LENGTH = 4
+
+const ID_URL = process.env.NEXT_PUBLIC_ID_URL
 
 const AuthByCode = ({
   emailDomain,
@@ -28,6 +32,37 @@ const AuthByCode = ({
   const { refetchAfterSuccessAuth } = useAuthContext()
 
   const [value, setValue] = React.useState("")
+
+  const { mutateAsync: makeFreeSpin } = useMutation({
+    mutationKey: ["free-spin"],
+    mutationFn: async () => {
+      try {
+        const response = await axios.post<FreeSpinResponse>(
+          `${ID_URL}/api/v1/crypton-events/free-spin/`,
+          undefined,
+          { withCredentials: true }
+        )
+        return response.data
+      } catch (error) {
+        return null
+      }
+    },
+  })
+
+  const { data: profile } = useQuery({
+    queryKey: ["profile"],
+    queryFn: async () => {
+      try {
+        const response = await axios.get<User>(
+          `${ID_URL}/api/v1/users/profile/`,
+          { withCredentials: true }
+        )
+        return response.data
+      } catch (error) {
+        return null
+      }
+    },
+  })
 
   const {
     mutate: auth,

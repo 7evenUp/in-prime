@@ -45,17 +45,18 @@
 
 .button {
   display: flex;
-  padding-inline: 62px;
-  gap: 0.5rem;
+  height: 50px;
+  width: 16rem /* 208px */;
   justify-content: center;
   align-items: center;
-  height: 64px;
-  font-weight: 600;
+  gap: 8px;
+  background-color: rgb(245 211 131 / 1);
+  color: rgb(51 51 51 / var(--tw-text-opacity, 1)) /* #333333 */;
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 300ms;
+  font-size: 14px;
+  font-weight: 600;
   transition-duration: 100ms;
-  background: #ffe19d;
   border-radius: 10px;
   border: none;
   outline: none;
@@ -67,6 +68,43 @@
   background: #f5d383;
 }
 
+.button:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.button_settings {
+  height: 50px;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 0.25rem /* 4px */;
+  border-bottom-left-radius: 0.25rem /* 4px */;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color: rgb(245 211 131 / 1);
+  color: rgb(51 51 51 / var(--tw-text-opacity, 1)) /* #333333 */;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 100ms;
+}
+
+.button_settings:hover {
+  background: #f5d383;
+}
+
+.button_settings svg {
+  transition: all 0.15s ease-in-out;
+}
+
+.button_settings[data-state="open"] svg {
+  transform: rotate(90deg);
+}
+
 .button_animated {
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   transition-duration: 1000ms;
@@ -76,7 +114,7 @@
 }
 .button_skeleton {
   width: 11rem;
-  height: 2.5rem;
+  height: 50px;
   border-radius: 10px;
 }
 
@@ -225,4 +263,66 @@
   position: relative;
   width: 100%;
   padding-block: 16px;
+}
+
+.PopoverContent {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  display: flex;
+  min-height: 50px;
+  width: 16rem /* 208px */;
+  flex-direction: column;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 0.25rem /* 4px */;
+  border-bottom-right-radius: 0.25rem /* 4px */;
+  background-color: rgb(233 203 134 / var(--tw-bg-opacity, 1));
+  font-size: 0.875rem /* 14px */;
+  line-height: 1.25rem /* 20px */;
+  font-weight: 500;
+  color: black;
+  position: relative;
+  z-index: 9239923;
+}
+
+.PopoverContent[data-state="open"] {
+  animation-name: enter;
+  animation-duration: 150ms;
+}
+
+.PopoverContent button {
+  background-color: transparent;
+  font-weight: 500;
+  font-size: 16px;
+  font-family: "Inter", sans-serif;
+  border: none;
+  outline: none;
+  display: flex;
+  min-height: 50px;
+  align-items: center;
+  padding-left: 0.75rem /* 12px */;
+  padding-right: 0.75rem /* 12px */;
+  text-align: left;
+  color: rgb(51 51 51 / 1) /* #333333 */;
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.PopoverContent button:disabled {
+  background-color: rgb(206 182 127 / var(--tw-bg-opacity, 1)) /* #ceb67f */;
+  color: rgb(51 51 51 / 0.5);
+  pointer-events: none;
+}
+
+.PopoverContent button:hover {
+  background-color: rgb(221 192 124 / 1) /* #ddc07c */;
+}
+
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateX(8px);
+  }
 }

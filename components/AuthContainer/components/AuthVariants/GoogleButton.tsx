@@ -23,7 +23,7 @@ const GoogleButton = () => {
   })
 
   const handleGoogle = async () => {
-    const redirect_url = window.location.origin
+    const redirect_url = window.location.origin + "?makeFreeSpin=true"
 
     login({
       oauth: "GOOGLE",

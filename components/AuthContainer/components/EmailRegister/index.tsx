@@ -71,7 +71,7 @@ const EmailRegister = ({ emailInput }: { emailInput: string }) => {
     const cleanEmail = email.toLowerCase().trim()
     setEmailDomain(cleanEmail.split("@")[1])
 
-    const redirect_url = window.location.origin
+    const redirect_url = window.location.origin + "?makeFreeSpin=true"
 
     let payload: RegisterByMailRequest = {
       email: cleanEmail,

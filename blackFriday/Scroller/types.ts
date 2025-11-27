@@ -29,13 +29,11 @@ export interface Prize {
   rarity: string
   title: string
   totalCountForUser: number
-  photos: [
-    {
-      id: number
-      file: string
-      orderNumber: number
-    }
-  ]
+  photos: {
+    id: number
+    file: string
+    orderNumber: number
+  }[]
 }
 
 export interface OpenContainerResponse {
@@ -54,13 +52,11 @@ export interface FreeSpinResponse {
   isSold: boolean
   isUsed: boolean
   kind: null
-  photos: [
-    {
-      id: number
-      file: string
-      orderNumber: number
-    }
-  ]
+  photos: {
+    id: number
+    file: string
+    orderNumber: number
+  }[]
   prizeId: number
   rarity: string
   receivedAt: string

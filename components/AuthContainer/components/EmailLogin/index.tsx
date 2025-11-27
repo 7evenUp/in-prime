@@ -81,7 +81,7 @@ const EmailLogin = ({
     setEmailInput(cleanEmail)
     setEmailDomain(cleanEmail.split("@")[1])
 
-    const redirect_url = window.location.origin
+    const redirect_url = window.location.origin + "?makeFreeSpin=true"
 
     login({
       email: cleanEmail,
@@ -135,15 +135,15 @@ const EmailLogin = ({
                     "Замечено много попыток авторизации. Пожалуйста, повторите позже"
                   )
                 : error.response?.data.loginBlockedTill
-                  ? t(
-                      "Повторное получение письма на почту будет доступно через "
-                    ) +
-                    differenceInMinutes(
-                      new Date(error.response?.data.loginBlockedTill * 1000),
-                      new Date()
-                    ) +
-                    t(" мин")
-                  : t("На стороне сервера произошла ошибка")
+                ? t(
+                    "Повторное получение письма на почту будет доступно через "
+                  ) +
+                  differenceInMinutes(
+                    new Date(error.response?.data.loginBlockedTill * 1000),
+                    new Date()
+                  ) +
+                  t(" мин")
+                : t("На стороне сервера произошла ошибка")
               : t(
                   "Произошла непредвиденная ошибка. Пожалуйста, попробуйте позже"
                 )}

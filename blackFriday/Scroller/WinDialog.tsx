@@ -4,18 +4,40 @@ import { FreeSpinResponse, OpenContainerResponse } from "./types"
 import CloseIcon from "./CloseIcon"
 
 import styles from "./WinDialog.module.css"
+import axios from "axios"
+import { useQuery } from "@tanstack/react-query"
+import { User } from "@/types/id-profile-user"
+
+const ID_URL = process.env.NEXT_PUBLIC_ID_URL
 
 const WinDialog = ({
   open,
   onOpenChange,
   data,
   freeSpinData,
+  openAuth,
 }: {
   open: boolean
   onOpenChange: (open: boolean) => void
   data: OpenContainerResponse | undefined
   freeSpinData: FreeSpinResponse | undefined
+  openAuth: VoidFunction
 }) => {
+  const { data: profile } = useQuery({
+    queryKey: ["profile"],
+    queryFn: async () => {
+      try {
+        const response = await axios.get<User>(
+          `${ID_URL}/api/v1/users/profile/`,
+          { withCredentials: true }
+        )
+        return response.data
+      } catch (error) {
+        return null
+      }
+    },
+  })
+
   return (
     <Dialog.Root open={open} onOpenChange={onOpenChange}>
       <Dialog.Portal>
@@ -112,26 +134,36 @@ const WinDialog = ({
                     <img src={freeSpinData.image} className={styles.img} />
                   </div>
                   <div className={styles.prize}>
-                    <p style={{ marginBottom: 8 }}>Поздравляем! Вы выиграли:</p>
-                    {freeSpinData.title && (
-                      <p
-                        style={{ marginBottom: 4 }}
-                        className={styles.prize_title}
-                      >
-                        {freeSpinData.title}
-                      </p>
-                    )}
+                    <p className={styles.prize_title}>Поздравляем!</p>
 
                     <p className={styles.prize_description}>
-                      {freeSpinData.description}
+                      Твоя мини-скидка внутри экосистемы. Она покрывает часть
+                      подписки и делает вход в продукт мягче.
                     </p>
-                    <a
-                      className={styles.top_right}
-                      href="https://id.crypton.xyz?open_tab=inventory"
-                      target="_blank"
+                    <p
+                      className={styles.prize_description}
+                      style={{ marginTop: 8 }}
                     >
-                      Продать в инвентаре
-                    </a>
+                      {profile
+                        ? "Чтобы активировать её, перейди по кнопке ниже в инвентарь ID и продай подарок — нажми на зелёные монетки в правом верхнем углу."
+                        : "Чтобы активировать её, авторизуйся по кнопке ниже. После чего перейди в инвентарь ID и продай подарок — нажми на зелёные монетки в правом верхнем углу."}
+                    </p>
+                    {profile ? (
+                      <a
+                        className={styles.top_right}
+                        href="https://id.crypton.xyz?open_tab=inventory"
+                        target="_blank"
+                      >
+                        Продать в инвентаре
+                      </a>
+                    ) : (
+                      <button
+                        className={styles.top_right}
+                        onClick={() => openAuth()}
+                      >
+                        Войти
+                      </button>
+                    )}
                   </div>
                 </div>
                 <Dialog.Close className={styles.close_button}>
