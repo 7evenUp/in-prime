@@ -80,17 +80,13 @@ const Advantages = ({
             </p>
           </button>
         ) : benefit.type === "INCLUDE_ALL_PREVIOUS" ? (
-          <>
-            {order !== 0 && (
-              <span
-                key={benefit.id}
-                className={buySubscriptionStyles.text_before_bonuses}
-                style={{ opacity: 0.5, marginBottom: 8 }}
-              >
-                {benefitName}
-              </span>
-            )}
-          </>
+          <span
+            key={benefit.id}
+            className={buySubscriptionStyles.text_before_bonuses}
+            style={{ opacity: 0.5, marginBottom: 8 }}
+          >
+            {order === 0 ? "Включает в себя" : benefitName}
+          </span>
         ) : benefit.translations.ru.description ? (
           <HoverCardOrPopover.Root key={benefit.id} openDelay={150}>
             <HoverCardOrPopover.Trigger

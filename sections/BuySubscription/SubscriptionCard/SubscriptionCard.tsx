@@ -147,15 +147,21 @@ const SubscriptionCard = ({
         </p>
       </button>
 
-      <BlackFriday order={order}>
+      {/* <BlackFriday order={order}>
         <div className={styles.text_before_bonuses_wrapper}>
           <Advantages benefits={benefits} order={order} />
         </div>
 
         <ExtraBonuses benefits={benefits} />
-      </BlackFriday>
+      </BlackFriday> */}
 
-      <span style={{ textAlign: "center", marginBottom: 50 }}>
+      <div className={styles.text_before_bonuses_wrapper}>
+        <Advantages benefits={benefits} order={order} />
+      </div>
+
+      <ExtraBonuses benefits={benefits} />
+
+      {/* <span style={{ textAlign: "center", marginBottom: 50 }}>
         {subscription.benefits.find(
           (benefit) => benefit.type === "PROMO_BOX"
         ) && (
@@ -173,12 +179,12 @@ const SubscriptionCard = ({
               : "открытий боксов"}
           </>
         )}
-      </span>
+      </span> */}
 
-      <img
+      {/* <img
         style={{ width: 334, height: 280 }}
         src="/images/black-friday/black-friday-white-gift.png"
-      />
+      /> */}
 
       <BuySubscriptionDialog
         key={activePromocode?.code}

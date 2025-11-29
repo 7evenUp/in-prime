@@ -136,7 +136,7 @@ const BuySubscription = ({
       const promosToValidate = [
         refCode,
         // ...SPECIAL_PROMOS,
-        DEFAULT_CRYPTON_PROMO,
+        // DEFAULT_CRYPTON_PROMO,
       ].filter(Boolean)
       for (let promoToValidate of promosToValidate) {
         const promo = await applyOneOfPromocodes(promoToValidate)
@@ -274,7 +274,7 @@ const BuySubscription = ({
             </div>
           )}
 
-          <Scroller />
+          {/* <Scroller /> */}
         </div>
       </div>
     </div>

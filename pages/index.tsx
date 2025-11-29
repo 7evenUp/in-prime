@@ -138,7 +138,7 @@ const Home = ({ bannerCookieName, banner }: SSRProps) => {
   return (
     <>
       <div className="app">
-        <BlackFridayBanner />
+        {/* <BlackFridayBanner /> */}
         {/* {["lgg", "lg"].includes(resolution) && (
           <Menu
             resolution={resolution}
@@ -172,8 +172,8 @@ const Home = ({ bannerCookieName, banner }: SSRProps) => {
 
           {/* <BuySubscription tariffs={tariffs} resolution={resolution} /> */}
 
-          <BlackFridayInfo />
-          <BlackFridayTimer />
+          {/* <BlackFridayInfo /> */}
+          {/* <BlackFridayTimer /> */}
 
           <BuySubscription tariffs={tariffs} resolution={resolution} />
 
