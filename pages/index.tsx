@@ -34,6 +34,7 @@ import FAQ from "@/sections/FAQ/FAQ"
 import BlackFridayBanner from "@/blackFriday/BlackFridayBanner"
 import BlackFridayInfo from "@/blackFriday/BlackFridayInfo"
 import BlackFridayTimer from "@/blackFriday/BlackFridayTimer"
+import { Snowfall } from "@/components/Snow/snow"
 // import TimerPromo from "@/sections/TimerPromo/TimerPromo"
 
 const useWindowSize = () => {
@@ -138,6 +139,7 @@ const Home = ({ bannerCookieName, banner }: SSRProps) => {
   return (
     <>
       <div className="app">
+        <Snowfall />
         {/* <BlackFridayBanner /> */}
         {/* {["lgg", "lg"].includes(resolution) && (
           <Menu
