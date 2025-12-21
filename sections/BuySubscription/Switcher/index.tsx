@@ -51,7 +51,7 @@ const Switcher = ({
               !showMonthlyPrice && styles.discount__active
             )}
           >
-            Выгода $300+
+            Выгода до -40%
           </span>
         </div>
       </div>
