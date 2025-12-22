@@ -100,7 +100,8 @@ export const calculateSubscriptionDetails = ({
   let effectiveDiscount = 0
 
   if (baseDiscount && baseDiscountAmount === null) {
-    effectiveDiscount = Math.ceil(price * (baseDiscount / 100)) + maxDiscount
+    effectiveDiscount =
+      Math.ceil(subscriptionPrice * (baseDiscount / 100)) + maxDiscount
   } else {
     effectiveDiscount = (baseDiscountAmount || 0) + maxDiscount
   }
