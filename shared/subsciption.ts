@@ -97,7 +97,13 @@ export const calculateSubscriptionDetails = ({
   const maxDiscount = Math.max(referralDiscount, promocodeDiscount)
 
   // Вычисляем итоговую цену
-  const effectiveDiscount = (baseDiscountAmount || 0) + maxDiscount
+  let effectiveDiscount = 0
+
+  if (baseDiscount && baseDiscountAmount === null) {
+    effectiveDiscount = Math.ceil(price * (baseDiscount / 100)) + maxDiscount
+  } else {
+    effectiveDiscount = (baseDiscountAmount || 0) + maxDiscount
+  }
 
   const finalPrice = subscriptionPrice - effectiveDiscount
 
