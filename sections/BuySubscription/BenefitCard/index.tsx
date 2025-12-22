@@ -50,7 +50,12 @@ const BenefitCard = ({
         )}
         {...(setOpen && { onClick: () => setOpen((prev) => !prev) })}
       >
-        <li className={styles.bonus}>
+        <li
+          className={clsx(
+            styles.bonus,
+            benefitName.includes("подарок") && styles.bonus_new
+          )}
+        >
           {
             <img
               src={benefit.file}
@@ -60,11 +65,21 @@ const BenefitCard = ({
           <p
             className={clsx(compact ? styles.bonus_text_sm : styles.bonus_text)}
           >
-            {/* Чтоб стрелка не переносилась одна на новую строку, а вместе с последним словом */}
-            {benefitName.slice(0, benefitName.length - 1)}
-            <span style={{ whiteSpace: "nowrap" }}>
-              {benefitName[benefitName.length - 1]} <NavArrowIcon />
-            </span>
+            {benefit.remainingCount ? (
+              <>
+                {benefit.name}{" "}
+                <span style={{ whiteSpace: "nowrap" }}>
+                  {`(Осталось ${benefit.remainingCount})`} <NavArrowIcon />
+                </span>
+              </>
+            ) : (
+              <>
+                {benefit.name.slice(0, benefit.name.length - 1)}
+                <span style={{ whiteSpace: "nowrap" }}>
+                  {benefit.name[benefit.name.length - 1]} <NavArrowIcon />
+                </span>
+              </>
+            )}
           </p>
         </li>
       </HoverCardOrPopover.Trigger>

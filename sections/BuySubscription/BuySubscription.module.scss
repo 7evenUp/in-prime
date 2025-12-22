@@ -104,6 +104,8 @@
   // Поменять на 3, когда вернётся подписка на 1 мес
   // &:nth-of-type(2) {
   //   --prime-active-color: #bb44cc;
+  //   --prime-active-bg-color: rgba(187, 68, 204, 0.2);
+  //   --prime-active-bg-color--pale: rgba(187, 68, 204, 0.06);
   // }
   // Поменять на 4, когда вернётся подписка на 1 мес
   &:nth-of-type(3) {
@@ -743,6 +745,15 @@
     flex-shrink: 0;
     transition: rotate 0.15s ease-in-out;
   }
+}
+
+.bonus_new {
+  color: var(--prime-active-color);
+  background-color: var(--prime-active-bg-color);
+  border-radius: 12px;
+  padding: 6px 14px;
+  font-weight: 500;
+  margin-left: -14px;
 }
 
 .button {
