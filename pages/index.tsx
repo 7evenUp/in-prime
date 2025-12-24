@@ -175,7 +175,7 @@ const Home = ({ bannerCookieName, banner }: SSRProps) => {
           {/* <BuySubscription tariffs={tariffs} resolution={resolution} /> */}
 
           {/* <BlackFridayInfo /> */}
-          {/* <BlackFridayTimer /> */}
+          <BlackFridayTimer />
 
           <BuySubscription tariffs={tariffs} resolution={resolution} />
 

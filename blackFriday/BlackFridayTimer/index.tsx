@@ -30,8 +30,8 @@ const img_urls = [
 const ID_URL = process.env.NEXT_PUBLIC_ID_URL
 
 const BlackFridayTimer = () => {
-  // "2025-11-29T21:00:00Z"
-  const targetDate = 1764450000000 // конечная дата в мс
+  // "2026-01-04T21:00:00Z"
+  const targetDate = 1767560400000 // конечная дата в мс
 
   const [timeLeft, setTimeLeft] = useState({
     days: "0",
@@ -81,7 +81,7 @@ const BlackFridayTimer = () => {
 
   return (
     <div className={styles.section}>
-      <h2 className={styles.title}>Какие подарки внутри бокса?</h2>
+      {/* <h2 className={styles.title}>Какие подарки внутри бокса?</h2>
 
       <Image
         className={styles.image}
@@ -160,7 +160,7 @@ const BlackFridayTimer = () => {
             <Popover.Arrow className={styles.Arrow} />
           </Popover.Content>
         </Popover.Portal>
-      </Popover.Root>
+      </Popover.Root> */}
 
       <div className={styles.timer_wrapper}>
         <p className={styles.timer_title}>До конца акции осталось:</p>
@@ -221,7 +221,7 @@ const BlackFridayTimer = () => {
         className={styles.pattern}
       />
 
-      <PreviousGifts />
+      {/* <PreviousGifts /> */}
     </div>
   )
 }
