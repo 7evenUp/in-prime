@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react"
 import { Swiper, SwiperSlide } from "swiper/react"
 import clsx from "clsx"
 import { useQuery } from "@tanstack/react-query"
-import axios from "axios"
+import axios from "@/demo/api"
 import { useInView } from "react-intersection-observer"
 
 import ToggleLeft from "@/public/images/jsx/icons/toggle-left"

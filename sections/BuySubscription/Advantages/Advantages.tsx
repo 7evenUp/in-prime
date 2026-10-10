@@ -69,7 +69,7 @@ const Advantages = ({
             onClick={scrollToFeatures}
             type="button"
           >
-            {benefit.file && <img src={benefit.file} />}
+            {benefit.file && <img src={benefit.file} className={styles.benefitImage} alt="" width={48} height={48} />}
             <p
               className={clsx(
                 styles.advantage,
@@ -93,7 +93,7 @@ const Advantages = ({
               style={{ width: "100%" }}
               className={styles.Trigger}
             >
-              {benefit.file && <img src={benefit.file} />}
+              {benefit.file && <img src={benefit.file} className={styles.benefitImage} alt="" width={48} height={48} />}
               <p
                 className={clsx(
                   styles.advantage,
@@ -126,7 +126,7 @@ const Advantages = ({
           </HoverCardOrPopover.Root>
         ) : (
           <div key={benefit.id} className={styles.advantage_wrapper}>
-            {benefit.file ? <img src={benefit.file} /> : "+"}
+            {benefit.file ? <img src={benefit.file} className={styles.benefitImage} alt="" width={48} height={48} /> : "+"}
             <p
               className={clsx(
                 styles.advantage,

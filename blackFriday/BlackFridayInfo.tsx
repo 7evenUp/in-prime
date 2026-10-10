@@ -7,24 +7,24 @@ const BlackFridayInfo = () => {
     <section id="black-friday" className={styles.blackFridayInfo}>
       <h2 className={styles.title}>
         Black <br />
-        <span>Birthday</span>
+        <span>Friday</span>
       </h2>
       <p className={styles.paragraph_1}>
-        До 29 ноября за каждый приобретенный месяц подписки вы получаете
+        Откройте праздничный кейс и получите
         случайный подарок! 🎁
       </p>
       <p className={styles.paragraph_2}>
-        За каждый месяц подписки вы получаете 1 открытие бокса с подарками.
+        Выбирайте подписку и открывайте подарочные боксы.
         <br />
         Покупайте подписку, крутите рулетку, чтобы получить крутой приз.
         <br />
-        Поспешите, количество боксов ограничено!
+        Попробуйте открыть кейс прямо на этой странице.
       </p>
 
       <div className={styles.ribbon}>
-        BLACK FRIDAY | CRYPTON BIRTHDAY | BLACK FRIDAY | CRYPTON BIRTHDAY |
-        BLACK FRIDAY | CRYPTON BIRTHDAY | BLACK FRIDAY | CRYPTON BIRTHDAY |
-        BLACK FRIDAY | CRYPTON BIRTHDAY |
+        BLACK FRIDAY | CRYPTON PRIME | BLACK FRIDAY | CRYPTON PRIME |
+        BLACK FRIDAY | CRYPTON PRIME | BLACK FRIDAY | CRYPTON PRIME |
+        BLACK FRIDAY | CRYPTON PRIME |
       </div>
 
       <svg

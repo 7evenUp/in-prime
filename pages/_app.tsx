@@ -3,11 +3,12 @@ import type { AppContext, AppInitialProps, AppProps } from "next/app"
 import Providers from "@/components/Providers"
 import { UserAgentProvider } from "@/providers/user-agent-provider"
 
-import { init } from "web-analytics-crypton"
+
 
 import "/styles/global.scss"
+import "/styles/demo.scss"
 
-import "/styles/components/loginIdPopup.scss"
+
 import "/styles/components/footer.scss"
 import "/styles/components/accordion.scss"
 import "/styles/components/features.scss"
@@ -17,25 +18,6 @@ import "/styles/components/mobile-menu.scss"
 
 import "/styles/pages/404.scss"
 
-import "/components/AuthContainer/styles.css"
-import "/components/AuthContainer/components/AuthByCode/styles.css"
-import "/components/AuthContainer/components/AuthVariants/styles.css"
-import "/components/AuthContainer/components/Divider/styles.css"
-import "/components/AuthContainer/components/EmailRegister/styles.css"
-import "/components/AuthContainer/components/TelegramLogin/styles.css"
-import "/components/AuthContainer/shared/Button/styles.css"
-import "/components/AuthContainer/shared/Checkbox/styles.css"
-import "/components/AuthContainer/shared/Form/styles.css"
-import "/components/AuthContainer/shared/Input/styles.css"
-import "/components/AuthContainer/shared/InputOTP/styles.css"
-import "/components/AuthContainer/shared/Loader/styles.css"
-
-init({
-  url: "https://api.metrics.crypton.xyz",
-  client: "web",
-  clientType: "landing",
-  serviceName: "in-prime",
-})
 
 const App = ({
   Component,
@@ -46,7 +28,7 @@ const App = ({
     <>
       <Head>
         <title>Crypton Prime</title>
-        <meta name="description" content="Crypton Prime Landing" />
+        <meta name="description" content="Crypton Prime — интерактивная демонстрация проекта: версии промолендинга, подписки и кейсы." />
         <link rel="icon" href="/favicon.ico" />
         <link
           rel="apple-touch-icon"

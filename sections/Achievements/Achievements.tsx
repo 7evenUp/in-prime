@@ -1,7 +1,7 @@
 import React from "react"
 import useEmblaCarousel from "embla-carousel-react"
 import { useQuery } from "@tanstack/react-query"
-import axios from "axios"
+import axios from "@/demo/api"
 import { useInView } from "react-intersection-observer"
 
 import styles from "./Achievements.module.scss"

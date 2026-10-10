@@ -1358,3 +1358,8 @@
   opacity: 0.7;
   text-decoration: line-through;
 }
+.subscription { min-width: 0; overflow-wrap: anywhere; }
+.bonus { min-width: 0; }
+.bonus_img, .bonus_img_sm { flex-shrink: 0; object-fit: contain; max-width: 48px; max-height: 48px; }
+.subscription_img { display: block; width: 100%; max-width: 100%; height: auto; max-height: 280px; object-fit: contain; }
+.HoverCardImage_img, .PopoverImage_img { display: block; width: 100%; max-width: 100%; max-height: 160px; object-fit: contain; }

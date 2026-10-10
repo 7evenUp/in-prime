@@ -1,0 +1,45 @@
+
+
+@font-face {
+    font-family: 'Resist Sans';
+    src: local('fonts/Resist Sans Display Regular'), local('Resist-Sans-Display-Regular'),
+        url('/archive-assets/fonts/ResistSansDisplay-Regular.woff2') format('woff2'),
+        url('/archive-assets/fonts/ResistSansDisplay-Regular.woff') format('woff'),
+        url('/archive-assets/fonts/ResistSansDisplay-Regular.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Resist Sans Bold';
+    src: local('Resist Sans Display Bold'), local('Resist-Sans-Display-Bold'),
+        url('/archive-assets/fonts/ResistSansDisplay-Bold.woff2') format('woff2'),
+        url('/archive-assets/fonts/ResistSansDisplay-Bold.woff') format('woff'),
+        url('/archive-assets/fonts/ResistSansDisplay-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Resist Sans Light';
+    src: local('Resist Sans Display Light'), local('Resist-Sans-Display-Light'),
+        url('/archive-assets/fonts/ResistSansDisplay-Light.woff2') format('woff2'),
+        url('/archive-assets/fonts/ResistSansDisplay-Light.woff') format('woff'),
+        url('/archive-assets/fonts/ResistSansDisplay-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Resist Sans Medium';
+    src: local('Resist Sans Display Medium'), local('Resist-Sans-Display-Medium'),
+        url('/archive-assets/fonts/ResistSansDisplay-Medium.woff2') format('woff2'),
+        url('/archive-assets/fonts/ResistSansDisplay-Medium.woff') format('woff'),
+        url('/archive-assets/fonts/ResistSansDisplay-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Benzin-Bold';
+    src: local('Benzin-Bold'),
+        url('/archive-assets/fonts/benzin-bold.ttf');
+  }

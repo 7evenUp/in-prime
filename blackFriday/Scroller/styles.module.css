@@ -326,3 +326,6 @@
     transform: translateX(8px);
   }
 }
+.demoWheel { display: flex; flex-direction: column; align-items: center; gap: 24px; margin-block: 24px 40px; min-width: 0; }
+.demoTrack { position: relative; width: 100%; max-width: 100%; overflow: hidden; border-radius: 16px; background: #202023; padding: 40px 0 28px; }
+.demoPointer { position: absolute; top: 4px; left: 50%; transform: translateX(-50%); color: #ffe19c; font-size: 32px; }

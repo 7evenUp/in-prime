@@ -22,10 +22,11 @@ const InfoDialog = ({
 }) => {
   return (
     <Dialog.Root>
-      <Dialog.Trigger className={styles.Trigger}>{children}</Dialog.Trigger>
+      <Dialog.Trigger className={styles.Trigger} aria-label={`Посмотреть подарок: ${title}`}>{children}</Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Overlay className={styles.Overlay} />
         <Dialog.Content
+          aria-describedby={undefined}
           className={styles.Content}
           onOpenAutoFocus={(event) => event.preventDefault()}
           onCloseAutoFocus={(event) => event.preventDefault()}
@@ -36,7 +37,7 @@ const InfoDialog = ({
                 <img src={image} className={styles.img} />
               </div>
               <div className={styles.prize}>
-                <h3 className={styles.prize_title}>{title}</h3>
+                <Dialog.Title className={styles.prize_title}>{title}</Dialog.Title>
                 <p className={styles.prize_description}>{description}</p>
                 <div className={styles.links}>
                   {moreLink ? (

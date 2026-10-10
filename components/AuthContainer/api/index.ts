@@ -1,4 +1,4 @@
-import axios from "axios"
+import axios from "@/demo/api"
 
 import {
   AuthByWalletRequest,
@@ -8,10 +8,8 @@ import {
   RegisterByWalletRequest,
 } from "./types"
 
-const ID_URL = process.env.NEXT_PUBLIC_ID_URL
-
 const api = axios.create({
-  baseURL: `${ID_URL}/api/v1/`,
+  baseURL: "/api/v1/",
   withCredentials: true,
 })
 

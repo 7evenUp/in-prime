@@ -1,0 +1,20 @@
+.demo-cases-section { position: relative; width: min(1180px, calc(100% - 32px)); margin: 60px auto; color: white; h2 { text-align: center; font: 32px/1.4 "Benzin-Bold", sans-serif; margin-bottom: 16px; } }
+.demo-cases-note { text-align: center; font: 13px/1.6 sans-serif; color: #b4adc6; margin: 0 0 24px; }
+.demo-version-new-year .app__container__earn { background: radial-gradient(ellipse at top right, #406c6c55, transparent 70%); }
+.demo-version-black-friday .app__container__earn { background: radial-gradient(ellipse at top right, #6b305955, transparent 70%); }
+.demo-version-birthday .app__container__earn { background: radial-gradient(ellipse at top right, #51438566, transparent 70%); }
+.demo-version-latest .app__container__subscribe__promoback { display: none; }
+.legacy-site { background: #131313; min-height: 100vh; }
+.legacy-site .app__container__subscribe__content__cost__block { cursor: pointer; }
+.legacy-site .app__unsupported-device { display: none; }
+.legacy-site .app__container__earn__header, .legacy-site .app__container__earn__header-bg { position: absolute; }
+input, textarea { user-select: text; }
+.app .app__container__earn__header, .app .app__container__earn__header-bg { position: absolute; }
+.demo-archive-video { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; background: #242027; color: white; font: 16px/1.5 sans-serif; border: 1px solid #605474; border-radius: 12px; cursor: pointer; }
+.demo-visually-hidden { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+@media (max-width: 767px) { .demo-cases-section { margin: 32px auto; h2 { font-size: 24px; } } }
+
+.redesign-site { background: #131313; min-height: 100vh; }
+.redesign-site .app__container__subscribe__content__cost__block { cursor: pointer; }
+.redesign-site .app__unsupported-device { display: none; }
+.redesign-site .app__container__earn__header, .redesign-site .app__container__earn__header-bg { position: absolute; }

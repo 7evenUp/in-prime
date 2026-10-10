@@ -35,6 +35,12 @@ import BlackFridayBanner from "@/blackFriday/BlackFridayBanner"
 import BlackFridayInfo from "@/blackFriday/BlackFridayInfo"
 import BlackFridayTimer from "@/blackFriday/BlackFridayTimer"
 import { Snowfall } from "@/components/Snow/snow"
+import DemoToolbar from "@/demo/Toolbar"
+import Legacy from "@/demo/Legacy"
+import { hasGifts, isSiteVersion } from "@/demo/versions"
+import Birthday from "@/sections/Birthday/Birthday"
+import Scroller from "@/blackFriday/Scroller"
+import demoStyles from "@/demo/styles.module.scss"
 // import TimerPromo from "@/sections/TimerPromo/TimerPromo"
 
 const useWindowSize = () => {
@@ -64,6 +70,7 @@ type SSRProps = {
 
 const Home = ({ bannerCookieName, banner }: SSRProps) => {
   const router = useRouter()
+  const version = isSiteVersion(router.query.version) ? router.query.version : "latest"
   const dispatch = useDispatch()
   const referral = router.query.ref || "agent"
   const scrollToSection = router.query.scrollTo || ""
@@ -138,7 +145,10 @@ const Home = ({ bannerCookieName, banner }: SSRProps) => {
 
   return (
     <>
-      <div className="app">
+      <DemoToolbar version={version} />
+      {version === "legacy" || version === "redesign" ? <Legacy key={version} version={version} resolution={resolution} /> : <div className={`app demo-version-${version}`} key={version}>
+        {version === "new-year" && <Snowfall />}
+        {version === "black-friday" && ["lg", "lgg"].includes(resolution) && <BlackFridayBanner />}
         {/* <Snowfall /> */}
         {/* <BlackFridayBanner /> */}
         {/* {["lgg", "lg"].includes(resolution) && (
@@ -148,6 +158,21 @@ const Home = ({ bannerCookieName, banner }: SSRProps) => {
         )} */}
         <div className="app__container">
           <Earn referral={referral} resolution={resolution} />
+
+          {version === "birthday" && <Birthday />}
+          {version === "black-friday" && <BlackFridayInfo />}
+          {(version === "new-year") && <section className={demoStyles.campaign}>
+            <h1>Новый год с Crypton</h1>
+            <p>Откройте праздничный кейс и испытайте удачу — внутри случайный подарок.</p>
+            <button onClick={() => document.getElementById("demo-cases")?.scrollIntoView({ behavior: "smooth" })}>Открыть кейс</button>
+          </section>}
+
+          {hasGifts(version) && <section id="demo-cases" className="demo-cases-section">
+            <h2>Розыгрыш подарков</h2>
+            <p className="demo-cases-note">Демонстрационная акция · призы виртуальные · таймер на 7 дней для просмотра механики</p>
+            <Scroller />
+            <BlackFridayTimer />
+          </section>}
 
           <Examples resolution={resolution} />
 
@@ -191,7 +216,7 @@ const Home = ({ bannerCookieName, banner }: SSRProps) => {
 
           <Footer resolution={resolution} />
         </div>
-      </div>
+      </div>}
 
       <div className="back color dark" />
 

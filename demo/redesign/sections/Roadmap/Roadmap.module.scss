@@ -1,0 +1,452 @@
+.container {
+  width: 1300px;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  padding-bottom: 160px;
+
+  @media (max-width: 1919px) and (min-width: 1368px) {
+    width: 1143px;
+  }
+
+  @media (max-width: 1367px) and (min-width: 768px) {
+    width: 672px;
+  }
+
+  @media (max-width: 767px) {
+    width: 337px;
+  }
+
+  @media (max-width: 420px) {
+    width: 100%;
+    box-sizing: border-box;
+    padding-inline: 8px;
+  }
+}
+
+.title {
+  font-family: "Benzin-Bold";
+  font-size: 36px;
+  line-height: 160%;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0;
+  margin-top: 140px;
+
+  @media (max-width: 1919px) {
+    font-size: 32px;
+    margin-top: 120px;
+  }
+
+  @media (max-width: 1367px) {
+    width: 466px;
+    margin-top: 100px;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 18px;
+    width: 270px;
+    margin-top: 70px;
+    margin-bottom: 36px;
+  }
+}
+
+.subtitle {
+  font-family: "Resist Sans", sans-serif;
+  font-size: 28px;
+  margin-top: 16px;
+  margin-bottom: 120px;
+
+  @media (max-width: 1919px) {
+    font-size: 22px;
+    margin-top: 12px;
+    margin-bottom: 64px;
+  }
+
+  @media (max-width: 1367px) {
+    font-size: 18px;
+    margin-top: 14px;
+    margin-bottom: 60px;
+  }
+
+  @media (max-width: 767px) {
+    display: none;
+  }
+}
+
+.map_wrapper {
+  width: 100vw;
+  height: 405px;
+  position: relative;
+  align-self: center;
+
+  @media (max-width: 767px) {
+    height: 362px;
+  }
+}
+
+.mid_line {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100vw;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.swiper {
+  height: 100%;
+  width: 440px;
+  cursor: pointer;
+
+  @media (max-width: 767px) {
+    width: 343px;
+  }
+
+  @media (max-width: 420px) {
+    box-sizing: border-box;
+    width: 313px;
+  }
+}
+
+.slide {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.map {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+
+  &_item {
+    width: 340px;
+    height: 110px;
+    box-sizing: border-box;
+    position: relative;
+
+    @media (max-width: 767px) {
+      width: 283px;
+      height: 89px;
+    }
+
+    &_price {
+      color: rgba(255, 255, 255, 0.5);
+
+      b {
+        font-weight: 400;
+        color: white;
+      }
+    }
+
+    &_price_wrapper {
+      position: absolute;
+      right: 0;
+      padding: 10px 20px;
+      font-family: "Resist Sans", sans-serif;
+      font-size: 16px;
+      background: rgba(210, 210, 210, 0.1);
+
+      @media (max-width: 767px) {
+        font-size: 14px;
+        padding: 8px 15px;
+      }
+
+      &__descOpen {
+        backdrop-filter: blur(4px);
+      }
+
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        left: -11px;
+        bottom: 0;
+        width: 11px;
+        height: 11px;
+        background-color: transparent;
+        background-image: radial-gradient(
+          circle at 0% 0%,
+          transparent 11px,
+          rgba(210, 210, 210, 0.1) 12px
+        );
+      }
+    }
+
+    &_content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 4px;
+      border-radius: 14px;
+      box-sizing: border-box;
+      // border: 1px solid rgba(255, 255, 255, 0.5);
+      background: rgba(210, 210, 210, 0.1);
+      transition: all 0.15s ease-in;
+
+      @media (max-width: 767px) {
+        padding: 6px;
+      }
+
+      &_row {
+        display: flex;
+        align-items: center;
+        width: 100%;
+      }
+
+      &__descOpen {
+        backdrop-filter: blur(4px);
+      }
+    }
+
+    &__done &_content {
+      background: rgba(235, 74, 161, 0.3);
+    }
+
+    &__done &_price_wrapper {
+      background: rgba(235, 74, 161, 0.3);
+
+      &::before {
+        background-image: radial-gradient(
+          circle at 0% 0%,
+          transparent 11px,
+          rgba(235, 74, 161, 0.3) 12px
+        );
+      }
+    }
+
+    &__top &_content {
+      margin-top: 36px;
+      border-top-right-radius: 0;
+
+      @media (max-width: 767px) {
+        margin-top: 30px;
+      }
+    }
+    &__top &_price_wrapper {
+      top: 0;
+      border-top-left-radius: 14px;
+      border-top-right-radius: 14px;
+    }
+
+    &__top {
+      .line_top {
+        display: block;
+
+        @media (max-width: 420px) {
+          left: 30%;
+        }
+      }
+
+      .line_top__done {
+        display: block;
+
+        @media (max-width: 420px) {
+          left: 30%;
+        }
+      }
+    }
+
+    &__bottom {
+      margin-left: 100px;
+      margin-top: 185px;
+
+      @media (max-width: 420px) {
+        margin-left: 30px;
+      }
+
+      .line_bottom {
+        display: block;
+      }
+
+      .line_bottom__done {
+        display: block;
+      }
+    }
+
+    &__bottom &_content {
+      border-bottom-right-radius: 0;
+    }
+    &__bottom &_price_wrapper {
+      border-bottom-left-radius: 14px;
+      border-bottom-right-radius: 14px;
+
+      &::before {
+        top: 0;
+        bottom: auto;
+        rotate: -90deg;
+      }
+    }
+
+    &_img_wrapper {
+      width: 66px;
+      height: 66px;
+      border-radius: 14px;
+      background-color: #121212;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        width: 48px;
+        height: 48px;
+      }
+
+      @media (max-width: 767px) {
+        width: 48px;
+        height: 48px;
+
+        img {
+          width: 36px;
+          height: 36px;
+        }
+      }
+    }
+
+    &_title {
+      font-family: "Resist Sans Medium", sans-serif;
+      margin-left: 14px;
+      font-size: 18px;
+      color: white;
+
+      @media (max-width: 767px) {
+        font-size: 16px;
+        margin-left: 10px;
+      }
+    }
+
+    &_arrow {
+      background-color: transparent;
+      border: none;
+      outline: none;
+      transition: all 0.15s ease-in;
+      cursor: pointer;
+      padding: 0;
+      margin-left: auto;
+      margin-right: 12px;
+      margin-top: 6px;
+
+      @media (max-width: 767px) {
+        svg {
+          width: 18px;
+          height: 18px;
+        }
+      }
+
+      &:hover {
+        opacity: 0.7;
+      }
+
+      &_rotated {
+        rotate: 180deg;
+      }
+    }
+  }
+}
+
+.line_top {
+  display: none;
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+  translate: 0 100%;
+  z-index: -1;
+}
+.line_top__done {
+  display: none;
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+  translate: 0 100%;
+  z-index: -1;
+}
+
+.line_bottom {
+  display: none;
+  position: absolute;
+  top: 3px;
+  left: 50%;
+  translate: 0 -100%;
+  z-index: -1;
+}
+.line_bottom__done {
+  display: none;
+  position: absolute;
+  top: 3px;
+  left: 50%;
+  translate: 0 -100%;
+  z-index: -1;
+}
+
+.we_are_here {
+  position: absolute;
+  right: -34px;
+  bottom: -76px;
+  font-family: "Benzin-Bold", sans-serif;
+  text-transform: uppercase;
+  font-size: 16px;
+  line-height: 160%;
+  letter-spacing: 0.04em;
+  padding: 8px 16px;
+  border-radius: 14px;
+  border-bottom-left-radius: 0;
+  background: rgba(210, 210, 210, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  z-index: -1;
+
+  @media (max-width: 767px) {
+    font-size: 12px;
+  }
+}
+
+.collapse {
+  display: grid;
+  grid-template-rows: 0fr;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.2s ease-in;
+  font-family: "Resist Sans", sans-serif;
+  font-size: 14px;
+  line-height: 160%;
+  width: 300px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  @media (max-width: 767px) {
+    width: 243px;
+  }
+
+  &_open {
+    padding-top: 12px;
+    padding-bottom: 16px;
+    opacity: 1;
+    grid-template-rows: 1fr;
+  }
+}
+
+.blur {
+  filter: blur(4px);
+}
+
+.map_item__bottom .map_item_price_wrapper::before {
+  rotate: 0deg;
+  background-image: radial-gradient(
+    circle at 0% 100%,
+    transparent 11px,
+    rgba(210, 210, 210, 0.1) 12px
+  );
+}
+
+.map_item__bottom.map_item__done .map_item_price_wrapper::before {
+  rotate: 0deg;
+  background-image: radial-gradient(
+    circle at 0% 100%,
+    transparent 11px,
+    rgba(235, 74, 161, 0.3) 12px
+  );
+}

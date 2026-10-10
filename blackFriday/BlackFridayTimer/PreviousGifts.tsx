@@ -1,6 +1,6 @@
 import React from "react"
 import { useQuery, keepPreviousData } from "@tanstack/react-query"
-import axios from "axios"
+import axios from "@/demo/api"
 import { formatDistanceToNow } from "date-fns"
 import { ru } from "date-fns/locale"
 import useEmblaCarousel from "embla-carousel-react"

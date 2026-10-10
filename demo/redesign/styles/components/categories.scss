@@ -1,0 +1,418 @@
+.categories {
+  position: relative;
+  width: 428px;
+  height: 428px;
+  align-self: center;
+  margin-top: 170px;
+  // background-image: url("/redesign-assets/images/svg/animated_circle.svg");
+  // opacity: 0.25;
+
+  @media (max-width: 1919px) and (min-width: 1368px) {
+    width: 300px;
+    height: 300px;
+    margin-top: 140px;
+  }
+
+  @media (max-width: 1367px) and (min-width: 768px) {
+    width: 390px;
+    height: 390px;
+    margin-top: 194px;
+  }
+
+  @media (max-width: 767px) {
+    width: 252px;
+    height: 252px;
+    margin-top: 114px;
+  }
+
+  &__big-circle {
+    position: absolute;
+    width: 428px;
+    height: 428px;
+    border-radius: 100%;
+    border: 0.1px solid rgba(255, 255, 255, 0.25);
+
+    @media (max-width: 1919px) and (min-width: 1368px) {
+      width: 300px;
+      height: 300px;
+    }
+
+    @media (max-width: 1367px) and (min-width: 768px) {
+      width: 390px;
+      height: 390px;
+    }
+
+    @media (max-width: 767px) {
+      width: 251px;
+      height: 251px;
+    }
+  }
+
+  &__medium-circle {
+    position: absolute;
+    left: 54px;
+    top: 54px;
+    width: 320px;
+    height: 320px;
+    border-radius: 100%;
+    border: 0.1px solid rgba(255, 255, 255, 0.25);
+
+    @media (max-width: 1919px) and (min-width: 1368px) {
+      width: 224px;
+      height: 224px;
+      left: 38px;
+      top: 38px;
+    }
+
+    @media (max-width: 1367px) and (min-width: 768px) {
+      width: 290px;
+      height: 290px;
+      left: 50px;
+      top: 50px;
+    }
+
+    @media (max-width: 767px) {
+      width: 187px;
+      height: 187px;
+      left: 32px;
+      top: 32px;
+    }
+  }
+
+  &__small-circle {
+    position: absolute;
+    left: 108px;
+    top: 108px;
+    width: 212px;
+    height: 212px;
+    border-radius: 100%;
+    border: 0.1px solid rgba(255, 255, 255, 0.25);
+
+    @media (max-width: 1919px) and (min-width: 1368px) {
+      width: 149px;
+      height: 149px;
+      left: 76px;
+      top: 76px;
+    }
+
+    @media (max-width: 1367px) and (min-width: 768px) {
+      width: 193px;
+      height: 193px;
+      left: 98px;
+      top: 98px;
+    }
+
+    @media (max-width: 767px) {
+      width: 124px;
+      height: 124px;
+      left: 63px;
+      top: 63px;
+    }
+  }
+
+  &__top-line {
+    position: absolute;
+    height: 107px;
+    width: 1px;
+    left: 50.05%;
+    right: 50%;
+    background: rgba(255, 255, 255, 0.15);
+
+    @media (max-width: 1919px) and (min-width: 1368px) {
+      height: 75px;
+    }
+
+    @media (max-width: 1367px) and (min-width: 768px) {
+      height: 97.5px;
+    }
+
+    @media (max-width: 767px) {
+      height: 62.75px;
+    }
+  }
+
+  &__left-line {
+    position: absolute;
+    height: 1px;
+    width: 107px;
+    left: 0;
+    right: 50%;
+    top: 50%;
+    background: rgba(255, 255, 255, 0.15);
+
+    @media (max-width: 1919px) and (min-width: 1368px) {
+      width: 75px;
+    }
+
+    @media (max-width: 1367px) and (min-width: 768px) {
+      width: 97.5px;
+    }
+
+    @media (max-width: 767px) {
+      width: 62.75px;
+    }
+  }
+
+  &__right-line {
+    position: absolute;
+    height: 1px;
+    width: 107px;
+    right: 0;
+    top: 50%;
+    background: rgba(255, 255, 255, 0.15);
+
+    @media (max-width: 1919px) and (min-width: 1368px) {
+      width: 75px;
+    }
+
+    @media (max-width: 1367px) and (min-width: 768px) {
+      width: 97.5px;
+    }
+
+    @media (max-width: 767px) {
+      width: 64px;
+    }
+  }
+
+  &__bottom-line {
+    position: absolute;
+    height: 107px;
+    width: 1px;
+    left: 50%;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.15);
+
+    @media (max-width: 1919px) and (min-width: 1368px) {
+      height: 75px;
+    }
+
+    @media (max-width: 1367px) and (min-width: 768px) {
+      height: 97.5px;
+    }
+
+    @media (max-width: 767px) {
+      height: 64px;
+    }
+  }
+
+  &__cube {
+    left: 161px;
+    top: 154px;
+    width: 106px;
+    height: 118px;
+    position: absolute;
+    background-image: url("/redesign-assets/images/svg/categories/cube.svg");
+    animation: rotate 6s infinite linear;
+
+    @media (max-width: 1919px) and (min-width: 1368px) {
+      width: 74px;
+      height: 83px;
+      left: 114px;
+      top: 109px;
+    }
+
+    @media (max-width: 1367px) and (min-width: 768px) {
+      width: 96px;
+      height: 108px;
+      left: 146px;
+      top: 140px;
+    }
+
+    @media (max-width: 767px) {
+      width: 61.75px;
+      height: 69.4px;
+      left: 94px;
+      top: 90px;
+    }
+  }
+
+  &__nft {
+    width: 53px;
+    height: 55px;
+    position: absolute;
+    left: 56px;
+    top: 55px;
+
+    path {
+      animation: nft 6s infinite;
+    }
+
+    @media (max-width: 1919px) and (min-width: 1368px) {
+      width: 40px;
+      height: 43px;
+      left: 42px;
+      top: 34px;
+    }
+
+    @media (max-width: 1367px) and (min-width: 768px) {
+      width: 50px;
+      height: 55px;
+      left: 49px;
+      top: 50px;
+    }
+
+    @media (max-width: 767px) {
+      width: 32px;
+      height: 33px;
+      left: 33px;
+      top: 32px;
+    }
+  }
+
+  &__launchpad {
+    width: 116px;
+    height: 122px;
+    position: absolute;
+    right: 34px;
+    top: 32px;
+
+    path {
+      animation: launchpad 6s infinite;
+    }
+
+    @media (max-width: 1919px) and (min-width: 1368px) {
+      width: 81px;
+      height: 86px;
+      right: 23px;
+      top: 22px;
+    }
+
+    @media (max-width: 1367px) and (min-width: 768px) {
+      width: 106px;
+      height: 112px;
+      right: 31px;
+      top: 28px;
+    }
+
+    @media (max-width: 767px) {
+      width: 68px;
+      height: 72px;
+      left: 163px;
+      top: 18px;
+    }
+  }
+
+  &__testnet {
+    width: 86px;
+    height: 93px;
+    position: absolute;
+    left: 44px;
+    bottom: 35px;
+
+    path {
+      animation: testnet 6s infinite;
+    }
+
+    @media (max-width: 1919px) and (min-width: 1368px) {
+      width: 60px;
+      height: 65px;
+      left: 30px;
+      top: 212px;
+    }
+
+    @media (max-width: 1367px) and (min-width: 768px) {
+      width: 78px;
+      height: 85px;
+      left: 37px;
+      top: 273px;
+    }
+
+    @media (max-width: 767px) {
+      width: 51px;
+      height: 55px;
+      left: 24px;
+      top: 177px;
+    }
+  }
+
+  &__node {
+    width: 140px;
+    height: 140px;
+    position: absolute;
+    right: 23px;
+    bottom: 28px;
+
+    path {
+      animation: node 6s infinite;
+    }
+
+    @media (max-width: 1919px) and (min-width: 1368px) {
+      width: 91px;
+      height: 91px;
+      right: 18px;
+      top: 190px;
+    }
+
+    @media (max-width: 1367px) and (min-width: 768px) {
+      width: 120px;
+      height: 120px;
+      right: 26px;
+      top: 244px;
+    }
+
+    @media (max-width: 767px) {
+      width: 80px;
+      height: 80px;
+      left: 155px;
+      top: 156px;
+    }
+  }
+
+  path {
+    fill: rgba(255, 255, 255, 0.25);
+  }
+}
+
+@keyframes launchpad {
+  0%,
+  25% {
+    fill: white;
+  }
+  26%,
+  100% {
+    fill: rgba(255, 255, 255, 0.25);
+  }
+}
+
+@keyframes node {
+  26%,
+  50% {
+    fill: white;
+  }
+
+  0%,
+  25% {
+    fill: rgba(255, 255, 255, 0.25);
+  }
+  51%,
+  100% {
+    fill: rgba(255, 255, 255, 0.25);
+  }
+}
+
+@keyframes testnet {
+  51%,
+  75% {
+    fill: white;
+  }
+
+  0%,
+  50% {
+    fill: rgba(255, 255, 255, 0.25);
+  }
+  76%,
+  100% {
+    fill: rgba(255, 255, 255, 0.25);
+  }
+}
+
+@keyframes nft {
+  76%,
+  100% {
+    fill: white;
+  }
+  0%,
+  75% {
+    fill: rgba(255, 255, 255, 0.25);
+  }
+}

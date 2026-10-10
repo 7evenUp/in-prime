@@ -1,0 +1,222 @@
+.mobile-menu {
+  display: none;
+  width: 100%;
+  height: 1024px;
+  position: fixed;
+  z-index: 1100;
+  justify-content: flex-end;
+
+  @media (max-width: 767px) {
+    height: 100%;
+  }
+
+  path {
+    fill: rgba(255, 255, 255, 0.4);
+  }
+
+  &__background {
+    width: 100%;
+    height: 1024px;
+    backdrop-filter: blur(6px);
+    position: absolute;
+    z-index: 11;
+
+    @media (max-width: 767px) {
+      height: 100%;
+    }
+  }
+
+  &__container {
+    width: 259px;
+    height: 490px;
+    left: 400px;
+    background: #181818;
+    padding: 39px 49px 60px 48px;
+    z-index: 12;
+
+    @media (max-width: 767px) {
+      padding: 35px 20px 60px 48px;
+      height: 100%;
+      width: 100%;
+    }
+
+    &__right-light {
+      display: none;
+      position: absolute;
+      width: 305px;
+      height: 1100px;
+      right: 0px;
+      top: 415px;
+      background-image: url("/redesign-assets/images/svg/mobile-menu/sm-background.svg");
+      background-repeat: no-repeat;
+      z-index: -1;
+
+      @media (max-width: 767px) {
+        display: block;
+      }
+    }
+
+    &__button-place {
+      display: flex;
+      width: 100%;
+      justify-content: flex-end;
+    }
+
+    &__cat-place {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-top: 49px;
+      height: 262px;
+      width: 100%;
+
+      &__item {
+        font-family: "Resist Sans";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 160%;
+        color: #ffffff;
+        cursor: pointer;
+        width: max-content;
+
+        &:active {
+          color: #ff4a7a;
+        }
+      }
+    }
+
+    &__socials {
+      width: 248px;
+      margin-left: 200px;
+      display: flex;
+      flex-direction: column;
+      z-index: 100;
+
+      @media (max-width: 1919px) and (min-width: 1368px) {
+        margin-left: 142px;
+      }
+
+      @media (max-width: 1367px) and (min-width: 768px) {
+        width: 244px;
+        margin-left: 95px;
+        margin-bottom: 43px;
+      }
+
+      @media (max-width: 767px) {
+        width: 244px;
+        margin-left: 0px;
+        margin-bottom: 0px;
+      }
+
+      &__title {
+        width: 248px;
+        height: 24px;
+        font-family: "Resist Sans";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: #ffffff;
+        margin-left: 5px;
+
+        @media (max-width: 1919px) and (min-width: 1368px) {
+          font-size: 14px;
+          line-height: 21px;
+          height: 21px;
+        }
+      }
+
+      &__links {
+        display: flex;
+        justify-content: space-between;
+        max-width: 244px;
+
+        @media (max-width: 1367px) and (min-width: 768px) {
+          margin-top: 43px;
+        }
+
+        @media (max-width: 767px) {
+          margin-top: 50px;
+        }
+
+        &__link {
+          height: 30px;
+          width: 30px;
+          display: inherit;
+          align-items: center;
+          justify-content: center;
+
+          a:active {
+            path {
+              fill: #ff4a7a;
+            }
+          }
+        }
+      }
+    }
+
+    &__subscribe-block {
+      width: 180px;
+
+      &__subscribe {
+        width: 180px;
+        height: 28px;
+        display: flex;
+        margin-top: 50px;
+
+        @media (max-width: 767px) {
+          width: 200px;
+        }
+
+        &__text {
+          font-family: "Resist Sans Medium";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 18px;
+          line-height: 35px;
+          text-align: center;
+          text-decoration-line: underline;
+          color: #ffcd9f;
+          letter-spacing: 0.017em;
+
+          @media (max-width: 1919px) {
+            font-size: 16px;
+          }
+        }
+        &__logo {
+          margin-left: 10px;
+          margin-top: 4px;
+          height: 12px;
+          width: 12px;
+          background: url("/redesign-assets/images/svg/header/arrow.svg");
+
+          @media (max-width: 1919px) and (min-width: 768px) {
+            height: 9px;
+            width: 9px;
+            margin-left: 8px;
+            margin-top: 6px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.mobile-menu-button {
+  z-index: 11;
+  cursor: pointer;
+  &.open {
+    width: 26px;
+    height: 20px;
+    background-image: url("/redesign-assets/images/svg/mobile-menu/open-button.svg");
+  }
+
+  &.close {
+    width: 20px;
+    height: 21px;
+    background-image: url("/redesign-assets/images/svg/mobile-menu/close-button.svg");
+    display: flex;
+    align-self: flex-end;
+  }
+}

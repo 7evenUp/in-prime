@@ -1,6 +1,7 @@
+import { useRouter } from "next/router"
 import React, { useEffect, useMemo, useState } from "react"
 import { useMutation, useQuery } from "@tanstack/react-query"
-import axios from "axios"
+import axios from "@/demo/api"
 import { useInView } from "react-intersection-observer"
 
 import { fallbackSubscriptions } from "./fallback"
@@ -37,6 +38,7 @@ const BuySubscription = ({
   }
   resolution: Resolution
 }) => {
+  const router = useRouter()
   const [showMonthlyPrice, setShowMonthlyPrice] = useState(false)
   const [promoForSubmit, setPromoForSubmit] = useState("")
 
@@ -62,7 +64,7 @@ const BuySubscription = ({
     isError: isSubscriptionsError,
     isLoading,
   } = useQuery({
-    queryKey: ["subscriptions"],
+    queryKey: ["subscriptions", router.query.version || "redesign"],
     queryFn: async () => {
       try {
         const response = await axios.get<Subscription[]>(
